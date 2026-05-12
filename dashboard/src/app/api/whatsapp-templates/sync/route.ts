@@ -3,7 +3,7 @@ import getDb from "@/lib/mongodb";
 
 const COLLECTION = "whatsapp_templates";
 
-// ── GET — fetch approved templates from Meta and upsert into local DB ──
+
 export async function GET() {
   const accessToken = process.env.META_ACCESS_TOKEN;
   const wabaId = process.env.WHATSAPP_BUSINESS_ACCOUNT_ID;

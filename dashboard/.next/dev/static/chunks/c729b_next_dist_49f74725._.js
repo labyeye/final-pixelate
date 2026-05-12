@@ -113,12 +113,12 @@
         },
         72: function (e, r, t) {
           "use strict";
-          /*!
-           * The buffer module from node.js, for the browser.
-           *
-           * @author   Feross Aboukhadijeh <https://feross.org>
-           * @license  MIT
-           */ var f = t(675);
+          
+
+
+
+
+ var f = t(675);
           var n = t(783);
           var i =
             typeof Symbol === "function" && typeof Symbol.for === "function"
@@ -1570,7 +1570,7 @@
           })();
         },
         783: function (e, r) {
-          /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */ r.read =
+           r.read =
             function (e, r, t, f, n) {
               var i, o;
               var u = n * 8 - f - 1;
@@ -1677,39 +1677,39 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * @license React
-     * react-dom-server-legacy.browser.development.js
-     *
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     */ /*
+    
 
 
- JS Implementation of MurmurHash3 (r136) (as of May 20, 2011)
 
- Copyright (c) 2011 Gary Court
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.
-*/ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -18088,7 +18088,7 @@
                       _componentName,
                     ),
                     console.error(
-                      "Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps://react.dev/link/unsafe-component-lifecycles",
+                      "Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps:
                       _componentName,
                       newApiName,
                       null !== foundWillMountName
@@ -23742,13 +23742,13 @@
           const href = `${workStore.assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(chunk)}${dplId}`;
           const isCss = chunk.endsWith(".css");
           // If it's stylesheet we use `precedence` o help hoist with React Float.
-          // For stylesheets we actually need to render the CSS because nothing else is going to do it so it needs to be part of the component tree.
-          // The `preload` for stylesheet is not optional.
+          
+          
           if (isCss) {
-            return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+            return  (0, _jsxruntime.jsx)(
               "link",
               {
-                // @ts-ignore
+                
                 precedence: "dynamic",
                 href: href,
                 rel: "stylesheet",
@@ -23758,7 +23758,7 @@
               chunk,
             );
           } else {
-            // If it's script we use ReactDOM.preload to preload the resources
+            
             (0, _reactdom.preload)(href, {
               as: "script",
               fetchPriority: "low",
@@ -23768,7 +23768,7 @@
           }
         }),
       });
-    } //# sourceMappingURL=preload-chunks.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/loadable.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -23795,16 +23795,16 @@
     const _preloadchunks = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js [app-client] (ecmascript)",
     );
-    // Normalize loader to return the module as form { default: Component } for `React.lazy`.
-    // Also for backward compatible since next/dynamic allows to resolve a component directly with loader
-    // Client component reference proxy need to be converted to a module.
+    
+    
+    
     function convertModule(mod) {
-      // Check "default" prop before accessing it, as it could be client reference proxy that could break it reference.
-      // Cases:
-      // mod: { default: Component }
-      // mod: Component
-      // mod: { default: proxy(Component) }
-      // mod: proxy(Component)
+      
+      
+      
+      
+      
+      
       const hasDefault = mod && "default" in mod;
       return {
         default: hasDefault ? mod.default : mod,
@@ -23820,19 +23820,19 @@
         ...defaultOptions,
         ...options,
       };
-      const Lazy = /*#__PURE__*/ (0, _react.lazy)(() =>
+      const Lazy =  (0, _react.lazy)(() =>
         opts.loader().then(convertModule),
       );
       const Loading = opts.loading;
       function LoadableComponent(props) {
         const fallbackElement = Loading
-          ? /*#__PURE__*/ (0, _jsxruntime.jsx)(Loading, {
+          ?  (0, _jsxruntime.jsx)(Loading, {
               isLoading: true,
               pastDelay: true,
               error: null,
             })
           : null;
-        // If it's non-SSR or provided a loading component, wrap it in a suspense boundary
+        
         const hasSuspenseBoundary = !opts.ssr || !!opts.loading;
         const Wrap = hasSuspenseBoundary ? _react.Suspense : _react.Fragment;
         const wrapProps = hasSuspenseBoundary
@@ -23841,31 +23841,31 @@
             }
           : {};
         const children = opts.ssr
-          ? /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+          ?  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
               children: [
                 typeof window === "undefined"
-                  ? /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                  ?  (0, _jsxruntime.jsx)(
                       _preloadchunks.PreloadChunks,
                       {
                         moduleIds: opts.modules,
                       },
                     )
                   : null,
-                /*#__PURE__*/ (0, _jsxruntime.jsx)(Lazy, {
+                 (0, _jsxruntime.jsx)(Lazy, {
                   ...props,
                 }),
               ],
             })
-          : /*#__PURE__*/ (0, _jsxruntime.jsx)(
+          :  (0, _jsxruntime.jsx)(
               _dynamicbailouttocsr.BailoutToCSR,
               {
                 reason: "next/dynamic",
-                children: /*#__PURE__*/ (0, _jsxruntime.jsx)(Lazy, {
+                children:  (0, _jsxruntime.jsx)(Lazy, {
                   ...props,
                 }),
               },
             );
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(Wrap, {
+        return  (0, _jsxruntime.jsx)(Wrap, {
           ...wrapProps,
           children: children,
         });
@@ -23873,7 +23873,7 @@
       LoadableComponent.displayName = "LoadableComponent";
       return LoadableComponent;
     }
-    const _default = Loadable; //# sourceMappingURL=loadable.js.map
+    const _default = Loadable; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/app-dynamic.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -23891,7 +23891,7 @@
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _loadable = /*#__PURE__*/ _interop_require_default._(
+    const _loadable =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/loadable.js [app-client] (ecmascript)",
       ),
@@ -23920,8 +23920,8 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-dynamic.js.map
+    } 
   },
 ]);
 
-//# sourceMappingURL=c729b_next_dist_49f74725._.js.map
+

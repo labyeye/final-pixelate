@@ -14,9 +14,10 @@ export async function OPTIONS() {
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const auth = request.headers.get("authorization") || "";
     const token = auth.replace("Bearer ", "");
     if (!verifyToken(token))
@@ -27,7 +28,7 @@ export async function GET(
 
     const col = await svc.getCollection("lead_activities");
     const items = await col
-      .find({ leadId: params.id })
+      .find({ leadId: id })
       .sort({ createdAt: -1 })
       .toArray();
     return NextResponse.json(items, { headers: CORS });
@@ -41,9 +42,10 @@ export async function GET(
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const auth = request.headers.get("authorization") || "";
     const token = auth.replace("Bearer ", "");
     const decoded: any = verifyToken(token);
@@ -56,7 +58,7 @@ export async function POST(
     const body = await request.json();
     const col = await svc.getCollection("lead_activities");
     const doc = {
-      leadId: params.id,
+      leadId: id,
       type: body.type || "note",
       content: body.content || "",
       createdBy: decoded.id || decoded._id,
@@ -65,7 +67,7 @@ export async function POST(
     };
     const res = await col.insertOne(doc);
 
-    await svc.updateById("leads", params.id, { updatedAt: new Date() });
+    await svc.updateById("leads", id, { updatedAt: new Date() });
 
     return NextResponse.json(
       { ...doc, _id: res.insertedId },

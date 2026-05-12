@@ -171,7 +171,7 @@ module.exports = [
             createdAt: -1,
           })
           .toArray();
-        // Explicitly stringify _id so the client always gets a plain string
+        
         const serialized = templates.map((t) => ({
           ...t,
           _id: t._id.toString(),
@@ -225,7 +225,7 @@ module.exports = [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
           "default"
         ])();
-        // Check for duplicate name
+        
         const existing = await db.collection(COLLECTION).findOne({
           name,
         });
@@ -291,4 +291,4 @@ module.exports = [
   },
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__990881c1._.js.map
+

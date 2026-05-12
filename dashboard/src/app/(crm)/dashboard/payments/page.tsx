@@ -41,7 +41,7 @@ import { useToast } from "@/hooks/use-toast";
 import { pdf } from "@react-pdf/renderer";
 import { PaymentReceiptPDFDocument } from "@/components/payments/payment-receipt-pdf";
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+
 
 function getFinancialYear(): string {
   const now = new Date();
@@ -67,7 +67,7 @@ function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+
 
 interface FlatPayment {
   invoiceId: string;
@@ -87,7 +87,7 @@ interface FlatPayment {
   invoiceStatus: string;
 }
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
+
 
 export default function PaymentsPage() {
   const { user } = useAuth();
@@ -145,7 +145,7 @@ export default function PaymentsPage() {
   );
   const outstanding = clientSummary.billed - clientSummary.received;
 
-  // Build flat list of all payments across all invoices, sorted by date desc
+  
   const allPayments = useMemo<FlatPayment[]>(() => {
     const fy = getFinancialYear();
     let globalIndex = 1;
@@ -361,7 +361,7 @@ export default function PaymentsPage() {
     }
   };
 
-  // Download receipt PDF for a specific payment
+  
   const handleDownloadReceipt = async (payment: FlatPayment) => {
     const key = `${payment.invoiceId}-${payment.paymentIndex}`;
     setDownloadingReceipt(key);
@@ -408,7 +408,7 @@ export default function PaymentsPage() {
     }
   };
 
-  // Send receipt via WhatsApp
+  
   const handleWhatsAppReceipt = async (payment: FlatPayment) => {
     const phone = payment.clientPhone?.replace(/\D/g, "") || "";
     if (!phone) {
@@ -424,7 +424,7 @@ export default function PaymentsPage() {
     setSendingWhatsApp(key);
 
     try {
-      // Step 1: Generate the receipt PDF client-side
+      
       const pdfBlob = await pdf(
         <PaymentReceiptPDFDocument
           data={{
@@ -446,7 +446,7 @@ export default function PaymentsPage() {
       ).toBlob();
       const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
 
-      // Step 2: Upload PDF to WhatsApp media
+      
       const formData = new FormData();
       formData.append(
         "file",
@@ -464,7 +464,7 @@ export default function PaymentsPage() {
 
       const { mediaId } = await uploadRes.json();
 
-      // Step 3: Send via WhatsApp template
+      
       const digits = phone.length === 10 ? "91" + phone : phone;
       const amountFormatted = new Intl.NumberFormat("en-IN", {
         style: "currency",
@@ -547,7 +547,7 @@ export default function PaymentsPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* ── Left sidebar ── */}
+        {}
         <div className="lg:col-span-1 space-y-6">
           {!isClient && (
             <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -619,7 +619,7 @@ export default function PaymentsPage() {
           )}
         </div>
 
-        {/* ── Main content ── */}
+        {}
         <div className="lg:col-span-3 space-y-6">
           {!selectedClient ? (
             <div className="flex flex-col items-center justify-center p-12 border-2 border-dashed border-neutral-300 rounded-xl bg-neutral-50/50 opacity-60">
@@ -633,7 +633,7 @@ export default function PaymentsPage() {
             </div>
           ) : (
             <div className="space-y-6">
-              {/* ── Recent Payments Table ── */}
+              {}
               {allPayments.length > 0 && (
                 <div className="bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
                   <div className="flex items-center justify-between p-4 border-b-2 border-black bg-green-50">
@@ -736,7 +736,7 @@ export default function PaymentsPage() {
                               </td>
                               <td className="px-4 py-3">
                                 <div className="flex items-center justify-center gap-2">
-                                  {/* Download Receipt */}
+                                  {}
                                   <button
                                     onClick={() =>
                                       handleDownloadReceipt(payment)
@@ -753,7 +753,7 @@ export default function PaymentsPage() {
                                     <span>Receipt</span>
                                   </button>
 
-                                  {/* WhatsApp */}
+                                  {}
                                   <button
                                     onClick={() =>
                                       handleWhatsAppReceipt(payment)
@@ -785,7 +785,7 @@ export default function PaymentsPage() {
                 </div>
               )}
 
-              {/* ── Invoice Ledger ── */}
+              {}
               <div className="flex justify-between items-center bg-white p-5 border-2 border-black rounded-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                 <h2 className="text-2xl font-black flex items-center gap-3 italic">
                   <Receipt className="w-6 h-6" /> Invoice Ledger
@@ -1040,7 +1040,7 @@ export default function PaymentsPage() {
         </div>
       </div>
 
-      {/* ── Record Payment Modal ── */}
+      {}
       {activeInvoice && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300">
@@ -1163,7 +1163,7 @@ export default function PaymentsPage() {
         </div>
       )}
 
-      {/* ── Edit Payment Modal ── */}
+      {}
       {editingPayment && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300">

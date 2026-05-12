@@ -777,7 +777,7 @@ function AnalyticsTab({ posts }: { posts: Post[] }) {
         </div>
       ) : (
         <>
-          {/* Summary cards */}
+          {}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {statCards.map((s) => (
               <div key={s.label} className={`border-2 rounded-xl p-4 ${s.bg}`}>
@@ -794,7 +794,7 @@ function AnalyticsTab({ posts }: { posts: Post[] }) {
             ))}
           </div>
 
-          {/* Posts table */}
+          {}
           <div className="border-2 border-black rounded-xl overflow-hidden">
             <div className="bg-black text-white px-4 py-3">
               <h3 className="font-black text-sm tracking-tight">
@@ -1037,7 +1037,7 @@ export default function ClientPlannerPage() {
         </p>
       </div>
 
-      {/* Tabs */}
+      {}
       <div className="flex gap-2 border-b-2 border-black">
         <button
           onClick={() => setActiveTab("posts")}

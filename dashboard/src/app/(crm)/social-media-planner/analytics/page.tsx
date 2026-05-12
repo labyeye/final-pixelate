@@ -496,11 +496,11 @@ export default function AnalyticsPage() {
 
   return (
     <div className="space-y-6 font-headline">
-      {/* Sync Progress Modal */}
+      {}
       {syncProgress && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="bg-white border-2 border-black rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
-            {/* Header */}
+            {}
             <div className="bg-black text-white px-5 py-4 flex items-center justify-between">
               <h2 className="font-black text-base tracking-tight">
                 {isSyncDone ? "SYNC COMPLETE" : "SYNCING POSTS…"}
@@ -516,7 +516,7 @@ export default function AnalyticsPage() {
             </div>
 
             <div className="px-5 py-4 space-y-4">
-              {/* Progress counter */}
+              {}
               <div className="flex items-center justify-between">
                 <span className="text-sm font-bold text-gray-600">
                   {isSyncDone
@@ -528,7 +528,7 @@ export default function AnalyticsPage() {
                 </span>
               </div>
 
-              {/* Progress bar */}
+              {}
               <div className="w-full bg-gray-200 rounded-full h-3 border border-black overflow-hidden">
                 <div
                   className="h-3 rounded-full transition-all duration-300"
@@ -539,7 +539,7 @@ export default function AnalyticsPage() {
                 />
               </div>
 
-              {/* Current post */}
+              {}
               {!isSyncDone && syncProgress.currentTitle && (
                 <p className="text-xs font-semibold text-gray-500 truncate">
                   Syncing:{" "}
@@ -549,7 +549,7 @@ export default function AnalyticsPage() {
                 </p>
               )}
 
-              {/* Result summary when done */}
+              {}
               {isSyncDone && syncAllResult && (
                 <div className="flex gap-3">
                   <div className="flex-1 bg-green-50 border-2 border-green-400 rounded-lg p-3 text-center">
@@ -571,7 +571,7 @@ export default function AnalyticsPage() {
                 </div>
               )}
 
-              {/* Errors list */}
+              {}
               {syncProgress.errors.length > 0 && (
                 <div className="max-h-40 overflow-y-auto space-y-1.5">
                   <p className="text-xs font-black uppercase text-gray-500 mb-1">
@@ -591,7 +591,7 @@ export default function AnalyticsPage() {
                 </div>
               )}
 
-              {/* Close button */}
+              {}
               {isSyncDone && (
                 <button
                   className="w-full py-2 bg-black text-white font-black rounded-lg text-sm hover:bg-gray-800 transition-colors"
@@ -604,7 +604,7 @@ export default function AnalyticsPage() {
           </div>
         </div>
       )}
-      {/* Header */}
+      {}
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-4xl font-black tracking-tighter">
@@ -636,7 +636,7 @@ export default function AnalyticsPage() {
         </div>
       </header>
 
-      {/* Client Picker */}
+      {}
       <section className="border-2 border-black rounded-lg p-4">
         <ClientPicker onClientSelected={setSelectedClientId} />
       </section>
@@ -661,7 +661,7 @@ export default function AnalyticsPage() {
             </span>
           </div>
 
-          {/* Sync error */}
+          {}
           {syncError && (
             <div className="rounded-lg border-2 border-red-400 bg-red-50 px-4 py-3 text-sm text-red-800 flex items-center justify-between">
               <span>⚠ {syncError}</span>
@@ -674,7 +674,7 @@ export default function AnalyticsPage() {
             </div>
           )}
 
-          {/* Summary Stats */}
+          {}
           <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {STAT_CONFIG.map((cfg) => (
               <div
@@ -692,7 +692,7 @@ export default function AnalyticsPage() {
                 </div>
               </div>
             ))}
-            {/* Avg Engagement Rate */}
+            {}
             <div className="border-2 border-black rounded-lg p-4 bg-lime-100">
               <div className="flex items-center justify-between mb-2">
                 <div className="text-xs font-bold text-gray-600 uppercase tracking-wide">
@@ -706,11 +706,11 @@ export default function AnalyticsPage() {
             </div>
           </section>
 
-          {/* Charts Row */}
+          {}
           {posts.length > 0 &&
             (platformBreakdown.length > 0 || topPosts.length > 0) && (
               <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {/* Platform Views Chart */}
+                {}
                 {platformBreakdown.length > 0 && (
                   <div className="border-2 border-black rounded-lg p-5">
                     <h3 className="text-base font-black mb-4 tracking-tight">
@@ -763,7 +763,7 @@ export default function AnalyticsPage() {
                   </div>
                 )}
 
-                {/* Top Posts */}
+                {}
                 {topPosts.length > 0 && (
                   <div className="border-2 border-black rounded-lg p-5">
                     <h3 className="text-base font-black mb-4 tracking-tight">
@@ -795,7 +795,7 @@ export default function AnalyticsPage() {
               </section>
             )}
 
-          {/* Filters */}
+          {}
           <section className="border-2 border-black rounded-lg p-4">
             <h3 className="text-base font-black mb-4 tracking-tight">
               FILTERS
@@ -871,7 +871,7 @@ export default function AnalyticsPage() {
             </div>
           </section>
 
-          {/* Posts Table */}
+          {}
           <section className="border-2 border-black rounded-lg overflow-hidden">
             {flatRows.length > 0 && (
               <div className="flex items-center justify-between px-4 pt-3 pb-2 border-b-2 border-black flex-wrap gap-2">
@@ -977,7 +977,7 @@ export default function AnalyticsPage() {
                           key={`${postId}-${accountId}`}
                           className={`${bgClass} ${borderClass}`}
                         >
-                          {/* Title */}
+                          {}
                           <td className="px-4 py-3 max-w-[200px]">
                             {isFirst ? (
                               <div className="font-black text-sm text-gray-900 truncate">
@@ -993,7 +993,7 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Platform */}
+                          {}
                           <td className="px-4 py-3">
                             {isFirst && (
                               <div className="flex items-center gap-1.5">
@@ -1008,7 +1008,7 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Account */}
+                          {}
                           <td className="px-4 py-3 text-sm">
                             {accountId === NO_ACCOUNT ? (
                               <span className="text-gray-400 text-xs font-semibold">
@@ -1019,12 +1019,12 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Date */}
+                          {}
                           <td className="px-4 py-3 text-center text-xs font-bold text-gray-600">
                             {isFirst ? post.scheduledDate : ""}
                           </td>
 
-                          {/* Metric cells */}
+                          {}
                           {isEditing ? (
                             <>
                               {(
@@ -1084,7 +1084,7 @@ export default function AnalyticsPage() {
                             </>
                           )}
 
-                          {/* Actions */}
+                          {}
                           <td className="px-4 py-3 text-center">
                             {isEditing ? (
                               <div className="flex gap-1.5 justify-center">

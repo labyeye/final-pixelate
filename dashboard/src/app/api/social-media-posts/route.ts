@@ -287,7 +287,7 @@ export async function PUT(request: Request) {
       };
     }
     if (body.postedLinks && typeof body.postedLinks === "object") {
-      // Merge new per-account links on top of existing ones
+      
       updateData.postedLinks = {
         ...(postBefore?.postedLinks || {}),
         ...body.postedLinks,

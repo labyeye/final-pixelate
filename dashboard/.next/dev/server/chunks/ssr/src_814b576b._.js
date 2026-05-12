@@ -66,10 +66,10 @@ module.exports = [
         "[project]/src/lib/utils.ts [app-ssr] (ecmascript)",
       );
     const Input =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, type, ...props }, ref) => {
-        return /*#__PURE__*/ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -133,17 +133,17 @@ module.exports = [
         "[project]/src/lib/utils.ts [app-ssr] (ecmascript)",
       );
     const Table =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
           "div",
           {
             className: "relative w-full overflow-auto",
-            children: /*#__PURE__*/ (0,
+            children:  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -178,10 +178,10 @@ module.exports = [
       );
     Table.displayName = "Table";
     const TableHeader =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -206,10 +206,10 @@ module.exports = [
       );
     TableHeader.displayName = "TableHeader";
     const TableBody =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -234,10 +234,10 @@ module.exports = [
       );
     TableBody.displayName = "TableBody";
     const TableFooter =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -265,10 +265,10 @@ module.exports = [
       );
     TableFooter.displayName = "TableFooter";
     const TableRow =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -296,10 +296,10 @@ module.exports = [
       );
     TableRow.displayName = "TableRow";
     const TableHead =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -327,10 +327,10 @@ module.exports = [
       );
     TableHead.displayName = "TableHead";
     const TableCell =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -355,10 +355,10 @@ module.exports = [
       );
     TableCell.displayName = "TableCell";
     const TableCaption =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -550,7 +550,7 @@ module.exports = [
       ])();
       const id = String(lead._id || lead.id);
       const overdueFlag = isOverdue(lead.followUpDate);
-      return /*#__PURE__*/ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "jsxDEV"
       ])(
@@ -560,7 +560,7 @@ module.exports = [
             "bg-white border-2 border-black p-3 space-y-2 cursor-pointer hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all group",
           onClick: () => router.push(`/leads/${id}`),
           children: [
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -568,7 +568,7 @@ module.exports = [
               {
                 className: "flex items-start justify-between gap-1",
                 children: [
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -586,7 +586,7 @@ module.exports = [
                     },
                     this,
                   ),
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -598,7 +598,7 @@ module.exports = [
                       },
                       className:
                         "opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 transition-opacity",
-                      children: /*#__PURE__*/ (0,
+                      children:  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -639,7 +639,7 @@ module.exports = [
               this,
             ),
             lead.phone &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -648,7 +648,7 @@ module.exports = [
                   className:
                     "flex items-center gap-1 text-xs text-muted-foreground",
                   children: [
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -681,7 +681,7 @@ module.exports = [
                 this,
               ),
             lead.budget &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -699,7 +699,7 @@ module.exports = [
                 },
                 this,
               ),
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -708,7 +708,7 @@ module.exports = [
                 className: "flex items-center gap-1 flex-wrap",
                 children: [
                   lead.source &&
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -728,7 +728,7 @@ module.exports = [
                       this,
                     ),
                   lead.priority &&
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -747,7 +747,7 @@ module.exports = [
                       this,
                     ),
                   overdueFlag &&
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -756,7 +756,7 @@ module.exports = [
                         className:
                           "text-xs px-1.5 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-200 flex items-center gap-1",
                         children: [
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -800,7 +800,7 @@ module.exports = [
               this,
             ),
             lead.assignedToName &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -819,7 +819,7 @@ module.exports = [
                 this,
               ),
             lead.followUpDate &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -828,7 +828,7 @@ module.exports = [
                   className:
                     "text-xs text-muted-foreground flex items-center gap-1",
                   children: [
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -939,7 +939,7 @@ module.exports = [
           color: "border-black bg-white",
         },
       ];
-      return /*#__PURE__*/ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "jsxDEV"
       ])(
@@ -948,7 +948,7 @@ module.exports = [
           className: "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3",
           children: cards.map((c) => {
             const Icon = c.icon;
-            return /*#__PURE__*/ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -956,7 +956,7 @@ module.exports = [
               {
                 className: `border-2 border-black p-3 flex flex-col gap-1 ${c.color}`,
                 children: [
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -964,7 +964,7 @@ module.exports = [
                     {
                       className: "flex items-center justify-between",
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -983,7 +983,7 @@ module.exports = [
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1011,7 +1011,7 @@ module.exports = [
                     },
                     this,
                   ),
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -1476,7 +1476,7 @@ module.exports = [
       };
       const hasFilters =
         search || staffFilter || statusFilter || sourceFilter || priorityFilter;
-      return /*#__PURE__*/ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "jsxDEV"
       ])(
@@ -1484,7 +1484,7 @@ module.exports = [
         {
           className: "space-y-5 font-headline",
           children: [
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -1492,14 +1492,14 @@ module.exports = [
               {
                 className: "flex items-center justify-between gap-4",
                 children: [
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
                     "div",
                     {
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1517,7 +1517,7 @@ module.exports = [
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1551,7 +1551,7 @@ module.exports = [
                     },
                     this,
                   ),
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -1560,7 +1560,7 @@ module.exports = [
                       className:
                         "flex items-center gap-2 flex-wrap justify-end",
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1577,7 +1577,7 @@ module.exports = [
                             className: "border-2 border-black font-bold",
                             children:
                               view === "table"
-                                ? /*#__PURE__*/ (0,
+                                ?  (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -1586,7 +1586,7 @@ module.exports = [
                                     ],
                                     {
                                       children: [
-                                        /*#__PURE__*/ (0,
+                                         (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -1612,7 +1612,7 @@ module.exports = [
                                     void 0,
                                     true,
                                   )
-                                : /*#__PURE__*/ (0,
+                                :  (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -1621,7 +1621,7 @@ module.exports = [
                                     ],
                                     {
                                       children: [
-                                        /*#__PURE__*/ (0,
+                                         (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -1657,7 +1657,7 @@ module.exports = [
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1670,7 +1670,7 @@ module.exports = [
                             onClick: exportCSV,
                             className: "border-2 border-black font-bold",
                             children: [
-                              /*#__PURE__*/ (0,
+                               (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1702,7 +1702,7 @@ module.exports = [
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1717,7 +1717,7 @@ module.exports = [
                               "bg-green-600 hover:bg-green-700 text-white border-2 border-black font-bold",
                             children: [
                               isSyncing
-                                ? /*#__PURE__*/ (0,
+                                ?  (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -1737,7 +1737,7 @@ module.exports = [
                                     },
                                     this,
                                   )
-                                : /*#__PURE__*/ (0,
+                                :  (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -1769,7 +1769,7 @@ module.exports = [
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1784,7 +1784,7 @@ module.exports = [
                               "bg-blue-600 hover:bg-blue-700 text-white border-2 border-black font-bold",
                             children: [
                               isSyncing
-                                ? /*#__PURE__*/ (0,
+                                ?  (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -1804,7 +1804,7 @@ module.exports = [
                                     },
                                     this,
                                   )
-                                : /*#__PURE__*/ (0,
+                                :  (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -1858,7 +1858,7 @@ module.exports = [
               },
               this,
             ),
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -1875,14 +1875,14 @@ module.exports = [
               },
               this,
             ),
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
               "div",
               {
                 className: " gap-4",
-                children: /*#__PURE__*/ (0,
+                children:  (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "jsxDEV"
                 ])(
@@ -1890,7 +1890,7 @@ module.exports = [
                   {
                     className: " border-2 border-black p-4",
                     children: [
-                      /*#__PURE__*/ (0,
+                       (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -1909,7 +1909,7 @@ module.exports = [
                         },
                         this,
                       ),
-                      /*#__PURE__*/ (0,
+                       (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -1926,7 +1926,7 @@ module.exports = [
                               const pct = leads.length
                                 ? Math.round((count / leads.length) * 100)
                                 : 0;
-                              return /*#__PURE__*/ (0,
+                              return  (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1938,7 +1938,7 @@ module.exports = [
                                     ),
                                   className: `flex flex-col items-center border-2 px-3 py-2 min-w-[90px] transition-all ${statusFilter === s ? "border-black bg-black text-white" : "border-gray-200 hover:border-gray-400"}`,
                                   children: [
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1957,7 +1957,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1977,7 +1977,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2040,7 +2040,7 @@ module.exports = [
               },
               this,
             ),
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -2048,7 +2048,7 @@ module.exports = [
               {
                 className: "flex items-center gap-2 flex-wrap",
                 children: [
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -2056,7 +2056,7 @@ module.exports = [
                     {
                       className: "relative flex-1 min-w-[200px]",
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -2076,7 +2076,7 @@ module.exports = [
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -2110,7 +2110,7 @@ module.exports = [
                     },
                     this,
                   ),
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -2123,7 +2123,7 @@ module.exports = [
                       onClick: () => setShowFilters((p) => !p),
                       className: `border-2 font-bold ${showFilters ? "border-black bg-black text-white" : "border-black"}`,
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -2144,7 +2144,7 @@ module.exports = [
                         ),
                         " Filters",
                         hasFilters &&
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2176,7 +2176,7 @@ module.exports = [
                     this,
                   ),
                   hasFilters &&
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -2189,7 +2189,7 @@ module.exports = [
                         onClick: clearFilters,
                         className: "text-muted-foreground",
                         children: [
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2233,7 +2233,7 @@ module.exports = [
               this,
             ),
             showFilters &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -2242,14 +2242,14 @@ module.exports = [
                   className:
                     "border-2 border-black p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 bg-gray-50",
                   children: [
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
                       "div",
                       {
                         children: [
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2269,7 +2269,7 @@ module.exports = [
                             },
                             this,
                           ),
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2280,7 +2280,7 @@ module.exports = [
                               className:
                                 "w-full px-2 py-1.5 rounded-lg border-2 border-black text-sm bg-white",
                               children: [
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -2300,7 +2300,7 @@ module.exports = [
                                   this,
                                 ),
                                 team.map((t) =>
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -2343,14 +2343,14 @@ module.exports = [
                       },
                       this,
                     ),
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
                       "div",
                       {
                         children: [
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2370,7 +2370,7 @@ module.exports = [
                             },
                             this,
                           ),
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2381,7 +2381,7 @@ module.exports = [
                               className:
                                 "w-full px-2 py-1.5 rounded-lg border-2 border-black text-sm bg-white",
                               children: [
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -2403,7 +2403,7 @@ module.exports = [
                                 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "leadStatuses"
                                 ].map((s) =>
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -2446,14 +2446,14 @@ module.exports = [
                       },
                       this,
                     ),
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
                       "div",
                       {
                         children: [
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2473,7 +2473,7 @@ module.exports = [
                             },
                             this,
                           ),
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2484,7 +2484,7 @@ module.exports = [
                               className:
                                 "w-full px-2 py-1.5 rounded-lg border-2 border-black text-sm bg-white",
                               children: [
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -2504,7 +2504,7 @@ module.exports = [
                                   this,
                                 ),
                                 allSources.map((s) =>
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -2547,14 +2547,14 @@ module.exports = [
                       },
                       this,
                     ),
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
                       "div",
                       {
                         children: [
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2574,7 +2574,7 @@ module.exports = [
                             },
                             this,
                           ),
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2586,7 +2586,7 @@ module.exports = [
                               className:
                                 "w-full px-2 py-1.5 rounded-lg border-2 border-black text-sm bg-white",
                               children: [
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -2605,7 +2605,7 @@ module.exports = [
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -2624,7 +2624,7 @@ module.exports = [
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -2643,7 +2643,7 @@ module.exports = [
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -2697,7 +2697,7 @@ module.exports = [
                 this,
               ),
             selected.size > 0 &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -2706,7 +2706,7 @@ module.exports = [
                   className:
                     "border-2 border-black bg-black text-white px-4 py-3 flex items-center gap-3 flex-wrap",
                   children: [
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -2724,7 +2724,7 @@ module.exports = [
                       },
                       this,
                     ),
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -2741,7 +2741,7 @@ module.exports = [
                       },
                       this,
                     ),
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -2756,7 +2756,7 @@ module.exports = [
                         className:
                           "px-2 py-1.5 rounded-lg border border-white/30 bg-white/10 text-white text-sm",
                         children: [
-                          /*#__PURE__*/ (0,
+                           (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2778,7 +2778,7 @@ module.exports = [
                           __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "leadStatuses"
                           ].map((s) =>
-                            /*#__PURE__*/ (0,
+                             (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -2810,7 +2810,7 @@ module.exports = [
                       this,
                     ),
                     role === "admin" &&
-                      /*#__PURE__*/ (0,
+                       (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -2825,7 +2825,7 @@ module.exports = [
                           className:
                             "px-2 py-1.5 rounded-lg border border-white/30 bg-white/10 text-white text-sm",
                           children: [
-                            /*#__PURE__*/ (0,
+                             (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -2845,7 +2845,7 @@ module.exports = [
                               this,
                             ),
                             team.map((t) =>
-                              /*#__PURE__*/ (0,
+                               (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2876,7 +2876,7 @@ module.exports = [
                         },
                         this,
                       ),
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -2891,7 +2891,7 @@ module.exports = [
                         className: "border border-white/30",
                         children: [
                           bulkDeleting
-                            ? /*#__PURE__*/ (0,
+                            ?  (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2911,7 +2911,7 @@ module.exports = [
                                 },
                                 this,
                               )
-                            : /*#__PURE__*/ (0,
+                            :  (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2943,7 +2943,7 @@ module.exports = [
                       },
                       this,
                     ),
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -2955,7 +2955,7 @@ module.exports = [
                         variant: "ghost",
                         onClick: () => setSelected(new Set()),
                         className: "text-white hover:bg-white/10",
-                        children: /*#__PURE__*/ (0,
+                        children:  (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -2996,14 +2996,14 @@ module.exports = [
                 this,
               ),
             loading &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
                 "div",
                 {
                   className: "flex items-center justify-center py-16",
-                  children: /*#__PURE__*/ (0,
+                  children:  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3034,14 +3034,14 @@ module.exports = [
               ),
             !loading &&
               view === "table" &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
                 "div",
                 {
                   className: "border-2 border-black overflow-hidden",
-                  children: /*#__PURE__*/ (0,
+                  children:  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3050,7 +3050,7 @@ module.exports = [
                     ],
                     {
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -3058,7 +3058,7 @@ module.exports = [
                             "TableHeader"
                           ],
                           {
-                            children: /*#__PURE__*/ (0,
+                            children:  (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -3068,7 +3068,7 @@ module.exports = [
                               {
                                 className: "border-b-2 border-black bg-gray-50",
                                 children: [
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3077,7 +3077,7 @@ module.exports = [
                                     ],
                                     {
                                       className: "w-10",
-                                      children: /*#__PURE__*/ (0,
+                                      children:  (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3112,7 +3112,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3133,7 +3133,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3154,7 +3154,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3175,7 +3175,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3196,7 +3196,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3217,7 +3217,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3238,7 +3238,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3259,7 +3259,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3280,7 +3280,7 @@ module.exports = [
                                     },
                                     this,
                                   ),
-                                  /*#__PURE__*/ (0,
+                                   (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -3323,7 +3323,7 @@ module.exports = [
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -3333,7 +3333,7 @@ module.exports = [
                           {
                             children: [
                               filtered.length === 0 &&
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -3341,7 +3341,7 @@ module.exports = [
                                     "TableRow"
                                   ],
                                   {
-                                    children: /*#__PURE__*/ (0,
+                                    children:  (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3381,7 +3381,7 @@ module.exports = [
                                 const overdueFlag = isOverdue(
                                   lead.followUpDate,
                                 );
-                                return /*#__PURE__*/ (0,
+                                return  (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -3391,7 +3391,7 @@ module.exports = [
                                   {
                                     className: `border-b-2 border-black last:border-b-0 hover:bg-gray-50 transition-colors ${selected.has(id) ? "bg-blue-50" : ""}`,
                                     children: [
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3400,7 +3400,7 @@ module.exports = [
                                         ],
                                         {
                                           onClick: (e) => e.stopPropagation(),
-                                          children: /*#__PURE__*/ (0,
+                                          children:  (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3433,7 +3433,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3443,7 +3443,7 @@ module.exports = [
                                         {
                                           className: "font-bold",
                                           children: [
-                                            /*#__PURE__*/ (0,
+                                             (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -3456,7 +3456,7 @@ module.exports = [
                                                   "hover:underline flex items-center gap-1",
                                                 children: [
                                                   lead.name,
-                                                  /*#__PURE__*/ (0,
+                                                   (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -3490,7 +3490,7 @@ module.exports = [
                                               this,
                                             ),
                                             lead.doNotDelete &&
-                                              /*#__PURE__*/ (0,
+                                               (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3499,7 +3499,7 @@ module.exports = [
                                                   className:
                                                     "text-xs text-orange-600 flex items-center gap-0.5",
                                                   children: [
-                                                    /*#__PURE__*/ (0,
+                                                     (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -3544,7 +3544,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3552,7 +3552,7 @@ module.exports = [
                                           "TableCell"
                                         ],
                                         {
-                                          children: /*#__PURE__*/ (0,
+                                          children:  (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3561,7 +3561,7 @@ module.exports = [
                                               className: "space-y-0.5",
                                               children: [
                                                 lead.phone &&
-                                                  /*#__PURE__*/ (0,
+                                                   (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -3570,7 +3570,7 @@ module.exports = [
                                                       className:
                                                         "text-sm flex items-center gap-1",
                                                       children: [
-                                                        /*#__PURE__*/ (0,
+                                                         (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
@@ -3605,7 +3605,7 @@ module.exports = [
                                                     this,
                                                   ),
                                                 lead.email &&
-                                                  /*#__PURE__*/ (0,
+                                                   (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -3614,7 +3614,7 @@ module.exports = [
                                                       className:
                                                         "text-xs text-muted-foreground flex items-center gap-1 max-w-[160px] truncate",
                                                       children: [
-                                                        /*#__PURE__*/ (0,
+                                                         (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
@@ -3671,7 +3671,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3680,7 +3680,7 @@ module.exports = [
                                         ],
                                         {
                                           children: [
-                                            /*#__PURE__*/ (0,
+                                             (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -3703,7 +3703,7 @@ module.exports = [
                                               this,
                                             ),
                                             lead.budget &&
-                                              /*#__PURE__*/ (0,
+                                               (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3735,7 +3735,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3743,7 +3743,7 @@ module.exports = [
                                           "TableCell"
                                         ],
                                         {
-                                          children: /*#__PURE__*/ (0,
+                                          children:  (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3775,7 +3775,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3796,7 +3796,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3805,7 +3805,7 @@ module.exports = [
                                         ],
                                         {
                                           children: lead.priority
-                                            ? /*#__PURE__*/ (0,
+                                            ?  (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3836,7 +3836,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3845,7 +3845,7 @@ module.exports = [
                                         ],
                                         {
                                           children: lead.followUpDate
-                                            ? /*#__PURE__*/ (0,
+                                            ?  (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3853,7 +3853,7 @@ module.exports = [
                                                 {
                                                   className: `text-xs flex items-center gap-1 ${overdueFlag ? "text-red-600 font-bold" : "text-muted-foreground"}`,
                                                   children: [
-                                                    /*#__PURE__*/ (0,
+                                                     (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -3877,7 +3877,7 @@ module.exports = [
                                                       lead.followUpDate,
                                                     ),
                                                     overdueFlag &&
-                                                      /*#__PURE__*/ (0,
+                                                       (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -3921,7 +3921,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -3929,7 +3929,7 @@ module.exports = [
                                           "TableCell"
                                         ],
                                         {
-                                          children: /*#__PURE__*/ (0,
+                                          children:  (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3949,7 +3949,7 @@ module.exports = [
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "leadStatuses"
                                                 ].map((s) =>
-                                                  /*#__PURE__*/ (0,
+                                                   (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -3991,7 +3991,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -4000,7 +4000,7 @@ module.exports = [
                                         ],
                                         {
                                           className: "text-right",
-                                          children: /*#__PURE__*/ (0,
+                                          children:  (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -4009,7 +4009,7 @@ module.exports = [
                                               className:
                                                 "flex items-center gap-1 justify-end",
                                               children: [
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -4018,7 +4018,7 @@ module.exports = [
                                                   ],
                                                   {
                                                     href: `/leads/${id}`,
-                                                    children: /*#__PURE__*/ (0,
+                                                    children:  (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4030,7 +4030,7 @@ module.exports = [
                                                         size: "icon",
                                                         className: "h-7 w-7",
                                                         children:
-                                                          /*#__PURE__*/ (0,
+                                                           (0,
                                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                             "jsxDEV"
                                                           ])(
@@ -4074,7 +4074,7 @@ module.exports = [
                                                   this,
                                                 ),
                                                 role === "admin" &&
-                                                  /*#__PURE__*/ (0,
+                                                   (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -4089,7 +4089,7 @@ module.exports = [
                                                       onClick: () =>
                                                         deleteLead(id),
                                                       children:
-                                                        /*#__PURE__*/ (0,
+                                                         (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
@@ -4191,7 +4191,7 @@ module.exports = [
               ),
             !loading &&
               view === "kanban" &&
-              /*#__PURE__*/ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -4207,14 +4207,14 @@ module.exports = [
                         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "leadStatusColors"
                         ][status] || "bg-gray-100";
-                      return /*#__PURE__*/ (0,
+                      return  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
                         "div",
                         {
                           className: "flex-shrink-0 w-72",
-                          children: /*#__PURE__*/ (0,
+                          children:  (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -4222,14 +4222,14 @@ module.exports = [
                             {
                               className: `border-2 border-black overflow-hidden`,
                               children: [
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
                                   "div",
                                   {
                                     className: `px-3 py-2 border-b-2 border-black ${statusColor}`,
-                                    children: /*#__PURE__*/ (0,
+                                    children:  (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -4238,7 +4238,7 @@ module.exports = [
                                         className:
                                           "flex items-center justify-between",
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -4258,7 +4258,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -4301,7 +4301,7 @@ module.exports = [
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -4311,7 +4311,7 @@ module.exports = [
                                       "p-2 space-y-2 min-h-[100px] bg-gray-50",
                                     children: [
                                       cards.map((lead) =>
-                                        /*#__PURE__*/ (0,
+                                         (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -4334,7 +4334,7 @@ module.exports = [
                                         ),
                                       ),
                                       cards.length === 0 &&
-                                        /*#__PURE__*/ (0,
+                                         (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -4414,4 +4414,4 @@ module.exports = [
   },
 ];
 
-//# sourceMappingURL=src_814b576b._.js.map
+

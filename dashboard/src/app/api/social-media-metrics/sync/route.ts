@@ -81,7 +81,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Token priority: client System User Token → account Page Token → (no company fallback for client metrics)
+    
     let clientMetaToken: string | null = null;
     if (post.clientId) {
       try {
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
         clientMetaToken = client?.metaAccessToken || null;
       } catch {}
     }
-    // Prefer client's System User Token (doesn't expire) over account's Page Token (expires in 60 days)
+    
     const baseToken = clientMetaToken || account.accessToken;
 
     if (!baseToken || !account.platformAccountId) {
@@ -108,8 +108,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Auto-exchange user token → page token.
-    // Page-level endpoints (metrics, insights) require a Page Access Token, not a User Token.
+    
+    
     let effectiveToken = baseToken;
     try {
       const pages = await getUserPages(baseToken);
@@ -120,13 +120,13 @@ export async function POST(request: Request) {
         effectiveToken = matchedPage.access_token;
       }
     } catch {
-      // if /me/accounts fails, proceed with stored token (may already be a page token)
+      
     }
 
     const platform: string = post.platform;
     let metrics;
 
-    // Catch URL/platform mismatch early before wasting API calls
+    
     const urlLower = postedUrl.toLowerCase();
     if (
       platform === "Facebook" &&

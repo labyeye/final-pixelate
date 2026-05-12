@@ -15,7 +15,7 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-// Fetch all ad accounts the token has access to
+
 async function getAdAccounts(
   token: string,
 ): Promise<{ id: string; name: string }[]> {
@@ -34,7 +34,7 @@ async function getAdAccounts(
   }
 }
 
-// Fetch ALL leads from an ad account across all campaigns/ad sets/ads
+
 async function fetchAdAccountLeads(
   adAccountId: string,
   token: string,
@@ -63,7 +63,7 @@ async function fetchAdAccountLeads(
   return leads;
 }
 
-// Fallback: fetch leads from page-level lead gen forms
+
 async function fetchPageFormLeads(
   pageId: string,
   pageToken: string,
@@ -174,11 +174,11 @@ export async function POST(request: Request) {
     let synced = 0;
     let skipped = 0;
 
-    // Collect all raw leads — from ad accounts (primary) + page forms (fallback)
+    
     const allRawLeads: any[] = [];
     const seenMetaIds = new Set<string>();
 
-    // Strategy 1: Use stored ad account ID from fb-ads-connection, then fallback to /me/adaccounts
+    
     const fbAdsCol = await svc.getCollection("fbAdsConnections");
     const fbConn = await fbAdsCol.findOne({ clientId });
     const fbToken = fbConn?.accessToken || token;
@@ -186,14 +186,14 @@ export async function POST(request: Request) {
     const adAccounts: { id: string; name: string }[] = [];
 
     if (fbConn?.adAccountId) {
-      // Use the stored ad account ID directly
+      
       const storedId = fbConn.adAccountId.startsWith("act_")
         ? fbConn.adAccountId
         : `act_${fbConn.adAccountId}`;
       adAccounts.push({ id: storedId, name: storedId });
       console.log(`[LeadsSync] Using stored ad account: ${storedId}`);
     } else {
-      // Fallback: discover via token
+      
       const discovered = await getAdAccounts(fbToken);
       adAccounts.push(...discovered);
       console.log(
@@ -214,7 +214,7 @@ export async function POST(request: Request) {
       }
     }
 
-    // Strategy 2: Page forms fallback (catches leads not linked to ad accounts)
+    
     let pages: any[] = [];
     try {
       pages = await getUserPages(fbToken);
@@ -238,20 +238,20 @@ export async function POST(request: Request) {
       `[LeadsSync] Total unique leads to process: ${allRawLeads.length}`,
     );
 
-    // Insert unique leads
+    
     for (const ml of allRawLeads) {
       const f = parseFields(ml.field_data);
       const phone = extractPhone(f);
       const email = extractEmail(f);
       const name = extractName(f);
 
-      // Dedup by metaLeadId OR legacy fbLeadId (old sync route used fbLeadId field name)
+      
       const existingById = await leadsCol.findOne({
         clientId,
         $or: [{ metaLeadId: ml.id }, { fbLeadId: ml.id }],
       });
       if (existingById) {
-        // Migrate legacy fbLeadId → metaLeadId so future syncs find it faster
+        
         if (!existingById.metaLeadId) {
           await leadsCol.updateOne(
             { _id: existingById._id },
@@ -268,7 +268,7 @@ export async function POST(request: Request) {
         continue;
       }
 
-      // Dedup by phone/email within client — NEVER overwrite status/notes/followUpDate
+      
       if (phone || email) {
         const orClauses: any[] = [];
         if (phone) orClauses.push({ phone });

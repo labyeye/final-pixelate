@@ -31,11 +31,11 @@
         "[project]/src/lib/utils.ts [app-client] (ecmascript)",
       );
     const Card =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -64,11 +64,11 @@
     _c1 = Card;
     Card.displayName = "Card";
     const CardHeader =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c2 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -94,11 +94,11 @@
     _c3 = CardHeader;
     CardHeader.displayName = "CardHeader";
     const CardTitle =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c4 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -127,11 +127,11 @@
     _c5 = CardTitle;
     CardTitle.displayName = "CardTitle";
     const CardDescription =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c6 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -157,11 +157,11 @@
     _c7 = CardDescription;
     CardDescription.displayName = "CardDescription";
     const CardContent =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c8 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -187,11 +187,11 @@
     _c9 = CardContent;
     CardContent.displayName = "CardContent";
     const CardFooter =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c10 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -275,11 +275,11 @@
         "Root"
       ];
     const TabsList =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -313,11 +313,11 @@
         "List"
       ].displayName;
     const TabsTrigger =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c2 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -351,11 +351,11 @@
         "Trigger"
       ].displayName;
     const TabsContent =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c4 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -440,18 +440,18 @@
         "[project]/src/lib/utils.ts [app-client] (ecmascript)",
       );
     const Table =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
             "div",
             {
               className: "relative w-full overflow-auto",
-              children: /*#__PURE__*/ (0,
+              children:  (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -487,11 +487,11 @@
     _c1 = Table;
     Table.displayName = "Table";
     const TableHeader =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c2 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -517,11 +517,11 @@
     _c3 = TableHeader;
     TableHeader.displayName = "TableHeader";
     const TableBody =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c4 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -547,11 +547,11 @@
     _c5 = TableBody;
     TableBody.displayName = "TableBody";
     const TableFooter =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c6 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -580,11 +580,11 @@
     _c7 = TableFooter;
     TableFooter.displayName = "TableFooter";
     const TableRow =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c8 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -613,11 +613,11 @@
     _c9 = TableRow;
     TableRow.displayName = "TableRow";
     const TableHead =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c10 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -646,11 +646,11 @@
     _c11 = TableHead;
     TableHead.displayName = "TableHead";
     const TableCell =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c12 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -676,11 +676,11 @@
     _c13 = TableCell;
     TableCell.displayName = "TableCell";
     const TableCaption =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](
         (_c14 = ({ className, ...props }, ref) =>
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxDEV"
           ])(
@@ -770,7 +770,7 @@
       );
     ("use client");
     function TeamMembersSection({ teamMembers, projects }) {
-      return /*#__PURE__*/ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsxDEV"
       ])(
@@ -778,7 +778,7 @@
         {
           className: "space-y-6 mt-8",
           children: [
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -786,14 +786,14 @@
               {
                 className: "flex items-center justify-between",
                 children: [
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
                     "div",
                     {
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -812,7 +812,7 @@
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -844,7 +844,7 @@
                     },
                     this,
                   ),
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -853,7 +853,7 @@
                     ],
                     {
                       href: "/developers-and-editors",
-                      children: /*#__PURE__*/ (0,
+                      children:  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -898,7 +898,7 @@
               },
               this,
             ),
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -942,7 +942,7 @@
                     member.image ||
                     member.avatar ||
                     member.avatarUrl;
-                  return /*#__PURE__*/ (0,
+                  return  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -952,7 +952,7 @@
                     {
                       className:
                         "border-2 border-black overflow-hidden hover:shadow-lg transition-shadow",
-                      children: /*#__PURE__*/ (0,
+                      children:  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -961,7 +961,7 @@
                         ],
                         {
                           className: "p-4",
-                          children: /*#__PURE__*/ (0,
+                          children:  (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -970,7 +970,7 @@
                               className:
                                 "flex flex-col items-center text-center space-y-3",
                               children: [
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -979,7 +979,7 @@
                                     className:
                                       "w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden",
                                     children: profileImage
-                                      ? /*#__PURE__*/ (0,
+                                      ?  (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -1000,7 +1000,7 @@
                                           },
                                           this,
                                         )
-                                      : /*#__PURE__*/ (0,
+                                      :  (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -1009,7 +1009,7 @@
                                             className: "w-12 h-12 text-primary",
                                             fill: "currentColor",
                                             viewBox: "0 0 24 24",
-                                            children: /*#__PURE__*/ (0,
+                                            children:  (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -1049,14 +1049,14 @@
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
                                   "div",
                                   {
                                     children: [
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -1076,7 +1076,7 @@
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -1109,7 +1109,7 @@
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -1117,7 +1117,7 @@
                                   {
                                     className: "w-full space-y-1 text-xs",
                                     children: [
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -1125,7 +1125,7 @@
                                         {
                                           className:
                                             "flex items-center justify-center gap-1 text-muted-foreground",
-                                          children: /*#__PURE__*/ (0,
+                                          children:  (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1155,7 +1155,7 @@
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -1177,7 +1177,7 @@
                                         },
                                         this,
                                       ),
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -1213,7 +1213,7 @@
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -1223,7 +1223,7 @@
                                     children: [
                                       "Earned:",
                                       " ",
-                                      /*#__PURE__*/ (0,
+                                       (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -1258,14 +1258,14 @@
                                   },
                                   this,
                                 ),
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
                                   "div",
                                   {
                                     className: "w-full",
-                                    children: /*#__PURE__*/ (0,
+                                    children:  (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1274,7 +1274,7 @@
                                         className:
                                           "bg-primary text-primary-foreground rounded-lg py-3 px-2",
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1293,7 +1293,7 @@
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1531,7 +1531,7 @@
         }["TrendsSection.useMemo[chartData]"],
         [invoices, clients],
       );
-      return /*#__PURE__*/ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsxDEV"
       ])(
@@ -1539,7 +1539,7 @@
         {
           className: "grid grid-cols-1 md:grid-cols-2 gap-8 my-8",
           children: [
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -1549,7 +1549,7 @@
               {
                 className: "border-2 border-black",
                 children: [
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -1558,7 +1558,7 @@
                     ],
                     {
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1579,7 +1579,7 @@
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1612,7 +1612,7 @@
                     },
                     this,
                   ),
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -1620,14 +1620,14 @@
                       "CardContent"
                     ],
                     {
-                      children: /*#__PURE__*/ (0,
+                      children:  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
                         "div",
                         {
                           className: "h-[300px] w-full",
-                          children: /*#__PURE__*/ (0,
+                          children:  (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -1637,7 +1637,7 @@
                             {
                               width: "100%",
                               height: "100%",
-                              children: /*#__PURE__*/ (0,
+                              children:  (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1653,13 +1653,13 @@
                                     bottom: 0,
                                   },
                                   children: [
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
                                       "defs",
                                       {
-                                        children: /*#__PURE__*/ (0,
+                                        children:  (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -1671,7 +1671,7 @@
                                             x2: "0",
                                             y2: "1",
                                             children: [
-                                              /*#__PURE__*/ (0,
+                                               (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -1691,7 +1691,7 @@
                                                 },
                                                 this,
                                               ),
-                                              /*#__PURE__*/ (0,
+                                               (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -1734,7 +1734,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1756,7 +1756,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1782,7 +1782,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1808,7 +1808,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1842,7 +1842,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1925,7 +1925,7 @@
               },
               this,
             ),
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -1935,7 +1935,7 @@
               {
                 className: "border-2 border-black",
                 children: [
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -1944,7 +1944,7 @@
                     ],
                     {
                       children: [
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1965,7 +1965,7 @@
                           },
                           this,
                         ),
-                        /*#__PURE__*/ (0,
+                         (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1998,7 +1998,7 @@
                     },
                     this,
                   ),
-                  /*#__PURE__*/ (0,
+                   (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -2006,14 +2006,14 @@
                       "CardContent"
                     ],
                     {
-                      children: /*#__PURE__*/ (0,
+                      children:  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
                         "div",
                         {
                           className: "h-[300px] w-full",
-                          children: /*#__PURE__*/ (0,
+                          children:  (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                             "jsxDEV"
                           ])(
@@ -2023,7 +2023,7 @@
                             {
                               width: "100%",
                               height: "100%",
-                              children: /*#__PURE__*/ (0,
+                              children:  (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2039,7 +2039,7 @@
                                     bottom: 0,
                                   },
                                   children: [
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2061,7 +2061,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2087,7 +2087,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2112,7 +2112,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2149,7 +2149,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2419,7 +2419,7 @@
           }["DashboardPage.AnimatedNumber.useEffect"],
           [value, duration],
         );
-        return /*#__PURE__*/ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -2723,7 +2723,7 @@
         }
         return Array.from(map.values()).sort((a, b) => b.payout - a.payout);
       })();
-      return /*#__PURE__*/ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsxDEV"
       ])(
@@ -2731,7 +2731,7 @@
         {
           className: "space-y-8 font-headline",
           children: [
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -2739,14 +2739,14 @@
               {
                 className:
                   "flex flex-col md:flex-row justify-between items-start md:items-center gap-4",
-                children: /*#__PURE__*/ (0,
+                children:  (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsxDEV"
                 ])(
                   "div",
                   {
                     children: [
-                      /*#__PURE__*/ (0,
+                       (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -2765,7 +2765,7 @@
                         },
                         this,
                       ),
-                      /*#__PURE__*/ (0,
+                       (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -2805,7 +2805,7 @@
               },
               this,
             ),
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -2814,7 +2814,7 @@
               ],
               {
                 defaultValue: "overview",
-                children: /*#__PURE__*/ (0,
+                children:  (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsxDEV"
                 ])(
@@ -2825,7 +2825,7 @@
                     value: "overview",
                     className: "space-y-8 mt-8",
                     children: isStaff
-                      ? /*#__PURE__*/ (0,
+                      ?  (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -2833,7 +2833,7 @@
                           {
                             className: "grid grid-cols-1 lg:grid-cols-1 gap-8",
                             children: [
-                              /*#__PURE__*/ (0,
+                               (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2843,7 +2843,7 @@
                                 {
                                   className: "border-2 border-black",
                                   children: [
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2852,7 +2852,7 @@
                                       ],
                                       {
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2874,7 +2874,7 @@
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2907,7 +2907,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2919,7 +2919,7 @@
                                         children: Object.entries(
                                           leadsByStatus,
                                         ).map(([status, count]) =>
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2928,7 +2928,7 @@
                                               className:
                                                 "flex justify-between items-center bg-muted p-3",
                                               children: [
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2948,7 +2948,7 @@
                                                   },
                                                   this,
                                                 ),
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -3004,7 +3004,7 @@
                                 },
                                 this,
                               ),
-                              /*#__PURE__*/ (0,
+                               (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -3014,7 +3014,7 @@
                                 {
                                   className: "border-2 border-black",
                                   children: [
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3023,7 +3023,7 @@
                                       ],
                                       {
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3045,7 +3045,7 @@
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3078,7 +3078,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3086,7 +3086,7 @@
                                         "CardContent"
                                       ],
                                       {
-                                        children: /*#__PURE__*/ (0,
+                                        children:  (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -3133,7 +3133,7 @@
                                 },
                                 this,
                               ),
-                              /*#__PURE__*/ (0,
+                               (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -3143,7 +3143,7 @@
                                 {
                                   className: "border-2 border-black",
                                   children: [
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3152,7 +3152,7 @@
                                       ],
                                       {
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3174,7 +3174,7 @@
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3207,7 +3207,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3217,7 +3217,7 @@
                                       {
                                         children:
                                           myEarningsByProject.length === 0
-                                            ? /*#__PURE__*/ (0,
+                                            ?  (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3238,7 +3238,7 @@
                                                 },
                                                 this,
                                               )
-                                            : /*#__PURE__*/ (0,
+                                            :  (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3247,7 +3247,7 @@
                                                 ],
                                                 {
                                                   children: [
-                                                    /*#__PURE__*/ (0,
+                                                     (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -3256,7 +3256,7 @@
                                                       ],
                                                       {
                                                         children:
-                                                          /*#__PURE__*/ (0,
+                                                           (0,
                                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                             "jsxDEV"
                                                           ])(
@@ -3265,7 +3265,7 @@
                                                             ],
                                                             {
                                                               children: [
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -3286,7 +3286,7 @@
                                                                   },
                                                                   this,
                                                                 ),
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -3307,7 +3307,7 @@
                                                                   },
                                                                   this,
                                                                 ),
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -3353,7 +3353,7 @@
                                                       },
                                                       this,
                                                     ),
-                                                    /*#__PURE__*/ (0,
+                                                     (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -3364,7 +3364,7 @@
                                                         children:
                                                           myEarningsByProject.map(
                                                             (p) =>
-                                                              /*#__PURE__*/ (0,
+                                                               (0,
                                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                 "jsxDEV"
                                                               ])(
@@ -3373,7 +3373,7 @@
                                                                 ],
                                                                 {
                                                                   children: [
-                                                                    /*#__PURE__*/ (0,
+                                                                     (0,
                                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                       "jsxDEV"
                                                                     ])(
@@ -3396,7 +3396,7 @@
                                                                       },
                                                                       this,
                                                                     ),
-                                                                    /*#__PURE__*/ (0,
+                                                                     (0,
                                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                       "jsxDEV"
                                                                     ])(
@@ -3418,7 +3418,7 @@
                                                                       },
                                                                       this,
                                                                     ),
-                                                                    /*#__PURE__*/ (0,
+                                                                     (0,
                                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                       "jsxDEV"
                                                                     ])(
@@ -3520,7 +3520,7 @@
                           },
                           this,
                         )
-                      : /*#__PURE__*/ (0,
+                      :  (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -3529,7 +3529,7 @@
                           ],
                           {
                             children: [
-                              /*#__PURE__*/ (0,
+                               (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -3538,7 +3538,7 @@
                                   className:
                                     "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4",
                                   children: stats.map((stat) =>
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3548,7 +3548,7 @@
                                       {
                                         className: "border-2 border-black",
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3556,7 +3556,7 @@
                                               "CardHeader"
                                             ],
                                             {
-                                              children: /*#__PURE__*/ (0,
+                                              children:  (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3590,7 +3590,7 @@
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3598,7 +3598,7 @@
                                               "CardContent"
                                             ],
                                             {
-                                              children: /*#__PURE__*/ (0,
+                                              children:  (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3609,7 +3609,7 @@
                                                   children:
                                                     stat.name === "revenue" ||
                                                     stat.name === "expense"
-                                                      ? /*#__PURE__*/ (0,
+                                                      ?  (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
@@ -3632,7 +3632,7 @@
                                                           this,
                                                         )
                                                       : stat.name === "clients"
-                                                        ? /*#__PURE__*/ (0,
+                                                        ?  (0,
                                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                             "jsxDEV"
                                                           ])(
@@ -3655,7 +3655,7 @@
                                                           )
                                                         : stat.name ===
                                                             "projects"
-                                                          ? /*#__PURE__*/ (0,
+                                                          ?  (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -3725,7 +3725,7 @@
                                 this,
                               ),
                               !isStaff &&
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -3747,7 +3747,7 @@
                                   this,
                                 ),
                               !isStaff &&
-                                /*#__PURE__*/ (0,
+                                 (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -3768,7 +3768,7 @@
                                   },
                                   this,
                                 ),
-                              /*#__PURE__*/ (0,
+                               (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -3777,7 +3777,7 @@
                                   className:
                                     "grid grid-cols-1 lg:grid-cols-3 gap-8",
                                   children: [
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3788,7 +3788,7 @@
                                         className:
                                           "lg:col-span-2 border-2 border-black",
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3797,7 +3797,7 @@
                                             ],
                                             {
                                               children: [
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -3819,7 +3819,7 @@
                                                   },
                                                   this,
                                                 ),
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -3852,7 +3852,7 @@
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -3860,7 +3860,7 @@
                                               "CardContent"
                                             ],
                                             {
-                                              children: /*#__PURE__*/ (0,
+                                              children:  (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -3869,7 +3869,7 @@
                                                 ],
                                                 {
                                                   children: [
-                                                    /*#__PURE__*/ (0,
+                                                     (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -3878,7 +3878,7 @@
                                                       ],
                                                       {
                                                         children:
-                                                          /*#__PURE__*/ (0,
+                                                           (0,
                                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                             "jsxDEV"
                                                           ])(
@@ -3887,7 +3887,7 @@
                                                             ],
                                                             {
                                                               children: [
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -3908,7 +3908,7 @@
                                                                   },
                                                                   this,
                                                                 ),
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -3929,7 +3929,7 @@
                                                                   },
                                                                   this,
                                                                 ),
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -3950,7 +3950,7 @@
                                                                   },
                                                                   this,
                                                                 ),
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -3971,7 +3971,7 @@
                                                                   },
                                                                   this,
                                                                 ),
-                                                                /*#__PURE__*/ (0,
+                                                                 (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -4017,7 +4017,7 @@
                                                       },
                                                       this,
                                                     ),
-                                                    /*#__PURE__*/ (0,
+                                                     (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4028,7 +4028,7 @@
                                                         children: invoices
                                                           .slice(0, 4)
                                                           .map((invoice) =>
-                                                            /*#__PURE__*/ (0,
+                                                             (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -4037,7 +4037,7 @@
                                                               ],
                                                               {
                                                                 children: [
-                                                                  /*#__PURE__*/ (0,
+                                                                   (0,
                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                     "jsxDEV"
                                                                   ])(
@@ -4060,7 +4060,7 @@
                                                                     },
                                                                     this,
                                                                   ),
-                                                                  /*#__PURE__*/ (0,
+                                                                   (0,
                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                     "jsxDEV"
                                                                   ])(
@@ -4083,7 +4083,7 @@
                                                                     },
                                                                     this,
                                                                   ),
-                                                                  /*#__PURE__*/ (0,
+                                                                   (0,
                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                     "jsxDEV"
                                                                   ])(
@@ -4117,7 +4117,7 @@
                                                                     },
                                                                     this,
                                                                   ),
-                                                                  /*#__PURE__*/ (0,
+                                                                   (0,
                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                     "jsxDEV"
                                                                   ])(
@@ -4140,7 +4140,7 @@
                                                                     },
                                                                     this,
                                                                   ),
-                                                                  /*#__PURE__*/ (0,
+                                                                   (0,
                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                     "jsxDEV"
                                                                   ])(
@@ -4167,7 +4167,7 @@
                                                                     },
                                                                     this,
                                                                   ),
-                                                                  /*#__PURE__*/ (0,
+                                                                   (0,
                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                                     "jsxDEV"
                                                                   ])(
@@ -4249,7 +4249,7 @@
                                       },
                                       this,
                                     ),
-                                    /*#__PURE__*/ (0,
+                                     (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -4259,7 +4259,7 @@
                                       {
                                         className: "border-2 border-black",
                                         children: [
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -4268,7 +4268,7 @@
                                             ],
                                             {
                                               children: [
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -4290,7 +4290,7 @@
                                                   },
                                                   this,
                                                 ),
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -4323,7 +4323,7 @@
                                             },
                                             this,
                                           ),
-                                          /*#__PURE__*/ (0,
+                                           (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -4335,7 +4335,7 @@
                                               children: Object.entries(
                                                 leadsByStatus,
                                               ).map(([status, count]) =>
-                                                /*#__PURE__*/ (0,
+                                                 (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -4344,7 +4344,7 @@
                                                     className:
                                                       "flex justify-between items-center bg-muted p-3",
                                                     children: [
-                                                      /*#__PURE__*/ (0,
+                                                       (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -4364,7 +4364,7 @@
                                                         },
                                                         this,
                                                       ),
-                                                      /*#__PURE__*/ (0,
+                                                       (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -4373,7 +4373,7 @@
                                                           className:
                                                             "font-black text-3xl",
                                                           children:
-                                                            /*#__PURE__*/ (0,
+                                                             (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -4511,4 +4511,4 @@
   },
 ]);
 
-//# sourceMappingURL=src_6f40a2dd._.js.map
+

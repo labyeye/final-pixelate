@@ -322,7 +322,7 @@
       () => useYAxisWithFiniteDomainOrRandom,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -368,31 +368,31 @@
         _typeof(o)
       );
     }
-    var XAxisContext = /*#__PURE__*/ (0,
+    var XAxisContext =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var YAxisContext = /*#__PURE__*/ (0,
+    var YAxisContext =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var ViewBoxContext = /*#__PURE__*/ (0,
+    var ViewBoxContext =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var OffsetContext = /*#__PURE__*/ (0,
+    var OffsetContext =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])({});
-    var ClipPathIdContext = /*#__PURE__*/ (0,
+    var ClipPathIdContext =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var ChartHeightContext = /*#__PURE__*/ (0,
+    var ChartHeightContext =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(0);
-    var ChartWidthContext = /*#__PURE__*/ (0,
+    var ChartWidthContext =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(0);
@@ -407,67 +407,67 @@
         children = props.children,
         width = props.width,
         height = props.height;
-      /**
-       * Perhaps we should compute this property when reading? Let's see what is more often used
-       */ var viewBox = (0,
+      
+
+ var viewBox = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$calculateViewBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "calculateViewBox"
       ])(offset);
-      /*
-       * This pretends to be a single context but actually is split into multiple smaller ones.
-       * Why?
-       * Because one React Context only allows to set one value.
-       * But we need to set multiple values.
-       * If we do that with one context, then we force re-render on components that might not even be interested
-       * in the part of the state that has changed.
-       *
-       * By splitting into smaller contexts, we allow each components to be optimized and only re-render when its dependencies change.
-       *
-       * To actually achieve the optimal re-render, it is necessary to use React.memo().
-       * See the test file for details.
-       */ return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      
+
+
+
+
+
+
+
+
+
+
+
+ return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         XAxisContext.Provider,
         {
           value: xAxisMap,
         },
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           YAxisContext.Provider,
           {
             value: yAxisMap,
           },
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             OffsetContext.Provider,
             {
               value: offset,
             },
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               ViewBoxContext.Provider,
               {
                 value: viewBox,
               },
-              /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 ClipPathIdContext.Provider,
                 {
                   value: clipPathId,
                 },
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   ChartHeightContext.Provider,
                   {
                     value: height,
                   },
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     ChartWidthContext.Provider,
@@ -637,7 +637,7 @@
 
     __turbopack_context__.s(["shallowEqual", () => shallowEqual]);
     function shallowEqual(a, b) {
-      /* eslint-disable no-restricted-syntax */ for (var key in a) {
+       for (var key in a) {
         if (
           {}.hasOwnProperty.call(a, key) &&
           (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])
@@ -699,20 +699,20 @@
         _typeof(o)
       );
     }
-    /**
-     * Determines how values are stacked:
-     *
-     * - `none` is the default, it adds values on top of each other. No smarts. Negative values will overlap.
-     * - `expand` make it so that the values always add up to 1 - so the chart will look like a rectangle.
-     * - `wiggle` and `silhouette` tries to keep the chart centered.
-     * - `sign` stacks positive values above zero and negative values below zero. Similar to `none` but handles negatives.
-     * - `positive` ignores all negative values, and then behaves like \`none\`.
-     *
-     * Also see https://d3js.org/d3-shape/stack#stack-offsets
-     * (note that the `diverging` offset in d3 is named `sign` in recharts)
-     */ //
-    // Event Handler Types -- Copied from @types/react/index.d.ts and adapted for Props.
-    //
+    
+
+
+
+
+
+
+
+
+
+
+ 
+    
+    
     var SVGContainerPropKeys = ["viewBox", "children"];
     var SVGElementPropKeys = [
       "aria-activedescendant",
@@ -772,12 +772,12 @@
       "min",
       "name",
       "style",
-      /*
-       * removed 'type' SVGElementPropKey because we do not currently use any SVG elements
-       * that can use it and it conflicts with the recharts prop 'type'
-       * https://github.com/recharts/recharts/pull/3327
-       * https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type
-       */ // 'type',
+      
+
+
+
+
+ 
       "target",
       "width",
       "role",
@@ -1198,7 +1198,7 @@
       }
       var inputProps = props;
       if (
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(props)
@@ -1442,8 +1442,8 @@
       }
       return Comp.displayName || Comp.name || "Component";
     };
-    // `toArray` gets called multiple times during the render
-    // so we can memoize last invocation (since reference to `children` is the same)
+    
+    
     var lastChildren = null;
     var lastResult = null;
     var toArray = function toArray(children) {
@@ -1469,7 +1469,7 @@
         ) {
           result = result.concat(toArray(child.props.children));
         } else {
-          // @ts-expect-error this could still be Iterable<ReactNode> and TS does not like that
+          
           result.push(child);
         }
       });
@@ -1654,11 +1654,11 @@
       svgElementType,
     ) {
       var _FilteredElementKeyMa;
-      /**
-       * If the svg element type is explicitly included, check against the filtered element key map
-       * to determine if there are attributes that should only exist on that element type.
-       * @todo Add an internal cjs version of https://github.com/wooorm/svg-element-attributes for full coverage.
-       */ var matchingElementTypeKeys =
+      
+
+
+
+ var matchingElementTypeKeys =
         (_FilteredElementKeyMa =
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$types$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "FilteredElementKeyMap"
@@ -1707,7 +1707,7 @@
       }
       var inputProps = props;
       if (
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(props)
@@ -1723,13 +1723,13 @@
         return null;
       }
       var out = {};
-      /**
-       * Props are blindly spread onto SVG elements. This loop filters out properties that we don't want to spread.
-       * Items filtered out are as follows:
-       *   - functions in properties that are SVG attributes (functions are included when includeEvents is true)
-       *   - props that are SVG attributes but don't matched the passed svgElementType
-       *   - any prop that is not in SVGElementPropKeys (or in EventKeys if includeEvents is true)
-       */ Object.keys(inputProps).forEach(function (key) {
+      
+
+
+
+
+
+ Object.keys(inputProps).forEach(function (key) {
         var _inputProps;
         if (
           isValidSpreadableProp(
@@ -1766,7 +1766,7 @@
         return true;
       }
       if (count === 1) {
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        
         return isSingleChildEqual(
           Array.isArray(nextChildren) ? nextChildren[0] : nextChildren,
           Array.isArray(prevChildren) ? prevChildren[0] : prevChildren,
@@ -1779,7 +1779,7 @@
           if (!isChildrenEqual(nextChild, prevChild)) {
             return false;
           }
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
+          
         } else if (!isSingleChildEqual(nextChild, prevChild)) {
           return false;
         }
@@ -1917,7 +1917,7 @@
       return target;
     }
     var Layer =
-      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].forwardRef(function (props, ref) {
         var children = props.children,
@@ -1927,7 +1927,7 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ])("recharts-layer", className);
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "g",
@@ -2217,8 +2217,8 @@
           measurementSpan.setAttribute("aria-hidden", "true");
           document.body.appendChild(measurementSpan);
         }
-        // Need to use CSS Object Model (CSSOM) to be able to comply with Content Security Policy (CSP)
-        // https://en.wikipedia.org/wiki/Content_Security_Policy
+        
+        
         var measurementSpanStyle = _objectSpread(
           _objectSpread({}, SPAN_STYLE),
           copyStyle,
@@ -2414,7 +2414,7 @@
     function convertToPx(value, unit) {
       return value * CONVERSION_RATES[unit];
     }
-    var DecimalCSS = /*#__PURE__*/ (function () {
+    var DecimalCSS =  (function () {
       function DecimalCSS(num, unit) {
         _classCallCheck(this, DecimalCSS);
         this.num = num;
@@ -2600,13 +2600,13 @@
       try {
         return evaluateExpression(expression);
       } catch (e) {
-        /* istanbul ignore next */ return STR_NAN;
+         return STR_NAN;
       }
     }
     function reduceCSSCalc(expression) {
       var result = safeEvaluateExpression(expression.slice(5, -1));
       if (result === STR_NAN) {
-        // notify the user
+        
         return "";
       }
       return result;
@@ -2840,11 +2840,11 @@
               scaleToFit ||
               currentLine.width + width + spaceWidth < Number(lineWidth))
           ) {
-            // Word can be added to an existing line
+            
             currentLine.words.push(word);
             currentLine.width += width + spaceWidth;
           } else {
-            // Add first word to line or word is too long to scaleToFit on existing line
+            
             var newLine = {
               words: [word],
               width: width,
@@ -2903,8 +2903,8 @@
         }
         iterations++;
       }
-      // Fallback to originalResult (result without trimming) if we cannot find the
-      // where to trim.  This should not happen :tm:
+      
+      
       return trimmedResult || originalResult;
     };
     var getWordsWithoutCalculate = function getWordsWithoutCalculate(children) {
@@ -2927,7 +2927,7 @@
         style = _ref4.style,
         breakAll = _ref4.breakAll,
         maxLines = _ref4.maxLines;
-      // Only perform calculations if using features that require them (multiline, scaleToFit)
+      
       if (
         (width || scaleToFit) &&
         !__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$Global$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3096,7 +3096,7 @@
       if (transforms.length) {
         textProps.transform = transforms.join(" ");
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "text",
@@ -3120,8 +3120,8 @@
         wordsByLines.map(function (line, index) {
           var words = line.words.join(breakAll ? "" : " ");
           return (
-            /*#__PURE__*/ // duplicate words will cause duplicate keys
-            // eslint-disable-next-line react/no-array-index-key
+             
+            
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
@@ -3144,12 +3144,12 @@
 
     __turbopack_context__.s(["ErrorBar", () => ErrorBar]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
-    /**
-     * @fileOverview Render a group of error bar
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -3429,7 +3429,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var ErrorBar = /*#__PURE__*/ (function (_React$Component) {
+    var ErrorBar =  (function (_React$Component) {
       function ErrorBar() {
         _classCallCheck(this, ErrorBar);
         return _callSuper(this, ErrorBar, arguments);
@@ -3483,28 +3483,28 @@
                 lowBound = highBound = errorVal;
               }
               if (layout === "vertical") {
-                // error bar for horizontal charts, the y is fixed, x is a range value
+                
                 var scale = xAxis.scale;
                 var yMid = y + offset;
                 var yMin = yMid + width;
                 var yMax = yMid - width;
                 var xMin = scale(value - lowBound);
                 var xMax = scale(value + highBound);
-                // the right line of |--|
+                
                 lineCoordinates.push({
                   x1: xMax,
                   y1: yMin,
                   x2: xMax,
                   y2: yMax,
                 });
-                // the middle line of |--|
+                
                 lineCoordinates.push({
                   x1: xMin,
                   y1: yMid,
                   x2: xMax,
                   y2: yMid,
                 });
-                // the left line of |--|
+                
                 lineCoordinates.push({
                   x1: xMin,
                   y1: yMin,
@@ -3512,28 +3512,28 @@
                   y2: yMax,
                 });
               } else if (layout === "horizontal") {
-                // error bar for horizontal charts, the x is fixed, y is a range value
+                
                 var _scale = yAxis.scale;
                 var xMid = x + offset;
                 var _xMin = xMid - width;
                 var _xMax = xMid + width;
                 var _yMin = _scale(value - lowBound);
                 var _yMax = _scale(value + highBound);
-                // the top line
+                
                 lineCoordinates.push({
                   x1: _xMin,
                   y1: _yMax,
                   x2: _xMax,
                   y2: _yMax,
                 });
-                // the middle line
+                
                 lineCoordinates.push({
                   x1: xMid,
                   y1: _yMin,
                   x2: xMid,
                   y2: _yMax,
                 });
-                // the bottom line
+                
                 lineCoordinates.push({
                   x1: _xMin,
                   y1: _yMin,
@@ -3541,7 +3541,7 @@
                   y2: _yMin,
                 });
               }
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3563,7 +3563,7 @@
                   svgProps,
                 ),
                 lineCoordinates.map(function (coordinates) {
-                  return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     "line",
@@ -3578,7 +3578,7 @@
                 }),
               );
             });
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3610,9 +3610,9 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /* eslint no-console: 0 */ __turbopack_context__.s(["warn", () => warn]);
+     __turbopack_context__.s(["warn", () => warn]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var isDev =
@@ -3654,9 +3654,9 @@
     "use strict";
 
     __turbopack_context__.s(["Surface", () => Surface]);
-    /**
-     * @fileOverview Surface
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -3731,7 +3731,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ])("recharts-surface", className);
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "svg",
@@ -3753,10 +3753,10 @@
               .concat(svgView.height),
           },
         ),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("title", null, title),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("desc", null, desc),
         children,
@@ -3768,9 +3768,9 @@
     "use strict";
 
     __turbopack_context__.s(["Symbols", () => Symbols]);
-    /**
-     * @fileOverview Curve
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -4035,10 +4035,10 @@
           sizeType: sizeType,
         },
       );
-      /**
-       * Calculate the path of curve
-       * @return {String} path
-       */ var getPath = function getPath() {
+      
+
+
+ var getPath = function getPath() {
         var symbolFactory = getSymbolFactory(type);
         var symbol = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$symbol$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__symbol$3e$__[
@@ -4056,7 +4056,7 @@
         "filterProps"
       ])(props, true);
       if (cx === +cx && cy === +cy && size === +size) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "path",
@@ -4082,9 +4082,9 @@
       "DefaultLegendContent",
       () => DefaultLegendContent,
     ]);
-    /**
-     * @fileOverview Default Legend Content
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -4297,7 +4297,7 @@
       return ("string" === r ? String : Number)(t);
     }
     var SIZE = 32;
-    var DefaultLegendContent = /*#__PURE__*/ (function (_PureComponent) {
+    var DefaultLegendContent =  (function (_PureComponent) {
       function DefaultLegendContent() {
         _classCallCheck(this, DefaultLegendContent);
         return _callSuper(this, DefaultLegendContent, arguments);
@@ -4306,18 +4306,18 @@
       return _createClass(DefaultLegendContent, [
         {
           key: "renderIcon",
-          value: /**
-           * Render the path of icon
-           * @param {Object} data Data of each legend item
-           * @return {String} Path element
-           */ function renderIcon(data) {
+          value: 
+
+
+
+ function renderIcon(data) {
             var inactiveColor = this.props.inactiveColor;
             var halfSize = SIZE / 2;
             var sixthSize = SIZE / 6;
             var thirdSize = SIZE / 3;
             var color = data.inactive ? inactiveColor : data.color;
             if (data.type === "plainline") {
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("line", {
                 strokeWidth: 4,
@@ -4332,7 +4332,7 @@
               });
             }
             if (data.type === "line") {
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("path", {
                 strokeWidth: 4,
@@ -4356,7 +4356,7 @@
               });
             }
             if (data.type === "rect") {
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("path", {
                 stroke: "none",
@@ -4370,17 +4370,17 @@
               });
             }
             if (
-              /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].isValidElement(data.legendIcon)
             ) {
               var iconProps = _objectSpread({}, data);
               delete iconProps.legendIcon;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].cloneElement(data.legendIcon, iconProps);
             }
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Symbols$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4443,7 +4443,7 @@
               if (entry.type === "none") {
                 return null;
               }
-              // Do not render entry.value as functions. Always require static string properties.
+              
               var entryValue = !(0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isFunction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
@@ -4458,10 +4458,10 @@
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isFunction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ])(entry.value),
-                'The name property is also required when using a function for the dataKey of a chart\'s cartesian components. Ex: <Bar name="Name of my Data"/>', // eslint-disable-line max-len
+                'The name property is also required when using a function for the dataKey of a chart\'s cartesian components. Ex: <Bar name="Name of my Data"/>', 
               );
               var color = entry.inactive ? inactiveColor : entry.color;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "li",
@@ -4476,7 +4476,7 @@
                     "adaptEventsOfChild"
                   ])(_this.props, entry, i),
                 ),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Surface$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4490,7 +4490,7 @@
                   },
                   _this.renderIcon(entry),
                 ),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "span",
@@ -4523,7 +4523,7 @@
               margin: 0,
               textAlign: layout === "horizontal" ? align : "left",
             };
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               "ul",
@@ -4589,9 +4589,9 @@
     "use strict";
 
     __turbopack_context__.s(["Legend", () => Legend]);
-    /**
-     * @fileOverview Legend
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -4818,22 +4818,22 @@
     }
     function renderContent(content, props) {
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(content)
       ) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].cloneElement(content, props);
       }
       if (typeof content === "function") {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(content, props);
       }
       var ref = props.ref,
         otherProps = _objectWithoutProperties(props, _excluded);
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$DefaultLegendContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4843,7 +4843,7 @@
       );
     }
     var EPS = 1;
-    var Legend = /*#__PURE__*/ (function (_PureComponent) {
+    var Legend =  (function (_PureComponent) {
       function Legend() {
         var _this;
         _classCallCheck(this, Legend);
@@ -5010,7 +5010,7 @@
                 ),
                 wrapperStyle,
               );
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "div",
@@ -5247,7 +5247,7 @@
               "getMainColorOfGraphicItem"
             ])(item),
             value: name || dataKey,
-            // @ts-expect-error property strokeDasharray is required in Payload but optional in props
+            
             payload: itemProps,
           };
         });
@@ -5441,8 +5441,8 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/util/ReactUtils.js [app-client] (ecmascript)",
       );
-    // TODO: Cause of circular dependency. Needs refactor.
-    // import { RadiusAxisProps, AngleAxisProps } from '../polar/types';
+    
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$getLegendProps$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/util/getLegendProps.js [app-client] (ecmascript)",
@@ -5607,7 +5607,7 @@
         return getValueByDataKey(entry, key);
       });
       if (type === "number") {
-        // @ts-expect-error parseFloat type only accepts strings
+        
         var domain = flattenData.filter(function (entry) {
           return (
             (0,
@@ -5637,7 +5637,7 @@
             ])(entry);
           })
         : flattenData;
-      // Supports x-axis of Date type
+      
       return validateData.map(function (entry) {
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -5662,7 +5662,7 @@
           null && _ticks$length !== void 0
           ? _ticks$length
           : 0;
-      // if there are 1 or less ticks ticks then the active tick is at index 0
+      
       if (len <= 1) {
         return 0;
       }
@@ -5672,7 +5672,7 @@
         Math.abs(Math.abs(axis.range[1] - axis.range[0]) - 360) <= 1e-6
       ) {
         var range = axis.range;
-        // ticks are distributed in a circle
+        
         for (var i = 0; i < len; i++) {
           var before =
             i > 0
@@ -5739,7 +5739,7 @@
           }
         }
       } else {
-        // ticks are distributed in a single direction
+        
         for (var _i = 0; _i < len; _i++) {
           if (
             (_i === 0 &&
@@ -5765,7 +5765,7 @@
     var getMainColorOfGraphicItem = function getMainColorOfGraphicItem(item) {
       var _item$type;
       var _ref = item,
-        displayName = _ref.type.displayName; // TODO: check if displayName is valid.
+        displayName = _ref.type.displayName; 
       var defaultedProps =
         (_item$type = item.type) !== null &&
         _item$type !== void 0 &&
@@ -5867,11 +5867,11 @@
       ])(barGap, bandSize, 0, true);
       var result;
       var initialValue = [];
-      // whether or not is barSize setted by user
+      
       if (sizeList[0].barSize === +sizeList[0].barSize) {
         var useFull = false;
         var fullBarSize = bandSize / len;
-        // @ts-expect-error the type check above does not check for type number explicitly
+        
         var sum = sizeList.reduce(function (res, entry) {
           return res + entry.barSize || 0;
         }, 0);
@@ -5895,7 +5895,7 @@
             item: entry.item,
             position: {
               offset: prev.offset + prev.size + realBarGap,
-              // @ts-expect-error the type check above does not check for type number explicitly
+              
               size: useFull ? fullBarSize : entry.barSize,
             },
           };
@@ -6169,10 +6169,10 @@
         return getDomainOfDataByKey(data, dataKey, type, filterNil);
       });
       if (type === "number") {
-        // Calculate the domain of number axis
+        
         return domains.reduce(
-          // @ts-expect-error if (type === number) means that the domain is numerical type
-          // - but this link is missing in the type definition
+          
+          
           function (result, entry) {
             return [
               Math.min(result[0], entry[0]),
@@ -6183,14 +6183,14 @@
         );
       }
       var tag = {};
-      // Get the union set of category axis
+      
       return domains.reduce(function (result, entry) {
         for (var i = 0, len = entry.length; i < len; i++) {
-          // @ts-expect-error Date cannot index an object
+          
           if (!tag[entry[i]]) {
-            // @ts-expect-error Date cannot index an object
+            
             tag[entry[i]] = true;
-            // @ts-expect-error Date cannot index an object
+            
             result.push(entry[i]);
           }
         }
@@ -6256,15 +6256,15 @@
             2 *
             offset
           : offset;
-      // The ticks set by user should only affect the ticks adjacent to axis line
+      
       if (isGrid && (axis.ticks || axis.niceTicks)) {
         var result = (axis.ticks || axis.niceTicks).map(function (entry) {
           var scaleContent = duplicateDomain
             ? duplicateDomain.indexOf(entry)
             : entry;
           return {
-            // If the scaleContent is not a number, the coordinate will be NaN.
-            // That could be the case for example with a PointScale and a string as domain.
+            
+            
             coordinate: scale(scaleContent) + offset,
             value: entry,
             offset: offset,
@@ -6277,7 +6277,7 @@
           ])(row.coordinate);
         });
       }
-      // When axis is a categorial axis, but the type of axis is number or the scale of axis is not "auto"
+      
       if (axis.isCategorical && axis.categoricalDomain) {
         return axis.categoricalDomain.map(function (entry, index) {
           return {
@@ -6297,7 +6297,7 @@
           };
         });
       }
-      // When axis has duplicated text, serial numbers are used to generate scale
+      
       return scale.domain().map(function (entry, index) {
         return {
           coordinate: scale(entry) + offset,
@@ -6307,12 +6307,12 @@
         };
       });
     };
-    /**
-     * combine the handlers
-     * @param  {Function} defaultHandler Internal private handler
-     * @param  {Function} childHandler Handler function specified in child component
-     * @return {Function}                The combined handler
-     */ var handlerWeakMap = new WeakMap();
+    
+
+
+
+
+ var handlerWeakMap = new WeakMap();
     var combineEventHandlers = function combineEventHandlers(
       defaultHandler,
       childHandler,
@@ -6511,7 +6511,7 @@
           ])(series[i][j][1])
             ? series[i][j][0]
             : series[i][j][1];
-          /* eslint-disable prefer-destructuring, no-param-reassign */ if (
+           if (
             value >= 0
           ) {
             series[i][j][0] = positive;
@@ -6522,7 +6522,7 @@
             series[i][j][1] = negative + value;
             negative = series[i][j][1];
           }
-          /* eslint-enable prefer-destructuring, no-param-reassign */
+          
         }
       }
     };
@@ -6540,7 +6540,7 @@
           ])(series[i][j][1])
             ? series[i][j][0]
             : series[i][j][1];
-          /* eslint-disable prefer-destructuring, no-param-reassign */ if (
+           if (
             value >= 0
           ) {
             series[i][j][0] = positive;
@@ -6550,40 +6550,40 @@
             series[i][j][0] = 0;
             series[i][j][1] = 0;
           }
-          /* eslint-enable prefer-destructuring, no-param-reassign */
+          
         }
       }
     };
-    /**
-     * Function type to compute offset for stacked data.
-     *
-     * d3-shape has something fishy going on with its types.
-     * In @definitelytyped/d3-shape, this function (the offset accessor) is typed as Series<> => void.
-     * However! When I actually open the storybook I can see that the offset accessor actually receives Array<Series<>>.
-     * The same I can see in the source code itself:
-     * https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/66042
-     * That one unfortunately has no types but we can tell it passes three-dimensional array.
-     *
-     * Which leads me to believe that definitelytyped is wrong on this one.
-     * There's open discussion on this topic without much attention:
-     * https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/66042
-     */ var STACK_OFFSET_MAP = {
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ var STACK_OFFSET_MAP = {
       sign: offsetSign,
-      // @ts-expect-error definitelytyped types are incorrect
+      
       expand:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$expand$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetExpand$3e$__[
           "stackOffsetExpand"
         ],
-      // @ts-expect-error definitelytyped types are incorrect
+      
       none: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$none$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetNone$3e$__[
         "stackOffsetNone"
       ],
-      // @ts-expect-error definitelytyped types are incorrect
+      
       silhouette:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$silhouette$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetSilhouette$3e$__[
           "stackOffsetSilhouette"
         ],
-      // @ts-expect-error definitelytyped types are incorrect
+      
       wiggle:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$wiggle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetWiggle$3e$__[
           "stackOffsetWiggle"
@@ -6598,7 +6598,7 @@
       var stack = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$stack$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stack$3e$__[
         "stack"
-      ])() // @ts-expect-error stack.keys type wants an array of strings, but we provide array of DataKeys
+      ])() 
         .keys(dataKeys)
         .value(function (d, key) {
           return +getValueByDataKey(d, key, 0);
@@ -6607,7 +6607,7 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$order$2f$none$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOrderNone$3e$__[
             "stackOrderNone"
           ],
-        ) // @ts-expect-error definitelytyped types are incorrect
+        ) 
         .offset(offsetAccessor);
       return stack(data);
     };
@@ -6622,7 +6622,7 @@
       if (!data) {
         return null;
       }
-      // reversing items to affect render order (for layering)
+      
       var items = reverseStackOrder ? _items.reverse() : _items;
       var parentStackGroupsInitialValue = {};
       var stackGroups = items.reduce(function (result, item) {
@@ -6723,7 +6723,7 @@
         originalDomain &&
         (originalDomain[0] === "auto" || originalDomain[1] === "auto")
       ) {
-        // Calculate the ticks by the number of grid when the axis is a number axis
+        
         var domain = scale.domain();
         if (!domain.length) {
           return null;
@@ -6766,8 +6766,8 @@
         index = _ref5.index,
         dataKey = _ref5.dataKey;
       if (axis.type === "category") {
-        // find coordinate of category axis by the value of category
-        // @ts-expect-error why does this use direct object access instead of getValueByDataKey?
+        
+        
         if (
           !axis.allowDuplicatedCategory &&
           axis.dataKey &&
@@ -6776,7 +6776,7 @@
             "default"
           ])(entry[axis.dataKey])
         ) {
-          // @ts-expect-error why does this use direct object access instead of getValueByDataKey?
+          
           var matchedTick = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "findEntryInArray"
@@ -6945,7 +6945,7 @@
         return dataDomain;
       }
       var domain = [];
-      /* eslint-disable prefer-destructuring */ if (
+       if (
         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isNumber"
@@ -6989,12 +6989,12 @@
       } else {
         domain[1] = dataDomain[1];
       }
-      /* eslint-enable prefer-destructuring */ return domain;
+       return domain;
     };
     var getBandSizeOfAxis = function getBandSizeOfAxis(axis, ticks, isBar) {
-      // @ts-expect-error we need to rethink scale type
+      
       if (axis && axis.scale && axis.scale.bandwidth) {
-        // @ts-expect-error we need to rethink scale type
+        
         var bandWidth = axis.scale.bandwidth();
         if (!isBar || bandWidth > 0) {
           return bandWidth;
@@ -7533,7 +7533,7 @@
     };
     var getTickClassName = function getTickClassName(tick) {
       return !(
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(tick)
@@ -7824,7 +7824,7 @@
             "uniqueId"
           ])("recharts-radial-line-")
         : labelProps.id;
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "text",
@@ -7835,19 +7835,19 @@
             "default"
           ])("recharts-radial-bar-label", className),
         }),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "defs",
           null,
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement("path", {
             id: id,
             d: path,
           }),
         ),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "textPath",
@@ -7932,12 +7932,12 @@
         y = _ref3.y,
         width = _ref3.width,
         height = _ref3.height;
-      // Define vertical offsets and position inverts based on the value being positive or negative
+      
       var verticalSign = height >= 0 ? 1 : -1;
       var verticalOffset = verticalSign * offset;
       var verticalEnd = verticalSign > 0 ? "end" : "start";
       var verticalStart = verticalSign > 0 ? "start" : "end";
-      // Define horizontal offsets and position inverts based on the value being positive or negative
+      
       var horizontalSign = width >= 0 ? 1 : -1;
       var horizontalOffset = horizontalSign * offset;
       var horizontalEnd = horizontalSign > 0 ? "end" : "start";
@@ -8200,7 +8200,7 @@
             "default"
           ])(children) &&
           !(
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "isValidElement"
             ])(content)
@@ -8213,12 +8213,12 @@
         return null;
       }
       if (
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(content)
       ) {
-        return /*#__PURE__*/ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(content, props);
@@ -8230,12 +8230,12 @@
           "default"
         ])(content)
       ) {
-        label = /*#__PURE__*/ (0,
+        label =  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "createElement"
         ])(content, props);
         if (
-          /*#__PURE__*/ (0,
+           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "isValidElement"
           ])(label)
@@ -8261,7 +8261,7 @@
       var positionAttrs = isPolarLabel
         ? getAttrsOfPolarLabel(props)
         : getAttrsOfCartesianLabel(props);
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -8397,7 +8397,7 @@
         return null;
       }
       if (label === true) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8410,7 +8410,7 @@
           "isNumOrStr"
         ])(label)
       ) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8419,13 +8419,13 @@
         });
       }
       if (
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(label)
       ) {
         if (label.type === Label) {
-          return /*#__PURE__*/ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "cloneElement"
           ])(label, {
@@ -8433,7 +8433,7 @@
             viewBox: viewBox,
           });
         }
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8447,7 +8447,7 @@
           "default"
         ])(label)
       ) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8461,7 +8461,7 @@
           "default"
         ])(label)
       ) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           Label,
@@ -8495,12 +8495,12 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "findAllByType"
       ])(children, Label).map(function (child, index) {
-        return /*#__PURE__*/ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(child, {
           viewBox: viewBox || parentViewBox,
-          // eslint-disable-next-line react/no-array-index-key
+          
           key: "label-".concat(index),
         });
       });
@@ -8520,9 +8520,9 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @fileOverview Cross
-     */ __turbopack_context__.s(["Cell", () => Cell]);
+    
+
+ __turbopack_context__.s(["Cell", () => Cell]);
     var Cell = function Cell(_props) {
       return null;
     };
@@ -8744,7 +8744,7 @@
       if (!data || !data.length) {
         return null;
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -8771,7 +8771,7 @@
             : {
                 id: "".concat(id, "-").concat(index),
               };
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Label$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -8806,7 +8806,7 @@
                           },
                         ),
                   ),
-                key: "label-".concat(index), // eslint-disable-line react/no-array-index-key
+                key: "label-".concat(index), 
                 index: index,
               },
             ),
@@ -8820,7 +8820,7 @@
         return null;
       }
       if (label === true) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(LabelList, {
           key: "labelList-implicit",
@@ -8828,7 +8828,7 @@
         });
       }
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(label) ||
         (0,
@@ -8836,7 +8836,7 @@
           "default"
         ])(label)
       ) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(LabelList, {
           key: "labelList-implicit",
@@ -8850,7 +8850,7 @@
           "default"
         ])(label)
       ) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           LabelList,
@@ -8883,12 +8883,12 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "findAllByType"
       ])(children, LabelList).map(function (child, index) {
-        return /*#__PURE__*/ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(child, {
           data: data,
-          // eslint-disable-next-line react/no-array-index-key
+          
           key: "labelList-".concat(index),
         });
       });
@@ -8910,9 +8910,9 @@
       "isInRectangle",
       () => isInRectangle,
     ]);
-    /**
-     * @fileOverview Rectangle
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -9208,9 +9208,9 @@
       y: 0,
       width: 0,
       height: 0,
-      // The radius of border
-      // The radius of four corners when radius is a number
-      // The radius of left-top, right-top, right-bottom, left-bottom when radius is an array
+      
+      
+      
       radius: 0,
       isAnimationActive: false,
       isUpdateAnimationActive: false,
@@ -9247,7 +9247,7 @@
                   setTotalLength(pathTotalLength);
                 }
               } catch (err) {
-                // calculate total length error
+                
               }
             }
           },
@@ -9280,7 +9280,7 @@
         "default"
       ])("recharts-rectangle", className);
       if (!isUpdateAnimationActive) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "path",
@@ -9297,7 +9297,7 @@
           ),
         );
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9326,7 +9326,7 @@
             currHeight = _ref.height,
             currX = _ref.x,
             currY = _ref.y;
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9342,7 +9342,7 @@
               isActive: isAnimationActive,
               easing: animationEasing,
             },
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               "path",
@@ -9375,9 +9375,9 @@
     "use strict";
 
     __turbopack_context__.s(["Trapezoid", () => Trapezoid]);
-    /**
-     * @fileOverview Rectangle
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -9611,7 +9611,7 @@
                   setTotalLength(pathTotalLength);
                 }
               } catch (err) {
-                // calculate total length error
+                
               }
             }
           },
@@ -9644,12 +9644,12 @@
         "default"
       ])("recharts-trapezoid", className);
       if (!isUpdateAnimationActive) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "g",
           null,
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "path",
@@ -9667,7 +9667,7 @@
           ),
         );
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9699,7 +9699,7 @@
             currHeight = _ref.height,
             currX = _ref.x,
             currY = _ref.y;
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9714,7 +9714,7 @@
               duration: animationDuration,
               easing: animationEasing,
             },
-            /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               "path",
@@ -9747,9 +9747,9 @@
     "use strict";
 
     __turbopack_context__.s(["Sector", () => Sector]);
-    /**
-     * @fileOverview Sector
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -9881,12 +9881,12 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "polarToCartesian"
       ])(cx, cy, centerRadius, centerAngle);
-      // The coordinate of point which is tangent to the circle
+      
       var circleTangency = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "polarToCartesian"
       ])(cx, cy, radius, centerAngle);
-      // The coordinate of point which is tangent to the radius line
+      
       var lineTangencyAngle = cornerIsExternal ? angle - sign * theta : angle;
       var lineTangency = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -9918,7 +9918,7 @@
         startAngle = _ref2.startAngle,
         endAngle = _ref2.endAngle;
       var angle = getDeltaAngle(startAngle, endAngle);
-      // When the angle of sector equals to 360, star point and end point coincide
+      
       var tempEndAngle = startAngle + angle;
       var outerStartPoint = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10156,7 +10156,7 @@
           endAngle: endAngle,
         });
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "path",
@@ -10351,19 +10351,19 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    /**
-     * This is an abstraction for rendering a user defined prop for a customized shape in several forms.
-     *
-     * <Shape /> is the root and will handle taking in:
-     *  - an object of svg properties
-     *  - a boolean
-     *  - a render prop(inline function that returns jsx)
-     *  - a react element
-     *
-     * <ShapeSelector /> is a subcomponent of <Shape /> and used to match a component
-     * to the value of props.shapeType that is passed to the root.
-     *
-     */ function defaultPropTransformer(option, props) {
+    
+
+
+
+
+
+
+
+
+
+
+
+ function defaultPropTransformer(option, props) {
       return _objectSpread(_objectSpread({}, props), option);
     }
     function isSymbolsProps(shapeType, _elementProps) {
@@ -10374,7 +10374,7 @@
         elementProps = _ref.elementProps;
       switch (shapeType) {
         case "rectangle":
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Rectangle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10383,7 +10383,7 @@
             elementProps,
           );
         case "trapezoid":
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Trapezoid$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10392,7 +10392,7 @@
             elementProps,
           );
         case "sector":
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Sector$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10402,7 +10402,7 @@
           );
         case "symbols":
           if (isSymbolsProps(shapeType, elementProps)) {
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Symbols$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10418,7 +10418,7 @@
     }
     function getPropsFromShapeOption(option) {
       if (
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(option)
@@ -10444,12 +10444,12 @@
         props = _objectWithoutProperties(_ref2, _excluded);
       var shape;
       if (
-        /*#__PURE__*/ (0,
+         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(option)
       ) {
-        shape = /*#__PURE__*/ (0,
+        shape =  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(
@@ -10478,7 +10478,7 @@
       ) {
         var nextProps = propTransformer(option, props);
         shape =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(ShapeSelector, {
             shapeType: shapeType,
@@ -10487,7 +10487,7 @@
       } else {
         var elementProps = props;
         shape =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(ShapeSelector, {
             shapeType: shapeType,
@@ -10495,7 +10495,7 @@
           });
       }
       if (isActive) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10620,14 +10620,14 @@
             return comparison(shapeData, activeTooltipItem);
           },
         );
-        // get the last index in case of multiple matches
+        
         var indexOfMouseCoordinates = graphicalItem.props[shapeKey].indexOf(
           mouseCoordinateMatches[mouseCoordinateMatches.length - 1],
         );
         var coordinatesMatch = dataIndex === indexOfMouseCoordinates;
         return valuesMatch && coordinatesMatch;
       });
-      // get the last index in case of multiple matches
+      
       var activeIndex = itemData.indexOf(
         activeItemMatches[activeItemMatches.length - 1],
       );
@@ -10645,7 +10645,7 @@
       () => minPointSizeCallback,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -10776,11 +10776,11 @@
       }
       return target;
     }
-    // Rectangle props is expecting x, y, height, width as numbers, name as a string, and radius as a custom type
-    // When props are being spread in from a user defined component in Bar,
-    // the prop types of an SVGElement have these typed as something else.
-    // This function will return the passed in props
-    // along with x, y, height as numbers, name as a string, and radius as number | [number, number, number, number]
+    
+    
+    
+    
+    
     function typeguardBarRectangleProps(_ref, props) {
       var xProp = _ref.x,
         yProp = _ref.y,
@@ -10819,7 +10819,7 @@
       );
     }
     function BarRectangle(props) {
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ActiveShapeUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10875,9 +10875,9 @@
     "use strict";
 
     __turbopack_context__.s(["Bar", () => Bar]);
-    /**
-     * @fileOverview Render a group of bar
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -11150,7 +11150,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var Bar = /*#__PURE__*/ (function (_PureComponent) {
+    var Bar =  (function (_PureComponent) {
       function Bar() {
         var _this;
         _classCallCheck(this, Bar);
@@ -11227,7 +11227,7 @@
                       onAnimationEnd: _this2.handleAnimationEnd,
                     },
                   );
-                  return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11242,8 +11242,8 @@
                         "adaptEventsOfChild"
                       ])(_this2.props, entry, i),
                       {
-                        // https://github.com/recharts/recharts/issues/5415
-                        // eslint-disable-next-line react/no-array-index-key
+                        
+                        
                         key: "rectangle-"
                           .concat(
                             entry === null || entry === void 0
@@ -11266,7 +11266,7 @@
                           .concat(i),
                       },
                     ),
-                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$BarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11292,7 +11292,7 @@
                 animationEasing = _this$props2.animationEasing,
                 animationId = _this$props2.animationId;
               var prevData = this.state.prevData;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -11373,7 +11373,7 @@
                       },
                     );
                   });
-                  return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11454,7 +11454,7 @@
                     className: "recharts-bar-background-rectangle",
                   },
                 );
-                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$BarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11505,10 +11505,10 @@
                 dataPoint,
                 dataKey,
               ) {
-                /**
-                 * if the value coming from `getComposedData` is an array then this is a stacked bar chart.
-                 * arr[1] represents end value of the bar since the data is in the form of [startValue, endValue].
-                 * */ var value = Array.isArray(dataPoint.value)
+                
+
+
+ var value = Array.isArray(dataPoint.value)
                   ? dataPoint.value[1]
                   : dataPoint.value;
                 return {
@@ -11526,7 +11526,7 @@
                   ? "url(#clipPath-".concat(clipPathId, ")")
                   : null,
               };
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11534,7 +11534,7 @@
                 ],
                 errorBarProps,
                 errorBarItems.map(function (item) {
-                  return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].cloneElement(item, {
                     key: "error-bar-"
@@ -11584,7 +11584,7 @@
               ])(id)
                 ? this.id
                 : id;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11594,19 +11594,19 @@
                   className: layerClass,
                 },
                 needClipX || needClipY
-                  ? /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "defs",
                       null,
-                      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "default"
                       ].createElement(
                         "clipPath",
                         {
                           id: "clipPath-".concat(clipPathId),
                         },
-                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "default"
                         ].createElement("rect", {
                           x: needClipX ? left : left - width / 2,
@@ -11617,7 +11617,7 @@
                       ),
                     )
                   : null,
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11686,16 +11686,16 @@
       animationDuration: 400,
       animationEasing: "ease",
     });
-    /**
-     * Compose the data of each group
-     * @param {Object} props Props for the component
-     * @param {Object} item        An instance of Bar
-     * @param {Array} barPosition  The offset and size of each bar
-     * @param {Object} xAxis       The configuration of x-axis
-     * @param {Object} yAxis       The configuration of y-axis
-     * @param {Array} stackedData  The stacked data of a bar item
-     * @return{Array} Composed data
-     */ _defineProperty(Bar, "getComposedData", function (_ref2) {
+    
+
+
+
+
+
+
+
+
+ _defineProperty(Bar, "getComposedData", function (_ref2) {
       var props = _ref2.props,
         item = _ref2.item,
         barPosition = _ref2.barPosition,
@@ -12230,7 +12230,7 @@
         },
       );
     };
-    var ScaleHelper = /*#__PURE__*/ (function () {
+    var ScaleHelper =  (function () {
       function ScaleHelper(scale) {
         _classCallCheck(this, ScaleHelper);
         this.scale = scale;
@@ -12376,11 +12376,11 @@
         height = _ref6.height;
       var angle =
         arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      // Ensure angle is >= 0 && < 180
+      
       var normalizedAngle = normalizeAngle(angle);
       var angleRadians = (normalizedAngle * Math.PI) / 180;
-      /* Depending on the height and width of the rectangle, we may need to use different formulas to calculate the angled
-       * width. This threshold defines when each formula should kick in. */ var angleThreshold =
+      
+ var angleThreshold =
         Math.atan(height / width);
       var angledWidth =
         angleRadians > angleThreshold && angleRadians < Math.PI - angleThreshold
@@ -12393,15 +12393,15 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * Given an array and a number N, return a new array which contains every nTh
-     * element of the input array. For n below 1, an empty array is returned.
-     * If isValid is provided, all candidates must suffice the condition, else undefined is returned.
-     * @param {T[]} array An input array.
-     * @param {integer} n A number
-     * @param {Function} isValid A function to evaluate a candidate form the array
-     * @returns {T[]} The result array of the same type as the input array.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+
+
+
+ __turbopack_context__.s([
       "getEveryNthWithCondition",
       () => getEveryNthWithCondition,
     ]);
@@ -12473,8 +12473,8 @@
       };
     }
     function isVisible(sign, tickPosition, getSize, start, end) {
-      /* Since getSize() is expensive (it reads the ticks' size from the DOM), we do this check first to avoid calculating
-       * the tick's size. */ if (
+      
+ if (
         sign * tickPosition < sign * start ||
         sign * tickPosition > sign * end
       ) {
@@ -12517,16 +12517,16 @@
       var initialStart = boundaries.start,
         end = boundaries.end;
       var index = 0;
-      // Premature optimisation idea 1: Estimate a lower bound, and start from there.
-      // For now, start from every tick
+      
+      
       var stepsize = 1;
       var start = initialStart;
       var _loop = function _loop() {
-          // Given stepsize, evaluate whether every stepsize-th tick can be shown.
-          // If it can not, then increase the stepsize by 1, and try again.
+          
+          
           var entry =
             ticks === null || ticks === void 0 ? void 0 : ticks[index];
-          // Break condition - If we have evaluate all the ticks, then we are done.
+          
           if (entry === undefined) {
             return {
               v: (0,
@@ -12535,7 +12535,7 @@
               ])(ticks, stepsize),
             };
           }
-          // Check if the element collides with the next element
+          
           var i = index;
           var size;
           var getSize = function getSize() {
@@ -12545,7 +12545,7 @@
             return size;
           };
           var tickCoord = entry.coordinate;
-          // We will always show the first tick.
+          
           var isShow =
             index === 0 ||
             (0,
@@ -12553,13 +12553,13 @@
               "isVisible"
             ])(sign, tickCoord, getSize, start, end);
           if (!isShow) {
-            // Start all over with a larger stepsize
+            
             index = 0;
             start = initialStart;
             stepsize += 1;
           }
           if (isShow) {
-            // If it can be shown, update the start
+            
             start = tickCoord + sign * (getSize() / 2 + minTickGap);
             index += stepsize;
           }
@@ -12745,7 +12745,7 @@
       var start = boundaries.start,
         end = boundaries.end;
       if (preserveEnd) {
-        // Try to guarantee the tail to be displayed
+        
         var tail = ticks[len - 1];
         var tailSize = getTickSize(tail, len - 1);
         var tailGap = sign * (tail.coordinate + (sign * tailSize) / 2 - end);
@@ -12888,7 +12888,7 @@
         ])(tickFormatter)
           ? tickFormatter(content.value, index)
           : content.value;
-        // Recharts only supports angles when sizeKey === 'width'
+        
         return sizeKey === "width"
           ? (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$TickUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -12957,9 +12957,9 @@
     "use strict";
 
     __turbopack_context__.s(["CartesianAxis", () => CartesianAxis]);
-    /**
-     * @fileOverview Cartesian Axis
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -13221,7 +13221,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var CartesianAxis = /*#__PURE__*/ (function (_Component) {
+    var CartesianAxis =  (function (_Component) {
       function CartesianAxis(props) {
         var _this;
         _classCallCheck(this, CartesianAxis);
@@ -13241,8 +13241,8 @@
             value: function shouldComponentUpdate(_ref, nextState) {
               var viewBox = _ref.viewBox,
                 restProps = _objectWithoutProperties(_ref, _excluded);
-              // props.viewBox is sometimes generated every time -
-              // check that specially as object equality is likely to fail
+              
+              
               var _this$props = this.props,
                 viewBoxOld = _this$props.viewBox,
                 restPropsOld = _objectWithoutProperties(
@@ -13450,7 +13450,7 @@
                   },
                 );
               }
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "line",
@@ -13471,13 +13471,13 @@
           },
           {
             key: "renderTicks",
-            value: /**
-             * render the ticks
-             * @param {Array} ticks The ticks to actually render (overrides what was passed in props)
-             * @param {string} fontSize Fontsize to consider for tick spacing
-             * @param {string} letterSpacing Letterspacing to consider for tick spacing
-             * @return {ReactComponent} renderedTicks
-             */ function renderTicks(ticks, fontSize, letterSpacing) {
+            value: 
+
+
+
+
+
+ function renderTicks(ticks, fontSize, letterSpacing) {
               var _this2 = this;
               var _this$props6 = this.props,
                 tickLine = _this$props6.tickLine,
@@ -13551,7 +13551,7 @@
                     tickFormatter: tickFormatter,
                   },
                 );
-                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13571,7 +13571,7 @@
                     ])(_this2.props, entry, i),
                   ),
                   tickLine &&
-                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "line",
@@ -13605,7 +13605,7 @@
                     ),
                 );
               });
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "g",
@@ -13656,7 +13656,7 @@
               ) {
                 return null;
               }
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13694,12 +13694,12 @@
                 "default"
               ])(props.className, "recharts-cartesian-axis-tick-value");
               if (
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].isValidElement(option)
               ) {
                 tickItem =
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].cloneElement(
                     option,
@@ -13728,7 +13728,7 @@
                 );
               } else {
                 tickItem =
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13762,9 +13762,9 @@
         width: 0,
         height: 0,
       },
-      // The orientation of axis
+      
       orientation: "bottom",
-      // The ticks
+      
       ticks: [],
       stroke: "#666",
       tickLine: true,
@@ -13772,7 +13772,7 @@
       tick: true,
       mirror: false,
       minTickGap: 5,
-      // The width or height of tick
+      
       tickSize: 6,
       tickMargin: 2,
       interval: "preserveEnd",
@@ -13783,9 +13783,9 @@
     "use strict";
 
     __turbopack_context__.s(["XAxis", () => XAxis]);
-    /**
-     * @fileOverview X Axis
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -13958,7 +13958,7 @@
         : "TURBOPACK unreachable";
       return _extends.apply(this, arguments);
     }
-    /** Define of XAxis props */ function XAxisImpl(_ref) {
+     function XAxisImpl(_ref) {
       var xAxisId = _ref.xAxisId;
       var width = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13976,7 +13976,7 @@
         return null;
       }
       return (
-        /*#__PURE__*/ // @ts-expect-error the axisOptions type is not exactly what CartesianAxis is expecting.
+         
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "createElement"
         ](
@@ -14009,7 +14009,7 @@
         )
       );
     }
-    var XAxis = /*#__PURE__*/ (function (_React$Component) {
+    var XAxis =  (function (_React$Component) {
       function XAxis() {
         _classCallCheck(this, XAxis);
         return _callSuper(this, XAxis, arguments);
@@ -14019,7 +14019,7 @@
         {
           key: "render",
           value: function render() {
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "createElement"
             ](XAxisImpl, this.props);
           },
@@ -14056,9 +14056,9 @@
     "use strict";
 
     __turbopack_context__.s(["YAxis", () => YAxis]);
-    /**
-     * @fileOverview Y Axis
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -14249,7 +14249,7 @@
         return null;
       }
       return (
-        /*#__PURE__*/ // @ts-expect-error the axisOptions type is not exactly what CartesianAxis is expecting.
+         
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "createElement"
         ](
@@ -14282,7 +14282,7 @@
         )
       );
     };
-    var YAxis = /*#__PURE__*/ (function (_React$Component) {
+    var YAxis =  (function (_React$Component) {
       function YAxis() {
         _classCallCheck(this, YAxis);
         return _callSuper(this, YAxis, arguments);
@@ -14292,7 +14292,7 @@
         {
           key: "render",
           value: function render() {
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "createElement"
             ](YAxisImpl, this.props);
           },
@@ -14329,9 +14329,9 @@
     "use strict";
 
     __turbopack_context__.s(["CartesianGrid", () => CartesianGrid]);
-    /**
-     * @fileOverview Cartesian Grid
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -14480,9 +14480,9 @@
       }
       return target;
     }
-    /**
-     * The <CartesianGrid horizontal
-     */ var Background = function Background(props) {
+    
+
+ var Background = function Background(props) {
       var fill = props.fill;
       if (!fill || fill === "none") {
         return null;
@@ -14493,7 +14493,7 @@
         width = props.width,
         height = props.height,
         ry = props.ry;
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement("rect", {
         x: x,
@@ -14510,13 +14510,13 @@
     function renderLineItem(option, props) {
       var lineItem;
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
-        // @ts-expect-error typescript does not see the props type when cloning an element
+        
         lineItem =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -14543,7 +14543,7 @@
             _excluded2,
           );
         lineItem =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "line",
@@ -14583,7 +14583,7 @@
         );
         return renderLineItem(horizontal, lineItemProps);
       });
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14617,7 +14617,7 @@
         );
         return renderLineItem(vertical, lineItemProps);
       });
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14640,7 +14640,7 @@
       if (!horizontal || !horizontalFill || !horizontalFill.length) {
         return null;
       }
-      // Why =y -y? I was trying to find any difference that this makes, with floating point numbers and edge cases but ... nothing.
+      
       var roundedSortedHorizontalPoints = horizontalPoints
         .map(function (e) {
           return Math.round(e + y - y);
@@ -14648,12 +14648,12 @@
         .sort(function (a, b) {
           return a - b;
         });
-      // Why is this condition `!==` instead of `<=` ?
+      
       if (y !== roundedSortedHorizontalPoints[0]) {
         roundedSortedHorizontalPoints.unshift(0);
       }
       var items = roundedSortedHorizontalPoints.map(function (entry, i) {
-        // Why do we strip only the last stripe if it is invisible, and not all invisible stripes?
+        
         var lastStripe = !roundedSortedHorizontalPoints[i + 1];
         var lineHeight = lastStripe
           ? y + height - entry
@@ -14662,10 +14662,10 @@
           return null;
         }
         var colorIndex = i % horizontalFill.length;
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("rect", {
-          key: "react-".concat(i), // eslint-disable-line react/no-array-index-key
+          key: "react-".concat(i), 
           y: entry,
           x: x,
           height: lineHeight,
@@ -14676,7 +14676,7 @@
           className: "recharts-cartesian-grid-bg",
         });
       });
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14718,10 +14718,10 @@
           return null;
         }
         var colorIndex = i % verticalFill.length;
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("rect", {
-          key: "react-".concat(i), // eslint-disable-line react/no-array-index-key
+          key: "react-".concat(i), 
           x: entry,
           y: y,
           width: lineWidth,
@@ -14732,7 +14732,7 @@
           className: "recharts-cartesian-grid-bg",
         });
       });
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14833,13 +14833,13 @@
     var defaultProps = {
       horizontal: true,
       vertical: true,
-      // The ordinates of horizontal grid lines
+      
       horizontalPoints: [],
-      // The abscissas of vertical grid lines
+      
       verticalPoints: [],
       stroke: "#ccc",
       fill: "none",
-      // The fill of colors of grid lines
+      
       verticalFill: [],
       horizontalFill: [],
     };
@@ -14927,12 +14927,12 @@
         syncWithTicks = propsIncludingDefaults.syncWithTicks,
         horizontalValues = propsIncludingDefaults.horizontalValues,
         verticalValues = propsIncludingDefaults.verticalValues;
-      // @ts-expect-error the scale prop is mixed up - we need to untagle this at some point
+      
       var xAxis = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "useArbitraryXAxis"
       ])();
-      // @ts-expect-error the scale prop is mixed up - we need to untagle this at some point
+      
       var yAxis = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "useYAxisWithFiniteDomainOrRandom"
@@ -14961,13 +14961,13 @@
       ) {
         return null;
       }
-      /*
-       * verticalCoordinatesGenerator and horizontalCoordinatesGenerator are defined
-       * outside of the propsIncludingDefaults because they were never part of the original props
-       * and they were never passed as a prop down to horizontal/vertical custom elements.
-       * If we add these two to propsIncludingDefaults then we are changing public API.
-       * Not a bad thing per se but also not necessary.
-       */ var verticalCoordinatesGenerator =
+      
+
+
+
+
+
+ var verticalCoordinatesGenerator =
         propsIncludingDefaults.verticalCoordinatesGenerator ||
         defaultVerticalCoordinatesGenerator;
       var horizontalCoordinatesGenerator =
@@ -14975,7 +14975,7 @@
         defaultHorizontalCoordinatesGenerator;
       var horizontalPoints = propsIncludingDefaults.horizontalPoints,
         verticalPoints = propsIncludingDefaults.verticalPoints;
-      // No horizontal points are specified
+      
       if (
         (!horizontalPoints || !horizontalPoints.length) &&
         (0,
@@ -15015,7 +15015,7 @@
           horizontalPoints = generatorResult;
         }
       }
-      // No vertical points are specified
+      
       if (
         (!verticalPoints || !verticalPoints.length) &&
         (0,
@@ -15055,14 +15055,14 @@
           verticalPoints = _generatorResult;
         }
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
         {
           className: "recharts-cartesian-grid",
         },
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Background, {
           fill: propsIncludingDefaults.fill,
@@ -15073,7 +15073,7 @@
           height: propsIncludingDefaults.height,
           ry: propsIncludingDefaults.ry,
         }),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           HorizontalGridLines,
@@ -15084,7 +15084,7 @@
             yAxis: yAxis,
           }),
         ),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           VerticalGridLines,
@@ -15095,7 +15095,7 @@
             yAxis: yAxis,
           }),
         ),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           HorizontalStripes,
@@ -15103,7 +15103,7 @@
             horizontalPoints: horizontalPoints,
           }),
         ),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           VerticalStripes,
@@ -15123,9 +15123,9 @@
       "DefaultTooltipContent",
       () => DefaultTooltipContent,
     ]);
-    /**
-     * @fileOverview Default Tooltip Content
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -15379,7 +15379,7 @@
               }
             }
             return (
-              /*#__PURE__*/ // eslint-disable-next-line react/no-array-index-key
+               
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
@@ -15393,7 +15393,7 @@
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "isNumOrStr"
                 ])(finalName)
-                  ? /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "span",
@@ -15407,7 +15407,7 @@
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "isNumOrStr"
                 ])(finalName)
-                  ? /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "span",
@@ -15417,7 +15417,7 @@
                       separator,
                     )
                   : null,
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "span",
@@ -15426,7 +15426,7 @@
                   },
                   finalValue,
                 ),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "span",
@@ -15438,7 +15438,7 @@
               )
             );
           });
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "ul",
@@ -15494,7 +15494,7 @@
             "aria-live": "assertive",
           }
         : {};
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "div",
@@ -15505,7 +15505,7 @@
           },
           accessibilityAttributes,
         ),
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "p",
@@ -15513,7 +15513,7 @@
             className: labelCN,
             style: finalLabelStyle,
           },
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].isValidElement(finalLabel)
             ? finalLabel
@@ -15954,7 +15954,7 @@
       return ("string" === r ? String : Number)(t);
     }
     var EPSILON = 1;
-    var TooltipBoundingBox = /*#__PURE__*/ (function (_PureComponent) {
+    var TooltipBoundingBox =  (function (_PureComponent) {
       function TooltipBoundingBox() {
         var _this;
         _classCallCheck(this, TooltipBoundingBox);
@@ -16142,8 +16142,8 @@
               wrapperStyle,
             );
             return (
-              /*#__PURE__*/ // This element allow listening to the `Escape` key.
-              // See https://github.com/recharts/recharts/pull/2925
+               
+              
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
@@ -16173,9 +16173,9 @@
     "use strict";
 
     __turbopack_context__.s(["Tooltip", () => Tooltip]);
-    /**
-     * @fileOverview Tooltip
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -16378,20 +16378,20 @@
     }
     function renderContent(content, props) {
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(content)
       ) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].cloneElement(content, props);
       }
       if (typeof content === "function") {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(content, props);
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$DefaultTooltipContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -16400,7 +16400,7 @@
         props,
       );
     }
-    var Tooltip = /*#__PURE__*/ (function (_PureComponent) {
+    var Tooltip =  (function (_PureComponent) {
       function Tooltip() {
         _classCallCheck(this, Tooltip);
         return _callSuper(this, Tooltip, arguments);
@@ -16446,7 +16446,7 @@
               );
             }
             var hasPayload = finalPayload.length > 0;
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$TooltipBoundingBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -16531,9 +16531,9 @@
     "use strict";
 
     __turbopack_context__.s(["ResponsiveContainer", () => ResponsiveContainer]);
-    /**
-     * @fileOverview Wrapper component to make charts adapt to the size of parent * DOM
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
       );
@@ -16709,7 +16709,7 @@
     function _arrayWithHoles(arr) {
       if (Array.isArray(arr)) return arr;
     }
-    var ResponsiveContainer = /*#__PURE__*/ (0,
+    var ResponsiveContainer =  (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "forwardRef"
     ])(function (_ref, ref) {
@@ -16756,7 +16756,7 @@
           "ResponsiveContainer.useImperativeHandle": function () {
             return Object.defineProperty(containerRef.current, "current", {
               get: function get() {
-                // eslint-disable-next-line no-console
+                
                 console.warn(
                   "The usage of ref.current.current is deprecated and will no longer be supported.",
                 );
@@ -16903,15 +16903,15 @@
               ? containerHeight
               : height;
             if (aspect && aspect > 0) {
-              // Preserve the desired aspect ratio
+              
               if (calculatedWidth) {
-                // Will default to using width for aspect ratio
+                
                 calculatedHeight = calculatedWidth / aspect;
               } else if (calculatedHeight) {
-                // But we should also take height into consideration
+                
                 calculatedWidth = calculatedHeight * aspect;
               }
-              // if maxHeight is set, overwrite if calculatedHeight is greater than maxHeight
+              
               if (maxHeight && calculatedHeight > maxHeight) {
                 calculatedHeight = maxHeight;
               }
@@ -16943,11 +16943,11 @@
               {
                 "ResponsiveContainer.useMemo[chartContent]": function (child) {
                   if (
-                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].isValidElement(child)
                   ) {
-                    return /*#__PURE__*/ (0,
+                    return  (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "cloneElement"
                     ])(
@@ -16990,7 +16990,7 @@
           width,
         ],
       );
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "div",
@@ -17022,9 +17022,9 @@
     "use strict";
 
     __turbopack_context__.s(["Dot", () => Dot]);
-    /**
-     * @fileOverview Dot
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -17056,7 +17056,7 @@
         "default"
       ])("recharts-dot", className);
       if (cx === +cx && cy === +cy && r === +r) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "createElement"
         ](
           "circle",
@@ -17189,9 +17189,9 @@
     "use strict";
 
     __turbopack_context__.s(["Brush", () => Brush]);
-    /**
-     * @fileOverview Brush
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -17462,7 +17462,7 @@
     var isTouch = function isTouch(e) {
       return e.changedTouches && !!e.changedTouches.length;
     };
-    var Brush = /*#__PURE__*/ (function (_PureComponent) {
+    var Brush =  (function (_PureComponent) {
       function Brush(props) {
         var _this;
         _classCallCheck(this, Brush);
@@ -17733,12 +17733,12 @@
             key: "handleTravellerMoveKeyboard",
             value: function handleTravellerMoveKeyboard(direction, id) {
               var _this2 = this;
-              // scaleValues are a list of coordinates. For example: [65, 250, 435, 620, 805, 990].
+              
               var _this$state3 = this.state,
                 scaleValues = _this$state3.scaleValues,
                 startX = _this$state3.startX,
                 endX = _this$state3.endX;
-              // currentScaleValue refers to which coordinate the current traveller should be placed at.
+              
               var currentScaleValue = this.state[id];
               var currentIndex = scaleValues.indexOf(currentScaleValue);
               if (currentIndex === -1) {
@@ -17749,7 +17749,7 @@
                 return;
               }
               var newScaleValue = scaleValues[newIndex];
-              // Prevent travellers from being on top of each other or overlapping
+              
               if (
                 (id === "startX" && newScaleValue >= endX) ||
                 (id === "endX" && newScaleValue <= startX)
@@ -17779,7 +17779,7 @@
                 height = _this$props6.height,
                 fill = _this$props6.fill,
                 stroke = _this$props6.stroke;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("rect", {
                 stroke: stroke,
@@ -17809,7 +17809,7 @@
               if (!chartElement) {
                 return null;
               }
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].cloneElement(chartElement, {
                 x: x,
@@ -17870,7 +17870,7 @@
                       ? void 0
                       : _data$endIndex.name,
                   );
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -17925,7 +17925,7 @@
                 travellerWidth = _this$props9.travellerWidth;
               var x = Math.min(startX, endX) + travellerWidth;
               var width = Math.max(Math.abs(endX - startX) - travellerWidth, 0);
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("rect", {
                 className: "recharts-brush-slide",
@@ -17964,7 +17964,7 @@
                 pointerEvents: "none",
                 fill: stroke,
               };
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -17973,7 +17973,7 @@
                 {
                   className: "recharts-brush-texts",
                 },
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -17990,7 +17990,7 @@
                   ),
                   this.getTextOfTick(startIndex),
                 ),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18065,7 +18065,7 @@
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$CssPrefixUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "generatePrefixStyle"
               ])("userSelect", "none");
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18102,14 +18102,14 @@
                 height = props.height,
                 stroke = props.stroke;
               var lineY = Math.floor(y + height / 2) - 1;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].Fragment,
                 null,
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("rect", {
                   x: x,
@@ -18119,7 +18119,7 @@
                   fill: stroke,
                   stroke: "none",
                 }),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("line", {
                   x1: x + 1,
@@ -18129,7 +18129,7 @@
                   fill: "none",
                   stroke: "#fff",
                 }),
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("line", {
                   x1: x + 1,
@@ -18147,12 +18147,12 @@
             value: function renderTraveller(option, props) {
               var rectangle;
               if (
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].isValidElement(option)
               ) {
                 rectangle =
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].cloneElement(option, props);
               } else if (
@@ -18291,9 +18291,9 @@
     "use strict";
 
     __turbopack_context__.s(["ReferenceDot", () => ReferenceDot]);
-    /**
-     * @fileOverview Reference Dot
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -18553,7 +18553,7 @@
       }
       return result;
     };
-    var ReferenceDot = /*#__PURE__*/ (function (_React$Component) {
+    var ReferenceDot =  (function (_React$Component) {
       function ReferenceDot() {
         _classCallCheck(this, ReferenceDot);
         return _callSuper(this, ReferenceDot, arguments);
@@ -18618,7 +18618,7 @@
                 cy: cy,
               },
             );
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18663,12 +18663,12 @@
     _defineProperty(ReferenceDot, "renderDot", function (option, props) {
       var dot;
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         dot =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -18680,7 +18680,7 @@
         dot = option(props);
       } else {
         dot =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Dot$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18706,9 +18706,9 @@
       "getEndPoints",
       () => getEndPoints,
     ]);
-    /**
-     * @fileOverview Reference Line
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -19014,20 +19014,20 @@
         : "TURBOPACK unreachable";
       return _extends.apply(this, arguments);
     }
-    /**
-     * This excludes `viewBox` prop from svg for two reasons:
-     * 1. The components wants viewBox of object type, and svg wants string
-     *    - so there's a conflict, and the component will throw if it gets string
-     * 2. Internally the component calls `filterProps` which filters the viewBox away anyway
-     */ var renderLine = function renderLine(option, props) {
+    
+
+
+
+
+ var renderLine = function renderLine(option, props) {
       var line;
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         line =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -19039,7 +19039,7 @@
         line = option(props);
       } else {
         line =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "line",
@@ -19238,7 +19238,7 @@
           y2: y2,
         },
       );
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -19267,7 +19267,7 @@
         ),
       );
     }
-    var ReferenceLine = /*#__PURE__*/ (function (_React$Component) {
+    var ReferenceLine =  (function (_React$Component) {
       function ReferenceLine() {
         _classCallCheck(this, ReferenceLine);
         return _callSuper(this, ReferenceLine, arguments);
@@ -19277,7 +19277,7 @@
         {
           key: "render",
           value: function render() {
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(ReferenceLineImpl, this.props);
           },
@@ -19306,9 +19306,9 @@
     "use strict";
 
     __turbopack_context__.s(["ReferenceArea", () => ReferenceArea]);
-    /**
-     * @fileOverview Reference Line
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -19589,7 +19589,7 @@
         "rectWithPoints"
       ])(p1, p2);
     };
-    var ReferenceArea = /*#__PURE__*/ (function (_React$Component) {
+    var ReferenceArea =  (function (_React$Component) {
       function ReferenceArea() {
         _classCallCheck(this, ReferenceArea);
         return _callSuper(this, ReferenceArea, arguments);
@@ -19644,7 +19644,7 @@
             ])(this.props, "hidden")
               ? "url(#".concat(clipPathId, ")")
               : undefined;
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -19698,12 +19698,12 @@
     _defineProperty(ReferenceArea, "renderRect", function (option, props) {
       var rect;
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         rect =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -19715,7 +19715,7 @@
         rect = option(props);
       } else {
         rect =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Rectangle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -20007,7 +20007,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var AccessibilityManager = /*#__PURE__*/ (function () {
+    var AccessibilityManager =  (function () {
       function AccessibilityManager() {
         _classCallCheck(this, AccessibilityManager);
         _defineProperty(this, "activeIndex", 0);
@@ -20050,7 +20050,7 @@
               mouseHandlerCallback !== null && mouseHandlerCallback !== void 0
                 ? mouseHandlerCallback
                 : this.mouseHandlerCallback;
-            // Keep activeIndex in the bounds between 0 and the last coordinate index
+            
             this.activeIndex = Math.min(
               Math.max(this.activeIndex, 0),
               this.coordinateList.length - 1,
@@ -20066,9 +20066,9 @@
         {
           key: "keyboardEvent",
           value: function keyboardEvent(e) {
-            // The AccessibilityManager relies on the Tooltip component. When tooltips suddenly stop existing,
-            // it can cause errors. We use this function to check. We don't want arrow keys to be processed
-            // if there are no tooltips, since that will cause unexpected behavior of users.
+            
+            
+            
             if (this.coordinateList.length === 0) {
               return;
             }
@@ -20111,8 +20111,8 @@
             if (this.layout !== "horizontal") {
               return;
             }
-            // This can happen when the tooltips suddenly stop existing as children of the component
-            // That update doesn't otherwise fire events, so we have to double check here.
+            
+            
             if (this.coordinateList.length === 0) {
               return;
             }
@@ -20162,10 +20162,10 @@
           domain === null || domain === void 0 ? void 0 : domain[0];
         var domainEnd =
           domain === null || domain === void 0 ? void 0 : domain[1];
-        /*
-         * The `isNumber` check is needed because the user could also provide strings like "dataMin" via the domain props.
-         * In such case, we have to compute the domain from the data.
-         */ if (
+        
+
+
+ if (
           !!domainStart &&
           !!domainEnd &&
           (0,
@@ -20188,9 +20188,9 @@
     "use strict";
 
     __turbopack_context__.s(["Curve", () => Curve, "getPath", () => getPath]);
-    /**
-     * @fileOverview Curve
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -20558,7 +20558,7 @@
         return null;
       }
       var realPath = points && points.length ? getPath(props) : path;
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "createElement"
       ](
         "path",
@@ -20589,9 +20589,9 @@
     "use strict";
 
     __turbopack_context__.s(["Cross", () => Cross]);
-    /**
-     * @fileOverview Cross
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -20782,7 +20782,7 @@
       ) {
         return null;
       }
-      return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "path",
@@ -21164,15 +21164,15 @@
           ])("recharts-tooltip-cursor", elementPropsCursor.className),
         },
       );
-      return /*#__PURE__*/ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "isValidElement"
       ])(elementPropsCursor)
-        ? /*#__PURE__*/ (0,
+        ?  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "cloneElement"
           ])(elementPropsCursor, cursorProps)
-        : /*#__PURE__*/ (0,
+        :  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "createElement"
           ])(cursorComp, cursorProps);
@@ -21191,7 +21191,7 @@
       () => getAxisMapByAxes,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -21226,7 +21226,7 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
       );
-    // eslint-disable-next-line no-restricted-imports
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$tiny$2d$invariant$2f$dist$2f$esm$2f$tiny$2d$invariant$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/tiny-invariant/dist/esm/tiny-invariant.js [app-client] (ecmascript)",
@@ -21650,18 +21650,18 @@
       x: 0,
       y: 0,
     };
-    /**
-     * This function exists as a temporary workaround.
-     *
-     * Why? generateCategoricalChart does not render `{children}` directly;
-     * instead it passes them through `renderByOrder` function which reads their handlers.
-     *
-     * So, this is a handler that does nothing.
-     * Once we get rid of `renderByOrder` and switch to JSX only, we can get rid of this handler too.
-     *
-     * @param {JSX} element as is in JSX
-     * @returns {JSX} the same element
-     */ function renderAsIs(element) {
+    
+
+
+
+
+
+
+
+
+
+
+ function renderAsIs(element) {
       return element;
     }
     var calculateTooltipPos = function calculateTooltipPos(rangeObj, layout) {
@@ -21775,14 +21775,14 @@
     function getDefaultDomainByAxisType(axisType) {
       return axisType === "number" ? [0, "auto"] : undefined;
     }
-    /**
-     * Get the content to be displayed in the tooltip
-     * @param  {Object} state          Current state
-     * @param  {Array}  chartData      The data defined in chart
-     * @param  {Number} activeIndex    Active index of data
-     * @param  {String} activeLabel    Active label of data
-     * @return {Array}                 The content of tooltip
-     */ var getTooltipContent = function getTooltipContent(
+    
+
+
+
+
+
+
+ var getTooltipContent = function getTooltipContent(
       state,
       chartData,
       activeIndex,
@@ -21799,29 +21799,29 @@
       ) {
         return null;
       }
-      // get data by activeIndex when the axis don't allow duplicated category
+      
       return graphicalItems.reduce(function (result, child) {
         var _child$props$data;
-        /**
-         * Fixes: https://github.com/recharts/recharts/issues/3669
-         * Defaulting to chartData below to fix an edge case where the tooltip does not include data from all charts
-         * when a separate dataset is passed to chart prop data and specified on Line/Area/etc prop data
-         */ var data =
+        
+
+
+
+ var data =
           (_child$props$data = child.props.data) !== null &&
           _child$props$data !== void 0
             ? _child$props$data
             : chartData;
         if (
           data &&
-          state.dataStartIndex + state.dataEndIndex !== 0 && // https://github.com/recharts/recharts/issues/4717
-          // The data is sliced only when the active index is within the start/end index range.
+          state.dataStartIndex + state.dataEndIndex !== 0 && 
+          
           state.dataEndIndex - state.dataStartIndex >= activeIndex
         ) {
           data = data.slice(state.dataStartIndex, state.dataEndIndex + 1);
         }
         var payload;
         if (tooltipAxis.dataKey && !tooltipAxis.allowDuplicatedCategory) {
-          // graphic child has data props
+          
           var entries = data === undefined ? displayedData : data;
           payload = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -21841,14 +21841,14 @@
         ]);
       }, []);
     };
-    /**
-     * Returns tooltip data based on a mouse position (as a parameter or in state)
-     * @param  {Object} state     current state
-     * @param  {Array}  chartData the data defined in chart
-     * @param  {String} layout     The layout type of chart
-     * @param  {Object} rangeObj  { x, y } coordinates
-     * @return {Object}           Tooltip data data
-     */ var getTooltipData = function getTooltipData(
+    
+
+
+
+
+
+
+ var getTooltipData = function getTooltipData(
       state,
       chartData,
       layout,
@@ -21905,7 +21905,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
         "isCategoricalAxis"
       ])(layout, axisType);
-      // Eliminate duplicated axes
+      
       return axes.reduce(function (result, child) {
         var _childProps$domain2;
         var childProps =
@@ -21943,14 +21943,14 @@
         });
         var len = displayedData.length;
         var domain, duplicateDomain, categoricalDomain;
-        /*
-         * This is a hack to short-circuit the domain creation here to enhance performance.
-         * Usually, the data is used to determine the domain, but when the user specifies
-         * a domain upfront (via props), there is no need to calculate the domain start and end,
-         * which is very expensive for a larger amount of data.
-         * The only thing that would prohibit short-circuiting is when the user doesn't allow data overflow,
-         * because the axis is supposed to ignore the specified domain that way.
-         */ if (
+        
+
+
+
+
+
+
+ if (
           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$isDomainSpecifiedByUser$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "isDomainSpecifiedByUser"
@@ -21960,19 +21960,19 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
             "parseSpecifiedDomain"
           ])(childProps.domain, null, allowDataOverflow);
-          /* The chart can be categorical and have the domain specified in numbers
-           * we still need to calculate the categorical domain
-           * TODO: refactor this more
-           */ if (isCategorical && (type === "number" || scale !== "auto")) {
+          
+
+
+ if (isCategorical && (type === "number" || scale !== "auto")) {
             categoricalDomain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
               "getDomainOfDataByKey"
             ])(displayedData, dataKey, "category");
           }
         }
-        // if the domain is defaulted we need this for `originalDomain` as well
+        
         var defaultDomain = getDefaultDomainByAxisType(type);
-        // we didn't create the domain from user's props above, so we need to calculate it
+        
         if (!domain || domain.length === 0) {
           var _childProps$domain;
           var childDomain =
@@ -21981,26 +21981,26 @@
               ? _childProps$domain
               : defaultDomain;
           if (dataKey) {
-            // has dataKey in <Axis />
+            
             domain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
               "getDomainOfDataByKey"
             ])(displayedData, dataKey, type);
             if (type === "category" && isCategorical) {
-              // the field type is category data and this axis is categorical axis
+              
               var duplicate = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "hasDuplicate"
               ])(domain);
               if (allowDuplicatedCategory && duplicate) {
                 duplicateDomain = domain;
-                // When category axis has duplicated text, serial numbers are used to generate scale
+                
                 domain = (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$range$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ])(0, len);
               } else if (!allowDuplicatedCategory) {
-                // remove duplicated category
+                
                 domain = (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
                   "parseDomainOfCategoryAxis"
@@ -22014,7 +22014,7 @@
                 }, []);
               }
             } else if (type === "category") {
-              // the field type is category data and this axis is numerical axis
+              
               if (!allowDuplicatedCategory) {
                 domain = (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -22033,7 +22033,7 @@
                     : [].concat(_toConsumableArray(finalDomain), [entry]);
                 }, []);
               } else {
-                // eliminate undefined or null or empty string
+                
                 domain = domain.filter(function (entry) {
                   return (
                     entry !== "" &&
@@ -22045,7 +22045,7 @@
                 });
               }
             } else if (type === "number") {
-              // the field type is numerical
+              
               var errorBarsDomain = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
                 "parseErrorBarsOfAxis"
@@ -22084,7 +22084,7 @@
               ])(displayedData, dataKey, "category");
             }
           } else if (isCategorical) {
-            // the axis is a categorical axis
+            
             domain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$range$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
@@ -22095,7 +22095,7 @@
             stackGroups[axisId].hasStack &&
             type === "number"
           ) {
-            // when stackOffset is 'expand', the domain may be calculated as [0, 1.000000000002]
+            
             domain =
               stackOffset === "expand"
                 ? [0, 1]
@@ -22130,7 +22130,7 @@
             );
           }
           if (type === "number") {
-            // To detect wether there is any reference lines whose props alwaysShow is true
+            
             domain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DetectReferenceElementsDomain$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "detectReferenceElementsDomain"
@@ -22178,19 +22178,19 @@
         );
       }, {});
     };
-    /**
-     * Get the configuration of axis by the options of item,
-     * this kind of axis does not display in chart
-     * @param  {Object} props         Latest props
-     * @param  {Array} graphicalItems The instances of item
-     * @param  {ReactElement} Axis    Axis Component
-     * @param  {String} axisType      The type of axis, xAxis - x-axis, yAxis - y-axis
-     * @param  {String} axisIdKey     The unique id of an axis
-     * @param  {Object} stackGroups   The items grouped by axisId and stackId
-     * @param {Number} dataStartIndex The start index of the data series when a brush is applied
-     * @param {Number} dataEndIndex   The end index of the data series when a brush is applied
-     * @return {Object}               Configuration
-     */ var getAxisMapByItems = function getAxisMapByItems(props, _ref3) {
+    
+
+
+
+
+
+
+
+
+
+
+
+ var getAxisMapByItems = function getAxisMapByItems(props, _ref3) {
       var graphicalItems = _ref3.graphicalItems,
         Axis = _ref3.Axis,
         axisType = _ref3.axisType,
@@ -22211,10 +22211,10 @@
         "isCategoricalAxis"
       ])(layout, axisType);
       var index = -1;
-      // The default type of x-axis is category axis,
-      // The default contents of x-axis is the serial numbers of data
-      // The default type of y-axis is number axis
-      // The default contents of y-axis is the domain of data
+      
+      
+      
+      
       return graphicalItems.reduce(function (result, child) {
         var childProps =
           child.type.defaultProps !== undefined
@@ -22321,17 +22321,17 @@
         return result;
       }, {});
     };
-    /**
-     * Get the configuration of all x-axis or y-axis
-     * @param  {Object} props          Latest props
-     * @param  {String} axisType       The type of axis
-     * @param  {React.ComponentType}  [AxisComp]      Axis Component
-     * @param  {Array}  graphicalItems The instances of item
-     * @param  {Object} stackGroups    The items grouped by axisId and stackId
-     * @param {Number} dataStartIndex  The start index of the data series when a brush is applied
-     * @param {Number} dataEndIndex    The end index of the data series when a brush is applied
-     * @return {Object}          Configuration
-     */ var getAxisMap = function getAxisMap(props, _ref4) {
+    
+
+
+
+
+
+
+
+
+
+ var getAxisMap = function getAxisMap(props, _ref4) {
       var _ref4$axisType = _ref4.axisType,
         axisType = _ref4$axisType === void 0 ? "xAxis" : _ref4$axisType,
         AxisComp = _ref4.AxisComp,
@@ -22341,7 +22341,7 @@
         dataEndIndex = _ref4.dataEndIndex;
       var children = props.children;
       var axisIdKey = "".concat(axisType, "Id");
-      // Get all the instance of Axis
+      
       var axes = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "findAllByType"
@@ -22464,15 +22464,15 @@
         cateAxisName: "radiusAxis",
       };
     };
-    /**
-     * Calculate the offset of main part in the svg element
-     * @param  {Object} params.props          Latest props
-     * @param  {Array}  params.graphicalItems The instances of item
-     * @param  {Object} params.xAxisMap       The configuration of x-axis
-     * @param  {Object} params.yAxisMap       The configuration of y-axis
-     * @param  {Object} prevLegendBBox        The boundary box of legend
-     * @return {Object} The offset of main part in the svg element
-     */ var calculateOffset = function calculateOffset(_ref5, prevLegendBBox) {
+    
+
+
+
+
+
+
+
+ var calculateOffset = function calculateOffset(_ref5, prevLegendBBox) {
       var props = _ref5.props,
         graphicalItems = _ref5.graphicalItems,
         _ref5$xAxisMap = _ref5.xAxisMap,
@@ -22558,7 +22558,7 @@
           ].defaultProps.height;
       }
       if (legendItem && prevLegendBBox) {
-        // @ts-expect-error margin is optional in props but required in appendOffsetOfLegend
+        
         offset = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
           "appendOffsetOfLegend"
@@ -22575,13 +22575,13 @@
         ),
         {},
         {
-          // never return negative values for height and width
+          
           width: Math.max(offsetWidth, 0),
           height: Math.max(offsetHeight, 0),
         },
       );
     };
-    // Determine the size of the axis, used for calculation of relative bar sizes
+    
     var getCartesianAxisSize = function getCartesianAxisSize(
       axisObj,
       axisName,
@@ -22592,7 +22592,7 @@
       if (axisName === "yAxis") {
         return axisObj[axisName].height;
       }
-      // This is only supported for Bar charts (i.e. charts with cartesian axes), so we should never get here
+      
       return undefined;
     };
     var generateCategoricalChart = function generateCategoricalChart(_ref6) {
@@ -22640,22 +22640,22 @@
               : item.props;
           var dataKey = itemProps.dataKey,
             childMaxBarSize = itemProps.maxBarSize;
-          // axisId of the numerical axis
+          
           var numericAxisId = itemProps["".concat(numericAxisName, "Id")];
-          // axisId of the categorical axis
+          
           var cateAxisId = itemProps["".concat(cateAxisName, "Id")];
           var axisObjInitialValue = {};
           var axisObj = axisComponents.reduce(function (result, entry) {
             var _item$type$displayNam, _item$type;
-            // map of axisId to axis for a specific axis type
+            
             var axisMap = currentState["".concat(entry.axisType, "Map")];
-            // axisId of axis we are currently computing
+            
             var id = itemProps["".concat(entry.axisType, "Id")];
-            /**
-             * tell the user in dev mode that their configuration is incorrect if we cannot find a match between
-             * axisId on the chart and axisId on the axis. zAxis does not get passed in the map for ComposedChart,
-             * leave it out of the check for now.
-             */ !((axisMap && axisMap[id]) || entry.axisType === "zAxis")
+            
+
+
+
+ !((axisMap && axisMap[id]) || entry.axisType === "zAxis")
               ? ("TURBOPACK compile-time truthy", 1)
                 ? (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$tiny$2d$invariant$2f$dist$2f$esm$2f$tiny$2d$invariant$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -22683,7 +22683,7 @@
                   )
                 : "TURBOPACK unreachable"
               : void 0;
-            // the axis we are currently formatting
+            
             var axis = axisMap[id];
             return _objectSpread(
               _objectSpread({}, result),
@@ -22730,7 +22730,7 @@
             });
           if (itemIsBar) {
             var _ref7, _getBandSizeOfAxis;
-            // If it is bar, calculate the position of bar
+            
             var maxBarSize = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isNil$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
@@ -22776,7 +22776,7 @@
               });
             }
           }
-          // @ts-expect-error we should stop reading data from ReactElements
+          
           var composedFn = item && item.type && item.type.getComposedData;
           if (composedFn) {
             formattedItems.push({
@@ -22830,20 +22830,20 @@
         });
         return formattedItems;
       };
-      /**
-       * The AxisMaps are expensive to render on large data sets
-       * so provide the ability to store them in state and only update them when necessary
-       * they are dependent upon the start and end index of
-       * the brush so it's important that this method is called _after_
-       * the state is updated with any new start/end indices
-       *
-       * @param {Object} props          The props object to be used for updating the axismaps
-       * dataStartIndex: The start index of the data series when a brush is applied
-       * dataEndIndex: The end index of the data series when a brush is applied
-       * updateId: The update id
-       * @param {Object} prevState      Prev state
-       * @return {Object} state New state to set
-       */ var updateStateOfAxisMapsOffsetAndStackGroups =
+      
+
+
+
+
+
+
+
+
+
+
+
+
+ var updateStateOfAxisMapsOffsetAndStackGroups =
         function updateStateOfAxisMapsOffsetAndStackGroups(_ref8, prevState) {
           var props = _ref8.props,
             dataStartIndex = _ref8.dataStartIndex,
@@ -22959,7 +22959,7 @@
             axisObj,
           );
         };
-      var CategoricalChartWrapper = /*#__PURE__*/ (function (_Component) {
+      var CategoricalChartWrapper =  (function (_Component) {
         function CategoricalChartWrapper(_props) {
           var _props$id, _props$throttleDelay;
           var _this;
@@ -23025,7 +23025,7 @@
           _defineProperty(_this, "handleBrushChange", function (_ref9) {
             var startIndex = _ref9.startIndex,
               endIndex = _ref9.endIndex;
-            // Only trigger changes if the extents of the brush have actually changed
+            
             if (
               startIndex !== _this.state.dataStartIndex ||
               endIndex !== _this.state.dataEndIndex
@@ -23054,11 +23054,11 @@
               });
             }
           });
-          /**
-           * The handler of mouse entering chart
-           * @param  {Object} e              Event object
-           * @return {Null}                  null
-           */ _defineProperty(_this, "handleMouseEnter", function (e) {
+          
+
+
+
+ _defineProperty(_this, "handleMouseEnter", function (e) {
             var mouse = _this.getMouseInfo(e);
             if (mouse) {
               var _nextState = _objectSpread(
@@ -23106,11 +23106,11 @@
               onMouseMove(nextState, e);
             }
           });
-          /**
-           * The handler of mouse entering a scatter
-           * @param {Object} el The active scatter
-           * @return {Object} no return
-           */ _defineProperty(_this, "handleItemMouseEnter", function (el) {
+          
+
+
+
+ _defineProperty(_this, "handleItemMouseEnter", function (el) {
             _this.setState(function () {
               return {
                 isTooltipActive: true,
@@ -23123,29 +23123,29 @@
               };
             });
           });
-          /**
-           * The handler of mouse leaving a scatter
-           * @return {Object} no return
-           */ _defineProperty(_this, "handleItemMouseLeave", function () {
+          
+
+
+ _defineProperty(_this, "handleItemMouseLeave", function () {
             _this.setState(function () {
               return {
                 isTooltipActive: false,
               };
             });
           });
-          /**
-           * The handler of mouse moving in chart
-           * @param  {React.MouseEvent} e        Event object
-           * @return {void} no return
-           */ _defineProperty(_this, "handleMouseMove", function (e) {
+          
+
+
+
+ _defineProperty(_this, "handleMouseMove", function (e) {
             e.persist();
             _this.throttleTriggeredAfterMouseMove(e);
           });
-          /**
-           * The handler if mouse leaving chart
-           * @param {Object} e Event object
-           * @return {Null} no return
-           */ _defineProperty(_this, "handleMouseLeave", function (e) {
+          
+
+
+
+ _defineProperty(_this, "handleMouseLeave", function (e) {
             _this.throttleTriggeredAfterMouseMove.cancel();
             var nextState = {
               isTooltipActive: false,
@@ -23330,12 +23330,12 @@
                 return;
               }
               if (typeof syncMethod === "function") {
-                // Call a callback function. If there is an application specific algorithm
+                
                 activeTooltipIndex = syncMethod(tooltipTicks, data);
               } else if (syncMethod === "value") {
-                // Set activeTooltipIndex to the index with the same value as data.activeLabel
-                // For loop instead of findIndex because the latter is very slow in some browsers
-                activeTooltipIndex = -1; // in case we cannot find the element
+                
+                
+                activeTooltipIndex = -1; 
                 for (var i = 0; i < tooltipTicks.length; i++) {
                   if (tooltipTicks[i].value === data.activeLabel) {
                     activeTooltipIndex = i;
@@ -23351,8 +23351,8 @@
                   y: offset.top,
                 },
               );
-              // When a categorical chart is combined with another chart, the value of chartX
-              // and chartY may beyond the boundaries.
+              
+              
               var validateChartX = Math.min(chartX, viewBox.x + viewBox.width);
               var validateChartY = Math.min(chartY, viewBox.y + viewBox.height);
               var activeLabel =
@@ -23401,7 +23401,7 @@
               activeTooltipIndex = _this$state3.activeTooltipIndex,
               tooltipAxisBandSize = _this$state3.tooltipAxisBandSize;
             var tooltipEventType = _this.getTooltipEventType();
-            // The cursor is a part of the Tooltip, and it should be shown (by default) when the Tooltip is active.
+            
             var isActive =
               (_element$props$active = element.props.active) !== null &&
               _element$props$active !== void 0
@@ -23409,7 +23409,7 @@
                 : isTooltipActive;
             var layout = _this.props.layout;
             var key = element.key || "_recharts-cursor";
-            return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Cursor$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -23452,7 +23452,7 @@
                   : element.props;
               var axisOption =
                 axisMap && axisMap[elementProps["".concat(axisType, "Id")]];
-              return /*#__PURE__*/ (0,
+              return  (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(
@@ -23496,7 +23496,7 @@
               cy = angleAxis.cy,
               innerRadius = angleAxis.innerRadius,
               outerRadius = angleAxis.outerRadius;
-            return /*#__PURE__*/ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(element, {
@@ -23524,10 +23524,10 @@
               radialLines: radialLines,
             });
           });
-          /**
-           * Draw legend
-           * @return {ReactElement}            The instance of Legend
-           */ _defineProperty(_this, "renderLegend", function () {
+          
+
+
+ _defineProperty(_this, "renderLegend", function () {
             var formattedGraphicalItems = _this.state.formattedGraphicalItems;
             var _this$props2 = _this.props,
               children = _this$props2.children,
@@ -23549,7 +23549,7 @@
             }
             var item = props.item,
               otherProps = _objectWithoutProperties(props, _excluded);
-            return /*#__PURE__*/ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(
@@ -23566,10 +23566,10 @@
               ),
             );
           });
-          /**
-           * Draw Tooltip
-           * @return {ReactElement}  The instance of Tooltip
-           */ _defineProperty(_this, "renderTooltip", function () {
+          
+
+
+ _defineProperty(_this, "renderTooltip", function () {
             var _tooltipItem$props$ac;
             var _this$props3 = _this.props,
               children = _this$props3.children,
@@ -23592,15 +23592,15 @@
               activePayload = _this$state5.activePayload,
               activeLabel = _this$state5.activeLabel,
               offset = _this$state5.offset;
-            // The user can set isActive on the Tooltip,
-            // and we respect the user to enable customisation.
-            // The Tooltip is active if the user has set isActive, or if the tooltip is active due to a mouse event.
+            
+            
+            
             var isActive =
               (_tooltipItem$props$ac = tooltipItem.props.active) !== null &&
               _tooltipItem$props$ac !== void 0
                 ? _tooltipItem$props$ac
                 : isTooltipActive;
-            return /*#__PURE__*/ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(tooltipItem, {
@@ -23628,8 +23628,8 @@
               dataStartIndex = _this$state6.dataStartIndex,
               dataEndIndex = _this$state6.dataEndIndex,
               updateId = _this$state6.updateId;
-            // TODO: update brush when children update
-            return /*#__PURE__*/ (0,
+            
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(element, {
@@ -23690,7 +23690,7 @@
                   _element$props2$yAxis === void 0
                     ? elementDefaultProps.yAxisId
                     : _element$props2$yAxis;
-              return /*#__PURE__*/ (0,
+              return  (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(element, {
@@ -23714,7 +23714,7 @@
               childIndex = _ref10.childIndex,
               isRange = _ref10.isRange;
             var result = [];
-            // item is not a React Element so we don't need to resolve defaultProps.
+            
             var key = item.props.key;
             var itemItemProps =
               item.item.type.defaultProps !== undefined
@@ -23803,7 +23803,7 @@
                   "Tooltip"
                 ],
               );
-              // item is not a React Element so we don't need to resolve defaultProps
+              
               var _item$props = item.props,
                 points = _item$props.points,
                 isRange = _item$props.isRange,
@@ -23849,7 +23849,7 @@
                   ])(_this.handleItemMouseEnter, element.props.onMouseEnter),
                 };
               }
-              var graphicalItem = /*#__PURE__*/ (0,
+              var graphicalItem =  (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(
@@ -23857,7 +23857,7 @@
                 _objectSpread(_objectSpread({}, item.props), itemEvents),
               );
               function findWithPayload(entry) {
-                // TODO needs to verify dataKey is Function
+                
                 return typeof tooltipAxis.dataKey === "function"
                   ? tooltipAxis.dataKey(entry.payload)
                   : null;
@@ -23869,7 +23869,7 @@
                     tooltipAxis.dataKey &&
                     !tooltipAxis.allowDuplicatedCategory
                   ) {
-                    // number transform to string
+                    
                     var specifiedKey =
                       typeof tooltipAxis.dataKey === "function"
                         ? findWithPayload
@@ -23899,7 +23899,7 @@
                         ? element.props.activeIndex
                         : activeTooltipIndex;
                     return [
-                      /*#__PURE__*/ (0,
+                       (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "cloneElement"
                       ])(
@@ -23939,13 +23939,13 @@
                   }
                 } else {
                   var _this$getItemByXY;
-                  /**
-                   * We hit this block if consumer uses a Tooltip without XAxis and/or YAxis.
-                   * In which case, this.state.activeTooltipIndex never gets set
-                   * because the mouse events that trigger that value getting set never get trigged without the axis components.
-                   *
-                   * An example usage case is a FunnelChart
-                   */ var _ref11 =
+                  
+
+
+
+
+
+ var _ref11 =
                       (_this$getItemByXY = _this.getItemByXY(
                         _this.state.activeCoordinate,
                       )) !== null && _this$getItemByXY !== void 0
@@ -23968,7 +23968,7 @@
                     },
                   );
                   return [
-                    /*#__PURE__*/ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "cloneElement"
                     ])(xyItem, elementProps),
@@ -23987,7 +23987,7 @@
             _this,
             "renderCustomized",
             function (element, displayName, index) {
-              return /*#__PURE__*/ (0,
+              return  (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(
@@ -24079,7 +24079,7 @@
                 ])("recharts"),
             "-clip",
           );
-          // trigger 60fps
+          
           _this.throttleTriggeredAfterMouseMove = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$throttle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
@@ -24138,12 +24138,12 @@
                   "Tooltip"
                 ],
               );
-              // If the chart doesn't include a <Tooltip /> element, there's no tooltip to display
+              
               if (!tooltipElem) {
                 return;
               }
               var defaultIndex = tooltipElem.props.defaultIndex;
-              // Protect against runtime errors
+              
               if (
                 typeof defaultIndex !== "number" ||
                 defaultIndex < 0 ||
@@ -24173,9 +24173,9 @@
                     y: independentAxisCoord,
                     x: dependentAxisCoord,
                   };
-              // Unlike other chart types, scatter plot's tooltip positions rely on both X and Y coordinates. Only the scatter plot
-              // element knows its own Y coordinates.
-              // If there's a scatter plot, we'll want to grab that element for an interrogation.
+              
+              
+              
               var scatterPlotElement = this.state.formattedGraphicalItems.find(
                 function (_ref12) {
                   var item = _ref12.item;
@@ -24199,8 +24199,8 @@
               };
               this.setState(nextState);
               this.renderCursor(tooltipElem);
-              // Make sure that anyone who keyboard-only users who tab to the chart will start their
-              // cursors at defaultIndex
+              
+              
               this.accessibilityManager.setIndex(defaultIndex);
             },
           },
@@ -24237,14 +24237,14 @@
                   },
                 });
               }
-              // Something has to be returned for getSnapshotBeforeUpdate
+              
               return null;
             },
           },
           {
             key: "componentDidUpdate",
             value: function componentDidUpdate(prevProps) {
-              // Check to see if the Tooltip updated. If so, re-check default tooltip position
+              
               if (
                 !(0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24448,7 +24448,7 @@
                   };
                 }
               }
-              // @ts-expect-error adaptEventHandlers expects DOM Event but generateCategoricalChart works with React UIEvents
+              
               var outerEvents = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$types$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "adaptEventHandlers"
@@ -24520,19 +24520,19 @@
                 top = _this$state$offset.top,
                 height = _this$state$offset.height,
                 width = _this$state$offset.width;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "defs",
                 null,
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "clipPath",
                   {
                     id: clipPathId,
                   },
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement("rect", {
                     x: left,
@@ -24619,7 +24619,7 @@
                   i++
                 ) {
                   var graphicalItem = formattedGraphicalItems[i];
-                  // graphicalItem is not a React Element so we don't need to resolve defaultProps
+                  
                   var props = graphicalItem.props,
                     item = graphicalItem.item;
                   var itemProps =
@@ -24736,9 +24736,9 @@
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "filterProps"
               ])(others, false);
-              // The "compact" mode is mainly used as the panorama within Brush
+              
               if (compact) {
-                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24750,7 +24750,7 @@
                     height: this.props.height,
                     clipPathId: this.clipPathId,
                   },
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Surface$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24772,13 +24772,13 @@
               }
               if (this.props.accessibilityLayer) {
                 var _this$props$tabIndex, _this$props$role;
-                // Set tabIndex to 0 by default (can be overwritten)
+                
                 attrs.tabIndex =
                   (_this$props$tabIndex = this.props.tabIndex) !== null &&
                   _this$props$tabIndex !== void 0
                     ? _this$props$tabIndex
                     : 0;
-                // Set role to img by default (can be overwritten)
+                
                 attrs.role =
                   (_this$props$role = this.props.role) !== null &&
                   _this$props$role !== void 0
@@ -24786,17 +24786,17 @@
                     : "application";
                 attrs.onKeyDown = function (e) {
                   _this3.accessibilityManager.keyboardEvent(e);
-                  // 'onKeyDown' is not currently a supported prop that can be passed through
-                  // if it's added, this should be added: this.props.onKeyDown(e);
+                  
+                  
                 };
                 attrs.onFocus = function () {
                   _this3.accessibilityManager.focus();
-                  // 'onFocus' is not currently a supported prop that can be passed through
-                  // if it's added, the focus event should be forwarded to the prop
+                  
+                  
                 };
               }
               var events = this.parseEventsOfWrapper();
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24808,7 +24808,7 @@
                   height: this.props.height,
                   clipPathId: this.clipPathId,
                 },
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "div",
@@ -24835,7 +24835,7 @@
                       },
                     },
                   ),
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Surface$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24867,7 +24867,7 @@
         ],
       );
       _defineProperty(CategoricalChartWrapper, "displayName", chartName);
-      // todo join specific chart propTypes
+      
       _defineProperty(
         CategoricalChartWrapper,
         "defaultProps",
@@ -24954,14 +24954,14 @@
             ])(margin, prevState.prevMargin)
           ) {
             var _defaultState = createDefaultState(nextProps);
-            // Fixes https://github.com/recharts/recharts/issues/2143
+            
             var keepFromPrevState = {
-              // (chartX, chartY) are (0,0) in default state, but we want to keep the last mouse position to avoid
-              // any flickering
+              
+              
               chartX: prevState.chartX,
               chartY: prevState.chartY,
-              // The tooltip should stay active when it was active in the previous render. If this is not
-              // the case, the tooltip disappears and immediately re-appears, causing a flickering effect
+              
+              
               isTooltipActive: prevState.isTooltipActive,
             };
             var updatesToState = _objectSpread(
@@ -25014,7 +25014,7 @@
               _brush$props,
               _brush$props$endIndex,
               _brush$props2;
-            // specifically check for Brush - if it exists and the start and end indexes are different, re-render with the new ones
+            
             var brush = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "findChildByType"
@@ -25046,7 +25046,7 @@
               : dataEndIndex;
             var hasDifferentStartOrEndIndex =
               startIndex !== dataStartIndex || endIndex !== dataEndIndex;
-            // update configuration in children
+            
             var hasGlobalData = !(0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isNil$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
@@ -25095,12 +25095,12 @@
         function (option, props, key) {
           var dot;
           if (
-            /*#__PURE__*/ (0,
+             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "isValidElement"
             ])(option)
           ) {
-            dot = /*#__PURE__*/ (0,
+            dot =  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(option, props);
@@ -25113,7 +25113,7 @@
             dot = option(props);
           } else {
             dot =
-              /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Dot$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25122,7 +25122,7 @@
                 props,
               );
           }
-          return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25136,11 +25136,11 @@
           );
         },
       );
-      var CategoricalChart = /*#__PURE__*/ (0,
+      var CategoricalChart =  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ])(function CategoricalChart(props, ref) {
-        return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           CategoricalChartWrapper,
@@ -25158,9 +25158,9 @@
     "use strict";
 
     __turbopack_context__.s(["Area", () => Area]);
-    /**
-     * @fileOverview Area
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -25445,7 +25445,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var Area = /*#__PURE__*/ (function (_PureComponent) {
+    var Area =  (function (_PureComponent) {
       function Area() {
         var _this;
         _classCallCheck(this, Area);
@@ -25554,7 +25554,7 @@
                       .concat(clipPathId, ")")
                   : null,
               };
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25619,7 +25619,7 @@
                   "isNumber"
                 ])(maxY)
               ) {
-                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("rect", {
                   x: startX < endX ? startX : startX - width,
@@ -25683,7 +25683,7 @@
                   "isNumber"
                 ])(maxX)
               ) {
-                return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("rect", {
                   x: 0,
@@ -25723,7 +25723,7 @@
                 isRange = _this$props4.isRange,
                 ref = _this$props4.ref,
                 others = _objectWithoutProperties(_this$props4, _excluded);
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25734,7 +25734,7 @@
                     ? "url(#clipPath-".concat(clipPathId, ")")
                     : null,
                 },
-                /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Curve$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25758,7 +25758,7 @@
                   ),
                 ),
                 stroke !== "none" &&
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Curve$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25782,7 +25782,7 @@
                   ),
                 stroke !== "none" &&
                   isRange &&
-                  /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Curve$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25822,8 +25822,8 @@
               var _this$state = this.state,
                 prevPoints = _this$state.prevPoints,
                 prevBaseLine = _this$state.prevBaseLine;
-              // const clipPathId = isNil(id) ? this.id : id;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -25849,7 +25849,7 @@
                   if (prevPoints) {
                     var prevPointsDiffFactor =
                       prevPoints.length / points.length;
-                    // update animtaion
+                    
                     var stepPoints = points.map(function (entry, index) {
                       var prevPointIndex = Math.floor(
                         index * prevPointsDiffFactor,
@@ -25937,19 +25937,19 @@
                       clipPathId,
                     );
                   }
-                  return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "Layer"
                     ],
                     null,
-                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "defs",
                       null,
-                      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "default"
                       ].createElement(
                         "clipPath",
@@ -25959,7 +25959,7 @@
                         _this2.renderClipRect(t),
                       ),
                     ),
-                    /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -26077,7 +26077,7 @@
                 _ref3$clipDot = _ref3.clipDot,
                 clipDot = _ref3$clipDot === void 0 ? true : _ref3$clipDot;
               var dotSize = r * 2 + strokeWidth;
-              return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -26087,19 +26087,19 @@
                   className: layerClass,
                 },
                 needClipX || needClipY
-                  ? /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "defs",
                       null,
-                      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "default"
                       ].createElement(
                         "clipPath",
                         {
                           id: "clipPath-".concat(clipPathId),
                         },
-                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "default"
                         ].createElement("rect", {
                           x: needClipX ? left : left - width / 2,
@@ -26109,14 +26109,14 @@
                         }),
                       ),
                       !clipDot &&
-                        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "default"
                         ].createElement(
                           "clipPath",
                           {
                             id: "clipPath-dots-".concat(clipPathId),
                           },
-                          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                             "default"
                           ].createElement("rect", {
                             x: left - dotSize / 2,
@@ -26180,7 +26180,7 @@
       yAxisId: 0,
       legendType: "line",
       connectNulls: false,
-      // points of area
+      
       points: [],
       dot: false,
       activeDot: true,
@@ -26197,8 +26197,8 @@
       var layout = props.layout,
         chartBaseValue = props.baseValue;
       var itemBaseValue = item.props.baseValue;
-      // The baseValue can be defined both on the AreaChart as well as on the Area.
-      // The value for the item takes precedence.
+      
+      
       var baseValue =
         itemBaseValue !== null && itemBaseValue !== void 0
           ? itemBaseValue
@@ -26341,12 +26341,12 @@
     _defineProperty(Area, "renderDotItem", function (option, props) {
       var dotItem;
       if (
-        /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         dotItem =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -26367,7 +26367,7 @@
         var key = props.key,
           rest = _objectWithoutProperties(props, _excluded2);
         dotItem =
-          /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Dot$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -26386,9 +26386,9 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @fileOverview Area Chart
-     */ __turbopack_context__.s(["AreaChart", () => AreaChart]);
+    
+
+ __turbopack_context__.s(["AreaChart", () => AreaChart]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$generateCategoricalChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/chart/generateCategoricalChart.js [app-client] (ecmascript)",
@@ -26444,9 +26444,9 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @fileOverview Bar Chart
-     */ __turbopack_context__.s(["BarChart", () => BarChart]);
+    
+
+ __turbopack_context__.s(["BarChart", () => BarChart]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$generateCategoricalChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/chart/generateCategoricalChart.js [app-client] (ecmascript)",
@@ -26502,4 +26502,4 @@
   },
 ]);
 
-//# sourceMappingURL=c729b_recharts_es6_cb5f30f4._.js.map
+

@@ -95,7 +95,7 @@
     __turbopack_context__.s(["buildFormatLongFn", () => buildFormatLongFn]);
     function buildFormatLongFn(args) {
       return (options = {}) => {
-        // TODO: Remove String()
+        
         const width = options.width ? String(options.width) : args.defaultWidth;
         const format = args.formats[width] || args.formats[args.defaultWidth];
         return format;
@@ -173,30 +173,30 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /* eslint-disable no-unused-vars */ /**
-     * The localize function argument callback which allows to convert raw value to
-     * the actual type.
-     *
-     * @param value - The value to convert
-     *
-     * @returns The converted value
-     */ /**
-     * The map of localized values for each width.
-     */ /**
-     * The index type of the locale unit value. It types conversion of units of
-     * values that don't start at 0 (i.e. quarters).
-     */ /**
-     * Converts the unit value to the tuple of values.
-     */ /**
-     * The tuple of localized era values. The first element represents BC,
-     * the second element represents AD.
-     */ /**
-     * The tuple of localized quarter values. The first element represents Q1.
-     */ /**
-     * The tuple of localized day values. The first element represents Sunday.
-     */ /**
-     * The tuple of localized month values. The first element represents January.
-     */ __turbopack_context__.s(["buildLocalizeFn", () => buildLocalizeFn]);
+     
+
+
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+ __turbopack_context__.s(["buildLocalizeFn", () => buildLocalizeFn]);
     function buildLocalizeFn(args) {
       return (value, options) => {
         const context = options?.context
@@ -218,7 +218,7 @@
         const index = args.argumentCallback
           ? args.argumentCallback(value)
           : value;
-        // @ts-expect-error - For some reason TypeScript just don't want to match it, no matter how hard we try. I challenge you to try to remove it!
+        
         return valuesArray[index];
       };
     }
@@ -242,10 +242,10 @@
       abbreviated: ["Q1", "Q2", "Q3", "Q4"],
       wide: ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
     };
-    // Note: in English, the names of days of the week and months are capitalized.
-    // If you are making a new locale based on this one, check if the same is true for the language you're working on.
-    // Generally, formatted dates should look like they are in the middle of a sentence,
-    // e.g. in Spanish language the weekdays and months should be in the lowercase.
+    
+    
+    
+    
     const monthValues = {
       narrow: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
       abbreviated: [
@@ -357,12 +357,12 @@
     };
     const ordinalNumber = (dirtyNumber, _options) => {
       const number = Number(dirtyNumber);
-      // If ordinal numbers depend on context, for example,
-      // if they are different for different grammatical genders,
-      // use `options.unit`.
-      //
-      // `unit` can be 'year', 'quarter', 'month', 'week', 'date', 'dayOfYear',
-      // 'day', 'hour', 'minute', 'second'.
+      
+      
+      
+      
+      
+      
       const rem100 = number % 100;
       if (rem100 > 20 || rem100 < 10) {
         switch (rem100 % 10) {
@@ -485,7 +485,7 @@
         let value = args.valueCallback
           ? args.valueCallback(parseResult[0])
           : parseResult[0];
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- I challange you to fix the type
+        
         value = options.valueCallback ? options.valueCallback(value) : value;
         const rest = string.slice(matchedString.length);
         return {
@@ -697,7 +697,7 @@
           "match"
         ],
       options: {
-        weekStartsOn: 0 /* Sunday */,
+        weekStartsOn: 0 ,
         firstWeekContainsDate: 1,
       },
     };
@@ -741,26 +741,26 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @module constants
-     * @summary Useful constants
-     * @description
-     * Collection of useful date constants.
-     *
-     * The constants could be imported from `date-fns/constants`:
-     *
-     * ```ts
-     * import { maxTime, minTime } from "./constants/date-fns/constants";
-     *
-     * function isAllowedTime(time) {
-     *   return time <= maxTime && time >= minTime;
-     * }
-     * ```
-     */ /**
-     * @constant
-     * @name daysInWeek
-     * @summary Days in 1 week.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ __turbopack_context__.s([
       "daysInWeek",
       () => daysInWeek,
       "daysInYear",
@@ -836,38 +836,38 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @name toDate
-     * @category Common Helpers
-     * @summary Convert the given argument to an instance of Date.
-     *
-     * @description
-     * Convert the given argument to an instance of Date.
-     *
-     * If the argument is an instance of Date, the function returns its clone.
-     *
-     * If the argument is a number, it is treated as a timestamp.
-     *
-     * If the argument is none of the above, the function returns Invalid Date.
-     *
-     * **Note**: *all* Date arguments passed to any *date-fns* function is processed by `toDate`.
-     *
-     * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).
-     *
-     * @param argument - The value to convert
-     *
-     * @returns The parsed date in the local time zone
-     *
-     * @example
-     * // Clone the date:
-     * const result = toDate(new Date(2014, 1, 11, 11, 30, 30))
-     * //=> Tue Feb 11 2014 11:30:30
-     *
-     * @example
-     * // Convert the timestamp to date:
-     * const result = toDate(1392098430000)
-     * //=> Tue Feb 11 2014 11:30:30
-     */ __turbopack_context__.s([
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
       "default",
       () => __TURBOPACK__default__export__,
       "toDate",
@@ -875,12 +875,12 @@
     ]);
     function toDate(argument) {
       const argStr = Object.prototype.toString.call(argument);
-      // Clone the date
+      
       if (
         argument instanceof Date ||
         (typeof argument === "object" && argStr === "[object Date]")
       ) {
-        // Prevent the date to lose the milliseconds when passed to new Date() in IE10
+        
         return new argument.constructor(+argument);
       } else if (
         typeof argument === "number" ||
@@ -888,10 +888,10 @@
         typeof argument === "string" ||
         argStr === "[object String]"
       ) {
-        // TODO: Can we get rid of as?
+        
         return new Date(argument);
       } else {
-        // TODO: Can we get rid of as?
+        
         return new Date(NaN);
       }
     }
@@ -996,9 +996,9 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$getTimezoneOffsetInMilliseconds$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "getTimezoneOffsetInMilliseconds"
         ])(startOfDayRight);
-      // Round the number of days to the nearest integer because the number of
-      // milliseconds in a day is not constant (e.g. it's different in the week of
-      // the daylight saving time clock shift).
+      
+      
+      
       return Math.round(
         (timestampLeft - timestampRight) /
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1012,36 +1012,36 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @name constructFrom
-     * @category Generic Helpers
-     * @summary Constructs a date using the reference date and the value
-     *
-     * @description
-     * The function constructs a new date using the constructor from the reference
-     * date and the given value. It helps to build generic functions that accept
-     * date extensions.
-     *
-     * It defaults to `Date` if the passed reference date is a number or a string.
-     *
-     * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).
-     *
-     * @param date - The reference date to take constructor from
-     * @param value - The value to create the date
-     *
-     * @returns Date initialized using the given date and value
-     *
-     * @example
-     * import { constructFrom } from 'date-fns'
-     *
-     * // A function that clones a date preserving the original type
-     * function cloneDate<DateType extends Date(date: DateType): DateType {
-     *   return constructFrom(
-     *     date, // Use contrustor from the given date
-     *     date.getTime() // Use the date value to create a new date
-     *   )
-     * }
-     */ __turbopack_context__.s([
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
       "constructFrom",
       () => constructFrom,
       "default",
@@ -1334,9 +1334,9 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfISOWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "startOfISOWeekYear"
         ])(_date);
-      // Round the number of weeks to the nearest integer because the number of
-      // milliseconds in a week is not constant (e.g. it's different in the week of
-      // the daylight saving time clock shift).
+      
+      
+      
       return (
         Math.round(
           diff /
@@ -1515,9 +1515,9 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "startOfWeekYear"
         ])(_date, options);
-      // Round the number of weeks to the nearest integer because the number of
-      // milliseconds in a week is not constant (e.g. it's different in the week of
-      // the daylight saving time clock shift).
+      
+      
+      
       return (
         Math.round(
           diff /
@@ -1550,25 +1550,25 @@
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/_lib/addLeadingZeros.mjs [app-client] (ecmascript)",
       );
     const lightFormatters = {
-      // Year
+      
       y(date, token) {
-        // From http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_tokens
-        // | Year     |     y | yy |   yyy |  yyyy | yyyyy |
-        // |----------|-------|----|-------|-------|-------|
-        // | AD 1     |     1 | 01 |   001 |  0001 | 00001 |
-        // | AD 12    |    12 | 12 |   012 |  0012 | 00012 |
-        // | AD 123   |   123 | 23 |   123 |  0123 | 00123 |
-        // | AD 1234  |  1234 | 34 |  1234 |  1234 | 01234 |
-        // | AD 12345 | 12345 | 45 | 12345 | 12345 | 12345 |
+        
+        
+        
+        
+        
+        
+        
+        
         const signedYear = date.getFullYear();
-        // Returns 1 for 1 BC (which is year 0 in JavaScript)
+        
         const year = signedYear > 0 ? signedYear : 1 - signedYear;
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(token === "yy" ? year % 100 : year, token.length);
       },
-      // Month
+      
       M(date, token) {
         const month = date.getMonth();
         return token === "M"
@@ -1578,14 +1578,14 @@
               "addLeadingZeros"
             ])(month + 1, 2);
       },
-      // Day of the month
+      
       d(date, token) {
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(date.getDate(), token.length);
       },
-      // AM or PM
+      
       a(date, token) {
         const dayPeriodEnumValue = date.getHours() / 12 >= 1 ? "pm" : "am";
         switch (token) {
@@ -1601,35 +1601,35 @@
             return dayPeriodEnumValue === "am" ? "a.m." : "p.m.";
         }
       },
-      // Hour [1-12]
+      
       h(date, token) {
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(date.getHours() % 12 || 12, token.length);
       },
-      // Hour [0-23]
+      
       H(date, token) {
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(date.getHours(), token.length);
       },
-      // Minute
+      
       m(date, token) {
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(date.getMinutes(), token.length);
       },
-      // Second
+      
       s(date, token) {
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(date.getSeconds(), token.length);
       },
-      // Fraction of second
+      
       S(date, token) {
         const numberOfDigits = token.length;
         const milliseconds = date.getMilliseconds();
@@ -1687,23 +1687,23 @@
       night: "night",
     };
     const formatters = {
-      // Era
+      
       G: function (date, token, localize) {
         const era = date.getFullYear() > 0 ? 1 : 0;
         switch (token) {
-          // AD, BC
+          
           case "G":
           case "GG":
           case "GGG":
             return localize.era(era, {
               width: "abbreviated",
             });
-          // A, B
+          
           case "GGGGG":
             return localize.era(era, {
               width: "narrow",
             });
-          // Anno Domini, Before Christ
+          
           case "GGGG":
           default:
             return localize.era(era, {
@@ -1711,12 +1711,12 @@
             });
         }
       },
-      // Year
+      
       y: function (date, token, localize) {
-        // Ordinal number
+        
         if (token === "yo") {
           const signedYear = date.getFullYear();
-          // Returns 1 for 1 BC (which is year 0 in JavaScript)
+          
           const year = signedYear > 0 ? signedYear : 1 - signedYear;
           return localize.ordinalNumber(year, {
             unit: "year",
@@ -1726,16 +1726,16 @@
           "lightFormatters"
         ].y(date, token);
       },
-      // Local week-numbering year
+      
       Y: function (date, token, localize, options) {
         const signedWeekYear = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "getWeekYear"
         ])(date, options);
-        // Returns 1 for 1 BC (which is year 0 in JavaScript)
+        
         const weekYear =
           signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear;
-        // Two digit year
+        
         if (token === "YY") {
           const twoDigitYear = weekYear % 100;
           return (0,
@@ -1743,39 +1743,39 @@
             "addLeadingZeros"
           ])(twoDigitYear, 2);
         }
-        // Ordinal number
+        
         if (token === "Yo") {
           return localize.ordinalNumber(weekYear, {
             unit: "year",
           });
         }
-        // Padding
+        
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(weekYear, token.length);
       },
-      // ISO week-numbering year
+      
       R: function (date, token) {
         const isoWeekYear = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getISOWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "getISOWeekYear"
         ])(date);
-        // Padding
+        
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "addLeadingZeros"
         ])(isoWeekYear, token.length);
       },
-      // Extended year. This is a single number designating the year of this calendar system.
-      // The main difference between `y` and `u` localizers are B.C. years:
-      // | Year | `y` | `u` |
-      // |------|-----|-----|
-      // | AC 1 |   1 |   1 |
-      // | BC 1 |   1 |   0 |
-      // | BC 2 |   2 |  -1 |
-      // Also `yy` always returns the last two digits of a year,
-      // while `uu` pads single digit years to 2 characters and returns other years unchanged.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       u: function (date, token) {
         const year = date.getFullYear();
         return (0,
@@ -1783,37 +1783,37 @@
           "addLeadingZeros"
         ])(year, token.length);
       },
-      // Quarter
+      
       Q: function (date, token, localize) {
         const quarter = Math.ceil((date.getMonth() + 1) / 3);
         switch (token) {
-          // 1, 2, 3, 4
+          
           case "Q":
             return String(quarter);
-          // 01, 02, 03, 04
+          
           case "QQ":
             return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "addLeadingZeros"
             ])(quarter, 2);
-          // 1st, 2nd, 3rd, 4th
+          
           case "Qo":
             return localize.ordinalNumber(quarter, {
               unit: "quarter",
             });
-          // Q1, Q2, Q3, Q4
+          
           case "QQQ":
             return localize.quarter(quarter, {
               width: "abbreviated",
               context: "formatting",
             });
-          // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+          
           case "QQQQQ":
             return localize.quarter(quarter, {
               width: "narrow",
               context: "formatting",
             });
-          // 1st quarter, 2nd quarter, ...
+          
           case "QQQQ":
           default:
             return localize.quarter(quarter, {
@@ -1822,37 +1822,37 @@
             });
         }
       },
-      // Stand-alone quarter
+      
       q: function (date, token, localize) {
         const quarter = Math.ceil((date.getMonth() + 1) / 3);
         switch (token) {
-          // 1, 2, 3, 4
+          
           case "q":
             return String(quarter);
-          // 01, 02, 03, 04
+          
           case "qq":
             return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "addLeadingZeros"
             ])(quarter, 2);
-          // 1st, 2nd, 3rd, 4th
+          
           case "qo":
             return localize.ordinalNumber(quarter, {
               unit: "quarter",
             });
-          // Q1, Q2, Q3, Q4
+          
           case "qqq":
             return localize.quarter(quarter, {
               width: "abbreviated",
               context: "standalone",
             });
-          // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+          
           case "qqqqq":
             return localize.quarter(quarter, {
               width: "narrow",
               context: "standalone",
             });
-          // 1st quarter, 2nd quarter, ...
+          
           case "qqqq":
           default:
             return localize.quarter(quarter, {
@@ -1861,7 +1861,7 @@
             });
         }
       },
-      // Month
+      
       M: function (date, token, localize) {
         const month = date.getMonth();
         switch (token) {
@@ -1870,24 +1870,24 @@
             return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "lightFormatters"
             ].M(date, token);
-          // 1st, 2nd, ..., 12th
+          
           case "Mo":
             return localize.ordinalNumber(month + 1, {
               unit: "month",
             });
-          // Jan, Feb, ..., Dec
+          
           case "MMM":
             return localize.month(month, {
               width: "abbreviated",
               context: "formatting",
             });
-          // J, F, ..., D
+          
           case "MMMMM":
             return localize.month(month, {
               width: "narrow",
               context: "formatting",
             });
-          // January, February, ..., December
+          
           case "MMMM":
           default:
             return localize.month(month, {
@@ -1896,37 +1896,37 @@
             });
         }
       },
-      // Stand-alone month
+      
       L: function (date, token, localize) {
         const month = date.getMonth();
         switch (token) {
-          // 1, 2, ..., 12
+          
           case "L":
             return String(month + 1);
-          // 01, 02, ..., 12
+          
           case "LL":
             return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "addLeadingZeros"
             ])(month + 1, 2);
-          // 1st, 2nd, ..., 12th
+          
           case "Lo":
             return localize.ordinalNumber(month + 1, {
               unit: "month",
             });
-          // Jan, Feb, ..., Dec
+          
           case "LLL":
             return localize.month(month, {
               width: "abbreviated",
               context: "standalone",
             });
-          // J, F, ..., D
+          
           case "LLLLL":
             return localize.month(month, {
               width: "narrow",
               context: "standalone",
             });
-          // January, February, ..., December
+          
           case "LLLL":
           default:
             return localize.month(month, {
@@ -1935,7 +1935,7 @@
             });
         }
       },
-      // Local week of year
+      
       w: function (date, token, localize, options) {
         const week = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1951,7 +1951,7 @@
           "addLeadingZeros"
         ])(week, token.length);
       },
-      // ISO week of year
+      
       I: function (date, token, localize) {
         const isoWeek = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getISOWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1967,7 +1967,7 @@
           "addLeadingZeros"
         ])(isoWeek, token.length);
       },
-      // Day of the month
+      
       d: function (date, token, localize) {
         if (token === "do") {
           return localize.ordinalNumber(date.getDate(), {
@@ -1978,7 +1978,7 @@
           "lightFormatters"
         ].d(date, token);
       },
-      // Day of year
+      
       D: function (date, token, localize) {
         const dayOfYear = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getDayOfYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1994,11 +1994,11 @@
           "addLeadingZeros"
         ])(dayOfYear, token.length);
       },
-      // Day of week
+      
       E: function (date, token, localize) {
         const dayOfWeek = date.getDay();
         switch (token) {
-          // Tue
+          
           case "E":
           case "EE":
           case "EEE":
@@ -2006,19 +2006,19 @@
               width: "abbreviated",
               context: "formatting",
             });
-          // T
+          
           case "EEEEE":
             return localize.day(dayOfWeek, {
               width: "narrow",
               context: "formatting",
             });
-          // Tu
+          
           case "EEEEEE":
             return localize.day(dayOfWeek, {
               width: "short",
               context: "formatting",
             });
-          // Tuesday
+          
           case "EEEE":
           default:
             return localize.day(dayOfWeek, {
@@ -2027,21 +2027,21 @@
             });
         }
       },
-      // Local day of week
+      
       e: function (date, token, localize, options) {
         const dayOfWeek = date.getDay();
         const localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
         switch (token) {
-          // Numerical value (Nth day of week with current locale or weekStartsOn)
+          
           case "e":
             return String(localDayOfWeek);
-          // Padded numerical value
+          
           case "ee":
             return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "addLeadingZeros"
             ])(localDayOfWeek, 2);
-          // 1st, 2nd, ..., 7th
+          
           case "eo":
             return localize.ordinalNumber(localDayOfWeek, {
               unit: "day",
@@ -2051,19 +2051,19 @@
               width: "abbreviated",
               context: "formatting",
             });
-          // T
+          
           case "eeeee":
             return localize.day(dayOfWeek, {
               width: "narrow",
               context: "formatting",
             });
-          // Tu
+          
           case "eeeeee":
             return localize.day(dayOfWeek, {
               width: "short",
               context: "formatting",
             });
-          // Tuesday
+          
           case "eeee":
           default:
             return localize.day(dayOfWeek, {
@@ -2072,21 +2072,21 @@
             });
         }
       },
-      // Stand-alone local day of week
+      
       c: function (date, token, localize, options) {
         const dayOfWeek = date.getDay();
         const localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
         switch (token) {
-          // Numerical value (same as in `e`)
+          
           case "c":
             return String(localDayOfWeek);
-          // Padded numerical value
+          
           case "cc":
             return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "addLeadingZeros"
             ])(localDayOfWeek, token.length);
-          // 1st, 2nd, ..., 7th
+          
           case "co":
             return localize.ordinalNumber(localDayOfWeek, {
               unit: "day",
@@ -2096,19 +2096,19 @@
               width: "abbreviated",
               context: "standalone",
             });
-          // T
+          
           case "ccccc":
             return localize.day(dayOfWeek, {
               width: "narrow",
               context: "standalone",
             });
-          // Tu
+          
           case "cccccc":
             return localize.day(dayOfWeek, {
               width: "short",
               context: "standalone",
             });
-          // Tuesday
+          
           case "cccc":
           default:
             return localize.day(dayOfWeek, {
@@ -2117,44 +2117,44 @@
             });
         }
       },
-      // ISO day of week
+      
       i: function (date, token, localize) {
         const dayOfWeek = date.getDay();
         const isoDayOfWeek = dayOfWeek === 0 ? 7 : dayOfWeek;
         switch (token) {
-          // 2
+          
           case "i":
             return String(isoDayOfWeek);
-          // 02
+          
           case "ii":
             return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "addLeadingZeros"
             ])(isoDayOfWeek, token.length);
-          // 2nd
+          
           case "io":
             return localize.ordinalNumber(isoDayOfWeek, {
               unit: "day",
             });
-          // Tue
+          
           case "iii":
             return localize.day(dayOfWeek, {
               width: "abbreviated",
               context: "formatting",
             });
-          // T
+          
           case "iiiii":
             return localize.day(dayOfWeek, {
               width: "narrow",
               context: "formatting",
             });
-          // Tu
+          
           case "iiiiii":
             return localize.day(dayOfWeek, {
               width: "short",
               context: "formatting",
             });
-          // Tuesday
+          
           case "iiii":
           default:
             return localize.day(dayOfWeek, {
@@ -2163,7 +2163,7 @@
             });
         }
       },
-      // AM or PM
+      
       a: function (date, token, localize) {
         const hours = date.getHours();
         const dayPeriodEnumValue = hours / 12 >= 1 ? "pm" : "am";
@@ -2194,7 +2194,7 @@
             });
         }
       },
-      // AM, PM, midnight, noon
+      
       b: function (date, token, localize) {
         const hours = date.getHours();
         let dayPeriodEnumValue;
@@ -2232,7 +2232,7 @@
             });
         }
       },
-      // in the morning, in the afternoon, in the evening, at night
+      
       B: function (date, token, localize) {
         const hours = date.getHours();
         let dayPeriodEnumValue;
@@ -2266,7 +2266,7 @@
             });
         }
       },
-      // Hour [1-12]
+      
       h: function (date, token, localize) {
         if (token === "ho") {
           let hours = date.getHours() % 12;
@@ -2279,7 +2279,7 @@
           "lightFormatters"
         ].h(date, token);
       },
-      // Hour [0-23]
+      
       H: function (date, token, localize) {
         if (token === "Ho") {
           return localize.ordinalNumber(date.getHours(), {
@@ -2290,7 +2290,7 @@
           "lightFormatters"
         ].H(date, token);
       },
-      // Hour [0-11]
+      
       K: function (date, token, localize) {
         const hours = date.getHours() % 12;
         if (token === "Ko") {
@@ -2303,7 +2303,7 @@
           "addLeadingZeros"
         ])(hours, token.length);
       },
-      // Hour [1-24]
+      
       k: function (date, token, localize) {
         let hours = date.getHours();
         if (hours === 0) hours = 24;
@@ -2317,7 +2317,7 @@
           "addLeadingZeros"
         ])(hours, token.length);
       },
-      // Minute
+      
       m: function (date, token, localize) {
         if (token === "mo") {
           return localize.ordinalNumber(date.getMinutes(), {
@@ -2328,7 +2328,7 @@
           "lightFormatters"
         ].m(date, token);
       },
-      // Second
+      
       s: function (date, token, localize) {
         if (token === "so") {
           return localize.ordinalNumber(date.getSeconds(), {
@@ -2339,90 +2339,90 @@
           "lightFormatters"
         ].s(date, token);
       },
-      // Fraction of second
+      
       S: function (date, token) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "lightFormatters"
         ].S(date, token);
       },
-      // Timezone (ISO-8601. If offset is 0, output is always `'Z'`)
+      
       X: function (date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         if (timezoneOffset === 0) {
           return "Z";
         }
         switch (token) {
-          // Hours and optional minutes
+          
           case "X":
             return formatTimezoneWithOptionalMinutes(timezoneOffset);
-          // Hours, minutes and optional seconds without `:` delimiter
-          // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-          // so this token always has the same output as `XX`
+          
+          
+          
           case "XXXX":
           case "XX":
             return formatTimezone(timezoneOffset);
-          // Hours, minutes and optional seconds with `:` delimiter
-          // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-          // so this token always has the same output as `XXX`
+          
+          
+          
           case "XXXXX":
           case "XXX":
           default:
             return formatTimezone(timezoneOffset, ":");
         }
       },
-      // Timezone (ISO-8601. If offset is 0, output is `'+00:00'` or equivalent)
+      
       x: function (date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         switch (token) {
-          // Hours and optional minutes
+          
           case "x":
             return formatTimezoneWithOptionalMinutes(timezoneOffset);
-          // Hours, minutes and optional seconds without `:` delimiter
-          // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-          // so this token always has the same output as `xx`
+          
+          
+          
           case "xxxx":
           case "xx":
             return formatTimezone(timezoneOffset);
-          // Hours, minutes and optional seconds with `:` delimiter
-          // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-          // so this token always has the same output as `xxx`
+          
+          
+          
           case "xxxxx":
           case "xxx":
           default:
             return formatTimezone(timezoneOffset, ":");
         }
       },
-      // Timezone (GMT)
+      
       O: function (date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         switch (token) {
-          // Short
+          
           case "O":
           case "OO":
           case "OOO":
             return "GMT" + formatTimezoneShort(timezoneOffset, ":");
-          // Long
+          
           case "OOOO":
           default:
             return "GMT" + formatTimezone(timezoneOffset, ":");
         }
       },
-      // Timezone (specific non-location)
+      
       z: function (date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         switch (token) {
-          // Short
+          
           case "z":
           case "zz":
           case "zzz":
             return "GMT" + formatTimezoneShort(timezoneOffset, ":");
-          // Long
+          
           case "zzzz":
           default:
             return "GMT" + formatTimezone(timezoneOffset, ":");
         }
       },
-      // Seconds timestamp
+      
       t: function (date, token, _localize) {
         const timestamp = Math.trunc(date.getTime() / 1000);
         return (0,
@@ -2430,7 +2430,7 @@
           "addLeadingZeros"
         ])(timestamp, token.length);
       },
-      // Milliseconds timestamp
+      
       T: function (date, token, _localize) {
         const timestamp = date.getTime();
         return (0,
@@ -2606,38 +2606,38 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @name isDate
-     * @category Common Helpers
-     * @summary Is the given value a date?
-     *
-     * @description
-     * Returns true if the given value is an instance of Date. The function works for dates transferred across iframes.
-     *
-     * @param value - The value to check
-     *
-     * @returns True if the given value is a date
-     *
-     * @example
-     * // For a valid date:
-     * const result = isDate(new Date())
-     * //=> true
-     *
-     * @example
-     * // For an invalid date:
-     * const result = isDate(new Date(NaN))
-     * //=> true
-     *
-     * @example
-     * // For some value:
-     * const result = isDate('2014-02-31')
-     * //=> false
-     *
-     * @example
-     * // For an object:
-     * const result = isDate({})
-     * //=> false
-     */ __turbopack_context__.s([
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
       "default",
       () => __TURBOPACK__default__export__,
       "isDate",
@@ -2728,17 +2728,17 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/toDate.mjs [app-client] (ecmascript)",
       );
-    // This RegExp consists of three parts separated by `|`:
-    // - [yYQqMLwIdDecihHKkms]o matches any available ordinal number token
-    //   (one of the certain letters followed by `o`)
-    // - (\w)\1* matches any sequences of the same letter
-    // - '' matches two quote characters in a row
-    // - '(''|[^'])+('|$) matches anything surrounded by two quote characters ('),
-    //   except a single quote symbol, which ends the sequence.
-    //   Two quote characters do not end the sequence.
-    //   If there is no matching single quote
-    //   then the sequence will continue until the end of the string.
-    // - . matches any single character unmatched by previous parts of the RegExps
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     const formattingTokensRegExp =
       /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g;
     // This RegExp catches symbols escaped by quotes, and also
@@ -2798,7 +2798,7 @@
         .join("")
         .match(formattingTokensRegExp)
         .map((substring) => {
-          // Replace two single quote characters with one single quote character
+          
           if (substring === "''") {
             return {
               isToken: false,
@@ -2834,7 +2834,7 @@
             value: substring,
           };
         });
-      // invoke localize preprocessor (only for french locales at the moment)
+      
       if (locale.localize.preprocessor) {
         parts = locale.localize.preprocessor(originalDate, parts);
       }
@@ -2890,12 +2890,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -2918,7 +2918,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("LoaderCircle", __iconNode);
-    //# sourceMappingURL=loader-circle.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-client] (ecmascript) <export default as Loader2>",
   (__turbopack_context__) => {
@@ -2940,12 +2940,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -2977,7 +2977,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("CircleCheck", __iconNode);
-    //# sourceMappingURL=circle-check.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>",
   (__turbopack_context__) => {
@@ -2999,12 +2999,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3049,7 +3049,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("CircleAlert", __iconNode);
-    //# sourceMappingURL=circle-alert.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-client] (ecmascript) <export default as AlertCircle>",
   (__turbopack_context__) => {
@@ -3071,12 +3071,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3099,7 +3099,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ChevronDown", __iconNode);
-    //# sourceMappingURL=chevron-down.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>",
   (__turbopack_context__) => {
@@ -3121,12 +3121,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3149,7 +3149,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ChevronUp", __iconNode);
-    //# sourceMappingURL=chevron-up.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript) <export default as ChevronUp>",
   (__turbopack_context__) => {
@@ -3171,12 +3171,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3213,7 +3213,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("History", __iconNode);
-    //# sourceMappingURL=history.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/history.js [app-client] (ecmascript) <export default as History>",
   (__turbopack_context__) => {
@@ -3235,12 +3235,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3279,7 +3279,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Info", __iconNode);
-    //# sourceMappingURL=info.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/info.js [app-client] (ecmascript) <export default as Info>",
   (__turbopack_context__) => {
@@ -3301,12 +3301,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3336,7 +3336,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("SquarePen", __iconNode);
-    //# sourceMappingURL=square-pen.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>",
   (__turbopack_context__) => {
@@ -3358,12 +3358,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3403,7 +3403,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Download", __iconNode);
-    //# sourceMappingURL=download.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>",
   (__turbopack_context__) => {
@@ -3425,12 +3425,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3474,7 +3474,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ArrowDownUp", __iconNode);
-    //# sourceMappingURL=arrow-down-up.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/arrow-down-up.js [app-client] (ecmascript) <export default as ArrowDownUp>",
   (__turbopack_context__) => {
@@ -3496,12 +3496,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -3524,7 +3524,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Check", __iconNode);
-    //# sourceMappingURL=check.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/check.js [app-client] (ecmascript) <export default as Check>",
   (__turbopack_context__) => {
@@ -3545,7 +3545,7 @@
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/inherits/inherits_browser.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     if (typeof Object.create === "function") {
-      // implementation from standard node.js 'util' module
+      
       module.exports = function inherits(ctor, superCtor) {
         if (superCtor) {
           ctor.super_ = superCtor;
@@ -3560,7 +3560,7 @@
         }
       };
     } else {
-      // old school shim for old browsers
+      
       module.exports = function inherits(ctor, superCtor) {
         if (superCtor) {
           ctor.super_ = superCtor;
@@ -3576,26 +3576,26 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // Copyright Joyent, Inc. and other Node contributors.
-    //
-    // Permission is hereby granted, free of charge, to any person obtaining a
-    // copy of this software and associated documentation files (the
-    // "Software"), to deal in the Software without restriction, including
-    // without limitation the rights to use, copy, modify, merge, publish,
-    // distribute, sublicense, and/or sell copies of the Software, and to permit
-    // persons to whom the Software is furnished to do so, subject to the
-    // following conditions:
-    //
-    // The above copyright notice and this permission notice shall be included
-    // in all copies or substantial portions of the Software.
-    //
-    // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-    // OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-    // NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-    // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-    // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-    // USE OR OTHER DEALINGS IN THE SOFTWARE.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     var R = typeof Reflect === "object" ? Reflect : null;
     var ReflectApply =
       R && typeof R.apply === "function"
@@ -3630,13 +3630,13 @@
     }
     module.exports = EventEmitter;
     module.exports.once = once;
-    // Backwards-compat with node 0.10.x
+    
     EventEmitter.EventEmitter = EventEmitter;
     EventEmitter.prototype._events = undefined;
     EventEmitter.prototype._eventsCount = 0;
     EventEmitter.prototype._maxListeners = undefined;
-    // By default EventEmitters will print a warning if more than 10 listeners are
-    // added to it. This is a useful default which helps finding memory leaks.
+    
+    
     var defaultMaxListeners = 10;
     function checkListener(listener) {
       if (typeof listener !== "function") {
@@ -3672,8 +3672,8 @@
       }
       this._maxListeners = this._maxListeners || undefined;
     };
-    // Obviously not all Emitters should be limited to 10. This function allows
-    // that to be increased. Set to zero for unlimited.
+    
+    
     EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
       if (typeof n !== "number" || n < 0 || NumberIsNaN(n)) {
         throw new RangeError(
@@ -3700,21 +3700,21 @@
       var events = this._events;
       if (events !== undefined) doError = doError && events.error === undefined;
       else if (!doError) return false;
-      // If there is no 'error' event listener then throw.
+      
       if (doError) {
         var er;
         if (args.length > 0) er = args[0];
         if (er instanceof Error) {
-          // Note: The comments on the `throw` lines are intentional, they show
-          // up in Node's output if this results in an unhandled exception.
-          throw er; // Unhandled 'error' event
+          
+          
+          throw er; 
         }
-        // At least give some kind of context to the user
+        
         var err = new Error(
           "Unhandled error." + (er ? " (" + er.message + ")" : ""),
         );
         err.context = er;
-        throw err; // Unhandled 'error' event
+        throw err; 
       }
       var handler = events[type];
       if (handler === undefined) return false;
@@ -3737,42 +3737,42 @@
         events = target._events = Object.create(null);
         target._eventsCount = 0;
       } else {
-        // To avoid recursion in the case that type === "newListener"! Before
-        // adding it to the listeners, first emit "newListener".
+        
+        
         if (events.newListener !== undefined) {
           target.emit(
             "newListener",
             type,
             listener.listener ? listener.listener : listener,
           );
-          // Re-assign `events` because a newListener handler could have caused the
-          // this._events to be assigned to a new object
+          
+          
           events = target._events;
         }
         existing = events[type];
       }
       if (existing === undefined) {
-        // Optimize the case of one listener. Don't need the extra array object.
+        
         existing = events[type] = listener;
         ++target._eventsCount;
       } else {
         if (typeof existing === "function") {
-          // Adding the second element, need to change to array.
+          
           existing = events[type] = prepend
             ? [listener, existing]
             : [existing, listener];
-          // If we've already got an array, just append.
+          
         } else if (prepend) {
           existing.unshift(listener);
         } else {
           existing.push(listener);
         }
-        // Check for listener leak
+        
         m = _getMaxListeners(target);
         if (m > 0 && existing.length > m && !existing.warned) {
           existing.warned = true;
-          // No error code for this since it is a Warning
-          // eslint-disable-next-line no-restricted-syntax
+          
+          
           var w = new Error(
             "Possible EventEmitter memory leak detected. " +
               existing.length +
@@ -3835,7 +3835,7 @@
       this.prependListener(type, _onceWrap(this, type, listener));
       return this;
     };
-    // Emits a 'removeListener' event if and only if the listener was removed.
+    
     EventEmitter.prototype.removeListener = function removeListener(
       type,
       listener,
@@ -3880,7 +3880,7 @@
       var listeners, events, i;
       events = this._events;
       if (events === undefined) return this;
-      // not listening for removeListener, no need to emit
+      
       if (events.removeListener === undefined) {
         if (arguments.length === 0) {
           this._events = Object.create(null);
@@ -3891,7 +3891,7 @@
         }
         return this;
       }
-      // emit removeListener for all listeners on all events
+      
       if (arguments.length === 0) {
         var keys = Object.keys(events);
         var key;
@@ -3909,7 +3909,7 @@
       if (typeof listeners === "function") {
         this.removeListener(type, listeners);
       } else if (listeners !== undefined) {
-        // LIFO order
+        
         for (i = listeners.length - 1; i >= 0; i--) {
           this.removeListener(type, listeners[i]);
         }
@@ -4007,11 +4007,11 @@
           emitter.on(name, listener);
         }
       } else if (typeof emitter.addEventListener === "function") {
-        // EventTarget does not have `error` event semantics like Node
-        // EventEmitters, we do not listen for `error` events here.
+        
+        
         emitter.addEventListener(name, function wrapListener(arg) {
-          // IE does not have builtin `{ once: true }` support so we
-          // have to do it manually.
+          
+          
           if (flags.once) {
             emitter.removeEventListener(name, wrapListener);
           }
@@ -4199,22 +4199,22 @@
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/is-url/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    /**
-     * Expose `isUrl`.
-     */ module.exports = isUrl;
-    /**
-     * RegExps.
-     * A URL must match #1 and then at least one of #2/#3.
-     * Use two levels of REs to avoid REDOS.
-     */ var protocolAndDomainRE = /^(?:\w+:)?\/\/(\S+)$/;
+    
+
+ module.exports = isUrl;
+    
+
+
+
+ var protocolAndDomainRE = /^(?:\w+:)?\/\/(\S+)$/;
     var localhostDomainRE = /^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/;
     var nonLocalhostDomainRE = /^[^\s\.]+\.\S{2,}$/;
-    /**
-     * Loosely validate a URL `string`.
-     *
-     * @param {String} string
-     * @return {Boolean}
-     */ function isUrl(string) {
+    
+
+
+
+
+ function isUrl(string) {
       if (typeof string !== "string") {
         return false;
       }
@@ -4239,7 +4239,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    // Node back-compat.
+    
     __turbopack_context__.s(["DecodeStream", () => DecodeStream]);
     const ENCODING_MAPPING = {
       utf16le: "utf-16le",
@@ -4418,7 +4418,7 @@
     function stringToAscii(string) {
       let buf = new Uint8Array(string.length);
       for (let i = 0; i < string.length; i++) {
-        // Match node.js behavior - encoding allows 8-bit rather than 7-bit.
+        
         buf[i] = string.charCodeAt(i);
       }
       return buf;
@@ -4727,7 +4727,7 @@
             "Number"
           ]
         ) {
-          // define hidden properties
+          
           Object.defineProperties(res, {
             parent: {
               value: parent,
@@ -5013,7 +5013,7 @@
       () => BufferT,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -5255,7 +5255,7 @@
         return string;
       }
       size(val, parent) {
-        // Use the defined value if no value was given
+        
         if (val === undefined || val === null) {
           return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "resolveLength"
@@ -5325,8 +5325,8 @@
         case "ucs2":
           return 2;
         default:
-          //TODO: assume all other encodings are 1-byters
-          //throw new Error('Unknown encoding ' + encoding);
+          
+          
           return 1;
       }
     }
@@ -5343,7 +5343,7 @@
               if ((c2 & 0xfc00) === 0xdc00) {
                 c = ((c & 0x3ff) << 10) + (c2 & 0x3ff) + 0x10000;
               } else {
-                // unmatched surrogate.
+                
                 i--;
               }
             }
@@ -5401,7 +5401,7 @@
       }
       _setup(stream, parent, length) {
         const res = {};
-        // define hidden properties
+        
         Object.defineProperties(res, {
           parent: {
             value: parent,
@@ -5676,7 +5676,7 @@
       }
       decode(stream, ctx) {
         const offset = this.offsetType.decode(stream, ctx);
-        // handle NULL pointers
+        
         if (offset === this.options.nullValue && this.options.allowNull) {
           return null;
         }
@@ -5714,8 +5714,8 @@
             stream.pos = pos;
             return val;
           };
-          // If this is a lazy pointer, define a getter to decode only when needed.
-          // This obviously only works when the pointer is contained by a Struct.
+          
+          
           if (this.options.lazy) {
             return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "PropertyDescriptor"
@@ -5751,7 +5751,7 @@
           val = val.value;
         }
         if (val && ctx) {
-          // Must be written as two separate lines rather than += in case `type.size` mutates ctx.pointerSize.
+          
           let size = type.size(val, parent);
           ctx.pointerSize += size;
         }
@@ -5991,12 +5991,12 @@
         },
         72: function (e, r, t) {
           "use strict";
-          /*!
-           * The buffer module from node.js, for the browser.
-           *
-           * @author   Feross Aboukhadijeh <https://feross.org>
-           * @license  MIT
-           */ var f = t(675);
+          
+
+
+
+
+ var f = t(675);
           var n = t(783);
           var i =
             typeof Symbol === "function" && typeof Symbol.for === "function"
@@ -7448,7 +7448,7 @@
           })();
         },
         783: function (e, r) {
-          /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */ r.read =
+           r.read =
             function (e, r, t, f, n) {
               var i, o;
               var u = n * 8 - f - 1;
@@ -7557,7 +7557,7 @@
 
     var assign = Object.assign.bind(Object);
     module.exports = assign;
-    module.exports.default = module.exports; //# sourceMappingURL=object-assign.js.map
+    module.exports.default = module.exports; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -8028,7 +8028,7 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // do not edit .js files directly - edit src/index.jst
+    
     module.exports = function equal(a, b) {
       if (a === b) return true;
       if (a && b && typeof a == "object" && typeof b == "object") {
@@ -8057,7 +8057,7 @@
         }
         return true;
       }
-      // true if both NaN, false otherwise
+      
       return a !== a && b !== b;
     };
   },
@@ -8077,8 +8077,8 @@
       lookup[i] = code[i];
       revLookup[code.charCodeAt(i)] = i;
     }
-    // Support decoding URL-safe base64 strings, as Node.js does.
-    // See: https://en.wikipedia.org/wiki/Base64#URL_applications
+    
+    
     revLookup["-".charCodeAt(0)] = 62;
     revLookup["_".charCodeAt(0)] = 63;
     function getLens(b64) {
@@ -8086,14 +8086,14 @@
       if (len % 4 > 0) {
         throw new Error("Invalid string. Length must be a multiple of 4");
       }
-      // Trim off extra bytes after placeholder bytes are found
-      // See: https://github.com/beatgammit/base64-js/issues/42
+      
+      
       var validLen = b64.indexOf("=");
       if (validLen === -1) validLen = len;
       var placeHoldersLen = validLen === len ? 0 : 4 - (validLen % 4);
       return [validLen, placeHoldersLen];
     }
-    // base64 is 4/3 + up to two characters of the original data
+    
     function byteLength(b64) {
       var lens = getLens(b64);
       var validLen = lens[0];
@@ -8110,7 +8110,7 @@
       var placeHoldersLen = lens[1];
       var arr = new Arr(_byteLength(b64, validLen, placeHoldersLen));
       var curByte = 0;
-      // if there are placeholders, only get up to the last complete 4 chars
+      
       var len = placeHoldersLen > 0 ? validLen - 4 : validLen;
       var i;
       for (i = 0; i < len; i += 4) {
@@ -8162,10 +8162,10 @@
     function fromByteArray(uint8) {
       var tmp;
       var len = uint8.length;
-      var extraBytes = len % 3; // if we have 1 byte left, pad 2 bytes
+      var extraBytes = len % 3; 
       var parts = [];
-      var maxChunkLength = 16383; // must be multiple of 3
-      // go through the array every three bytes, we'll deal with trailing stuff later
+      var maxChunkLength = 16383; 
+      
       for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
         parts.push(
           encodeChunk(
@@ -8175,7 +8175,7 @@
           ),
         );
       }
-      // pad the end with zeros, but make sure to not forget the extra bytes
+      
       if (extraBytes === 1) {
         tmp = uint8[len - 1];
         parts.push(lookup[tmp >> 2] + lookup[(tmp << 4) & 0x3f] + "==");
@@ -8208,11 +8208,11 @@
       function decode(elt) {
         var code = elt.charCodeAt(0);
         if (code === PLUS || code === PLUS_URL_SAFE)
-          return 62; // '+'
+          return 62; 
         if (code === SLASH || code === SLASH_URL_SAFE)
-          return 63; // '/'
+          return 63; 
         if (code < NUMBER)
-          return -1; //no match
+          return -1; 
         if (code < NUMBER + 10) return code - NUMBER + 26 + 26;
         if (code < UPPER + 26) return code - UPPER;
         if (code < LOWER + 26) return code - LOWER + 26;
@@ -8222,17 +8222,17 @@
         if (b64.length % 4 > 0) {
           throw new Error("Invalid string. Length must be a multiple of 4");
         }
-        // the number of equal signs (place holders)
-        // if there are two placeholders, than the two characters before it
-        // represent one byte
-        // if there is only one, then the three characters before it represent 2 bytes
-        // this is just a cheap hack to not do indexOf twice
+        
+        
+        
+        
+        
         var len = b64.length;
         placeHolders =
           "=" === b64.charAt(len - 2) ? 2 : "=" === b64.charAt(len - 1) ? 1 : 0;
-        // base64 is 4/3 + up to two characters of the original data
+        
         arr = new Arr((b64.length * 3) / 4 - placeHolders);
-        // if there are placeholders, only get up to the last complete 4 chars
+        
         l = placeHolders > 0 ? b64.length - 4 : b64.length;
         var L = 0;
         function push(v) {
@@ -8278,12 +8278,12 @@
             encode(num & 0x3f)
           );
         }
-        // go through the array every three bytes, we'll deal with trailing stuff later
+        
         for (i = 0, length = uint8.length - extraBytes; i < length; i += 3) {
           temp = (uint8[i] << 16) + (uint8[i + 1] << 8) + uint8[i + 2];
           output += tripletToBase64(temp);
         }
-        // pad the end with zeros, but make sure to not forget the extra bytes
+        
         switch (extraBytes) {
           case 1:
             temp = uint8[uint8.length - 1];
@@ -8320,56 +8320,56 @@
       );
     var $557adaaeb0c7885f$exports = {};
     ("use strict");
-    const $1627905f8be2ef3f$export$af862512e23cb54 = 0; // Opening punctuation
-    const $1627905f8be2ef3f$export$9bf3043cb7503aa1 = 1; // Closing punctuation
-    const $1627905f8be2ef3f$export$6d0b2a5dd774590a = 2; // Closing parenthesis
-    const $1627905f8be2ef3f$export$bf0b2277bd569ea1 = 3; // Ambiguous quotation
-    const $1627905f8be2ef3f$export$bad2a840ccda93b6 = 4; // Glue
-    const $1627905f8be2ef3f$export$fb4028874a74450 = 5; // Non-starters
-    const $1627905f8be2ef3f$export$463bd1ce0149c55e = 6; // Exclamation/Interrogation
-    const $1627905f8be2ef3f$export$2e8caadc521d7cbb = 7; // Symbols allowing break after
-    const $1627905f8be2ef3f$export$bfe27467c1de9413 = 8; // Infix separator
-    const $1627905f8be2ef3f$export$af5f8d68aad3cd3a = 9; // Prefix
-    const $1627905f8be2ef3f$export$6b7e017d6825d38f = 10; // Postfix
-    const $1627905f8be2ef3f$export$8227ca023eb0daaa = 11; // Numeric
-    const $1627905f8be2ef3f$export$1bb1140fe1358b00 = 12; // Alphabetic
-    const $1627905f8be2ef3f$export$f3e416a182673355 = 13; // Hebrew Letter
-    const $1627905f8be2ef3f$export$8be180ec26319f9f = 14; // Ideographic
-    const $1627905f8be2ef3f$export$70824c8942178d60 = 15; // Inseparable characters
-    const $1627905f8be2ef3f$export$24aa617c849a894a = 16; // Hyphen
-    const $1627905f8be2ef3f$export$a73c4d14459b698d = 17; // Break after
-    const $1627905f8be2ef3f$export$921068d8846a1559 = 18; // Break before
-    const $1627905f8be2ef3f$export$8b85a4f193482778 = 19; // Break on either side (but not pair)
-    const $1627905f8be2ef3f$export$b2fd9c01d360241f = 20; // Zero-width space
-    const $1627905f8be2ef3f$export$dcd191669c0a595f = 21; // Combining marks
-    const $1627905f8be2ef3f$export$9e5d732f3676a9ba = 22; // Word joiner
-    const $1627905f8be2ef3f$export$cb94397127ac9363 = 23; // Hangul LV
-    const $1627905f8be2ef3f$export$746be9e3a3dfff1f = 24; // Hangul LVT
-    const $1627905f8be2ef3f$export$96e3e682276c47cf = 25; // Hangul L Jamo
-    const $1627905f8be2ef3f$export$fc2ff69ee2cb01bf = 26; // Hangul V Jamo
-    const $1627905f8be2ef3f$export$8999624a7bae9d04 = 27; // Hangul T Jamo
-    const $1627905f8be2ef3f$export$1dff41d5c0caca01 = 28; // Regional Indicator
-    const $1627905f8be2ef3f$export$ddb7a6c76d9d93eb = 29; // Emoji Base
-    const $1627905f8be2ef3f$export$7e93eb3105e4786d = 30; // Emoji Modifier
-    const $1627905f8be2ef3f$export$30a74a373318dec6 = 31; // Zero Width Joiner
-    const $1627905f8be2ef3f$export$54caeea5e6dab1f = 32; // Contingent break
-    const $1627905f8be2ef3f$export$d710c5f50fc7496a = 33; // Ambiguous (Alphabetic or Ideograph)
-    const $1627905f8be2ef3f$export$66498d28055820a9 = 34; // Break (mandatory)
-    const $1627905f8be2ef3f$export$eb6c6d0b7c8826f2 = 35; // Conditional Japanese Starter
-    const $1627905f8be2ef3f$export$de92be486109a1df = 36; // Carriage return
-    const $1627905f8be2ef3f$export$606cfc2a8896c91f = 37; // Line feed
-    const $1627905f8be2ef3f$export$e51d3c675bb0140d = 38; // Next line
-    const $1627905f8be2ef3f$export$da51c6332ad11d7b = 39; // South-East Asian
-    const $1627905f8be2ef3f$export$bea437c40441867d = 40; // Surrogates
-    const $1627905f8be2ef3f$export$c4c7eecbfed13dc9 = 41; // Space
-    const $1627905f8be2ef3f$export$98e1f8a379849661 = 42; // Unknown
-    const $32627af916ac1b00$export$98f50d781a474745 = 0; // Direct break opportunity
-    const $32627af916ac1b00$export$12ee1f8f5315ca7e = 1; // Indirect break opportunity
-    const $32627af916ac1b00$export$e4965ce242860454 = 2; // Indirect break opportunity for combining marks
-    const $32627af916ac1b00$export$8f14048969dcd45e = 3; // Prohibited break for combining marks
-    const $32627af916ac1b00$export$133eb141bf58aff4 = 4; // Prohibited break
+    const $1627905f8be2ef3f$export$af862512e23cb54 = 0; 
+    const $1627905f8be2ef3f$export$9bf3043cb7503aa1 = 1; 
+    const $1627905f8be2ef3f$export$6d0b2a5dd774590a = 2; 
+    const $1627905f8be2ef3f$export$bf0b2277bd569ea1 = 3; 
+    const $1627905f8be2ef3f$export$bad2a840ccda93b6 = 4; 
+    const $1627905f8be2ef3f$export$fb4028874a74450 = 5; 
+    const $1627905f8be2ef3f$export$463bd1ce0149c55e = 6; 
+    const $1627905f8be2ef3f$export$2e8caadc521d7cbb = 7; 
+    const $1627905f8be2ef3f$export$bfe27467c1de9413 = 8; 
+    const $1627905f8be2ef3f$export$af5f8d68aad3cd3a = 9; 
+    const $1627905f8be2ef3f$export$6b7e017d6825d38f = 10; 
+    const $1627905f8be2ef3f$export$8227ca023eb0daaa = 11; 
+    const $1627905f8be2ef3f$export$1bb1140fe1358b00 = 12; 
+    const $1627905f8be2ef3f$export$f3e416a182673355 = 13; 
+    const $1627905f8be2ef3f$export$8be180ec26319f9f = 14; 
+    const $1627905f8be2ef3f$export$70824c8942178d60 = 15; 
+    const $1627905f8be2ef3f$export$24aa617c849a894a = 16; 
+    const $1627905f8be2ef3f$export$a73c4d14459b698d = 17; 
+    const $1627905f8be2ef3f$export$921068d8846a1559 = 18; 
+    const $1627905f8be2ef3f$export$8b85a4f193482778 = 19; 
+    const $1627905f8be2ef3f$export$b2fd9c01d360241f = 20; 
+    const $1627905f8be2ef3f$export$dcd191669c0a595f = 21; 
+    const $1627905f8be2ef3f$export$9e5d732f3676a9ba = 22; 
+    const $1627905f8be2ef3f$export$cb94397127ac9363 = 23; 
+    const $1627905f8be2ef3f$export$746be9e3a3dfff1f = 24; 
+    const $1627905f8be2ef3f$export$96e3e682276c47cf = 25; 
+    const $1627905f8be2ef3f$export$fc2ff69ee2cb01bf = 26; 
+    const $1627905f8be2ef3f$export$8999624a7bae9d04 = 27; 
+    const $1627905f8be2ef3f$export$1dff41d5c0caca01 = 28; 
+    const $1627905f8be2ef3f$export$ddb7a6c76d9d93eb = 29; 
+    const $1627905f8be2ef3f$export$7e93eb3105e4786d = 30; 
+    const $1627905f8be2ef3f$export$30a74a373318dec6 = 31; 
+    const $1627905f8be2ef3f$export$54caeea5e6dab1f = 32; 
+    const $1627905f8be2ef3f$export$d710c5f50fc7496a = 33; 
+    const $1627905f8be2ef3f$export$66498d28055820a9 = 34; 
+    const $1627905f8be2ef3f$export$eb6c6d0b7c8826f2 = 35; 
+    const $1627905f8be2ef3f$export$de92be486109a1df = 36; 
+    const $1627905f8be2ef3f$export$606cfc2a8896c91f = 37; 
+    const $1627905f8be2ef3f$export$e51d3c675bb0140d = 38; 
+    const $1627905f8be2ef3f$export$da51c6332ad11d7b = 39; 
+    const $1627905f8be2ef3f$export$bea437c40441867d = 40; 
+    const $1627905f8be2ef3f$export$c4c7eecbfed13dc9 = 41; 
+    const $1627905f8be2ef3f$export$98e1f8a379849661 = 42; 
+    const $32627af916ac1b00$export$98f50d781a474745 = 0; 
+    const $32627af916ac1b00$export$12ee1f8f5315ca7e = 1; 
+    const $32627af916ac1b00$export$e4965ce242860454 = 2; 
+    const $32627af916ac1b00$export$8f14048969dcd45e = 3; 
+    const $32627af916ac1b00$export$133eb141bf58aff4 = 4; 
     const $32627af916ac1b00$export$5bdb8ccbf5c57afc = [
-      //OP   , CL    , CP    , QU    , GL    , NS    , EX    , SY    , IS    , PR    , PO    , NU    , AL    , HL    , ID    , IN    , HY    , BA    , BB    , B2    , ZW    , CM    , WJ    , H2    , H3    , JL    , JV    , JT    , RI    , EB    , EM    , ZWJ   , CB
+      
       [
         $32627af916ac1b00$export$133eb141bf58aff4,
         $32627af916ac1b00$export$133eb141bf58aff4,
@@ -9524,7 +9524,7 @@
         $32627af916ac1b00$export$98f50d781a474745,
         $32627af916ac1b00$export$12ee1f8f5315ca7e,
         $32627af916ac1b00$export$98f50d781a474745,
-      ], // CB
+      ], 
     ];
     const $557adaaeb0c7885f$var$data =
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$linebreak$2f$node_modules$2f$base64$2d$js$2f$lib$2f$b64$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -9571,7 +9571,7 @@
       nextCodePoint() {
         const code = this.string.charCodeAt(this.pos++);
         const next = this.string.charCodeAt(this.pos);
-        // If a surrogate pair
+        
         if (
           0xd800 <= code &&
           code <= 0xdbff &&
@@ -9589,7 +9589,7 @@
         );
       }
       getSimpleBreak() {
-        // handle classes not handled by the pair table
+        
         switch (this.nextClass) {
           case $1627905f8be2ef3f$export$c4c7eecbfed13dc9:
             return false;
@@ -9605,7 +9605,7 @@
         return null;
       }
       getPairTableBreak(lastClass) {
-        // if not handled already, use the pair table
+        
         let shouldBreak = false;
         switch (
           $32627af916ac1b00$export$5bdb8ccbf5c57afc[this.curClass][
@@ -9635,7 +9635,7 @@
             break;
         }
         if (this.LB8a) shouldBreak = false;
-        // Rule LB21a
+        
         if (
           this.LB21a &&
           (this.curClass === $1627905f8be2ef3f$export$24aa617c849a894a ||
@@ -9646,7 +9646,7 @@
         } else
           this.LB21a =
             this.curClass === $1627905f8be2ef3f$export$f3e416a182673355;
-        // Rule LB30a
+        
         if (this.curClass === $1627905f8be2ef3f$export$1dff41d5c0caca01) {
           this.LB30a++;
           if (
@@ -9661,7 +9661,7 @@
         return shouldBreak;
       }
       nextBreak() {
-        // get the first char if we're at the beginning of the string
+        
         if (this.curClass == null) {
           let firstClass = this.nextCharClass();
           this.curClass = $557adaaeb0c7885f$var$mapFirst(firstClass);
@@ -9673,7 +9673,7 @@
           this.lastPos = this.pos;
           const lastClass = this.nextClass;
           this.nextClass = this.nextCharClass();
-          // explicit newline
+          
           if (
             this.curClass === $1627905f8be2ef3f$export$66498d28055820a9 ||
             (this.curClass === $1627905f8be2ef3f$export$de92be486109a1df &&
@@ -9687,7 +9687,7 @@
           let shouldBreak = this.getSimpleBreak();
           if (shouldBreak === null)
             shouldBreak = this.getPairTableBreak(lastClass);
-          // Rule LB8a
+          
           this.LB8a =
             this.nextClass === $1627905f8be2ef3f$export$30a74a373318dec6;
           if (shouldBreak) return new $557adaaeb0c7885f$var$Break(this.lastPos);
@@ -9710,15 +9710,15 @@
       }
     }
     $557adaaeb0c7885f$exports = $557adaaeb0c7885f$var$LineBreaker;
-    //# sourceMappingURL=module.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/tiny-inflate/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     var TINF_OK = 0;
     var TINF_DATA_ERROR = -3;
     function Tree() {
-      this.table = new Uint16Array(16); /* table of code length counts */
-      this.trans = new Uint16Array(288); /* code -> symbol translation table */
+      this.table = new Uint16Array(16); 
+      this.trans = new Uint16Array(288); 
     }
     function Data(source, dest) {
       this.source = source;
@@ -9727,48 +9727,48 @@
       this.bitcount = 0;
       this.dest = dest;
       this.destLen = 0;
-      this.ltree = new Tree(); /* dynamic length/symbol tree */
-      this.dtree = new Tree(); /* dynamic distance tree */
+      this.ltree = new Tree(); 
+      this.dtree = new Tree(); 
     }
-    /* --------------------------------------------------- *
-     * -- uninitialized global data (static structures) -- *
-     * --------------------------------------------------- */ var sltree =
+    
+
+ var sltree =
       new Tree();
     var sdtree = new Tree();
-    /* extra bits and base tables for length codes */ var length_bits =
+     var length_bits =
       new Uint8Array(30);
     var length_base = new Uint16Array(30);
-    /* extra bits and base tables for distance codes */ var dist_bits =
+     var dist_bits =
       new Uint8Array(30);
     var dist_base = new Uint16Array(30);
-    /* special ordering of code length codes */ var clcidx = new Uint8Array([
+     var clcidx = new Uint8Array([
       16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15,
     ]);
-    /* used by tinf_decode_trees, avoids allocations every call */ var code_tree =
+     var code_tree =
       new Tree();
     var lengths = new Uint8Array(288 + 32);
-    /* ----------------------- *
-     * -- utility functions -- *
-     * ----------------------- */ /* build extra bits and base tables */ function tinf_build_bits_base(
+    
+
+  function tinf_build_bits_base(
       bits,
       base,
       delta,
       first,
     ) {
       var i, sum;
-      /* build bits table */ for (i = 0; i < delta; ++i) bits[i] = 0;
+       for (i = 0; i < delta; ++i) bits[i] = 0;
       for (i = 0; i < 30 - delta; ++i) bits[i + delta] = (i / delta) | 0;
-      /* build base table */ for (sum = first, i = 0; i < 30; ++i) {
+       for (sum = first, i = 0; i < 30; ++i) {
         base[i] = sum;
         sum += 1 << bits[i];
       }
     }
-    /* build the fixed huffman trees */ function tinf_build_fixed_trees(
+     function tinf_build_fixed_trees(
       lt,
       dt,
     ) {
       var i;
-      /* build fixed length tree */ for (i = 0; i < 7; ++i) lt.table[i] = 0;
+       for (i = 0; i < 7; ++i) lt.table[i] = 0;
       lt.table[7] = 24;
       lt.table[8] = 152;
       lt.table[9] = 112;
@@ -9776,24 +9776,24 @@
       for (i = 0; i < 144; ++i) lt.trans[24 + i] = i;
       for (i = 0; i < 8; ++i) lt.trans[24 + 144 + i] = 280 + i;
       for (i = 0; i < 112; ++i) lt.trans[24 + 144 + 8 + i] = 144 + i;
-      /* build fixed distance tree */ for (i = 0; i < 5; ++i) dt.table[i] = 0;
+       for (i = 0; i < 5; ++i) dt.table[i] = 0;
       dt.table[5] = 32;
       for (i = 0; i < 32; ++i) dt.trans[i] = i;
     }
-    /* given an array of code lengths, build a tree */ var offs =
+     var offs =
       new Uint16Array(16);
     function tinf_build_tree(t, lengths, off, num) {
       var i, sum;
-      /* clear code length count table */ for (i = 0; i < 16; ++i)
+       for (i = 0; i < 16; ++i)
         t.table[i] = 0;
-      /* scan symbol lengths, and sum code length counts */ for (
+       for (
         i = 0;
         i < num;
         ++i
       )
         t.table[lengths[off + i]]++;
       t.table[0] = 0;
-      /* compute offset table for distribution sort */ for (
+       for (
         sum = 0, i = 0;
         i < 16;
         ++i
@@ -9801,7 +9801,7 @@
         offs[i] = sum;
         sum += t.table[i];
       }
-      /* create code->symbol translation table (symbols sorted by code) */ for (
+       for (
         i = 0;
         i < num;
         ++i
@@ -9809,20 +9809,20 @@
         if (lengths[off + i]) t.trans[offs[lengths[off + i]]++] = i;
       }
     }
-    /* ---------------------- *
-     * -- decode functions -- *
-     * ---------------------- */ /* get one bit from source stream */ function tinf_getbit(
+    
+
+  function tinf_getbit(
       d,
     ) {
-      /* check if tag is empty */ if (!d.bitcount--) {
-        /* load next tag */ d.tag = d.source[d.sourceIndex++];
+       if (!d.bitcount--) {
+         d.tag = d.source[d.sourceIndex++];
         d.bitcount = 7;
       }
-      /* shift bit out of tag */ var bit = d.tag & 1;
+       var bit = d.tag & 1;
       d.tag >>>= 1;
       return bit;
     }
-    /* read a num bit value from a stream and add base */ function tinf_read_bits(
+     function tinf_read_bits(
       d,
       num,
       base,
@@ -9837,7 +9837,7 @@
       d.bitcount -= num;
       return val + base;
     }
-    /* given a data stream and a tree, decode a symbol */ function tinf_decode_symbol(
+     function tinf_decode_symbol(
       d,
       t,
     ) {
@@ -9849,7 +9849,7 @@
         cur = 0,
         len = 0;
       var tag = d.tag;
-      /* get more bits while code value is above sum */ do {
+       do {
         cur = 2 * cur + (tag & 1);
         tag >>>= 1;
         ++len;
@@ -9860,41 +9860,41 @@
       d.bitcount -= len;
       return t.trans[sum + cur];
     }
-    /* given a data stream, decode dynamic trees from it */ function tinf_decode_trees(
+     function tinf_decode_trees(
       d,
       lt,
       dt,
     ) {
       var hlit, hdist, hclen;
       var i, num, length;
-      /* get 5 bits HLIT (257-286) */ hlit = tinf_read_bits(d, 5, 257);
-      /* get 5 bits HDIST (1-32) */ hdist = tinf_read_bits(d, 5, 1);
-      /* get 4 bits HCLEN (4-19) */ hclen = tinf_read_bits(d, 4, 4);
+       hlit = tinf_read_bits(d, 5, 257);
+       hdist = tinf_read_bits(d, 5, 1);
+       hclen = tinf_read_bits(d, 4, 4);
       for (i = 0; i < 19; ++i) lengths[i] = 0;
-      /* read code lengths for code length alphabet */ for (
+       for (
         i = 0;
         i < hclen;
         ++i
       ) {
-        /* get 3 bits code length (0-7) */ var clen = tinf_read_bits(d, 3, 0);
+         var clen = tinf_read_bits(d, 3, 0);
         lengths[clcidx[i]] = clen;
       }
-      /* build code length tree */ tinf_build_tree(code_tree, lengths, 0, 19);
-      /* decode code lengths for the dynamic trees */ for (
+       tinf_build_tree(code_tree, lengths, 0, 19);
+       for (
         num = 0;
         num < hlit + hdist;
       ) {
         var sym = tinf_decode_symbol(d, code_tree);
         switch (sym) {
           case 16:
-            /* copy previous code length 3-6 times (read 2 bits) */ var prev =
+             var prev =
               lengths[num - 1];
             for (length = tinf_read_bits(d, 2, 3); length; --length) {
               lengths[num++] = prev;
             }
             break;
           case 17:
-            /* repeat code length 0 for 3-10 times (read 3 bits) */ for (
+             for (
               length = tinf_read_bits(d, 3, 3);
               length;
               --length
@@ -9903,7 +9903,7 @@
             }
             break;
           case 18:
-            /* repeat code length 0 for 11-138 times (read 7 bits) */ for (
+             for (
               length = tinf_read_bits(d, 7, 11);
               length;
               --length
@@ -9912,24 +9912,24 @@
             }
             break;
           default:
-            /* values 0-15 represent the actual code lengths */ lengths[num++] =
+             lengths[num++] =
               sym;
             break;
         }
       }
-      /* build dynamic trees */ tinf_build_tree(lt, lengths, 0, hlit);
+       tinf_build_tree(lt, lengths, 0, hlit);
       tinf_build_tree(dt, lengths, hlit, hdist);
     }
-    /* ----------------------------- *
-     * -- block inflate functions -- *
-     * ----------------------------- */ /* given a stream and two trees, inflate a block of data */ function tinf_inflate_block_data(
+    
+
+  function tinf_inflate_block_data(
       d,
       lt,
       dt,
     ) {
       while (1) {
         var sym = tinf_decode_symbol(d, lt);
-        /* check for end of block */ if (sym === 256) {
+         if (sym === 256) {
           return TINF_OK;
         }
         if (sym < 256) {
@@ -9938,62 +9938,62 @@
           var length, dist, offs;
           var i;
           sym -= 257;
-          /* possibly get more bits from length code */ length = tinf_read_bits(
+           length = tinf_read_bits(
             d,
             length_bits[sym],
             length_base[sym],
           );
           dist = tinf_decode_symbol(d, dt);
-          /* possibly get more bits from distance code */ offs =
+           offs =
             d.destLen - tinf_read_bits(d, dist_bits[dist], dist_base[dist]);
-          /* copy match */ for (i = offs; i < offs + length; ++i) {
+           for (i = offs; i < offs + length; ++i) {
             d.dest[d.destLen++] = d.dest[i];
           }
         }
       }
     }
-    /* inflate an uncompressed block of data */ function tinf_inflate_uncompressed_block(
+     function tinf_inflate_uncompressed_block(
       d,
     ) {
       var length, invlength;
       var i;
-      /* unread from bitbuffer */ while (d.bitcount > 8) {
+       while (d.bitcount > 8) {
         d.sourceIndex--;
         d.bitcount -= 8;
       }
-      /* get length */ length = d.source[d.sourceIndex + 1];
+       length = d.source[d.sourceIndex + 1];
       length = 256 * length + d.source[d.sourceIndex];
-      /* get one's complement of length */ invlength =
+       invlength =
         d.source[d.sourceIndex + 3];
       invlength = 256 * invlength + d.source[d.sourceIndex + 2];
-      /* check length */ if (length !== (~invlength & 0x0000ffff))
+       if (length !== (~invlength & 0x0000ffff))
         return TINF_DATA_ERROR;
       d.sourceIndex += 4;
-      /* copy block */ for (i = length; i; --i)
+       for (i = length; i; --i)
         d.dest[d.destLen++] = d.source[d.sourceIndex++];
-      /* make sure we start next block on a byte boundary */ d.bitcount = 0;
+       d.bitcount = 0;
       return TINF_OK;
     }
-    /* inflate stream from source to dest */ function tinf_uncompress(
+     function tinf_uncompress(
       source,
       dest,
     ) {
       var d = new Data(source, dest);
       var bfinal, btype, res;
       do {
-        /* read final block flag */ bfinal = tinf_getbit(d);
-        /* read block type (2 bits) */ btype = tinf_read_bits(d, 2, 0);
-        /* decompress block */ switch (btype) {
+         bfinal = tinf_getbit(d);
+         btype = tinf_read_bits(d, 2, 0);
+         switch (btype) {
           case 0:
-            /* decompress uncompressed block */ res =
+             res =
               tinf_inflate_uncompressed_block(d);
             break;
           case 1:
-            /* decompress block with fixed huffman trees */ res =
+             res =
               tinf_inflate_block_data(d, sltree, sdtree);
             break;
           case 2:
-            /* decompress block with dynamic huffman trees */ tinf_decode_trees(
+             tinf_decode_trees(
               d,
               d.ltree,
               d.dtree,
@@ -10012,20 +10012,20 @@
       }
       return d.dest;
     }
-    /* -------------------- *
-     * -- initialization -- *
-     * -------------------- */ /* build fixed huffman trees */ tinf_build_fixed_trees(
+    
+
+  tinf_build_fixed_trees(
       sltree,
       sdtree,
     );
-    /* build extra bits and base tables */ tinf_build_bits_base(
+     tinf_build_bits_base(
       length_bits,
       length_base,
       4,
       3,
     );
     tinf_build_bits_base(dist_bits, dist_base, 2, 1);
-    /* fix a special case */ length_bits[28] = 0;
+     length_bits[28] = 0;
     length_base[28] = 258;
     module.exports = tinf_uncompress;
   },
@@ -10062,53 +10062,53 @@
     const { swap32LE } = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/unicode-trie/swap.js [app-client] (ecmascript)",
     );
-    // Shift size for getting the index-1 table offset.
+    
     const SHIFT_1 = 6 + 5;
-    // Shift size for getting the index-2 table offset.
+    
     const SHIFT_2 = 5;
-    // Difference between the two shift sizes,
-    // for getting an index-1 offset from an index-2 offset. 6=11-5
+    
+    
     const SHIFT_1_2 = SHIFT_1 - SHIFT_2;
-    // Number of index-1 entries for the BMP. 32=0x20
-    // This part of the index-1 table is omitted from the serialized form.
+    
+    
     const OMITTED_BMP_INDEX_1_LENGTH = 0x10000 >> SHIFT_1;
-    // Number of entries in an index-2 block. 64=0x40
+    
     const INDEX_2_BLOCK_LENGTH = 1 << SHIFT_1_2;
-    // Mask for getting the lower bits for the in-index-2-block offset. */
+    
     const INDEX_2_MASK = INDEX_2_BLOCK_LENGTH - 1;
-    // Shift size for shifting left the index array values.
-    // Increases possible data size with 16-bit index values at the cost
-    // of compactability.
-    // This requires data blocks to be aligned by DATA_GRANULARITY.
+    
+    
+    
+    
     const INDEX_SHIFT = 2;
-    // Number of entries in a data block. 32=0x20
+    
     const DATA_BLOCK_LENGTH = 1 << SHIFT_2;
-    // Mask for getting the lower bits for the in-data-block offset.
+    
     const DATA_MASK = DATA_BLOCK_LENGTH - 1;
-    // The part of the index-2 table for U+D800..U+DBFF stores values for
-    // lead surrogate code _units_ not code _points_.
-    // Values for lead surrogate code _points_ are indexed with this portion of the table.
-    // Length=32=0x20=0x400>>SHIFT_2. (There are 1024=0x400 lead surrogates.)
+    
+    
+    
+    
     const LSCP_INDEX_2_OFFSET = 0x10000 >> SHIFT_2;
     const LSCP_INDEX_2_LENGTH = 0x400 >> SHIFT_2;
-    // Count the lengths of both BMP pieces. 2080=0x820
+    
     const INDEX_2_BMP_LENGTH = LSCP_INDEX_2_OFFSET + LSCP_INDEX_2_LENGTH;
-    // The 2-byte UTF-8 version of the index-2 table follows at offset 2080=0x820.
-    // Length 32=0x20 for lead bytes C0..DF, regardless of SHIFT_2.
+    
+    
     const UTF8_2B_INDEX_2_OFFSET = INDEX_2_BMP_LENGTH;
-    const UTF8_2B_INDEX_2_LENGTH = 0x800 >> 6; // U+0800 is the first code point after 2-byte UTF-8
-    // The index-1 table, only used for supplementary code points, at offset 2112=0x840.
-    // Variable length, for code points up to highStart, where the last single-value range starts.
-    // Maximum length 512=0x200=0x100000>>SHIFT_1.
-    // (For 0x100000 supplementary code points U+10000..U+10ffff.)
-    //
-    // The part of the index-2 table for supplementary code points starts
-    // after this index-1 table.
-    //
-    // Both the index-1 table and the following part of the index-2 table
-    // are omitted completely if there is only BMP data.
+    const UTF8_2B_INDEX_2_LENGTH = 0x800 >> 6; 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     const INDEX_1_OFFSET = UTF8_2B_INDEX_2_OFFSET + UTF8_2B_INDEX_2_LENGTH;
-    // The alignment size of a data block. Also the granularity for compaction.
+    
     const DATA_GRANULARITY = 1 << INDEX_SHIFT;
     class UnicodeTrie {
       constructor(data) {
@@ -10116,7 +10116,7 @@
           typeof data.readUInt32BE === "function" &&
           typeof data.slice === "function";
         if (isBuffer || data instanceof Uint8Array) {
-          // read binary format
+          
           let uncompressedLength;
           if (isBuffer) {
             this.highStart = data.readUInt32LE(0);
@@ -10130,14 +10130,14 @@
             uncompressedLength = view.getUint32(8, true);
             data = data.subarray(12);
           }
-          // double inflate the actual trie data
+          
           data = inflate(data, new Uint8Array(uncompressedLength));
           data = inflate(data, new Uint8Array(uncompressedLength));
-          // swap bytes from little-endian
+          
           swap32LE(data);
           this.data = new Uint32Array(data.buffer);
         } else {
-          // pre-parsed data
+          
           ({
             data: this.data,
             highStart: this.highStart,
@@ -10151,19 +10151,19 @@
           return this.errorValue;
         }
         if (codePoint < 0xd800 || (codePoint > 0xdbff && codePoint <= 0xffff)) {
-          // Ordinary BMP code point, excluding leading surrogates.
-          // BMP uses a single level lookup.  BMP index starts at offset 0 in the index.
-          // data is stored in the index array itself.
+          
+          
+          
           index =
             (this.data[codePoint >> SHIFT_2] << INDEX_SHIFT) +
             (codePoint & DATA_MASK);
           return this.data[index];
         }
         if (codePoint <= 0xffff) {
-          // Lead Surrogate Code Point.  A Separate index section is stored for
-          // lead surrogate code units and code points.
-          //   The main index has the code unit data.
-          //   For this function, we need the code point data.
+          
+          
+          
+          
           index =
             (this.data[
               LSCP_INDEX_2_OFFSET + ((codePoint - 0xd800) >> SHIFT_2)
@@ -10173,7 +10173,7 @@
           return this.data[index];
         }
         if (codePoint < this.highStart) {
-          // Supplemental code point, use two-level lookup.
+          
           index =
             this.data[
               INDEX_1_OFFSET -
@@ -10255,25 +10255,25 @@
       Math.log2 || ((n) => Math.log(n) / Math.LN2);
     const $747425b437e121da$var$bits = (n) =>
       ($747425b437e121da$var$log2(n) + 1) | 0;
-    // compute the number of bits stored for each field
+    
     const $747425b437e121da$var$CATEGORY_BITS = $747425b437e121da$var$bits(
-      (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports))
+      (0,  $parcel$interopDefault($f4087201da764553$exports))
         .categories.length - 1,
     );
     const $747425b437e121da$var$COMBINING_BITS = $747425b437e121da$var$bits(
-      (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports))
+      (0,  $parcel$interopDefault($f4087201da764553$exports))
         .combiningClasses.length - 1,
     );
     const $747425b437e121da$var$SCRIPT_BITS = $747425b437e121da$var$bits(
-      (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports))
+      (0,  $parcel$interopDefault($f4087201da764553$exports))
         .scripts.length - 1,
     );
     const $747425b437e121da$var$EAW_BITS = $747425b437e121da$var$bits(
-      (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).eaw
+      (0,  $parcel$interopDefault($f4087201da764553$exports)).eaw
         .length - 1,
     );
     const $747425b437e121da$var$NUMBER_BITS = 10;
-    // compute shift and mask values for each field
+    
     const $747425b437e121da$var$CATEGORY_SHIFT =
       $747425b437e121da$var$COMBINING_BITS +
       $747425b437e121da$var$SCRIPT_BITS +
@@ -10299,7 +10299,7 @@
     function $747425b437e121da$export$410364bbb673ddbc(codePoint) {
       const val = $747425b437e121da$var$trie.get(codePoint);
       return (0,
-      /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports))
+       $parcel$interopDefault($f4087201da764553$exports))
         .categories[
         (val >> $747425b437e121da$var$CATEGORY_SHIFT) &
           $747425b437e121da$var$CATEGORY_MASK
@@ -10308,7 +10308,7 @@
     function $747425b437e121da$export$c03b919c6651ed55(codePoint) {
       const val = $747425b437e121da$var$trie.get(codePoint);
       return (0,
-      /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports))
+       $parcel$interopDefault($f4087201da764553$exports))
         .combiningClasses[
         (val >> $747425b437e121da$var$COMBINING_SHIFT) &
           $747425b437e121da$var$COMBINING_MASK
@@ -10317,7 +10317,7 @@
     function $747425b437e121da$export$941569448d136665(codePoint) {
       const val = $747425b437e121da$var$trie.get(codePoint);
       return (0,
-      /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).scripts[
+       $parcel$interopDefault($f4087201da764553$exports)).scripts[
         (val >> $747425b437e121da$var$SCRIPT_SHIFT) &
           $747425b437e121da$var$SCRIPT_MASK
       ];
@@ -10325,7 +10325,7 @@
     function $747425b437e121da$export$92f6187db8ca6d26(codePoint) {
       const val = $747425b437e121da$var$trie.get(codePoint);
       return (0,
-      /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).eaw[
+       $parcel$interopDefault($f4087201da764553$exports)).eaw[
         (val >> $747425b437e121da$var$EAW_SHIFT) &
           $747425b437e121da$var$EAW_MASK
       ];
@@ -10431,7 +10431,7 @@
       isBaseForm: $747425b437e121da$export$a11bdcffe109e74b,
       isMark: $747425b437e121da$export$e33ad6871e762338,
     };
-    //# sourceMappingURL=module.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/dfa/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10439,19 +10439,19 @@
 
     var INITIAL_STATE = 1;
     var FAIL_STATE = 0;
-    /**
-     * A StateMachine represents a deterministic finite automaton.
-     * It can perform matches over a sequence of values, similar to a regular expression.
-     */ class StateMachine {
+    
+
+
+ class StateMachine {
       constructor(dfa) {
         this.stateTable = dfa.stateTable;
         this.accepting = dfa.accepting;
         this.tags = dfa.tags;
       }
-      /**
-       * Returns an iterable object that yields pattern matches over the input sequence.
-       * Matches are of the form [startIndex, endIndex, tags].
-       */ match(str) {
+      
+
+
+ match(str) {
         var self = this;
         return {
           *[Symbol.iterator]() {
@@ -10464,27 +10464,27 @@
               lastState = state;
               state = self.stateTable[state][c];
               if (state === FAIL_STATE) {
-                // yield the last match if any
+                
                 if (
                   startRun != null &&
                   lastAccepting != null &&
                   lastAccepting >= startRun
                 ) {
                   yield [startRun, lastAccepting, self.tags[lastState]];
-                } // reset the state as if we started over from the initial state
+                } 
                 state = self.stateTable[INITIAL_STATE][c];
                 startRun = null;
-              } // start a run if not in the failure state
+              } 
               if (state !== FAIL_STATE && startRun == null) {
                 startRun = p;
-              } // if accepting, mark the potential match end
+              } 
               if (self.accepting[state]) {
                 lastAccepting = p;
-              } // reset the state to the initial state if we get into the failure state
+              } 
               if (state === FAIL_STATE) {
                 state = INITIAL_STATE;
               }
-            } // yield the last match if any
+            } 
             if (
               startRun != null &&
               lastAccepting != null &&
@@ -10495,11 +10495,11 @@
           },
         };
       }
-      /**
-       * For each match over the input sequence, action functions matching
-       * the tag definitions in the input pattern are called with the startIndex,
-       * endIndex, and sub-match sequence.
-       */ apply(str, actions) {
+      
+
+
+
+ apply(str, actions) {
         for (var [start, end, tags] of this.match(str)) {
           for (var tag of tags) {
             if (typeof actions[tag] === "function") {
@@ -10509,12 +10509,12 @@
         }
       }
     }
-    module.exports = StateMachine; //# sourceMappingURL=index.js.map
+    module.exports = StateMachine; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/fontkit/node_modules/clone/clone.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)",
       );
     var clone = (function () {
@@ -10526,8 +10526,8 @@
       try {
         nativeMap = Map;
       } catch (_) {
-        // maybe a reference error because no `Map`. Give it a dummy value that no
-        // value will ever be an instanceof.
+        
+        
         nativeMap = function () {};
       }
       var nativeSet;
@@ -10542,27 +10542,27 @@
       } catch (_) {
         nativePromise = function () {};
       }
-      /**
-       * Clones (copies) an Object using deep copying.
-       *
-       * This function supports circular references by default, but if you are certain
-       * there are no circular references in your object, you can save some CPU time
-       * by calling clone(obj, false).
-       *
-       * Caution: if `circular` is false and `parent` contains circular references,
-       * your program may enter an infinite loop and crash.
-       *
-       * @param `parent` - the object to be cloned
-       * @param `circular` - set to true if the object to be cloned may contain
-       *    circular references. (optional - true by default)
-       * @param `depth` - set to a number if the object is only to be cloned to
-       *    a particular depth. (optional - defaults to Infinity)
-       * @param `prototype` - sets the prototype to be used when cloning an object.
-       *    (optional - defaults to parent prototype).
-       * @param `includeNonEnumerable` - set to true if the non-enumerable properties
-       *    should be cloned as well. Non-enumerable properties on the prototype
-       *    chain will be ignored. (optional - false by default)
-       */ function clone(
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function clone(
         parent,
         circular,
         depth,
@@ -10575,8 +10575,8 @@
           includeNonEnumerable = circular.includeNonEnumerable;
           circular = circular.circular;
         }
-        // maintain two arrays for circular references, where corresponding parents
-        // and children have the same index
+        
+        
         var allParents = [];
         var allChildren = [];
         var useBuffer =
@@ -10585,9 +10585,9 @@
           ] != "undefined";
         if (typeof circular == "undefined") circular = true;
         if (typeof depth == "undefined") depth = Infinity;
-        // recurse this function so we don't reset allParents and allChildren
+        
         function _clone(parent, depth) {
-          // cloning null always returns null
+          
           if (parent === null) return null;
           if (depth === 0) return parent;
           var child;
@@ -10628,13 +10628,13 @@
                 "Buffer"
               ].allocUnsafe
             ) {
-              // Node.js >= 4.5.0
+              
               child =
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "Buffer"
                 ].allocUnsafe(parent.length);
             } else {
-              // Older Node.js versions
+              
               child =
                 new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "Buffer"
@@ -10687,8 +10687,8 @@
           if (Object.getOwnPropertySymbols) {
             var symbols = Object.getOwnPropertySymbols(parent);
             for (var i = 0; i < symbols.length; i++) {
-              // Don't need to worry about cloning a symbol because it is a primitive,
-              // like a number or string.
+              
+              
               var symbol = symbols[i];
               var descriptor = Object.getOwnPropertyDescriptor(parent, symbol);
               if (
@@ -10727,19 +10727,19 @@
         }
         return _clone(parent, depth);
       }
-      /**
-       * Simple flat clone using prototype, accepts only objects, usefull for property
-       * override on FLAT configuration object (no nested props).
-       *
-       * USE WITH CAUTION! This may not behave as you wish if you do not know how this
-       * works.
-       */ clone.clonePrototype = function clonePrototype(parent) {
+      
+
+
+
+
+
+ clone.clonePrototype = function clonePrototype(parent) {
         if (parent === null) return null;
         var c = function () {};
         c.prototype = parent;
         return new c();
       };
-      // private utility functions
+      
       function __objToStr(o) {
         return Object.prototype.toString.call(o);
       }
@@ -11876,12 +11876,12 @@
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/abs-svg-path/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     module.exports = absolutize;
-    /**
-     * redefine `path` with absolute coordinates
-     *
-     * @param {Array} path
-     * @return {Array}
-     */ function absolutize(path) {
+    
+
+
+
+
+ function absolutize(path) {
       var startX = 0;
       var startY = 0;
       var x = 0;
@@ -11890,7 +11890,7 @@
         seg = seg.slice();
         var type = seg[0];
         var command = type.toUpperCase();
-        // is relative
+        
         if (type != command) {
           seg[0] = command;
           switch (type) {
@@ -11911,7 +11911,7 @@
               }
           }
         }
-        // update cursor state
+        
         switch (command) {
           case "Z":
             x = startX;
@@ -11938,10 +11938,10 @@
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/parse-svg-path/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     module.exports = parse;
-    /**
-     * expected argument lengths
-     * @type {Object}
-     */ var length = {
+    
+
+
+ var length = {
       a: 7,
       c: 6,
       h: 1,
@@ -11953,23 +11953,23 @@
       v: 1,
       z: 0,
     };
-    /**
-     * segment pattern
-     * @type {RegExp}
-     */ var segment = /([astvzqmhlc])([^astvzqmhlc]*)/gi;
-    /**
-     * parse an svg path data string. Generates an Array
-     * of commands where each command is an Array of the
-     * form `[command, arg1, arg2, ...]`
-     *
-     * @param {String} path
-     * @return {Array}
-     */ function parse(path) {
+    
+
+
+ var segment = /([astvzqmhlc])([^astvzqmhlc]*)/gi;
+    
+
+
+
+
+
+
+ function parse(path) {
       var data = [];
       path.replace(segment, function (_, command, args) {
         var type = command.toLowerCase();
         args = parseValues(args);
-        // overloaded moveTo
+        
         if (type == "m" && args.length > 2) {
           data.push([command].concat(args.splice(0, 2)));
           type = "l";
@@ -12059,8 +12059,8 @@
       };
     };
     var approxUnitArc = function approxUnitArc(ang1, ang2) {
-      // If 90 degree circular arc, use a constant
-      // as derived from http://spencermortensen.com/articles/bezier-circle
+      
+      
       var a =
         ang2 === 1.5707963267948966
           ? 0.551915024494
@@ -12192,10 +12192,10 @@
         centery = _getArcCenter2[1],
         ang1 = _getArcCenter2[2],
         ang2 = _getArcCenter2[3];
-      // If 'ang2' == 90.0000000001, then `ratio` will evaluate to
-      // 1.0000000001. This causes `segments` to be greater than one, which is an
-      // unecessary split, and adds extra points to the bezier curve. To alleviate
-      // this issue, we round to 1.0 when the ratio is close to 1.0.
+      
+      
+      
+      
       var ratio = Math.abs(ang2) / (TAU / 4);
       if (Math.abs(1.0 - ratio) < 0.0000001) {
         ratio = 1.0;
@@ -12262,7 +12262,7 @@
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/svg-arc-to-cubic-bezier/modules/index.js [app-client] (ecmascript)",
       );
     function normalize(path) {
-      // init state
+      
       var prev;
       var result = [];
       var bezierX = 0;
@@ -12296,7 +12296,7 @@
               largeArcFlag: seg[4],
               sweepFlag: seg[5],
             });
-            // null-curves
+            
             if (!curves.length) continue;
             for (var j = 0, c; j < curves.length; j++) {
               c = curves[j];
@@ -12305,18 +12305,18 @@
             }
             break;
           case "S":
-            // default control point
+            
             var cx = x;
             var cy = y;
             if (prev == "C" || prev == "S") {
-              cx += cx - bezierX; // reflect the previous command's control
-              cy += cy - bezierY; // point relative to the current point
+              cx += cx - bezierX; 
+              cy += cy - bezierY; 
             }
             seg = ["C", cx, cy, seg[1], seg[2], seg[3], seg[4]];
             break;
           case "T":
             if (prev == "Q" || prev == "T") {
-              quadX = x * 2 - quadX; // as with 'S' reflect previous control point
+              quadX = x * 2 - quadX; 
               quadY = y * 2 - quadY;
             } else {
               quadX = x;
@@ -12342,7 +12342,7 @@
             seg = line(x, y, startX, startY);
             break;
         }
-        // update state
+        
         prev = command;
         x = seg[seg.length - 2];
         y = seg[seg.length - 1];
@@ -12557,7 +12557,7 @@
       for (var i = 0, len = args.length; i < len; i++) {
         var arg = args[i];
         if (isArrayish(arg)) {
-          // http://jsperf.com/javascript-array-concat-vs-push/98
+          
           results = concat.call(results, slice.call(arg));
         } else {
           results.push(arg);
@@ -12573,7 +12573,7 @@
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/color-string/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    /* MIT license */ var colorNames = __turbopack_context__.r(
+     var colorNames = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/color-name/index.js [app-client] (ecmascript)",
     );
     var swizzle = __turbopack_context__.r(
@@ -12581,7 +12581,7 @@
     );
     var hasOwnProperty = Object.hasOwnProperty;
     var reverseNames = Object.create(null);
-    // create a list of reverse color names
+    
     for (var name in colorNames) {
       if (hasOwnProperty.call(colorNames, name)) {
         reverseNames[colorNames[name]] = name;
@@ -12636,7 +12636,7 @@
         hexAlpha = match[2];
         match = match[1];
         for (i = 0; i < 3; i++) {
-          // https://jsperf.com/slice-vs-substr-vs-substring-methods-long-string/19
+          
           var i2 = i * 2;
           rgb[i] = parseInt(match.slice(i2, i2 + 2), 16);
         }
@@ -12780,8 +12780,8 @@
             hsla[3] +
             ")";
     };
-    // hwb is a bit different than rgb(a) & hsl(a) since there is no alpha specific syntax
-    // (hwb have alpha optional & 1 is default value)
+    
+    
     cs.to.hwb = function () {
       var hwba = swizzle(arguments);
       var a = "";
@@ -12795,7 +12795,7 @@
     cs.to.keyword = function (rgb) {
       return reverseNames[rgb.slice(0, 3)];
     };
-    // helpers
+    
     function clamp(num, min, max) {
       return Math.min(Math.max(min, num), max);
     }
@@ -13029,11 +13029,11 @@
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hsl-to-rgb-for-reals/converter.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    // expected hue range: [0, 360)
-    // expected saturation range: [0, 1]
-    // expected lightness range: [0, 1]
+    
+    
+    
     var hslToRgb = function (hue, saturation, lightness) {
-      // based on algorithm from http://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB
+      
       if (hue == undefined) {
         return [0, 0, 0];
       }
@@ -13083,15 +13083,15 @@
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hsl-to-hex/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    // In our case, there's only one dependency
+    
     var toRgb = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hsl-to-rgb-for-reals/converter.js [app-client] (ecmascript)",
     );
-    // Typically all dependencies should be declared at the top of the file.
-    // Now let's define an API for our module, we're taking hue, saturation and luminosity values and outputting a CSS compatible hex string.
-    // Hue is in degrees, between 0 and 359. Since degrees a cyclical in nature, we'll support numbers greater than 359 or less than 0 by "spinning" them around until they fall within the 0 to 359 range.
-    // Saturation and luminosity are both percentages, we'll represent these percentages with whole numbers between 0 and 100. For these numbers we'll need to enforce a maximum and a minimum, anything below 0 will become 0, anything above 100 will become 100.
-    // Let's write some utility functions to handle this logic:
+    
+    
+    
+    
+    
     function max(val, n) {
       return val > n ? n : val;
     }
@@ -13099,10 +13099,10 @@
       return val < n ? n : val;
     }
     function cycle(val) {
-      // for safety:
+      
       val = max(val, 1e7);
       val = min(val, -1e7);
-      // cycle value:
+      
       while (val < 0) {
         val += 360;
       }
@@ -13111,21 +13111,21 @@
       }
       return val;
     }
-    // Now for the main piece, the `hsl` function:
+    
     function hsl(hue, saturation, luminosity) {
-      // resolve degrees to 0 - 359 range
+      
       hue = cycle(hue);
-      // enforce constraints
+      
       saturation = min(max(saturation, 100), 0);
       luminosity = min(max(luminosity, 100), 0);
-      // convert to 0 to 1 range used by hsl-to-rgb-for-reals
+      
       saturation /= 100;
       luminosity /= 100;
-      // let hsl-to-rgb-for-reals do the hard work
+      
       var rgb = toRgb(hue, saturation, luminosity);
-      // convert each value in the returned RGB array
-      // to a 2 character hex value, join the array into
-      // a string, prefixed with a hash
+      
+      
+      
       return (
         "#" +
         rgb
@@ -13135,7 +13135,7 @@
           .join("")
       );
     }
-    // In order to make our code into a bona fide module we have to export it:
+    
     module.exports = hsl;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/postcss-value-parser/lib/parse.js [app-client] (ecmascript)",

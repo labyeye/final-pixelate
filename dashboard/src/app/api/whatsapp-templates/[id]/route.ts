@@ -12,7 +12,7 @@ function toObjectId(id: string) {
   }
 }
 
-// ── PATCH — update a template ──
+
 export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
@@ -77,7 +77,7 @@ export async function PATCH(
   }
 }
 
-// ── DELETE — remove a template ──
+
 export async function DELETE(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> },

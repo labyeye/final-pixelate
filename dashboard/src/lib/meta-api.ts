@@ -87,8 +87,8 @@ export function parseFbPostId(postUrl: string): {
     const videoId = u.searchParams.get("v");
     if (videoId) return { postId: videoId, pageId: null };
 
-    // /posts/pfbid... — alphanumeric slug, not a numeric ID
-    // /posts/123456789 — numeric post ID
+    
+    
     const pathMatch = pathname.match(
       /\/[^/]+\/(posts|videos|photos|notes)\/([^/?]+)/,
     );
@@ -97,8 +97,8 @@ export function parseFbPostId(postUrl: string): {
   return { postId: null, pageId: null };
 }
 
-// Resolves Facebook share shortlinks (facebook.com/share/p/TOKEN) to the real URL
-// by following the HTTP redirect without loading page content.
+
+
 async function resolveShareUrl(url: string): Promise<string> {
   try {
     const res = await fetch(url, {
@@ -107,7 +107,7 @@ async function resolveShareUrl(url: string): Promise<string> {
       headers: { "User-Agent": "facebookexternalhit/1.1" },
     });
     const resolved = res.url;
-    // If redirect landed back on a share URL or same URL, return original
+    
     if (resolved && !resolved.includes("/share/") && resolved !== url) {
       return resolved;
     }
@@ -115,7 +115,7 @@ async function resolveShareUrl(url: string): Promise<string> {
   return url;
 }
 
-// Resolve a full post URL to a numeric Graph API object ID.
+
 async function resolveUrlToObjectId(
   postUrl: string,
   accessToken: string,
@@ -133,8 +133,8 @@ async function resolveUrlToObjectId(
   return null;
 }
 
-// Search page's recent posts/feed to find the numeric ID matching a pfbid permalink.
-// Tries multiple endpoints because reels/videos don't appear in /posts.
+
+
 async function resolveViaPagePosts(
   pageId: string,
   pfbid: string,
@@ -163,7 +163,7 @@ async function resolveViaPagePosts(
 
         for (const post of data.data || []) {
           const permalink: string = post.permalink_url || "";
-          // Match pfbid anywhere in the permalink URL
+          
           if (permalink.includes(pfbid)) return post.id;
         }
 
@@ -182,7 +182,7 @@ export async function fetchFbPostMetrics(
   pageId: string,
   pageAccessToken: string,
 ): Promise<MetaPostMetrics> {
-  // Resolve share shortlinks first
+  
   const resolvedUrl = postUrl.includes("/share/")
     ? await resolveShareUrl(postUrl)
     : postUrl;
@@ -195,18 +195,18 @@ export async function fetchFbPostMetrics(
         `(e.g. facebook.com/YourPage/posts/123456789) instead of a share link.`,
     );
 
-  // pfbid slugs are not numeric — resolve to real numeric ID via multiple strategies
+  
   const isPfbid = postId.startsWith("pfbid") || !/^\d+$/.test(postId);
   if (isPfbid) {
-    // Strategy 1: Graph API URL lookup
+    
     const byUrl = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
     if (byUrl) {
       postId = byUrl;
     } else {
-      // Strategy 2: Search page's posts feed for matching permalink
+      
       const byFeed = await resolveViaPagePosts(pageId, postId, pageAccessToken);
       if (byFeed) postId = byFeed;
-      // else: try with slug anyway — will fail with a clear error
+      
     }
   }
 
@@ -232,16 +232,16 @@ export async function fetchFbPostMetrics(
         console.warn(
           `FB engagement error for ${id}: ${data.error.message} (code ${code}, subcode ${subcode})`,
         );
-        // Token expired — throw immediately, no point retrying
+        
         if (code === 190) {
           throw new Error(
             `Facebook access token has expired. Go to the client's Social Tokens tab and click "Connect Facebook" to get a new token.`,
           );
         }
-        // Permission error on this specific ID format (code 10) — try next field combo or caller will try bare ID
-        // Field doesn't exist (code 100) — try next field combo without that field
+        
+        
         if (code === 10 || code === 100) continue;
-        // Other auth/fatal errors — stop retrying
+        
         break;
       }
       if (res.ok) return data;
@@ -254,13 +254,13 @@ export async function fetchFbPostMetrics(
     `[FB metrics] postUrl=${postUrl} postId=${postId} graphId=${graphId}`,
   );
 
-  // Try all ID formats: pageId_postId, bare postId, then URL-resolved ID
+  
   let eng: any =
     (await fetchEngagement(graphId, pageAccessToken)) ||
     (await fetchEngagement(postId, pageAccessToken));
 
   if (!eng) {
-    // Last resort: resolve URL to object ID and retry
+    
     const urlResolved = await resolveUrlToObjectId(
       resolvedUrl,
       pageAccessToken,
@@ -285,7 +285,7 @@ export async function fetchFbPostMetrics(
     "post_video_views",
     "post_video_complete_views_organic",
   ];
-  // Try insights with graphId first, then bare postId as fallback
+  
   const insightIds = [graphId, postId].filter((v, i, a) => a.indexOf(v) === i);
   outer: for (const insightId of insightIds) {
     for (const metric of fbViewMetrics) {
@@ -334,7 +334,7 @@ async function resolveIgMediaId(
   const shortcodeMatch = permalink.match(
     /instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/,
   );
-  // Keep original case — Instagram shortcodes are case-sensitive (base64). Compare lowercased separately.
+  
   const shortcode = shortcodeMatch?.[1] || null;
   const shortcodeLower = shortcode?.toLowerCase() || null;
 
@@ -342,7 +342,7 @@ async function resolveIgMediaId(
     `[IG resolve] Looking for: "${normalised}" | shortcode: "${shortcode}" | igAccountId: ${igAccountId}`,
   );
 
-  // Search through account media
+  
   let after: string | null = null;
   let totalScanned = 0;
   let apiError = "";
@@ -381,19 +381,19 @@ async function resolveIgMediaId(
     totalScanned += items.length;
 
     for (const item of items) {
-      // Normalise item permalink the same way (lowercase, no trailing slash)
+      
       const itemPermalink = (item.permalink || "")
         .replace(/\/$/, "")
         .toLowerCase()
         .trim();
-      // Extract shortcode from item permalink (already lowercased)
+      
       const itemShortcodeMatch = itemPermalink.match(
         /instagram\.com\/(?:p|reel|tv)\/([a-z0-9_-]+)/,
       );
       const itemShortcode = itemShortcodeMatch?.[1] || null;
 
       const exactMatch = itemPermalink === normalised;
-      // Compare shortcodes in lowercase — shortcodes are case-sensitive but lowercasing both is safe for matching
+      
       const shortcodeHit =
         shortcodeLower && itemShortcode && itemShortcode === shortcodeLower;
       if (exactMatch || shortcodeHit) {
@@ -590,7 +590,7 @@ export async function fetchIgMediaMetrics(
     } as any;
   }
 
-  // Fetch basic media info including media_type to pick correct insight metrics
+  
   const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
   mediaUrl.searchParams.set(
     "fields",
@@ -612,8 +612,8 @@ export async function fetchIgMediaMetrics(
   let followers_gained = 0;
   let insightError = "";
 
-  // plays/video_views/impressions removed in Meta API v22.0
-  // reach is the correct metric for both reels and image posts
+  
+  
   const viewMetrics = isReel
     ? ["reach", "ig_reels_video_view_total_time"]
     : ["reach", "total_interactions"];
@@ -628,7 +628,7 @@ export async function fetchIgMediaMetrics(
       const data = await res.json();
       if (data.error) {
         const code = data.error.code;
-        // code 100 = unsupported metric — log at debug level, not warn
+        
         if (code === 100) {
           console.log(
             `[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`,
@@ -648,7 +648,7 @@ export async function fetchIgMediaMetrics(
     }
   }
 
-  // Try view metrics one by one until we get a non-zero value
+  
   for (const metric of viewMetrics) {
     const val = await fetchInsight(metric);
     if (val > 0) {

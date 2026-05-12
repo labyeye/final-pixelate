@@ -15,12 +15,12 @@ export async function GET(request: NextRequest) {
 
   const appUrl = "https://backend.pixelatenest.com";
 
-  // Decode state
+  
   let stateObj: { clientId?: string; accountId?: string } = {};
   try {
     stateObj = JSON.parse(Buffer.from(stateRaw || "", "base64").toString());
   } catch {
-    // Legacy: state was a raw accountId string
+    
     stateObj = { accountId: stateRaw || "" };
   }
 
@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
   try {
     const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 
-    // Exchange code for short-lived token
+    
     const tokenUrl = new URL(
       "https://graph.facebook.com/v19.0/oauth/access_token",
     );
@@ -55,10 +55,10 @@ export async function GET(request: NextRequest) {
       throw new Error(`Code exchange failed: ${await tokenRes.text()}`);
     const { access_token: shortToken } = await tokenRes.json();
 
-    // Exchange for long-lived user token (60 days)
+    
     const longToken = await exchangeForLongLivedToken(shortToken);
 
-    // Get all pages + IG account IDs
+    
     const pages = await getUserPages(longToken);
     if (pages.length === 0) {
       throw new Error(
@@ -73,12 +73,12 @@ export async function GET(request: NextRequest) {
       }),
     );
 
-    // ── CLIENT flow: save token + auto-create/update all social accounts ──
+    
     if (clientId) {
       const clientsCol = await svc.getCollection("clients");
       const accountsCol = await svc.getCollection("socialMediaAccounts");
 
-      // Save long-lived user token on client record
+      
       await clientsCol.updateOne(
         { _id: new ObjectId(clientId) },
         { $set: { metaAccessToken: longToken, updatedAt: new Date() } },
@@ -89,7 +89,7 @@ export async function GET(request: NextRequest) {
       for (const page of enrichedPages) {
         const igId = page.instagram_business_account?.id ?? null;
 
-        // Upsert Facebook Page account
+        
         await accountsCol.updateOne(
           { clientId, platform: "Facebook", platformAccountId: page.id },
           {
@@ -110,7 +110,7 @@ export async function GET(request: NextRequest) {
         );
         upserted++;
 
-        // Upsert Instagram account if linked
+        
         if (igId) {
           await accountsCol.updateOne(
             { clientId, platform: "Instagram", igAccountId: igId },
@@ -139,7 +139,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // ── LEGACY account flow (from social media planner) ──
+    
     const col = await svc.getCollection("socialMediaAccounts");
     let triggerAccount: any = null;
     try {

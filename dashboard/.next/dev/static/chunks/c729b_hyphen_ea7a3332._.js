@@ -2,29 +2,29 @@
   typeof document === "object" ? document.currentScript : undefined,
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hyphen/hyphen.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    /** Text hyphenation in Javascript.
-     *  Copyright (C) 2026 Yevhen Tiurin (yevhentiurin@gmail.com)
-     *  https://github.com/ytiurin/hyphen
-     *
-     *  Released under the ISC license
-     *  https://github.com/ytiurin/hyphen/blob/master/LICENSE
-     */ (function (root, factory) {
+    
+
+
+
+
+
+ (function (root, factory) {
       if (typeof define === "function" && define.amd) {
-        // AMD. Register as an anonymous module.
+        
         ((r) => r !== undefined && __turbopack_context__.v(r))(factory());
       } else if (
         ("TURBOPACK compile-time value", "object") === "object" &&
         module.exports
       ) {
-        // Node. Does not work with strict CommonJS, but
-        // only CommonJS-like environments that support module.exports,
-        // like Node.
+        
+        
+        
         module.exports = factory();
       } else {
-        // Browser globals (root is window)
+        
         root.createHyphenator = factory();
       }
-    })(/*TURBOPACK member replacement*/ __turbopack_context__.e, function () {
+    })( __turbopack_context__.e, function () {
       function createTextReader(setup) {
         var char1 = "";
         var char2 = "";
@@ -253,9 +253,9 @@
           ),
           resolveNewText = function () {};
         function nextTick() {
-          var loopStart = /* @__PURE__ */ new Date();
+          var loopStart =  new Date();
           while (
-            (!isAsync || /* @__PURE__ */ new Date() - loopStart < 10) &&
+            (!isAsync ||  new Date() - loopStart < 10) &&
             (fragments = readText(text))
           ) {
             if (fragments[1]) {
@@ -311,7 +311,7 @@
       var SETTING_NAME_HYPH_CHAR = "hyphenChar";
       var SETTING_NAME_MIN_WORD_LENGTH = "minWordLength";
       var _global = ("TURBOPACK compile-time truthy", 1)
-        ? /*TURBOPACK member replacement*/ __turbopack_context__.g
+        ?  __turbopack_context__.g
         : "TURBOPACK unreachable";
       function extend(target, source) {
         target = target || {};
@@ -468,7 +468,7 @@
   (__turbopack_context__, module, exports) => {
     (function (root, exports) {
       if (typeof define === "function" && define.amd) {
-        // AMD. Register as an anonymous module.
+        
         ((r) => r !== undefined && __turbopack_context__.v(r))(
           (function () {
             return exports;
@@ -478,15 +478,15 @@
         ("TURBOPACK compile-time value", "object") === "object" &&
         module.exports
       ) {
-        // Node. Does not work with strict CommonJS, but
-        // only CommonJS-like environments that support module.exports,
-        // like Node.
+        
+        
+        
         module.exports = exports;
       } else {
-        // Browser globals (root is window)
+        
         root.hyphenationPatternsEnUs = exports;
       }
-    })(/*TURBOPACK member replacement*/ __turbopack_context__.e, [
+    })( __turbopack_context__.e, [
       [
         [0, 0, 0, 4],
         [0, 0, 4],
@@ -15739,4 +15739,4 @@
   },
 ]);
 
-//# sourceMappingURL=c729b_hyphen_ea7a3332._.js.map
+

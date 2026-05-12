@@ -4,10 +4,10 @@ import { ObjectId } from "mongodb";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const col = await svc.getCollection("supportTickets");
 
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
@@ -31,10 +31,10 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const updates = await request.json();
     const col = await svc.getCollection("supportTickets");
 
@@ -71,10 +71,10 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     const ok = await svc.softDeleteById("supportTickets", id);
     if (!ok) {

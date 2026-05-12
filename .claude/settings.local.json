@@ -13,7 +13,9 @@
       "Bash(python *)",
       "Bash(pip install *)",
       "Bash(Measure-Object)",
-      "Bash(Select-Object -ExpandProperty Count)"
+      "Bash(Select-Object -ExpandProperty Count)",
+      "Bash(wc -l /Users/labh/Desktop/Projects/final-pixelate/website/*.html /Users/labh/Desktop/Projects/final-pixelate/website/pages/*.html)",
+      "WebFetch(domain:www.pixelatenest.com)"
     ]
   }
 }

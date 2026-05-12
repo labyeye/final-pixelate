@@ -64,7 +64,7 @@ export function MobileHeader() {
 
   return (
     <>
-      {/* Mobile top bar */}
+      {}
       <header className="sticky top-0 z-40 flex h-14 items-center justify-between border-b-2 border-black bg-background px-4 md:hidden">
         <Link href="/dashboard" className="font-black tracking-tighter text-lg">
           Kalahanu Tech
@@ -84,7 +84,7 @@ export function MobileHeader() {
             side="left"
             className="w-[280px] p-0 border-r-2 border-black bg-background flex flex-col"
           >
-            {/* Logo */}
+            {}
             <div className="p-5 border-b-2 border-black bg-white/50">
               <Link href="/dashboard" onClick={close} className="block">
                 <img
@@ -101,7 +101,7 @@ export function MobileHeader() {
               </Link>
             </div>
 
-            {/* Nav */}
+            {}
             <nav className="flex-1 overflow-y-auto p-3 space-y-5">
               {isClient ? (
                 <>
@@ -169,7 +169,7 @@ export function MobileHeader() {
               )}
             </nav>
 
-            {/* User footer */}
+            {}
             {user && (
               <div className="p-4 border-t-2 border-black bg-muted/30">
                 <div className="flex items-center gap-3">

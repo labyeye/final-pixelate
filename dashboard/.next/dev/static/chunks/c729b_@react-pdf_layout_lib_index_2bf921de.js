@@ -6,7 +6,7 @@
 
     __turbopack_context__.s(["default", () => layout]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -41,13 +41,13 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/image/lib/index.browser.js [app-client] (ecmascript)",
       );
-    /**
-     * Apply transformation to text string
-     *
-     * @param {string} text
-     * @param {string} transformation type
-     * @returns {string} transformed text
-     */ const transformText = (text, transformation) => {
+    
+
+
+
+
+
+ const transformText = (text, transformation) => {
       switch (transformation) {
         case "uppercase":
           return text.toUpperCase();
@@ -132,7 +132,7 @@
       const _textDecoration = instance.props.textDecoration;
       const fontFamilies =
         typeof fontFamily === "string" ? [fontFamily] : [...(fontFamily || [])];
-      // Fallback font
+      
       fontFamilies.push("Helvetica");
       const font = fontFamilies.map((fontFamilyName) => {
         const opts = {
@@ -207,7 +207,7 @@
         lines,
       });
     };
-    // Consecutive TSpan elements should be joined with a space
+    
     const joinTSpanLines = (node) => {
       const children = node.children.map((child, index) => {
         if (!isTspan(child)) return child;
@@ -380,7 +380,7 @@
       "visibility",
       "wordSpacing",
     ];
-    // Do not inherit "x" for <tspan> elements from <text> parent
+    
     const TEXT_SVG_INHERITED_PROPS = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "without"
@@ -684,7 +684,7 @@
     const replaceXLinks = (node, idIndex) => {
       if (node.props && "xlinkHref" in node.props) {
         const linkedNode = idIndex[node.props.xlinkHref.replace(/^#/, "")];
-        // No node to extend from
+        
         if (!linkedNode) return node;
         const newProps = Object.assign({}, linkedNode.props, node.props);
         delete newProps.xlinkHref;
@@ -718,13 +718,13 @@
         resolveXLinks,
       )(node);
     };
-    /**
-     * Pre-process SVG nodes so they can be rendered in the next steps
-     *
-     * @param node - Root node
-     * @param fontStore - Font store
-     * @returns Root node
-     */ const resolveSvg = (node, fontStore) => {
+    
+
+
+
+
+
+ const resolveSvg = (node, fontStore) => {
       if (!("children" in node)) return node;
       const resolveChild = (child) => resolveSvg(child, fontStore);
       const root = isSvg$3(node) ? resolveSvgRoot(node, fontStore) : node;
@@ -735,8 +735,8 @@
     };
     let instancePromise;
     const loadYoga = async () => {
-      // Yoga WASM binaries must be asynchronously compiled and loaded
-      // to prevent Event emitter memory leak warnings, Yoga must be loaded only once
+      
+      
       const instance = await (instancePromise ??= (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$load$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
         "loadYoga"
@@ -774,12 +774,12 @@
       if (!zb) return -1;
       return zb - za;
     };
-    /**
-     * Sort children by zIndex value
-     *
-     * @param node
-     * @returns Node
-     */ const resolveNodeZIndex = (node) => {
+    
+
+
+
+
+ const resolveNodeZIndex = (node) => {
       if (!node.children) return node;
       const sortedChildren = shouldSort(node)
         ? node.children.sort(sortZIndex)
@@ -789,28 +789,28 @@
         children,
       });
     };
-    /**
-     * Sort children by zIndex value
-     *
-     * @param node
-     * @returns Node
-     */ const resolveZIndex = (root) => resolveNodeZIndex(root);
-    /* eslint-disable no-console */ // Caches emoji images data
+    
+
+
+
+
+ const resolveZIndex = (root) => resolveNodeZIndex(root);
+     
     const emojis = {};
     const regex = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$emoji$2d$regex$2d$xs$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])();
-    /**
-     * When an emoji as no variations, it might still have 2 parts,
-     * the canonical emoji and an empty string.
-     * ex.
-     *   (no color) Array.from('❤️') => ["❤", "️"]
-     *   (w/ color) Array.from('👍🏿') => ["👍", "🏿"]
-     *
-     * The empty string needs to be removed otherwise the generated
-     * url will be incorect.
-     */ const removeVariationSelectors = (x) => x !== "️";
+    
+
+
+
+
+
+
+
+
+ const removeVariationSelectors = (x) => x !== "️";
     const getCodePoints = (string, withVariationSelectors = false) =>
       Array.from(string)
         .filter(withVariationSelectors ? () => true : removeVariationSelectors)
@@ -868,8 +868,8 @@
             lastIndex,
             index + match[0].length,
           );
-          // If emoji image was found, we create a new fragment with the
-          // correct attachment and object substitution character;
+          
+          
           if (emojis[emoji] && emojis[emoji].data) {
             result.push({
               string: chunk.replace(match[0], String.fromCharCode(0xfffc)),
@@ -884,7 +884,7 @@
               },
             });
           } else {
-            // If no emoji data, we try to use emojis in the font
+            
             result.push({
               string: chunk,
               attributes: fragment.attributes,
@@ -901,23 +901,23 @@
       }
       return result;
     };
-    /**
-     * Get image source
-     *
-     * @param node - Image node
-     * @returns Image src
-     */ const getSource = (node) => {
+    
+
+
+
+
+ const getSource = (node) => {
       if (node.props.src) return node.props.src;
       if (node.props.source) return node.props.source;
     };
-    /**
-     * Resolves `src` to `@react-pdf/image` interface.
-     *
-     * Also it handles factories and async sources.
-     *
-     * @param src
-     * @returns Resolved src
-     */ const resolveSource = async (src) => {
+    
+
+
+
+
+
+
+ const resolveSource = async (src) => {
       const source = typeof src === "function" ? await src() : await src;
       return typeof source === "string"
         ? {
@@ -925,12 +925,12 @@
           }
         : source;
     };
-    /**
-     * Fetches image and append data to node
-     * Ideally this fn should be immutable.
-     *
-     * @param node
-     */ const fetchImage = async (node) => {
+    
+
+
+
+
+ const fetchImage = async (node) => {
       const src = getSource(node);
       const { cache } = node.props;
       if (!src) {
@@ -968,13 +968,13 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Image"
       ];
-    /**
-     * Get all asset promises that need to be resolved
-     *
-     * @param fontStore - Font store
-     * @param node - Root node
-     * @returns Asset promises
-     */ const fetchAssets = (fontStore, node) => {
+    
+
+
+
+
+
+ const fetchAssets = (fontStore, node) => {
       const promises = [];
       const listToExplore = node.children?.slice(0) || [];
       const emojiSource = fontStore ? fontStore.getEmojiSource() : null;
@@ -1012,14 +1012,14 @@
       }
       return promises;
     };
-    /**
-     * Fetch image, font and emoji assets in parallel.
-     * Layout process will not be resumed until promise resolves.
-     *
-     * @param node root node
-     * @param fontStore font store
-     * @returns Root node
-     */ const resolveAssets = async (node, fontStore) => {
+    
+
+
+
+
+
+
+ const resolveAssets = async (node, fontStore) => {
       const promises = fetchAssets(fontStore, node);
       await Promise.all(promises);
       return node;
@@ -1033,13 +1033,13 @@
       color: "blue",
       textDecoration: "underline",
     };
-    /**
-     * Computes styles using stylesheet
-     *
-     * @param container
-     * @param node - Document node
-     * @returns Computed styles
-     */ const computeStyle = (container, node) => {
+    
+
+
+
+
+
+ const computeStyle = (container, node) => {
       let baseStyle = [node.style];
       if (isLink$1(node)) {
         baseStyle = Array.isArray(node.style)
@@ -1051,12 +1051,12 @@
         "default"
       ])(container, baseStyle);
     };
-    /**
-     * Resolves node styles
-     *
-     * @param container
-     * @returns Resolve node styles
-     */ const resolveNodeStyles = (container) => (node) => {
+    
+
+
+
+
+ const resolveNodeStyles = (container) => (node) => {
       const style = computeStyle(container, node);
       if (!node.children)
         return Object.assign({}, node, {
@@ -1068,12 +1068,12 @@
         children,
       });
     };
-    /**
-     * Resolves page styles
-     *
-     * @param page Document page
-     * @returns Document page with resolved styles
-     */ const resolvePageStyles = (page) => {
+    
+
+
+
+
+ const resolvePageStyles = (page) => {
       const dpi = page.props?.dpi || 72;
       const style = page.style;
       const width = page.box?.width || style.width;
@@ -1089,12 +1089,12 @@
       };
       return resolveNodeStyles(container)(page);
     };
-    /**
-     * Resolves document styles
-     *
-     * @param root - Document root
-     * @returns Document root with resolved styles
-     */ const resolveStyles = (root) => {
+    
+
+
+
+
+ const resolveStyles = (root) => {
       if (!root.children) return root;
       const children = root.children.map(resolvePageStyles);
       return Object.assign({}, root, {
@@ -1108,12 +1108,12 @@
       ])(node.style?.[s])
         ? "50%"
         : (node.style?.[s] ?? null);
-    /**
-     * Get node origin
-     *
-     * @param node
-     * @returns {{ left?: number, top?: number }} node origin
-     */ const getOrigin = (node) => {
+    
+
+
+
+
+ const getOrigin = (node) => {
       if (!node.box) return null;
       const { left, top, width, height } = node.box;
       const transformOriginX = getTransformStyle("transformOriginX")(node);
@@ -1149,12 +1149,12 @@
         top: top + offsetY,
       };
     };
-    /**
-     * Resolve node origin
-     *
-     * @param node
-     * @returns Node with origin attribute
-     */ const resolveNodeOrigin = (node) => {
+    
+
+
+
+
+ const resolveNodeOrigin = (node) => {
       const origin = getOrigin(node);
       const newNode = Object.assign({}, node, {
         origin,
@@ -1165,12 +1165,12 @@
         children,
       });
     };
-    /**
-     * Resolve document origins
-     *
-     * @param root - Document root
-     * @returns Document root
-     */ const resolveOrigin = (root) => {
+    
+
+
+
+
+ const resolveOrigin = (root) => {
       if (!root.children) return root;
       const children = root.children.map(resolveNodeOrigin);
       return Object.assign({}, root, {
@@ -1221,22 +1221,22 @@
       return node;
     };
     const VALID_ORIENTATIONS = ["portrait", "landscape"];
-    /**
-     * Get page orientation. Defaults to portrait
-     *
-     * @param page - Page object
-     * @returns Page orientation
-     */ const getOrientation = (page) => {
+    
+
+
+
+
+ const getOrientation = (page) => {
       const value = page.props?.orientation || "portrait";
       return VALID_ORIENTATIONS.includes(value) ? value : "portrait";
     };
-    /**
-     * Return true if page is landscape
-     *
-     * @param page - Page instance
-     * @returns Is page landscape
-     */ const isLandscape = (page) => getOrientation(page) === "landscape";
-    // Page sizes for 72dpi. 72dpi is used internally by pdfkit.
+    
+
+
+
+
+ const isLandscape = (page) => getOrientation(page) === "landscape";
+    
     const PAGE_SIZES = {
       "4A0": [4767.87, 6740.79],
       "2A0": [3370.39, 4767.87],
@@ -1290,12 +1290,12 @@
       TABLOID: [792.0, 1224.0],
       ID1: [153, 243],
     };
-    /**
-     * Parses scalar value in value and unit pairs
-     *
-     * @param value - Scalar value
-     * @returns Parsed value
-     */ const parseValue = (value) => {
+    
+
+
+
+
+ const parseValue = (value) => {
       if (typeof value === "number")
         return {
           value,
@@ -1312,13 +1312,13 @@
             unit: undefined,
           };
     };
-    /**
-     * Transform given scalar value to 72dpi equivalent of size
-     *
-     * @param value - Styles value
-     * @param inputDpi - User defined dpi
-     * @returns Transformed value
-     */ const transformUnit = (value, inputDpi) => {
+    
+
+
+
+
+
+ const transformUnit = (value, inputDpi) => {
       if (!value) return 0;
       const scalar = parseValue(value);
       const outputDpi = 72;
@@ -1343,44 +1343,44 @@
       width: transformUnit(width, dpi),
       height: transformUnit(height, dpi),
     });
-    /**
-     * Transforms array into size object
-     *
-     * @param v - Values array
-     * @returns Size object with width and height
-     */ const toSizeObject = (v) => ({
+    
+
+
+
+
+ const toSizeObject = (v) => ({
       width: v[0],
       height: v[1],
     });
-    /**
-     * Flip size object
-     *
-     * @param v - Size object
-     * @returns Flipped size object
-     */ const flipSizeObject = (v) => ({
+    
+
+
+
+
+ const flipSizeObject = (v) => ({
       width: v.height,
       height: v.width,
     });
-    /**
-     * Returns size object from a given string
-     *
-     * @param v - Page size string
-     * @returns Size object with width and height
-     */ const getStringSize = (v) => {
+    
+
+
+
+
+ const getStringSize = (v) => {
       return toSizeObject(PAGE_SIZES[v.toUpperCase()]);
     };
-    /**
-     * Returns size object from a single number
-     *
-     * @param n - Page size number
-     * @returns Size object with width and height
-     */ const getNumberSize = (n) => toSizeObject([n, n]);
-    /**
-     * Return page size in an object { width, height }
-     *
-     * @param page - Page node
-     * @returns Size object with width and height
-     */ const getSize = (page) => {
+    
+
+
+
+
+ const getNumberSize = (n) => toSizeObject([n, n]);
+    
+
+
+
+
+ const getSize = (page) => {
       const value = page.props?.size || "A4";
       const dpi = page.props?.dpi || 72;
       let size;
@@ -1395,12 +1395,12 @@
       }
       return isLandscape(page) ? flipSizeObject(size) : size;
     };
-    /**
-     * Resolves page size
-     *
-     * @param page
-     * @returns Page with resolved size in style attribute
-     */ const resolvePageSize = (page) => {
+    
+
+
+
+
+ const resolvePageSize = (page) => {
       const size = getSize(page);
       const style = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$stylesheet$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1414,12 +1414,12 @@
         },
       };
     };
-    /**
-     * Resolves page sizes
-     *
-     * @param root  -Document root
-     * @returns Document root with resolved page sizes
-     */ const resolvePageSizes = (root) => {
+    
+
+
+
+
+ const resolvePageSizes = (root) => {
       if (!root.children) return root;
       const children = root.children.map(resolvePageSize);
       return Object.assign({}, root, {
@@ -1430,12 +1430,12 @@
       if (!node.props) return false;
       return "fixed" in node.props ? node.props.fixed === true : false;
     };
-    /**
-     * Get line index at given height
-     *
-     * @param node
-     * @param height
-     */ const lineIndexAtHeight = (node, height) => {
+    
+
+
+
+
+ const lineIndexAtHeight = (node, height) => {
       let y = 0;
       if (!node.lines) return 0;
       for (let i = 0; i < node.lines.length; i += 1) {
@@ -1445,12 +1445,12 @@
       }
       return node.lines.length;
     };
-    /**
-     * Get height for given text line index
-     *
-     * @param node
-     * @param index
-     */ const heightAtLineIndex = (node, index) => {
+    
+
+
+
+
+ const heightAtLineIndex = (node, index) => {
       let counter = 0;
       if (!node.lines) return counter;
       for (let i = 0; i < index; i += 1) {
@@ -1483,7 +1483,7 @@
       }
       return slicedLine;
     };
-    // Also receives contentArea in case it's needed
+    
     const splitText = (node, height) => {
       const slicedLineIndex = getLineBreak(node, height);
       const currentHeight = heightAtLineIndex(node, slicedLineIndex);
@@ -1597,12 +1597,12 @@
       const { yogaNode } = node;
       return yogaNode ? yogaNode.getComputedPadding(edge) : null;
     };
-    /**
-     * Get Yoga computed paddings. Zero otherwise
-     *
-     * @param  node
-     * @returns paddings
-     */ const getPadding = (node) => {
+    
+
+
+
+
+ const getPadding = (node) => {
       const { style, box } = node;
       const paddingTop =
         getComputedPadding(
@@ -1666,14 +1666,14 @@
     const isBoolean = (value) => typeof value === "boolean";
     const isFragment = (value) =>
       value && value.type === Symbol.for("react.fragment");
-    /**
-     * Transforms a react element instance to internal element format.
-     *
-     * Can return multiple instances in the case of arrays or fragments.
-     *
-     * @param element - React element
-     * @returns Parsed React elements
-     */ const createInstances = (element) => {
+    
+
+
+
+
+
+
+ const createInstances = (element) => {
       if (!element) return [];
       if (Array.isArray(element)) {
         return element.reduce((acc, el) => acc.concat(createInstances(el)), []);
@@ -1692,11 +1692,11 @@
         ];
       }
       if (isFragment(element)) {
-        // @ts-expect-error figure out why this is complains
+        
         return createInstances(element.props.children);
       }
       if (!isString(element.type)) {
-        // @ts-expect-error figure out why this is complains
+        
         return createInstances(element.type(element.props));
       }
       const {
@@ -1744,10 +1744,10 @@
       if ("fixed" in child.props) return false;
       const shouldSplit = height < child.box.top + child.box.height;
       const canWrap = getWrap(child);
-      // Calculate the y coordinate where the desired presence of the child ends
+      
       const endOfPresence = getEndOfPresence(child, futureElements);
-      // If the child is already at the top of the page, breaking won't improve its presence
-      // (as long as react-pdf does not support breaking into differently sized containers)
+      
+      
       const breakingImprovesPresence =
         previousElements.filter((node) => !isFixed(node)).length > 0;
       return (
@@ -1788,15 +1788,15 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "TextInstance"
       ];
-    /**
-     * Get textkit fragments of given node object
-     *
-     * @param fontStore - Font store
-     * @param instance - Node
-     * @param parentLink - Parent link
-     * @param level - Fragment level
-     * @returns Text fragments
-     */ const getFragments = (
+    
+
+
+
+
+
+
+
+ const getFragments = (
       fontStore,
       instance,
       parentLink = null,
@@ -1829,7 +1829,7 @@
       } = instance.style;
       const fontFamilies =
         typeof fontFamily === "string" ? [fontFamily] : [...(fontFamily || [])];
-      // Fallback font
+      
       fontFamilies.push("Helvetica");
       const font = fontFamilies.map((fontFamilyName) => {
         const opts = {
@@ -1840,7 +1840,7 @@
         const obj = fontStore.getFont(opts);
         return obj?.data;
       });
-      // Don't pass main background color to textkit. Will be rendered by the render package instead
+      
       const backgroundColor =
         level === 0 ? null : instance.style.backgroundColor;
       const attributes = {
@@ -1866,7 +1866,7 @@
           textDecoration === "line-through underline",
         strikeColor: textDecorationColor || color,
         underlineColor: textDecorationColor || color,
-        // @ts-expect-error allow this props access
+        
         link: parentLink || instance.props?.src || instance.props?.href,
         align: textAlign || (direction === "rtl" ? "right" : "left"),
       };
@@ -1901,13 +1901,13 @@
       }
       return fragments;
     };
-    /**
-     * Get textkit attributed string from text node
-     *
-     * @param fontStore - Font store
-     * @param instance Node
-     * @returns Attributed string
-     */ const getAttributedString = (fontStore, instance) => {
+    
+
+
+
+
+
+ const getAttributedString = (fontStore, instance) => {
       const fragments = getFragments(fontStore, instance);
       return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$textkit$2f$lib$2f$textkit$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1949,14 +1949,14 @@
     ])(engines);
     const getMaxLines = (node) => node.style?.maxLines;
     const getTextOverflow = (node) => node.style?.textOverflow;
-    /**
-     * Get layout container for specific text node
-     *
-     * @param {number} width
-     * @param {number} height
-     * @param {Object} node
-     * @returns {Object} layout container
-     */ const getContainer = (width, height, node) => {
+    
+
+
+
+
+
+
+ const getContainer = (width, height, node) => {
       const maxLines = getMaxLines(node);
       const textOverflow = getTextOverflow(node);
       return {
@@ -1968,12 +1968,12 @@
         truncateMode: textOverflow,
       };
     };
-    /**
-     * Get text layout options for specific text node
-     *
-     * @param {Object} node instance
-     * @returns {Object} layout options
-     */ const getLayoutOptions = (fontStore, node) => ({
+    
+
+
+
+
+ const getLayoutOptions = (fontStore, node) => ({
       hyphenationPenalty: node.props.hyphenationPenalty,
       shrinkWhitespaceFactor: {
         before: -0.5,
@@ -1984,15 +1984,15 @@
         fontStore?.getHyphenationCallback() ||
         null,
     });
-    /**
-     * Get text lines for given node
-     *
-     * @param node - Node
-     * @param width - Container width
-     * @param height - Container height
-     * @param fontStore - Font store
-     * @returns Layout lines
-     */ const layoutText = (node, width, height, fontStore) => {
+    
+
+
+
+
+
+
+
+ const layoutText = (node, width, height, fontStore) => {
       const attributedString = getAttributedString(fontStore, node);
       const container = getContainer(width, height, node);
       const options = getLayoutOptions(fontStore, node);
@@ -2011,14 +2011,14 @@
       ];
     const shouldIterate = (node) => !isSvg$2(node) && !isText$4(node);
     const shouldLayoutText = (node) => isText$4(node) && !node.lines;
-    /**
-     * Performs text layout on text node if wasn't calculated before.
-     * Text layout is usually performed on Yoga's layout process (via setMeasureFunc),
-     * but we need to layout those nodes with fixed width and height.
-     *
-     * @param node
-     * @returns Layout node
-     */ const resolveTextLayout = (node, fontStore) => {
+    
+
+
+
+
+
+
+ const resolveTextLayout = (node, fontStore) => {
       if (shouldLayoutText(node)) {
         const width =
           node.box.width - (node.box.paddingRight + node.box.paddingLeft);
@@ -2066,11 +2066,11 @@
         "Text"
       ],
     );
-    // Merge style values
+    
     const mergeValues = (styleName, value, inheritedValue) => {
       switch (styleName) {
         case "textDecoration": {
-          // merge not none and not false textDecoration values to one rule
+          
           return [inheritedValue, value]
             .filter((v) => v && v !== "none")
             .join(" ");
@@ -2079,7 +2079,7 @@
           return value;
       }
     };
-    // Merge inherited and node styles
+    
     const merge = (inheritedStyles, style) => {
       const mergedStyles = {
         ...inheritedStyles,
@@ -2093,24 +2093,24 @@
       });
       return mergedStyles;
     };
-    /**
-     * Merges styles with node
-     *
-     * @param inheritedStyles - Style object
-     * @returns Merge styles function
-     */ const mergeStyles = (inheritedStyles) => (node) => {
+    
+
+
+
+
+ const mergeStyles = (inheritedStyles) => (node) => {
       const style = merge(inheritedStyles, node.style || {});
       return Object.assign({}, node, {
         style,
       });
     };
-    /**
-     * Inherit style values from the root to the leafs
-     *
-     * @param node - Document root
-     * @returns Document root with inheritance
-     *
-     */ const resolveInheritance = (node) => {
+    
+
+
+
+
+
+ const resolveInheritance = (node) => {
       if (isSvg$1(node)) return node;
       if (!("children" in node)) return node;
       const inheritableProperties = isText$3(node)
@@ -2133,12 +2133,12 @@
       const { yogaNode } = node;
       return yogaNode ? yogaNode.getComputedMargin(edge) : null;
     };
-    /**
-     * Get Yoga computed magins. Zero otherwise
-     *
-     * @param node
-     * @returns Margins
-     */ const getMargin = (node) => {
+    
+
+
+
+
+ const getMargin = (node) => {
       const { style, box } = node;
       const marginTop =
         getComputedMargin(
@@ -2187,12 +2187,12 @@
         marginLeft,
       };
     };
-    /**
-     * Get Yoga computed position. Zero otherwise
-     *
-     * @param node
-     * @returns Position
-     */ const getPosition = (node) => {
+    
+
+
+
+
+ const getPosition = (node) => {
       const { yogaNode } = node;
       return {
         top: yogaNode?.getComputedTop() || 0,
@@ -2205,12 +2205,12 @@
       width: 0,
       height: 0,
     };
-    /**
-     * Get Yoga computed dimensions. Zero otherwise
-     *
-     * @param node
-     * @returns Dimensions
-     */ const getDimension = (node) => {
+    
+
+
+
+
+ const getDimension = (node) => {
       const { yogaNode } = node;
       if (!yogaNode) return DEFAULT_DIMENSION;
       return {
@@ -2220,12 +2220,12 @@
     };
     const getComputedBorder = (yogaNode, edge) =>
       yogaNode ? yogaNode.getComputedBorder(edge) : 0;
-    /**
-     * Get Yoga computed border width. Zero otherwise
-     *
-     * @param node
-     * @returns Border widths
-     */ const getBorderWidth = (node) => {
+    
+
+
+
+
+ const getBorderWidth = (node) => {
       const { yogaNode } = node;
       return {
         borderTopWidth: getComputedBorder(
@@ -2254,12 +2254,12 @@
         ),
       };
     };
-    /**
-     * Set display attribute to node's Yoga instance
-     *
-     * @param value - Display
-     * @returns Node instance wrapper
-     */ const setDisplay = (value) => (node) => {
+    
+
+
+
+
+ const setDisplay = (value) => (node) => {
       const { yogaNode } = node;
       if (yogaNode) {
         yogaNode.setDisplay(
@@ -2284,12 +2284,12 @@
           "Overflow"
         ].Scroll,
     };
-    /**
-     * Set overflow attribute to node's Yoga instance
-     *
-     * @param value - Overflow value
-     * @returns Node instance wrapper
-     */ const setOverflow = (value) => (node) => {
+    
+
+
+
+
+ const setOverflow = (value) => (node) => {
       const { yogaNode } = node;
       if (
         !(0,
@@ -2316,12 +2316,12 @@
           "Wrap"
         ].WrapReverse,
     };
-    /**
-     * Set flex wrap attribute to node's Yoga instance
-     *
-     * @param value - Flex wrap value
-     * @returns Node instance wrapper
-     */ const setFlexWrap = (value) => (node) => {
+    
+
+
+
+
+ const setFlexWrap = (value) => (node) => {
       const { yogaNode } = node;
       if (yogaNode) {
         const flexWrap =
@@ -2333,13 +2333,13 @@
       }
       return node;
     };
-    /**
-     * Set generic yoga attribute to node's Yoga instance, handing `auto`, edges and percentage cases
-     *
-     * @param attr - Property
-     * @param edge - Edge
-     * @returns Node instance wrapper
-     */ const setYogaValue = (attr, edge) => (value) => (node) => {
+    
+
+
+
+
+
+ const setYogaValue = (attr, edge) => (value) => (node) => {
       const { yogaNode } = node;
       if (
         !(0,
@@ -2384,21 +2384,21 @@
       }
       return node;
     };
-    /**
-     * Set flex grow attribute to node's Yoga instance
-     *
-     * @param  value - Flex grow value
-     * @returns Node instance wrapper
-     */ const setFlexGrow = (value) => (node) => {
+    
+
+
+
+
+ const setFlexGrow = (value) => (node) => {
       return setYogaValue("flexGrow")(value || 0)(node);
     };
-    /**
-     * Set flex basis attribute to node's Yoga instance
-     *
-     * @param flex - Basis value
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setFlexBasis = setYogaValue("flexBasis");
+    
+
+
+
+
+
+ const setFlexBasis = setYogaValue("flexBasis");
     const ALIGN = {
       "flex-start":
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -2433,14 +2433,14 @@
           "Align"
         ].SpaceEvenly,
     };
-    /**
-     * Set generic align attribute to node's Yoga instance
-     *
-     * @param attr - Specific align property
-     * @param value - Specific align value
-     * @param node - Node
-     * @returns Node
-     */ const setAlign = (attr) => (value) => (node) => {
+    
+
+
+
+
+
+
+ const setAlign = (attr) => (value) => (node) => {
       const { yogaNode } = node;
       const defaultValue =
         attr === "items"
@@ -2458,34 +2458,34 @@
       }
       return node;
     };
-    /**
-     * Set align self attribute to node's Yoga instance
-     *
-     * @param align - Value
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setAlignSelf = setAlign("self");
-    /**
-     * Set align items attribute to node's Yoga instance
-     *
-     * @param align - Value
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setAlignItems = setAlign("items");
-    /**
-     * Set flex shrink attribute to node's Yoga instance
-     *
-     * @param value - Flex shrink value
-     * @returns Node instance wrapper
-     */ const setFlexShrink = (value) => (node) => {
+    
+
+
+
+
+
+ const setAlignSelf = setAlign("self");
+    
+
+
+
+
+
+ const setAlignItems = setAlign("items");
+    
+
+
+
+
+ const setFlexShrink = (value) => (node) => {
       return setYogaValue("flexShrink")(value || 1)(node);
     };
-    /**
-     * Set aspect ratio attribute to node's Yoga instance
-     *
-     * @param value - Ratio
-     * @returns Node instance
-     */ const setAspectRatio = (value) => (node) => {
+    
+
+
+
+
+ const setAspectRatio = (value) => (node) => {
       const { yogaNode } = node;
       if (
         !(0,
@@ -2498,13 +2498,13 @@
       }
       return node;
     };
-    /**
-     * Set align content attribute to node's Yoga instance
-     *
-     * @param align - Value
-     * @param node - Instance
-     * @returns Node instance
-     */ const setAlignContent = setAlign("content");
+    
+
+
+
+
+
+ const setAlignContent = setAlign("content");
     const POSITION = {
       absolute:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -2519,12 +2519,12 @@
           "PositionType"
         ].Static,
     };
-    /**
-     * Set position type attribute to node's Yoga instance
-     *
-     * @param value - Position position type
-     * @returns Node instance
-     */ const setPositionType = (value) => (node) => {
+    
+
+
+
+
+ const setPositionType = (value) => (node) => {
       const { yogaNode } = node;
       if (
         !(0,
@@ -2550,12 +2550,12 @@
           "FlexDirection"
         ].ColumnReverse,
     };
-    /**
-     * Set flex direction attribute to node's Yoga instance
-     *
-     * @param value - Flex direction value
-     * @returns Node instance wrapper
-     */ const setFlexDirection = (value) => (node) => {
+    
+
+
+
+
+ const setFlexDirection = (value) => (node) => {
       const { yogaNode } = node;
       if (yogaNode) {
         const flexDirection =
@@ -2589,12 +2589,12 @@
           "Justify"
         ].SpaceEvenly,
     };
-    /**
-     * Set justify content attribute to node's Yoga instance
-     *
-     * @param value - Justify content value
-     * @returns Node instance wrapper
-     */ const setJustifyContent = (value) => (node) => {
+    
+
+
+
+
+ const setJustifyContent = (value) => (node) => {
       const { yogaNode } = node;
       if (
         !(0,
@@ -2612,257 +2612,257 @@
       }
       return node;
     };
-    /**
-     * Set margin top attribute to node's Yoga instance
-     *
-     * @param margin - Margin top
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMarginTop = setYogaValue(
+    
+
+
+
+
+
+ const setMarginTop = setYogaValue(
       "margin",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Top,
     );
-    /**
-     * Set margin right attribute to node's Yoga instance
-     *
-     * @param margin - Margin right
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMarginRight = setYogaValue(
+    
+
+
+
+
+
+ const setMarginRight = setYogaValue(
       "margin",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Right,
     );
-    /**
-     * Set margin bottom attribute to node's Yoga instance
-     *
-     * @param margin - Margin bottom
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMarginBottom = setYogaValue(
+    
+
+
+
+
+
+ const setMarginBottom = setYogaValue(
       "margin",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Bottom,
     );
-    /**
-     * Set margin left attribute to node's Yoga instance
-     *
-     * @param margin - Margin left
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMarginLeft = setYogaValue(
+    
+
+
+
+
+
+ const setMarginLeft = setYogaValue(
       "margin",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Left,
     );
-    /**
-     * Set padding top attribute to node's Yoga instance
-     *
-     * @param padding - Padding top
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setPaddingTop = setYogaValue(
+    
+
+
+
+
+
+ const setPaddingTop = setYogaValue(
       "padding",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Top,
     );
-    /**
-     * Set padding right attribute to node's Yoga instance
-     *
-     * @param padding - Padding right
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setPaddingRight = setYogaValue(
+    
+
+
+
+
+
+ const setPaddingRight = setYogaValue(
       "padding",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Right,
     );
-    /**
-     * Set padding bottom attribute to node's Yoga instance
-     *
-     * @param padding - Padding bottom
-     * @param node Node instance
-     * @returns Node instance
-     */ const setPaddingBottom = setYogaValue(
+    
+
+
+
+
+
+ const setPaddingBottom = setYogaValue(
       "padding",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Bottom,
     );
-    /**
-     * Set padding left attribute to node's Yoga instance
-     *
-     * @param padding - Padding left
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setPaddingLeft = setYogaValue(
+    
+
+
+
+
+
+ const setPaddingLeft = setYogaValue(
       "padding",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Left,
     );
-    /**
-     * Set border top attribute to node's Yoga instance
-     *
-     * @param border - Border top width
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setBorderTop = setYogaValue(
+    
+
+
+
+
+
+ const setBorderTop = setYogaValue(
       "border",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Top,
     );
-    /**
-     * Set border right attribute to node's Yoga instance
-     *
-     * @param border - Border right width
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setBorderRight = setYogaValue(
+    
+
+
+
+
+
+ const setBorderRight = setYogaValue(
       "border",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Right,
     );
-    /**
-     * Set border bottom attribute to node's Yoga instance
-     *
-     * @param border - Border bottom width
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setBorderBottom = setYogaValue(
+    
+
+
+
+
+
+ const setBorderBottom = setYogaValue(
       "border",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Bottom,
     );
-    /**
-     * Set border left attribute to node's Yoga instance
-     *
-     * @param border - Border left width
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setBorderLeft = setYogaValue(
+    
+
+
+
+
+
+ const setBorderLeft = setYogaValue(
       "border",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Left,
     );
-    /**
-     * Set position top attribute to node's Yoga instance
-     *
-     * @param position - Position top
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setPositionTop = setYogaValue(
+    
+
+
+
+
+
+ const setPositionTop = setYogaValue(
       "position",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Top,
     );
-    /**
-     * Set position right attribute to node's Yoga instance
-     *
-     * @param position - Position right
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setPositionRight = setYogaValue(
+    
+
+
+
+
+
+ const setPositionRight = setYogaValue(
       "position",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Right,
     );
-    /**
-     * Set position bottom attribute to node's Yoga instance
-     *
-     * @param position - Position bottom
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setPositionBottom = setYogaValue(
+    
+
+
+
+
+
+ const setPositionBottom = setYogaValue(
       "position",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Bottom,
     );
-    /**
-     * Set position left attribute to node's Yoga instance
-     *
-     * @param position - Position left
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setPositionLeft = setYogaValue(
+    
+
+
+
+
+
+ const setPositionLeft = setYogaValue(
       "position",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Edge"
       ].Left,
     );
-    /**
-     * Set width to node's Yoga instance
-     *
-     * @param width - Width
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setWidth = setYogaValue("width");
-    /**
-     * Set min width to node's Yoga instance
-     *
-     * @param min - Width
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMinWidth = setYogaValue("minWidth");
-    /**
-     * Set max width to node's Yoga instance
-     *
-     * @param max - Width
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMaxWidth = setYogaValue("maxWidth");
-    /**
-     * Set height to node's Yoga instance
-     *
-     * @param height - Height
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setHeight = setYogaValue("height");
-    /**
-     * Set min height to node's Yoga instance
-     *
-     * @param min - Height
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMinHeight = setYogaValue("minHeight");
-    /**
-     * Set max height to node's Yoga instance
-     *
-     * @param max - Height
-     * @param node - Node instance
-     * @returns Node instance
-     */ const setMaxHeight = setYogaValue("maxHeight");
-    /**
-     * Set rowGap value to node's Yoga instance
-     *
-     * @param value - Gap value
-     * @returns Node instance wrapper
-     */ const setRowGap = setYogaValue(
+    
+
+
+
+
+
+ const setWidth = setYogaValue("width");
+    
+
+
+
+
+
+ const setMinWidth = setYogaValue("minWidth");
+    
+
+
+
+
+
+ const setMaxWidth = setYogaValue("maxWidth");
+    
+
+
+
+
+
+ const setHeight = setYogaValue("height");
+    
+
+
+
+
+
+ const setMinHeight = setYogaValue("minHeight");
+    
+
+
+
+
+
+ const setMaxHeight = setYogaValue("maxHeight");
+    
+
+
+
+
+ const setRowGap = setYogaValue(
       "gap",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Gutter"
       ].Row,
     );
-    /**
-     * Set columnGap value to node's Yoga instance
-     *
-     * @param value - Gap value
-     * @returns Node instance wrapper
-     */ const setColumnGap = setYogaValue(
+    
+
+
+
+
+ const setColumnGap = setYogaValue(
       "gap",
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Gutter"
@@ -2873,13 +2873,13 @@
       if (typeof viewbox === "string") return null;
       return (viewbox.maxX - viewbox.minX) / (viewbox.maxY - viewbox.minY);
     };
-    /**
-     * Yoga svg measure function
-     *
-     * @param page
-     * @param node
-     * @returns Measure svg
-     */ const measureCanvas$1 =
+    
+
+
+
+
+
+ const measureCanvas$1 =
       (page, node) => (width, widthMode, height, heightMode) => {
         const aspectRatio = getAspectRatio(node.props.viewBox) || 1;
         if (
@@ -2909,21 +2909,21 @@
         }
         return {};
       };
-    /**
-     * Get lines width (if any)
-     *
-     * @param node
-     * @returns Lines width
-     */ const linesWidth = (node) => {
+    
+
+
+
+
+ const linesWidth = (node) => {
       if (!node.lines) return 0;
       return Math.max(0, ...node.lines.map((line) => line.xAdvance));
     };
-    /**
-     * Get lines height (if any)
-     *
-     * @param node
-     * @returns Lines height
-     */ const linesHeight = (node) => {
+    
+
+
+
+
+ const linesHeight = (node) => {
       if (!node.lines) return -1;
       return node.lines.reduce((acc, line) => acc + line.box.height, 0);
     };
@@ -2931,14 +2931,14 @@
       center: 0.5,
       right: 1,
     };
-    /**
-     * Yoga text measure function
-     *
-     * @param page
-     * @param node
-     * @param fontStore
-     * @returns {MeasureText} measure text function
-     */ const measureText =
+    
+
+
+
+
+
+
+ const measureText =
       (page, node, fontStore) => (width, widthMode, height) => {
         if (
           widthMode ===
@@ -2962,7 +2962,7 @@
           const alignFactor = ALIGNMENT_FACTORS[node.style?.textAlign] || 0;
           if (!node.lines) {
             node.lines = layoutText(node, width, height, fontStore);
-            node.alignOffset = (width - linesWidth(node)) * alignFactor; // Compensate align in variable width containers
+            node.alignOffset = (width - linesWidth(node)) * alignFactor; 
           }
           return {
             height: linesHeight(node),
@@ -2971,37 +2971,37 @@
         }
         return {};
       };
-    /**
-     * Get image ratio
-     *
-     * @param node - Image node
-     * @returns Image ratio
-     */ const getRatio = (node) => {
+    
+
+
+
+
+ const getRatio = (node) => {
       return node.image?.data ? node.image.width / node.image.height : 1;
     };
-    /**
-     * Checks if page has auto height
-     *
-     * @param page
-     * @returns Is page height auto
-     */ const isHeightAuto = (page) =>
+    
+
+
+
+
+ const isHeightAuto = (page) =>
       (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "isNil"
       ])(page.box?.height);
     const SAFETY_HEIGHT$1 = 10;
-    /**
-     * Yoga image measure function
-     *
-     * @param page - Page
-     * @param node - Node
-     * @returns Measure image
-     */ const measureImage =
+    
+
+
+
+
+
+ const measureImage =
       (page, node) => (width, widthMode, height, heightMode) => {
         const imageRatio = getRatio(node);
         const imageMargin = getMargin(node);
         const pagePadding = getPadding(page);
-        // TODO: Check image percentage margins
+        
         const pageArea = isHeightAuto(page)
           ? Infinity
           : (page.box?.height || 0) -
@@ -3010,7 +3010,7 @@
             imageMargin.marginTop -
             imageMargin.marginBottom -
             SAFETY_HEIGHT$1;
-        // Skip measure if image data not present yet
+        
         if (!node.image)
           return {
             width: 0,
@@ -3092,10 +3092,10 @@
       };
     const SAFETY_HEIGHT = 10;
     const getMax = (values) => Math.max(-Infinity, ...values);
-    /**
-     * Helper object to predict canvas size
-     * TODO: Implement remaining functions (as close as possible);
-     */ const measureCtx = () => {
+    
+
+
+ const measureCtx = () => {
       const ctx = {};
       const points = [];
       const nil = () => ctx;
@@ -3123,7 +3123,7 @@
         points.push(...pts);
         return ctx;
       };
-      // Change dimensions
+      
       ctx.rect = rect;
       ctx.moveTo = moveTo;
       ctx.lineTo = moveTo;
@@ -3131,7 +3131,7 @@
       ctx.polygon = polygon;
       ctx.ellipse = ellipse;
       ctx.roundedRect = rect;
-      // To be implemented
+      
       ctx.text = nil;
       ctx.path = nil;
       ctx.lineWidth = nil;
@@ -3140,7 +3140,7 @@
       ctx.scale = nil;
       ctx.rotate = nil;
       ctx.translate = nil;
-      // These don't change dimensions
+      
       ctx.dash = nil;
       ctx.clip = nil;
       ctx.save = nil;
@@ -3163,19 +3163,19 @@
       ctx.getHeight = () => getMax(points.map((p) => p[1]));
       return ctx;
     };
-    /**
-     * @typedef {Function} MeasureCanvas
-     * @returns {{ width: number, height: number }} canvas width and height
-     */ /**
-     * Yoga canvas measure function
-     *
-     * @param {Object} page
-     * @param {Object} node
-     * @returns {MeasureCanvas} measure canvas
-     */ const measureCanvas = (page, node) => () => {
+    
+
+
+ 
+
+
+
+
+
+ const measureCanvas = (page, node) => () => {
       const imageMargin = getMargin(node);
       const pagePadding = getPadding(page);
-      // TODO: Check image percentage margins
+      
       const pageArea = isHeightAuto(page)
         ? Infinity
         : (page.box?.height || 0) -
@@ -3233,11 +3233,11 @@
       const value = isPage(node) ? node.box?.height : node.style?.height;
       return setHeight(value);
     };
-    /**
-     * Set styles valeus into yoga node before layout calculation
-     *
-     * @param node
-     */ const setYogaValues = (node) => {
+    
+
+
+
+ const setYogaValues = (node) => {
       (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "compose"
@@ -3281,12 +3281,12 @@
         setColumnGap(node.style.columnGap),
       )(node);
     };
-    /**
-     * Inserts child into parent' yoga node
-     *
-     * @param parent parent
-     * @returns Insert yoga nodes
-     */ const insertYogaNodes = (parent) => (child) => {
+    
+
+
+
+
+ const insertYogaNodes = (parent) => (child) => {
       parent.insertChild(child.yogaNode, parent.getChildCount());
       return child;
     };
@@ -3308,16 +3308,16 @@
     };
     const isLayoutElement = (node) =>
       !isText$2(node) && !isNote(node) && !isSvg(node);
-    /**
-     * @typedef {Function} CreateYogaNodes
-     * @param {Object} node
-     * @returns {Object} node with appended yoga node
-     */ /**
-     * Creates and add yoga node to document tree
-     * Handles measure function for text and image nodes
-     *
-     * @returns Create yoga nodes
-     */ const createYogaNodes = (page, fontStore, yoga) => (node) => {
+    
+
+
+
+ 
+
+
+
+
+ const createYogaNodes = (page, fontStore, yoga) => (node) => {
       const yogaNode = yoga.node.create();
       const result = Object.assign({}, node, {
         yogaNode,
@@ -3333,21 +3333,21 @@
       setMeasureFunc(result, page, fontStore);
       return result;
     };
-    /**
-     * Performs yoga calculation
-     *
-     * @param page - Page node
-     * @returns Page node
-     */ const calculateLayout = (page) => {
+    
+
+
+
+
+ const calculateLayout = (page) => {
       page.yogaNode.calculateLayout();
       return page;
     };
-    /**
-     * Saves Yoga layout result into 'box' attribute of node
-     *
-     * @param node
-     * @returns Node with box data
-     */ const persistDimensions = (node) => {
+    
+
+
+
+
+ const persistDimensions = (node) => {
       if (isTextInstance$1(node)) return node;
       const box = Object.assign(
         getPadding(node),
@@ -3365,12 +3365,12 @@
         children,
       });
     };
-    /**
-     * Removes yoga node from document tree
-     *
-     * @param node
-     * @returns Node without yoga node
-     */ const destroyYogaNodes = (node) => {
+    
+
+
+
+
+ const destroyYogaNodes = (node) => {
       const newNode = Object.assign({}, node);
       delete newNode.yogaNode;
       if (!node.children) return newNode;
@@ -3379,23 +3379,23 @@
         children,
       });
     };
-    /**
-     * Free yoga node from document tree
-     *
-     * @param node
-     * @returns Node without yoga node
-     */ const freeYogaNodes = (node) => {
+    
+
+
+
+
+ const freeYogaNodes = (node) => {
       if (node.yogaNode) node.yogaNode.freeRecursive();
       return node;
     };
-    /**
-     * Calculates page object layout using Yoga.
-     * Takes node values from 'box' and 'style' attributes, and persist them back into 'box'
-     * Destroy yoga values at the end.
-     *
-     * @param page - Object
-     * @returns Page object with correct 'box' layout attributes
-     */ const resolvePageDimensions = (page, fontStore, yoga) => {
+    
+
+
+
+
+
+
+ const resolvePageDimensions = (page, fontStore, yoga) => {
       if (
         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3414,13 +3414,13 @@
         createYogaNodes(page, fontStore, yoga),
       )(page);
     };
-    /**
-     * Calculates root object layout using Yoga.
-     *
-     * @param node - Root object
-     * @param fontStore - Font store
-     * @returns Root object with correct 'box' layout attributes
-     */ const resolveDimensions = (node, fontStore) => {
+    
+
+
+
+
+
+ const resolveDimensions = (node, fontStore) => {
       if (!node.children) return node;
       const resolveChild = (child) =>
         resolvePageDimensions(child, fontStore, node.yoga);
@@ -3434,7 +3434,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "Text"
       ];
-    // Prevent splitting elements by low decimal numbers
+    
     const SAFETY_THRESHOLD = 0.001;
     const assingChildren = (children, node) =>
       Object.assign({}, node, {
@@ -3515,9 +3515,9 @@
         }
         if (shouldSplit) {
           const [currentChild, nextChild] = split(child, height, contentArea);
-          // All children are moved to the next page, it doesn't make sense to show the parent on the current page
+          
           if (child.children.length > 0 && currentChild.children.length === 0) {
-            // But if the current page is empty then we can just include the parent on the current page
+            
             if (currentChildren.length === 0) {
               currentChildren.push(child, ...futureFixedNodes);
               nextChildren.push(...futureNodes);
@@ -3568,17 +3568,17 @@
     };
     const resolveDynamicNodes = (props, node) => {
       const isNodeDynamic = isDynamic(node);
-      // Call render prop on dynamic nodes and append result to children
+      
       const resolveChildren = (children = []) => {
         if (isNodeDynamic) {
           const res = node.props.render(props);
           return createInstances(res)
-            .filter(Boolean) // @ts-expect-error rework dynamic nodes. conflicting types
+            .filter(Boolean) 
             .map((n) => resolveDynamicNodes(props, n));
         }
         return children.map((c) => resolveDynamicNodes(props, c));
       };
-      // We reset dynamic text box so it can be computed again later on
+      
       const resetHeight = isNodeDynamic && isText$1(node);
       const box = resetHeight
         ? {
@@ -3587,7 +3587,7 @@
           }
         : node.box;
       const children = resolveChildren(node.children);
-      // @ts-expect-error handle text here specifically
+      
       const lines = isNodeDynamic ? null : node.lines;
       return Object.assign({}, node, {
         box,
@@ -3620,7 +3620,7 @@
         dynamicPage.children,
       );
       const relayout = (
-        node, // @ts-expect-error rework pagination
+        node, 
       ) => relayoutPage(node, fontStore, yoga);
       const currentBox = {
         ...page.box,
@@ -3692,14 +3692,14 @@
       }
       return pages;
     };
-    /**
-     * Performs pagination. This is the step responsible of breaking the whole document
-     * into pages following pagiation rules, such as `fixed`, `break` and dynamic nodes.
-     *
-     * @param root - Document node
-     * @param fontStore - Font store
-     * @returns Layout node
-     */ const resolvePagination = (root, fontStore) => {
+    
+
+
+
+
+
+
+ const resolvePagination = (root, fontStore) => {
       let pages = [];
       let pageNumber = 1;
       for (let i = 0; i < root.children.length; i += 1) {
@@ -3714,12 +3714,12 @@
       );
       return assingChildren(pages, root);
     };
-    /**
-     * Translates page percentage horizontal paddings in fixed ones
-     *
-     * @param container - Page container
-     * @returns Resolve page horizontal padding
-     */ const resolvePageHorizontalPadding = (container) => (value) => {
+    
+
+
+
+
+ const resolvePageHorizontalPadding = (container) => (value) => {
       const match = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "matchPercent"
@@ -3727,12 +3727,12 @@
       const width = container.width;
       return match ? match.percent * width : value;
     };
-    /**
-     * Translates page percentage vertical paddings in fixed ones
-     *
-     * @param container - Page container
-     * @returns Resolve page vertical padding
-     */ const resolvePageVerticalPadding = (container) => (value) => {
+    
+
+
+
+
+ const resolvePageVerticalPadding = (container) => (value) => {
       const match = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "matchPercent"
@@ -3740,12 +3740,12 @@
       const height = container.height;
       return match ? match.percent * height : value;
     };
-    /**
-     * Translates page percentage paddings in fixed ones
-     *
-     * @param page
-     * @returns Page with fixed paddings
-     */ const resolvePagePaddings = (page) => {
+    
+
+
+
+
+ const resolvePagePaddings = (page) => {
       const container = page.style;
       const style = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3763,14 +3763,14 @@
         style,
       });
     };
-    /**
-     * Translates all pages percentage paddings in fixed ones
-     * This has to be computed from pages calculated size and not by Yoga
-     * because at this point we didn't performed pagination yet.
-     *
-     * @param root - Document root
-     * @returns Document root with translated page paddings
-     */ const resolvePagesPaddings = (root) => {
+    
+
+
+
+
+
+
+ const resolvePagesPaddings = (root) => {
       if (!root.children) return root;
       const children = root.children.map(resolvePagePaddings);
       return Object.assign({}, root, {
@@ -3785,12 +3785,12 @@
       ])(value);
       return match ? match.percent * Math.min(box.width, box.height) : value;
     };
-    /**
-     * Transforms percent border radius into fixed values
-     *
-     * @param node
-     * @returns Node
-     */ const resolvePercentRadius = (node) => {
+    
+
+
+
+
+ const resolvePercentRadius = (node) => {
       const style = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "evolve"
@@ -3812,36 +3812,36 @@
         children,
       });
     };
-    /**
-     * Transform percent height into fixed
-     *
-     * @param height
-     * @returns Height
-     */ const transformHeight = (pageArea, height) => {
+    
+
+
+
+
+ const transformHeight = (pageArea, height) => {
       const match = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "matchPercent"
       ])(height);
       return match ? match.percent * pageArea : height;
     };
-    /**
-     * Get page area (height minus paddings)
-     *
-     * @param page
-     * @returns Page area
-     */ const getPageArea = (page) => {
+    
+
+
+
+
+ const getPageArea = (page) => {
       const pageHeight = page.style.height;
       const pagePaddingTop = page.style?.paddingTop || 0;
       const pagePaddingBottom = page.style?.paddingBottom || 0;
       return pageHeight - pagePaddingTop - pagePaddingBottom;
     };
-    /**
-     * Transform node percent height to fixed
-     *
-     * @param page
-     * @param node
-     * @returns Transformed node
-     */ const resolveNodePercentHeight = (page, node) => {
+    
+
+
+
+
+
+ const resolveNodePercentHeight = (page, node) => {
       if (
         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3865,12 +3865,12 @@
         style,
       });
     };
-    /**
-     * Transform page immediate children with percent height to fixed
-     *
-     * @param page
-     * @returns Transformed page
-     */ const resolvePagePercentHeight = (page) => {
+    
+
+
+
+
+ const resolvePagePercentHeight = (page) => {
       if (!page.children) return page;
       const resolveChild = (child) => resolveNodePercentHeight(page, child);
       const children = page.children.map(resolveChild);
@@ -3878,13 +3878,13 @@
         children,
       });
     };
-    /**
-     * Transform all page immediate children with percent height to fixed.
-     * This is needed for computing correct dimensions on pre-pagination layout.
-     *
-     * @param root - Document root
-     * @returns Transformed document root
-     */ const resolvePercentHeight = (root) => {
+    
+
+
+
+
+
+ const resolvePercentHeight = (root) => {
       if (!root.children) return root;
       const children = root.children.map(resolvePagePercentHeight);
       return Object.assign({}, root, {
@@ -3907,37 +3907,37 @@
         "TextInstance"
       ],
     );
-    /**
-     * Checks if node has render prop
-     *
-     * @param node
-     * @returns Has render prop?
-     */ const hasRenderProp = (node) => "render" in node.props;
-    /**
-     * Checks if node is text type (Text or TextInstance)
-     *
-     * @param node
-     * @returns Are all children text instances?
-     */ const isTextType = (node) => isText(node) || isTextInstance(node);
-    /**
-     * Checks if is tet link that needs to be wrapped in Text
-     *
-     * @param node
-     * @returns Are all children text instances?
-     */ const isTextLink = (node) => {
+    
+
+
+
+
+ const hasRenderProp = (node) => "render" in node.props;
+    
+
+
+
+
+ const isTextType = (node) => isText(node) || isTextInstance(node);
+    
+
+
+
+
+ const isTextLink = (node) => {
       const children = node.children || [];
-      // Text string inside a Link
+      
       if (children.every(isTextInstance)) return true;
-      // Text node inside a Link
+      
       if (children.every(isText)) return false;
       return children.every(isTextType);
     };
-    /**
-     * Wraps node children inside Text node
-     *
-     * @param node
-     * @returns Node with intermediate Text child
-     */ const wrapText = (node) => {
+    
+
+
+
+
+ const wrapText = (node) => {
       const textElement = {
         type: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "Text"
@@ -3953,25 +3953,25 @@
     };
     const transformLink = (node) => {
       if (!isLink(node)) return node;
-      // If has render prop substitute the instance by a Text, that will
-      // ultimately render the inline Link via the textkit PDF renderer.
+      
+      
       if (hasRenderProp(node))
         return Object.assign({}, node, {
           type: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "Text"
           ],
         });
-      // If is a text link (either contains Text or TextInstance), wrap it
-      // inside a Text element so styles are applied correctly
+      
+      
       if (isTextLink(node)) return wrapText(node);
       return node;
     };
-    /**
-     * Transforms Link layout to correctly render text and dynamic rendered links
-     *
-     * @param node
-     * @returns Node with link substitution
-     */ const resolveLinkSubstitution = (node) => {
+    
+
+
+
+
+ const resolveLinkSubstitution = (node) => {
       if (!node.children) return node;
       const resolveChild = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4007,4 +4007,4 @@
   },
 ]);
 
-//# sourceMappingURL=c729b_%40react-pdf_layout_lib_index_2bf921de.js.map
+

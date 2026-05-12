@@ -1028,7 +1028,7 @@ module.exports = [
         (p) => String(p.id) === String(pageId),
       );
       if (page?.access_token) return page.access_token;
-      // If not found in accounts, try treating the token as a page token directly
+      
       return userToken;
     }
     async function GET() {
@@ -1048,9 +1048,9 @@ module.exports = [
         );
       }
       try {
-        // Exchange user token for page access token (leadgen_forms requires page token)
+        
         const pageToken = await getPageToken(TOKEN, PAGE_ID);
-        // Lead gen forms live on the Facebook Page, not the Ad Account
+        
         const formsRes = await fetch(
           `https://graph.facebook.com/v19.0/${PAGE_ID}/leadgen_forms?access_token=${pageToken}`,
         );
@@ -1087,9 +1087,9 @@ module.exports = [
             }
             const phone = f["phone_number"] || f["phone"] || "";
             const email = f["email"] || "";
-            // skip if no contact info
+            
             if (!phone && !email) continue;
-            // dedup by phone or email
+            
             const existing = await col.findOne({
               $or: [
                 ...(phone
@@ -1147,4 +1147,4 @@ module.exports = [
   },
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__fd918f6e._.js.map
+

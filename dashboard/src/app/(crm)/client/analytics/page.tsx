@@ -128,7 +128,7 @@ export default function ClientAnalyticsPage() {
     );
   }
 
-  // ─── Compute aggregates ───────────────────────────────────────────────────
+  
   const postedPosts = posts.filter((p) => p.status === "Posted");
 
   let totalViews = 0,
@@ -210,7 +210,7 @@ export default function ClientAnalyticsPage() {
         ).toFixed(1)
       : "0.0";
 
-  // Timeline: last 10 posted posts sorted oldest→newest
+  
   const timelineData = postedPosts
     .sort(
       (a, b) =>
@@ -258,7 +258,7 @@ export default function ClientAnalyticsPage() {
       };
     });
 
-  // Platform breakdown for pie
+  
   const platformPieData = Object.entries(platformTotals)
     .map(([name, d]) => ({
       name,
@@ -266,7 +266,7 @@ export default function ClientAnalyticsPage() {
     }))
     .filter((d) => d.value > 0);
 
-  // Per-platform bar chart
+  
   const platformBarData = Object.entries(platformTotals).map(([name, d]) => ({
     name,
     views: d.views,
@@ -276,7 +276,7 @@ export default function ClientAnalyticsPage() {
     posts: d.posts,
   }));
 
-  // Top performing posts by engagement rate
+  
   const topPosts = postedPosts
     .map((p) => {
       let v = 0,
@@ -319,7 +319,7 @@ export default function ClientAnalyticsPage() {
 
   return (
     <div className="min-h-screen bg-background p-6 space-y-6">
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Analytics</h1>
         <p className="text-muted-foreground mt-1">
@@ -333,7 +333,7 @@ export default function ClientAnalyticsPage() {
         </div>
       ) : (
         <>
-          {/* KPI Row */}
+          {}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             <StatCard
               icon={<BarChart2 className="w-4 h-4" />}
@@ -377,10 +377,10 @@ export default function ClientAnalyticsPage() {
             />
           </div>
 
-          {/* Platform Breakdown */}
+          {}
           {platformBarData.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Platform stats cards */}
+              {}
               <Card className="border-2 border-black">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-base font-black">
@@ -485,7 +485,7 @@ export default function ClientAnalyticsPage() {
                 </CardContent>
               </Card>
 
-              {/* Pie chart */}
+              {}
               {platformPieData.length > 1 && (
                 <Card className="border-2 border-black">
                   <CardHeader className="pb-3">
@@ -526,7 +526,7 @@ export default function ClientAnalyticsPage() {
             </div>
           )}
 
-          {/* Performance Timeline */}
+          {}
           {timelineData.length > 0 && (
             <Card className="border-2 border-black">
               <CardHeader className="pb-3">
@@ -611,7 +611,7 @@ export default function ClientAnalyticsPage() {
             </Card>
           )}
 
-          {/* Engagement Rate Trend */}
+          {}
           {timelineData.filter((d) => d.engagement > 0).length > 1 && (
             <Card className="border-2 border-black">
               <CardHeader className="pb-3">
@@ -643,7 +643,7 @@ export default function ClientAnalyticsPage() {
             </Card>
           )}
 
-          {/* Top Performing Posts */}
+          {}
           {topPosts.length > 0 && (
             <Card className="border-2 border-black">
               <CardHeader className="pb-3">

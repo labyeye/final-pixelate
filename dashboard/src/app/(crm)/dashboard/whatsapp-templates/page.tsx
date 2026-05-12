@@ -33,7 +33,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+
 
 interface WaButton {
   type: "QUICK_REPLY" | "URL" | "PHONE_NUMBER";
@@ -130,7 +130,7 @@ const LANGUAGES = [
   { code: "bn", label: "Bengali" },
 ];
 
-// ─── Variable highlighter — replaces {{n}} with a badge in the preview ───────
+
 function renderBodyPreview(text: string) {
   const parts = text.split(/({{[^}]+}})/g);
   return parts.map((part, i) => {
@@ -148,7 +148,7 @@ function renderBodyPreview(text: string) {
   });
 }
 
-// ─── Blank form state ─────────────────────────────────────────────────────────
+
 interface FormState {
   name: string;
   category: WaTemplate["category"];
@@ -161,7 +161,7 @@ interface FormState {
   footer: string;
   buttons: WaButton[];
   variables: string[];
-  exampleValues: string[]; // one per {{n}} variable — required by Meta
+  exampleValues: string[]; 
   notes: string;
 }
 
@@ -181,7 +181,7 @@ const blankForm = (): FormState => ({
   notes: "",
 });
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
+
 
 export default function WhatsAppTemplatesPage() {
   const { toast } = useToast();
@@ -210,7 +210,7 @@ export default function WhatsAppTemplatesPage() {
   const [newVariableLabel, setNewVariableLabel] = useState("");
   const [uploadingMedia, setUploadingMedia] = useState(false);
 
-  // ── fetch ──────────────────────────────────────────────────────────────────
+  
   const fetchTemplates = async () => {
     setLoading(true);
     try {
@@ -232,7 +232,7 @@ export default function WhatsAppTemplatesPage() {
     fetchTemplates();
   }, []);
 
-  // ── sync from Meta ─────────────────────────────────────────────────────────
+  
   const handleSync = async () => {
     setSyncing(true);
     try {
@@ -255,7 +255,7 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  // ── filtered list ──────────────────────────────────────────────────────────
+  
   const filtered = useMemo(() => {
     return templates.filter((t) => {
       const q = search.toLowerCase();
@@ -271,7 +271,7 @@ export default function WhatsAppTemplatesPage() {
     });
   }, [templates, search, filterCategory, filterStatus]);
 
-  // ── stats ──────────────────────────────────────────────────────────────────
+  
   const stats = useMemo(() => {
     return {
       total: templates.length,
@@ -281,7 +281,7 @@ export default function WhatsAppTemplatesPage() {
     };
   }, [templates]);
 
-  // ── open create/edit form ──────────────────────────────────────────────────
+  
   const openCreate = () => {
     setEditTarget(null);
     setForm(blankForm());
@@ -308,7 +308,7 @@ export default function WhatsAppTemplatesPage() {
     setShowForm(true);
   };
 
-  // ── upload sample media to Meta ────────────────────────────────────────────
+  
   const handleMediaUpload = async (file: File) => {
     setUploadingMedia(true);
     try {
@@ -340,7 +340,7 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  // ── submit to Meta ─────────────────────────────────────────────────────────
+  
   const handleSubmitToMeta = async (t: WaTemplate) => {
     if (
       !window.confirm(
@@ -382,7 +382,7 @@ export default function WhatsAppTemplatesPage() {
     setNewVariableLabel("");
   };
 
-  // ── save ───────────────────────────────────────────────────────────────────
+  
   const handleSave = async () => {
     if (!form.name.trim() || !form.body.trim()) {
       toast({
@@ -440,7 +440,7 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  // ── delete ─────────────────────────────────────────────────────────────────
+  
   const handleDelete = async (t: WaTemplate) => {
     if (!window.confirm(`Delete template "${t.name}"? This cannot be undone.`))
       return;
@@ -463,7 +463,7 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  // ── copy name to clipboard ─────────────────────────────────────────────────
+  
   const copyName = (name: string) => {
     navigator.clipboard
       .writeText(name)
@@ -475,7 +475,7 @@ export default function WhatsAppTemplatesPage() {
       );
   };
 
-  // ── add/remove button ──────────────────────────────────────────────────────
+  
   const addButton = () => {
     if (!newButtonText.trim()) return;
     setForm((f) => ({
@@ -492,7 +492,7 @@ export default function WhatsAppTemplatesPage() {
     setForm((f) => ({ ...f, buttons: f.buttons.filter((_, i) => i !== idx) }));
   };
 
-  // ── add variable label ─────────────────────────────────────────────────────
+  
   const addVariable = () => {
     if (!newVariableLabel.trim()) return;
     setForm((f) => ({
@@ -507,16 +507,16 @@ export default function WhatsAppTemplatesPage() {
     setForm((f) => ({ ...f, body: f.body + `{{${n}}}` }));
   };
 
-  // ── extract variables from body text ──────────────────────────────────────
+  
   const detectedVars = useMemo(() => {
     const matches = form.body.match(/{{[^}]+}}/g) ?? [];
     return [...new Set(matches)];
   }, [form.body]);
 
-  // ─────────────────────────────────────────────────────────────────────────
+  
   return (
     <div className="p-6 space-y-6">
-      {/* ── Header ── */}
+      {}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-2 border-black pb-6">
         <div>
           <h1 className="text-4xl font-black tracking-tight uppercase italic flex items-center gap-3">
@@ -550,7 +550,7 @@ export default function WhatsAppTemplatesPage() {
         </div>
       </div>
 
-      {/* ── Stats ── */}
+      {}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           {
@@ -589,7 +589,7 @@ export default function WhatsAppTemplatesPage() {
         ))}
       </div>
 
-      {/* ── Filters ── */}
+      {}
       <div className="flex flex-col md:flex-row gap-3">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-3 w-4 h-4 text-neutral-400" />
@@ -628,7 +628,7 @@ export default function WhatsAppTemplatesPage() {
         </Select>
       </div>
 
-      {/* ── Template List ── */}
+      {}
       {loading ? (
         <div className="flex justify-center py-20">
           <Loader2 className="w-10 h-10 animate-spin text-neutral-400" />
@@ -671,7 +671,7 @@ export default function WhatsAppTemplatesPage() {
                 key={t._id}
                 className="bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col overflow-hidden hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow"
               >
-                {/* Card header */}
+                {}
                 <div className="flex items-start justify-between p-4 border-b-2 border-black bg-neutral-50">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
@@ -710,9 +710,9 @@ export default function WhatsAppTemplatesPage() {
                   </div>
                 </div>
 
-                {/* Body preview */}
+                {}
                 <div className="flex-1 p-4">
-                  {/* WhatsApp-style bubble preview */}
+                  {}
                   <div className="bg-[#e5ddd5] rounded-lg p-3">
                     {t.headerType === "TEXT" && t.headerText && (
                       <p className="font-black text-xs text-[#1a1a1a] mb-2">
@@ -776,7 +776,7 @@ export default function WhatsAppTemplatesPage() {
                   )}
                 </div>
 
-                {/* Submit to Meta — shown only for LOCAL / REJECTED */}
+                {}
                 {canSubmit && (
                   <div className="px-3 pb-3 space-y-1.5">
                     {needsMediaUpload && (
@@ -814,7 +814,7 @@ export default function WhatsAppTemplatesPage() {
                   </div>
                 )}
 
-                {/* Actions */}
+                {}
                 <div className="flex items-center gap-2 p-3 border-t-2 border-black bg-neutral-50">
                   <button
                     onClick={() => copyName(t.name)}
@@ -857,11 +857,11 @@ export default function WhatsAppTemplatesPage() {
         </div>
       )}
 
-      {/* ── Create / Edit Modal ── */}
+      {}
       {showForm && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto">
           <div className="bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] rounded-xl w-full max-w-2xl my-8 animate-in zoom-in-95 duration-200">
-            {/* Modal header */}
+            {}
             <div className="flex items-center justify-between p-5 border-b-2 border-black bg-neutral-50">
               <div>
                 <h2 className="text-2xl font-black uppercase tracking-tight italic">
@@ -882,7 +882,7 @@ export default function WhatsAppTemplatesPage() {
             </div>
 
             <div className="p-6 space-y-5">
-              {/* Name + Category + Language */}
+              {}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label className="font-black uppercase text-[10px] tracking-widest text-neutral-500">

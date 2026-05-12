@@ -51,7 +51,7 @@ const REQUIRED_PERMISSIONS = [
   { key: "pages_manage_ads", desc: "Access ad-related page data" },
 ];
 
-// ── Client-level token setup card ────────────────────────────────────────────
+
 function ClientTokenSetup({
   clientId,
   hasToken,
@@ -132,7 +132,7 @@ function ClientTokenSetup({
 
   return (
     <div className="border-b-2 border-black pb-5 mb-4">
-      {/* Header */}
+      {}
       <div
         className="flex items-center justify-between cursor-pointer"
         onClick={() => setOpen((v) => !v)}
@@ -161,7 +161,7 @@ function ClientTokenSetup({
 
       {open && (
         <div className="mt-4 space-y-4">
-          {/* Instructions */}
+          {}
           <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-4 text-xs space-y-2">
             <p className="font-black text-sm">How to get System User Token:</p>
             <ol className="list-decimal list-inside space-y-1 text-gray-700">
@@ -215,7 +215,7 @@ function ClientTokenSetup({
             </p>
           </div>
 
-          {/* Token input */}
+          {}
           <div>
             <label className="block text-xs font-bold mb-1 uppercase tracking-wide">
               Paste Token
@@ -289,7 +289,7 @@ function ClientTokenSetup({
   );
 }
 
-// ── Per-account Page ID / IG ID row ─────────────────────────────────────────
+
 function AccountRow({
   account,
   onSaved,
@@ -433,7 +433,7 @@ function AccountRow({
   );
 }
 
-// ── Main panel ───────────────────────────────────────────────────────────────
+
 export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
   const [accounts, setAccounts] = useState<SocialAccount[]>([]);
   const [loading, setLoading] = useState(true);
@@ -481,14 +481,14 @@ export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
   return (
     <Card className="border-2 border-black">
       <CardContent className="pt-5">
-        {/* Step 1 — System User Token */}
+        {}
         <ClientTokenSetup
           clientId={clientId}
           hasToken={hasClientToken}
           onSaved={load}
         />
 
-        {/* Step 2 — Page IDs per account */}
+        {}
         <div>
           <div className="flex items-center justify-between mb-1">
             <p className="text-xs font-black uppercase tracking-wide">

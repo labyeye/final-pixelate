@@ -58,7 +58,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=asset-prefix.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/set-attributes-from-props.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -96,28 +96,28 @@
       for (const [p, value] of Object.entries(props)) {
         if (!props.hasOwnProperty(p)) continue;
         if (ignoreProps.includes(p)) continue;
-        // we don't render undefined props to the DOM
+        
         if (value === undefined) {
           continue;
         }
         const attr = DOMAttributeNames[p] || p.toLowerCase();
         if (el.tagName === "SCRIPT" && isBooleanScriptAttribute(attr)) {
-          // Correctly assign boolean script attributes
-          // https://github.com/vercel/next.js/pull/20748
+          
+          
           el[attr] = !!value;
         } else {
           el.setAttribute(attr, String(value));
         }
-        // Remove falsy non-zero boolean attributes so they are correctly interpreted
-        // (e.g. if we set them to false, this coerces to the string "false", which the browser interprets as true)
+        
+        
         if (
           value === false ||
           (el.tagName === "SCRIPT" &&
             isBooleanScriptAttribute(attr) &&
             (!value || value === "false"))
         ) {
-          // Call setAttribute before, as we need to set and unset the attribute to override force async:
-          // https://html.spec.whatwg.org/multipage/scripting.html#script-force-async
+          
+          
           el.setAttribute(attr, "");
           el.removeAttribute(attr);
         }
@@ -133,19 +133,19 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=set-attributes-from-props.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-bootstrap.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * Before starting the Next.js runtime and requiring any module, we need to make
-     * sure the following scripts are executed in the correct order:
-     * - Polyfills
-     * - next/script with `beforeInteractive` strategy
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+    
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -195,7 +195,7 @@
         }, Promise.resolve())
         .catch((err) => {
           console.error(err);
-          // Still try to hydrate even if there's an error.
+          
         })
         .then(() => {
           hydrate();
@@ -204,11 +204,11 @@
     function appBootstrap(hydrate) {
       const assetPrefix = (0, _assetprefix.getAssetPrefix)();
       loadScriptsInSequence(self.__next_s, () => {
-        // If the static shell is being debugged, skip hydration if the
-        // `__nextppronly` query is present. This is only enabled when the
-        // environment variable `__NEXT_EXPERIMENTAL_STATIC_SHELL_DEBUGGING` is
-        // set to `1`. Otherwise the following is optimized out.
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        
+        
+        
+        
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         hydrate(assetPrefix);
       });
@@ -223,7 +223,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-bootstrap.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/react-client-callbacks/report-global-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -242,7 +242,7 @@
       typeof reportError === "function"
         ? reportError
         : (error) => {
-            // TODO: Dispatch error event
+            
             globalThis.console.error(error);
           };
     if (
@@ -255,15 +255,15 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=report-global-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // This module can be shared between both pages router and app router
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -296,7 +296,7 @@
     const _bailouttocsr = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/bailout-to-csr.js [app-client] (ecmascript)",
     );
-    const _iserror = /*#__PURE__*/ _interop_require_default._(
+    const _iserror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
       ),
@@ -309,10 +309,10 @@
       return recoverableErrors.has(error);
     }
     const onRecoverableError = (error) => {
-      // x-ref: https://github.com/facebook/react/pull/28736
+      
       let cause =
         (0, _iserror.default)(error) && "cause" in error ? error.cause : error;
-      // Skip certain custom errors which are not expected to be reported on client
+      
       if ((0, _bailouttocsr.isBailoutToCSRError)(cause)) return;
       if (("TURBOPACK compile-time truthy", 1)) {
         const { decorateDevError } = __turbopack_context__.r(
@@ -334,7 +334,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=on-recoverable-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -423,7 +423,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=http-access-fallback.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-status-code.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -438,7 +438,7 @@
         return RedirectStatusCode;
       },
     });
-    var RedirectStatusCode = /*#__PURE__*/ (function (RedirectStatusCode) {
+    var RedirectStatusCode =  (function (RedirectStatusCode) {
       RedirectStatusCode[(RedirectStatusCode["SeeOther"] = 303)] = "SeeOther";
       RedirectStatusCode[(RedirectStatusCode["TemporaryRedirect"] = 307)] =
         "TemporaryRedirect";
@@ -456,7 +456,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=redirect-status-code.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -493,7 +493,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-status-code.js [app-client] (ecmascript)",
     );
     const REDIRECT_ERROR_CODE = "NEXT_REDIRECT";
-    var RedirectType = /*#__PURE__*/ (function (RedirectType) {
+    var RedirectType =  (function (RedirectType) {
       RedirectType["push"] = "push";
       RedirectType["replace"] = "replace";
       return RedirectType;
@@ -530,7 +530,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=redirect-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/is-next-router-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -567,7 +567,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=is-next-router-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/lib/console.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -599,7 +599,7 @@
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _iserror = /*#__PURE__*/ _interop_require_default._(
+    const _iserror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
       ),
@@ -683,8 +683,8 @@
         const code = message[++i];
         switch (code) {
           case "c": {
-            // TODO: We should colorize with HTML instead of turning into a string.
-            // Ignore for now.
+            
+            
             result = startQuote ? `${result}]` : `[${result}`;
             startQuote = !startQuote;
             idx++;
@@ -718,19 +718,19 @@
       return result;
     }
     function parseConsoleArgs(args) {
-      // See
-      // https://github.com/facebook/react/blob/65a56d0e99261481c721334a3ec4561d173594cd/packages/react-devtools-shared/src/backend/flight/renderer.js#L88-L93
-      //
-      // Logs replayed from the server look like this:
-      // [
-      //   "%c%s%c%o\n\n%s\n\n%s\n",
-      //   "background: #e6e6e6; ...",
-      //   " Server ", // can also be e.g. " Prerender "
-      //   "",
-      //   Error,
-      //   "The above error occurred in the <Page> component.",
-      //   ...
-      // ]
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       if (
         args.length > 3 &&
         typeof args[0] === "string" &&
@@ -761,15 +761,15 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=console.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-globals.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // imports polyfill from `@next/polyfill-module` after build.
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -779,7 +779,7 @@
     __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/polyfill-module.js [app-client] (ecmascript)",
     );
-    // Only setup devtools in development
+    
     if (("TURBOPACK compile-time truthy", 1)) {
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-setup.js [app-client] (ecmascript)",
@@ -795,7 +795,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-globals.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-headers.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -927,7 +927,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-router-headers.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation-untracked.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -948,15 +948,15 @@
     const _hooksclientcontextsharedruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js [app-client] (ecmascript)",
     );
-    /**
-     * This checks to see if the current render has any unknown route parameters that
-     * would cause the pathname to be dynamic. It's used to trigger a different
-     * render path in the error boundary.
-     *
-     * @returns true if there are any unknown route parameters, false otherwise
-     */ function hasFallbackRouteParams() {
+    
+
+
+
+
+
+ function hasFallbackRouteParams() {
       if (typeof window === "undefined") {
-        // AsyncLocalStorage should not be included in the client bundle.
+        
         const { workUnitAsyncStorage } = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js [app-client] (ecmascript)",
         );
@@ -983,16 +983,16 @@
       return false;
     }
     function useUntrackedPathname() {
-      // If there are any unknown route parameters we would typically throw
-      // an error, but this internal method allows us to return a null value instead
-      // for components that do not propagate the pathname to the static shell (like
-      // the error boundary).
+      
+      
+      
+      
       if (hasFallbackRouteParams()) {
         return null;
       }
-      // This shouldn't cause any issues related to conditional rendering because
-      // the environment will be consistent for the render.
-      // eslint-disable-next-line react-hooks/rules-of-hooks
+      
+      
+      
       return (0, _react.useContext)(
         _hooksclientcontextsharedruntime.PathnameContext,
       );
@@ -1007,7 +1007,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=navigation-untracked.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-href-from-url.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1035,14 +1035,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=create-href-from-url.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/nav-failure-handler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1095,7 +1095,7 @@
       return false;
     }
     function useNavFailureHandler() {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
     }
     if (
@@ -1108,7 +1108,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=nav-failure-handler.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/handle-isr-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1151,14 +1151,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=handle-isr-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/error-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -1192,7 +1192,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1230,8 +1230,8 @@
       }
       static getDerivedStateFromError(error) {
         if ((0, _isnextroutererror.isNextRouterError)(error)) {
-          // Re-throw if an expected internal Next.js router error occurs
-          // this means it should be handled by a different boundary (such as a NotFound boundary in a parent segment)
+          
+          
           throw error;
         }
         return {
@@ -1240,18 +1240,18 @@
       }
       static getDerivedStateFromProps(props, state) {
         const { error } = state;
-        // if we encounter an error while
-        // a navigation is pending we shouldn't render
-        // the error boundary and instead should fallback
-        // to a hard navigation to attempt recovering
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        
+        
+        
+        
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
-        /**
-         * Handles reset of the error boundary when a navigation happens.
-         * Ensures the error boundary does not stay enabled when navigating to a new page.
-         * Approach of setState in render is safe as it checks the previous pathname and then overrides
-         * it as outlined in https://react.dev/reference/react/useState#storing-information-from-previous-renders
-         */ if (props.pathname !== state.previousPathname && state.error) {
+        
+
+
+
+
+ if (props.pathname !== state.previousPathname && state.error) {
           return {
             error: null,
             previousPathname: props.pathname,
@@ -1262,14 +1262,14 @@
           previousPathname: props.pathname,
         };
       }
-      // Explicit type is needed to avoid the generated `.d.ts` having a wide return type that could be specific to the `@types/react` version.
+      
       render() {
-        //When it's bot request, segment level error boundary will keep rendering the children,
-        // the final error will be caught by the root error boundary and determine wether need to apply graceful degrade.
+        
+        
         if (this.state.error && !isBotUserAgent) {
-          return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+          return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [
-              /*#__PURE__*/ (0, _jsxruntime.jsx)(
+               (0, _jsxruntime.jsx)(
                 _handleisrerror.HandleISRError,
                 {
                   error: this.state.error,
@@ -1277,7 +1277,7 @@
               ),
               this.props.errorStyles,
               this.props.errorScripts,
-              /*#__PURE__*/ (0, _jsxruntime.jsx)(this.props.errorComponent, {
+               (0, _jsxruntime.jsx)(this.props.errorComponent, {
                 error: this.state.error,
                 reset: this.reset,
               }),
@@ -1293,13 +1293,13 @@
       errorScripts,
       children,
     }) {
-      // When we're rendering the missing params shell, this will return null. This
-      // is because we won't be rendering any not found boundaries or error
-      // boundaries for the missing params shell. When this runs on the client
-      // (where these errors can occur), we will get the correct pathname.
+      
+      
+      
+      
       const pathname = (0, _navigationuntracked.useUntrackedPathname)();
       if (errorComponent) {
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(ErrorBoundaryHandler, {
+        return  (0, _jsxruntime.jsx)(ErrorBoundaryHandler, {
           pathname: pathname,
           errorComponent: errorComponent,
           errorStyles: errorStyles,
@@ -1307,7 +1307,7 @@
           children: children,
         });
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -1321,7 +1321,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=error-boundary.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1331,7 +1331,7 @@
       value: true,
     });
     Object.defineProperty(
-      exports, // supplied custom global error signatures.
+      exports, 
       "default",
       {
         enumerable: true,
@@ -1348,7 +1348,7 @@
     );
     const styles = {
       error: {
-        // https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L38-L52
+        
         fontFamily:
           'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
         height: "100vh",
@@ -1367,23 +1367,23 @@
     };
     function DefaultGlobalError({ error }) {
       const digest = error?.digest;
-      return /*#__PURE__*/ (0, _jsxruntime.jsxs)("html", {
+      return  (0, _jsxruntime.jsxs)("html", {
         id: "__next_error__",
         children: [
-          /*#__PURE__*/ (0, _jsxruntime.jsx)("head", {}),
-          /*#__PURE__*/ (0, _jsxruntime.jsxs)("body", {
+           (0, _jsxruntime.jsx)("head", {}),
+           (0, _jsxruntime.jsxs)("body", {
             children: [
-              /*#__PURE__*/ (0, _jsxruntime.jsx)(
+               (0, _jsxruntime.jsx)(
                 _handleisrerror.HandleISRError,
                 {
                   error: error,
                 },
               ),
-              /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
+               (0, _jsxruntime.jsx)("div", {
                 style: styles.error,
-                children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                children:  (0, _jsxruntime.jsxs)("div", {
                   children: [
-                    /*#__PURE__*/ (0, _jsxruntime.jsxs)("h2", {
+                     (0, _jsxruntime.jsxs)("h2", {
                       style: styles.text,
                       children: [
                         "Application error: a ",
@@ -1397,7 +1397,7 @@
                       ],
                     }),
                     digest
-                      ? /*#__PURE__*/ (0, _jsxruntime.jsx)("p", {
+                      ?  (0, _jsxruntime.jsx)("p", {
                           style: styles.text,
                           children: `Digest: ${digest}`,
                         })
@@ -1421,7 +1421,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=global-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/runtime-error-handler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1449,7 +1449,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=runtime-error-handler.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/not-found.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1467,20 +1467,20 @@
     const _httpaccessfallback = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
     );
-    /**
-     * This function allows you to render the [not-found.js file](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
-     * within a route segment as well as inject a tag.
-     *
-     * `notFound()` can be used in
-     * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
-     * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
-     * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
-     *
-     * - In a Server Component, this will insert a `<meta name="robots" content="noindex" />` meta tag and set the status code to 404.
-     * - In a Route Handler or Server Action, it will serve a 404 to the caller.
-     *
-     * Read more: [Next.js Docs: `notFound`](https://nextjs.org/docs/app/api-reference/functions/not-found)
-     */ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};404`;
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};404`;
     function notFound() {
       const error = Object.defineProperty(
         new Error(DIGEST),
@@ -1504,15 +1504,15 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=not-found.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // This file is only used in app router due to the specific error state handling.
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1554,7 +1554,7 @@
     const _errorboundary = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/error-boundary.js [app-client] (ecmascript)",
     );
-    const _globalerror = /*#__PURE__*/ _interop_require_default._(
+    const _globalerror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
       ),
@@ -1579,7 +1579,7 @@
         (errorBoundaryComponent === _errorboundary.ErrorBoundaryHandler &&
           errorInfo.errorBoundary.props.errorComponent ===
             _globalerror.default);
-      // Skip the segment explorer triggered error
+      
       if (("TURBOPACK compile-time truthy", 1)) {
         const { SEGMENT_EXPLORER_SIMULATED_ERROR_MESSAGE } =
           __turbopack_context__.r(
@@ -1593,12 +1593,12 @@
         }
       }
       if (isImplicitErrorBoundary) {
-        // We don't consider errors caught unless they're caught by an explicit error
-        // boundary. The built-in ones are considered implicit.
-        // This mimics how the same app would behave without Next.js.
+        
+        
+        
         return onUncaughtError(thrownValue);
       }
-      // Skip certain custom errors which are not expected to be reported on client
+      
       if (
         (0, _bailouttocsr.isBailoutToCSRError)(thrownValue) ||
         (0, _isnextroutererror.isNextRouterError)(thrownValue)
@@ -1611,30 +1611,30 @@
           "Unknown";
         const componentThatErroredFrame =
           errorInfo?.componentStack?.split("\n")[1];
-        // Match chrome or safari stack trace
-        const matches = // example 1: at Page (http://localhost:3000/_next/static/chunks/pages/index.js?ts=1631600000000:2:1)
-          // example 2: Page@http://localhost:3000/_next/static/chunks/pages/index.js?ts=1631600000000:2:1
+        
+        const matches = 
+          
           componentThatErroredFrame?.match(/\s+at (\w+)\s+|(\w+)@/) ?? [];
         const componentThatErroredName = matches[1] || matches[2] || "Unknown";
-        // Create error location with errored component and error boundary, to match the behavior of default React onCaughtError handler.
+        
         const errorBoundaryMessage = `It was handled by the <${errorBoundaryName}> error boundary.`;
         const componentErrorMessage = ("TURBOPACK compile-time truthy", 1)
           ? `The above error occurred in the <${componentThatErroredName}> component.`
           : "TURBOPACK unreachable";
         const errorLocation = `${componentErrorMessage} ${errorBoundaryMessage}`;
         const error = devToolErrorMod.decorateDevError(thrownValue);
-        // Log and report the error with location but without modifying the error stack
+        
         devToolErrorMod.originConsoleError(
           "%o\n\n%s",
           thrownValue,
           errorLocation,
         );
         devToolErrorMod.handleClientError(error);
-      } //TURBOPACK unreachable
+      } 
       else;
     }
     function onUncaughtError(thrownValue) {
-      // Skip certain custom errors which are not expected to be reported on client
+      
       if (
         (0, _bailouttocsr.isBailoutToCSRError)(thrownValue) ||
         (0, _isnextroutererror.isNextRouterError)(thrownValue)
@@ -1642,9 +1642,9 @@
         return;
       if (("TURBOPACK compile-time truthy", 1)) {
         const error = devToolErrorMod.decorateDevError(thrownValue);
-        // TODO: Add an adendum to the overlay telling people about custom error boundaries.
+        
         (0, _reportglobalerror.reportGlobalError)(error);
-      } //TURBOPACK unreachable
+      } 
       else;
     }
     if (
@@ -1657,7 +1657,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=error-boundary-callbacks.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/router-reducer-types.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1712,7 +1712,7 @@
     const ACTION_SERVER_PATCH = "server-patch";
     const ACTION_HMR_REFRESH = "hmr-refresh";
     const ACTION_SERVER_ACTION = "server-action";
-    var PrefetchKind = /*#__PURE__*/ (function (PrefetchKind) {
+    var PrefetchKind =  (function (PrefetchKind) {
       PrefetchKind["AUTO"] = "auto";
       PrefetchKind["FULL"] = "full";
       PrefetchKind["TEMPORARY"] = "temporary";
@@ -1728,14 +1728,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=router-reducer-types.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/use-action-queue.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1765,7 +1765,7 @@
     const _interop_require_wildcard = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1773,9 +1773,9 @@
     const _isthenable = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-thenable.js [app-client] (ecmascript)",
     );
-    // The app router state lives outside of React, so we can import the dispatch
-    // method directly wherever we need it, rather than passing it around via props
-    // or context.
+    
+    
+    
     let dispatch = null;
     function dispatchAppRouterAction(action) {
       if (dispatch === null) {
@@ -1800,37 +1800,37 @@
       : "TURBOPACK unreachable";
     function useActionQueue(actionQueue) {
       const [state, setState] = _react.default.useState(actionQueue.state);
-      // Because of a known issue that requires to decode Flight streams inside the
-      // render phase, we have to be a bit clever and assign the dispatch method to
-      // a module-level variable upon initialization. The useState hook in this
-      // module only exists to synchronize state that lives outside of React.
-      // Ideally, what we'd do instead is pass the state as a prop to root.render;
-      // this is conceptually how we're modeling the app router state, despite the
-      // weird implementation details.
+      
+      
+      
+      
+      
+      
+      
       if (("TURBOPACK compile-time truthy", 1)) {
         const { useAppDevRenderingIndicator } = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/use-app-dev-rendering-indicator.js [app-client] (ecmascript)",
         );
-        // eslint-disable-next-line react-hooks/rules-of-hooks
+        
         const appDevRenderingIndicator = useAppDevRenderingIndicator();
         dispatch = (action) => {
           appDevRenderingIndicator(() => {
             actionQueue.dispatch(action, setState);
           });
         };
-      } //TURBOPACK unreachable
+      } 
       else;
-      // When navigating to a non-prefetched route, then App Router state will be
-      // blocked until the server responds. We need to transfer the `_debugInfo`
-      // from the underlying Flight response onto the top-level promise that is
-      // passed to React (via `use`) so that the latency is accurately represented
-      // in the React DevTools.
+      
+      
+      
+      
+      
       const stateWithDebugInfo = (0, _react.useMemo)(() => {
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         if ((0, _isthenable.isThenable)(state)) {
-          // useMemo can't be used to cache a Promise since the memoized value is thrown
-          // away when we suspend. So we use a WeakMap to cache the Promise with debug info.
+          
+          
           let promiseWithDebugInfo = promisesWithDebugInfo.get(state);
           if (promiseWithDebugInfo === undefined) {
             const debugInfo = [];
@@ -1861,7 +1861,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=use-action-queue.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-call-server.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1908,14 +1908,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-call-server.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-find-source-map-url.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1939,13 +1939,13 @@
             filename.startsWith(document.location.origin) &&
             filename.includes("/_next/static")
           ) {
-            // This is a request for a client chunk. This can only happen when
-            // using Turbopack. In this case, since we control how those source
-            // maps are generated, we can safely assume that the sourceMappingURL
-            // is relative to the filename, with an added `.map` extension. The
-            // browser can just request this file, and it gets served through the
-            // normal dev server, without the need to route this through
-            // the `/__nextjs_source-map` dev middleware.
+            
+            
+            
+            
+            
+            
+            
             return `${filename}.map`;
           }
           const url = new URL(pathname, document.location.origin);
@@ -1963,7 +1963,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-find-source-map-url.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/match-segments.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1979,10 +1979,10 @@
       },
     });
     const matchSegment = (existingSegment, segment) => {
-      // segment is either Array or string
+      
       if (typeof existingSegment === "string") {
         if (typeof segment === "string") {
-          // Common case: segment is just a string
+          
           return existingSegment === segment;
         }
         return false;
@@ -2004,7 +2004,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=match-segments.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/compute-changed-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2051,8 +2051,8 @@
     };
     const segmentToPathname = (segment) => {
       if (typeof segment === "string") {
-        // 'children' is not a valid path -- it's technically a parallel route that corresponds with the current segment's page
-        // if we don't skip it, then the computed pathname might be something like `/children` which doesn't make sense.
+        
+        
         if (segment === "children") return "";
         return segment;
       }
@@ -2114,7 +2114,7 @@
         return "";
       }
       if (!(0, _matchsegments.matchSegment)(segmentA, segmentB)) {
-        // once we find where the tree changed, we compute the rest of the path by traversing the tree
+        
         return extractPathFromFlightRouterState(treeB) ?? "";
       }
       for (const parallelRouterKey in parallelRoutesA) {
@@ -2135,7 +2135,7 @@
       if (changedPath == null || changedPath === "/") {
         return changedPath;
       }
-      // lightweight normalization to remove route groups
+      
       return normalizeSegments(changedPath.split("/"));
     }
     function getSelectedParams(currentTree, params = {}) {
@@ -2146,7 +2146,7 @@
         const segmentValue = isDynamicParameter ? segment[1] : segment;
         if (!segmentValue || segmentValue.startsWith(_segment.PAGE_SEGMENT_KEY))
           continue;
-        // Ensure catchAll and optional catchall are turned into an array
+        
         const isCatchAll =
           isDynamicParameter && (segment[2] === "c" || segment[2] === "oc");
         if (isCatchAll) {
@@ -2168,7 +2168,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=compute-changed-path.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/handle-mutable.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2190,28 +2190,28 @@
       return typeof value !== "undefined";
     }
     function handleMutable(state, mutable) {
-      // shouldScroll is true by default, can override to false.
+      
       const shouldScroll = mutable.shouldScroll ?? true;
       let previousNextUrl = state.previousNextUrl;
       let nextUrl = state.nextUrl;
       if (isNotUndefined(mutable.patchedTree)) {
-        // If we received a patched tree, we need to compute the changed path.
+        
         const changedPath = (0, _computechangedpath.computeChangedPath)(
           state.tree,
           mutable.patchedTree,
         );
         if (changedPath) {
-          // If the tree changed, we need to update the nextUrl
+          
           previousNextUrl = nextUrl;
           nextUrl = changedPath;
         } else if (!nextUrl) {
-          // if the tree ends up being the same (ie, no changed path), and we don't have a nextUrl, then we should use the canonicalUrl
+          
           nextUrl = state.canonicalUrl;
         }
-        // otherwise this will be a no-op and continue to use the existing nextUrl
+        
       }
       return {
-        // Set href.
+        
         canonicalUrl: mutable.canonicalUrl ?? state.canonicalUrl,
         renderedSearch: mutable.renderedSearch ?? state.renderedSearch,
         pushRef: {
@@ -2227,7 +2227,7 @@
             ? mutable.preserveCustomHistoryState
             : state.pushRef.preserveCustomHistoryState,
         },
-        // All navigation requires scroll and focus management to trigger.
+        
         focusAndScrollRef: {
           apply: shouldScroll
             ? isNotUndefined(mutable?.scrollableSegments)
@@ -2245,9 +2245,9 @@
               state.focusAndScrollRef.segmentPaths)
             : [],
         },
-        // Apply cache.
+        
         cache: mutable.cache ? mutable.cache : state.cache,
-        // Apply patched router state.
+        
         tree: isNotUndefined(mutable.patchedTree)
           ? mutable.patchedTree
           : state.tree,
@@ -2266,14 +2266,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=handle-mutable.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/route-params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -2334,23 +2334,23 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-headers.js [app-client] (ecmascript)",
     );
     function getRenderedSearch(response) {
-      // If the server performed a rewrite, the search params used to render the
-      // page will be different from the params in the request URL. In this case,
-      // the response will include a header that gives the rewritten search query.
+      
+      
+      
       const rewrittenQuery = response.headers.get(
         _approuterheaders.NEXT_REWRITTEN_QUERY_HEADER,
       );
       if (rewrittenQuery !== null) {
         return rewrittenQuery === "" ? "" : "?" + rewrittenQuery;
       }
-      // If the header is not present, there was no rewrite, so we use the search
-      // query of the response URL.
+      
+      
       return urlToUrlWithoutFlightMarker(new URL(response.url)).search;
     }
     function getRenderedPathname(response) {
-      // If the server performed a rewrite, the pathname used to render the
-      // page will be different from the pathname in the request URL. In this case,
-      // the response will include a header that gives the rewritten pathname.
+      
+      
+      
       const rewrittenPath = response.headers.get(
         _approuterheaders.NEXT_REWRITTEN_PATH_HEADER,
       );
@@ -2360,17 +2360,17 @@
       );
     }
     function parseDynamicParamFromURLPart(paramType, pathnameParts, partIndex) {
-      // This needs to match the behavior in get-dynamic-param.ts.
+      
       switch (paramType) {
-        // Catchalls
+        
         case "c": {
-          // Catchalls receive all the remaining URL parts. If there are no
-          // remaining pathname parts, return an empty array.
+          
+          
           return partIndex < pathnameParts.length
             ? pathnameParts.slice(partIndex).map((s) => encodeURIComponent(s))
             : [];
         }
-        // Catchall intercepted
+        
         case "ci(..)(..)":
         case "ci(.)":
         case "ci(..)":
@@ -2385,42 +2385,42 @@
               })
             : [];
         }
-        // Optional catchalls
+        
         case "oc": {
-          // Optional catchalls receive all the remaining URL parts, unless this is
-          // the end of the pathname, in which case they return null.
+          
+          
           return partIndex < pathnameParts.length
             ? pathnameParts.slice(partIndex).map((s) => encodeURIComponent(s))
             : null;
         }
-        // Dynamic
+        
         case "d": {
           if (partIndex >= pathnameParts.length) {
-            // The route tree expected there to be more parts in the URL than there
-            // actually are. This could happen if the x-nextjs-rewritten-path header
-            // is incorrectly set, or potentially due to bug in Next.js. TODO:
-            // Should this be a hard error? During a prefetch, we can just abort.
-            // During a client navigation, we could trigger a hard refresh. But if
-            // it happens during initial render, we don't really have any
-            // recovery options.
+            
+            
+            
+            
+            
+            
+            
             return "";
           }
           return encodeURIComponent(pathnameParts[partIndex]);
         }
-        // Dynamic intercepted
+        
         case "di(..)(..)":
         case "di(.)":
         case "di(..)":
         case "di(...)": {
           const prefix = paramType.length - 2;
           if (partIndex >= pathnameParts.length) {
-            // The route tree expected there to be more parts in the URL than there
-            // actually are. This could happen if the x-nextjs-rewritten-path header
-            // is incorrectly set, or potentially due to bug in Next.js. TODO:
-            // Should this be a hard error? During a prefetch, we can just abort.
-            // During a client navigation, we could trigger a hard refresh. But if
-            // it happens during initial render, we don't really have any
-            // recovery options.
+            
+            
+            
+            
+            
+            
+            
             return "";
           }
           return encodeURIComponent(pathnameParts[partIndex].slice(prefix));
@@ -2431,38 +2431,38 @@
       }
     }
     function doesStaticSegmentAppearInURL(segment) {
-      // This is not a parameterized segment; however, we need to determine
-      // whether or not this segment appears in the URL. For example, this route
-      // groups do not appear in the URL, so they should be skipped. Any other
-      // special cases must be handled here.
-      // TODO: Consider encoding this directly into the router tree instead of
-      // inferring it on the client based on the segment type. Something like
-      // a `doesAppearInURL` flag in FlightRouterState.
+      
+      
+      
+      
+      
+      
+      
       if (
-        segment === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY || // For some reason, the loader tree sometimes includes extra __PAGE__
-        // "layouts" when part of a parallel route. But it's not a leaf node.
-        // Otherwise, we wouldn't need this special case because pages are
-        // always leaf nodes.
-        // TODO: Investigate why the loader produces these fake page segments.
-        segment.startsWith(_segment.PAGE_SEGMENT_KEY) || // Route groups.
+        segment === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY || 
+        
+        
+        
+        
+        segment.startsWith(_segment.PAGE_SEGMENT_KEY) || 
         (segment[0] === "(" && segment.endsWith(")")) ||
         segment === _segment.DEFAULT_SEGMENT_KEY ||
         segment === "/_not-found"
       ) {
         return false;
       } else {
-        // All other segment types appear in the URL
+        
         return true;
       }
     }
     function getCacheKeyForDynamicParam(paramValue, renderedSearch) {
-      // This needs to match the logic in get-dynamic-param.ts, until we're able to
-      // unify the various implementations so that these are always computed on
-      // the client.
+      
+      
+      
       if (typeof paramValue === "string") {
-        // TODO: Refactor or remove this helper function to accept a string rather
-        // than the whole segment type. Also we can probably just append the
-        // search string instead of turning it into JSON.
+        
+        
+        
         const pageSegmentWithSearchParams = (0,
         _segment.addSearchParamsIfPageSegment)(
           paramValue,
@@ -2480,29 +2480,29 @@
       urlWithoutFlightParameters.searchParams.delete(
         _approuterheaders.NEXT_RSC_UNION_QUERY,
       );
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       return urlWithoutFlightParameters;
     }
     function getParamValueFromCacheKey(paramCacheKey, paramType) {
-      // Turn the cache key string sent by the server (as part of FlightRouterState)
-      // into a value that can be passed to `useParams` and client components.
+      
+      
       const isCatchAll = paramType === "c" || paramType === "oc";
       if (isCatchAll) {
-        // Catch-all param keys are a concatenation of the path segments.
-        // See equivalent logic in `getSelectedParams`.
-        // TODO: We should just pass the array directly, rather than concatenate
-        // it to a string and then split it back to an array. It needs to be an
-        // array in some places, like when passing a key React, but we can convert
-        // it at runtime in those places.
+        
+        
+        
+        
+        
+        
         return paramCacheKey.split("/");
       }
       return paramCacheKey;
     }
     function urlSearchParamsToParsedUrlQuery(searchParams) {
-      // Converts a URLSearchParams object to the same type used by the server when
-      // creating search params props, i.e. the type returned by Node's
-      // "querystring" module.
+      
+      
+      
       const result = {};
       for (const [key, value] of searchParams.entries()) {
         if (result[key] === undefined) {
@@ -2525,7 +2525,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=route-params.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/flight-data-helpers.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2576,21 +2576,21 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-href-from-url.js [app-client] (ecmascript)",
     );
     function getFlightDataPartsFromPath(flightDataPath) {
-      // Pick the last 4 items from the `FlightDataPath` to get the [tree, seedData, viewport, isHeadPartial].
+      
       const flightDataPathLength = 4;
-      // tree, seedData, and head are *always* the last three items in the `FlightDataPath`.
+      
       const [tree, seedData, head, isHeadPartial] =
         flightDataPath.slice(-flightDataPathLength);
-      // The `FlightSegmentPath` is everything except the last three items. For a root render, it won't be present.
+      
       const segmentPath = flightDataPath.slice(0, -flightDataPathLength);
       return {
-        // TODO: Unify these two segment path helpers. We are inconsistently pushing an empty segment ("")
-        // to the start of the segment path in some places which makes it hard to use solely the segment path.
-        // Look for "// TODO-APP: remove ''" in the codebase.
+        
+        
+        
         pathToSegment: segmentPath.slice(0, -1),
         segmentPath,
-        // if the `FlightDataPath` corresponds with the root, there'll be no segment path,
-        // in which case we default to ''.
+        
+        
         segment: segmentPath[segmentPath.length - 1] ?? "",
         tree,
         seedData,
@@ -2603,27 +2603,27 @@
       response,
       fallbackInitialRSCPayload,
     ) {
-      // This is a static fallback page. In order to hydrate the page, we need to
-      // parse the client params from the URL, but to account for the possibility
-      // that the page was rewritten, we need to check the response headers
-      // for x-nextjs-rewritten-path or x-nextjs-rewritten-query headers. Since
-      // we can't access the headers of the initial document response, the client
-      // performs a fetch request to the current location. Since it's possible that
-      // the fetch request will be dynamically rewritten to a different path than
-      // the initial document, this fetch request delivers _all_ the hydration data
-      // for the page; it was not inlined into the document, like it normally
-      // would be.
-      //
-      // TODO: Consider treating the case where fetch is rewritten to a different
-      // path from the document as a special deopt case. We should optimistically
-      // assume this won't happen, inline the data into the document, and perform
-      // a minimal request (like a HEAD or range request) to verify that the
-      // response matches. Tricky to get right because we need to account for
-      // all the different deployment environments we support, like output:
-      // "export" mode, where we currently don't assume that custom response
-      // headers are present.
-      // Patch the Flight data sent by the server with the correct params parsed
-      // from the URL + response object.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const renderedPathname = (0, _routeparams.getRenderedPathname)(response);
       const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
       const canonicalUrl = (0, _createhreffromurl.createHrefFromUrl)(
@@ -2696,8 +2696,8 @@
         newSegment = [paramName, cacheKey, paramType];
         doesAppearInURL = true;
       }
-      // Only increment the index if the segment appears in the URL. If it's a
-      // "virtual" segment, like a route group, it remains the same.
+      
+      
       const childPathnamePartsIndex = doesAppearInURL
         ? pathnamePartsIndex + 1
         : pathnamePartsIndex;
@@ -2722,13 +2722,13 @@
       return newState;
     }
     function getNextFlightSegmentPath(flightSegmentPath) {
-      // Since `FlightSegmentPath` is a repeated tuple of `Segment` and `ParallelRouteKey`, we slice off two items
-      // to get the next segment path.
+      
+      
       return flightSegmentPath.slice(2);
     }
     function normalizeFlightData(flightData) {
-      // FlightData can be a string when the server didn't respond with a proper flight response,
-      // or when a redirect happens, to signal to the client that it needs to perform an MPA navigation.
+      
+      
       if (typeof flightData === "string") {
         return flightData;
       }
@@ -2740,7 +2740,7 @@
       flightRouterState,
       isHmrRefresh,
     ) {
-      // HMR requests need the complete, unmodified state for proper functionality
+      
       if (isHmrRefresh) {
         return encodeURIComponent(JSON.stringify(flightRouterState));
       }
@@ -2750,10 +2750,10 @@
         ),
       );
     }
-    /**
-     * Recursively strips client-only data from FlightRouterState while preserving
-     * server-needed information for proper rendering decisions.
-     */ function stripClientOnlyDataFromFlightRouterState(flightRouterState) {
+    
+
+
+ function stripClientOnlyDataFromFlightRouterState(flightRouterState) {
       const [
         segment,
         parallelRoutes,
@@ -2762,10 +2762,10 @@
         isRootLayout,
         hasLoadingBoundary,
       ] = flightRouterState;
-      // __PAGE__ segments are always fetched from the server, so there's
-      // no need to send them up
+      
+      
       const cleanedSegment = stripSearchParamsFromPageSegment(segment);
-      // Recursively process parallel routes
+      
       const cleanedParallelRoutes = {};
       for (const [key, childState] of Object.entries(parallelRoutes)) {
         cleanedParallelRoutes[key] =
@@ -2777,7 +2777,7 @@
         null,
         shouldPreserveRefreshMarker(refreshMarker) ? refreshMarker : null,
       ];
-      // Append optional fields if present
+      
       if (isRootLayout !== undefined) {
         result[4] = isRootLayout;
       }
@@ -2786,10 +2786,10 @@
       }
       return result;
     }
-    /**
-     * Strips search parameters from __PAGE__ segments to prevent sensitive
-     * client-side data from being sent to the server.
-     */ function stripSearchParamsFromPageSegment(segment) {
+    
+
+
+ function stripSearchParamsFromPageSegment(segment) {
       if (
         typeof segment === "string" &&
         segment.startsWith(_segment.PAGE_SEGMENT_KEY + "?")
@@ -2798,11 +2798,11 @@
       }
       return segment;
     }
-    /**
-     * Determines whether the refresh marker should be sent to the server
-     * Client-only markers like 'refresh' are stripped, while server-needed markers
-     * like 'refetch' and 'inside-shared-layout' are preserved.
-     */ function shouldPreserveRefreshMarker(refreshMarker) {
+    
+
+
+
+ function shouldPreserveRefreshMarker(refreshMarker) {
       return Boolean(refreshMarker && refreshMarker !== "refresh");
     }
     if (
@@ -2815,24 +2815,24 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=flight-data-helpers.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-build-id.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // This gets assigned as a side-effect during app initialization. Because it
-    // represents the build used to create the JS bundle, it should never change
-    // after being set, so we store it in a global variable.
-    //
-    // When performing RSC requests, if the incoming data has a different build ID,
-    // we perform an MPA navigation/refresh to load the updated build and ensure
-    // that the client and server in sync.
-    // Starts as an empty string. In practice, because setAppBuildId is called
-    // during initialization before hydration starts, this will always get
-    // reassigned to the actual build ID before it's ever needed by a navigation.
-    // If for some reasons it didn't, due to a bug or race condition, then on
-    // navigation the build comparision would fail and trigger an MPA navigation.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -2873,7 +2873,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-build-id.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/set-cache-busting-search-param.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2919,22 +2919,22 @@
       setCacheBustingSearchParamWithHash(url, uniqueCacheKey);
     };
     const setCacheBustingSearchParamWithHash = (url, hash) => {
-      /**
-       * Note that we intentionally do not use `url.searchParams.set` here:
-       *
-       * const url = new URL('https://example.com/search?q=custom%20spacing');
-       * url.searchParams.set('_rsc', 'abc123');
-       * console.log(url.toString()); // Outputs: https://example.com/search?q=custom+spacing&_rsc=abc123
-       *                                                                             ^ <--- this is causing confusion
-       * This is in fact intended based on https://url.spec.whatwg.org/#interface-urlsearchparams, but
-       * we want to preserve the %20 as %20 if that's what the user passed in, hence the custom
-       * logic below.
-       */ const existingSearch = url.search;
+      
+
+
+
+
+
+
+
+
+
+ const existingSearch = url.search;
       const rawQuery = existingSearch.startsWith("?")
         ? existingSearch.slice(1)
         : existingSearch;
-      // Always remove any existing cache busting param and add a fresh one to ensure
-      // we have the correct value based on current request headers
+      
+      
       const pairs = rawQuery
         .split("&")
         .filter(
@@ -2959,14 +2959,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=set-cache-busting-search-param.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fetch-server-response.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -3028,7 +3028,7 @@
     const createFromReadableStream = _client.createFromReadableStream;
     const createFromFetch = _client.createFromFetch;
     let createDebugChannel;
-    if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+    if (("TURBOPACK compile-time falsy", 0)) 
     ;
     function doMpaNavigation(url) {
       return (0, _routeparams.urlToUrlWithoutFlightMarker)(
@@ -3037,14 +3037,14 @@
     }
     let isPageUnloading = false;
     if (typeof window !== "undefined") {
-      // Track when the page is unloading, e.g. due to reloading the page or
-      // performing hard navigations. This allows us to suppress error logging when
-      // the browser cancels in-flight requests during page unload.
+      
+      
+      
       window.addEventListener("pagehide", () => {
         isPageUnloading = true;
       });
-      // Reset the flag on pageshow, e.g. when navigating back and the JavaScript
-      // execution context is restored by the browser.
+      
+      
       window.addEventListener("pageshow", () => {
         isPageUnloading = false;
       });
@@ -3052,21 +3052,21 @@
     async function fetchServerResponse(url, options) {
       const { flightRouterState, nextUrl, prefetchKind } = options;
       const headers = {
-        // Enable flight response
+        
         [_approuterheaders.RSC_HEADER]: "1",
-        // Provide the current router state
+        
         [_approuterheaders.NEXT_ROUTER_STATE_TREE_HEADER]: (0,
         _flightdatahelpers.prepareFlightRouterStateForRequest)(
           flightRouterState,
           options.isHmrRefresh,
         ),
       };
-      /**
-       * Three cases:
-       * - `prefetchKind` is `undefined`, it means it's a normal navigation, so we want to prefetch the page data fully
-       * - `prefetchKind` is `full` - we want to prefetch the whole page so same as above
-       * - `prefetchKind` is `auto` - if the page is dynamic, prefetch the page data partially, if static prefetch the page data fully
-       */ if (prefetchKind === _routerreducertypes.PrefetchKind.AUTO) {
+      
+
+
+
+
+ if (prefetchKind === _routerreducertypes.PrefetchKind.AUTO) {
         headers[_approuterheaders.NEXT_ROUTER_PREFETCH_HEADER] = "1";
       }
       if (
@@ -3078,24 +3078,24 @@
       if (nextUrl) {
         headers[_approuterheaders.NEXT_URL] = nextUrl;
       }
-      // In static export mode, we need to modify the URL to request the .txt file,
-      // but we should preserve the original URL for the canonical URL and error handling.
+      
+      
       const originalUrl = url;
       try {
-        // When creating a "temporary" prefetch (the "on-demand" prefetch that gets created on navigation, if one doesn't exist)
-        // we send the request with a "high" priority as it's in response to a user interaction that could be blocking a transition.
-        // Otherwise, all other prefetches are sent with a "low" priority.
-        // We use "auto" for in all other cases to match the existing default, as this function is shared outside of prefetching.
+        
+        
+        
+        
         const fetchPriority = prefetchKind
           ? prefetchKind === _routerreducertypes.PrefetchKind.TEMPORARY
             ? "high"
             : "low"
           : "auto";
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
-        // Typically, during a navigation, we decode the response using Flight's
-        // `createFromFetch` API, which accepts a `fetch` promise.
-        // TODO: Remove this check once the old PPR flag is removed
+        
+        
+        
         const isLegacyPPR =
           ("TURBOPACK compile-time value", false) &&
           !("TURBOPACK compile-time value", false);
@@ -3127,33 +3127,33 @@
         let isFlightResponse = contentType.startsWith(
           _approuterheaders.RSC_CONTENT_TYPE_HEADER,
         );
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
-        // If fetch returns something different than flight response handle it like a mpa navigation
-        // If the fetch was not 200, we also handle it like a mpa navigation
+        
+        
         if (!isFlightResponse || !res.ok || !res.body) {
-          // in case the original URL came with a hash, preserve it before redirecting to the new URL
+          
           if (url.hash) {
             responseUrl.hash = url.hash;
           }
           return doMpaNavigation(responseUrl.toString());
         }
-        // We may navigate to a page that requires a different Webpack runtime.
-        // In prod, every page will have the same Webpack runtime.
-        // In dev, the Webpack runtime is minimal for each page.
-        // We need to ensure the Webpack runtime is updated before executing client-side JS of the new page.
-        // TODO: This needs to happen in the Flight Client.
-        // Or Webpack needs to include the runtime update in the Flight response as
-        // a blocking script.
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        
+        
+        
+        
+        
+        
+        
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         let flightResponsePromise = res.flightResponse;
         if (flightResponsePromise === null) {
-          // Typically, `createFetch` would have already started decoding the
-          // Flight response. If it hasn't, though, we need to decode it now.
-          // TODO: This should only be reachable if legacy PPR is enabled (i.e. PPR
-          // without Cache Components). Remove this branch once legacy PPR
-          // is deleted.
+          
+          
+          
+          
+          
           const flightStream = postponed
             ? createUnclosingPrefetchStream(res.body)
             : res.body;
@@ -3188,9 +3188,9 @@
             err,
           );
         }
-        // If fetch fails handle it like a mpa navigation
-        // TODO-APP: Add a test for the case where a CORS request fails, e.g. external url redirect coming from the response.
-        // See https://github.com/vercel/next.js/issues/43605#issuecomment-1451617521 for a reproduction.
+        
+        
+        
         return originalUrl.toString();
       }
     }
@@ -3201,100 +3201,100 @@
       shouldImmediatelyDecode,
       signal,
     ) {
-      // TODO: In output: "export" mode, the headers do nothing. Omit them (and the
-      // cache busting search param) from the request so they're
-      // maximally cacheable.
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      
+      
+      
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       if (("TURBOPACK compile-time truthy", 1)) {
         if (self.__next_r) {
           headers[_approuterheaders.NEXT_HTML_REQUEST_ID_HEADER] =
             self.__next_r;
         }
-        // Create a new request ID for the server action request. The server uses
-        // this to tag debug information sent via WebSocket to the client, which
-        // then routes those chunks to the debug channel associated with this ID.
+        
+        
+        
         headers[_approuterheaders.NEXT_REQUEST_ID_HEADER] = crypto
           .getRandomValues(new Uint32Array(1))[0]
           .toString(16);
       }
       const fetchOptions = {
-        // Backwards compat for older browsers. `same-origin` is the default in modern browsers.
+        
         credentials: "same-origin",
         headers,
         priority: fetchPriority || undefined,
         signal,
       };
-      // `fetchUrl` is slightly different from `url` because we add a cache-busting
-      // search param to it. This should not leak outside of this function, so we
-      // track them separately.
+      
+      
+      
       let fetchUrl = new URL(url);
       (0, _setcachebustingsearchparam.setCacheBustingSearchParam)(
         fetchUrl,
         headers,
       );
       let fetchPromise = fetch(fetchUrl, fetchOptions);
-      // Immediately pass the fetch promise to the Flight client so that the debug
-      // info includes the latency from the client to the server. The internal timer
-      // in React starts as soon as `createFromFetch` is called.
-      //
-      // The only case where we don't do this is during a prefetch, because we have
-      // to do some extra processing of the response stream (see
-      // `createUnclosingPrefetchStream`). But this is fine, because a top-level
-      // prefetch response never blocks a navigation; if it hasn't already been
-      // written into the cache by the time the navigation happens, the router will
-      // go straight to a dynamic request.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       let flightResponsePromise = shouldImmediatelyDecode
         ? createFromNextFetch(fetchPromise, headers)
         : null;
       let browserResponse = await fetchPromise;
-      // If the server responds with a redirect (e.g. 307), and the redirected
-      // location does not contain the cache busting search param set in the
-      // original request, the response is likely invalid — when following the
-      // redirect, the browser forwards the request headers, but since the cache
-      // busting search param is missing, the server will reject the request due to
-      // a mismatch.
-      //
-      // Ideally, we would be able to intercept the redirect response and perform it
-      // manually, instead of letting the browser automatically follow it, but this
-      // is not allowed by the fetch API.
-      //
-      // So instead, we must "replay" the redirect by fetching the new location
-      // again, but this time we'll append the cache busting search param to prevent
-      // a mismatch.
-      //
-      // TODO: We can optimize Next.js's built-in middleware APIs by returning a
-      // custom status code, to prevent the browser from automatically following it.
-      //
-      // This does not affect Server Action-based redirects; those are encoded
-      // differently, as part of the Flight body. It only affects redirects that
-      // occur in a middleware or a third-party proxy.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       let redirected = browserResponse.redirected;
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
-      // Remove the cache busting search param from the response URL, to prevent it
-      // from leaking outside of this function.
+      
+      
       const responseUrl = new URL(browserResponse.url, fetchUrl);
       responseUrl.searchParams.delete(_approuterheaders.NEXT_RSC_UNION_QUERY);
       const rscResponse = {
         url: responseUrl.href,
-        // This is true if any redirects occurred, either automatically by the
-        // browser, or manually by us. So it's different from
-        // `browserResponse.redirected`, which only tells us whether the browser
-        // followed a redirect, and only for the last response in the chain.
+        
+        
+        
+        
         redirected,
-        // These can be copied from the last browser response we received. We
-        // intentionally only expose the subset of fields that are actually used
-        // elsewhere in the codebase.
+        
+        
+        
         ok: browserResponse.ok,
         headers: browserResponse.headers,
         body: browserResponse.body,
         status: browserResponse.status,
-        // This is the exact promise returned by `createFromFetch`. It contains
-        // debug information that we need to transfer to any derived promises that
-        // are later rendered by React.
+        
+        
+        
         flightResponse: flightResponsePromise,
       };
       return rscResponse;
@@ -3314,30 +3314,30 @@
       });
     }
     function createUnclosingPrefetchStream(originalFlightStream) {
-      // When PPR is enabled, prefetch streams may contain references that never
-      // resolve, because that's how we encode dynamic data access. In the decoded
-      // object returned by the Flight client, these are reified into hanging
-      // promises that suspend during render, which is effectively what we want.
-      // The UI resolves when it switches to the dynamic data stream
-      // (via useDeferredValue(dynamic, static)).
-      //
-      // However, the Flight implementation currently errors if the server closes
-      // the response before all the references are resolved. As a cheat to work
-      // around this, we wrap the original stream in a new stream that never closes,
-      // and therefore doesn't error.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const reader = originalFlightStream.getReader();
       return new ReadableStream({
         async pull(controller) {
           while (true) {
             const { done, value } = await reader.read();
             if (!done) {
-              // Pass to the target stream and keep consuming the Flight response
-              // from the server.
+              
+              
               controller.enqueue(value);
               continue;
             }
-            // The server stream has closed. Exit, but intentionally do not close
-            // the target stream.
+            
+            
             return;
           }
         },
@@ -3353,7 +3353,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=fetch-server-response.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-router-cache-key.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3372,13 +3372,13 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [app-client] (ecmascript)",
     );
     function createRouterCacheKey(segment, withoutSearchParameters = false) {
-      // if the segment is an array, it means it's a dynamic segment
-      // for example, ['lang', 'en', 'd']. We need to convert it to a string to store it as a cache node key.
+      
+      
       if (Array.isArray(segment)) {
         return `${segment[0]}|${segment[1]}|${segment[2]}`;
       }
-      // Page segments might have search parameters, ie __PAGE__?foo=bar
-      // When `withoutSearchParameters` is true, we only want to return the page segment
+      
+      
       if (
         withoutSearchParameters &&
         segment.startsWith(_segment.PAGE_SEGMENT_KEY)
@@ -3397,7 +3397,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=create-router-cache-key.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/is-navigating-to-new-root-layout.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3413,15 +3413,15 @@
       },
     });
     function isNavigatingToNewRootLayout(currentTree, nextTree) {
-      // Compare segments
+      
       const currentTreeSegment = currentTree[0];
       const nextTreeSegment = nextTree[0];
-      // If any segment is different before we find the root layout, the root layout has changed.
-      // E.g. /same/(group1)/layout.js -> /same/(group2)/layout.js
-      // First segment is 'same' for both, keep looking. (group1) changed to (group2) before the root layout was found, it must have changed.
+      
+      
+      
       if (Array.isArray(currentTreeSegment) && Array.isArray(nextTreeSegment)) {
-        // Compare dynamic param name and type but ignore the value, different values would not affect the current root layout
-        // /[name] - /slug1 and /slug2, both values (slug1 & slug2) still has the same layout /[name]/layout.js
+        
+        
         if (
           currentTreeSegment[0] !== nextTreeSegment[0] ||
           currentTreeSegment[2] !== nextTreeSegment[2]
@@ -3431,18 +3431,18 @@
       } else if (currentTreeSegment !== nextTreeSegment) {
         return true;
       }
-      // Current tree root layout found
+      
       if (currentTree[4]) {
-        // If the next tree doesn't have the root layout flag, it must have changed.
+        
         return !nextTree[4];
       }
-      // Current tree didn't have its root layout here, must have changed.
+      
       if (nextTree[4]) {
         return true;
       }
-      // We can't assume it's `parallelRoutes.children` here in case the root layout is `app/@something/layout.js`
-      // But it's not possible to be more than one parallelRoutes before the root layout is found
-      // TODO-APP: change to traverse all parallel routes
+      
+      
+      
       const currentTreeChild = Object.values(currentTree[1])[0];
       const nextTreeChild = Object.values(nextTree[1])[0];
       if (!currentTreeChild || !nextTreeChild) return true;
@@ -3458,7 +3458,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=is-navigating-to-new-root-layout.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/ppr-navigations.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3561,58 +3561,58 @@
       segmentPath,
       scrollableSegmentsResult,
     ) {
-      // Diff the old and new trees to reuse the shared layouts.
+      
       const oldRouterStateChildren = oldRouterState[1];
       const newRouterStateChildren = newRouterState[1];
       const prefetchDataChildren =
         prefetchData !== null ? prefetchData[1] : null;
       if (!didFindRootLayout) {
-        // We're currently traversing the part of the tree that was also part of
-        // the previous route. If we discover a root layout, then we don't need to
-        // trigger an MPA navigation. See beginRenderingNewRouteTree for context.
+        
+        
+        
         const isRootLayout = newRouterState[4] === true;
         if (isRootLayout) {
-          // Found a matching root layout.
+          
           didFindRootLayout = true;
         }
       }
       const oldParallelRoutes = oldCacheNode.parallelRoutes;
-      // Clone the current set of segment children, even if they aren't active in
-      // the new tree.
-      // TODO: We currently retain all the inactive segments indefinitely, until
-      // there's an explicit refresh, or a parent layout is lazily refreshed. We
-      // rely on this for popstate navigations, which update the Router State Tree
-      // but do not eagerly perform a data fetch, because they expect the segment
-      // data to already be in the Cache Node tree. For highly static sites that
-      // are mostly read-only, this may happen only rarely, causing memory to
-      // leak. We should figure out a better model for the lifetime of inactive
-      // segments, so we can maintain instant back/forward navigations without
-      // leaking memory indefinitely.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const prefetchParallelRoutes = new Map(oldParallelRoutes);
-      // As we diff the trees, we may sometimes modify (copy-on-write, not mutate)
-      // the Route Tree that was returned by the server — for example, in the case
-      // of default parallel routes, we preserve the currently active segment. To
-      // avoid mutating the original tree, we clone the router state children along
-      // the return path.
+      
+      
+      
+      
+      
       let patchedRouterStateChildren = {};
       let taskChildren = null;
-      // Most navigations require a request to fetch additional data from the
-      // server, either because the data was not already prefetched, or because the
-      // target route contains dynamic data that cannot be prefetched.
-      //
-      // However, if the target route is fully static, and it's already completely
-      // loaded into the segment cache, then we can skip the server request.
-      //
-      // This starts off as `false`, and is set to `true` if any of the child
-      // routes requires a dynamic request.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       let needsDynamicRequest = false;
-      // As we traverse the children, we'll construct a FlightRouterState that can
-      // be sent to the server to request the dynamic data. If it turns out that
-      // nothing in the subtree is dynamic (i.e. needsDynamicRequest is false at the
-      // end), then this will be discarded.
-      // TODO: We can probably optimize the format of this data structure to only
-      // include paths that are dynamic. Instead of reusing the
-      // FlightRouterState type.
+      
+      
+      
+      
+      
+      
+      
       let dynamicRequestTreeChildren = {};
       for (let parallelRouteKey in newRouterStateChildren) {
         const newRouterStateChild = newRouterStateChildren[parallelRouteKey];
@@ -3639,23 +3639,23 @@
             : undefined;
         let taskChild;
         if (newSegmentChild === _segment.DEFAULT_SEGMENT_KEY) {
-          // This is another kind of leaf segment — a default route.
-          //
-          // Default routes have special behavior. When there's no matching segment
-          // for a parallel route, Next.js preserves the currently active segment
-          // during a client navigation — but not for initial render. The server
-          // leaves it to the client to account for this. So we need to handle
-          // it here.
+          
+          
+          
+          
+          
+          
+          
           if (oldRouterStateChild !== undefined) {
-            // Reuse the existing Router State for this segment. We spawn a "task"
-            // just to keep track of the updated router state; unlike most, it's
-            // already fulfilled and won't be affected by the dynamic response.
+            
+            
+            
             taskChild = reuseActiveSegmentInDefaultSlot(
               oldUrl,
               oldRouterStateChild,
             );
           } else {
-            // There's no currently active segment. Switch to the "create" path.
+            
             taskChild = beginRenderingNewRouteTree(
               navigatedAt,
               oldRouterStateChild,
@@ -3670,32 +3670,32 @@
             );
           }
         } else if (
-          isSamePageNavigation && // Check if this is a page segment.
-          // TODO: We're not consistent about how we do this check. Some places
-          // check if the segment starts with PAGE_SEGMENT_KEY, but most seem to
-          // check if there any any children, which is why I'm doing it here. We
-          // should probably encode an empty children set as `null` though. Either
-          // way, we should update all the checks to be consistent.
+          isSamePageNavigation && 
+          
+          
+          
+          
+          
           Object.keys(newRouterStateChild[1]).length === 0
         ) {
-          // We special case navigations to the exact same URL as the current
-          // location. It's a common UI pattern for apps to refresh when you click a
-          // link to the current page. So when this happens, we refresh the dynamic
-          // data in the page segments.
-          //
-          // Note that this does not apply if the any part of the hash or search
-          // query has changed. This might feel a bit weird but it makes more sense
-          // when you consider that the way to trigger this behavior is to click
-          // the same link multiple times.
-          //
-          // TODO: We should probably refresh the *entire* route when this case
-          // occurs, not just the page segments. Essentially treating it the same as
-          // a refresh() triggered by an action, which is the more explicit way of
-          // modeling the UI pattern described above.
-          //
-          // Also note that this only refreshes the dynamic data, not static/
-          // cached data. If the page segment is fully static and prefetched, the
-          // request is skipped. (This is also how refresh() works.)
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           taskChild = beginRenderingNewRouteTree(
             navigatedAt,
             oldRouterStateChild,
@@ -3717,8 +3717,8 @@
             oldCacheNodeChild !== undefined &&
             oldRouterStateChild !== undefined
           ) {
-            // This segment exists in both the old and new trees. Recursively update
-            // the children.
+            
+            
             taskChild = updateCacheNodeOnNavigation(
               navigatedAt,
               oldUrl,
@@ -3734,8 +3734,8 @@
               scrollableSegmentsResult,
             );
           } else {
-            // There's no existing Cache Node for this segment. Switch to the
-            // "create" path.
+            
+            
             taskChild = beginRenderingNewRouteTree(
               navigatedAt,
               oldRouterStateChild,
@@ -3750,7 +3750,7 @@
             );
           }
         } else {
-          // This is a new tree. Switch to the "create" path.
+          
           taskChild = beginRenderingNewRouteTree(
             navigatedAt,
             oldRouterStateChild,
@@ -3765,10 +3765,10 @@
           );
         }
         if (taskChild !== null) {
-          // Recursively propagate up the child tasks.
+          
           if (taskChild.route === null) {
-            // One of the child tasks discovered a change to the root layout.
-            // Immediately unwind from this recursive traversal.
+            
+            
             return MPA_NAVIGATION_TASK;
           }
           if (taskChildren === null) {
@@ -3781,14 +3781,14 @@
             newSegmentMapChild.set(newSegmentKeyChild, newCacheNodeChild);
             prefetchParallelRoutes.set(parallelRouteKey, newSegmentMapChild);
           }
-          // The child tree's route state may be different from the prefetched
-          // route sent by the server. We need to clone it as we traverse back up
-          // the tree.
+          
+          
+          
           const taskChildRoute = taskChild.route;
           patchedRouterStateChildren[parallelRouteKey] = taskChildRoute;
           const dynamicRequestTreeChild = taskChild.dynamicRequestTree;
           if (dynamicRequestTreeChild !== null) {
-            // Something in the child tree is dynamic.
+            
             needsDynamicRequest = true;
             dynamicRequestTreeChildren[parallelRouteKey] =
               dynamicRequestTreeChild;
@@ -3796,34 +3796,34 @@
             dynamicRequestTreeChildren[parallelRouteKey] = taskChildRoute;
           }
         } else {
-          // The child didn't change. We can use the prefetched router state.
+          
           patchedRouterStateChildren[parallelRouteKey] = newRouterStateChild;
           dynamicRequestTreeChildren[parallelRouteKey] = newRouterStateChild;
         }
       }
       if (taskChildren === null) {
-        // No new tasks were spawned.
+        
         return null;
       }
       const newCacheNode = {
         lazyData: null,
         rsc: oldCacheNode.rsc,
-        // We intentionally aren't updating the prefetchRsc field, since this node
-        // is already part of the current tree, because it would be weird for
-        // prefetch data to be newer than the final data. It probably won't ever be
-        // observable anyway, but it could happen if the segment is unmounted then
-        // mounted again, because LayoutRouter will momentarily switch to rendering
-        // prefetchRsc, via useDeferredValue.
+        
+        
+        
+        
+        
+        
         prefetchRsc: oldCacheNode.prefetchRsc,
         head: oldCacheNode.head,
         prefetchHead: oldCacheNode.prefetchHead,
         loading: oldCacheNode.loading,
-        // Everything is cloned except for the children, which we computed above.
+        
         parallelRoutes: prefetchParallelRoutes,
         navigatedAt,
       };
       return {
-        // Return a cloned copy of the router state with updated children.
+        
         route: patchRouterStateWithNewChildren(
           newRouterState,
           patchedRouterStateChildren,
@@ -3851,25 +3851,25 @@
       scrollableSegmentsResult,
     ) {
       if (!didFindRootLayout) {
-        // The route tree changed before we reached a layout. (The highest-level
-        // layout in a route tree is referred to as the "root" layout.) This could
-        // mean that we're navigating between two different root layouts. When this
-        // happens, we perform a full-page (MPA-style) navigation.
-        //
-        // However, the algorithm for deciding where to start rendering a route
-        // (i.e. the one performed in order to reach this function) is stricter
-        // than the one used to detect a change in the root layout. So just because
-        // we're re-rendering a segment outside of the root layout does not mean we
-        // should trigger a full-page navigation.
-        //
-        // Specifically, we handle dynamic parameters differently: two segments are
-        // considered the same even if their parameter values are different.
-        //
-        // Refer to isNavigatingToNewRootLayout for details.
-        //
-        // Note that we only have to perform this extra traversal if we didn't
-        // already discover a root layout in the part of the tree that is unchanged.
-        // In the common case, this branch is skipped completely.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if (
           oldRouterState === undefined ||
           (0, _isnavigatingtonewrootlayout.isNavigatingToNewRootLayout)(
@@ -3877,7 +3877,7 @@
             newRouterState,
           )
         ) {
-          // The root layout changed. Perform a full-page navigation.
+          
           return MPA_NAVIGATION_TASK;
         }
       }
@@ -3902,54 +3902,54 @@
       segmentPath,
       scrollableSegmentsResult,
     ) {
-      // Same traversal as updateCacheNodeNavigation, but we switch to this path
-      // once we reach the part of the tree that was not in the previous route. We
-      // don't need to diff against the old tree, we just need to create a new one.
-      // The head is assigned to every leaf segment delivered by the server. Based
-      // on corresponding logic in fill-lazy-items-till-leaf-with-head.ts
+      
+      
+      
+      
+      
       const routerStateChildren = routerState[1];
       const isLeafSegment = Object.keys(routerStateChildren).length === 0;
-      // Even we're rendering inside the "new" part of the target tree, we may have
-      // a locally cached segment that we can reuse. This may come from either 1)
-      // the CacheNode tree, which lives in React state and is populated by previous
-      // navigations; or 2) the prefetch cache, which is a separate cache that is
-      // populated by prefetches.
+      
+      
+      
+      
+      
       let rsc;
       let loading;
       let head;
       let cacheNodeNavigatedAt;
       if (
-        existingCacheNode !== undefined && // DYNAMIC_STALETIME_MS defaults to 0, but it can be increased using
-        // the experimental.staleTimes.dynamic config. When set, we'll avoid
-        // refetching dynamic data if it was fetched within the given threshold.
+        existingCacheNode !== undefined && 
+        
+        
         existingCacheNode.navigatedAt + _navigatereducer.DYNAMIC_STALETIME_MS >
           navigatedAt
       ) {
-        // We have an existing CacheNode for this segment, and it's not stale. We
-        // should reuse it rather than request a new one.
+        
+        
         rsc = existingCacheNode.rsc;
         loading = existingCacheNode.loading;
         head = existingCacheNode.head;
-        // Don't update the navigatedAt timestamp, since we're reusing stale data.
+        
         cacheNodeNavigatedAt = existingCacheNode.navigatedAt;
       } else if (prefetchData !== null) {
-        // There's no existing CacheNode for this segment, but we do have prefetch
-        // data. If the prefetch data is fully static (i.e. does not contain any
-        // dynamic holes), we don't need to request it from the server.
+        
+        
+        
         rsc = prefetchData[0];
         loading = prefetchData[2];
         head = isLeafSegment ? possiblyPartialPrefetchHead : null;
-        // Even though we're accessing the data from the prefetch cache, this is
-        // conceptually a new segment, not a reused one. So we should update the
-        // navigatedAt timestamp.
+        
+        
+        
         cacheNodeNavigatedAt = navigatedAt;
         const isPrefetchRscPartial = prefetchData[3];
         if (
-          isPrefetchRscPartial || // Check if the head is partial (only relevant if this is a leaf segment)
+          isPrefetchRscPartial || 
           (isPrefetchHeadPartial && isLeafSegment)
         ) {
-          // We only have partial data from this segment. Like missing segments, we
-          // must request the full data from the server.
+          
+          
           return spawnPendingTask(
             navigatedAt,
             routerState,
@@ -3960,14 +3960,14 @@
             scrollableSegmentsResult,
           );
         } else {
-          // The prefetch data is fully static, so we can omit it from the
-          // navigation request.
+          
+          
         }
       } else {
-        // There's no prefetch for this segment. Everything from this point will be
-        // requested from the server, even if there are static children below it.
-        // Create a terminal task node that will later be fulfilled by
-        // server response.
+        
+        
+        
+        
         return spawnPendingTask(
           navigatedAt,
           routerState,
@@ -3978,9 +3978,9 @@
           scrollableSegmentsResult,
         );
       }
-      // We already have a full segment we can render, so we don't need to request a
-      // new one from the server. Keep traversing down the tree until we reach
-      // something that requires a dynamic request.
+      
+      
+      
       const prefetchDataChildren =
         prefetchData !== null ? prefetchData[1] : null;
       const taskChildren = new Map();
@@ -3992,12 +3992,12 @@
       let dynamicRequestTreeChildren = {};
       let needsDynamicRequest = false;
       if (isLeafSegment) {
-        // The segment path of every leaf segment (i.e. page) is collected into
-        // a result array. This is used by the LayoutRouter to scroll to ensure that
-        // new pages are visible after a navigation.
-        // TODO: We should use a string to represent the segment path instead of
-        // an array. We already use a string representation for the path when
-        // accessing the Segment Cache, so we can use the same one.
+        
+        
+        
+        
+        
+        
         scrollableSegmentsResult.push(segmentPath);
       } else {
         for (let parallelRouteKey in routerStateChildren) {
@@ -4034,7 +4034,7 @@
           taskChildren.set(parallelRouteKey, taskChild);
           const dynamicRequestTreeChild = taskChild.dynamicRequestTree;
           if (dynamicRequestTreeChild !== null) {
-            // Something in the child tree is dynamic.
+            
             needsDynamicRequest = true;
             dynamicRequestTreeChildren[parallelRouteKey] =
               dynamicRequestTreeChild;
@@ -4050,15 +4050,15 @@
         }
       }
       return {
-        // Since we're inside a new route tree, unlike the
-        // `updateCacheNodeOnNavigation` path, the router state on the children
-        // tasks is always the same as the router state we pass in. So we don't need
-        // to clone/modify it.
+        
+        
+        
+        
         route: routerState,
         node: {
           lazyData: null,
-          // Since this segment is already full, we don't need to use the
-          // `prefetchRsc` field.
+          
+          
           rsc,
           prefetchRsc: null,
           head,
@@ -4078,9 +4078,9 @@
     }
     function patchRouterStateWithNewChildren(baseRouterState, newChildren) {
       const clone = [baseRouterState[0], newChildren];
-      // Based on equivalent logic in apply-router-state-patch-to-tree, but should
-      // confirm whether we need to copy all of these fields. Not sure the server
-      // ever sends, e.g. the refetch marker.
+      
+      
+      
       if (2 in baseRouterState) {
         clone[2] = baseRouterState[2];
       }
@@ -4101,9 +4101,9 @@
       segmentPath,
       scrollableSegmentsResult,
     ) {
-      // Create a task that will later be fulfilled by data from the server.
-      // Clone the prefetched route tree and the `refetch` marker to it. We'll send
-      // this to the server so it knows where to start rendering.
+      
+      
+      
       const dynamicRequestTree = patchRouterStateWithNewChildren(
         routerState,
         routerState[1],
@@ -4111,7 +4111,7 @@
       dynamicRequestTree[3] = "refetch";
       const newTask = {
         route: routerState,
-        // Corresponds to the part of the route that will be rendered on the server.
+        
         node: createPendingCacheNode(
           navigatedAt,
           routerState,
@@ -4121,32 +4121,32 @@
           segmentPath,
           scrollableSegmentsResult,
         ),
-        // Because this is non-null, and it gets propagated up through the parent
-        // tasks, the root task will know that it needs to perform a server request.
+        
+        
         dynamicRequestTree,
         children: null,
       };
       return newTask;
     }
     function reuseActiveSegmentInDefaultSlot(oldUrl, oldRouterState) {
-      // This is a "default" segment. These are never sent by the server during a
-      // soft navigation; instead, the client reuses whatever segment was already
-      // active in that slot on the previous route. This means if we later need to
-      // refresh the segment, it will have to be refetched from the previous route's
-      // URL. We store it in the Flight Router State.
-      //
-      // TODO: We also mark the segment with a "refresh" marker but I think we can
-      // get rid of that eventually by making sure we only add URLs to page segments
-      // that are reused. Then the presence of the URL alone is enough.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       let reusedRouterState;
       const oldRefreshMarker = oldRouterState[3];
       if (oldRefreshMarker === "refresh") {
-        // This segment was already reused from an even older route. Keep its
-        // existing URL and refresh marker.
+        
+        
         reusedRouterState = oldRouterState;
       } else {
-        // This segment was not previously reused, and it's not on the new route.
-        // So it must have been delivered in the old route.
+        
+        
         reusedRouterState = patchRouterStateWithNewChildren(
           oldRouterState,
           oldRouterState[1],
@@ -4167,9 +4167,9 @@
       responsePromise.then(
         (result) => {
           if (typeof result === "string") {
-            // Happens when navigating to page in `pages` from `app`. We shouldn't
-            // get here because should have already handled this during
-            // the prefetch.
+            
+            
+            
             return;
           }
           const { flightData, debugInfo } = result;
@@ -4192,13 +4192,13 @@
               debugInfo,
             );
           }
-          // Now that we've exhausted all the data we received from the server, if
-          // there are any remaining pending tasks in the tree, abort them now.
-          // If there's any missing data, it will trigger a lazy fetch.
+          
+          
+          
           abortTask(task, null, debugInfo);
         },
         (error) => {
-          // This will trigger an error during render
+          
           abortTask(task, error, null);
         },
       );
@@ -4211,16 +4211,16 @@
       dynamicHead,
       debugInfo,
     ) {
-      // The data sent by the server represents only a subtree of the app. We need
-      // to find the part of the task tree that matches the server response, and
-      // fulfill it using the dynamic data.
-      //
-      // segmentPath represents the parent path of subtree. It's a repeating pattern
-      // of parallel route key and segment:
-      //
-      //   [string, Segment, string, Segment, string, Segment, ...]
-      //
-      // Iterate through the path and finish any tasks that match this payload.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       let task = rootTask;
       for (let i = 0; i < segmentPath.length; i += 2) {
         const parallelRouteKey = segmentPath[i];
@@ -4231,16 +4231,16 @@
           if (taskChild !== undefined) {
             const taskSegment = taskChild.route[0];
             if ((0, _matchsegments.matchSegment)(segment, taskSegment)) {
-              // Found a match for this task. Keep traversing down the task tree.
+              
               task = taskChild;
               continue;
             }
           }
         }
-        // We didn't find a child task that matches the server data. Exit. We won't
-        // abort the task, though, because a different FlightDataPath may be able to
-        // fulfill it (see loop in listenForDynamicRequest). We only abort tasks
-        // once we've run out of data.
+        
+        
+        
+        
         return;
       }
       finishTaskUsingDynamicDataPayload(
@@ -4259,17 +4259,17 @@
       debugInfo,
     ) {
       if (task.dynamicRequestTree === null) {
-        // Everything in this subtree is already complete. Bail out.
+        
         return;
       }
-      // dynamicData may represent a larger subtree than the task. Before we can
-      // finish the task, we need to line them up.
+      
+      
       const taskChildren = task.children;
       const taskNode = task.node;
       if (taskChildren === null) {
-        // We've reached the leaf node of the pending task. The server data tree
-        // lines up the pending Cache Node tree. We can now switch to the
-        // normal algorithm.
+        
+        
+        
         if (taskNode !== null) {
           finishPendingCacheNode(
             taskNode,
@@ -4279,13 +4279,13 @@
             dynamicHead,
             debugInfo,
           );
-          // Set this to null to indicate that this task is now complete.
+          
           task.dynamicRequestTree = null;
         }
         return;
       }
-      // The server returned more data than we need to finish the task. Skip over
-      // the extra segments until we reach the leaf task node.
+      
+      
       const serverChildren = serverRouterState[1];
       const dynamicDataChildren = dynamicData[1];
       for (const parallelRouteKey in serverRouterState) {
@@ -4302,7 +4302,7 @@
             dynamicDataChild !== null &&
             dynamicDataChild !== undefined
           ) {
-            // Found a match for this task. Keep traversing down the task tree.
+            
             return finishTaskUsingDynamicDataPayload(
               taskChild,
               serverRouterStateChild,
@@ -4312,10 +4312,10 @@
             );
           }
         }
-        // We didn't find a child task that matches the server data. We won't abort
-        // the task, though, because a different FlightDataPath may be able to
-        // fulfill it (see loop in listenForDynamicRequest). We only abort tasks
-        // once we've run out of data.
+        
+        
+        
+        
       }
     }
     function createPendingCacheNode(
@@ -4358,16 +4358,16 @@
         newSegmentMapChild.set(segmentKeyChild, newCacheNodeChild);
         parallelRoutes.set(parallelRouteKey, newSegmentMapChild);
       }
-      // The head is assigned to every leaf segment delivered by the server. Based
-      // on corresponding logic in fill-lazy-items-till-leaf-with-head.ts
+      
+      
       const isLeafSegment = parallelRoutes.size === 0;
       if (isLeafSegment) {
-        // The segment path of every leaf segment (i.e. page) is collected into
-        // a result array. This is used by the LayoutRouter to scroll to ensure that
-        // new pages are visible after a navigation.
-        // TODO: We should use a string to represent the segment path instead of
-        // an array. We already use a string representation for the path when
-        // accessing the Segment Cache, so we can use the same one.
+        
+        
+        
+        
+        
+        
         scrollableSegmentsResult.push(segmentPath);
       }
       const maybePrefetchRsc = prefetchData !== null ? prefetchData[0] : null;
@@ -4376,13 +4376,13 @@
         parallelRoutes: parallelRoutes,
         prefetchRsc: maybePrefetchRsc !== undefined ? maybePrefetchRsc : null,
         prefetchHead: isLeafSegment ? prefetchHead : [null, null],
-        // Create a deferred promise. This will be fulfilled once the dynamic
-        // response is received from the server.
+        
+        
         rsc: createDeferredRsc(),
         head: isLeafSegment ? createDeferredRsc() : null,
-        // TODO: Technically, a loading boundary could contain dynamic data. We must
-        // have separate `loading` and `prefetchLoading` fields to handle this, like
-        // we do for the segment data and head.
+        
+        
+        
         loading:
           prefetchData !== null
             ? (prefetchData[2] ?? null)
@@ -4398,22 +4398,22 @@
       dynamicHead,
       debugInfo,
     ) {
-      // Writes a dynamic response into an existing Cache Node tree. This does _not_
-      // create a new tree, it updates the existing tree in-place. So it must follow
-      // the Suspense rules of cache safety — it can resolve pending promises, but
-      // it cannot overwrite existing data. It can add segments to the tree (because
-      // a missing segment will cause the layout router to suspend).
-      // but it cannot delete them.
-      //
-      // We must resolve every promise in the tree, or else it will suspend
-      // indefinitely. If we did not receive data for a segment, we will resolve its
-      // data promise to `null` to trigger a lazy fetch during render.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const taskStateChildren = taskState[1];
       const serverStateChildren = serverState[1];
       const dataChildren = dynamicData[1];
-      // The router state that we traverse the tree with (taskState) is the same one
-      // that we used to construct the pending Cache Node tree. That way we're sure
-      // to resolve all the pending promises.
+      
+      
+      
       const parallelRoutes = cacheNode.parallelRoutes;
       for (let parallelRouteKey in taskStateChildren) {
         const taskStateChild = taskStateChildren[parallelRouteKey];
@@ -4436,7 +4436,7 @@
             )
           ) {
             if (dataChild !== undefined && dataChild !== null) {
-              // This is the happy path. Recursively update all the children.
+              
               finishPendingCacheNode(
                 cacheNodeChild,
                 taskStateChild,
@@ -4446,10 +4446,10 @@
                 debugInfo,
               );
             } else {
-              // The server never returned data for this segment. Trigger a lazy
-              // fetch during render. This shouldn't happen because the Route Tree
-              // and the Seed Data tree sent by the server should always be the same
-              // shape when part of the same server response.
+              
+              
+              
+              
               abortPendingCacheNode(
                 taskStateChild,
                 cacheNodeChild,
@@ -4458,8 +4458,8 @@
               );
             }
           } else {
-            // The server never returned data for this segment. Trigger a lazy
-            // fetch during render.
+            
+            
             abortPendingCacheNode(
               taskStateChild,
               cacheNodeChild,
@@ -4468,39 +4468,39 @@
             );
           }
         } else {
-          // The server response matches what was expected to receive, but there's
-          // no matching Cache Node in the task tree. This is a bug in the
-          // implementation because we should have created a node for every
-          // segment in the tree that's associated with this task.
+          
+          
+          
+          
         }
       }
-      // Use the dynamic data from the server to fulfill the deferred RSC promise
-      // on the Cache Node.
+      
+      
       const rsc = cacheNode.rsc;
       const dynamicSegmentData = dynamicData[0];
       if (rsc === null) {
-        // This is a lazy cache node. We can overwrite it. This is only safe
-        // because we know that the LayoutRouter suspends if `rsc` is `null`.
+        
+        
         cacheNode.rsc = dynamicSegmentData;
       } else if (isDeferredRsc(rsc)) {
-        // This is a deferred RSC promise. We can fulfill it with the data we just
-        // received from the server. If it was already resolved by a different
-        // navigation, then this does nothing because we can't overwrite data.
+        
+        
+        
         rsc.resolve(dynamicSegmentData, debugInfo);
       } else {
-        // This is not a deferred RSC promise, nor is it empty, so it must have
-        // been populated by a different navigation. We must not overwrite it.
+        
+        
       }
-      // If we navigated without a prefetch, then `loading` will be a deferred promise too.
-      // Fulfill it using the dynamic response so that we can display the loading boundary.
+      
+      
       const loading = cacheNode.loading;
       if (isDeferredRsc(loading)) {
         const dynamicLoading = dynamicData[2];
         loading.resolve(dynamicLoading, debugInfo);
       }
-      // Check if this is a leaf segment. If so, it will have a `head` property with
-      // a pending promise that needs to be resolved with the dynamic head from
-      // the server.
+      
+      
+      
       const head = cacheNode.head;
       if (isDeferredRsc(head)) {
         head.resolve(dynamicHead, debugInfo);
@@ -4509,30 +4509,30 @@
     function abortTask(task, error, debugInfo) {
       const cacheNode = task.node;
       if (cacheNode === null) {
-        // This indicates the task is already complete.
+        
         return;
       }
       const taskChildren = task.children;
       if (taskChildren === null) {
-        // Reached the leaf task node. This is the root of a pending cache
-        // node tree.
+        
+        
         abortPendingCacheNode(task.route, cacheNode, error, debugInfo);
       } else {
-        // This is an intermediate task node. Keep traversing until we reach a
-        // task node with no children. That will be the root of the cache node tree
-        // that needs to be resolved.
+        
+        
+        
         for (const taskChild of taskChildren.values()) {
           abortTask(taskChild, error, debugInfo);
         }
       }
-      // Set this to null to indicate that this task is now complete.
+      
       task.dynamicRequestTree = null;
     }
     function abortPendingCacheNode(routerState, cacheNode, error, debugInfo) {
-      // For every pending segment in the tree, resolve its `rsc` promise to `null`
-      // to trigger a lazy fetch during render.
-      //
-      // Or, if an error object is provided, it will error instead.
+      
+      
+      
+      
       const routerStateChildren = routerState[1];
       const parallelRoutes = cacheNode.parallelRoutes;
       for (let parallelRouteKey in routerStateChildren) {
@@ -4554,17 +4554,17 @@
             debugInfo,
           );
         } else {
-          // This shouldn't happen because we're traversing the same tree that was
-          // used to construct the cache nodes in the first place.
+          
+          
         }
       }
       const rsc = cacheNode.rsc;
       if (isDeferredRsc(rsc)) {
         if (error === null) {
-          // This will trigger a lazy fetch during render.
+          
           rsc.resolve(null, debugInfo);
         } else {
-          // This will trigger an error during rendering.
+          
           rsc.reject(error, debugInfo);
         }
       }
@@ -4572,25 +4572,25 @@
       if (isDeferredRsc(loading)) {
         loading.resolve(null, debugInfo);
       }
-      // Check if this is a leaf segment. If so, it will have a `head` property with
-      // a pending promise that needs to be resolved. If an error was provided, we
-      // will not resolve it with an error, since this is rendered at the root of
-      // the app. We want the segment to error, not the entire app.
+      
+      
+      
+      
       const head = cacheNode.head;
       if (isDeferredRsc(head)) {
         head.resolve(null, debugInfo);
       }
     }
     function updateCacheNodeOnPopstateRestoration(oldCacheNode, routerState) {
-      // A popstate navigation reads data from the local cache. It does not issue
-      // new network requests (unless the cache entries have been evicted). So, we
-      // update the cache to drop the prefetch data for any segment whose dynamic
-      // data was already received. This prevents an unnecessary flash back to PPR
-      // state during a back/forward navigation.
-      //
-      // This function clones the entire cache node tree and sets the `prefetchRsc`
-      // field to `null` to prevent it from being rendered. We can't mutate the node
-      // in place because this is a concurrent data structure.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const routerStateChildren = routerState[1];
       const oldParallelRoutes = oldCacheNode.parallelRoutes;
       const newParallelRoutes = new Map(oldParallelRoutes);
@@ -4614,14 +4614,14 @@
           }
         }
       }
-      // Only show prefetched data if the dynamic data is still pending.
-      //
-      // Tehnically, what we're actually checking is whether the dynamic network
-      // response was received. But since it's a streaming response, this does not
-      // mean that all the dynamic data has fully streamed in. It just means that
-      // _some_ of the dynamic data was received. But as a heuristic, we assume that
-      // the rest dynamic data will stream in quickly, so it's still better to skip
-      // the prefetch state.
+      
+      
+      
+      
+      
+      
+      
+      
       const rsc = oldCacheNode.rsc;
       const shouldUsePrefetch = isDeferredRsc(rsc) && rsc.status === "pending";
       return {
@@ -4633,32 +4633,32 @@
           : [null, null],
         prefetchRsc: shouldUsePrefetch ? oldCacheNode.prefetchRsc : null,
         loading: oldCacheNode.loading,
-        // These are the cloned children we computed above
+        
         parallelRoutes: newParallelRoutes,
         navigatedAt: oldCacheNode.navigatedAt,
       };
     }
     const DEFERRED = Symbol();
-    // This type exists to distinguish a DeferredRsc from a Flight promise. It's a
-    // compromise to avoid adding an extra field on every Cache Node, which would be
-    // awkward because the pre-PPR parts of codebase would need to account for it,
-    // too. We can remove it once type Cache Node type is more settled.
+    
+    
+    
+    
     function isDeferredRsc(value) {
       return value && typeof value === "object" && value.tag === DEFERRED;
     }
     function createDeferredRsc() {
-      // Create an unresolved promise that represents data derived from a Flight
-      // response. The promise will be resolved later as soon as we start receiving
-      // data from the server, i.e. as soon as the Flight client decodes and returns
-      // the top-level response object.
-      // The `_debugInfo` field contains profiling information. Promises that are
-      // created by Flight already have this info added by React; for any derived
-      // promise created by the router, we need to transfer the Flight debug info
-      // onto the derived promise.
-      //
-      // The debug info represents the latency between the start of the navigation
-      // and the start of rendering. (It does not represent the time it takes for
-      // whole stream to finish.)
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const debugInfo = [];
       let resolve;
       let reject;
@@ -4673,7 +4673,7 @@
           fulfilledRsc.status = "fulfilled";
           fulfilledRsc.value = value;
           if (responseDebugInfo !== null) {
-            // Transfer the debug info to the derived promise.
+            
             debugInfo.push.apply(debugInfo, responseDebugInfo);
           }
           resolve(value);
@@ -4685,7 +4685,7 @@
           rejectedRsc.status = "rejected";
           rejectedRsc.reason = error;
           if (responseDebugInfo !== null) {
-            // Transfer the debug info to the derived promise.
+            
             debugInfo.push.apply(debugInfo, responseDebugInfo);
           }
           reject(error);
@@ -4705,15 +4705,15 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=ppr-navigations.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/types.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * Shared types and constants for the Segment Cache.
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     0 &&
@@ -4740,33 +4740,33 @@
         return PrefetchPriority;
       },
     });
-    var NavigationResultTag = /*#__PURE__*/ (function (NavigationResultTag) {
+    var NavigationResultTag =  (function (NavigationResultTag) {
       NavigationResultTag[(NavigationResultTag["MPA"] = 0)] = "MPA";
       NavigationResultTag[(NavigationResultTag["Success"] = 1)] = "Success";
       NavigationResultTag[(NavigationResultTag["NoOp"] = 2)] = "NoOp";
       NavigationResultTag[(NavigationResultTag["Async"] = 3)] = "Async";
       return NavigationResultTag;
     })({});
-    var PrefetchPriority = /*#__PURE__*/ (function (PrefetchPriority) {
-      /**
-       * Assigned to the most recently hovered/touched link. Special network
-       * bandwidth is reserved for this task only. There's only ever one Intent-
-       * priority task at a time; when a new Intent task is scheduled, the previous
-       * one is bumped down to Default.
-       */ PrefetchPriority[(PrefetchPriority["Intent"] = 2)] = "Intent";
-      /**
-       * The default priority for prefetch tasks.
-       */ PrefetchPriority[(PrefetchPriority["Default"] = 1)] = "Default";
-      /**
-       * Assigned to tasks when they spawn non-blocking background work, like
-       * revalidating a partially cached entry to see if more data is available.
-       */ PrefetchPriority[(PrefetchPriority["Background"] = 0)] = "Background";
+    var PrefetchPriority =  (function (PrefetchPriority) {
+      
+
+
+
+
+ PrefetchPriority[(PrefetchPriority["Intent"] = 2)] = "Intent";
+      
+
+ PrefetchPriority[(PrefetchPriority["Default"] = 1)] = "Default";
+      
+
+
+ PrefetchPriority[(PrefetchPriority["Background"] = 0)] = "Background";
       return PrefetchPriority;
     })({});
-    var FetchStrategy = /*#__PURE__*/ (function (FetchStrategy) {
-      // Deliberately ordered so we can easily compare two segments
-      // and determine if one segment is "more specific" than another
-      // (i.e. if it's likely that it contains more data)
+    var FetchStrategy =  (function (FetchStrategy) {
+      
+      
+      
       FetchStrategy[(FetchStrategy["LoadingBoundary"] = 0)] = "LoadingBoundary";
       FetchStrategy[(FetchStrategy["PPR"] = 1)] = "PPR";
       FetchStrategy[(FetchStrategy["PPRRuntime"] = 2)] = "PPRRuntime";
@@ -4783,7 +4783,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=types.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/lru.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4822,39 +4822,39 @@
     let head = null;
     let didScheduleCleanup = false;
     let lruSize = 0;
-    // TODO: I chose the max size somewhat arbitrarily. Consider setting this based
-    // on navigator.deviceMemory, or some other heuristic. We should make this
-    // customizable via the Next.js config, too.
-    const maxLruSize = 50 * 1024 * 1024; // 50 MB
+    
+    
+    
+    const maxLruSize = 50 * 1024 * 1024; 
     function lruPut(node) {
       if (head === node) {
-        // Already at the head
+        
         return;
       }
       const prev = node.prev;
       const next = node.next;
       if (next === null || prev === null) {
-        // This is an insertion
+        
         lruSize += node.size;
-        // Whenever we add an entry, we need to check if we've exceeded the
-        // max size. We don't evict entries immediately; they're evicted later in
-        // an asynchronous task.
+        
+        
+        
         ensureCleanupIsScheduled();
       } else {
-        // This is a move. Remove from its current position.
+        
         prev.next = next;
         next.prev = prev;
       }
-      // Move to the front of the list
+      
       if (head === null) {
-        // This is the first entry
+        
         node.prev = node;
         node.next = node;
       } else {
-        // Add to the front of the list
+        
         const tail = head.prev;
         node.prev = tail;
-        // In practice, this is never null, but that isn't encoded in the type
+        
         if (tail !== null) {
           tail.next = node;
         }
@@ -4864,15 +4864,15 @@
       head = node;
     }
     function updateLruSize(node, newNodeSize) {
-      // This is a separate function from `put` so that we can resize the entry
-      // regardless of whether it's currently being tracked by the LRU.
+      
+      
       const prevNodeSize = node.size;
       node.size = newNodeSize;
       if (node.next === null) {
-        // This entry is not currently being tracked by the LRU.
+        
         return;
       }
-      // Update the total LRU size
+      
       lruSize = lruSize - prevNodeSize + newNodeSize;
       ensureCleanupIsScheduled();
     }
@@ -4883,11 +4883,11 @@
         lruSize -= deleted.size;
         deleted.next = null;
         deleted.prev = null;
-        // Remove from the list
+        
         if (head === deleted) {
-          // Update the head
+          
           if (next === head) {
-            // This was the last entry
+            
             head = null;
           } else {
             head = next;
@@ -4897,7 +4897,7 @@
           next.prev = prev;
         }
       } else {
-        // Already deleted
+        
       }
     }
     function ensureCleanupIsScheduled() {
@@ -4909,16 +4909,16 @@
     }
     function cleanup() {
       didScheduleCleanup = false;
-      // Evict entries until we're at 90% capacity. We can assume this won't
-      // infinite loop because even if `maxLruSize` were 0, eventually
-      // `deleteFromLru` sets `head` to `null` when we run out entries.
+      
+      
+      
       const ninetyPercentMax = maxLruSize * 0.9;
       while (lruSize > ninetyPercentMax && head !== null) {
         const tail = head.prev;
-        // In practice, this is never null, but that isn't encoded in the type
+        
         if (tail !== null) {
-          // Delete the entry from the map. In turn, this will remove it from
-          // the LRU.
+          
+          
           (0, _cachemap.deleteFromCacheMap)(tail.value);
         }
       }
@@ -4937,7 +4937,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=lru.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/cache-map.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4990,8 +4990,8 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/lru.js [app-client] (ecmascript)",
     );
     const Fallback = {};
-    // This is a special internal key that is used for "revalidation" entries. It's
-    // an implementation detail that shouldn't leak outside of this module.
+    
+    
     const Revalidation = {};
     function createCacheMap() {
       const cacheMap = {
@@ -4999,7 +4999,7 @@
         key: null,
         value: null,
         map: null,
-        // LRU-related fields
+        
         prev: null,
         next: null,
         size: 0,
@@ -5007,12 +5007,12 @@
       return cacheMap;
     }
     function getOrInitialize(cacheMap, keys, isRevalidation) {
-      // Go through each level of keys until we find the entry that matches, or
-      // create a new entry if one doesn't exist.
-      //
-      // This function will only return entries that match the keypath _exactly_.
-      // Unlike getWithFallback, it will not access fallback entries unless it's
-      // explicitly part of the keypath.
+      
+      
+      
+      
+      
+      
       let entry = cacheMap;
       let remainingKeys = keys;
       let key = null;
@@ -5022,15 +5022,15 @@
           key = remainingKeys.value;
           remainingKeys = remainingKeys.parent;
         } else if (isRevalidation && previousKey !== Revalidation) {
-          // During a revalidation, we append an internal "Revalidation" key to
-          // the end of the keypath. The "normal" entry is its parent.
-          // However, if the parent entry is currently empty, we don't need to store
-          // this as a revalidation entry. Just insert the revalidation into the
-          // normal slot.
+          
+          
+          
+          
+          
           if (entry.value === null) {
             return entry;
           }
-          // Otheriwse, create a child entry.
+          
           key = Revalidation;
         } else {
           break;
@@ -5039,7 +5039,7 @@
         if (map !== null) {
           const existingEntry = map.get(key);
           if (existingEntry !== undefined) {
-            // Found a match. Keep going.
+            
             entry = existingEntry;
             continue;
           }
@@ -5047,13 +5047,13 @@
           map = new Map();
           entry.map = map;
         }
-        // No entry exists yet at this level. Create a new one.
+        
         const newEntry = {
           parent: entry,
           key,
           value: null,
           map: null,
-          // LRU-related fields
+          
           prev: null,
           next: null,
           size: 0,
@@ -5081,7 +5081,7 @@
       if (entry === null || entry.value === null) {
         return null;
       }
-      // This is an LRU access. Move the entry to the front of the list.
+      
       (0, _lru.lruPut)(entry);
       return entry.value;
     }
@@ -5089,20 +5089,20 @@
       return value.staleAt <= now || value.version < currentCacheVersion;
     }
     function lazilyEvictIfNeeded(now, currentCacheVersion, entry) {
-      // We have a matching entry, but before we can return it, we need to check if
-      // it's still fresh. Otherwise it should be treated the same as a cache miss.
+      
+      
       if (entry.value === null) {
-        // This entry has no value, so there's nothing to evict.
+        
         return entry;
       }
       const value = entry.value;
       if (isValueExpired(now, currentCacheVersion, value)) {
-        // The value expired. Lazily evict it from the cache, and return null. This
-        // is conceptually the same as a cache miss.
+        
+        
         deleteMapEntry(entry);
         return null;
       }
-      // The matched entry has not expired. Return it.
+      
       return entry;
     }
     function getEntryWithFallbackImpl(
@@ -5113,36 +5113,36 @@
       isRevalidation,
       previousKey,
     ) {
-      // This is similar to getExactEntry, but if an exact match is not found for
-      // a key, it will return the fallback entry instead. This is recursive at
-      // every level, e.g. an entry with keypath [a, Fallback, c, Fallback] is
-      // valid match for [a, b, c, d].
-      //
-      // It will return the most specific match available.
+      
+      
+      
+      
+      
+      
       let key;
       let remainingKeys;
       if (keys !== null) {
         key = keys.value;
         remainingKeys = keys.parent;
       } else if (isRevalidation && previousKey !== Revalidation) {
-        // During a revalidation, we append an internal "Revalidation" key to
-        // the end of the keypath.
+        
+        
         key = Revalidation;
         remainingKeys = null;
       } else {
-        // There are no more keys. This is the terminal entry.
-        // TODO: When performing a lookup during a navigation, as opposed to a
-        // prefetch, we may want to skip entries that are Pending if there's also
-        // a Fulfilled fallback entry. Tricky to say, though, since if it's
-        // already pending, it's likely to stream in soon. Maybe we could do this
-        // just on slow connections and offline mode.
+        
+        
+        
+        
+        
+        
         return lazilyEvictIfNeeded(now, currentCacheVersion, entry);
       }
       const map = entry.map;
       if (map !== null) {
         const existingEntry = map.get(key);
         if (existingEntry !== undefined) {
-          // Found an exact match for this key. Keep searching.
+          
           const result = getEntryWithFallbackImpl(
             now,
             currentCacheVersion,
@@ -5155,10 +5155,10 @@
             return result;
           }
         }
-        // No match found for this key. Check if there's a fallback.
+        
         const fallbackEntry = map.get(Fallback);
         if (fallbackEntry !== undefined) {
-          // Found a fallback for this key. Keep searching.
+          
           return getEntryWithFallbackImpl(
             now,
             currentCacheVersion,
@@ -5172,22 +5172,22 @@
       return null;
     }
     function setInCacheMap(cacheMap, keys, value, isRevalidation) {
-      // Add a value to the map at the given keypath. If the value is already
-      // part of the map, it's removed from its previous keypath. (NOTE: This is
-      // unlike a regular JS map, but the behavior is intentional.)
+      
+      
+      
       const entry = getOrInitialize(cacheMap, keys, isRevalidation);
       setMapEntryValue(entry, value);
-      // This is an LRU access. Move the entry to the front of the list.
+      
       (0, _lru.lruPut)(entry);
       (0, _lru.updateLruSize)(entry, value.size);
     }
     function setMapEntryValue(entry, value) {
       if (entry.value !== null) {
-        // There's already a value at the given keypath. Disconnect the old value
-        // from the map. We're not calling `deleteMapEntry` here because the
-        // entry itself is still in the map. We just want to overwrite its value.
+        
+        
+        
         dropRef(entry.value);
-        // Fill the entry with the updated value.
+        
         const emptyEntry = entry;
         emptyEntry.value = null;
         fillEmptyReference(emptyEntry, value);
@@ -5196,51 +5196,51 @@
       }
     }
     function fillEmptyReference(entry, value) {
-      // This value may already be in the map at a different keypath.
-      // Grab a reference before we overwrite it.
+      
+      
       const oldEntry = value.ref;
       const fullEntry = entry;
       fullEntry.value = value;
       value.ref = fullEntry;
       (0, _lru.updateLruSize)(fullEntry, value.size);
       if (oldEntry !== null && oldEntry !== entry && oldEntry.value === value) {
-        // This value is already in the map at a different keypath in the map.
-        // Values only exist at a single keypath at a time. Remove it from the
-        // previous keypath.
-        //
-        // Note that only the internal map entry is garbage collected; we don't
-        // call `dropRef` here because it's still in the map, just
-        // at a new keypath (the one we just set, above).
+        
+        
+        
+        
+        
+        
+        
         deleteMapEntry(oldEntry);
       }
     }
     function deleteFromCacheMap(value) {
       const entry = value.ref;
       if (entry === null) {
-        // This value is not a member of any map.
+        
         return;
       }
       dropRef(value);
       deleteMapEntry(entry);
     }
     function dropRef(value) {
-      // Drop the value from the map by setting its `ref` backpointer to
-      // null. This is a separate operation from `deleteMapEntry` because when
-      // re-keying a value we need to be able to delete the old, internal map
-      // entry without garbage collecting the value itself.
+      
+      
+      
+      
       value.ref = null;
     }
     function deleteMapEntry(entry) {
-      // Delete the entry from the cache.
+      
       const emptyEntry = entry;
       emptyEntry.value = null;
       (0, _lru.deleteFromLru)(entry);
-      // Check if we can garbage collect the entry.
+      
       const map = emptyEntry.map;
       if (map === null) {
-        // Since this entry has no value, and also no child entries, we can
-        // garbage collect it. Remove it from its parent, and keep garbage
-        // collecting the parents until we reach a non-empty entry.
+        
+        
+        
         let parent = emptyEntry.parent;
         let key = emptyEntry.key;
         while (parent !== null) {
@@ -5248,11 +5248,11 @@
           if (parentMap !== null) {
             parentMap.delete(key);
             if (parentMap.size === 0) {
-              // We just removed the last entry in the parent map.
+              
               parent.map = null;
               if (parent.value === null) {
-                // The parent node has no child entries, nor does it have a value
-                // on itself. It can be garbage collected. Keep going.
+                
+                
                 key = parent.key;
                 parent = parent.parent;
                 continue;
@@ -5262,8 +5262,8 @@
           break;
         }
       } else {
-        // Check if there's a revalidating entry. If so, promote it to a
-        // "normal" entry, since the normal one was just deleted.
+        
+        
         const revalidatingEntry = map.get(Revalidation);
         if (
           revalidatingEntry !== undefined &&
@@ -5276,12 +5276,12 @@
     function setSizeInCacheMap(value, size) {
       const entry = value.ref;
       if (entry === null) {
-        // This value is not a member of any map.
+        
         return;
       }
-      // Except during initialization (when the size is set to 0), this is the only
-      // place the `size` field should be updated, to ensure it's in sync with the
-      // the LRU.
+      
+      
+      
       value.size = size;
       (0, _lru.updateLruSize)(entry, size);
     }
@@ -5295,7 +5295,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=cache-map.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/vary-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -5358,7 +5358,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment-cache/segment-value-encoding.js [app-client] (ecmascript)",
     );
     function getRouteVaryPath(pathname, search, nextUrl) {
-      // requestKey -> searchParams -> nextUrl
+      
       const varyPath = {
         value: pathname,
         parent: {
@@ -5377,9 +5377,9 @@
       nextUrl,
       couldBeIntercepted,
     ) {
-      // This is called when a route's data is fulfilled. The cache entry will be
-      // re-keyed based on which inputs the response varies by.
-      // requestKey -> searchParams -> nextUrl
+      
+      
+      
       const varyPath = {
         value: pathname,
         parent: {
@@ -5407,8 +5407,8 @@
       return layoutVaryPath;
     }
     function finalizePageVaryPath(requestKey, renderedSearch, varyPath) {
-      // Unlike layouts, a page segment's vary path also includes the search string.
-      // requestKey -> searchParams -> pathParams
+      
+      
       const pageVaryPath = {
         value: requestKey,
         parent: {
@@ -5423,34 +5423,34 @@
       renderedSearch,
       varyPath,
     ) {
-      // The metadata "segment" is not a real segment because it doesn't exist in
-      // the normal structure of the route tree, but in terms of caching, it
-      // behaves like a page segment because it varies by all the same params as
-      // a page.
-      //
-      // To keep the protocol for querying the server simple, the request key for
-      // the metadata does not include any path information. It's unnecessary from
-      // the server's perspective, because unlike page segments, there's only one
-      // metadata response per URL, i.e. there's no need to distinguish multiple
-      // parallel pages.
-      //
-      // However, this means the metadata request key is insufficient for
-      // caching the the metadata in the client cache, because on the client we
-      // use the request key to distinguish the metadata entry from all other
-      // page's metadata entries.
-      //
-      // So instead we create a simulated request key based on the page segment.
-      // Conceptually this is equivalent to the request key the server would have
-      // assigned the metadata segment if it treated it as part of the actual
-      // route structure.
-      // If there are multiple parallel pages, we use whichever is the first one.
-      // This is fine because the only difference between request keys for
-      // different parallel pages are things like route groups and parallel
-      // route slots. As long as it's always the same one, it doesn't matter.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const pageVaryPath = {
-        // Append the actual metadata request key to the page request key. Note
-        // that we're not using a separate vary path part; it's unnecessary because
-        // these are not conceptually separate inputs.
+        
+        
+        
         value: pageRequestKey + _segmentvalueencoding.HEAD_REQUEST_KEY,
         parent: {
           value: renderedSearch,
@@ -5460,45 +5460,45 @@
       return pageVaryPath;
     }
     function getSegmentVaryPathForRequest(fetchStrategy, tree) {
-      // This is used for storing pending requests in the cache. We want to choose
-      // the most generic vary path based on the strategy used to fetch it, i.e.
-      // static/PPR versus runtime prefetching, so that it can be reused as much
-      // as possible.
-      //
-      // We may be able to re-key the response to something even more generic once
-      // we receive it — for example, if the server tells us that the response
-      // doesn't vary on a particular param — but even before we send the request,
-      // we know some params are reusable based on the fetch strategy alone. For
-      // example, a static prefetch will never vary on search params.
-      //
-      // The original vary path with all the params filled in is stored on the
-      // route tree object. We will clone this one to create a new vary path
-      // where certain params are replaced with Fallback.
-      //
-      // This result of this function is not stored anywhere. It's only used to
-      // access the cache a single time.
-      //
-      // TODO: Rather than create a new list object just to access the cache, the
-      // plan is to add the concept of a "vary mask". This will represent all the
-      // params that can be treated as Fallback. (Or perhaps the inverse.)
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const originalVaryPath = tree.varyPath;
-      // Only page segments (and the special "metadata" segment, which is treated
-      // like a page segment for the purposes of caching) may contain search
-      // params. There's no reason to include them in the vary path otherwise.
+      
+      
+      
       if (tree.isPage) {
-        // Only a runtime prefetch will include search params in the vary path.
-        // Static prefetches never include search params, so they can be reused
-        // across all possible search param values.
+        
+        
+        
         const doesVaryOnSearchParams =
           fetchStrategy === _types.FetchStrategy.Full ||
           fetchStrategy === _types.FetchStrategy.PPRRuntime;
         if (!doesVaryOnSearchParams) {
-          // The response from the the server will not vary on search params. Clone
-          // the end of the original vary path to replace the search params
-          // with Fallback.
-          //
-          // requestKey -> searchParams -> pathParams
-          //               ^ This part gets replaced with Fallback
+          
+          
+          
+          
+          
+          
           const searchParamsVaryPath = originalVaryPath.parent;
           const pathParamsVaryPath = searchParamsVaryPath.parent;
           const patchedVaryPath = {
@@ -5511,12 +5511,12 @@
           return patchedVaryPath;
         }
       }
-      // The request does vary on search params. We don't need to modify anything.
+      
       return originalVaryPath;
     }
     function clonePageVaryPathWithNewSearchParams(originalVaryPath, newSearch) {
-      // requestKey -> searchParams -> pathParams
-      //               ^ This part gets replaced with newSearch
+      
+      
       const searchParamsVaryPath = originalVaryPath.parent;
       const clonedVaryPath = {
         value: originalVaryPath.value,
@@ -5537,13 +5537,13 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=vary-path.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/cache-key.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // TypeScript trick to simulate opaque types, like in Flow.
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -5572,7 +5572,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=cache-key.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/scheduler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -5653,25 +5653,25 @@
     let inProgressRequests = 0;
     let sortIdCounter = 0;
     let didScheduleMicrotask = false;
-    // The most recently hovered (or touched, etc) link, i.e. the most recent task
-    // scheduled at Intent priority. There's only ever a single task at Intent
-    // priority at a time. We reserve special network bandwidth for this task only.
+    
+    
+    
     let mostRecentlyHoveredLink = null;
-    // CDN cache propagation delay after revalidation (in milliseconds)
+    
     const REVALIDATION_COOLDOWN_MS = 300;
-    // Timeout handle for the revalidation cooldown. When non-null, prefetch
-    // requests are blocked to allow CDN cache propagation.
+    
+    
     let revalidationCooldownTimeoutHandle = null;
     function startRevalidationCooldown() {
-      // Clear any existing timeout in case multiple revalidations happen
-      // in quick succession.
+      
+      
       if (revalidationCooldownTimeoutHandle !== null) {
         clearTimeout(revalidationCooldownTimeoutHandle);
       }
-      // Schedule the cooldown to expire after the delay.
+      
       revalidationCooldownTimeoutHandle = setTimeout(() => {
         revalidationCooldownTimeoutHandle = null;
-        // Retry the prefetch queue now that the cooldown has expired.
+        
         ensureWorkIsScheduled();
       }, REVALIDATION_COOLDOWN_MS);
     }
@@ -5682,7 +5682,7 @@
       priority,
       onInvalidate,
     ) {
-      // Spawn a new prefetch task
+      
       const task = {
         key,
         treeAtTimeOfPrefetch,
@@ -5699,22 +5699,22 @@
       };
       trackMostRecentlyHoveredLink(task);
       heapPush(taskHeap, task);
-      // Schedule an async task to process the queue.
-      //
-      // The main reason we process the queue in an async task is for batching.
-      // It's common for a single JS task/event to trigger multiple prefetches.
-      // By deferring to a microtask, we only process the queue once per JS task.
-      // If they have different priorities, it also ensures they are processed in
-      // the optimal order.
+      
+      
+      
+      
+      
+      
+      
       ensureWorkIsScheduled();
       return task;
     }
     function cancelPrefetchTask(task) {
-      // Remove the prefetch task from the queue. If the task already completed,
-      // then this is a no-op.
-      //
-      // We must also explicitly mark the task as canceled so that a blocked task
-      // does not get added back to the queue when it's pinged by the network.
+      
+      
+      
+      
+      
       task.isCanceled = true;
       heapDelete(taskHeap, task);
     }
@@ -5724,19 +5724,19 @@
       fetchStrategy,
       priority,
     ) {
-      // Bump the prefetch task to the top of the queue, as if it were a fresh
-      // task. This is essentially the same as canceling the task and scheduling
-      // a new one, except it reuses the original object.
-      //
-      // The primary use case is to increase the priority of a Link-initated
-      // prefetch on hover.
-      // Un-cancel the task, in case it was previously canceled.
+      
+      
+      
+      
+      
+      
+      
       task.isCanceled = false;
       task.phase = 1;
-      // Assign a new sort ID to move it ahead of all other tasks at the same
-      // priority level. (Higher sort IDs are processed first.)
+      
+      
       task.sortId = sortIdCounter++;
-      task.priority = // Intent priority, even if the rescheduled priority is lower.
+      task.priority = 
         task === mostRecentlyHoveredLink
           ? _types.PrefetchPriority.Intent
           : priority;
@@ -5744,7 +5744,7 @@
       task.fetchStrategy = fetchStrategy;
       trackMostRecentlyHoveredLink(task);
       if (task._heapIndex !== -1) {
-        // The task is already in the queue.
+        
         heapResift(taskHeap, task);
       } else {
         heapPush(taskHeap, task);
@@ -5752,11 +5752,11 @@
       ensureWorkIsScheduled();
     }
     function isPrefetchTaskDirty(task, nextUrl, tree) {
-      // This is used to quickly bail out of a prefetch task if the result is
-      // guaranteed to not have changed since the task was initiated. This is
-      // strictly an optimization — theoretically, if it always returned true, no
-      // behavior should change because a full prefetch task will effectively
-      // perform the same checks.
+      
+      
+      
+      
+      
       const currentCacheVersion = (0, _cache.getCurrentCacheVersion)();
       return (
         task.cacheVersion !== currentCacheVersion ||
@@ -5765,14 +5765,14 @@
       );
     }
     function trackMostRecentlyHoveredLink(task) {
-      // Track the mostly recently hovered link, i.e. the most recently scheduled
-      // task at Intent priority. There must only be one such task at a time.
+      
+      
       if (
         task.priority === _types.PrefetchPriority.Intent &&
         task !== mostRecentlyHoveredLink
       ) {
         if (mostRecentlyHoveredLink !== null) {
-          // Bump the previously hovered link's priority down to Default.
+          
           if (
             mostRecentlyHoveredLink.priority !==
             _types.PrefetchPriority.Background
@@ -5786,129 +5786,129 @@
     }
     function ensureWorkIsScheduled() {
       if (didScheduleMicrotask) {
-        // Already scheduled a task to process the queue
+        
         return;
       }
       didScheduleMicrotask = true;
       scheduleMicrotask(processQueueInMicrotask);
     }
-    /**
-     * Checks if we've exceeded the maximum number of concurrent prefetch requests,
-     * to avoid saturating the browser's internal network queue. This is a
-     * cooperative limit — prefetch tasks should check this before issuing
-     * new requests.
-     *
-     * Also checks if we're within the revalidation cooldown window, during which
-     * prefetch requests are delayed to allow CDN cache propagation.
-     */ function hasNetworkBandwidth(task) {
-      // Check if we're within the revalidation cooldown window
+    
+
+
+
+
+
+
+
+ function hasNetworkBandwidth(task) {
+      
       if (revalidationCooldownTimeoutHandle !== null) {
-        // We're within the cooldown window. Return false to prevent prefetching.
-        // When the cooldown expires, the timeout will call ensureWorkIsScheduled()
-        // to retry the queue.
+        
+        
+        
         return false;
       }
-      // TODO: Also check if there's an in-progress navigation. We should never
-      // add prefetch requests to the network queue if an actual navigation is
-      // taking place, to ensure there's sufficient bandwidth for render-blocking
-      // data and resources.
-      // TODO: Consider reserving some amount of bandwidth for static prefetches.
+      
+      
+      
+      
+      
       if (task.priority === _types.PrefetchPriority.Intent) {
-        // The most recently hovered link is allowed to exceed the default limit.
-        //
-        // The goal is to always have enough bandwidth to start a new prefetch
-        // request when hovering over a link.
-        //
-        // However, because we don't abort in-progress requests, it's still possible
-        // we'll run out of bandwidth. When links are hovered in quick succession,
-        // there could be multiple hover requests running simultaneously.
+        
+        
+        
+        
+        
+        
+        
+        
         return inProgressRequests < 12;
       }
-      // The default limit is lower than the limit for a hovered link.
+      
       return inProgressRequests < 4;
     }
     function spawnPrefetchSubtask(prefetchSubtask) {
-      // When the scheduler spawns an async task, we don't await its result.
-      // Instead, the async task writes its result directly into the cache, then
-      // pings the scheduler to continue.
-      //
-      // We process server responses streamingly, so the prefetch subtask will
-      // likely resolve before we're finished receiving all the data. The subtask
-      // result includes a promise that resolves once the network connection is
-      // closed. The scheduler uses this to control network bandwidth by tracking
-      // and limiting the number of concurrent requests.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       inProgressRequests++;
       return prefetchSubtask.then((result) => {
         if (result === null) {
-          // The prefetch task errored before it could start processing the
-          // network stream. Assume the connection is closed.
+          
+          
           onPrefetchConnectionClosed();
           return null;
         }
-        // Wait for the connection to close before freeing up more bandwidth.
+        
         result.closed.then(onPrefetchConnectionClosed);
         return result.value;
       });
     }
     function onPrefetchConnectionClosed() {
       inProgressRequests--;
-      // Notify the scheduler that we have more bandwidth, and can continue
-      // processing tasks.
+      
+      
       ensureWorkIsScheduled();
     }
     function pingPrefetchTask(task) {
-      // "Ping" a prefetch that's already in progress to notify it of new data.
+      
       if (
-        task.isCanceled || // Check if prefetch is already queued.
+        task.isCanceled || 
         task._heapIndex !== -1
       ) {
         return;
       }
-      // Add the task back to the queue.
+      
       heapPush(taskHeap, task);
       ensureWorkIsScheduled();
     }
     function processQueueInMicrotask() {
       didScheduleMicrotask = false;
-      // We aim to minimize how often we read the current time. Since nearly all
-      // functions in the prefetch scheduler are synchronous, we can read the time
-      // once and pass it as an argument wherever it's needed.
+      
+      
+      
       const now = Date.now();
-      // Process the task queue until we run out of network bandwidth.
+      
       let task = heapPeek(taskHeap);
       while (task !== null && hasNetworkBandwidth(task)) {
         task.cacheVersion = (0, _cache.getCurrentCacheVersion)();
         const exitStatus = pingRoute(now, task);
-        // These fields are only valid for a single attempt. Reset them after each
-        // iteration of the task queue.
+        
+        
         const hasBackgroundWork = task.hasBackgroundWork;
         task.hasBackgroundWork = false;
         task.spawnedRuntimePrefetches = null;
         switch (exitStatus) {
           case 0:
-            // The task yielded because there are too many requests in progress.
-            // Stop processing tasks until we have more bandwidth.
+            
+            
             return;
           case 1:
-            // The task is blocked. It needs more data before it can proceed.
-            // Keep the task out of the queue until the server responds.
+            
+            
             heapPop(taskHeap);
-            // Continue to the next task
+            
             task = heapPeek(taskHeap);
             continue;
           case 2:
             if (task.phase === 1) {
-              // Finished prefetching the route tree. Proceed to prefetching
-              // the segments.
+              
+              
               task.phase = 0;
               heapResift(taskHeap, task);
             } else if (hasBackgroundWork) {
-              // The task spawned additional background work. Reschedule the task
-              // at background priority.
+              
+              
               task.priority = _types.PrefetchPriority.Background;
               heapResift(taskHeap, task);
             } else {
-              // The prefetch is complete. Continue to the next task.
+              
               heapPop(taskHeap);
             }
             task = heapPeek(taskHeap);
@@ -5918,16 +5918,16 @@
         }
       }
     }
-    /**
-     * Check this during a prefetch task to determine if background work can be
-     * performed. If so, it evaluates to `true`. Otherwise, it returns `false`,
-     * while also scheduling a background task to run later. Usage:
-     *
-     * @example
-     * if (background(task)) {
-     *   // Perform background-pri work
-     * }
-     */ function background(task) {
+    
+
+
+
+
+
+
+
+
+ function background(task) {
       if (task.priority === _types.PrefetchPriority.Background) {
         return true;
       }
@@ -5939,17 +5939,17 @@
       const route = (0, _cache.readOrCreateRouteCacheEntry)(now, task, key);
       const exitStatus = pingRootRouteTree(now, task, route);
       if (exitStatus !== 0 && key.search !== "") {
-        // If the URL has a non-empty search string, also prefetch the pathname
-        // without the search string. We use the searchless route tree as a base for
-        // optimistic routing; see requestOptimisticRouteCacheEntry for details.
-        //
-        // Note that we don't need to prefetch any of the segment data. Just the
-        // route tree.
-        //
-        // TODO: This is a temporary solution; the plan is to replace this by adding
-        // a wildcard lookup method to the TupleMap implementation. This is
-        // non-trivial to implement because it needs to account for things like
-        // fallback route entries, hence this temporary workaround.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         const url = new URL(key.pathname, location.origin);
         const keyWithoutSearch = (0, _cachekey.createCacheKey)(
           url.href,
@@ -5988,37 +5988,37 @@
     function pingRootRouteTree(now, task, route) {
       switch (route.status) {
         case _cache.EntryStatus.Empty: {
-          // Route is not yet cached, and there's no request already in progress.
-          // Spawn a task to request the route, load it into the cache, and ping
-          // the task to continue.
-          // TODO: There are multiple strategies in the <Link> API for prefetching
-          // a route. Currently we've only implemented the main one: per-segment,
-          // static-data only.
-          //
-          // There's also `<Link prefetch={true}>`
-          // which prefetch both static *and* dynamic data.
-          // Similarly, we need to fallback to the old, per-page
-          // behavior if PPR is disabled for a route (via the incremental opt-in).
-          //
-          // Those cases will be handled here.
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           spawnPrefetchSubtask(
             (0, _cache.fetchRouteOnCacheMiss)(route, task, task.key),
           );
-          // If the request takes longer than a minute, a subsequent request should
-          // retry instead of waiting for this one. When the response is received,
-          // this value will be replaced by a new value based on the stale time sent
-          // from the server.
-          // TODO: We should probably also manually abort the fetch task, to reclaim
-          // server bandwidth.
+          
+          
+          
+          
+          
+          
           route.staleAt = now + 60 * 1000;
-          // Upgrade to Pending so we know there's already a request in progress
+          
           route.status = _cache.EntryStatus.Pending;
-          // Intentional fallthrough to the Pending branch
+          
         }
         case _cache.EntryStatus.Pending: {
-          // Still pending. We can't start prefetching the segments until the route
-          // tree has loaded. Add the task to the set of blocked tasks so that it
-          // is notified when the route tree is ready.
+          
+          
+          
           const blockedTasks = route.blockedTasks;
           if (blockedTasks === null) {
             route.blockedTasks = new Set([task]);
@@ -6028,24 +6028,24 @@
           return 1;
         }
         case _cache.EntryStatus.Rejected: {
-          // Route tree failed to load. Treat as a 404.
+          
           return 2;
         }
         case _cache.EntryStatus.Fulfilled: {
           if (task.phase !== 0) {
-            // Do not prefetch segment data until we've entered the segment phase.
+            
             return 2;
           }
-          // Recursively fill in the segment tree.
+          
           if (!hasNetworkBandwidth(task)) {
-            // Stop prefetching segments until there's more bandwidth.
+            
             return 0;
           }
           const tree = route.tree;
-          // A task's fetch strategy gets set to `PPR` for any "auto" prefetch.
-          // If it turned out that the route isn't PPR-enabled, we need to use `LoadingBoundary` instead.
-          // We don't need to do this for runtime prefetches, because those are only available in
-          // `cacheComponents`, where every route is PPR.
+          
+          
+          
+          
           const fetchStrategy =
             task.fetchStrategy === _types.FetchStrategy.PPR
               ? route.isPPREnabled
@@ -6054,13 +6054,13 @@
               : task.fetchStrategy;
           switch (fetchStrategy) {
             case _types.FetchStrategy.PPR: {
-              // For Cache Components pages, each segment may be prefetched
-              // statically or using a runtime request, based on various
-              // configurations and heuristics. We'll do this in two passes: first
-              // traverse the tree and perform all the static prefetches.
-              //
-              // Then, if there are any segments that need a runtime request,
-              // do another pass to perform a runtime prefetch.
+              
+              
+              
+              
+              
+              
+              
               pingStaticHead(now, task, route);
               const exitStatus = pingSharedPartOfCacheComponentsTree(
                 now,
@@ -6070,13 +6070,13 @@
                 tree,
               );
               if (exitStatus === 0) {
-                // Child yielded without finishing.
+                
                 return 0;
               }
               const spawnedRuntimePrefetches = task.spawnedRuntimePrefetches;
               if (spawnedRuntimePrefetches !== null) {
-                // During the first pass, we discovered segments that require a
-                // runtime prefetch. Do a second pass to construct a request tree.
+                
+                
                 const spawnedEntries = new Map();
                 pingRuntimeHead(
                   now,
@@ -6095,8 +6095,8 @@
                 );
                 let needsDynamicRequest = spawnedEntries.size > 0;
                 if (needsDynamicRequest) {
-                  // Perform a dynamic prefetch request and populate the cache with
-                  // the result.
+                  
+                  
                   spawnPrefetchSubtask(
                     (0, _cache.fetchSegmentPrefetchesUsingDynamicRequest)(
                       task,
@@ -6113,13 +6113,13 @@
             case _types.FetchStrategy.Full:
             case _types.FetchStrategy.PPRRuntime:
             case _types.FetchStrategy.LoadingBoundary: {
-              // Prefetch multiple segments using a single dynamic request.
-              // TODO: We can consolidate this branch with previous one by modeling
-              // it as if the first segment in the new tree has runtime prefetching
-              // enabled. Will do this as a follow-up refactor. Might want to remove
-              // the special metatdata case below first. In the meantime, it's not
-              // really that much duplication, just would be nice to remove one of
-              // these codepaths.
+              
+              
+              
+              
+              
+              
+              
               const spawnedEntries = new Map();
               pingRuntimeHead(now, task, route, spawnedEntries, fetchStrategy);
               const dynamicRequestTree = diffRouteTreeAgainstCurrent(
@@ -6157,9 +6157,9 @@
       return 2;
     }
     function pingStaticHead(now, task, route) {
-      // The Head data for a page (metadata, viewport) is not really a route
-      // segment, in the sense that it doesn't appear in the route tree. But we
-      // store it in the cache as if it were, using a special key.
+      
+      
+      
       pingStaticSegmentData(
         now,
         task,
@@ -6181,13 +6181,13 @@
         route,
         route.metadata,
         false,
-        spawnedEntries, // and LoadingBoundary
+        spawnedEntries, 
         fetchStrategy === _types.FetchStrategy.LoadingBoundary
           ? _types.FetchStrategy.Full
           : fetchStrategy,
       );
     }
-    // TODO: Rename dynamic -> runtime throughout this module
+    
     function pingSharedPartOfCacheComponentsTree(
       now,
       task,
@@ -6195,17 +6195,17 @@
       oldTree,
       newTree,
     ) {
-      // When Cache Components is enabled (or PPR, or a fully static route when PPR
-      // is disabled; those cases are treated equivalently to Cache Components), we
-      // start by prefetching each segment individually. Once we reach the "new"
-      // part of the tree — the part that doesn't exist on the current page — we
-      // may choose to switch to a runtime prefetch instead, based on the
-      // information sent by the server in the route tree.
-      //
-      // The traversal starts in the "shared" part of the tree. Once we reach the
-      // "new" part of the tree, we switch to a different traversal,
-      // pingNewPartOfCacheComponentsTree.
-      // Prefetch this segment's static data.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
         now,
         task.fetchStrategy,
@@ -6213,13 +6213,13 @@
         newTree,
       );
       pingStaticSegmentData(now, task, route, segment, task.key, newTree);
-      // Recursively ping the children.
+      
       const oldTreeChildren = oldTree[1];
       const newTreeChildren = newTree.slots;
       if (newTreeChildren !== null) {
         for (const parallelRouteKey in newTreeChildren) {
           if (!hasNetworkBandwidth(task)) {
-            // Stop prefetching segments until there's more bandwidth.
+            
             return 0;
           }
           const newTreeChild = newTreeChildren[parallelRouteKey];
@@ -6235,7 +6235,7 @@
               oldTreeChildSegment,
             )
           ) {
-            // We're still in the "shared" part of the tree.
+            
             childExitStatus = pingSharedPartOfCacheComponentsTree(
               now,
               task,
@@ -6244,8 +6244,8 @@
               newTreeChild,
             );
           } else {
-            // We've entered the "new" part of the tree. Switch
-            // traversal functions.
+            
+            
             childExitStatus = pingNewPartOfCacheComponentsTree(
               now,
               task,
@@ -6254,7 +6254,7 @@
             );
           }
           if (childExitStatus === 0) {
-            // Child yielded without finishing.
+            
             return 0;
           }
         }
@@ -6262,40 +6262,40 @@
       return 2;
     }
     function pingNewPartOfCacheComponentsTree(now, task, route, tree) {
-      // We're now prefetching in the "new" part of the tree, the part that doesn't
-      // exist on the current page. (In other words, we're deeper than the
-      // shared layouts.) Segments in here default to being prefetched statically.
-      // However, if the server instructs us to, we may switch to a runtime
-      // prefetch instead. Traverse the tree and check at each segment.
+      
+      
+      
+      
+      
       if (tree.hasRuntimePrefetch) {
-        // This route has a runtime prefetch response. Since we're below the shared
-        // layout, everything from this point should be prefetched using a single,
-        // combined runtime request, rather than using per-segment static requests.
-        // This is true even if some of the child segments are known to be fully
-        // static — once we've decided to perform a runtime prefetch, we might as
-        // well respond with the static segments in the same roundtrip. (That's how
-        // regular navigations work, too.) We'll still skip over segments that are
-        // already cached, though.
-        //
-        // It's the server's responsibility to set a reasonable value of
-        // `hasRuntimePrefetch`. Currently it's user-defined, but eventually, the
-        // server may send a value of `false` even if the user opts in, if it
-        // determines during build that the route is always fully static. There are
-        // more optimizations we can do once we implement fallback param
-        // tracking, too.
-        //
-        // Use the task object to collect the segments that need a runtime prefetch.
-        // This will signal to the outer task queue that a second traversal is
-        // required to construct a request tree.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if (task.spawnedRuntimePrefetches === null) {
           task.spawnedRuntimePrefetches = new Set([tree.requestKey]);
         } else {
           task.spawnedRuntimePrefetches.add(tree.requestKey);
         }
-        // Then exit the traversal without prefetching anything further.
+        
         return 2;
       }
-      // This segment should not be runtime prefetched. Prefetch its static data.
+      
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
         now,
         task.fetchStrategy,
@@ -6305,10 +6305,10 @@
       pingStaticSegmentData(now, task, route, segment, task.key, tree);
       if (tree.slots !== null) {
         if (!hasNetworkBandwidth(task)) {
-          // Stop prefetching segments until there's more bandwidth.
+          
           return 0;
         }
-        // Recursively ping the children.
+        
         for (const parallelRouteKey in tree.slots) {
           const childTree = tree.slots[parallelRouteKey];
           const childExitStatus = pingNewPartOfCacheComponentsTree(
@@ -6318,12 +6318,12 @@
             childTree,
           );
           if (childExitStatus === 0) {
-            // Child yielded without finishing.
+            
             return 0;
           }
         }
       }
-      // This segment and all its children have finished prefetching.
+      
       return 2;
     }
     function diffRouteTreeAgainstCurrent(
@@ -6335,15 +6335,15 @@
       spawnedEntries,
       fetchStrategy,
     ) {
-      // This is a single recursive traversal that does multiple things:
-      // - Finds the parts of the target route (newTree) that are not part of
-      //   of the current page (oldTree) by diffing them, using the same algorithm
-      //   as a real navigation.
-      // - Constructs a request tree (FlightRouterState) that describes which
-      //   segments need to be prefetched and which ones are already cached.
-      // - Creates a set of pending cache entries for the segments that need to
-      //   be prefetched, so that a subsequent prefetch task does not request the
-      //   same segments again.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const oldTreeChildren = oldTree[1];
       const newTreeChildren = newTree.slots;
       let requestTreeChildren = {};
@@ -6361,7 +6361,7 @@
               oldTreeChildSegment,
             )
           ) {
-            // This segment is already part of the current route. Keep traversing.
+            
             const requestTreeChild = diffRouteTreeAgainstCurrent(
               now,
               task,
@@ -6373,23 +6373,23 @@
             );
             requestTreeChildren[parallelRouteKey] = requestTreeChild;
           } else {
-            // This segment is not part of the current route. We're entering a
-            // part of the tree that we need to prefetch (unless everything is
-            // already cached).
+            
+            
+            
             switch (fetchStrategy) {
               case _types.FetchStrategy.LoadingBoundary: {
-                // When PPR is disabled, we can't prefetch per segment. We must
-                // fallback to the old prefetch behavior and send a dynamic request.
-                // Only routes that include a loading boundary can be prefetched in
-                // this way.
-                //
-                // This is simlar to a "full" prefetch, but we're much more
-                // conservative about which segments to include in the request.
-                //
-                // The server will only render up to the first loading boundary
-                // inside new part of the tree. If there's no loading boundary
-                // anywhere in the tree, the server will never return any data, so
-                // we can skip the request.
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 const subtreeHasLoadingBoundary =
                   newTreeChild.hasLoadingBoundary !==
                   _approutertypes.HasLoadingBoundary
@@ -6410,8 +6410,8 @@
                 break;
               }
               case _types.FetchStrategy.PPRRuntime: {
-                // This is a runtime prefetch. Fetch all cacheable data in the tree,
-                // not just the static PPR shell.
+                
+                
                 const requestTreeChild = pingRouteTreeAndIncludeDynamicData(
                   now,
                   task,
@@ -6425,23 +6425,23 @@
                 break;
               }
               case _types.FetchStrategy.Full: {
-                // This is a "full" prefetch. Fetch all the data in the tree, both
-                // static and dynamic. We issue roughly the same request that we
-                // would during a real navigation. The goal is that once the
-                // navigation occurs, the router should not have to fetch any
-                // additional data.
-                //
-                // Although the response will include dynamic data, opting into a
-                // Full prefetch — via <Link prefetch={true}> — implicitly
-                // instructs the cache to treat the response as "static", or non-
-                // dynamic, since the whole point is to cache it for
-                // future navigations.
-                //
-                // Construct a tree (currently a FlightRouterState) that represents
-                // which segments need to be prefetched and which ones are already
-                // cached. If the tree is empty, then we can exit. Otherwise, we'll
-                // send the request tree to the server and use the response to
-                // populate the segment cache.
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 const requestTreeChild = pingRouteTreeAndIncludeDynamicData(
                   now,
                   task,
@@ -6477,16 +6477,16 @@
       refetchMarkerContext,
       spawnedEntries,
     ) {
-      // This function is similar to pingRouteTreeAndIncludeDynamicData, except the
-      // server is only going to return a minimal loading state — it will stop
-      // rendering at the first loading boundary. Whereas a Full prefetch is
-      // intentionally aggressive and tries to pretfetch all the data that will be
-      // needed for a navigation, a LoadingBoundary prefetch is much more
-      // conservative. For example, it will omit from the request tree any segment
-      // that is already cached, regardles of whether it's partial or full. By
-      // contrast, a Full prefetch will refetch partial segments.
-      // "inside-shared-layout" tells the server where to start looking for a
-      // loading boundary.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       let refetchMarker =
         refetchMarkerContext === null ? "inside-shared-layout" : null;
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
@@ -6497,39 +6497,39 @@
       );
       switch (segment.status) {
         case _cache.EntryStatus.Empty: {
-          // This segment is not cached. Add a refetch marker so the server knows
-          // to start rendering here.
-          // TODO: Instead of a "refetch" marker, we could just omit this subtree's
-          // FlightRouterState from the request tree. I think this would probably
-          // already work even without any updates to the server. For consistency,
-          // though, I'll send the full tree and we'll look into this later as part
-          // of a larger redesign of the request protocol.
-          // Add the pending cache entry to the result map.
+          
+          
+          
+          
+          
+          
+          
+          
           spawnedEntries.set(
             tree.requestKey,
             (0, _cache.upgradeToPendingSegment)(
-              segment, // might not include it in the pending response. If another route is able
-              // to issue a per-segment request, we'll do that in the background.
+              segment, 
+              
               _types.FetchStrategy.LoadingBoundary,
             ),
           );
           if (refetchMarkerContext !== "refetch") {
             refetchMarker = refetchMarkerContext = "refetch";
           } else {
-            // There's already a parent with a refetch marker, so we don't need
-            // to add another one.
+            
+            
           }
           break;
         }
         case _cache.EntryStatus.Fulfilled: {
-          // The segment is already cached.
+          
           const segmentHasLoadingBoundary =
             tree.hasLoadingBoundary ===
             _approutertypes.HasLoadingBoundary.SegmentHasLoadingBoundary;
           if (segmentHasLoadingBoundary) {
-            // This segment has a loading boundary, which means the server won't
-            // render its children. So there's nothing left to prefetch along this
-            // path. We can bail out.
+            
+            
+            
             return (0, _cache.convertRouteTreeToFlightRouterState)(tree);
           }
           break;
@@ -6576,19 +6576,19 @@
       spawnedEntries,
       fetchStrategy,
     ) {
-      // The tree we're constructing is the same shape as the tree we're navigating
-      // to. But even though this is a "new" tree, some of the individual segments
-      // may be cached as a result of other route prefetches.
-      //
-      // So we need to find the first uncached segment along each path add an
-      // explicit "refetch" marker so the server knows where to start rendering.
-      // Once the server starts rendering along a path, it keeps rendering the
-      // entire subtree.
+      
+      
+      
+      
+      
+      
+      
+      
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
-        now, // and we have to use the former here.
-        // We can have a task with `FetchStrategy.PPR` where some of its segments are configured to
-        // always use runtime prefetching (via `export const prefetch`), and those should check for
-        // entries that include search params.
+        now, 
+        
+        
+        
         fetchStrategy,
         route,
         tree,
@@ -6596,7 +6596,7 @@
       let spawnedSegment = null;
       switch (segment.status) {
         case _cache.EntryStatus.Empty: {
-          // This segment is not cached. Include it in the request.
+          
           spawnedSegment = (0, _cache.upgradeToPendingSegment)(
             segment,
             fetchStrategy,
@@ -6604,7 +6604,7 @@
           break;
         }
         case _cache.EntryStatus.Fulfilled: {
-          // The segment is already cached.
+          
           if (
             segment.isPartial &&
             (0, _cache.canNewFetchStrategyProvideMoreContent)(
@@ -6612,11 +6612,11 @@
               fetchStrategy,
             )
           ) {
-            // The cached segment contains dynamic holes, and was prefetched using a less specific strategy than the current one.
-            // This means we're in one of these cases:
-            //   - we have a static prefetch, and we're doing a runtime prefetch
-            //   - we have a static or runtime prefetch, and we're doing a Full prefetch (or a navigation).
-            // In either case, we need to include it in the request to get a more specific (or full) version.
+            
+            
+            
+            
+            
             spawnedSegment = pingFullSegmentRevalidation(
               now,
               route,
@@ -6628,8 +6628,8 @@
         }
         case _cache.EntryStatus.Pending:
         case _cache.EntryStatus.Rejected: {
-          // There's either another prefetch currently in progress, or the previous
-          // attempt failed. If the new strategy can provide more content, fetch it again.
+          
+          
           if (
             (0, _cache.canNewFetchStrategyProvideMoreContent)(
               segment.fetchStrategy,
@@ -6665,10 +6665,10 @@
         }
       }
       if (spawnedSegment !== null) {
-        // Add the pending entry to the result map.
+        
         spawnedEntries.set(tree.requestKey, spawnedSegment);
       }
-      // Don't bother to add a refetch marker if one is already present in a parent.
+      
       const refetchMarker =
         !isInsideRefetchingParent && spawnedSegment !== null ? "refetch" : null;
       const requestTree = [
@@ -6688,14 +6688,14 @@
       spawnedRuntimePrefetches,
       spawnedEntries,
     ) {
-      // Construct a request tree (FlightRouterState) for a runtime prefetch. If
-      // a segment is part of the runtime prefetch, the tree is constructed by
-      // diffing against what's already in the prefetch cache. Otherwise, we send
-      // a regular FlightRouterState with no special markers.
-      //
-      // See pingRouteTreeAndIncludeDynamicData for details.
+      
+      
+      
+      
+      
+      
       if (spawnedRuntimePrefetches.has(tree.requestKey)) {
-        // This segment needs a runtime prefetch.
+        
         return pingRouteTreeAndIncludeDynamicData(
           now,
           task,
@@ -6721,14 +6721,14 @@
           );
         }
       }
-      // This segment is not part of the runtime prefetch. Clone the base tree.
+      
       const requestTree = [tree.segment, requestTreeChildren, null, null];
       return requestTree;
     }
     function pingStaticSegmentData(now, task, route, segment, routeKey, tree) {
       switch (segment.status) {
         case _cache.EntryStatus.Empty:
-          // Upgrade to Pending so we know there's already a request in progress
+          
           spawnPrefetchSubtask(
             (0, _cache.fetchSegmentOnCacheMiss)(
               route,
@@ -6742,22 +6742,22 @@
           );
           break;
         case _cache.EntryStatus.Pending: {
-          // There's already a request in progress. Depending on what kind of
-          // request it is, we may want to revalidate it.
+          
+          
           switch (segment.fetchStrategy) {
             case _types.FetchStrategy.PPR:
             case _types.FetchStrategy.PPRRuntime:
             case _types.FetchStrategy.Full:
               break;
             case _types.FetchStrategy.LoadingBoundary:
-              // There's a pending request, but because it's using the old
-              // prefetching strategy, we can't be sure if it will be fulfilled by
-              // the response — it might be inside the loading boundary. Perform
-              // a revalidation, but because it's speculative, wait to do it at
-              // background priority.
+              
+              
+              
+              
+              
               if (background(task)) {
-                // TODO: Instead of speculatively revalidating, consider including
-                // `hasLoading` in the route tree prefetch response.
+                
+                
                 pingPPRSegmentRevalidation(now, route, routeKey, tree);
               }
               break;
@@ -6767,23 +6767,23 @@
           break;
         }
         case _cache.EntryStatus.Rejected: {
-          // The existing entry in the cache was rejected. Depending on how it
-          // was originally fetched, we may or may not want to revalidate it.
+          
+          
           switch (segment.fetchStrategy) {
             case _types.FetchStrategy.PPR:
             case _types.FetchStrategy.PPRRuntime:
             case _types.FetchStrategy.Full:
               break;
             case _types.FetchStrategy.LoadingBoundary:
-              // There's a rejected entry, but it was fetched using the loading
-              // boundary strategy. So the reason it wasn't returned by the server
-              // might just be because it was inside a loading boundary. Or because
-              // there was a dynamic rewrite. Revalidate it using the per-
-              // segment strategy.
-              //
-              // Because a rejected segment will definitely prevent the segment (and
-              // all of its children) from rendering, we perform this revalidation
-              // immediately instead of deferring it to a background task.
+              
+              
+              
+              
+              
+              
+              
+              
+              
               pingPPRSegmentRevalidation(now, route, routeKey, tree);
               break;
             default:
@@ -6796,9 +6796,9 @@
         default:
           segment;
       }
-      // Segments do not have dependent tasks, so once the prefetch is initiated,
-      // there's nothing else for us to do (except write the server data into the
-      // entry, which is handled by `fetchSegmentOnCacheMiss`).
+      
+      
+      
     }
     function pingPPRSegmentRevalidation(now, route, routeKey, tree) {
       const revalidatingSegment = (0,
@@ -6810,8 +6810,8 @@
       );
       switch (revalidatingSegment.status) {
         case _cache.EntryStatus.Empty:
-          // Spawn a prefetch request and upsert the segment into the cache
-          // upon completion.
+          
+          
           upsertSegmentOnCompletion(
             spawnPrefetchSubtask(
               (0, _cache.fetchSegmentOnCacheMiss)(
@@ -6848,11 +6848,11 @@
         tree,
       );
       if (revalidatingSegment.status === _cache.EntryStatus.Empty) {
-        // During a Full/PPRRuntime prefetch, a single dynamic request is made for all the
-        // segments that we need. So we don't initiate a request here directly. By
-        // returning a pending entry from this function, it signals to the caller
-        // that this segment should be included in the request that's sent to
-        // the server.
+        
+        
+        
+        
+        
         const pendingSegment = (0, _cache.upgradeToPendingSegment)(
           revalidatingSegment,
           fetchStrategy,
@@ -6863,7 +6863,7 @@
         );
         return pendingSegment;
       } else {
-        // There's already a revalidation in progress.
+        
         const nonEmptyRevalidatingSegment = revalidatingSegment;
         if (
           (0, _cache.canNewFetchStrategyProvideMoreContent)(
@@ -6871,8 +6871,8 @@
             fetchStrategy,
           )
         ) {
-          // The existing revalidation was fetched using a less specific strategy.
-          // Reset it and start a new revalidation.
+          
+          
           const emptySegment = (0,
           _cache.overwriteRevalidatingSegmentCacheEntry)(
             fetchStrategy,
@@ -6891,13 +6891,13 @@
         }
         switch (nonEmptyRevalidatingSegment.status) {
           case _cache.EntryStatus.Pending:
-            // There's already an in-progress prefetch that includes this segment.
+            
             return null;
           case _cache.EntryStatus.Fulfilled:
           case _cache.EntryStatus.Rejected:
-            // A previous revalidation attempt finished, but we chose not to replace
-            // the existing entry in the cache. Don't try again until or unless the
-            // revalidation entry expires.
+            
+            
+            
             return null;
           default:
             nonEmptyRevalidatingSegment;
@@ -6907,10 +6907,10 @@
     }
     const noop = () => {};
     function upsertSegmentOnCompletion(promise, varyPath) {
-      // Wait for a segment to finish loading, then upsert it into the cache
+      
       promise.then((fulfilled) => {
         if (fulfilled !== null) {
-          // Received new data. Attempt to replace the existing entry in the cache.
+          
           (0, _cache.upsertSegmentEntry)(Date.now(), varyPath, fulfilled);
         }
       }, noop);
@@ -6921,16 +6921,16 @@
       cachedSegment,
     ) {
       if (cachedSegment === _segment.PAGE_SEGMENT_KEY) {
-        // In the FlightRouterState stored by the router, the page segment has the
-        // rendered search params appended to the name of the segment. In the
-        // prefetch cache, however, this is stored separately. So, when comparing
-        // the router's current FlightRouterState to the cached FlightRouterState,
-        // we need to make sure we compare both parts of the segment.
-        // TODO: This is not modeled clearly. We use the same type,
-        // FlightRouterState, for both the CacheNode tree _and_ the prefetch cache
-        // _and_ the server response format, when conceptually those are three
-        // different things and treated in different ways. We should encode more of
-        // this information into the type design so mistakes are less likely.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return (
           currentSegment ===
           (0, _segment.addSearchParamsIfPageSegment)(
@@ -6939,31 +6939,31 @@
           )
         );
       }
-      // Non-page segments are compared using the same function as the server
+      
       return (0, _matchsegments.matchSegment)(cachedSegment, currentSegment);
     }
-    // -----------------------------------------------------------------------------
-    // The remainder of the module is a MinHeap implementation. Try not to put any
-    // logic below here unless it's related to the heap algorithm. We can extract
-    // this to a separate module if/when we need multiple kinds of heaps.
-    // -----------------------------------------------------------------------------
+    
+    
+    
+    
+    
     function compareQueuePriority(a, b) {
-      // Since the queue is a MinHeap, this should return a positive number if b is
-      // higher priority than a, and a negative number if a is higher priority
-      // than b.
-      // `priority` is an integer, where higher numbers are higher priority.
+      
+      
+      
+      
       const priorityDiff = b.priority - a.priority;
       if (priorityDiff !== 0) {
         return priorityDiff;
       }
-      // If the priority is the same, check which phase the prefetch is in — is it
-      // prefetching the route tree, or the segments? Route trees are prioritized.
+      
+      
       const phaseDiff = b.phase - a.phase;
       if (phaseDiff !== 0) {
         return phaseDiff;
       }
-      // Finally, check the insertion order. `sortId` is an incrementing counter
-      // assigned to prefetches. We want to process the newest prefetches first.
+      
+      
       return b.sortId - a.sortId;
     }
     function heapPush(heap, node) {
@@ -7012,10 +7012,10 @@
           const parentIndex = (index - 1) >>> 1;
           const parent = heap[parentIndex];
           if (compareQueuePriority(parent, node) > 0) {
-            // The parent is larger. Sift up.
+            
             heapSiftUp(heap, node, index);
           } else {
-            // The parent is smaller (or equal). Sift down.
+            
             heapSiftDown(heap, node, index);
           }
         }
@@ -7027,14 +7027,14 @@
         const parentIndex = (index - 1) >>> 1;
         const parent = heap[parentIndex];
         if (compareQueuePriority(parent, node) > 0) {
-          // The parent is larger. Swap positions.
+          
           heap[parentIndex] = node;
           node._heapIndex = parentIndex;
           heap[index] = parent;
           parent._heapIndex = index;
           index = parentIndex;
         } else {
-          // The parent is smaller. Exit.
+          
           return;
         }
       }
@@ -7048,7 +7048,7 @@
         const left = heap[leftIndex];
         const rightIndex = leftIndex + 1;
         const right = heap[rightIndex];
-        // If the left or right node is smaller, swap with the smaller of those.
+        
         if (compareQueuePriority(left, node) < 0) {
           if (rightIndex < length && compareQueuePriority(right, left) < 0) {
             heap[index] = right;
@@ -7073,7 +7073,7 @@
           node._heapIndex = rightIndex;
           index = rightIndex;
         } else {
-          // Neither child is smaller. Exit.
+          
           return;
         }
       }
@@ -7088,14 +7088,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=scheduler.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/normalize-trailing-slash.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7119,7 +7119,7 @@
         return path;
       }
       const { pathname, query, hash } = (0, _parsepath.parsePath)(path);
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       return `${(0, _removetrailingslash.removeTrailingSlash)(pathname)}${query}${hash}`;
     };
@@ -7133,14 +7133,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=normalize-trailing-slash.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/add-base-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7177,14 +7177,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=add-base-path.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7221,7 +7221,7 @@
       return url.origin !== window.location.origin;
     }
     function createPrefetchURL(href) {
-      // Don't prefetch for bots as they don't navigate.
+      
       if ((0, _isbot.isBot)(window.navigator.userAgent)) {
         return null;
       }
@@ -7232,8 +7232,8 @@
           window.location.href,
         );
       } catch (_) {
-        // TODO: Does this need to throw or can we just console.error instead? Does
-        // anyone rely on this throwing? (Seems unlikely.)
+        
+        
         throw Object.defineProperty(
           new Error(
             `Cannot prefetch '${href}' because it cannot be converted to a URL.`,
@@ -7246,11 +7246,11 @@
           },
         );
       }
-      // Don't prefetch during development (improves compilation performance)
+      
       if (("TURBOPACK compile-time truthy", 1)) {
         return null;
       }
-      //TURBOPACK unreachable
+      
     }
     if (
       (typeof exports.default === "function" ||
@@ -7262,14 +7262,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-router-utils.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/links.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7340,8 +7340,8 @@
     const _react = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
     );
-    // Tracks the most recently navigated link instance. When null, indicates
-    // the current navigation was not initiated by a link click.
+    
+    
     let linkForMostRecentNavigation = null;
     const PENDING_LINK_STATUS = {
       pending: true,
@@ -7361,16 +7361,16 @@
         linkForMostRecentNavigation = null;
       }
     }
-    // Use a WeakMap to associate a Link instance with its DOM element. This is
-    // used by the IntersectionObserver to track the link's visibility.
+    
+    
     const prefetchable =
       typeof WeakMap === "function" ? new WeakMap() : new Map();
-    // A Set of the currently visible links. We re-prefetch visible links after a
-    // cache invalidation, or when the current URL changes. It's a separate data
-    // structure from the WeakMap above because only the visible links need to
-    // be enumerated.
+    
+    
+    
+    
     const prefetchableAndVisible = new Set();
-    // A single IntersectionObserver instance shared by all <Link> components.
+    
     const observer =
       typeof IntersectionObserver === "function"
         ? new IntersectionObserver(handleIntersect, {
@@ -7380,12 +7380,12 @@
     function observeVisibility(element, instance) {
       const existingInstance = prefetchable.get(element);
       if (existingInstance !== undefined) {
-        // This shouldn't happen because each <Link> component should have its own
-        // anchor tag instance, but it's defensive coding to avoid a memory leak in
-        // case there's a logical error somewhere else.
+        
+        
+        
         unmountPrefetchableInstance(element);
       }
-      // Only track prefetchable links that have a valid prefetch URL
+      
       prefetchable.set(element, instance);
       if (observer !== null) {
         observer.observe(element);
@@ -7399,11 +7399,11 @@
         try {
           return createPrefetchURL(href);
         } catch {
-          // createPrefetchURL sometimes throws an error if an invalid URL is
-          // provided, though I'm not sure if it's actually necessary.
-          // TODO: Consider removing the throw from the inner function, or change it
-          // to reportError. Or maybe the error isn't even necessary for automatic
-          // prefetches, just navigations.
+          
+          
+          
+          
+          
           const reportErrorFn =
             typeof reportError === "function" ? reportError : console.error;
           reportErrorFn(
@@ -7434,14 +7434,14 @@
             prefetchHref: prefetchURL.href,
             setOptimisticLinkStatus,
           };
-          // We only observe the link's visibility if it's prefetchable. For
-          // example, this excludes links to external URLs.
+          
+          
           observeVisibility(element, instance);
           return instance;
         }
       }
-      // If the link is not prefetchable, we still create an instance so we can
-      // track its optimistic state (i.e. useLinkStatus).
+      
+      
       const instance = {
         router,
         fetchStrategy,
@@ -7455,10 +7455,10 @@
     function mountFormInstance(element, href, router, fetchStrategy) {
       const prefetchURL = coercePrefetchableUrl(href);
       if (prefetchURL === null) {
-        // This href is not prefetchable, so we don't track it.
-        // TODO: We currently observe/unobserve a form every time its href changes.
-        // For Links, this isn't a big deal because the href doesn't usually change,
-        // but for forms it's extremely common. We should optimize this.
+        
+        
+        
+        
         return;
       }
       const instance = {
@@ -7487,21 +7487,21 @@
     }
     function handleIntersect(entries) {
       for (const entry of entries) {
-        // Some extremely old browsers or polyfills don't reliably support
-        // isIntersecting so we check intersectionRatio instead. (Do we care? Not
-        // really. But whatever this is fine.)
+        
+        
+        
         const isVisible = entry.intersectionRatio > 0;
         onLinkVisibilityChanged(entry.target, isVisible);
       }
     }
     function onLinkVisibilityChanged(element, isVisible) {
       if (("TURBOPACK compile-time truthy", 1)) {
-        // Prefetching on viewport is disabled in development for performance
-        // reasons, because it requires compiling the target page.
-        // TODO: Investigate re-enabling this.
+        
+        
+        
         return;
       }
-      //TURBOPACK unreachable
+      
       const instance = undefined;
     }
     function onNavigationIntent(element, unstable_upgradeToDynamicPrefetch) {
@@ -7509,27 +7509,27 @@
       if (instance === undefined) {
         return;
       }
-      // Prefetch the link on hover/touchstart.
+      
       if (instance !== undefined) {
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         rescheduleLinkPrefetch(instance, _types.PrefetchPriority.Intent);
       }
     }
     function rescheduleLinkPrefetch(instance, priority) {
-      // Ensures that app-router-instance is not compiled in the server bundle
+      
       if (typeof window !== "undefined") {
         const existingPrefetchTask = instance.prefetchTask;
         if (!instance.isVisible) {
-          // Cancel any in-progress prefetch task. (If it already finished then this
-          // is a no-op.)
+          
+          
           if (existingPrefetchTask !== null) {
             (0, _scheduler.cancelPrefetchTask)(existingPrefetchTask);
           }
-          // We don't need to reset the prefetchTask to null upon cancellation; an
-          // old task object can be rescheduled with reschedulePrefetchTask. This is a
-          // micro-optimization but also makes the code simpler (don't need to
-          // worry about whether an old task object is stale).
+          
+          
+          
+          
           return;
         }
         const { getCurrentAppRouterState } = __turbopack_context__.r(
@@ -7539,7 +7539,7 @@
         if (appRouterState !== null) {
           const treeAtTimeOfPrefetch = appRouterState.tree;
           if (existingPrefetchTask === null) {
-            // Initiate a prefetch task.
+            
             const nextUrl = appRouterState.nextUrl;
             const cacheKey = (0, _cachekey.createCacheKey)(
               instance.prefetchHref,
@@ -7553,8 +7553,8 @@
               null,
             );
           } else {
-            // We already have an old task object that we can reschedule. This is
-            // effectively the same as canceling the old task and creating a new one.
+            
+            
             (0, _scheduler.reschedulePrefetchTask)(
               existingPrefetchTask,
               treeAtTimeOfPrefetch,
@@ -7566,13 +7566,13 @@
       }
     }
     function pingVisibleLinks(nextUrl, tree) {
-      // For each currently visible link, cancel the existing prefetch task (if it
-      // exists) and schedule a new one. This is effectively the same as if all the
-      // visible links left and then re-entered the viewport.
-      //
-      // This is called when the Next-Url or the base tree changes, since those
-      // may affect the result of a prefetch task. It's also called after a
-      // cache invalidation.
+      
+      
+      
+      
+      
+      
+      
       for (const instance of prefetchableAndVisible) {
         const task = instance.prefetchTask;
         if (
@@ -7581,8 +7581,8 @@
         ) {
           continue;
         }
-        // Something changed. Cancel the existing prefetch task and schedule a
-        // new one.
+        
+        
         if (task !== null) {
           (0, _scheduler.cancelPrefetchTask)(task);
         }
@@ -7609,14 +7609,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=links.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/cache.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7776,7 +7776,7 @@
     function getStaleTimeMs(staleTimeSeconds) {
       return Math.max(staleTimeSeconds, 30) * 1000;
     }
-    var EntryStatus = /*#__PURE__*/ (function (EntryStatus) {
+    var EntryStatus =  (function (EntryStatus) {
       EntryStatus[(EntryStatus["Empty"] = 0)] = "Empty";
       EntryStatus[(EntryStatus["Pending"] = 1)] = "Pending";
       EntryStatus[(EntryStatus["Fulfilled"] = 2)] = "Fulfilled";
@@ -7789,41 +7789,41 @@
     const MetadataOnlyRequestTree = ["", {}, null, "metadata-only"];
     let routeCacheMap = (0, _cachemap.createCacheMap)();
     let segmentCacheMap = (0, _cachemap.createCacheMap)();
-    // All invalidation listeners for the whole cache are tracked in single set.
-    // Since we don't yet support tag or path-based invalidation, there's no point
-    // tracking them any more granularly than this. Once we add granular
-    // invalidation, that may change, though generally the model is to just notify
-    // the listeners and allow the caller to poll the prefetch cache with a new
-    // prefetch task if desired.
+    
+    
+    
+    
+    
+    
     let invalidationListeners = null;
-    // Incrementing counter used to track cache invalidations.
+    
     let currentCacheVersion = 0;
     function getCurrentCacheVersion() {
       return currentCacheVersion;
     }
     function revalidateEntireCache(nextUrl, tree) {
-      // Increment the current cache version. This does not eagerly evict anything
-      // from the cache, but because all the entries are versioned, and we check
-      // the version when reading from the cache, this effectively causes all
-      // entries to be evicted lazily. We do it lazily because in the future,
-      // actions like revalidateTag or refresh will not evict the entire cache,
-      // but rather some subset of the entries.
+      
+      
+      
+      
+      
+      
       currentCacheVersion++;
-      // Start a cooldown before re-prefetching to allow CDN cache propagation.
+      
       (0, _scheduler.startRevalidationCooldown)();
-      // Prefetch all the currently visible links again, to re-fill the cache.
+      
       (0, _links.pingVisibleLinks)(nextUrl, tree);
-      // Similarly, notify all invalidation listeners (i.e. those passed to
-      // `router.prefetch(onInvalidate)`), so they can trigger a new prefetch
-      // if needed.
+      
+      
+      
       pingInvalidationListeners(nextUrl, tree);
     }
     function attachInvalidationListener(task) {
-      // This function is called whenever a prefetch task reads a cache entry. If
-      // the task has an onInvalidate function associated with it — i.e. the one
-      // optionally passed to router.prefetch(onInvalidate) — then we attach that
-      // listener to the every cache entry that the task reads. Then, if an entry
-      // is invalidated, we call the function.
+      
+      
+      
+      
+      
       if (task.onInvalidate !== null) {
         if (invalidationListeners === null) {
           invalidationListeners = new Set([task]);
@@ -7835,10 +7835,10 @@
     function notifyInvalidationListener(task) {
       const onInvalidate = task.onInvalidate;
       if (onInvalidate !== null) {
-        // Clear the callback from the task object to guarantee it's not called more
-        // than once.
+        
+        
         task.onInvalidate = null;
-        // This is a user-space function, so we must wrap in try/catch.
+        
         try {
           onInvalidate();
         } catch (error) {
@@ -7851,10 +7851,10 @@
       }
     }
     function pingInvalidationListeners(nextUrl, tree) {
-      // The rough equivalent of pingVisibleLinks, but for onInvalidate callbacks.
-      // This is called when the Next-Url or the base tree changes, since those
-      // may affect the result of a prefetch task. It's also called after a
-      // cache invalidation.
+      
+      
+      
+      
       if (invalidationListeners !== null) {
         const tasks = invalidationListeners;
         invalidationListeners = null;
@@ -7901,14 +7901,14 @@
       );
     }
     function waitForSegmentCacheEntry(pendingEntry) {
-      // Because the entry is pending, there's already a in-progress request.
-      // Attach a promise to the entry that will resolve when the server responds.
+      
+      
       let promiseWithResolvers = pendingEntry.promise;
       if (promiseWithResolvers === null) {
         promiseWithResolvers = pendingEntry.promise = (0,
         _promisewithresolvers.createPromiseWithResolvers)();
       } else {
-        // There's already a promise we can use
+        
       }
       return promiseWithResolvers.promise;
     }
@@ -7918,25 +7918,25 @@
       if (existingEntry !== null) {
         return existingEntry;
       }
-      // Create a pending entry and add it to the cache.
+      
       const pendingEntry = {
         canonicalUrl: null,
         status: 0,
         blockedTasks: null,
         tree: null,
         metadata: null,
-        // This is initialized to true because we don't know yet whether the route
-        // could be intercepted. It's only set to false once we receive a response
-        // from the server.
+        
+        
+        
         couldBeIntercepted: true,
-        // Similarly, we don't yet know if the route supports PPR.
+        
         isPPREnabled: false,
         renderedSearch: null,
-        // Map-related fields
+        
         ref: null,
         size: 0,
-        // Since this is an empty entry, there's no reason to ever evict it. It will
-        // be updated when the data is populated.
+        
+        
         staleAt: Infinity,
         version: getCurrentCacheVersion(),
       };
@@ -7955,32 +7955,32 @@
       return pendingEntry;
     }
     function requestOptimisticRouteCacheEntry(now, requestedUrl, nextUrl) {
-      // This function is called during a navigation when there was no matching
-      // route tree in the prefetch cache. Before de-opting to a blocking,
-      // unprefetched navigation, we will first attempt to construct an "optimistic"
-      // route tree by checking the cache for similar routes.
-      //
-      // Check if there's a route with the same pathname, but with different
-      // search params. We can then base our optimistic route tree on this entry.
-      //
-      // Conceptually, we are simulating what would happen if we did perform a
-      // prefetch the requested URL, under the assumption that the server will
-      // not redirect or rewrite the request in a different manner than the
-      // base route tree. This assumption might not hold, in which case we'll have
-      // to recover when we perform the dynamic navigation request. However, this
-      // is what would happen if a route were dynamically rewritten/redirected
-      // in between the prefetch and the navigation. So the logic needs to exist
-      // to handle this case regardless.
-      // Look for a route with the same pathname, but with an empty search string.
-      // TODO: There's nothing inherently special about the empty search string;
-      // it's chosen somewhat arbitrarily, with the rationale that it's the most
-      // likely one to exist. But we should update this to match _any_ search
-      // string. The plan is to generalize this logic alongside other improvements
-      // related to "fallback" cache entries.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const requestedSearch = requestedUrl.search;
       if (requestedSearch === "") {
-        // The caller would have already checked if a route with an empty search
-        // string is in the cache. So we can bail out here.
+        
+        
         return null;
       }
       const urlWithoutSearchParams = new URL(requestedUrl);
@@ -7993,16 +7993,16 @@
         routeWithNoSearchParams === null ||
         routeWithNoSearchParams.status !== 2
       ) {
-        // Bail out of constructing an optimistic route tree. This will result in
-        // a blocking, unprefetched navigation.
+        
+        
         return null;
       }
-      // Now we have a base route tree we can "patch" with our optimistic values.
-      // Optimistically assume that redirects for the requested pathname do
-      // not vary on the search string. Therefore, if the base route was
-      // redirected to a different search string, then the optimistic route
-      // should be redirected to the same search string. Otherwise, we use
-      // the requested search string.
+      
+      
+      
+      
+      
+      
       const canonicalUrlForRouteWithNoSearchParams = new URL(
         routeWithNoSearchParams.canonicalUrl,
         requestedUrl.origin,
@@ -8011,11 +8011,11 @@
         canonicalUrlForRouteWithNoSearchParams.search !== ""
           ? canonicalUrlForRouteWithNoSearchParams.search
           : requestedSearch;
-      // Similarly, optimistically assume that rewrites for the requested
-      // pathname do not vary on the search string. Therefore, if the base
-      // route was rewritten to a different search string, then the optimistic
-      // route should be rewritten to the same search string. Otherwise, we use
-      // the requested search string.
+      
+      
+      
+      
+      
       const optimisticRenderedSearch =
         routeWithNoSearchParams.renderedSearch !== ""
           ? routeWithNoSearchParams.renderedSearch
@@ -8036,32 +8036,32 @@
         routeWithNoSearchParams.metadata,
         optimisticRenderedSearch,
       );
-      // Clone the base route tree, and override the relevant fields with our
-      // optimistic values.
+      
+      
       const optimisticEntry = {
         canonicalUrl: optimisticCanonicalUrl,
         status: 2,
-        // This isn't cloned because it's instance-specific
+        
         blockedTasks: null,
         tree: optimisticRouteTree,
         metadata: optimisticMetadataTree,
         couldBeIntercepted: routeWithNoSearchParams.couldBeIntercepted,
         isPPREnabled: routeWithNoSearchParams.isPPREnabled,
-        // Override the rendered search with the optimistic value.
+        
         renderedSearch: optimisticRenderedSearch,
-        // Map-related fields
+        
         ref: null,
         size: 0,
         staleAt: routeWithNoSearchParams.staleAt,
         version: routeWithNoSearchParams.version,
       };
-      // Do not insert this entry into the cache. It only exists so we can
-      // perform the current navigation. Just return it to the caller.
+      
+      
       return optimisticEntry;
     }
     function createOptimisticRouteTree(tree, newRenderedSearch) {
-      // Create a new route tree that identical to the original one except for
-      // the rendered search string, which is contained in the vary path.
+      
+      
       let clonedSlots = null;
       const originalSlots = tree.slots;
       if (originalSlots !== null) {
@@ -8074,7 +8074,7 @@
           );
         }
       }
-      // We only need to clone the vary path if the route is a page.
+      
       if (tree.isPage) {
         return {
           requestKey: tree.requestKey,
@@ -8106,7 +8106,7 @@
       if (existingEntry !== null) {
         return existingEntry;
       }
-      // Create a pending entry and add it to the cache.
+      
       const varyPathForRequest = (0, _varypath.getSegmentVaryPathForRequest)(
         fetchStrategy,
         tree,
@@ -8127,32 +8127,32 @@
       route,
       tree,
     ) {
-      // This function is called when we've already confirmed that a particular
-      // segment is cached, but we want to perform another request anyway in case it
-      // returns more complete and/or fresher data than we already have. The logic
-      // for deciding whether to replace the existing entry is handled elsewhere;
-      // this function just handles retrieving a cache entry that we can use to
-      // track the revalidation.
-      //
-      // The reason revalidations are stored in the cache is because we need to be
-      // able to dedupe multiple revalidation requests. The reason they have to be
-      // handled specially is because we shouldn't overwrite a "normal" entry if
-      // one exists at the same keypath. So, for each internal cache location, there
-      // is a special "revalidation" slot that is used solely for this purpose.
-      //
-      // You can think of it as if all the revalidation entries were stored in a
-      // separate cache map from the canonical entries, and then transfered to the
-      // canonical cache map once the request is complete — this isn't how it's
-      // actually implemented, since it's more efficient to store them in the same
-      // data structure as the normal entries, but that's how it's modeled
-      // conceptually.
-      // TODO: Once we implement Fallback behavior for params, where an entry is
-      // re-keyed based on response information, we'll need to account for the
-      // possibility that the keypath of the previous entry is more generic than
-      // the keypath of the revalidating entry. In other words, the server could
-      // return a less generic entry upon revalidation. For now, though, this isn't
-      // a concern because the keypath is based solely on the prefetch strategy,
-      // not on data contained in the response.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const existingEntry = readRevalidatingSegmentCacheEntry(
         now,
         tree.varyPath,
@@ -8160,7 +8160,7 @@
       if (existingEntry !== null) {
         return existingEntry;
       }
-      // Create a pending entry and add it to the cache.
+      
       const varyPathForRequest = (0, _varypath.getSegmentVaryPathForRequest)(
         fetchStrategy,
         tree,
@@ -8180,9 +8180,9 @@
       route,
       tree,
     ) {
-      // This function is called when we've already decided to replace an existing
-      // revalidation entry. Create a new entry and write it into the cache,
-      // overwriting the previous value.
+      
+      
+      
       const varyPathForRequest = (0, _varypath.getSegmentVaryPathForRequest)(
         fetchStrategy,
         tree,
@@ -8198,12 +8198,12 @@
       return pendingEntry;
     }
     function upsertSegmentEntry(now, varyPath, candidateEntry) {
-      // We have a new entry that has not yet been inserted into the cache. Before
-      // we do so, we need to confirm whether it takes precedence over the existing
-      // entry (if one exists).
-      // TODO: We should not upsert an entry if its key was invalidated in the time
-      // since the request was made. We can do that by passing the "owner" entry to
-      // this function and confirming it's the same as `existingEntry`.
+      
+      
+      
+      
+      
+      
       if (
         (0, _cachemap.isValueExpired)(
           now,
@@ -8211,36 +8211,36 @@
           candidateEntry,
         )
       ) {
-        // The entry is expired. We cannot upsert it.
+        
         return null;
       }
       const existingEntry = readSegmentCacheEntry(now, varyPath);
       if (existingEntry !== null) {
-        // Don't replace a more specific segment with a less-specific one. A case where this
-        // might happen is if the existing segment was fetched via
-        // `<Link prefetch={true}>`.
+        
+        
+        
         if (
-          // than the segment we already have in the cache, so it can't have more content.
+          
           (candidateEntry.fetchStrategy !== existingEntry.fetchStrategy &&
             !canNewFetchStrategyProvideMoreContent(
               existingEntry.fetchStrategy,
               candidateEntry.fetchStrategy,
-            )) || // The existing entry isn't partial, but the new one is.
-          // (TODO: can this be true if `candidateEntry.fetchStrategy >= existingEntry.fetchStrategy`?)
+            )) || 
+          
           (!existingEntry.isPartial && candidateEntry.isPartial)
         ) {
-          // We're going to leave revalidating entry in the cache so that it doesn't
-          // get revalidated again unnecessarily. Downgrade the Fulfilled entry to
-          // Rejected and null out the data so it can be garbage collected. We leave
-          // `staleAt` intact to prevent subsequent revalidation attempts only until
-          // the entry expires.
+          
+          
+          
+          
+          
           const rejectedEntry = candidateEntry;
           rejectedEntry.status = 3;
           rejectedEntry.loading = null;
           rejectedEntry.rsc = null;
           return null;
         }
-        // Evict the existing entry from the cache.
+        
         (0, _cachemap.deleteFromCacheMap)(existingEntry);
       }
       const isRevalidation = false;
@@ -8255,14 +8255,14 @@
     function createDetachedSegmentCacheEntry(staleAt) {
       const emptyEntry = {
         status: 0,
-        // Default to assuming the fetch strategy will be PPR. This will be updated
-        // when a fetch is actually initiated.
+        
+        
         fetchStrategy: _types.FetchStrategy.PPR,
         rsc: null,
         loading: null,
         isPartial: true,
         promise: null,
-        // Map-related fields
+        
         ref: null,
         size: 0,
         staleAt,
@@ -8274,11 +8274,11 @@
       const pendingEntry = emptyEntry;
       pendingEntry.status = 1;
       pendingEntry.fetchStrategy = fetchStrategy;
-      // Set the version here, since this is right before the request is initiated.
-      // The next time the global cache version is incremented, the entry will
-      // effectively be evicted. This happens before initiating the request, rather
-      // than when receiving the response, because it's guaranteed to happen
-      // before the data is read on the server.
+      
+      
+      
+      
+      
       pendingEntry.version = getCurrentCacheVersion();
       return pendingEntry;
     }
@@ -8301,17 +8301,17 @@
       renderedSearch,
       isPPREnabled,
     ) {
-      // The Head is not actually part of the route tree, but other than that, it's
-      // fetched and cached like a segment. Some functions expect a RouteTree
-      // object, so rather than fork the logic in all those places, we use this
-      // "fake" one.
+      
+      
+      
+      
       const metadata = {
         requestKey: _segmentvalueencoding.HEAD_REQUEST_KEY,
         segment: _segmentvalueencoding.HEAD_REQUEST_KEY,
         varyPath: metadataVaryPath,
-        // The metadata isn't really a "page" (though it isn't really a "segment"
-        // either) but for the purposes of how this field is used, it behaves like
-        // one. If this logic ever gets more complex we can change this to an enum.
+        
+        
+        
         isPage: true,
         slots: null,
         isRootLayout: false,
@@ -8344,10 +8344,10 @@
       fulfilledEntry.loading = loading;
       fulfilledEntry.staleAt = staleAt;
       fulfilledEntry.isPartial = isPartial;
-      // Resolve any listeners that were waiting for this data.
+      
       if (segmentCacheEntry.promise !== null) {
         segmentCacheEntry.promise.resolve(fulfilledEntry);
-        // Free the promise for garbage collection.
+        
         fulfilledEntry.promise = null;
       }
       return fulfilledEntry;
@@ -8363,8 +8363,8 @@
       rejectedEntry.status = 3;
       rejectedEntry.staleAt = staleAt;
       if (entry.promise !== null) {
-        // NOTE: We don't currently propagate the reason the prefetch was canceled
-        // but we could by accepting a `reason` argument.
+        
+        
         entry.promise.resolve(null);
         entry.promise = null;
       }
@@ -8375,7 +8375,7 @@
       renderedSearch,
       acc,
     ) {
-      // Remove trailing and leading slashes
+      
       const pathnameParts = renderedPathname.split("/").filter((p) => p !== "");
       const index = 0;
       const rootSegment = _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY;
@@ -8400,11 +8400,11 @@
       renderedSearch,
       acc,
     ) {
-      // Converts the route tree sent by the server into the format used by the
-      // cache. The cached version of the tree includes additional fields, such as a
-      // cache key for each segment. Since this is frequently accessed, we compute
-      // it once instead of on every access. This same cache key is also used to
-      // request the segment from the server.
+      
+      
+      
+      
+      
       let slots = null;
       let isPage;
       let varyPath;
@@ -8425,23 +8425,23 @@
           let childSegment;
           let childPartialVaryPath;
           if (childParamType !== null) {
-            // This segment is parameterized. Get the param from the pathname.
+            
             const childParamValue = (0,
             _routeparams.parseDynamicParamFromURLPart)(
               childParamType,
               pathnameParts,
               pathnamePartsIndex,
             );
-            // Assign a cache key to the segment, based on the param value. In the
-            // pre-Segment Cache implementation, the server computes this and sends
-            // it in the body of the response. In the Segment Cache implementation,
-            // the server sends an empty string and we fill it in here.
-            // TODO: We're intentionally not adding the search param to page
-            // segments here; it's tracked separately and added back during a read.
-            // This would clearer if we waited to construct the segment until it's
-            // read from the cache, since that's effectively what we're
-            // doing anyway.
-            const childParamKey = // cacheComponents is enabled.
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            const childParamKey = 
               childServerSentParamKey !== null
                 ? childServerSentParamKey
                 : (0, _routeparams.getCacheKeyForDynamicParam)(
@@ -8455,15 +8455,15 @@
             childSegment = [childParamName, childParamKey, childParamType];
             childDoesAppearInURL = true;
           } else {
-            // This segment does not have a param. Inherit the partial vary path of
-            // the parent.
+            
+            
             childPartialVaryPath = partialVaryPath;
             childSegment = childParamName;
             childDoesAppearInURL = (0,
             _routeparams.doesStaticSegmentAppearInURL)(childParamName);
           }
-          // Only increment the index if the segment appears in the URL. If it's a
-          // "virtual" segment, like a route group, it remains the same.
+          
+          
           const childPathnamePartsIndex = childDoesAppearInURL
             ? pathnamePartsIndex + 1
             : pathnamePartsIndex;
@@ -8488,19 +8488,19 @@
         }
       } else {
         if (requestKey.endsWith(_segment.PAGE_SEGMENT_KEY)) {
-          // This is a page segment.
+          
           isPage = true;
           varyPath = (0, _varypath.finalizePageVaryPath)(
             requestKey,
             renderedSearch,
             partialVaryPath,
           );
-          // The metadata "segment" is not part the route tree, but it has the same
-          // conceptual params as a page segment. Write the vary path into the
-          // accumulator object. If there are multiple parallel pages, we use the
-          // first one. Which page we choose is arbitrary as long as it's
-          // consistently the same one every time every time. See
-          // finalizeMetadataVaryPath for more details.
+          
+          
+          
+          
+          
+          
           if (acc.metadataVaryPath === null) {
             acc.metadataVaryPath = (0, _varypath.finalizeMetadataVaryPath)(
               requestKey,
@@ -8509,7 +8509,7 @@
             );
           }
         } else {
-          // This is a layout segment.
+          
           isPage = false;
           varyPath = (0, _varypath.finalizeLayoutVaryPath)(
             requestKey,
@@ -8521,17 +8521,17 @@
         requestKey,
         segment,
         varyPath,
-        // TODO: Cheating the type system here a bit because TypeScript can't tell
-        // that the type of isPage and varyPath are consistent. The fix would be to
-        // create separate constructors and call the appropriate one from each of
-        // the branches above. Just seems a bit overkill only for one field so I'll
-        // leave it as-is for now. If isPage were wrong it would break the behavior
-        // and we'd catch it quickly, anyway.
+        
+        
+        
+        
+        
+        
         isPage: isPage,
         slots,
         isRootLayout: prefetch.isRootLayout,
-        // This field is only relevant to dynamic routes. For a PPR/static route,
-        // there's always some partial loading state we can fetch.
+        
+        
         hasLoadingBoundary:
           _approutertypes.HasLoadingBoundary.SegmentHasLoadingBoundary,
         hasRuntimePrefetch: prefetch.hasRuntimePrefetch,
@@ -8575,33 +8575,33 @@
         );
         segment = originalSegment;
       } else {
-        // This segment does not have a param. Inherit the partial vary path of
-        // the parent.
+        
+        
         partialVaryPath = parentPartialVaryPath;
         if (requestKey.endsWith(_segment.PAGE_SEGMENT_KEY)) {
-          // This is a page segment.
+          
           isPage = true;
-          // The navigation implementation expects the search params to be included
-          // in the segment. However, in the case of a static response, the search
-          // params are omitted. So the client needs to add them back in when reading
-          // from the Segment Cache.
-          //
-          // For consistency, we'll do this for dynamic responses, too.
-          //
-          // TODO: We should move search params out of FlightRouterState and handle
-          // them entirely on the client, similar to our plan for dynamic params.
+          
+          
+          
+          
+          
+          
+          
+          
+          
           segment = _segment.PAGE_SEGMENT_KEY;
           varyPath = (0, _varypath.finalizePageVaryPath)(
             requestKey,
             renderedSearch,
             partialVaryPath,
           );
-          // The metadata "segment" is not part the route tree, but it has the same
-          // conceptual params as a page segment. Write the vary path into the
-          // accumulator object. If there are multiple parallel pages, we use the
-          // first one. Which page we choose is arbitrary as long as it's
-          // consistently the same one every time every time. See
-          // finalizeMetadataVaryPath for more details.
+          
+          
+          
+          
+          
+          
           if (acc.metadataVaryPath === null) {
             acc.metadataVaryPath = (0, _varypath.finalizeMetadataVaryPath)(
               requestKey,
@@ -8610,7 +8610,7 @@
             );
           }
         } else {
-          // This is a layout segment.
+          
           isPage = false;
           segment = originalSegment;
           varyPath = (0, _varypath.finalizeLayoutVaryPath)(
@@ -8624,9 +8624,9 @@
       for (let parallelRouteKey in parallelRoutes) {
         const childRouterState = parallelRoutes[parallelRouteKey];
         const childSegment = childRouterState[0];
-        // TODO: Eventually, the param values will not be included in the response
-        // from the server. We'll instead fill them in on the client by parsing
-        // the URL. This is where we'll do that.
+        
+        
+        
         const childRequestKeyPart = (0,
         _segmentvalueencoding.createSegmentRequestKeyPart)(childSegment);
         const childRequestKey = (0,
@@ -8654,12 +8654,12 @@
         requestKey,
         segment,
         varyPath,
-        // TODO: Cheating the type system here a bit because TypeScript can't tell
-        // that the type of isPage and varyPath are consistent. The fix would be to
-        // create separate constructors and call the appropriate one from each of
-        // the branches above. Just seems a bit overkill only for one field so I'll
-        // leave it as-is for now. If isPage were wrong it would break the behavior
-        // and we'd catch it quickly, anyway.
+        
+        
+        
+        
+        
+        
         isPage: isPage,
         slots,
         isRootLayout: flightRouterState[4] === true,
@@ -8667,8 +8667,8 @@
           flightRouterState[5] !== undefined
             ? flightRouterState[5]
             : _approutertypes.HasLoadingBoundary.SubtreeHasNoLoadingBoundary,
-        // Non-static tree responses are only used by apps that haven't adopted
-        // Cache Components. So this is always false.
+        
+        
         hasRuntimePrefetch: false,
       };
     }
@@ -8692,10 +8692,10 @@
       return flightRouterState;
     }
     async function fetchRouteOnCacheMiss(entry, task, key) {
-      // This function is allowed to use async/await because it contains the actual
-      // fetch that gets issued on a cache miss. Notice it writes the result to the
-      // cache entry directly, rather than return data that is then written by
-      // the caller.
+      
+      
+      
+      
       const pathname = key.pathname;
       const search = key.search;
       const nextUrl = key.nextUrl;
@@ -8712,13 +8712,13 @@
         const url = new URL(pathname + search, location.origin);
         let response;
         let urlAfterRedirects;
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         else {
-          // "Server" mode. We can use request headers instead of the pathname.
-          // TODO: The eventual plan is to get rid of our custom request headers and
-          // encode everything into the URL, using a similar strategy to the
-          // "output: export" block above.
+          
+          
+          
+          
           response = await fetchPrefetchResponse(url, headers);
           urlAfterRedirects =
             response !== null && response.redirected
@@ -8727,48 +8727,48 @@
         }
         if (
           !response ||
-          !response.ok || // 204 is a Cache miss. Though theoretically this shouldn't happen when
-          // PPR is enabled, because we always respond to route tree requests, even
-          // if it needs to be blockingly generated on demand.
+          !response.ok || 
+          
+          
           response.status === 204 ||
           !response.body
         ) {
-          // Server responded with an error, or with a miss. We should still cache
-          // the response, but we can try again after 10 seconds.
+          
+          
           rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
           return null;
         }
-        // TODO: The canonical URL is the href without the origin. I think
-        // historically the reason for this is because the initial canonical URL
-        // gets passed as a prop to the top-level React component, which means it
-        // needs to be computed during SSR. If it were to include the origin, it
-        // would need to always be same as location.origin on the client, to prevent
-        // a hydration mismatch. To sidestep this complexity, we omit the origin.
-        //
-        // However, since this is neither a native URL object nor a fully qualified
-        // URL string, we need to be careful about how we use it. To prevent subtle
-        // mistakes, we should create a special type for it, instead of just string.
-        // Or, we should just use a (readonly) URL object instead. The type of the
-        // prop that we pass to seed the initial state does not need to be the same
-        // type as the state itself.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         const canonicalUrl = (0, _createhreffromurl.createHrefFromUrl)(
           urlAfterRedirects,
         );
-        // Check whether the response varies based on the Next-Url header.
+        
         const varyHeader = response.headers.get("vary");
         const couldBeIntercepted =
           varyHeader !== null &&
           varyHeader.includes(_approuterheaders.NEXT_URL);
-        // Track when the network connection closes.
+        
         const closed = (0, _promisewithresolvers.createPromiseWithResolvers)();
-        // This checks whether the response was served from the per-segment cache,
-        // rather than the old prefetching flow. If it fails, it implies that PPR
-        // is disabled on this route.
+        
+        
+        
         const routeIsPPREnabled =
           response.headers.get(_approuterheaders.NEXT_DID_POSTPONE_HEADER) ===
-            "2" || // In output: "export" mode, we can't rely on response headers. But if we
-          // receive a well-formed response, we can assume it's a static response,
-          // because all data is static in this mode.
+            "2" || 
+          
+          
           isOutputExportMode;
         if (routeIsPPREnabled) {
           const prefetchStream = createPrefetchResponseStream(
@@ -8784,27 +8784,27 @@
             headers,
           );
           if (serverData.buildId !== (0, _appbuildid.getAppBuildId)()) {
-            // The server build does not match the client. Treat as a 404. During
-            // an actual navigation, the router will trigger an MPA navigation.
-            // TODO: Consider moving the build ID to a response header so we can check
-            // it before decoding the response, and so there's one way of checking
-            // across all response types.
-            // TODO: We should cache the fact that this is an MPA navigation.
+            
+            
+            
+            
+            
+            
             rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
             return null;
           }
-          // Get the params that were used to render the target page. These may
-          // be different from the params in the request URL, if the page
-          // was rewritten.
+          
+          
+          
           const renderedPathname = (0, _routeparams.getRenderedPathname)(
             response,
           );
           const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
-          // Convert the server-sent data into the RouteTree format used by the
-          // client cache.
-          //
-          // During this traversal, we accumulate additional data into this
-          // "accumulator" object.
+          
+          
+          
+          
+          
           const acc = {
             metadataVaryPath: null,
           };
@@ -8831,11 +8831,11 @@
             routeIsPPREnabled,
           );
         } else {
-          // PPR is not enabled for this route. The server responds with a
-          // different format (FlightRouterState) that we need to convert.
-          // TODO: We will unify the responses eventually. I'm keeping the types
-          // separate for now because FlightRouterState has so many
-          // overloaded concerns.
+          
+          
+          
+          
+          
           const prefetchStream = createPrefetchResponseStream(
             response.body,
             closed.resolve,
@@ -8849,18 +8849,18 @@
             headers,
           );
           if (serverData.b !== (0, _appbuildid.getAppBuildId)()) {
-            // The server build does not match the client. Treat as a 404. During
-            // an actual navigation, the router will trigger an MPA navigation.
-            // TODO: Consider moving the build ID to a response header so we can check
-            // it before decoding the response, and so there's one way of checking
-            // across all response types.
-            // TODO: We should cache the fact that this is an MPA navigation.
+            
+            
+            
+            
+            
+            
             rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
             return null;
           }
           writeDynamicTreeResponseIntoCache(
             Date.now(),
-            task, // using the LoadingBoundary fetch strategy, so mark their cache entries accordingly.
+            task, 
             _types.FetchStrategy.LoadingBoundary,
             response,
             serverData,
@@ -8871,16 +8871,16 @@
           );
         }
         if (!couldBeIntercepted) {
-          // This route will never be intercepted. So we can use this entry for all
-          // requests to this route, regardless of the Next-Url header. This works
-          // because when reading the cache we always check for a valid
-          // non-intercepted entry first.
-          // Re-key the entry. The `set` implementation handles removing it from
-          // its previous position in the cache. We don't need to do anything to
-          // update the LRU, because the entry is already in it.
-          // TODO: Treat this as an upsert — should check if an entry already
-          // exists at the new keypath, and if so, whether we should keep that
-          // one instead.
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           const fulfilledVaryPath = (0, _varypath.getFulfilledRouteVaryPath)(
             pathname,
             search,
@@ -8895,15 +8895,15 @@
             isRevalidation,
           );
         }
-        // Return a promise that resolves when the network connection closes, so
-        // the scheduler can track the number of concurrent network connections.
+        
+        
         return {
           value: null,
           closed: closed.promise,
         };
       } catch (error) {
-        // Either the connection itself failed, or something bad happened while
-        // decoding the response.
+        
+        
         rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
         return null;
       }
@@ -8914,25 +8914,25 @@
       routeKey,
       tree,
     ) {
-      // This function is allowed to use async/await because it contains the actual
-      // fetch that gets issued on a cache miss. Notice it writes the result to the
-      // cache entry directly, rather than return data that is then written by
-      // the caller.
-      //
-      // Segment fetches are non-blocking so we don't need to ping the scheduler
-      // on completion.
-      // Use the canonical URL to request the segment, not the original URL. These
-      // are usually the same, but the canonical URL will be different if the route
-      // tree response was redirected. To avoid an extra waterfall on every segment
-      // request, we pass the redirected URL instead of the original one.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const url = new URL(route.canonicalUrl, location.origin);
       const nextUrl = routeKey.nextUrl;
       const requestKey = tree.requestKey;
       const normalizedRequestKey =
-        requestKey === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY // `_index` instead of as an empty string. This should be treated as
-          ? // an implementation detail and not as a stable part of the protocol.
-            // It just needs to match the equivalent logic that happens when
-            // prerendering the responses. It should not leak outside of Next.js.
+        requestKey === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY 
+          ? 
+            
+            
             "/_index"
           : requestKey;
       const headers = {
@@ -8952,28 +8952,28 @@
         if (
           !response ||
           !response.ok ||
-          response.status === 204 || // Cache miss
-          // This checks whether the response was served from the per-segment cache,
-          // rather than the old prefetching flow. If it fails, it implies that PPR
-          // is disabled on this route. Theoretically this should never happen
-          // because we only issue requests for segments once we've verified that
-          // the route supports PPR.
+          response.status === 204 || 
+          
+          
+          
+          
+          
           (response.headers.get(_approuterheaders.NEXT_DID_POSTPONE_HEADER) !==
-            "2" && // In output: "export" mode, we can't rely on response headers. But if
-            // we receive a well-formed response, we can assume it's a static
-            // response, because all data is static in this mode.
+            "2" && 
+            
+            
             !isOutputExportMode) ||
           !response.body
         ) {
-          // Server responded with an error, or with a miss. We should still cache
-          // the response, but we can try again after 10 seconds.
+          
+          
           rejectSegmentCacheEntry(segmentCacheEntry, Date.now() + 10 * 1000);
           return null;
         }
-        // Track when the network connection closes.
+        
         const closed = (0, _promisewithresolvers.createPromiseWithResolvers)();
-        // Wrap the original stream in a new stream that never closes. That way the
-        // Flight client doesn't error if there's a hanging promise.
+        
+        
         const prefetchStream = createPrefetchResponseStream(
           response.body,
           closed.resolve,
@@ -8987,11 +8987,11 @@
           headers,
         );
         if (serverData.buildId !== (0, _appbuildid.getAppBuildId)()) {
-          // The server build does not match the client. Treat as a 404. During
-          // an actual navigation, the router will trigger an MPA navigation.
-          // TODO: Consider moving the build ID to a response header so we can check
-          // it before decoding the response, and so there's one way of checking
-          // across all response types.
+          
+          
+          
+          
+          
           rejectSegmentCacheEntry(segmentCacheEntry, Date.now() + 10 * 1000);
           return null;
         }
@@ -8999,17 +8999,17 @@
           value: fulfillSegmentCacheEntry(
             segmentCacheEntry,
             serverData.rsc,
-            serverData.loading, // So we use the stale time of the route.
+            serverData.loading, 
             route.staleAt,
             serverData.isPartial,
           ),
-          // Return a promise that resolves when the network connection closes, so
-          // the scheduler can track the number of concurrent network connections.
+          
+          
           closed: closed.promise,
         };
       } catch (error) {
-        // Either the connection itself failed, or something bad happened while
-        // decoding the response.
+        
+        
         rejectSegmentCacheEntry(segmentCacheEntry, Date.now() + 10 * 1000);
         return null;
       }
@@ -9028,8 +9028,8 @@
         spawnedEntries.size === 1 &&
         spawnedEntries.has(route.metadata.requestKey)
       ) {
-        // The only thing pending is the head. Instruct the server to
-        // skip over everything else.
+        
+        
         dynamicRequestTree = MetadataOnlyRequestTree;
       }
       const headers = {
@@ -9061,8 +9061,8 @@
       try {
         const response = await fetchPrefetchResponse(url, headers);
         if (!response || !response.ok || !response.body) {
-          // Server responded with an error, or with a miss. We should still cache
-          // the response, but we can try again after 10 seconds.
+          
+          
           rejectSegmentEntriesIfStillPending(
             spawnedEntries,
             Date.now() + 10 * 1000,
@@ -9071,32 +9071,32 @@
         }
         const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
         if (renderedSearch !== route.renderedSearch) {
-          // The search params that were used to render the target page are
-          // different from the search params in the request URL. This only happens
-          // when there's a dynamic rewrite in between the tree prefetch and the
-          // data prefetch.
-          // TODO: For now, since this is an edge case, we reject the prefetch, but
-          // the proper way to handle this is to evict the stale route tree entry
-          // then fill the cache with the new response.
+          
+          
+          
+          
+          
+          
+          
           rejectSegmentEntriesIfStillPending(
             spawnedEntries,
             Date.now() + 10 * 1000,
           );
           return null;
         }
-        // Track when the network connection closes.
+        
         const closed = (0, _promisewithresolvers.createPromiseWithResolvers)();
         let fulfilledEntries = null;
         const prefetchStream = createPrefetchResponseStream(
           response.body,
           closed.resolve,
           function onResponseSizeUpdate(totalBytesReceivedSoFar) {
-            // When processing a dynamic response, we don't know how large each
-            // individual segment is, so approximate by assiging each segment
-            // the average of the total response size.
+            
+            
+            
             if (fulfilledEntries === null) {
-              // Haven't received enough data yet to know which segments
-              // were included.
+              
+              
               return;
             }
             const averageSize =
@@ -9115,9 +9115,9 @@
           fetchStrategy === _types.FetchStrategy.PPRRuntime
             ? serverData.rp?.[0] === true
             : false;
-        // Aside from writing the data into the cache, this function also returns
-        // the entries that were fulfilled, so we can streamingly update their sizes
-        // in the LRU as more data comes in.
+        
+        
+        
         fulfilledEntries = writeDynamicRenderResponseIntoCache(
           Date.now(),
           task,
@@ -9128,8 +9128,8 @@
           route,
           spawnedEntries,
         );
-        // Return a promise that resolves when the network connection closes, so
-        // the scheduler can track the number of concurrent network connections.
+        
+        
         return {
           value: null,
           closed: closed.promise,
@@ -9153,13 +9153,13 @@
       canonicalUrl,
       routeIsPPREnabled,
     ) {
-      // Get the URL that was used to render the target page. This may be different
-      // from the URL in the request URL, if the page was rewritten.
+      
+      
       const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
       const normalizedFlightDataResult = (0,
       _flightdatahelpers.normalizeFlightData)(serverData.f);
       if (
-        // MPA navigation.
+        
         typeof normalizedFlightDataResult === "string" ||
         normalizedFlightDataResult.length !== 1
       ) {
@@ -9168,13 +9168,13 @@
       }
       const flightData = normalizedFlightDataResult[0];
       if (!flightData.isRootRender) {
-        // Unexpected response format.
+        
         rejectRouteCacheEntry(entry, now + 10 * 1000);
         return;
       }
       const flightRouterState = flightData.tree;
-      // For runtime prefetches, stale time is in the payload at rp[1].
-      // For other responses, fall back to the header.
+      
+      
       const staleTimeSeconds =
         typeof serverData.rp?.[1] === "number"
           ? serverData.rp[1]
@@ -9187,18 +9187,18 @@
       const staleTimeMs = !isNaN(staleTimeSeconds)
         ? getStaleTimeMs(staleTimeSeconds)
         : _navigatereducer.STATIC_STALETIME_MS;
-      // If the response contains dynamic holes, then we must conservatively assume
-      // that any individual segment might contain dynamic holes, and also the
-      // head. If it did not contain dynamic holes, then we can assume every segment
-      // and the head is completely static.
+      
+      
+      
+      
       const isResponsePartial =
         response.headers.get(_approuterheaders.NEXT_DID_POSTPONE_HEADER) ===
         "1";
-      // Convert the server-sent data into the RouteTree format used by the
-      // client cache.
-      //
-      // During this traversal, we accumulate additional data into this
-      // "accumulator" object.
+      
+      
+      
+      
+      
       const acc = {
         metadataVaryPath: null,
       };
@@ -9222,15 +9222,15 @@
         renderedSearch,
         routeIsPPREnabled,
       );
-      // If the server sent segment data as part of the response, we should write
-      // it into the cache to prevent a second, redundant prefetch request.
-      //
-      // TODO: When `clientSegmentCache` is enabled, the server does not include
-      // segment data when responding to a route tree prefetch request. However,
-      // when `clientSegmentCache` is set to "client-only", and PPR is enabled (or
-      // the page is fully static), the normal check is bypassed and the server
-      // responds with the full page. This is a temporary situation until we can
-      // remove the "client-only" option. Then, we can delete this function call.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       writeDynamicRenderResponseIntoCache(
         now,
         task,
@@ -9264,11 +9264,11 @@
       spawnedEntries,
     ) {
       if (serverData.b !== (0, _appbuildid.getAppBuildId)()) {
-        // The server build does not match the client. Treat as a 404. During
-        // an actual navigation, the router will trigger an MPA navigation.
-        // TODO: Consider moving the build ID to a response header so we can check
-        // it before decoding the response, and so there's one way of checking
-        // across all response types.
+        
+        
+        
+        
+        
         if (spawnedEntries !== null) {
           rejectSegmentEntriesIfStillPending(spawnedEntries, now + 10 * 1000);
         }
@@ -9278,12 +9278,12 @@
         serverData.f,
       );
       if (typeof flightDatas === "string") {
-        // This means navigating to this route will result in an MPA navigation.
-        // TODO: We should cache this, too, so that the MPA navigation is immediate.
+        
+        
         return null;
       }
-      // For runtime prefetches, stale time is in the payload at rp[1].
-      // For other responses, fall back to the header.
+      
+      
       const staleTimeSeconds =
         typeof serverData.rp?.[1] === "number"
           ? serverData.rp[1]
@@ -9300,13 +9300,13 @@
       for (const flightData of flightDatas) {
         const seedData = flightData.seedData;
         if (seedData !== null) {
-          // The data sent by the server represents only a subtree of the app. We
-          // need to find the part of the task tree that matches the response.
-          //
-          // segmentPath represents the parent path of subtree. It's a repeating
-          // pattern of parallel route key and segment:
-          //
-          //   [string, Segment, string, Segment, string, Segment, ...]
+          
+          
+          
+          
+          
+          
+          
           const segmentPath = flightData.segmentPath;
           let tree = route.tree;
           for (let i = 0; i < segmentPath.length; i += 2) {
@@ -9350,14 +9350,14 @@
           );
         }
       }
-      // Any entry that's still pending was intentionally not rendered by the
-      // server, because it was inside the loading boundary. Mark them as rejected
-      // so we know not to fetch them again.
-      // TODO: If PPR is enabled on some routes but not others, then it's possible
-      // that a different page is able to do a per-segment prefetch of one of the
-      // segments we're marking as rejected here. We should mark on the segment
-      // somehow that the reason for the rejection is because of a non-PPR prefetch.
-      // That way a per-segment prefetch knows to disregard the rejection.
+      
+      
+      
+      
+      
+      
+      
+      
       if (spawnedEntries !== null) {
         const fulfilledEntries = rejectSegmentEntriesIfStillPending(
           spawnedEntries,
@@ -9378,8 +9378,8 @@
       isResponsePartial,
       entriesOwnedByCurrentTask,
     ) {
-      // This function is used to write the result of a runtime server request
-      // (CacheNodeSeedData) into the prefetch cache.
+      
+      
       const rsc = seedData[0];
       const loading = seedData[2];
       const isPartial = rsc === null || isResponsePartial;
@@ -9394,7 +9394,7 @@
         tree,
         entriesOwnedByCurrentTask,
       );
-      // Recursively write the child data into the cache.
+      
       const slots = tree.slots;
       if (slots !== null) {
         const seedDataChildren = seedData[1];
@@ -9428,9 +9428,9 @@
       tree,
       entriesOwnedByCurrentTask,
     ) {
-      // We should only write into cache entries that are owned by us. Or create
-      // a new one and write into that. We must never write over an entry that was
-      // created by a different task, because that causes data races.
+      
+      
+      
       const ownedEntry =
         entriesOwnedByCurrentTask !== null
           ? entriesOwnedByCurrentTask.get(tree.requestKey)
@@ -9438,7 +9438,7 @@
       if (ownedEntry !== undefined) {
         fulfillSegmentCacheEntry(ownedEntry, rsc, loading, staleAt, isPartial);
       } else {
-        // There's no matching entry. Attempt to create a new one.
+        
         const possiblyNewEntry = readOrCreateSegmentCacheEntry(
           now,
           fetchStrategy,
@@ -9446,7 +9446,7 @@
           tree,
         );
         if (possiblyNewEntry.status === 0) {
-          // Confirmed this is a new entry. We can fulfill it.
+          
           const newEntry = possiblyNewEntry;
           fulfillSegmentCacheEntry(
             upgradeToPendingSegment(newEntry, fetchStrategy),
@@ -9456,8 +9456,8 @@
             isPartial,
           );
         } else {
-          // There was already an entry in the cache. But we may be able to
-          // replace it with the new one from the server.
+          
+          
           const newEntry = fulfillSegmentCacheEntry(
             upgradeToPendingSegment(
               createDetachedSegmentCacheEntry(staleAt),
@@ -9478,10 +9478,10 @@
     }
     async function fetchPrefetchResponse(url, headers) {
       const fetchPriority = "low";
-      // When issuing a prefetch request, don't immediately decode the response; we
-      // use the lower level `createFromResponse` API instead because we need to do
-      // some extra processing of the response stream. See
-      // `createPrefetchResponseStream` for more details.
+      
+      
+      
+      
       const shouldImmediatelyDecode = false;
       const response = await (0, _fetchserverresponse.createFetch)(
         url,
@@ -9492,12 +9492,12 @@
       if (!response.ok) {
         return null;
       }
-      // Check the content type
+      
       if (("TURBOPACK compile-time falsy", 0)) {
-        // In output: "export" mode, we relaxed about the content type, since it's
-        // not Next.js that's serving the response. If the status is OK, assume the
-        // response is valid. If it's not a valid response, the Flight client won't
-        // be able to decode it, and we'll treat it as a miss.
+        
+        
+        
+        
       } else {
         const contentType = response.headers.get("content-type");
         const isFlightResponse =
@@ -9514,20 +9514,20 @@
       onStreamClose,
       onResponseSizeUpdate,
     ) {
-      // When PPR is enabled, prefetch streams may contain references that never
-      // resolve, because that's how we encode dynamic data access. In the decoded
-      // object returned by the Flight client, these are reified into hanging
-      // promises that suspend during render, which is effectively what we want.
-      // The UI resolves when it switches to the dynamic data stream
-      // (via useDeferredValue(dynamic, static)).
-      //
-      // However, the Flight implementation currently errors if the server closes
-      // the response before all the references are resolved. As a cheat to work
-      // around this, we wrap the original stream in a new stream that never closes,
-      // and therefore doesn't error.
-      //
-      // While processing the original stream, we also incrementally update the size
-      // of the cache entry in the LRU.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       let totalByteLength = 0;
       const reader = originalFlightStream.getReader();
       return new ReadableStream({
@@ -9535,19 +9535,19 @@
           while (true) {
             const { done, value } = await reader.read();
             if (!done) {
-              // Pass to the target stream and keep consuming the Flight response
-              // from the server.
+              
+              
               controller.enqueue(value);
-              // Incrementally update the size of the cache entry in the LRU.
-              // NOTE: Since prefetch responses are delivered in a single chunk,
-              // it's not really necessary to do this streamingly, but I'm doing it
-              // anyway in case this changes in the future.
+              
+              
+              
+              
               totalByteLength += value.byteLength;
               onResponseSizeUpdate(totalByteLength);
               continue;
             }
-            // The server stream has closed. Exit, but intentionally do not close
-            // the target stream. We do notify the caller, though.
+            
+            
             onStreamClose();
             return;
           }
@@ -9555,7 +9555,7 @@
       });
     }
     function addSegmentPathToUrlInOutputExportMode(url, segmentPath) {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       return url;
     }
@@ -9575,7 +9575,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=cache.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/navigation.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -9622,45 +9622,45 @@
     ) {
       const now = Date.now();
       const href = url.href;
-      // We special case navigations to the exact same URL as the current location.
-      // It's a common UI pattern for apps to refresh when you click a link to the
-      // current page. So when this happens, we refresh the dynamic data in the page
-      // segments.
-      //
-      // Note that this does not apply if the any part of the hash or search query
-      // has changed. This might feel a bit weird but it makes more sense when you
-      // consider that the way to trigger this behavior is to click the same link
-      // multiple times.
-      //
-      // TODO: We should probably refresh the *entire* route when this case occurs,
-      // not just the page segments. Essentially treating it the same as a refresh()
-      // triggered by an action, which is the more explicit way of modeling the UI
-      // pattern described above.
-      //
-      // Also note that this only refreshes the dynamic data, not static/ cached
-      // data. If the page segment is fully static and prefetched, the request is
-      // skipped. (This is also how refresh() works.)
-      const isSamePageNavigation = // consider storing the current URL in the router state instead of reading
-        // from the location object. In practice I don't think this matters much
-        // since we keep them in sync anyway, but having two sources of truth can
-        // lead to subtle bugs and race conditions.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      const isSamePageNavigation = 
+        
+        
+        
         href === window.location.href;
       const cacheKey = (0, _cachekey.createCacheKey)(href, nextUrl);
       const route = (0, _cache.readRouteCacheEntry)(now, cacheKey);
       if (route !== null && route.status === _cache.EntryStatus.Fulfilled) {
-        // We have a matching prefetch.
+        
         const snapshot = readRenderSnapshotFromCache(now, route, route.tree);
         const prefetchFlightRouterState = snapshot.flightRouterState;
         const prefetchSeedData = snapshot.seedData;
         const headSnapshot = readHeadSnapshotFromCache(now, route);
         const prefetchHead = headSnapshot.rsc;
         const isPrefetchHeadPartial = headSnapshot.isPartial;
-        // TODO: The "canonicalUrl" stored in the cache doesn't include the hash,
-        // because hash entries do not vary by hash fragment. However, the one
-        // we set in the router state *does* include the hash, and it's used to
-        // sync with the actual browser location. To make this less of a refactor
-        // hazard, we should always track the hash separately from the rest of
-        // the URL.
+        
+        
+        
+        
+        
+        
         const newCanonicalUrl = route.canonicalUrl + url.hash;
         const renderedSearch = route.renderedSearch;
         return navigateUsingPrefetchedRouteTree(
@@ -9681,15 +9681,15 @@
           url.hash,
         );
       }
-      // There was no matching route tree in the cache. Let's see if we can
-      // construct an "optimistic" route tree.
-      //
-      // Do not construct an optimistic route tree if there was a cache hit, but
-      // the entry has a rejected status, since it may have been rejected due to a
-      // rewrite or redirect based on the search params.
-      //
-      // TODO: There are multiple reasons a prefetch might be rejected; we should
-      // track them explicitly and choose what to do here based on that.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       if (route === null || route.status !== _cache.EntryStatus.Rejected) {
         const optimisticRoute = (0, _cache.requestOptimisticRouteCacheEntry)(
           now,
@@ -9697,7 +9697,7 @@
           nextUrl,
         );
         if (optimisticRoute !== null) {
-          // We have an optimistic route tree. Proceed with the normal flow.
+          
           const snapshot = readRenderSnapshotFromCache(
             now,
             optimisticRoute,
@@ -9729,7 +9729,7 @@
           );
         }
       }
-      // There's no matching prefetch for this route in the cache.
+      
       let collectedDebugInfo = accumulation.collectedDebugInfo ?? [];
       if (accumulation.collectedDebugInfo === undefined) {
         collectedDebugInfo = accumulation.collectedDebugInfo = [];
@@ -9767,12 +9767,12 @@
       shouldScroll,
       hash,
     ) {
-      // Recursively construct a prefetch tree by reading from the Segment Cache. To
-      // maintain compatibility, we output the same data structures as the old
-      // prefetching implementation: FlightRouterState and CacheNodeSeedData.
-      // TODO: Eventually updateCacheNodeOnNavigation (or the equivalent) should
-      // read from the Segment Cache directly. It's only structured this way for now
-      // so we can share code with the old prefetching implementation.
+      
+      
+      
+      
+      
+      
       const scrollableSegments = [];
       const task = (0, _pprnavigations.startPPRNavigation)(
         now,
@@ -9802,8 +9802,8 @@
             promiseForDynamicServerResponse,
           );
         } else {
-          // The prefetched tree does not contain dynamic holes — it's
-          // fully static. We can skip the dynamic request.
+          
+          
         }
         return navigationTaskToResult(
           task,
@@ -9815,8 +9815,8 @@
           hash,
         );
       }
-      // The server sent back an empty tree patch. There's nothing to update, except
-      // possibly the URL.
+      
+      
       return {
         tag: _types.NavigationResultTag.NoOp,
         data: {
@@ -9836,8 +9836,8 @@
     ) {
       const flightRouterState = task.route;
       if (flightRouterState === null) {
-        // When no router state is provided, it signals that we should perform an
-        // MPA navigation.
+        
+        
         return {
           tag: _types.NavigationResultTag.MPA,
           data: canonicalUrl,
@@ -9883,16 +9883,16 @@
       if (segmentEntry !== null) {
         switch (segmentEntry.status) {
           case _cache.EntryStatus.Fulfilled: {
-            // Happy path: a cache hit
+            
             rsc = segmentEntry.rsc;
             loading = segmentEntry.loading;
             isPartial = segmentEntry.isPartial;
             break;
           }
           case _cache.EntryStatus.Pending: {
-            // We haven't received data for this segment yet, but there's already
-            // an in-progress request. Since it's extremely likely to arrive
-            // before the dynamic data response, we might as well use it.
+            
+            
+            
             const promiseForFulfilledEntry = (0,
             _cache.waitForSegmentCacheEntry)(segmentEntry);
             rsc = promiseForFulfilledEntry.then((entry) =>
@@ -9901,9 +9901,9 @@
             loading = promiseForFulfilledEntry.then((entry) =>
               entry !== null ? entry.loading : null,
             );
-            // Since we don't know yet whether the segment is partial or fully
-            // static, we must assume it's partial; we can't skip the
-            // dynamic request.
+            
+            
+            
             isPartial = true;
             break;
           }
@@ -9914,21 +9914,21 @@
             segmentEntry;
         }
       }
-      // The navigation implementation expects the search params to be
-      // included in the segment. However, the Segment Cache tracks search
-      // params separately from the rest of the segment key. So we need to
-      // add them back here.
-      //
-      // See corresponding comment in convertFlightRouterStateToTree.
-      //
-      // TODO: What we should do instead is update the navigation diffing
-      // logic to compare search params explicitly. This is a temporary
-      // solution until more of the Segment Cache implementation has settled.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const segment = (0, _segment.addSearchParamsIfPageSegment)(
         tree.segment,
         Object.fromEntries(new URLSearchParams(route.renderedSearch)),
       );
-      // We don't need this information in a render snapshot, so this can just be a placeholder.
+      
       const hasRuntimePrefetch = false;
       return {
         flightRouterState: [
@@ -9942,7 +9942,7 @@
       };
     }
     function readHeadSnapshotFromCache(now, route) {
-      // Same as readRenderSnapshotFromCache, but for the head
+      
       let rsc = null;
       let isPartial = true;
       const segmentEntry = (0, _cache.readSegmentCacheEntry)(
@@ -9989,17 +9989,17 @@
       hash,
       collectedDebugInfo,
     ) {
-      // Runs when a navigation happens but there's no cached prefetch we can use.
-      // Don't bother to wait for a prefetch response; go straight to a full
-      // navigation that contains both static and dynamic data in a single stream.
-      // (This is unlike the old navigation implementation, which instead blocks
-      // the dynamic request until a prefetch request is received.)
-      //
-      // To avoid duplication of logic, we're going to pretend that the tree
-      // returned by the dynamic request is, in fact, a prefetch tree. Then we can
-      // use the same server response to write the actual data into the CacheNode
-      // tree. So it's the same flow as the "happy path" (prefetch, then
-      // navigation), except we use a single server response for both stages.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const promiseForDynamicServerResponse = (0,
       _fetchserverresponse.fetchServerResponse)(url, {
         flightRouterState: currentFlightRouterState,
@@ -10007,7 +10007,7 @@
       });
       const result = await promiseForDynamicServerResponse;
       if (typeof result === "string") {
-        // This is an MPA navigation.
+        
         const newUrl = result;
         return {
           tag: _types.NavigationResultTag.MPA,
@@ -10023,20 +10023,20 @@
       if (debugInfoFromResponse !== null) {
         collectedDebugInfo.push(...debugInfoFromResponse);
       }
-      // Since the response format of dynamic requests and prefetches is slightly
-      // different, we'll need to massage the data a bit. Create FlightRouterState
-      // tree that simulates what we'd receive as the result of a prefetch.
+      
+      
+      
       const prefetchFlightRouterState =
         simulatePrefetchTreeUsingDynamicTreePatch(
           currentFlightRouterState,
           flightData,
         );
-      // In our simulated prefetch payload, we pretend that there's no seed data
-      // nor a prefetch head.
+      
+      
       const prefetchSeedData = null;
       const prefetchHead = null;
       const isPrefetchHeadPartial = true;
-      // Now we proceed exactly as we would for normal navigation.
+      
       const scrollableSegments = [];
       const task = (0, _pprnavigations.startPPRNavigation)(
         now,
@@ -10051,14 +10051,14 @@
         scrollableSegments,
       );
       if (task !== null) {
-        // In this case, we've already sent the dynamic request, so we don't
-        // actually use the request tree created by `startPPRNavigation`,
-        // except to check if it contains dynamic holes.
-        //
-        // This is almost always true, but it could be false if all the segment data
-        // was present in the cache, but the route tree was not. E.g. navigating
-        // to a URL that was not prefetched but rewrites to a different URL
-        // that was.
+        
+        
+        
+        
+        
+        
+        
+        
         const hasDynamicHoles = task.dynamicRequestTree !== null;
         if (hasDynamicHoles) {
           (0, _pprnavigations.listenForDynamicRequest)(
@@ -10066,8 +10066,8 @@
             promiseForDynamicServerResponse,
           );
         } else {
-          // The prefetched tree does not contain dynamic holes — it's
-          // fully static. We don't need to process the server response further.
+          
+          
         }
         return navigationTaskToResult(
           task,
@@ -10079,8 +10079,8 @@
           hash,
         );
       }
-      // The server sent back an empty tree patch. There's nothing to update, except
-      // possibly the URL.
+      
+      
       return {
         tag: _types.NavigationResultTag.NoOp,
         data: {
@@ -10093,18 +10093,18 @@
       currentTree,
       flightData,
     ) {
-      // Takes the current FlightRouterState and applies the router state patch
-      // received from the server, to create a full FlightRouterState tree that we
-      // can pretend was returned by a prefetch.
-      //
-      // (It sounds similar to what applyRouterStatePatch does, but it doesn't need
-      // to handle stuff like interception routes or diffing since that will be
-      // handled later.)
+      
+      
+      
+      
+      
+      
+      
       let baseTree = currentTree;
       for (const { segmentPath, tree: treePatch } of flightData) {
-        // If the server sends us multiple tree patches, we only need to clone the
-        // base tree when applying the first patch. After the first patch, we can
-        // apply the remaining patches in place without copying.
+        
+        
+        
         const canMutateInPlace = baseTree !== currentTree;
         baseTree = simulatePrefetchTreeUsingDynamicTreePatchImpl(
           baseTree,
@@ -10124,22 +10124,22 @@
       index,
     ) {
       if (index === segmentPath.length) {
-        // We reached the part of the tree that we need to patch.
+        
         return patch;
       }
-      // segmentPath represents the parent path of subtree. It's a repeating
-      // pattern of parallel route key and segment:
-      //
-      //   [string, Segment, string, Segment, string, Segment, ...]
-      //
-      // This path tells us which part of the base tree to apply the tree patch.
-      //
-      // NOTE: In the case of a fully dynamic request with no prefetch, we receive
-      // the FlightRouterState patch in the same request as the dynamic data.
-      // Therefore we don't need to worry about diffing the segment values; we can
-      // assume the server sent us a correct result.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const updatedParallelRouteKey = segmentPath[index];
-      // const segment: Segment = segmentPath[index + 1] <-- Not used, see note above
+      
       const baseChildren = baseRouterState[1];
       const newChildren = {};
       for (const parallelRouteKey in baseChildren) {
@@ -10150,25 +10150,25 @@
               childBaseRouterState,
               patch,
               segmentPath,
-              canMutateInPlace, // the end of the segment path.
+              canMutateInPlace, 
               index + 2,
             );
         } else {
-          // This child is not being patched. Copy it over as-is.
+          
           newChildren[parallelRouteKey] = baseChildren[parallelRouteKey];
         }
       }
       if (canMutateInPlace) {
-        // We can mutate the base tree in place, because the base tree is already
-        // a clone.
+        
+        
         baseRouterState[1] = newChildren;
         return baseRouterState;
       }
-      // Clone all the fields except the children.
-      //
-      // Based on equivalent logic in apply-router-state-patch-to-tree, but should
-      // confirm whether we need to copy all of these fields. Not sure the server
-      // ever sends, e.g. the refetch marker.
+      
+      
+      
+      
+      
       const clone = [baseRouterState[0], newChildren];
       if (2 in baseRouterState) {
         clone[2] = baseRouterState[2];
@@ -10191,14 +10191,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=navigation.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/navigate-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -10274,7 +10274,7 @@
         parallelRoutes,
       )) {
         for (const childSegment of generateSegmentsFromPatch(parallelRoute)) {
-          // If the segment is empty, it means we are at the root of the tree
+          
           if (segment === "") {
             segments.push([parallelRouteKey, ...childSegment]);
           } else {
@@ -10287,34 +10287,34 @@
     function handleNavigationResult(url, state, mutable, pendingPush, result) {
       switch (result.tag) {
         case _types.NavigationResultTag.MPA: {
-          // Perform an MPA navigation.
+          
           const newUrl = result.data;
           return handleExternalUrl(state, mutable, newUrl, pendingPush);
         }
         case _types.NavigationResultTag.NoOp: {
-          // The server responded with no change to the current page. However, if
-          // the URL changed, we still need to update that.
+          
+          
           const newCanonicalUrl = result.data.canonicalUrl;
           mutable.canonicalUrl = newCanonicalUrl;
-          // Check if the only thing that changed was the hash fragment.
+          
           const oldUrl = new URL(state.canonicalUrl, url);
-          const onlyHashChange = // navigations are always same-origin.
+          const onlyHashChange = 
             url.pathname === oldUrl.pathname &&
             url.search === oldUrl.search &&
             url.hash !== oldUrl.hash;
           if (onlyHashChange) {
-            // The only updated part of the URL is the hash.
+            
             mutable.onlyHashChange = true;
             mutable.shouldScroll = result.data.shouldScroll;
             mutable.hashFragment = url.hash;
-            // Setting this to an empty array triggers a scroll for all new and
-            // updated segments. See `ScrollAndFocusHandler` for more details.
+            
+            
             mutable.scrollableSegments = [];
           }
           return (0, _handlemutable.handleMutable)(state, mutable);
         }
         case _types.NavigationResultTag.Success: {
-          // Received a new result.
+          
           mutable.cache = result.data.cacheNode;
           mutable.patchedTree = result.data.flightRouterState;
           mutable.renderedSearch = result.data.renderedSearch;
@@ -10333,8 +10333,8 @@
                 mutable,
                 pendingPush,
                 asyncResult,
-              ), // TODO: This matches the current behavior but we need to do something
-            // better here if the network fails.
+              ), 
+            
             () => {
               return state;
             },
@@ -10356,14 +10356,14 @@
       if (isExternalUrl) {
         return handleExternalUrl(state, mutable, url.toString(), pendingPush);
       }
-      // Handles case where `<meta http-equiv="refresh">` tag is present,
-      // which will trigger an MPA navigation.
+      
+      
       if (document.getElementById("__next-page-redirect")) {
         return handleExternalUrl(state, mutable, href, pendingPush);
       }
-      // Temporary glue code between the router reducer and the new navigation
-      // implementation. Eventually we'll rewrite the router reducer to a
-      // state machine.
+      
+      
+      
       const currentUrl = new URL(state.canonicalUrl, location.origin);
       const result = (0, _navigation.navigate)(
         url,
@@ -10386,7 +10386,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=navigate-reducer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fill-lazy-items-till-leaf-with-head.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10417,23 +10417,23 @@
         newCache.head = head;
         return;
       }
-      // Remove segment that we got data for so that it is filled in during rendering of rsc.
+      
       for (const key in routerState[1]) {
         const parallelRouteState = routerState[1][key];
         const segmentForParallelRoute = parallelRouteState[0];
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
           segmentForParallelRoute,
         );
-        // TODO: We should traverse the cacheNodeSeedData tree instead of the router
-        // state tree. Ideally, they would always be the same shape, but because of
-        // the loading.js pattern, cacheNodeSeedData sometimes only represents a
-        // partial tree. That's why this node is sometimes null. Once PPR lands,
-        // loading.js will no longer have special behavior and we can traverse the
-        // data tree instead.
-        //
-        // We should also consider merging the router state tree and the data tree
-        // in the response format, so that we don't have to send the keys twice.
-        // Then the client can convert them into separate representations.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         const parallelSeedData =
           cacheNodeSeedData !== null && cacheNodeSeedData[1][key] !== undefined
             ? cacheNodeSeedData[1][key]
@@ -10448,17 +10448,17 @@
             const existingCacheNode = parallelRouteCacheNode.get(cacheKey);
             let newCacheNode;
             if (parallelSeedData !== null) {
-              // New data was sent from the server.
+              
               const seedNode = parallelSeedData[0];
               const loading = parallelSeedData[2];
               newCacheNode = {
                 lazyData: null,
                 rsc: seedNode,
-                // This is a PPR-only field. When PPR is enabled, we shouldn't hit
-                // this path during a navigation, but until PPR is fully implemented
-                // yet it's possible the existing node does have a non-null
-                // `prefetchRsc`. As an incremental step, we'll just de-opt to the
-                // old behavior — no PPR value.
+                
+                
+                
+                
+                
                 prefetchRsc: null,
                 head: null,
                 prefetchHead: null,
@@ -10467,8 +10467,8 @@
                 navigatedAt,
               };
             } else {
-              // No data available for this node. This will trigger a lazy fetch
-              // during render.
+              
+              
               newCacheNode = {
                 lazyData: null,
                 rsc: null,
@@ -10480,9 +10480,9 @@
                 navigatedAt,
               };
             }
-            // Overrides the cache key with the new cache node.
+            
             parallelRouteCacheNode.set(cacheKey, newCacheNode);
-            // Traverse deeper to apply the head / fill lazy items till the head.
+            
             fillLazyItemsTillLeafWithHead(
               navigatedAt,
               newCacheNode,
@@ -10497,7 +10497,7 @@
         }
         let newCacheNode;
         if (parallelSeedData !== null) {
-          // New data was sent from the server.
+          
           const seedNode = parallelSeedData[0];
           const loading = parallelSeedData[2];
           newCacheNode = {
@@ -10511,8 +10511,8 @@
             navigatedAt,
           };
         } else {
-          // No data available for this node. This will trigger a lazy fetch
-          // during render.
+          
+          
           newCacheNode = {
             lazyData: null,
             rsc: null,
@@ -10550,7 +10550,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=fill-lazy-items-till-leaf-with-head.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/invalidate-cache-by-router-state.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10573,7 +10573,7 @@
       existingCache,
       routerState,
     ) {
-      // Remove segment that we got data for so that it is filled in during rendering of rsc.
+      
       for (const key in routerState[1]) {
         const segmentForParallelRoute = routerState[1][key][0];
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
@@ -10598,7 +10598,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=invalidate-cache-by-router-state.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fill-cache-with-new-subtree-data.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10639,9 +10639,9 @@
     const _segment = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [app-client] (ecmascript)",
     );
-    /**
-     * Common logic for filling cache with new sub tree data.
-     */ function fillCacheHelper(
+    
+
+ function fillCacheHelper(
       navigatedAt,
       newCache,
       existingCache,
@@ -10659,8 +10659,8 @@
       for (let i = 0; i < segmentPath.length; i += 2) {
         const parallelRouteKey = segmentPath[i];
         const segment = segmentPath[i + 1];
-        // segmentPath is a repeating tuple of parallelRouteKey and segment
-        // we know we've hit the last entry we've reached our final pair
+        
+        
         const isLastEntry = i === segmentPath.length - 2;
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
           segment,
@@ -10688,8 +10688,8 @@
             const loading = cacheNodeSeedData[2];
             childCacheNode = {
               lazyData: null,
-              // When `fillLazyItems` is false, we only want to fill the RSC data for the layout,
-              // not the page segment.
+              
+              
               rsc:
                 fillLazyItems || segment !== _segment.PAGE_SEGMENT_KEY
                   ? rsc
@@ -10740,7 +10740,7 @@
           };
           childSegmentMap.set(cacheKey, childCacheNode);
         }
-        // Move deeper into the cache nodes
+        
         newCacheNode = childCacheNode;
         existingCacheNode = existingChildCacheNode;
       }
@@ -10771,7 +10771,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=fill-cache-with-new-subtree-data.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/apply-flight-data.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10793,9 +10793,9 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fill-cache-with-new-subtree-data.js [app-client] (ecmascript)",
     );
     function applyFlightData(navigatedAt, existingCache, cache, flightData) {
-      // The one before last item is the router state tree patch
+      
       const { tree: treePatch, seedData, head, isRootRender } = flightData;
-      // Handles case where prefetch only returns the router tree patch without rendered components.
+      
       if (seedData === null) {
         return false;
       }
@@ -10804,11 +10804,11 @@
         const loading = seedData[2];
         cache.loading = loading;
         cache.rsc = rsc;
-        // This is a PPR-only field. When PPR is enabled, we shouldn't hit
-        // this path during a navigation, but until PPR is fully implemented
-        // yet it's possible the existing node does have a non-null
-        // `prefetchRsc`. As an incremental step, we'll just de-opt to the
-        // old behavior — no PPR value.
+        
+        
+        
+        
+        
         cache.prefetchRsc = null;
         (0, _filllazyitemstillleafwithhead.fillLazyItemsTillLeafWithHead)(
           navigatedAt,
@@ -10819,15 +10819,15 @@
           head,
         );
       } else {
-        // Copy rsc for the root node of the cache.
+        
         cache.rsc = existingCache.rsc;
-        // This is a PPR-only field. Unlike the previous branch, since we're
-        // just cloning the existing cache node, we might as well keep the
-        // PPR value, if it exists.
+        
+        
+        
         cache.prefetchRsc = existingCache.prefetchRsc;
         cache.parallelRoutes = new Map(existingCache.parallelRoutes);
         cache.loading = existingCache.loading;
-        // Create a copy of the existing cache with the rsc applied.
+        
         (0, _fillcachewithnewsubtreedata.fillCacheWithNewSubTreeData)(
           navigatedAt,
           cache,
@@ -10847,7 +10847,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=apply-flight-data.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/refetch-inactive-parallel-segments.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10908,18 +10908,18 @@
       if (
         refetchPath &&
         refetchPath !== canonicalUrl &&
-        refetchMarker === "refresh" && // it's possible for the tree to contain multiple segments that contain data at the same URL
-        // we keep track of them so we can dedupe the requests
+        refetchMarker === "refresh" && 
+        
         !fetchedSegments.has(refetchPath)
       ) {
-        fetchedSegments.add(refetchPath); // Mark this URL as fetched
-        // Eagerly kick off the fetch for the refetch path & the parallel routes. This should be fine to do as they each operate
-        // independently on their own cache nodes, and `applyFlightData` will copy anything it doesn't care about from the existing cache.
+        fetchedSegments.add(refetchPath); 
+        
+        
         const fetchPromise = (0, _fetchserverresponse.fetchServerResponse)(
           new URL(refetchPath, location.origin),
           {
-            // refetch from the root of the updated tree, otherwise it will be scoped to the current segment
-            // and might not contain the data we need to patch in interception route data (such as dynamic params from a previous segment)
+            
+            
             flightRouterState: [
               rootTree[0],
               rootTree[1],
@@ -10932,9 +10932,9 @@
           if (typeof result !== "string") {
             const { flightData } = result;
             for (const flightDataPath of flightData) {
-              // we only pass the new cache as this function is called after clearing the router cache
-              // and filling in the new page data from the server. Meaning the existing cache is actually the cache that's
-              // just been created & has been written to, but hasn't been "committed" yet.
+              
+              
+              
               (0, _applyflightdata.applyFlightData)(
                 navigatedAt,
                 updatedCache,
@@ -10943,9 +10943,9 @@
               );
             }
           } else {
-            // When result is a string, it suggests that the server response should have triggered an MPA navigation
-            // I'm not 100% sure of this decision, but it seems unlikely that we'd want to introduce a redirect side effect
-            // when refreshing on-screen data, so handling this has been ommitted.
+            
+            
+            
           }
         });
         fetchPromises.push(fetchPromise);
@@ -10967,7 +10967,7 @@
     }
     function addRefreshMarkerToActiveParallelSegments(tree, path) {
       const [segment, parallelRoutes, , refetchMarker] = tree;
-      // a page segment might also contain concatenated search params, so we do a partial match on the key
+      
       if (
         segment.includes(_segment.PAGE_SEGMENT_KEY) &&
         refetchMarker !== "refresh"
@@ -10989,7 +10989,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=refetch-inactive-parallel-segments.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/apply-router-state-patch-to-tree.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11016,13 +11016,13 @@
     const _refetchinactiveparallelsegments = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/refetch-inactive-parallel-segments.js [app-client] (ecmascript)",
     );
-    /**
-     * Deep merge of the two router states. Parallel route keys are preserved if the patch doesn't have them.
-     */ function applyPatch(initialTree, patchTree) {
+    
+
+ function applyPatch(initialTree, patchTree) {
       const [initialSegment, initialParallelRoutes] = initialTree;
       const [patchSegment, patchParallelRoutes] = patchTree;
-      // if the applied patch segment is __DEFAULT__ then it can be ignored in favor of the initial tree
-      // this is because the __DEFAULT__ segment is used as a placeholder on navigation
+      
+      
       if (
         patchSegment === _segment.DEFAULT_SEGMENT_KEY &&
         initialSegment !== _segment.DEFAULT_SEGMENT_KEY
@@ -11050,7 +11050,7 @@
           newParallelRoutes[key] = patchParallelRoutes[key];
         }
         const tree = [initialSegment, newParallelRoutes];
-        // Copy over the existing tree
+        
         if (initialTree[2]) {
           tree[2] = initialTree[2];
         }
@@ -11072,7 +11072,7 @@
     ) {
       const [segment, parallelRoutes, url, refetch, isRootLayout] =
         flightRouterState;
-      // Root refresh
+      
       if (flightSegmentPath.length === 1) {
         const tree = applyPatch(flightRouterState, treePatch);
         (0,
@@ -11083,7 +11083,7 @@
         return tree;
       }
       const [currentSegment, parallelRouteKey] = flightSegmentPath;
-      // Tree path returned from the server should always match up with the current tree in the browser
+      
       if (!(0, _matchsegments.matchSegment)(currentSegment, segment)) {
         return null;
       }
@@ -11114,7 +11114,7 @@
         url,
         refetch,
       ];
-      // Current segment is the root layout
+      
       if (isRootLayout) {
         tree[4] = true;
       }
@@ -11135,7 +11135,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=apply-router-state-patch-to-tree.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-announcer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11171,7 +11171,7 @@
         announcer.role = "alert";
         announcer.style.cssText =
           "position:absolute;border:0;height:1px;margin:-1px;padding:0;width:1px;clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap;word-wrap:normal";
-        // Use shadow DOM here to avoid any potential CSS bleed
+        
         const shadow = container.attachShadow({
           mode: "open",
         });
@@ -11206,8 +11206,8 @@
             currentTitle = pageHeader.innerText || pageHeader.textContent || "";
           }
         }
-        // Only announce the title change, but not for the first load because screen
-        // readers do that automatically.
+        
+        
         if (
           previousTitle.current !== undefined &&
           previousTitle.current !== currentTitle
@@ -11217,7 +11217,7 @@
         previousTitle.current = currentTitle;
       }, [tree]);
       return portalNode
-        ? /*#__PURE__*/ (0, _reactdom.createPortal)(
+        ?  (0, _reactdom.createPortal)(
             routeAnnouncement,
             portalNode,
           )
@@ -11233,17 +11233,17 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-router-announcer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/readonly-url-search-params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * ReadonlyURLSearchParams implementation shared between client and server.
-     * This file is intentionally not marked as 'use client' or 'use server'
-     * so it can be imported by both environments.
-     */ /** @internal */ Object.defineProperty(exports, "__esModule", {
+    
+
+
+
+  Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "ReadonlyURLSearchParams", {
@@ -11260,16 +11260,16 @@
       }
     }
     class ReadonlyURLSearchParams extends URLSearchParams {
-      /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ append() {
+       append() {
         throw new ReadonlyURLSearchParamsError();
       }
-      /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ delete() {
+       delete() {
         throw new ReadonlyURLSearchParamsError();
       }
-      /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ set() {
+       set() {
         throw new ReadonlyURLSearchParamsError();
       }
-      /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ sort() {
+       sort() {
         throw new ReadonlyURLSearchParamsError();
       }
     }
@@ -11283,7 +11283,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=readonly-url-search-params.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unrecognized-action-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11335,7 +11335,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=unrecognized-action-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11409,7 +11409,7 @@
       error.digest = `${_redirecterror.REDIRECT_ERROR_CODE};${type};${url};${statusCode};`;
       return error;
     }
-    function redirect(/** The URL to redirect to */ url, type) {
+    function redirect( url, type) {
       type ??= actionAsyncStorage?.getStore()?.isAction
         ? _redirecterror.RedirectType.push
         : _redirecterror.RedirectType.replace;
@@ -11420,7 +11420,7 @@
       );
     }
     function permanentRedirect(
-      /** The URL to redirect to */ url,
+       url,
       type = _redirecterror.RedirectType.replace,
     ) {
       throw getRedirectError(
@@ -11431,8 +11431,8 @@
     }
     function getURLFromRedirectError(error) {
       if (!(0, _redirecterror.isRedirectError)(error)) return null;
-      // Slices off the beginning of the digest that contains the code and the
-      // separating ';'.
+      
+      
       return error.digest.split(";").slice(2, -2).join(";");
     }
     function getRedirectTypeFromError(error) {
@@ -11473,14 +11473,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=redirect.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/forbidden.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -11496,19 +11496,19 @@
     const _httpaccessfallback = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
     );
-    // TODO: Add `forbidden` docs
-    /**
-     * @experimental
-     * This function allows you to render the [forbidden.js file](https://nextjs.org/docs/app/api-reference/file-conventions/forbidden)
-     * within a route segment as well as inject a tag.
-     *
-     * `forbidden()` can be used in
-     * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
-     * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
-     * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
-     *
-     * Read more: [Next.js Docs: `forbidden`](https://nextjs.org/docs/app/api-reference/functions/forbidden)
-     */ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};403`;
+    
+    
+
+
+
+
+
+
+
+
+
+
+ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};403`;
     function forbidden() {
       if (("TURBOPACK compile-time truthy", 1)) {
         throw Object.defineProperty(
@@ -11545,14 +11545,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=forbidden.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unauthorized.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -11568,20 +11568,20 @@
     const _httpaccessfallback = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
     );
-    // TODO: Add `unauthorized` docs
-    /**
-     * @experimental
-     * This function allows you to render the [unauthorized.js file](https://nextjs.org/docs/app/api-reference/file-conventions/unauthorized)
-     * within a route segment as well as inject a tag.
-     *
-     * `unauthorized()` can be used in
-     * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
-     * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
-     * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
-     *
-     *
-     * Read more: [Next.js Docs: `unauthorized`](https://nextjs.org/docs/app/api-reference/functions/unauthorized)
-     */ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};401`;
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};401`;
     function unauthorized() {
       if (("TURBOPACK compile-time truthy", 1)) {
         throw Object.defineProperty(
@@ -11618,7 +11618,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=unauthorized.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.browser.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11660,7 +11660,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=unstable-rethrow.browser.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/hooks-server-context.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11718,7 +11718,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=hooks-server-context.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/static-generation-bailout.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11769,7 +11769,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=static-generation-bailout.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.server.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11828,19 +11828,19 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=unstable-rethrow.server.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * This function should be used to rethrow internal Next.js errors so that they can be handled by the framework.
-     * When wrapping an API that uses errors to interrupt control flow, you should use this function before you do any error handling.
-     * This function will rethrow the error if it is a Next.js error so it can be handled, otherwise it will do nothing.
-     *
-     * Read more: [Next.js Docs: `unstable_rethrow`](https://nextjs.org/docs/app/api-reference/functions/unstable_rethrow)
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "unstable_rethrow", {
@@ -11867,7 +11867,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=unstable-rethrow.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation.react-server.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11968,14 +11968,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=navigation.react-server.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12065,7 +12065,7 @@
     const _interop_require_wildcard = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -12108,20 +12108,20 @@
       const searchParams = (0, _react.useContext)(
         _hooksclientcontextsharedruntime.SearchParamsContext,
       );
-      // In the case where this is `null`, the compat types added in
-      // `next-env.d.ts` will add a new overload that changes the return type to
-      // include `null`.
+      
+      
+      
       const readonlySearchParams = (0, _react.useMemo)(() => {
         if (!searchParams) {
-          // When the router is not ready in pages, we won't have the search params
-          // available.
+          
+          
           return null;
         }
         return new _readonlyurlsearchparams.ReadonlyURLSearchParams(
           searchParams,
         );
       }, [searchParams]);
-      // Instrument with Suspense DevTools (dev-only)
+      
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12137,12 +12137,12 @@
     }
     function usePathname() {
       useDynamicRouteParams?.("usePathname()");
-      // In the case where this is `null`, the compat types added in `next-env.d.ts`
-      // will add a new overload that changes the return type to include `null`.
+      
+      
       const pathname = (0, _react.useContext)(
         _hooksclientcontextsharedruntime.PathnameContext,
       );
-      // Instrument with Suspense DevTools (dev-only)
+      
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12178,7 +12178,7 @@
       const params = (0, _react.useContext)(
         _hooksclientcontextsharedruntime.PathParamsContext,
       );
-      // Instrument with Suspense DevTools (dev-only)
+      
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12197,9 +12197,9 @@
       const context = (0, _react.useContext)(
         _approutercontextsharedruntime.LayoutRouterContext,
       );
-      // @ts-expect-error This only happens in `pages`. Type is overwritten in navigation.d.ts
+      
       if (!context) return null;
-      // Instrument with Suspense DevTools (dev-only)
+      
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12213,8 +12213,8 @@
               parallelRouteKey,
             );
           if (promise) {
-            // We should always have a promise here, but if we don't, it's not worth erroring over.
-            // We just won't be able to instrument it, but can still provide the value.
+            
+            
             return (0, _react.use)(promise);
           }
         }
@@ -12231,7 +12231,7 @@
       );
       const selectedLayoutSegments =
         useSelectedLayoutSegments(parallelRouteKey);
-      // Instrument with Suspense DevTools (dev-only)
+      
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         navigationPromises &&
@@ -12242,8 +12242,8 @@
             parallelRouteKey,
           );
         if (promise) {
-          // We should always have a promise here, but if we don't, it's not worth erroring over.
-          // We just won't be able to instrument it, but can still provide the value.
+          
+          
           return (0, _react.use)(promise);
         }
       }
@@ -12262,7 +12262,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=navigation.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12297,7 +12297,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -12338,9 +12338,9 @@
           const url = (0, _redirect.getURLFromRedirectError)(error);
           const redirectType = (0, _redirect.getRedirectTypeFromError)(error);
           if ("handled" in error) {
-            // The redirect was already handled. We'll still catch the redirect error
-            // so that we can remount the subtree, but we don't actually need to trigger the
-            // router.push.
+            
+            
+            
             return {
               redirect: null,
               redirectType: null,
@@ -12351,14 +12351,14 @@
             redirectType,
           };
         }
-        // Re-throw if error is not for redirect
+        
         throw error;
       }
-      // Explicit type is needed to avoid the generated `.d.ts` having a wide return type that could be specific to the `@types/react` version.
+      
       render() {
         const { redirect, redirectType } = this.state;
         if (redirect !== null && redirectType !== null) {
-          return /*#__PURE__*/ (0, _jsxruntime.jsx)(HandleRedirect, {
+          return  (0, _jsxruntime.jsx)(HandleRedirect, {
             redirect: redirect,
             redirectType: redirectType,
             reset: () =>
@@ -12372,7 +12372,7 @@
     }
     function RedirectBoundary({ children }) {
       const router = (0, _navigation.useRouter)();
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(RedirectErrorBoundary, {
+      return  (0, _jsxruntime.jsx)(RedirectErrorBoundary, {
         router: router,
         children: children,
       });
@@ -12387,7 +12387,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=redirect-boundary.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/find-head-in-cache.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12419,22 +12419,22 @@
     ) {
       const isLastItem = Object.keys(parallelRoutes).length === 0;
       if (isLastItem) {
-        // Returns the entire Cache Node of the segment whose head we will render.
+        
         return [cache, keyPrefix, keyPrefixWithoutSearchParams];
       }
-      // First try the 'children' parallel route if it exists
-      // when starting from the "root", this corresponds with the main page component
+      
+      
       const parallelRoutesKeys = Object.keys(parallelRoutes).filter(
         (key) => key !== "children",
       );
-      // if we are at the root, we need to check the children slot first
+      
       if ("children" in parallelRoutes) {
         parallelRoutesKeys.unshift("children");
       }
       for (const key of parallelRoutesKeys) {
         const [segment, childParallelRoutes] = parallelRoutes[key];
-        // If the parallel is not matched and using the default segment,
-        // skip searching the head from it.
+        
+        
         if (segment === _segment.DEFAULT_SEGMENT_KEY) {
           continue;
         }
@@ -12473,15 +12473,15 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=find-head-in-cache.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unresolved-thenable.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * Create a "Thenable" that does not resolve. This is used to suspend indefinitely when data is not available yet.
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "unresolvedThenable", {
@@ -12503,14 +12503,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=unresolved-thenable.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/has-base-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12540,14 +12540,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=has-base-path.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/remove-base-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12565,9 +12565,9 @@
     );
     const basePath = ("TURBOPACK compile-time value", "") || "";
     function removeBasePath(path) {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
-      // Can't trim the basePath if it has zero length!
+      
       if (basePath.length === 0) return path;
       path = path.slice(basePath.length);
       if (!path.startsWith("/")) path = `/${path}`;
@@ -12583,7 +12583,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=remove-base-path.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/graceful-degrade-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12634,7 +12634,7 @@
         };
         this.rootHtml = "";
         this.htmlAttributes = {};
-        this.htmlRef = /*#__PURE__*/ (0, _react.createRef)();
+        this.htmlRef =  (0, _react.createRef)();
       }
       static getDerivedStateFromError(_) {
         return {
@@ -12644,7 +12644,7 @@
       componentDidMount() {
         const htmlNode = this.htmlRef.current;
         if (this.state.hasError && htmlNode) {
-          // Reapply the cached HTML attributes to the root element
+          
           Object.entries(this.htmlAttributes).forEach(([key, value]) => {
             htmlNode.setAttribute(key, value);
           });
@@ -12652,14 +12652,14 @@
       }
       render() {
         const { hasError } = this.state;
-        // Cache the root HTML content on the first render
+        
         if (typeof window !== "undefined" && !this.rootHtml) {
           this.rootHtml = document.documentElement.innerHTML;
           this.htmlAttributes = getDomNodeAttributes(document.documentElement);
         }
         if (hasError) {
-          // Render the current HTML content without hydration
-          return /*#__PURE__*/ (0, _jsxruntime.jsx)("html", {
+          
+          return  (0, _jsxruntime.jsx)("html", {
             ref: this.htmlRef,
             suppressHydrationWarning: true,
             dangerouslySetInnerHTML: {
@@ -12681,7 +12681,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=graceful-degrade-boundary.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/root-error-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12702,12 +12702,12 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _gracefuldegradeboundary = /*#__PURE__*/ _interop_require_default._(
+    const _gracefuldegradeboundary =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/graceful-degrade-boundary.js [app-client] (ecmascript)",
       ),
@@ -12728,16 +12728,16 @@
       errorScripts,
     }) {
       if (isBotUserAgent) {
-        // Preserve existing DOM/HTML for bots to avoid replacing content with an error UI
-        // and to keep the original SSR output intact.
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+        
+        
+        return  (0, _jsxruntime.jsx)(
           _gracefuldegradeboundary.default,
           {
             children: children,
           },
         );
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(_errorboundary.ErrorBoundary, {
+      return  (0, _jsxruntime.jsx)(_errorboundary.ErrorBoundary, {
         errorComponent: errorComponent,
         errorStyles: errorStyles,
         errorScripts: errorScripts,
@@ -12754,14 +12754,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=root-error-boundary.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation-devtools.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12803,14 +12803,14 @@
     );
     const layoutSegmentPromisesCache = new WeakMap();
     function createLayoutSegmentPromises(tree) {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
-      // Check if we already have cached promises for this tree
+      
       const cached = layoutSegmentPromisesCache.get(tree);
       if (cached) {
         return cached;
       }
-      // Create new promises and cache them
+      
       const segmentPromises = new Map();
       const segmentsPromises = new Map();
       const parallelRoutes = tree[1];
@@ -12819,7 +12819,7 @@
           tree,
           parallelRouteKey,
         );
-        // Use the shared logic to compute the segment value
+        
         const segment = (0, _segment.computeSelectedLayoutSegment)(
           segments,
           parallelRouteKey,
@@ -12845,7 +12845,7 @@
         selectedLayoutSegmentPromises: segmentPromises,
         selectedLayoutSegmentsPromises: segmentsPromises,
       };
-      // Cache the result for future renders
+      
       layoutSegmentPromisesCache.set(tree, result);
       return result;
     }
@@ -12856,19 +12856,19 @@
       searchParams,
       pathParams,
     ) {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
-      // Create stable cache keys from the values
+      
       const searchParamsString = searchParams.toString();
       const pathParamsString = JSON.stringify(pathParams);
       const cacheKey = `${pathname}:${searchParamsString}:${pathParamsString}`;
-      // Get or create the cache for this tree
+      
       let treeCache = rootNavigationPromisesCache.get(tree);
       if (!treeCache) {
         treeCache = new Map();
         rootNavigationPromisesCache.set(tree, treeCache);
       }
-      // Check if we have cached promises for this combination
+      
       const cached = treeCache.get(cacheKey);
       if (cached) {
         return cached;
@@ -12899,26 +12899,26 @@
     }
     const nestedLayoutPromisesCache = new WeakMap();
     function createNestedLayoutNavigationPromises(tree, parentNavPromises) {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       const parallelRoutes = tree[1];
       const parallelRouteKeys = Object.keys(parallelRoutes);
-      // Only create promises if there are parallel routes at this level
+      
       if (parallelRouteKeys.length === 0) {
         return null;
       }
-      // Get or create the cache for this tree
+      
       let treeCache = nestedLayoutPromisesCache.get(tree);
       if (!treeCache) {
         treeCache = new Map();
         nestedLayoutPromisesCache.set(tree, treeCache);
       }
-      // Check if we have cached promises for this parent combination
+      
       const cached = treeCache.get(parentNavPromises);
       if (cached) {
         return cached;
       }
-      // Create merged promises
+      
       const layoutSegmentPromises = createLayoutSegmentPromises(tree);
       const promises = {
         ...parentNavPromises,
@@ -12937,14 +12937,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=navigation-devtools.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -12964,7 +12964,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -12993,7 +12993,7 @@
         if (
           ("TURBOPACK compile-time value", "development") === "development" &&
           this.props.missingSlots &&
-          this.props.missingSlots.size > 0 && // A missing children slot is the typical not-found case, so no need to warn
+          this.props.missingSlots.size > 0 && 
           !this.props.missingSlots.has("children")
         ) {
           let warningMessage =
@@ -13015,16 +13015,16 @@
             triggeredStatus: httpStatus,
           };
         }
-        // Re-throw if error is not for 404
+        
         throw error;
       }
       static getDerivedStateFromProps(props, state) {
-        /**
-         * Handles reset of the error boundary when a navigation happens.
-         * Ensures the error boundary does not stay enabled when navigating to a new page.
-         * Approach of setState in render is safe as it checks the previous pathname and then overrides
-         * it as outlined in https://react.dev/reference/react/useState#storing-information-from-previous-renders
-         */ if (
+        
+
+
+
+
+ if (
           props.pathname !== state.previousPathname &&
           state.triggeredStatus
         ) {
@@ -13058,19 +13058,19 @@
             triggeredStatus ===
               _httpaccessfallback.HTTPAccessErrorStatus.UNAUTHORIZED &&
             unauthorized;
-          // If there's no matched boundary in this layer, keep throwing the error by rendering the children
+          
           if (!(isNotFound || isForbidden || isUnauthorized)) {
             return children;
           }
-          return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+          return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [
-              /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+               (0, _jsxruntime.jsx)("meta", {
                 name: "robots",
                 content: "noindex",
               }),
               ("TURBOPACK compile-time value", "development") ===
                 "development" &&
-                /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+                 (0, _jsxruntime.jsx)("meta", {
                   name: "boundary-next-error",
                   content: (0,
                   _httpaccessfallback.getAccessFallbackErrorTypeByStatus)(
@@ -13090,17 +13090,17 @@
       unauthorized,
       children,
     }) {
-      // When we're rendering the missing params shell, this will return null. This
-      // is because we won't be rendering any not found boundaries or error
-      // boundaries for the missing params shell. When this runs on the client
-      // (where these error can occur), we will get the correct pathname.
+      
+      
+      
+      
       const pathname = (0, _navigationuntracked.useUntrackedPathname)();
       const missingSlots = (0, _react.useContext)(
         _approutercontextsharedruntime.MissingSlotContext,
       );
       const hasErrorFallback = !!(notFound || forbidden || unauthorized);
       if (hasErrorFallback) {
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+        return  (0, _jsxruntime.jsx)(
           HTTPAccessFallbackErrorBoundary,
           {
             pathname: pathname,
@@ -13112,7 +13112,7 @@
           },
         );
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -13126,7 +13126,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=error-boundary.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13161,7 +13161,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -13185,10 +13185,10 @@
       return null;
     }
     function DevRootHTTPAccessFallbackBoundary({ children }) {
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+      return  (0, _jsxruntime.jsx)(
         _errorboundary.HTTPAccessFallbackBoundary,
         {
-          notFound: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+          notFound:  (0, _jsxruntime.jsx)(
             NotAllowedRootHTTPFallbackError,
             {},
           ),
@@ -13206,7 +13206,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=dev-root-http-access-fallback-boundary.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/shared.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13266,7 +13266,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=shared.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/get-socket-url.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13287,7 +13287,7 @@
     function getSocketProtocol(assetPrefix) {
       let protocol = window.location.protocol;
       try {
-        // assetPrefix is a url
+        
         protocol = new URL(assetPrefix).protocol;
       } catch {}
       return protocol === "http:" ? "ws:" : "wss:";
@@ -13298,8 +13298,8 @@
       );
       const protocol = getSocketProtocol(assetPrefix || "");
       if (URL.canParse(prefix)) {
-        // since normalized asset prefix is ensured to be a URL format,
-        // we can safely replace the protocol
+        
+        
         return prefix.replace(/^http/, "ws");
       }
       const { hostname, port } = window.location;
@@ -13315,14 +13315,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=get-socket-url.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -13421,7 +13421,7 @@
           window.console.log("[HMR] connected");
         }
         function handleMessage(event) {
-          // While the page is reloading, don't respond to any more messages.
+          
           if (reloading) {
             return;
           }
@@ -13430,7 +13430,7 @@
               event.data instanceof ArrayBuffer
                 ? parseBinaryMessage(event.data)
                 : JSON.parse(event.data);
-            // Check for server restart in Turbopack mode
+            
             if (
               message.type ===
               _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.TURBOPACK_CONNECTED
@@ -13439,21 +13439,21 @@
                 serverSessionId !== null &&
                 serverSessionId !== message.data.sessionId
               ) {
-                // Either the server's session id has changed and it's a new server, or
-                // it's been too long since we disconnected and we should reload the page.
+                
+                
                 window.location.reload();
                 reloading = true;
                 return;
               }
               serverSessionId = message.data.sessionId;
             }
-            // Track webpack compilation hash for server restart detection
+            
             if (
               message.type ===
                 _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.SYNC &&
               "hash" in message
             ) {
-              // If we had previously reconnected and the hash changed, the server may have restarted
+              
               if (
                 mostRecentCompilationHash !== null &&
                 mostRecentCompilationHash !== message.hash
@@ -13479,14 +13479,14 @@
           newWebSocket.onclose = null;
           newWebSocket.close();
           reconnections++;
-          // After 25 reconnects we'll want to reload the page as it indicates the dev server is no longer running.
+          
           if (reconnections > _constants.WEB_SOCKET_MAX_RECONNECTIONS) {
             reloading = true;
             window.location.reload();
             return;
           }
           clearTimeout(timer);
-          // Try again after 5 seconds
+          
           timer = setTimeout(init, reconnections > 5 ? 5000 : 1000);
         }
         newWebSocket.onopen = handleOnline;
@@ -13499,7 +13499,7 @@
       return init();
     }
     function createProcessTurbopackMessage(sendMessage) {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       let queue = [];
       let callback;
@@ -13518,7 +13518,7 @@
           connect({
             addMessageListener(cb) {
               callback = cb;
-              // Replay all Turbopack messages before we were able to establish the HMR client.
+              
               for (const msg of queue) {
                 cb(msg);
               }
@@ -13549,13 +13549,13 @@
             },
           );
         }
-        // Never send pings when using Turbopack as it's not used.
-        // Pings were originally used to keep track of active routes in on-demand-entries with webpack.
+        
+        
         if (("TURBOPACK compile-time truthy", 1)) {
           return;
         }
-        //TURBOPACK unreachable
-        // Taken from on-demand-entries-client.js
+        
+        
         const interval = undefined;
       }, [tree, webSocket]);
     }
@@ -13623,7 +13623,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=web-socket.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/report-hmr-latency.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13634,17 +13634,17 @@
     });
     Object.defineProperty(
       exports,
-      /**
-       * Logs information about a completed HMR to the console, the server (via a
-       * `client-hmr-latency` event), and to `self.__NEXT_HMR_LATENCY_CB` (a debugging
-       * hook).
-       *
-       * @param hasUpdate Set this to `false` to avoid reporting the HMR event via a
-       *   `client-hmr-latency` event or to `self.__NEXT_HMR_LATENCY_CB`. Used by
-       *   turbopack when we must report a message to the browser console (because we
-       *   already logged a "rebuilding" message), but it's not a real HMR, so we
-       *   don't want to impact our telemetry.
-       */ "default",
+      
+
+
+
+
+
+
+
+
+
+ "default",
       {
         enumerable: true,
         get: function () {
@@ -13672,8 +13672,8 @@
           endTime: endMsSinceEpoch,
           page: window.location.pathname,
           updatedModules,
-          // Whether the page (tab) was hidden at the time the event occurred.
-          // This can impact the accuracy of the event's timing.
+          
+          
           isPageHidden: document.visibilityState === "hidden",
         }),
       );
@@ -13691,7 +13691,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=report-hmr-latency.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/turbopack-hot-reloader-common.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13706,8 +13706,8 @@
         return TurbopackHmr;
       },
     });
-    // How long to wait before reporting the HMR start, used to suppress irrelevant
-    // `BUILDING` events. Does not impact reported latency.
+    
+    
     const TURBOPACK_HMR_START_DELAY_MS = 100;
     class TurbopackHmr {
       #updatedModules;
@@ -13719,14 +13719,14 @@
         this.#updatedModules = new Set();
         this.#reportedHmrStart = false;
       }
-      // HACK: Turbopack tends to generate a lot of irrelevant "BUILDING" actions,
-      // as it reports *any* compilation, including fully no-op/cached compilations
-      // and those unrelated to HMR. Fixing this would require significant
-      // architectural changes.
-      //
-      // Work around this by deferring any "rebuilding" message by 100ms. If we get
-      // a BUILT event within that threshold and nothing has changed, just suppress
-      // the message entirely.
+      
+      
+      
+      
+      
+      
+      
+      
       #runDeferredReportHmrStart() {
         if (this.#deferredReportHmrStartId != null) {
           console.log("[Fast Refresh] rebuilding");
@@ -13742,7 +13742,7 @@
         this.#lastUpdateMsSinceEpoch = undefined;
         this.#cancelDeferredReportHmrStart();
         this.#startMsSinceEpoch = Date.now();
-        // report the HMR start after a short delay
+        
         this.#deferredReportHmrStartId = setTimeout(
           () => this.#runDeferredReportHmrStart(),
           self.__NEXT_HMR_TURBOPACK_REPORT_NOISY_NOOP_EVENTS
@@ -13750,7 +13750,7 @@
             : TURBOPACK_HMR_START_DELAY_MS,
         );
       }
-      /** Helper for other `onEvent` methods. */ #onUpdate() {
+       #onUpdate() {
         this.#runDeferredReportHmrStart();
         this.#lastUpdateMsSinceEpoch = Date.now();
       }
@@ -13770,21 +13770,21 @@
       onPageAddRemove() {
         this.#onUpdate();
       }
-      /**
-       * @returns `null` if the caller should ignore the update entirely. Returns an
-       *   object with `hasUpdates: false` if the caller should report the end of
-       *   the HMR in the browser console, but the HMR was a no-op.
-       */ onBuilt() {
-        // Check that we got *any* `TurbopackMessage`, even if
-        // `updatedModules` is empty (not everything gets recorded there).
-        //
-        // There's also a case where `onBuilt` gets called before `onBuilding`,
-        // which can happen during initial page load. Ignore that too!
+      
+
+
+
+ onBuilt() {
+        
+        
+        
+        
+        
         const hasUpdates =
           this.#lastUpdateMsSinceEpoch != null &&
           this.#startMsSinceEpoch != null;
         if (!hasUpdates && !this.#reportedHmrStart) {
-          // suppress the update entirely
+          
           this.#cancelDeferredReportHmrStart();
           return null;
         }
@@ -13804,7 +13804,7 @@
       const updatedModules = new Set();
       const updates = Array.isArray(data) ? data : [data];
       for (const update of updates) {
-        // TODO this won't capture changes to CSS since they don't result in a "merged" update
+        
         if (
           update.type !== "partial" ||
           update.instruction.type !== "ChunkListUpdate" ||
@@ -13834,7 +13834,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=turbopack-hot-reloader-common.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/debug-channel.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13932,15 +13932,15 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=debug-channel.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /// <reference types="webpack/module.d.ts" />
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -13984,12 +13984,12 @@
     const _react = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
     );
-    const _stripansi = /*#__PURE__*/ _interop_require_default._(
+    const _stripansi =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/strip-ansi/index.js [app-client] (ecmascript)",
       ),
     );
-    const _formatwebpackmessages = /*#__PURE__*/ _interop_require_default._(
+    const _formatwebpackmessages =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/format-webpack-messages.js [app-client] (ecmascript)",
       ),
@@ -14021,7 +14021,7 @@
     const _navigationuntracked = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation-untracked.js [app-client] (ecmascript)",
     );
-    const _reporthmrlatency = /*#__PURE__*/ _interop_require_default._(
+    const _reporthmrlatency =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/report-hmr-latency.js [app-client] (ecmascript)",
       ),
@@ -14060,22 +14060,22 @@
     function waitForWebpackRuntimeHotUpdate() {
       return pendingHotUpdateWebpack;
     }
-    // There is a newer version of the code available.
+    
     function handleAvailableHash(hash) {
-      // Update last known compilation hash.
+      
       mostRecentCompilationHash = hash;
     }
-    /**
-     * Is there a newer version of this code available?
-     * For webpack: Check if the hash changed compared to __webpack_hash__
-     * For Turbopack: Always true because it doesn't have __webpack_hash__
-     */ function isUpdateAvailable() {
+    
+
+
+
+ function isUpdateAvailable() {
       if (("TURBOPACK compile-time truthy", 1)) {
         return true;
       }
-      //TURBOPACK unreachable
+      
     }
-    // Webpack disallows updates in other states.
+    
     function canApplyUpdates() {
       return module.hot.status() === "idle";
     }
@@ -14111,7 +14111,7 @@
       reloading = true;
       window.location.reload();
     }
-    // Attempt to update code on the fly, fall back to a hard reload.
+    
     function tryApplyUpdatesWebpack(sendMessage) {
       if (!isUpdateAvailable() || !canApplyUpdates()) {
         resolvePendingHotUpdateWebpack();
@@ -14140,7 +14140,7 @@
         }
         _nextdevtools.dispatcher.onBuildOk();
         if (isUpdateAvailable()) {
-          // While we were updating, there was a new update! Do it again.
+          
           tryApplyUpdatesWebpack(sendMessage);
           return;
         }
@@ -14152,21 +14152,21 @@
           webpackStartMsSinceEpoch,
           Date.now(),
         );
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
       }
-      // https://webpack.js.org/api/hot-module-replacement/#check
+      
       module.hot
-        .check(/* autoApply */ false)
+        .check( false)
         .then((updatedModules) => {
           if (updatedModules == null) {
             return null;
           }
-          // We should always handle an update, even if updatedModules is empty (but
-          // non-null) for any reason. That's what webpack would normally do:
-          // https://github.com/webpack/webpack/blob/3aa6b6bc3a64/lib/hmr/HotModuleReplacement.runtime.js#L296-L298
+          
+          
+          
           _nextdevtools.dispatcher.onBeforeRefresh();
-          // https://webpack.js.org/api/hot-module-replacement/#apply
+          
           return module.hot.apply();
         })
         .then(
@@ -14185,20 +14185,20 @@
       staticIndicatorState,
     ) {
       function handleErrors(errors) {
-        // "Massage" webpack messages.
+        
         const formatted = (0, _formatwebpackmessages.default)({
           errors: errors,
           warnings: [],
         });
-        // Only show the first error.
+        
         _nextdevtools.dispatcher.onBuildError(formatted.errors[0]);
-        // Also log them to the console.
+        
         for (let i = 0; i < formatted.errors.length; i++) {
           console.error((0, _stripansi.default)(formatted.errors[i]));
         }
-        // Do not attempt to reload now.
-        // We will reload on next success instead.
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        
+        
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
       }
       function handleHotUpdate() {
@@ -14214,17 +14214,17 @@
             );
           }
           _nextdevtools.dispatcher.onBuildOk();
-        } //TURBOPACK unreachable
+        } 
         else;
       }
       switch (message.type) {
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.ISR_MANIFEST: {
           if (("TURBOPACK compile-time truthy", 1)) {
             staticIndicatorState.appIsrManifest = message.data;
-            // Handle the initial static indicator status on receiving the ISR
-            // manifest. Navigation is handled in an effect inside HotReload for
-            // pathname changes as we'll receive the updated manifest before
-            // usePathname triggers for a new value.
+            
+            
+            
+            
             const isStatic = staticIndicatorState.pathname
               ? message.data[staticIndicatorState.pathname]
               : undefined;
@@ -14242,7 +14242,7 @@
           _nextdevtools.dispatcher.buildingIndicatorShow();
           if (("TURBOPACK compile-time truthy", 1)) {
             turbopackHmr.onBuilding();
-          } //TURBOPACK unreachable
+          } 
           else;
           break;
         }
@@ -14253,7 +14253,7 @@
             handleAvailableHash(message.hash);
           }
           const { errors, warnings } = message;
-          // Is undefined when it's a 'built' event
+          
           if ("versionInfo" in message)
             _nextdevtools.dispatcher.onVersionInfo(message.versionInfo);
           if ("debug" in message && message.debug)
@@ -14263,7 +14263,7 @@
           if ("devToolsConfig" in message)
             _nextdevtools.dispatcher.onDevToolsConfig(message.devToolsConfig);
           const hasErrors = Boolean(errors && errors.length);
-          // Compilation with errors (e.g. syntax error or missing modules).
+          
           if (hasErrors) {
             sendMessage(
               JSON.stringify({
@@ -14284,7 +14284,7 @@
                 clientId: __nextDevClientId,
               }),
             );
-            // Print warnings to the console.
+            
             const formattedMessages = (0, _formatwebpackmessages.default)({
               warnings: warnings,
               errors: [],
@@ -14301,7 +14301,7 @@
                 (0, _stripansi.default)(formattedMessages.warnings[i]),
               );
             }
-            // No early return here as we need to apply modules in the same way between warnings only and compiles without warnings
+            
           }
           sendMessage(
             JSON.stringify({
@@ -14342,7 +14342,7 @@
           _nextdevtools.dispatcher.onRefresh();
           break;
         }
-        // TODO-APP: make server component change more granular
+        
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER
           .SERVER_COMPONENT_CHANGES: {
           turbopackHmr?.onServerComponentChanges();
@@ -14353,8 +14353,8 @@
               hash: message.hash,
             }),
           );
-          // Store the latest hash in a session cookie so that it's sent back to the
-          // server with any subsequent requests.
+          
+          
           document.cookie = `${_approuterheaders.NEXT_HMR_REFRESH_HASH_COOKIE}=${message.hash};path=/`;
           if (
             _runtimeerrorhandler.RuntimeErrorHandler.hadRuntimeError ||
@@ -14368,7 +14368,7 @@
             _approuterinstance.publicAppRouterInstance.hmrRefresh();
             _nextdevtools.dispatcher.onRefresh();
           });
-          if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+          if (("TURBOPACK compile-time falsy", 0)) 
           ;
           return;
         }
@@ -14387,7 +14387,7 @@
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.ADDED_PAGE:
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.REMOVED_PAGE: {
           turbopackHmr?.onPageAddRemove();
-          // TODO-APP: potentially only refresh if the currently viewed page was added/removed.
+          
           return _approuterinstance.publicAppRouterInstance.hmrRefresh();
         }
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.SERVER_ERROR: {
@@ -14423,11 +14423,11 @@
           if (chunk) {
             writer.ready.then(() => writer.write(chunk)).catch(console.error);
           } else {
-            // A null chunk signals that no more chunks will be sent, which allows
-            // us to close the writer.
-            // TODO: Revisit this cleanup logic when we integrate the return channel
-            // that keeps the connection open to be able to lazily retrieve debug
-            // objects.
+            
+            
+            
+            
+            
             writer.ready.then(() => writer.close()).catch(console.error);
           }
           return;
@@ -14484,13 +14484,13 @@
         _nextdevtools.dispatcher.onUnhandledRejection,
       );
       (0, _websocket.useWebSocketPing)(webSocket);
-      // We don't want access of the pathname for the dev tools to trigger a dynamic
-      // access (as the dev overlay will never be present in production).
+      
+      
       const pathname = (0, _navigationuntracked.useUntrackedPathname)();
       if (("TURBOPACK compile-time truthy", 1)) {
-        // this conditional is only for dead-code elimination which
-        // isn't a runtime conditional only build-time so ignore hooks rule
-        // eslint-disable-next-line react-hooks/rules-of-hooks
+        
+        
+        
         (0, _react.useEffect)(() => {
           if (!staticIndicatorState) {
             throw Object.defineProperty(
@@ -14520,12 +14520,12 @@
           }
         }, [pathname, staticIndicatorState]);
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsxs)(
+      return  (0, _jsxruntime.jsxs)(
         _appdevoverlayerrorboundary.AppDevOverlayErrorBoundary,
         {
           globalError: globalError,
           children: [
-            /*#__PURE__*/ (0, _jsxruntime.jsx)(
+             (0, _jsxruntime.jsx)(
               _replayssronlyerrors.ReplaySsrOnlyErrors,
               {
                 onBlockingError: _nextdevtools.dispatcher.openErrorOverlay,
@@ -14546,14 +14546,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=hot-reloader-app.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -14589,7 +14589,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -14645,12 +14645,12 @@
     const _links = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/links.js [app-client] (ecmascript)",
     );
-    const _rooterrorboundary = /*#__PURE__*/ _interop_require_default._(
+    const _rooterrorboundary =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/root-error-boundary.js [app-client] (ecmascript)",
       ),
     );
-    const _globalerror = /*#__PURE__*/ _interop_require_default._(
+    const _globalerror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
       ),
@@ -14661,7 +14661,7 @@
     const globalMutable = {};
     function HistoryUpdater({ appRouterState }) {
       (0, _react.useInsertionEffect)(() => {
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         const { tree, pushRef, canonicalUrl, renderedSearch } = appRouterState;
         const appHistoryState = {
@@ -14670,20 +14670,20 @@
         };
         const historyState = {
           ...(pushRef.preserveCustomHistoryState ? window.history.state : {}),
-          // Identifier is shortened intentionally.
-          // __NA is used to identify if the history entry can be handled by the app-router.
-          // __N is used to identify if the history entry can be handled by the old router.
+          
+          
+          
           __NA: true,
           __PRIVATE_NEXTJS_INTERNALS_TREE: appHistoryState,
         };
         if (
-          pushRef.pendingPush && // Skip pushing an additional history entry if the canonicalUrl is the same as the current url.
-          // This mirrors the browser behavior for normal navigation.
+          pushRef.pendingPush && 
+          
           (0, _createhreffromurl.createHrefFromUrl)(
             new URL(window.location.href),
           ) !== canonicalUrl
         ) {
-          // This intentionally mutates React state, pushRef is overwritten to ensure additional push/replace calls do not trigger an additional history entry.
+          
           pushRef.pendingPush = false;
           window.history.pushState(historyState, "", canonicalUrl);
         } else {
@@ -14691,10 +14691,10 @@
         }
       }, [appRouterState]);
       (0, _react.useEffect)(() => {
-        // The Next-Url and the base tree may affect the result of a prefetch
-        // task. Re-prefetch all visible links with the updated values. In most
-        // cases, this will not result in any new network requests, only if
-        // the prefetch result actually varies on one of these inputs.
+        
+        
+        
+        
         (0, _links.pingVisibleLinks)(
           appRouterState.nextUrl,
           appRouterState.tree,
@@ -14729,22 +14729,22 @@
       return data;
     }
     function Head({ headCacheNode }) {
-      // If this segment has a `prefetchHead`, it's the statically prefetched data.
-      // We should use that on initial render instead of `head`. Then we'll switch
-      // to `head` when the dynamic response streams in.
+      
+      
+      
       const head = headCacheNode !== null ? headCacheNode.head : null;
       const prefetchHead =
         headCacheNode !== null ? headCacheNode.prefetchHead : null;
-      // If no prefetch data is available, then we go straight to rendering `head`.
+      
       const resolvedPrefetchRsc = prefetchHead !== null ? prefetchHead : head;
-      // We use `useDeferredValue` to handle switching between the prefetched and
-      // final values. The second argument is returned on initial render, then it
-      // re-renders with the first argument.
+      
+      
+      
       return (0, _react.useDeferredValue)(head, resolvedPrefetchRsc);
     }
-    /**
-     * The global router that wraps the application components.
-     */ function Router({
+    
+
+ function Router({
       actionQueue,
       globalError,
       webSocket,
@@ -14752,14 +14752,14 @@
     }) {
       const state = (0, _useactionqueue.useActionQueue)(actionQueue);
       const { canonicalUrl } = state;
-      // Add memoized pathname/query for useSearchParams and usePathname.
+      
       const { searchParams, pathname } = (0, _react.useMemo)(() => {
         const url = new URL(
           canonicalUrl,
           typeof window === "undefined" ? "http://n" : window.location.href,
         );
         return {
-          // This is turned into a readonly class in `useSearchParams`
+          
           searchParams: url.searchParams,
           pathname: (0, _hasbasepath.hasBasePath)(url.pathname)
             ? (0, _removebasepath.removeBasePath)(url.pathname)
@@ -14768,12 +14768,12 @@
       }, [canonicalUrl]);
       if (("TURBOPACK compile-time truthy", 1)) {
         const { cache, tree } = state;
-        // This hook is in a conditional but that is ok because `process.env.NODE_ENV` never changes
-        // eslint-disable-next-line react-hooks/rules-of-hooks
+        
+        
         (0, _react.useEffect)(() => {
-          // Add `window.nd` for debugging purposes.
-          // This is not meant for use in applications as concurrent rendering will affect the cache/tree/router.
-          // @ts-ignore this is for debugging
+          
+          
+          
           window.nd = {
             router: _approuterinstance.publicAppRouterInstance,
             cache,
@@ -14782,10 +14782,10 @@
         }, [cache, tree]);
       }
       (0, _react.useEffect)(() => {
-        // If the app is restored from bfcache, it's possible that
-        // pushRef.mpaNavigation is true, which would mean that any re-render of this component
-        // would trigger the mpa navigation logic again from the lines below.
-        // This will restore the router to the initial state in the event that the app is restored from bfcache.
+        
+        
+        
+        
         function handlePageShow(event) {
           if (
             !event.persisted ||
@@ -14793,9 +14793,9 @@
           ) {
             return;
           }
-          // Clear the pendingMpaPath value so that a subsequent MPA navigation to the same URL can be triggered.
-          // This is necessary because if the browser restored from bfcache, the pendingMpaPath would still be set to the value
-          // of the last MPA navigation.
+          
+          
+          
           globalMutable.pendingMpaPath = undefined;
           (0, _useactionqueue.dispatchAppRouterAction)({
             type: _routerreducertypes.ACTION_RESTORE,
@@ -14809,16 +14809,16 @@
         };
       }, []);
       (0, _react.useEffect)(() => {
-        // Ensure that any redirect errors that bubble up outside of the RedirectBoundary
-        // are caught and handled by the router.
+        
+        
         function handleUnhandledRedirect(event) {
           const error = "reason" in event ? event.reason : event.error;
           if ((0, _redirecterror.isRedirectError)(error)) {
             event.preventDefault();
             const url = (0, _redirect.getURLFromRedirectError)(error);
             const redirectType = (0, _redirect.getRedirectTypeFromError)(error);
-            // TODO: This should access the router methods directly, rather than
-            // go through the public interface.
+            
+            
             if (redirectType === _redirecterror.RedirectType.push) {
               _approuterinstance.publicAppRouterInstance.push(url, {});
             } else {
@@ -14836,19 +14836,19 @@
           );
         };
       }, []);
-      // When mpaNavigation flag is set do a hard navigation to the new url.
-      // Infinitely suspend because we don't actually want to rerender any child
-      // components with the new URL and any entangled state updates shouldn't
-      // commit either (eg: useTransition isPending should stay true until the page
-      // unloads).
-      //
-      // This is a side effect in render. Don't try this at home, kids. It's
-      // probably safe because we know this is a singleton component and it's never
-      // in <Offscreen>. At least I hope so. (It will run twice in dev strict mode,
-      // but that's... fine?)
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const { pushRef } = state;
       if (pushRef.mpaNavigation) {
-        // if there's a re-render, we don't want to trigger another redirect if one is already in flight to the same URL
+        
         if (globalMutable.pendingMpaPath !== canonicalUrl) {
           const location = window.location;
           if (pushRef.pendingPush) {
@@ -14858,12 +14858,12 @@
           }
           globalMutable.pendingMpaPath = canonicalUrl;
         }
-        // TODO-APP: Should we listen to navigateerror here to catch failed
-        // navigations somehow? And should we call window.stop() if a SPA navigation
-        // should interrupt an MPA one?
-        // NOTE: This is intentionally using `throw` instead of `use` because we're
-        // inside an externally mutable condition (pushRef.mpaNavigation), which
-        // violates the rules of hooks.
+        
+        
+        
+        
+        
+        
         throw _unresolvedthenable.unresolvedThenable;
       }
       (0, _react.useEffect)(() => {
@@ -14871,7 +14871,7 @@
         const originalReplaceState = window.history.replaceState.bind(
           window.history,
         );
-        // Ensure the canonical URL in the Next.js Router is updated when the URL is changed so that `usePathname` and `useSearchParams` hold the pushed values.
+        
         const applyUrlFromHistoryPushReplace = (url) => {
           const href = window.location.href;
           const appHistoryState =
@@ -14884,12 +14884,12 @@
             });
           });
         };
-        /**
-         * Patch pushState to ensure external changes to the history are reflected in the Next.js Router.
-         * Ensures Next.js internal history state is copied to the new history entry.
-         * Ensures usePathname and useSearchParams hold the newly provided url.
-         */ window.history.pushState = function pushState(data, _unused, url) {
-          // Avoid a loop when Next.js internals trigger pushState/replaceState
+        
+
+
+
+ window.history.pushState = function pushState(data, _unused, url) {
+          
           if (data?.__NA || data?._N) {
             return originalPushState(data, _unused, url);
           }
@@ -14899,16 +14899,16 @@
           }
           return originalPushState(data, _unused, url);
         };
-        /**
-         * Patch replaceState to ensure external changes to the history are reflected in the Next.js Router.
-         * Ensures Next.js internal history state is copied to the new history entry.
-         * Ensures usePathname and useSearchParams hold the newly provided url.
-         */ window.history.replaceState = function replaceState(
+        
+
+
+
+ window.history.replaceState = function replaceState(
           data,
           _unused,
           url,
         ) {
-          // Avoid a loop when Next.js internals trigger pushState/replaceState
+          
           if (data?.__NA || data?._N) {
             return originalReplaceState(data, _unused, url);
           }
@@ -14918,22 +14918,22 @@
           }
           return originalReplaceState(data, _unused, url);
         };
-        /**
-         * Handle popstate event, this is used to handle back/forward in the browser.
-         * By default dispatches ACTION_RESTORE, however if the history entry was not pushed/replaced by app-router it will reload the page.
-         * That case can happen when the old router injected the history entry.
-         */ const onPopState = (event) => {
+        
+
+
+
+ const onPopState = (event) => {
           if (!event.state) {
-            // TODO-APP: this case only happens when pushState/replaceState was called outside of Next.js. It should probably reload the page in this case.
+            
             return;
           }
-          // This case happens when the history entry was pushed by the `pages` router.
+          
           if (!event.state.__NA) {
             window.location.reload();
             return;
           }
-          // TODO-APP: Ideally the back button should not use startTransition as it should apply the updates synchronously
-          // Without startTransition works if the cache is there for this path
+          
+          
           (0, _react.startTransition)(() => {
             (0, _approuterinstance.dispatchTraverseAction)(
               window.location.href,
@@ -14941,7 +14941,7 @@
             );
           });
         };
-        // Register popstate event to call onPopstate.
+        
         window.addEventListener("popstate", onPopState);
         return () => {
           window.history.pushState = originalPushState;
@@ -14954,13 +14954,13 @@
       const matchingHead = (0, _react.useMemo)(() => {
         return (0, _findheadincache.findHeadInCache)(cache, tree[1]);
       }, [cache, tree]);
-      // Add memoized pathParams for useParams.
+      
       const pathParams = (0, _react.useMemo)(() => {
         return (0, _computechangedpath.getSelectedParams)(tree);
       }, [tree]);
-      // Create instrumented promises for navigation hooks (dev-only)
-      // These are specially instrumented promises to show in the Suspense DevTools
-      // Promises are cached outside of render to survive suspense retries.
+      
+      
+      
       let instrumentedNavigationPromises = null;
       if (("TURBOPACK compile-time truthy", 1)) {
         const { createRootNavigationPromises } = __turbopack_context__.r(
@@ -14979,13 +14979,13 @@
           parentCacheNode: cache,
           parentSegmentPath: null,
           parentParams: {},
-          // This is the <Activity> "name" that shows up in the Suspense DevTools.
-          // It represents the root of the app.
+          
+          
           debugNameContext: "/",
-          // Root node always has `url`
-          // Provided in AppTreeContext to ensure it can be overwritten in layout-router
+          
+          
           url: canonicalUrl,
-          // Root segment is always active
+          
           isActive: true,
         };
       }, [tree, cache, canonicalUrl]);
@@ -14999,15 +14999,15 @@
       }, [tree, focusAndScrollRef, nextUrl, previousNextUrl]);
       let head;
       if (matchingHead !== null) {
-        // The head is wrapped in an extra component so we can use
-        // `useDeferredValue` to swap between the prefetched and final versions of
-        // the head. (This is what LayoutRouter does for segment data, too.)
-        //
-        // The `key` is used to remount the component whenever the head moves to
-        // a different segment.
+        
+        
+        
+        
+        
+        
         const [headCacheNode, headKey, headKeyWithoutSearchParams] =
           matchingHead;
-        head = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+        head =  (0, _jsxruntime.jsx)(
           Head,
           {
             headCacheNode: headCacheNode,
@@ -15017,18 +15017,18 @@
       } else {
         head = null;
       }
-      let content = /*#__PURE__*/ (0, _jsxruntime.jsxs)(
+      let content =  (0, _jsxruntime.jsxs)(
         _redirectboundary.RedirectBoundary,
         {
           children: [
             head,
-            /*#__PURE__*/ (0, _jsxruntime.jsx)(
+             (0, _jsxruntime.jsx)(
               _boundarycomponents.RootLayoutBoundary,
               {
                 children: cache.rsc,
               },
             ),
-            /*#__PURE__*/ (0, _jsxruntime.jsx)(
+             (0, _jsxruntime.jsx)(
               _approuterannouncer.AppRouterAnnouncer,
               {
                 tree: tree,
@@ -15038,17 +15038,17 @@
         },
       );
       if (("TURBOPACK compile-time truthy", 1)) {
-        // In development, we apply few error boundaries and hot-reloader:
-        // - DevRootHTTPAccessFallbackBoundary: avoid using navigation API like notFound() in root layout
-        // - HotReloader:
-        //  - hot-reload the app when the code changes
-        //  - render dev overlay
-        //  - catch runtime errors and display global-error when necessary
+        
+        
+        
+        
+        
+        
         if (typeof window !== "undefined") {
           const { DevRootHTTPAccessFallbackBoundary } = __turbopack_context__.r(
             "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js [app-client] (ecmascript)",
           );
-          content = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+          content =  (0, _jsxruntime.jsx)(
             DevRootHTTPAccessFallbackBoundary,
             {
               children: content,
@@ -15058,49 +15058,49 @@
         const HotReloader = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js [app-client] (ecmascript)",
         ).default;
-        content = /*#__PURE__*/ (0, _jsxruntime.jsx)(HotReloader, {
+        content =  (0, _jsxruntime.jsx)(HotReloader, {
           globalError: globalError,
           webSocket: webSocket,
           staticIndicatorState: staticIndicatorState,
           children: content,
         });
-      } //TURBOPACK unreachable
+      } 
       else;
-      return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+      return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
         children: [
-          /*#__PURE__*/ (0, _jsxruntime.jsx)(HistoryUpdater, {
+           (0, _jsxruntime.jsx)(HistoryUpdater, {
             appRouterState: state,
           }),
-          /*#__PURE__*/ (0, _jsxruntime.jsx)(RuntimeStyles, {}),
-          /*#__PURE__*/ (0, _jsxruntime.jsx)(
+           (0, _jsxruntime.jsx)(RuntimeStyles, {}),
+           (0, _jsxruntime.jsx)(
             _hooksclientcontextsharedruntime.NavigationPromisesContext.Provider,
             {
               value: instrumentedNavigationPromises,
-              children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+              children:  (0, _jsxruntime.jsx)(
                 _hooksclientcontextsharedruntime.PathParamsContext.Provider,
                 {
                   value: pathParams,
-                  children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                  children:  (0, _jsxruntime.jsx)(
                     _hooksclientcontextsharedruntime.PathnameContext.Provider,
                     {
                       value: pathname,
-                      children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                      children:  (0, _jsxruntime.jsx)(
                         _hooksclientcontextsharedruntime.SearchParamsContext
                           .Provider,
                         {
                           value: searchParams,
-                          children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                          children:  (0, _jsxruntime.jsx)(
                             _approutercontextsharedruntime
                               .GlobalLayoutRouterContext.Provider,
                             {
                               value: globalLayoutRouterContext,
-                              children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                              children:  (0, _jsxruntime.jsx)(
                                 _approutercontextsharedruntime.AppRouterContext
                                   .Provider,
                                 {
                                   value:
                                     _approuterinstance.publicAppRouterInstance,
-                                  children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                                  children:  (0, _jsxruntime.jsx)(
                                     _approutercontextsharedruntime
                                       .LayoutRouterContext.Provider,
                                     {
@@ -15130,15 +15130,15 @@
       staticIndicatorState,
     }) {
       (0, _navfailurehandler.useNavFailureHandler)();
-      const router = /*#__PURE__*/ (0, _jsxruntime.jsx)(Router, {
+      const router =  (0, _jsxruntime.jsx)(Router, {
         actionQueue: actionQueue,
         globalError: globalErrorState,
         webSocket: webSocket,
         staticIndicatorState: staticIndicatorState,
       });
-      // At the very top level, use the default GlobalError component as the final fallback.
-      // When the app router itself fails, which means the framework itself fails, we show the default error.
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(_rooterrorboundary.default, {
+      
+      
+      return  (0, _jsxruntime.jsx)(_rooterrorboundary.default, {
         errorComponent: _globalerror.default,
         children: router,
       });
@@ -15151,8 +15151,8 @@
       if (runtimeStyles.size !== len) {
         runtimeStyleChanged.forEach((cb) => cb());
       }
-      // TODO figure out how to get a promise here
-      // But maybe it's not necessary as react would block rendering until it's loaded
+      
+      
       return Promise.resolve();
     };
     function RuntimeStyles() {
@@ -15172,12 +15172,12 @@
         ? "TURBOPACK unreachable"
         : "";
       return [...runtimeStyles].map((href, i) =>
-        /*#__PURE__*/ (0, _jsxruntime.jsx)(
+         (0, _jsxruntime.jsx)(
           "link",
           {
             rel: "stylesheet",
             href: `${href}${dplId}`,
-            // @ts-ignore
+            
             precedence: "next",
           },
           i,
@@ -15194,7 +15194,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-router.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/server-patch-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15234,7 +15234,7 @@
       const { serverResponse, navigatedAt } = action;
       const mutable = {};
       mutable.preserveCustomHistoryState = false;
-      // Handle case when navigating to page in `pages` from `app`
+      
       if (typeof serverResponse === "string") {
         return (0, _navigatereducer.handleExternalUrl)(
           state,
@@ -15256,11 +15256,11 @@
           treePatch,
           state.canonicalUrl,
         );
-        // `applyRouterStatePatchToTree` returns `null` when it determined that the server response is not applicable to the current tree.
-        // In other words, the server responded with a tree that doesn't match what the client is currently rendering.
-        // This can happen if the server patch action took longer to resolve than a subsequent navigation which would have changed the tree.
-        // Previously this case triggered an MPA navigation but it should be safe to simply discard the server response rather than forcing
-        // the entire page to reload.
+        
+        
+        
+        
+        
         if (newTree === null) {
           return state;
         }
@@ -15305,14 +15305,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=server-patch-reducer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/restore-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15337,12 +15337,12 @@
     function restoreReducer(state, action) {
       const { url, historyState } = action;
       const href = (0, _createhreffromurl.createHrefFromUrl)(url);
-      // This action is used to restore the router state from the history state.
-      // However, it's possible that the history state no longer contains the `FlightRouterState`.
-      // We will copy over the internal state on pushState/replaceState events, but if a history entry
-      // occurred before hydration, or if the user navigated to a hash using a regular anchor link,
-      // the history state will not contain the `FlightRouterState`.
-      // In this case, we'll continue to use the existing tree so the router doesn't get into an invalid state.
+      
+      
+      
+      
+      
+      
       let treeToRestore;
       let renderedSearch;
       if (historyState) {
@@ -15353,23 +15353,23 @@
         renderedSearch = state.renderedSearch;
       }
       const oldCache = state.cache;
-      const newCache = ("TURBOPACK compile-time falsy", 0) // prevents an unnecessary flash back to PPR state during a
-        ? // back/forward navigation.
+      const newCache = ("TURBOPACK compile-time falsy", 0) 
+        ? 
           "TURBOPACK unreachable"
         : oldCache;
       return {
-        // Set canonical url
+        
         canonicalUrl: href,
         renderedSearch,
         pushRef: {
           pendingPush: false,
           mpaNavigation: false,
-          // Ensures that the custom history state that was set is preserved when applying this update.
+          
           preserveCustomHistoryState: true,
         },
         focusAndScrollRef: state.focusAndScrollRef,
         cache: newCache,
-        // Restore provided tree
+        
         tree: treeToRestore,
         nextUrl:
           (0, _computechangedpath.extractPathFromFlightRouterState)(
@@ -15389,14 +15389,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=restore-reducer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/handle-segment-mismatch.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15439,7 +15439,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=handle-segment-mismatch.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/has-interception-route-in-current-tree.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15458,7 +15458,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [app-client] (ecmascript)",
     );
     function hasInterceptionRouteInCurrentTree([segment, parallelRoutes]) {
-      // If we have a dynamic segment, it's marked as an interception route by the presence of the `i` suffix.
+      
       if (
         Array.isArray(segment) &&
         (segment[2] === "di(..)(..)" ||
@@ -15472,14 +15472,14 @@
       ) {
         return true;
       }
-      // If segment is not an array, apply the existing string-based check
+      
       if (
         typeof segment === "string" &&
         (0, _interceptionroutes.isInterceptionRouteAppPath)(segment)
       ) {
         return true;
       }
-      // Iterate through parallelRoutes if they exist
+      
       if (parallelRoutes) {
         for (const key in parallelRoutes) {
           if (hasInterceptionRouteInCurrentTree(parallelRoutes[key])) {
@@ -15499,7 +15499,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=has-interception-route-in-current-tree.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/refresh-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15557,14 +15557,14 @@
       let currentTree = state.tree;
       mutable.preserveCustomHistoryState = false;
       const cache = (0, _approuter.createEmptyCacheNode)();
-      // If the current tree was intercepted, the nextUrl should be included in the request.
-      // This is to ensure that the refresh request doesn't get intercepted, accidentally triggering the interception route.
+      
+      
       const includeNextUrl = (0,
       _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
         state.tree,
       );
-      // TODO-APP: verify that `href` is not an external url.
-      // Fetch data from the root of the tree.
+      
+      
       cache.lazyData = (0, _fetchserverresponse.fetchServerResponse)(
         new URL(href, origin),
         {
@@ -15580,7 +15580,7 @@
       const navigatedAt = Date.now();
       return cache.lazyData.then(
         async (result) => {
-          // Handle case when navigating to page in `pages` from `app`
+          
           if (typeof result === "string") {
             return (0, _navigatereducer.handleExternalUrl)(
               state,
@@ -15590,7 +15590,7 @@
             );
           }
           const { flightData, canonicalUrl, renderedSearch } = result;
-          // Remove cache.lazyData as it has been resolved at this point.
+          
           cache.lazyData = null;
           for (const normalizedFlightData of flightData) {
             const {
@@ -15600,7 +15600,7 @@
               isRootRender,
             } = normalizedFlightData;
             if (!isRootRender) {
-              // TODO-APP: handle this case better
+              
               console.log("REFRESH FAILED");
               return state;
             }
@@ -15634,7 +15634,7 @@
             mutable.canonicalUrl = (0, _createhreffromurl.createHrefFromUrl)(
               canonicalUrl,
             );
-            // Handles case where prefetch only returns the router tree patch without rendered components.
+            
             if (cacheNodeSeedData !== null) {
               const rsc = cacheNodeSeedData[0];
               const loading = cacheNodeSeedData[2];
@@ -15680,14 +15680,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=refresh-reducer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/hmr-refresh-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15730,21 +15730,21 @@
     const _hasinterceptionrouteincurrenttree = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/has-interception-route-in-current-tree.js [app-client] (ecmascript)",
     );
-    // A version of refresh reducer that keeps the cache around instead of wiping all of it.
+    
     function hmrRefreshReducerImpl(state, action) {
       const { origin } = action;
       const mutable = {};
       const href = state.canonicalUrl;
       mutable.preserveCustomHistoryState = false;
       const cache = (0, _approuter.createEmptyCacheNode)();
-      // If the current tree was intercepted, the nextUrl should be included in the request.
-      // This is to ensure that the refresh request doesn't get intercepted, accidentally triggering the interception route.
+      
+      
       const includeNextUrl = (0,
       _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
         state.tree,
       );
-      // TODO-APP: verify that `href` is not an external url.
-      // Fetch data from the root of the tree.
+      
+      
       const navigatedAt = Date.now();
       cache.lazyData = (0, _fetchserverresponse.fetchServerResponse)(
         new URL(href, origin),
@@ -15761,7 +15761,7 @@
       );
       return cache.lazyData.then(
         (result) => {
-          // Handle case when navigating to page in `pages` from `app`
+          
           if (typeof result === "string") {
             return (0, _navigatereducer.handleExternalUrl)(
               state,
@@ -15771,14 +15771,14 @@
             );
           }
           const { flightData, canonicalUrl, renderedSearch } = result;
-          // Remove cache.lazyData as it has been resolved at this point.
+          
           cache.lazyData = null;
           let currentTree = state.tree;
           let currentCache = state.cache;
           for (const normalizedFlightData of flightData) {
             const { tree: treePatch, isRootRender } = normalizedFlightData;
             if (!isRootRender) {
-              // TODO-APP: handle this case better
+              
               console.log("REFRESH FAILED");
               return state;
             }
@@ -15847,7 +15847,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=hmr-refresh-reducer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/assign-location.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15868,8 +15868,8 @@
     function assignLocation(location, url) {
       if (location.startsWith(".")) {
         const urlBase = url.origin + url.pathname;
-        return new URL( // new URL('./relative', 'https://example.com/subdir').href -> 'https://example.com/relative'
-          // new URL('./relative', 'https://example.com/subdir/').href -> 'https://example.com/subdir/relative'
+        return new URL( 
+          
           (urlBase.endsWith("/") ? urlBase : urlBase + "/") + location,
         );
       }
@@ -15885,14 +15885,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=assign-location.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/server-action-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15976,16 +15976,16 @@
     );
     const createFromFetch = _client.createFromFetch;
     let createDebugChannel;
-    if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+    if (("TURBOPACK compile-time falsy", 0)) 
     ;
     async function fetchServerAction(state, nextUrl, { actionId, actionArgs }) {
       const temporaryReferences = (0, _client.createTemporaryReferenceSet)();
       const info = (0, _serverreferenceinfo.extractInfoFromServerReferenceId)(
         actionId,
       );
-      // TODO: Currently, we're only omitting unused args for the experimental "use
-      // cache" functions. Once the server reference info byte feature is stable, we
-      // should apply this to server actions as well.
+      
+      
+      
       const usedArgs =
         info.type === "use-cache"
           ? (0, _serverreferenceinfo.omitUnusedArgs)(actionArgs, info)
@@ -15999,7 +15999,7 @@
         [_approuterheaders.NEXT_ROUTER_STATE_TREE_HEADER]: (0,
         _flightdatahelpers.prepareFlightRouterStateForRequest)(state.tree),
       };
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       if (nextUrl) {
         headers[_approuterheaders.NEXT_URL] = nextUrl;
@@ -16009,9 +16009,9 @@
           headers[_approuterheaders.NEXT_HTML_REQUEST_ID_HEADER] =
             self.__next_r;
         }
-        // Create a new request ID for the server action request. The server uses
-        // this to tag debug information sent via WebSocket to the client, which
-        // then routes those chunks to the debug channel associated with this ID.
+        
+        
+        
         headers[_approuterheaders.NEXT_REQUEST_ID_HEADER] = crypto
           .getRandomValues(new Uint32Array(1))[0]
           .toString(16);
@@ -16021,7 +16021,7 @@
         headers,
         body,
       });
-      // Handle server actions that the server didn't recognize.
+      
       const unrecognizedActionHeader = res.headers.get(
         _approuterheaders.NEXT_ACTION_NOT_FOUND_HEADER,
       );
@@ -16078,12 +16078,12 @@
         contentType &&
         contentType.startsWith(_approuterheaders.RSC_CONTENT_TYPE_HEADER)
       );
-      // Handle invalid server action responses.
-      // A valid response must have `content-type: text/x-component`, unless it's an external redirect.
-      // (external redirects have an 'x-action-redirect' header, but the body is an empty 'text/plain')
+      
+      
+      
       if (!isRscResponse && !redirectLocation) {
-        // The server can respond with a text/plain error message, but we'll fallback to something generic
-        // if there isn't one.
+        
+        
         const message =
           res.status >= 400 && contentType === "text/plain"
             ? await res.text()
@@ -16103,13 +16103,13 @@
           temporaryReferences,
           debugChannel: createDebugChannel && createDebugChannel(headers),
         });
-        // An internal redirect can send an RSC response, but does not have a useful `actionResult`.
+        
         actionResult = redirectLocation ? undefined : response.a;
         actionFlightData = (0, _flightdatahelpers.normalizeFlightData)(
           response.f,
         );
       } else {
-        // An external redirect doesn't contain RSC data.
+        
         actionResult = undefined;
         actionFlightData = undefined;
       }
@@ -16132,14 +16132,14 @@
       const mutable = {};
       let currentTree = state.tree;
       mutable.preserveCustomHistoryState = false;
-      // only pass along the `nextUrl` param (used for interception routes) if the current route was intercepted.
-      // If the route has been intercepted, the action should be as well.
-      // Otherwise the server action might be intercepted with the wrong action id
-      // (ie, one that corresponds with the intercepted route)
-      const nextUrl = // performing a dynamic request. This is because we update
-        // the next-url after a navigation, but we want the same
-        // interception route to be matched that used the last
-        // next-url.
+      
+      
+      
+      
+      const nextUrl = 
+        
+        
+        
         (state.previousNextUrl || state.nextUrl) &&
         (0,
         _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
@@ -16157,7 +16157,7 @@
           revalidatedParts,
         }) => {
           let redirectHref;
-          // honor the redirect type instead of defaulting to push in case of server actions.
+          
           if (redirectLocation) {
             if (redirectType === _redirecterror.RedirectType.replace) {
               state.pushRef.pendingPush = false;
@@ -16174,7 +16174,7 @@
           }
           if (!flightData) {
             resolve(actionResult);
-            // If there is a redirect but no flight data we need to do a mpaNavigation.
+            
             if (redirectLocation) {
               return (0, _navigatereducer.handleExternalUrl)(
                 state,
@@ -16186,7 +16186,7 @@
             return state;
           }
           if (typeof flightData === "string") {
-            // Handle case when navigating to page in `pages` from `app`
+            
             resolve(actionResult);
             return (0, _navigatereducer.handleExternalUrl)(
               state,
@@ -16199,10 +16199,10 @@
             revalidatedParts.paths.length > 0 ||
             revalidatedParts.tag ||
             revalidatedParts.cookie;
-          // Store whether this action triggered any revalidation
-          // The action queue will use this information to potentially
-          // trigger a refresh action if the action was discarded
-          // (ie, due to a navigation, before the action completed)
+          
+          
+          
+          
           if (actionRevalidated) {
             action.didRevalidate = true;
           }
@@ -16214,12 +16214,12 @@
               isRootRender,
             } = normalizedFlightData;
             if (!isRootRender) {
-              // TODO-APP: handle this case better
+              
               console.log("SERVER ACTION APPLY FAILED");
               resolve(actionResult);
               return state;
             }
-            // Given the path can only have two items the items are only the router state and rsc for the root.
+            
             const newTree = (0,
             _applyrouterstatepatchtotree.applyRouterStatePatchToTree)(
               [""],
@@ -16249,7 +16249,7 @@
                 state.pushRef.pendingPush,
               );
             }
-            // The server sent back RSC data for the server action, so we need to apply it to the cache.
+            
             if (cacheNodeSeedData !== null) {
               const rsc = cacheNodeSeedData[0];
               const cache = (0, _approuter.createEmptyCacheNode)();
@@ -16284,12 +16284,12 @@
             currentTree = newTree;
           }
           if (redirectLocation && redirectHref) {
-            // If the action triggered a redirect, the action promise will be rejected with
-            // a redirect so that it's handled by RedirectBoundary as we won't have a valid
-            // action result to resolve the promise with. This will effectively reset the state of
-            // the component that called the action as the error boundary will remount the tree.
-            // The status code doesn't matter here as the action handler will have already sent
-            // a response with the correct status code.
+            
+            
+            
+            
+            
+            
             const redirectError = (0, _redirect.getRedirectError)(
               (0, _hasbasepath.hasBasePath)(redirectHref)
                 ? (0, _removebasepath.removeBasePath)(redirectHref)
@@ -16304,7 +16304,7 @@
           return (0, _handlemutable.handleMutable)(state, mutable);
         },
         (e) => {
-          // When the server action is rejected we don't update the state and instead call the reject handler of the promise.
+          
           reject(e);
           return state;
         },
@@ -16320,7 +16320,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=server-action-reducer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/router-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -16356,9 +16356,9 @@
     const _serveractionreducer = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/server-action-reducer.js [app-client] (ecmascript)",
     );
-    /**
-     * Reducer that handles the app-router state updates.
-     */ function clientReducer(state, action) {
+    
+
+ function clientReducer(state, action) {
       switch (action.type) {
         case _routerreducertypes.ACTION_NAVIGATE: {
           return (0, _navigatereducer.navigateReducer)(state, action);
@@ -16378,7 +16378,7 @@
         case _routerreducertypes.ACTION_SERVER_ACTION: {
           return (0, _serveractionreducer.serverActionReducer)(state, action);
         }
-        // This case should never be hit as dispatch is strongly typed.
+        
         default:
           throw Object.defineProperty(
             new Error("Unknown action"),
@@ -16406,7 +16406,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=router-reducer.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/prefetch.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -16442,7 +16442,7 @@
     ) {
       const url = (0, _approuterutils.createPrefetchURL)(href);
       if (url === null) {
-        // This href should not be prefetched.
+        
         return;
       }
       const cacheKey = (0, _cachekey.createCacheKey)(url.href, nextUrl);
@@ -16464,14 +16464,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=prefetch.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -16551,9 +16551,9 @@
           });
         }
       } else {
-        // Check for refresh when pending is already null
-        // This handles the case where a discarded server action completes
-        // after the navigation has already finished and the queue is empty
+        
+        
+        
         if (actionQueue.needsRefresh) {
           actionQueue.needsRefresh = false;
           actionQueue.dispatch(
@@ -16572,19 +16572,19 @@
       const payload = action.payload;
       const actionResult = actionQueue.action(prevState, payload);
       function handleResult(nextState) {
-        // if we discarded this action, the state should also be discarded
+        
         if (action.discarded) {
-          // Check if the discarded server action revalidated data
+          
           if (
             action.payload.type === _routerreducertypes.ACTION_SERVER_ACTION &&
             action.payload.didRevalidate
           ) {
-            // The server action was discarded but it revalidated data,
-            // mark that we need to refresh after all actions complete
+            
+            
             actionQueue.needsRefresh = true;
           }
-          // Still need to run remaining actions even for discarded actions
-          // to potentially trigger the refresh
+          
+          
           runRemainingActions(actionQueue, setState);
           return;
         }
@@ -16592,7 +16592,7 @@
         runRemainingActions(actionQueue, setState);
         action.resolve(nextState);
       }
-      // if the action is a promise, set up a callback to resolve it
+      
       if ((0, _isthenable.isThenable)(actionResult)) {
         actionResult.then(handleResult, (err) => {
           runRemainingActions(actionQueue, setState);
@@ -16607,12 +16607,12 @@
         resolve: setState,
         reject: () => {},
       };
-      // most of the action types are async with the exception of restore
-      // it's important that restore is handled quickly since it's fired on the popstate event
-      // and we don't want to add any delay on a back/forward nav
-      // this only creates a promise for the async actions
+      
+      
+      
+      
       if (payload.type !== _routerreducertypes.ACTION_RESTORE) {
-        // Create the promise and assign the resolvers to the object.
+        
         const deferredPromise = new Promise((resolve, reject) => {
           resolvers = {
             resolve,
@@ -16620,8 +16620,8 @@
           };
         });
         (0, _react.startTransition)(() => {
-          // we immediately notify React of the pending promise -- the resolver is attached to the action node
-          // and will be called when the associated action promise resolves
+          
+          
           setState(deferredPromise);
         });
       }
@@ -16631,10 +16631,10 @@
         resolve: resolvers.resolve,
         reject: resolvers.reject,
       };
-      // Check if the queue is empty
+      
       if (actionQueue.pending === null) {
-        // The queue is empty, so add the action and start it immediately
-        // Mark this action as the last in the queue
+        
+        
         actionQueue.last = newAction;
         runAction({
           actionQueue,
@@ -16645,11 +16645,11 @@
         payload.type === _routerreducertypes.ACTION_NAVIGATE ||
         payload.type === _routerreducertypes.ACTION_RESTORE
       ) {
-        // Navigations (including back/forward) take priority over any pending actions.
-        // Mark the pending action as discarded (so the state is never applied) and start the navigation action immediately.
+        
+        
         actionQueue.pending.discarded = true;
-        // The rest of the current queue should still execute after this navigation.
-        // (Note that it can't contain any earlier navigations, because we always put those into `actionQueue.pending` by calling `runAction`)
+        
+        
         newAction.next = actionQueue.pending.next;
         runAction({
           actionQueue,
@@ -16657,8 +16657,8 @@
           setState,
         });
       } else {
-        // The queue is not empty, so add the action to the end of the queue
-        // It will be started by runRemainingActions after the previous action finishes
+        
+        
         if (actionQueue.last !== null) {
           actionQueue.last.next = newAction;
         }
@@ -16684,9 +16684,9 @@
             : null,
       };
       if (typeof window !== "undefined") {
-        // The action queue is lazily created on hydration, but after that point
-        // it doesn't change. So we can store it in a global rather than pass
-        // it around everywhere via props/context.
+        
+        
+        
         if (globalActionQueue !== null) {
           throw Object.defineProperty(
             new Error(
@@ -16736,10 +16736,10 @@
       shouldScroll,
       linkInstanceRef,
     ) {
-      // TODO: This stuff could just go into the reducer. Leaving as-is for now
-      // since we're about to rewrite all the router reducer stuff anyway.
+      
+      
       const url = new URL((0, _addbasepath.addBasePath)(href), location.href);
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       (0, _links.setLinkForCurrentNavigation)(linkInstanceRef);
       const onRouterTransitionStart = getProfilingHookForOnNavigationStart();
@@ -16769,19 +16769,19 @@
     const publicAppRouterInstance = {
       back: () => window.history.back(),
       forward: () => window.history.forward(),
-      // data in the router reducer state; it writes into a global mutable
+      
       prefetch:
-        // cache. So we don't need to dispatch an action.
+        
         (href, options) => {
           const actionQueue = getAppRouterActionQueue();
           const prefetchKind =
             options?.kind ?? _routerreducertypes.PrefetchKind.AUTO;
-          // We don't currently offer a way to issue a runtime prefetch via `router.prefetch()`.
-          // This will be possible when we update its API to not take a PrefetchKind.
+          
+          
           let fetchStrategy;
           switch (prefetchKind) {
             case _routerreducertypes.PrefetchKind.AUTO: {
-              // We default to PPR. We'll discover whether or not the route supports it with the initial prefetch.
+              
               fetchStrategy = _types.FetchStrategy.PPR;
               break;
             }
@@ -16790,15 +16790,15 @@
               break;
             }
             case _routerreducertypes.PrefetchKind.TEMPORARY: {
-              // This concept doesn't exist in the segment cache implementation.
+              
               return;
             }
             default: {
               prefetchKind;
-              // Despite typescript thinking that this can't happen,
-              // we might get an unexpected value from user code.
-              // We don't know what they want, but we know they want a prefetch,
-              // so use the default.
+              
+              
+              
+              
               fetchStrategy = _types.FetchStrategy.PPR;
             }
           }
@@ -16834,7 +16834,7 @@
         });
       },
       hmrRefresh: () => {
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         else {
           (0, _react.startTransition)(() => {
@@ -16846,7 +16846,7 @@
         }
       },
     };
-    // Exists for debugging purposes. Don't use in application code.
+    
     if (typeof window !== "undefined" && window.next) {
       window.next.router = publicAppRouterInstance;
     }
@@ -16860,7 +16860,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-router-instance.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-initial-router-state.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -16898,9 +16898,9 @@
       initialParallelRoutes,
       location,
     }) {
-      // When initialized on the server, the canonical URL is provided as an array of parts.
-      // This is to ensure that when the RSC payload streamed to the client, crawlers don't interpret it
-      // as a URL that should be crawled.
+      
+      
+      
       const initialCanonicalUrl = initialCanonicalUrlParts.join("/");
       const normalizedFlightData = (0,
       _flightdatahelpers.getFlightDataPartsFromPath)(initialFlightData[0]);
@@ -16909,8 +16909,8 @@
         seedData: initialSeedData,
         head: initialHead,
       } = normalizedFlightData;
-      // For the SSR render, seed data should always be available (we only send back a `null` response
-      // in the case of a `loading` segment, pre-PPR.)
+      
+      
       const rsc = initialSeedData?.[0];
       const loading = initialSeedData?.[2] ?? null;
       const cache = {
@@ -16919,12 +16919,12 @@
         prefetchRsc: null,
         head: null,
         prefetchHead: null,
-        // The cache gets seeded during the first render. `initialParallelRoutes` ensures the cache from the first render is there during the second render.
+        
         parallelRoutes: initialParallelRoutes,
         loading,
         navigatedAt,
       };
-      const canonicalUrl = // This is safe to do as canonicalUrl can't be rendered, it's only used to control the history updates in the useEffect further down in this file.
+      const canonicalUrl = 
         location
           ? (0, _createhreffromurl.createHrefFromUrl)(location)
           : initialCanonicalUrl;
@@ -16933,7 +16933,7 @@
         initialTree,
         canonicalUrl,
       );
-      // When the cache hasn't been seeded yet we fill the cache with the head.
+      
       if (initialParallelRoutes === null || initialParallelRoutes.size === 0) {
         (0, _filllazyitemstillleafwithhead.fillLazyItemsTillLeafWithHead)(
           navigatedAt,
@@ -16950,8 +16950,8 @@
         pushRef: {
           pendingPush: false,
           mpaNavigation: false,
-          // First render needs to preserve the previous window.history.state
-          // to avoid it being overwritten on navigation back/forward with MPA Navigation.
+          
+          
           preserveCustomHistoryState: true,
         },
         focusAndScrollRef: {
@@ -16983,14 +16983,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=create-initial-router-state.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-link-gc.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -17004,7 +17004,7 @@
       },
     });
     function linkGc() {
-      // TODO-APP: Remove this logic when Float has GC built-in in development.
+      
       if (("TURBOPACK compile-time truthy", 1)) {
         const callback = (mutationList) => {
           for (const mutation of mutationList) {
@@ -17022,8 +17022,8 @@
                           ...document.querySelectorAll(
                             'link[href^="' + resource + '"]',
                           ),
-                          // It's possible that the resource is a full URL or only pathname,
-                          // so we need to remove the alternative href as well.
+                          
+                          
                           ...document.querySelectorAll(
                             'link[href^="' +
                               (resource.startsWith(currentOrigin)
@@ -17043,10 +17043,10 @@
                                 2,
                               );
                               if (!otherVersion || +otherVersion < +version) {
-                                // Delay the removal of the stylesheet to avoid FOUC
-                                // caused by `@font-face` rules, as they seem to be
-                                // a couple of ticks delayed between the old and new
-                                // styles being swapped even if the font is cached.
+                                
+                                
+                                
+                                
                                 setTimeout(() => {
                                   otherLink.remove();
                                 }, 5);
@@ -17068,7 +17068,7 @@
             }
           }
         };
-        // Create an observer instance linked to the callback function
+        
         const observer = new MutationObserver(callback);
         observer.observe(document.head, {
           childList: true,
@@ -17085,14 +17085,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-link-gc.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -17114,12 +17114,12 @@
     __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-globals.js [app-client] (ecmascript)",
     );
-    const _client = /*#__PURE__*/ _interop_require_default._(
+    const _client =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/client.js [app-client] (ecmascript)",
       ),
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -17145,7 +17145,7 @@
     const _approuterinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-instance.js [app-client] (ecmascript)",
     );
-    const _approuter = /*#__PURE__*/ _interop_require_default._(
+    const _approuter =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router.js [app-client] (ecmascript)",
       ),
@@ -17162,7 +17162,7 @@
     const _flightdatahelpers = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/flight-data-helpers.js [app-client] (ecmascript)",
     );
-    /// <reference types="react-dom/experimental" />
+    
     const createFromReadableStream = _client1.createFromReadableStream;
     const createFromFetch = _client1.createFromFetch;
     const appElement = document;
@@ -17204,7 +17204,7 @@
               configurable: true,
             },
           );
-        // Decode the base64 string back to binary data.
+        
         const binaryString = atob(seg[1]);
         const decodedChunk = new Uint8Array(binaryString.length);
         for (var i = 0; i < binaryString.length; i++) {
@@ -17218,17 +17218,17 @@
       }
     }
     function isStreamErrorOrUnfinished(ctr) {
-      // If `desiredSize` is null, it means the stream is closed or errored. If it is lower than 0, the stream is still unfinished.
+      
       return ctr.desiredSize === null || ctr.desiredSize < 0;
     }
-    // There might be race conditions between `nextServerDataRegisterWriter` and
-    // `DOMContentLoaded`. The former will be called when React starts to hydrate
-    // the root, the latter will be called when the DOM is fully loaded.
-    // For streaming, the former is called first due to partial hydration.
-    // For non-streaming, the latter can be called first.
-    // Hence, we use two variables `initialServerDataLoaded` and
-    // `initialServerDataFlushed` to make sure the writer will be closed and
-    // `initialServerDataBuffer` will be cleared in the right time.
+    
+    
+    
+    
+    
+    
+    
+    
     function nextServerDataRegisterWriter(ctr) {
       if (initialServerDataBuffer) {
         initialServerDataBuffer.forEach((val) => {
@@ -17258,7 +17258,7 @@
       }
       initialServerDataWriter = ctr;
     }
-    // When `DOMContentLoaded`, we can close all pending writers to finish hydration.
+    
     const DOMContentLoaded = function () {
       if (initialServerDataWriter && !initialServerDataFlushed) {
         initialServerDataWriter.close();
@@ -17267,19 +17267,19 @@
       }
       initialServerDataLoaded = true;
     };
-    // It's possible that the DOM is already loaded.
+    
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", DOMContentLoaded, false);
     } else {
-      // Delayed in marco task to ensure it's executed later than hydration
+      
       setTimeout(DOMContentLoaded);
     }
     const nextServerDataLoadingGlobal = (self.__next_f = self.__next_f || []);
-    // Consume all buffered chunks and clear the global data array right after to release memory.
-    // Otherwise it will be retained indefinitely.
+    
+    
     nextServerDataLoadingGlobal.forEach(nextServerDataCallback);
     nextServerDataLoadingGlobal.length = 0;
-    // Patch its push method so subsequent chunks are handled (but not actually pushed to the array).
+    
     nextServerDataLoadingGlobal.push = nextServerDataCallback;
     const readable = new ReadableStream({
       start(controller) {
@@ -17287,11 +17287,11 @@
       },
     });
     if (("TURBOPACK compile-time truthy", 1)) {
-      // @ts-expect-error
+      
       readable.name = "hydration";
     }
     let debugChannel;
-    if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+    if (("TURBOPACK compile-time falsy", 0)) 
     ;
     const clientResumeFetch = window.__NEXT_CLIENT_RESUME;
     let initialServerResponse;
@@ -17313,7 +17313,7 @@
         callServer: _appcallserver.callServer,
         findSourceMapURL: _appfindsourcemapurl.findSourceMapURL,
         debugChannel,
-        // @ts-expect-error This is not yet part of the React types
+        
         startTime: 0,
       });
     }
@@ -17323,7 +17323,7 @@
       webSocket,
       staticIndicatorState,
     }) {
-      const router = /*#__PURE__*/ (0, _jsxruntime.jsx)(_approuter.default, {
+      const router =  (0, _jsxruntime.jsx)(_approuter.default, {
         actionQueue: actionQueue,
         globalErrorState: initialRSCPayload.G,
         webSocket: webSocket,
@@ -17333,9 +17333,9 @@
         ("TURBOPACK compile-time value", "development") === "development" &&
         initialRSCPayload.m
       ) {
-        // We provide missing slot information in a context provider only during development
-        // as we log some additional information about the missing slots in the console.
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+        
+        
+        return  (0, _jsxruntime.jsx)(
           _approutercontextsharedruntime.MissingSlotContext,
           {
             value: initialRSCPayload.m,
@@ -17349,13 +17349,13 @@
       ? _react.default.StrictMode
       : "TURBOPACK unreachable";
     function Root({ children }) {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       return children;
     }
     function onDefaultTransitionIndicator() {
-      // TODO: Compose default with user-configureable (e.g. nprogress)
-      // TODO: Use React's default once we figure out hanging indicators: https://codesandbox.io/p/sandbox/charming-moon-hktkp6?file=%2Fsrc%2Findex.js%3A106%2C30
+      
+      
       return () => {};
     }
     const reactRootOptions = {
@@ -17378,8 +17378,8 @@
         webSocket = createWebSocket(assetPrefix, staticIndicatorState);
       }
       const initialRSCPayload = await initialServerResponse;
-      // setAppBuildId should be called only once, during JS initialization
-      // and before any components have hydrated.
+      
+      
       (0, _appbuildid.setAppBuildId)(initialRSCPayload.b);
       const initialTimestamp = Date.now();
       const actionQueue = (0, _approuterinstance.createMutableActionQueue)(
@@ -17393,15 +17393,15 @@
         }),
         instrumentationHooks,
       );
-      const reactEl = /*#__PURE__*/ (0, _jsxruntime.jsx)(StrictModeIfEnabled, {
-        children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+      const reactEl =  (0, _jsxruntime.jsx)(StrictModeIfEnabled, {
+        children:  (0, _jsxruntime.jsx)(
           _headmanagercontextsharedruntime.HeadManagerContext.Provider,
           {
             value: {
               appDir: true,
             },
-            children: /*#__PURE__*/ (0, _jsxruntime.jsx)(Root, {
-              children: /*#__PURE__*/ (0, _jsxruntime.jsx)(ServerRoot, {
+            children:  (0, _jsxruntime.jsx)(Root, {
+              children:  (0, _jsxruntime.jsx)(ServerRoot, {
                 initialRSCPayload: initialRSCPayload,
                 actionQueue: actionQueue,
                 webSocket: webSocket,
@@ -17413,13 +17413,13 @@
       });
       if (document.documentElement.id === "__next_error__") {
         let element = reactEl;
-        // Server rendering failed, fall back to client-side rendering
+        
         if (("TURBOPACK compile-time truthy", 1)) {
           const { RootLevelDevOverlayElement } = __turbopack_context__.r(
             "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/client-entry.js [app-client] (ecmascript)",
           );
-          // Note this won't cause hydration mismatch because we are doing CSR w/o hydration
-          element = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+          
+          element =  (0, _jsxruntime.jsx)(
             RootLevelDevOverlayElement,
             {
               children: element,
@@ -17437,7 +17437,7 @@
           });
         });
       }
-      // TODO-APP: Remove this logic when Float has GC built-in in development.
+      
       if (("TURBOPACK compile-time truthy", 1)) {
         const { linkGc } = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-link-gc.js [app-client] (ecmascript)",
@@ -17455,14 +17455,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-index.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-next-turbopack.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -17477,7 +17477,7 @@
     );
     window.next.turbopack = true;
     self.__webpack_hash__ = "";
-    // eslint-disable-next-line @next/internal/typechecked-require
+    
     const instrumentationHooks = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/require-instrumentation-client.js [app-client] (ecmascript)",
     );
@@ -17514,8 +17514,8 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-next-turbopack.js.map
+    } 
   },
 ]);
 
-//# sourceMappingURL=c729b_next_dist_client_4506c9bf._.js.map
+

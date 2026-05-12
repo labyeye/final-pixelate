@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
-  // Support both legacy accountId and new clientId flow
+  
   const clientId = searchParams.get("clientId");
   const accountId = searchParams.get("accountId");
 
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
 
   const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 
-  // Encode state as JSON so callback knows what mode it's in
+  
   const state = clientId
     ? JSON.stringify({ clientId })
     : JSON.stringify({ accountId });

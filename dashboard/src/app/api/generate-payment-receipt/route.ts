@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
   const finalReceiptNo =
     receiptNo || generateReceiptNo(receiptIndex || receiptCounter++);
 
-  // Safely coerce a value that might be a BSON Decimal128 / extended JSON object
+  
   function coerceNum(v: unknown): number {
     if (v === null || v === undefined) return 0;
     if (typeof v === "number") return isFinite(v) ? v : 0;
@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
   };
 
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    
     const pdfBuffer = await renderToBuffer(
       React.createElement(PaymentReceiptPDFDocument, { data }) as any,
     );

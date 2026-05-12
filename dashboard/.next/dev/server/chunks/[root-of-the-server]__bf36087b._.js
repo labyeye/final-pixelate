@@ -163,10 +163,10 @@ module.exports = [
         return null;
       }
     }
-    // Build the Meta API components array from our template document
+    
     function buildComponents(template) {
       const components = [];
-      // ── HEADER ────────────────────────────────────────────────────────────────
+      
       if (template.headerType && template.headerType !== "NONE") {
         if (template.headerType === "TEXT" && template.headerText) {
           const hasVar = /{{[^}]+}}/.test(template.headerText);
@@ -182,7 +182,7 @@ module.exports = [
           }
           components.push(comp);
         } else {
-          // IMAGE / DOCUMENT / VIDEO — use the uploaded Meta media handle if available
+          
           if (template.headerMediaHandle) {
             components.push({
               type: "HEADER",
@@ -192,7 +192,7 @@ module.exports = [
               },
             });
           } else {
-            // No handle uploaded yet — submit without example (Meta may accept this for DOCUMENT)
+            
             components.push({
               type: "HEADER",
               format: template.headerType,
@@ -200,9 +200,9 @@ module.exports = [
           }
         }
       }
-      // ── BODY ──────────────────────────────────────────────────────────────────
+      
       if (template.body) {
-        // Trim trailing whitespace from each line and strip leading/trailing blank lines
+        
         const cleanBody = template.body
           .split("\n")
           .map((line) => line.trimEnd())
@@ -212,15 +212,15 @@ module.exports = [
           type: "BODY",
           text: cleanBody,
         };
-        // Detect {{n}} variables and attach example values
-        // Sort {{1}}, {{2}}, … in numeric order so examples align correctly
+        
+        
         const rawMatches = template.body.match(/\{\{(\d+)\}\}/g) ?? [];
         const varNums = [
           ...new Set(rawMatches.map((m) => parseInt(m.replace(/[{}]/g, "")))),
         ].sort((a, b) => a - b);
         if (varNums.length > 0) {
           const examples = varNums.map((n) => {
-            const i = n - 1; // {{1}} → index 0
+            const i = n - 1; 
             const val = template.exampleValues?.[i] ?? template.variables?.[i];
             return val && String(val).trim()
               ? String(val).trim()
@@ -232,14 +232,14 @@ module.exports = [
         }
         components.push(bodyComp);
       }
-      // ── FOOTER ────────────────────────────────────────────────────────────────
+      
       if (template.footer) {
         components.push({
           type: "FOOTER",
           text: template.footer,
         });
       }
-      // ── BUTTONS ───────────────────────────────────────────────────────────────
+      
       if (Array.isArray(template.buttons) && template.buttons.length > 0) {
         const buttons = template.buttons.map((btn) => {
           if (btn.type === "QUICK_REPLY")
@@ -273,13 +273,13 @@ module.exports = [
     }
     async function POST(req, { params }) {
       const { id } = await params;
-      // Accept optional name override in body — more reliable than ObjectId URL param
+      
       let nameOverride;
       try {
         const body = await req.json().catch(() => ({}));
         nameOverride = body?.name;
       } catch {
-        // body is optional
+        
       }
       const oid = toObjectId(id);
       const accessToken = process.env.META_ACCESS_TOKEN;
@@ -318,10 +318,10 @@ module.exports = [
           },
         );
       }
-      // Look up template — try 3 strategies in order:
-      // 1. By name (most reliable — names are unique)
-      // 2. By ObjectId from URL param
-      // 3. By string _id fallback
+      
+      
+      
+      
       let template = null;
       try {
         if (nameOverride) {
@@ -343,7 +343,7 @@ module.exports = [
           );
         }
         if (!template) {
-          // last resort — scan entire collection (small collection, acceptable)
+          
           const all = await db.collection(COLLECTION).find({}).toArray();
           console.info(
             `[submit] full scan, ${all.length} docs, looking for id="${id}"`,
@@ -427,13 +427,13 @@ module.exports = [
         const metaMessage = errDetail.message ?? "Meta API returned an error.";
         const metaDetails = errDetail.error_data?.details ?? "";
         const subcode = errDetail.error_subcode ?? "";
-        // Subcode 2388023 = template name already exists on Meta — treat as success
+        
         if (
           subcode === 2388023 ||
           String(subcode) === "2388023" ||
           metaMessage.toLowerCase().includes("already exists")
         ) {
-          // Template was previously submitted — just mark it as submitted locally
+          
           await db.collection(COLLECTION).updateOne(
             {
               _id: template._id,
@@ -477,7 +477,7 @@ module.exports = [
       }
       const metaTemplateId = metaJson?.id ?? null;
       const metaStatus = metaJson?.status ?? "PENDING";
-      // Update local record — use template's actual _id to be safe
+      
       await db.collection(COLLECTION).updateOne(
         {
           _id: template._id,
@@ -504,4 +504,4 @@ module.exports = [
   },
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__bf36087b._.js.map
+

@@ -4,10 +4,10 @@ import { ObjectId } from "mongodb";
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const body = await request.json();
     const db = await getDb();
 
@@ -35,10 +35,10 @@ export async function PATCH(
 
 export async function DELETE(
   _request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const { softDeleteById } = await import("@/lib/services");
     const ok = await softDeleteById("journey_events", id);
     if (!ok)

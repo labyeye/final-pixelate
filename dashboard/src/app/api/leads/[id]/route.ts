@@ -15,10 +15,11 @@ export async function OPTIONS() {
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const item = await svc.findById("leads", params.id);
+    const { id } = await params;
+    const item = await svc.findById("leads", id);
     return NextResponse.json(item, { headers: CORS });
   } catch (e: any) {
     return NextResponse.json(
@@ -30,9 +31,10 @@ export async function GET(
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const auth = request.headers.get("authorization") || "";
     const token = auth.replace("Bearer ", "");
     if (!verifyToken(token))
@@ -44,8 +46,8 @@ export async function PATCH(
     const { status: newStatus, ...rest } = body;
 
     const col = await svc.getCollection("leads");
-    const hex24 = /^[a-fA-F0-9]{24}$/.test(params.id);
-    const filter = hex24 ? { _id: new ObjectId(params.id) } : { id: params.id };
+    const hex24 = /^[a-fA-F0-9]{24}$/.test(id);
+    const filter = hex24 ? { _id: new ObjectId(id) } : { id: id };
 
     const existing = await col.findOne(filter);
     const setDoc: Record<string, any> = { ...rest, updatedAt: new Date() };
@@ -78,9 +80,10 @@ export async function PATCH(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const auth = request.headers.get("authorization") || "";
     const token = auth.replace("Bearer ", "");
     const decoded: any = verifyToken(token);
@@ -95,7 +98,7 @@ export async function DELETE(
         status: 403,
         headers: CORS,
       });
-    const ok = await svc.deleteById("leads", params.id);
+    const ok = await svc.deleteById("leads", id);
     return NextResponse.json({ deleted: ok }, { headers: CORS });
   } catch (e: any) {
     return NextResponse.json(

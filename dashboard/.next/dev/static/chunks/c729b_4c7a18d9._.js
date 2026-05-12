@@ -4,16 +4,16 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * @license React
-     * react-jsx-dev-runtime.development.js
-     *
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+    
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -365,11 +365,11 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
-    if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+    if (("TURBOPACK compile-time falsy", 0)) 
     ;
     else {
       module.exports = __turbopack_context__.r(
@@ -381,7 +381,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    // src/primitive.tsx
+    
     __turbopack_context__.s([
       "canUseDOM",
       () => canUseDOM,
@@ -450,13 +450,13 @@
     function isFrame(element) {
       return element.tagName === "IFRAME";
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/compose-refs/src/compose-refs.tsx
+    
     __turbopack_context__.s([
       "composeRefs",
       () => composeRefs,
@@ -503,13 +503,13 @@
         "useCallback"
       ](composeRefs(...refs), refs);
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-context/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/context/src/create-context.tsx
+    
     __turbopack_context__.s([
       "createContext",
       () => createContext2,
@@ -540,7 +540,7 @@
             }["createContext2.Provider.useMemo[value]"],
             Object.values(context),
           );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(Context.Provider, {
@@ -584,7 +584,7 @@
               }["createContextScope.createContext3.Provider.useMemo[value]"],
               Object.values(context),
             );
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Context.Provider, {
@@ -672,13 +672,13 @@
       createScope.scopeName = baseScope.scopeName;
       return createScope;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/slot.tsx
+    
     __turbopack_context__.s([
       "Root",
       () => Slot,
@@ -703,9 +703,9 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
       );
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlot(ownerName) {
-      const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+      const SlotClone =  createSlotClone(ownerName);
       const Slot2 =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "forwardRef"
@@ -737,7 +737,7 @@
                 return child;
               }
             });
-            return /* @__PURE__ */ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SlotClone, {
@@ -753,7 +753,7 @@
                   : null,
             });
           }
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(SlotClone, {
@@ -765,8 +765,8 @@
       Slot2.displayName = `${ownerName}.Slot`;
       return Slot2;
     }
-    var Slot = /* @__PURE__ */ createSlot("Slot");
-    // @__NO_SIDE_EFFECTS__
+    var Slot =  createSlot("Slot");
+    
     function createSlotClone(ownerName) {
       const SlotClone =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -809,10 +809,10 @@
       return SlotClone;
     }
     var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlottable(ownerName) {
       const Slottable2 = ({ children }) => {
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -828,7 +828,7 @@
       Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
       return Slottable2;
     }
-    var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+    var Slottable =  createSlottable("Slottable");
     function isSlottable(child) {
       return (
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -887,7 +887,7 @@
       }
       return element.props.ref || element.ref;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -899,7 +899,7 @@
       "unstable_createCollection",
       () => createCollection2,
     ]);
-    // src/collection-legacy.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -932,7 +932,7 @@
           collectionRef: {
             current: null,
           },
-          itemMap: /* @__PURE__ */ new Map(),
+          itemMap:  new Map(),
         });
       const CollectionProvider = (props) => {
         const { scope, children } = props;
@@ -943,8 +943,8 @@
         const itemMap =
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
-          ].useRef(/* @__PURE__ */ new Map()).current;
-        return /* @__PURE__ */ (0,
+          ].useRef( new Map()).current;
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionProviderImpl, {
@@ -970,7 +970,7 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "useComposedRefs"
           ])(forwardedRef, context.collectionRef);
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionSlotImpl, {
@@ -1015,7 +1015,7 @@
               },
             }["createCollection.CollectionItemSlot.useEffect"],
           );
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionItemSlotImpl, {
@@ -1071,8 +1071,8 @@
         createCollectionScope,
       ];
     }
-    // src/ordered-dictionary.ts
-    var __instanciated = /* @__PURE__ */ new WeakMap();
+    
+    var __instanciated =  new WeakMap();
     var OrderedDict = class _OrderedDict extends Map {
       #keys;
       constructor(entries) {
@@ -1150,9 +1150,9 @@
         }
         return this.entryAt(index);
       }
-      /**
-       * Sets a new key-value pair at the position before the given key.
-       */ setBefore(key, newKey, value) {
+      
+
+ setBefore(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
           return this;
@@ -1167,9 +1167,9 @@
         }
         return this.entryAt(index);
       }
-      /**
-       * Sets a new key-value pair at the position after the given key.
-       */ setAfter(key, newKey, value) {
+      
+
+ setAfter(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
           return this;
@@ -1413,14 +1413,14 @@
         });
       const CollectionProvider = ({ state, ...props }) => {
         return state
-          ? /* @__PURE__ */ (0,
+          ?  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(CollectionProviderImpl, {
               ...props,
               state,
             })
-          : /* @__PURE__ */ (0,
+          :  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(CollectionInit, {
@@ -1430,7 +1430,7 @@
       CollectionProvider.displayName = PROVIDER_NAME;
       const CollectionInit = (props) => {
         const state = useInitCollection();
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionProviderImpl, {
@@ -1481,7 +1481,7 @@
           }["createCollection2.CollectionProviderImpl.useEffect"],
           [collectionElement],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionContextProvider, {
@@ -1510,7 +1510,7 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "useComposedRefs"
           ])(forwardedRef, context.collectionRef);
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionSlotImpl, {
@@ -1601,7 +1601,7 @@
             }["createCollection2.CollectionItemSlot.useEffect"],
             [element, memoizedItemData, setItemMap],
           );
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionItemSlotImpl, {
@@ -1675,13 +1675,13 @@
       });
       return observer;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/slot.tsx
+    
     __turbopack_context__.s([
       "Root",
       () => Slot,
@@ -1706,9 +1706,9 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
       );
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlot(ownerName) {
-      const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+      const SlotClone =  createSlotClone(ownerName);
       const Slot2 =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "forwardRef"
@@ -1740,7 +1740,7 @@
                 return child;
               }
             });
-            return /* @__PURE__ */ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SlotClone, {
@@ -1756,7 +1756,7 @@
                   : null,
             });
           }
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(SlotClone, {
@@ -1768,8 +1768,8 @@
       Slot2.displayName = `${ownerName}.Slot`;
       return Slot2;
     }
-    var Slot = /* @__PURE__ */ createSlot("Slot");
-    // @__NO_SIDE_EFFECTS__
+    var Slot =  createSlot("Slot");
+    
     function createSlotClone(ownerName) {
       const SlotClone =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1812,10 +1812,10 @@
       return SlotClone;
     }
     var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlottable(ownerName) {
       const Slottable2 = ({ children }) => {
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1831,7 +1831,7 @@
       Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
       return Slottable2;
     }
-    var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+    var Slottable =  createSlottable("Slottable");
     function isSlottable(child) {
       return (
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1890,13 +1890,13 @@
       }
       return element.props.ref || element.ref;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/primitive.tsx
+    
     __turbopack_context__.s([
       "Primitive",
       () => Primitive,
@@ -1954,7 +1954,7 @@
           if (typeof window !== "undefined") {
             window[Symbol.for("radix-ui")] = true;
           }
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Comp, {
@@ -1975,13 +1975,13 @@
         ](() => target.dispatchEvent(event));
     }
     var Root = Primitive;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/use-callback-ref/src/use-callback-ref.tsx
+    
     __turbopack_context__.s(["useCallbackRef", () => useCallbackRef]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2014,13 +2014,13 @@
         [],
       );
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/use-escape-keydown/src/use-escape-keydown.tsx
+    
     __turbopack_context__.s(["useEscapeKeydown", () => useEscapeKeydown]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2064,7 +2064,7 @@
         [onEscapeKeyDown, ownerDocument],
       );
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -2080,7 +2080,7 @@
       "Root",
       () => Root,
     ]);
-    // src/dismissable-layer.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -2119,9 +2119,9 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "createContext"
       ]({
-        layers: /* @__PURE__ */ new Set(),
-        layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
-        branches: /* @__PURE__ */ new Set(),
+        layers:  new Set(),
+        layersWithOutsidePointerEventsDisabled:  new Set(),
+        branches:  new Set(),
       });
     var DismissableLayer =
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -2294,7 +2294,7 @@
           }["DismissableLayer.useEffect"],
           [],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -2366,7 +2366,7 @@
           }["DismissableLayerBranch.useEffect"],
           [context.branches],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -2483,7 +2483,7 @@
         [ownerDocument, handlePointerDownOutside],
       );
       return {
-        // ensures we check React component tree (not just DOM tree)
+        
         onPointerDownCapture: () =>
           (isPointerInsideReactTreeRef.current = true),
       };
@@ -2562,13 +2562,13 @@
     }
     var Root = DismissableLayer;
     var Branch = DismissableLayerBranch;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/use-layout-effect/src/use-layout-effect.tsx
+    
     __turbopack_context__.s(["useLayoutEffect", () => useLayoutEffect2]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2579,14 +2579,14 @@
           "useLayoutEffect"
         ]
       : () => {};
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-portal/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
     __turbopack_context__.s(["Portal", () => Portal, "Root", () => Root]);
-    // src/portal.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -2633,7 +2633,7 @@
           ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createPortal(
-              /* @__PURE__ */ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -2651,14 +2651,14 @@
       });
     Portal.displayName = PORTAL_NAME;
     var Root = Portal;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-presence/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
     __turbopack_context__.s(["Presence", () => Presence, "Root", () => Root]);
-    // src/presence.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -2685,7 +2685,7 @@
         initialState,
       );
     }
-    // src/presence.tsx
+    
     var Presence = (props) => {
       const { present, children } = props;
       const presence = usePresence(present);
@@ -2889,13 +2889,13 @@
       return element.props.ref || element.ref;
     }
     var Root = Presence;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-effect-event/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/use-effect-event.tsx
+    
     __turbopack_context__.s(["useEffectEvent", () => useEffectEvent]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$use$2d$layout$2d$effect$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2955,13 +2955,13 @@
         [],
       );
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/use-controllable-state.tsx
+    
     __turbopack_context__.s([
       "useControllableState",
       () => useControllableState,
@@ -3194,13 +3194,13 @@
       );
       return [state, dispatch];
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-visually-hidden/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/visually-hidden.tsx
+    
     __turbopack_context__.s([
       "Root",
       () => Root,
@@ -3222,7 +3222,7 @@
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
       );
     var VISUALLY_HIDDEN_STYLES = Object.freeze({
-      // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
+      
       position: "absolute",
       border: 0,
       width: 1,
@@ -3239,7 +3239,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ]((props, forwardedRef) => {
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3258,7 +3258,7 @@
       });
     VisuallyHidden.displayName = NAME;
     var Root = VisuallyHidden;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-toast/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -3296,7 +3296,7 @@
       "createToastScope",
       () => createToastScope,
     ]);
-    // src/toast.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -3399,12 +3399,12 @@
           `Invalid prop \`label\` supplied to \`${PROVIDER_NAME}\`. Expected non-empty \`string\`.`,
         );
       }
-      return /* @__PURE__ */ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(Collection.Provider, {
         scope: __scopeToast,
-        children: /* @__PURE__ */ (0,
+        children:  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastProviderProvider, {
@@ -3679,7 +3679,7 @@
           }["ToastViewport.useEffect"],
           [getItems, getSortedTabbableCandidates],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -3696,7 +3696,7 @@
             },
             children: [
               hasToasts &&
-                /* @__PURE__ */ (0,
+                 (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(FocusProxy, {
@@ -3708,12 +3708,12 @@
                     focusFirst(tabbableCandidates);
                   },
                 }),
-              /* @__PURE__ */ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(Collection.Slot, {
                 scope: __scopeToast,
-                children: /* @__PURE__ */ (0,
+                children:  (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(
@@ -3728,7 +3728,7 @@
                 ),
               }),
               hasToasts &&
-                /* @__PURE__ */ (0,
+                 (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(FocusProxy, {
@@ -3753,7 +3753,7 @@
         const { __scopeToast, onFocusFromOutsideViewport, ...proxyProps } =
           props;
         const context = useToastProviderContext(FOCUS_PROXY_NAME, __scopeToast);
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3802,7 +3802,7 @@
           onChange: onOpenChange,
           caller: TOAST_NAME,
         });
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3811,7 +3811,7 @@
           ],
           {
             present: forceMount || open,
-            children: /* @__PURE__ */ (0,
+            children:  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(ToastImpl, {
@@ -3974,7 +3974,7 @@
                 if (!duration2 || duration2 === Infinity) return;
                 window.clearTimeout(closeTimerRef.current);
                 closeTimerStartTimeRef.current =
-                  /* @__PURE__ */ new Date().getTime();
+                   new Date().getTime();
                 closeTimerRef.current = window.setTimeout(
                   handleClose,
                   duration2,
@@ -3999,7 +3999,7 @@
                 const handlePause = {
                   "ToastImpl.useEffect.handlePause": () => {
                     const elapsedTime =
-                      /* @__PURE__ */ new Date().getTime() -
+                       new Date().getTime() -
                       closeTimerStartTimeRef.current;
                     closeTimerRemainingTimeRef.current =
                       closeTimerRemainingTimeRef.current - elapsedTime;
@@ -4056,7 +4056,7 @@
             [node],
           );
         if (!context.viewport) return null;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -4066,7 +4066,7 @@
           {
             children: [
               announceTextContent &&
-                /* @__PURE__ */ (0,
+                 (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(ToastAnnounce, {
@@ -4075,7 +4075,7 @@
                   "aria-live": type === "foreground" ? "assertive" : "polite",
                   children: announceTextContent,
                 }),
-              /* @__PURE__ */ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(ToastInteractiveProvider, {
@@ -4085,12 +4085,12 @@
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "createPortal"
                   ](
-                    /* @__PURE__ */ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "jsx"
                     ])(Collection.ItemSlot, {
                       scope: __scopeToast,
-                      children: /* @__PURE__ */ (0,
+                      children:  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsx"
                       ])(
@@ -4107,7 +4107,7 @@
                               handleClose();
                             context.isFocusedToastEscapeKeyDownRef.current = false;
                           }),
-                          children: /* @__PURE__ */ (0,
+                          children:  (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                             "jsx"
                           ])(
@@ -4318,7 +4318,7 @@
       );
       return isAnnounced
         ? null
-        : /* @__PURE__ */ (0,
+        :  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -4327,7 +4327,7 @@
             ],
             {
               asChild: true,
-              children: /* @__PURE__ */ (0,
+              children:  (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -4338,7 +4338,7 @@
                   ...announceProps,
                   children:
                     renderAnnounceText &&
-                    /* @__PURE__ */ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "jsxs"
                     ])(
@@ -4360,7 +4360,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, ...titleProps } = props;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -4380,7 +4380,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, ...descriptionProps } = props;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -4406,13 +4406,13 @@
           );
           return null;
         }
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastAnnounceExclude, {
           altText,
           asChild: true,
-          children: /* @__PURE__ */ (0,
+          children:  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(ToastClose, {
@@ -4432,12 +4432,12 @@
           CLOSE_NAME,
           __scopeToast,
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastAnnounceExclude, {
           asChild: true,
-          children: /* @__PURE__ */ (0,
+          children:  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -4462,7 +4462,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, altText, ...announceExcludeProps } = props;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -4597,7 +4597,7 @@
     var Description = ToastDescription;
     var Action = ToastAction;
     var Close = ToastClose;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -4633,21 +4633,21 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * Copyright 2022 Joe Bell. All rights reserved.
-     *
-     * This file is licensed to you under the Apache License, Version 2.0
-     * (the "License"); you may not use this file except in compliance with the
-     * License. You may obtain a copy of the License at
-     *
-     *   http://www.apache.org/licenses/LICENSE-2.0
-     *
-     * Unless required by applicable law or agreed to in writing, software
-     * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-     * WARRANTIES OR REPRESENTATIONS OF ANY KIND, either express or implied. See the
-     * License for the specific language governing permissions and limitations under
-     * the License.
-     */ __turbopack_context__.s(["cva", () => cva, "cx", () => cx]);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s(["cva", () => cva, "cx", () => cx]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
@@ -4734,12 +4734,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "mergeClasses",
       () => mergeClasses,
       "toKebabCase",
@@ -4758,18 +4758,18 @@
         })
         .join(" ")
         .trim();
-    //# sourceMappingURL=utils.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/defaultAttributes.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s(["default", () => defaultAttributes]);
+    
+
+
+
+
+ __turbopack_context__.s(["default", () => defaultAttributes]);
     var defaultAttributes = {
       xmlns: "http://www.w3.org/2000/svg",
       width: 24,
@@ -4781,18 +4781,18 @@
       strokeLinecap: "round",
       strokeLinejoin: "round",
     };
-    //# sourceMappingURL=defaultAttributes.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/Icon.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s(["default", () => Icon]);
+    
+
+
+
+
+ __turbopack_context__.s(["default", () => Icon]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -4856,18 +4856,18 @@
         );
       },
     );
-    //# sourceMappingURL=Icon.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s(["default", () => createLucideIcon]);
+    
+
+
+
+
+ __turbopack_context__.s(["default", () => createLucideIcon]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -4909,18 +4909,18 @@
       Component.displayName = `${iconName}`;
       return Component;
     };
-    //# sourceMappingURL=createLucideIcon.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -4950,7 +4950,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("X", __iconNode);
-    //# sourceMappingURL=x.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>",
   (__turbopack_context__) => {
@@ -4972,9 +4972,9 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * Concatenates two arrays faster than the array spread operator.
-     */ __turbopack_context__.s([
+    
+
+ __turbopack_context__.s([
       "createTailwindMerge",
       () => createTailwindMerge,
       "extendTailwindMerge",
@@ -4993,7 +4993,7 @@
       () => validators,
     ]);
     const concatArrays = (array1, array2) => {
-      // Pre-allocate for better V8 optimization
+      
       const combinedArray = new Array(array1.length + array2.length);
       for (let i = 0; i < array1.length; i++) {
         combinedArray[i] = array1[i];
@@ -5003,12 +5003,12 @@
       }
       return combinedArray;
     };
-    // Factory function ensures consistent object shapes
+    
     const createClassValidatorObject = (classGroupId, validator) => ({
       classGroupId,
       validator,
     });
-    // Factory ensures consistent ClassPartObject shape
+    
     const createClassPartObject = (
       nextPart = new Map(),
       validators = null,
@@ -5020,7 +5020,7 @@
     });
     const CLASS_PART_SEPARATOR = "-";
     const EMPTY_CONFLICTS = [];
-    // I use two dots here because one dot is used as prefix for class groups in plugins
+    
     const ARBITRARY_PROPERTY_PREFIX = "arbitrary..";
     const createClassGroupUtils = (config) => {
       const classMap = createClassMap(config);
@@ -5030,7 +5030,7 @@
           return getGroupIdForArbitraryProperty(className);
         }
         const classParts = className.split(CLASS_PART_SEPARATOR);
-        // Classes like `-inset-1` produce an empty string as first classPart. We assume that classes for negative values are used correctly and skip it.
+        
         const startIndex =
           classParts[0] === "" && classParts.length > 1 ? 1 : 0;
         return getGroupRecursive(classParts, startIndex, classMap);
@@ -5045,13 +5045,13 @@
           const baseConflicts = conflictingClassGroups[classGroupId];
           if (modifierConflicts) {
             if (baseConflicts) {
-              // Merge base conflicts with modifier conflicts
+              
               return concatArrays(baseConflicts, modifierConflicts);
             }
-            // Only modifier conflicts
+            
             return modifierConflicts;
           }
-          // Fall back to without postfix if no modifier conflicts
+          
           return baseConflicts || EMPTY_CONFLICTS;
         }
         return conflictingClassGroups[classGroupId] || EMPTY_CONFLICTS;
@@ -5081,7 +5081,7 @@
       if (validators === null) {
         return undefined;
       }
-      // Build classRest string efficiently by joining from startIndex onwards
+      
       const classRest =
         startIndex === 0
           ? classParts.join(CLASS_PART_SEPARATOR)
@@ -5095,11 +5095,11 @@
       }
       return undefined;
     };
-    /**
-     * Get the class group ID for an arbitrary property.
-     *
-     * @param className - The class name to get the group ID for. Is expected to be string starting with `[` and ending with `]`.
-     */ const getGroupIdForArbitraryProperty = (className) =>
+    
+
+
+
+ const getGroupIdForArbitraryProperty = (className) =>
       className.slice(1, -1).indexOf(":") === -1
         ? undefined
         : (() => {
@@ -5108,13 +5108,13 @@
             const property = content.slice(0, colonIndex);
             return property ? ARBITRARY_PROPERTY_PREFIX + property : undefined;
           })();
-    /**
-     * Exported for testing only
-     */ const createClassMap = (config) => {
+    
+
+ const createClassMap = (config) => {
       const { theme, classGroups } = config;
       return processClassGroups(classGroups, theme);
     };
-    // Split into separate functions to maintain monomorphic call sites
+    
     const processClassGroups = (classGroups, theme) => {
       const classMap = createClassPartObject();
       for (const classGroupId in classGroups) {
@@ -5140,7 +5140,7 @@
         );
       }
     };
-    // Split into separate functions for each type to maintain monomorphic call sites
+    
     const processClassDefinition = (
       classDefinition,
       classPartObject,
@@ -5233,10 +5233,10 @@
       }
       return current;
     };
-    // Type guard maintains monomorphic check
+    
     const isThemeGetter = (func) =>
       "isThemeGetter" in func && func.isThemeGetter === true;
-    // LRU cache implementation using plain objects for simplicity
+    
     const createLruCache = (maxCacheSize) => {
       if (maxCacheSize < 1) {
         return {
@@ -5279,7 +5279,7 @@
     const IMPORTANT_MODIFIER = "!";
     const MODIFIER_SEPARATOR = ":";
     const EMPTY_MODIFIERS = [];
-    // Pre-allocated result object shape for consistency
+    
     const createResultObject = (
       modifiers,
       hasImportantModifier,
@@ -5295,13 +5295,13 @@
     });
     const createParseClassName = (config) => {
       const { prefix, experimentalParseClassName } = config;
-      /**
-       * Parse class name into parts.
-       *
-       * Inspired by `splitAtTopLevelOnly` used in Tailwind CSS
-       * @see https://github.com/tailwindlabs/tailwindcss/blob/v3.2.2/src/util/splitAtTopLevelOnly.js
-       */ let parseClassName = (className) => {
-        // Use simple array with push for better performance
+      
+
+
+
+
+ let parseClassName = (className) => {
+        
         const modifiers = [];
         let bracketDepth = 0;
         let parenDepth = 0;
@@ -5328,17 +5328,17 @@
         }
         const baseClassNameWithImportantModifier =
           modifiers.length === 0 ? className : className.slice(modifierStart);
-        // Inline important modifier check
+        
         let baseClassName = baseClassNameWithImportantModifier;
         let hasImportantModifier = false;
         if (baseClassNameWithImportantModifier.endsWith(IMPORTANT_MODIFIER)) {
           baseClassName = baseClassNameWithImportantModifier.slice(0, -1);
           hasImportantModifier = true;
         } else if (
-          /**
-           * In Tailwind CSS v3 the important modifier was at the start of the base class name. This is still supported for legacy reasons.
-           * @see https://github.com/dcastil/tailwind-merge/issues/513#issuecomment-2614029864
-           */ baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)
+          
+
+
+ baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)
         ) {
           baseClassName = baseClassNameWithImportantModifier.slice(1);
           hasImportantModifier = true;
@@ -5378,28 +5378,28 @@
       }
       return parseClassName;
     };
-    /**
-     * Sorts modifiers according to following schema:
-     * - Predefined modifiers are sorted alphabetically
-     * - When an arbitrary variant appears, it must be preserved which modifiers are before and after it
-     */ const createSortModifiers = (config) => {
-      // Pre-compute weights for all known modifiers for O(1) comparison
+    
+
+
+
+ const createSortModifiers = (config) => {
+      
       const modifierWeights = new Map();
-      // Assign weights to sensitive modifiers (highest priority, but preserve order)
+      
       config.orderSensitiveModifiers.forEach((mod, index) => {
-        modifierWeights.set(mod, 1000000 + index); // High weights for sensitive mods
+        modifierWeights.set(mod, 1000000 + index); 
       });
       return (modifiers) => {
         const result = [];
         let currentSegment = [];
-        // Process modifiers in one pass
+        
         for (let i = 0; i < modifiers.length; i++) {
           const modifier = modifiers[i];
-          // Check if modifier is sensitive (starts with '[' or in orderSensitiveModifiers)
+          
           const isArbitrary = modifier[0] === "[";
           const isOrderSensitive = modifierWeights.has(modifier);
           if (isArbitrary || isOrderSensitive) {
-            // Sort and flush current segment alphabetically
+            
             if (currentSegment.length > 0) {
               currentSegment.sort();
               result.push(...currentSegment);
@@ -5407,11 +5407,11 @@
             }
             result.push(modifier);
           } else {
-            // Regular modifier - add to current segment for batch sorting
+            
             currentSegment.push(modifier);
           }
         }
-        // Sort and add any remaining segment items
+        
         if (currentSegment.length > 0) {
           currentSegment.sort();
           result.push(...currentSegment);
@@ -5433,13 +5433,13 @@
         getConflictingClassGroupIds,
         sortModifiers,
       } = configUtils;
-      /**
-       * Set of classGroupIds in following format:
-       * `{importantModifier}{variantModifiers}{classGroupId}`
-       * @example 'float'
-       * @example 'hover:focus:bg-color'
-       * @example 'md:!pr'
-       */ const classGroupsInConflict = [];
+      
+
+
+
+
+
+ const classGroupsInConflict = [];
       const classNames = classList.trim().split(SPLIT_CLASSES_REGEX);
       let result = "";
       for (let index = classNames.length - 1; index >= 0; index -= 1) {
@@ -5464,21 +5464,21 @@
         );
         if (!classGroupId) {
           if (!hasPostfixModifier) {
-            // Not a Tailwind class
+            
             result =
               originalClassName + (result.length > 0 ? " " + result : result);
             continue;
           }
           classGroupId = getClassGroupId(baseClassName);
           if (!classGroupId) {
-            // Not a Tailwind class
+            
             result =
               originalClassName + (result.length > 0 ? " " + result : result);
             continue;
           }
           hasPostfixModifier = false;
         }
-        // Fast path: skip sorting for empty or single modifier
+        
         const variantModifier =
           modifiers.length === 0
             ? ""
@@ -5501,21 +5501,21 @@
           const group = conflictGroups[i];
           classGroupsInConflict.push(modifierId + group);
         }
-        // Tailwind class not in conflict
+        
         result =
           originalClassName + (result.length > 0 ? " " + result : result);
       }
       return result;
     };
-    /**
-     * The code in this file is copied from https://github.com/lukeed/clsx and modified to suit the needs of tailwind-merge better.
-     *
-     * Specifically:
-     * - Runtime code from https://github.com/lukeed/clsx/blob/v1.2.1/src/index.js
-     * - TypeScript types from https://github.com/lukeed/clsx/blob/v1.2.1/clsx.d.ts
-     *
-     * Original code has MIT license: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
-     */ const twJoin = (...classLists) => {
+    
+
+
+
+
+
+
+
+ const twJoin = (...classLists) => {
       let index = 0;
       let argument;
       let resolvedValue;
@@ -5531,7 +5531,7 @@
       return string;
     };
     const toValue = (mix) => {
-      // Fast path for strings
+      
       if (typeof mix === "string") {
         return mix;
       }
@@ -5590,7 +5590,7 @@
       /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/;
     const colorFunctionRegex =
       /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix)\(.+\)$/;
-    // Shadow always begins with x and y offset separated by underscore optionally prepended by inset
+    
     const shadowRegex =
       /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/;
     const imageRegex =
@@ -5603,10 +5603,10 @@
     const isTshirtSize = (value) => tshirtUnitRegex.test(value);
     const isAny = () => true;
     const isLengthOnly = (
-      value, // `colorFunctionRegex` check is necessary because color functions can have percentages in them which which would be incorrectly classified as lengths.
+      value, 
     ) =>
-      // For example, `hsl(0 0% 0%)` would be classified as a length without this check.
-      // I could also use lookbehind assertion in `lengthUnitRegex` but that isn't supported widely enough.
+      
+      
       lengthUnitRegex.test(value) && !colorFunctionRegex.test(value);
     const isNever = () => false;
     const isShadow = (value) => shadowRegex.test(value);
@@ -5639,7 +5639,7 @@
       getIsArbitraryVariable(value, isLabelImage);
     const isArbitraryVariableShadow = (value) =>
       getIsArbitraryVariable(value, isLabelShadow, true);
-    // Helpers
+    
     const getIsArbitraryValue = (value, testLabel, testValue) => {
       const result = arbitraryValueRegex.exec(value);
       if (result) {
@@ -5664,7 +5664,7 @@
       }
       return false;
     };
-    // Labels
+    
     const isLabelPosition = (label) =>
       label === "position" || label === "percentage";
     const isLabelImage = (label) => label === "image" || label === "url";
@@ -5674,7 +5674,7 @@
     const isLabelNumber = (label) => label === "number";
     const isLabelFamilyName = (label) => label === "family-name";
     const isLabelShadow = (label) => label === "shadow";
-    const validators = /*#__PURE__*/ Object.defineProperty(
+    const validators =  Object.defineProperty(
       {
         __proto__: null,
         isAny,
@@ -5705,10 +5705,10 @@
       },
     );
     const getDefaultConfig = () => {
-      /**
-       * Theme getters for theme variable namespaces
-       * @see https://tailwindcss.com/docs/theme#theme-variable-namespaces
-       */ /***/ const themeColor = fromTheme("color");
+      
+
+
+  const themeColor = fromTheme("color");
       const themeFont = fromTheme("font");
       const themeText = fromTheme("text");
       const themeFontWeight = fromTheme("font-weight");
@@ -5727,12 +5727,12 @@
       const themeAspect = fromTheme("aspect");
       const themeEase = fromTheme("ease");
       const themeAnimate = fromTheme("animate");
-      /**
-       * Helpers to avoid repeating the same scales
-       *
-       * We use functions that create a new array every time they're called instead of static arrays.
-       * This ensures that users who modify any scale by mutating the array (e.g. with `array.push(element)`) don't accidentally mutate arrays in other parts of the config.
-       */ /***/ const scaleBreak = () => [
+      
+
+
+
+
+  const scaleBreak = () => [
         "auto",
         "avoid",
         "all",
@@ -5749,16 +5749,16 @@
         "left",
         "right",
         "top-left",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "left-top",
         "top-right",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "right-top",
         "bottom-right",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "right-bottom",
         "bottom-left",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "left-bottom",
       ];
       const scalePositionWithArbitrary = () => [
@@ -5886,7 +5886,7 @@
         isArbitraryLength,
       ];
       const scaleRadius = () => [
-        // Deprecated since Tailwind CSS v4.0.0
+        
         "",
         "none",
         "full",
@@ -5926,7 +5926,7 @@
         isArbitraryPosition,
       ];
       const scaleBlur = () => [
-        // Deprecated since Tailwind CSS v4.0.0
+        
         "",
         "none",
         themeBlur,
@@ -5992,13 +5992,13 @@
           tracking: ["tighter", "tight", "normal", "wide", "wider", "widest"],
         },
         classGroups: {
-          // --------------
-          // --- Layout ---
-          // --------------
-          /**
-           * Aspect Ratio
-           * @see https://tailwindcss.com/docs/aspect-ratio
-           */ aspect: [
+          
+          
+          
+          
+
+
+ aspect: [
             {
               aspect: [
                 "auto",
@@ -6010,15 +6010,15 @@
               ],
             },
           ],
-          /**
-           * Container
-           * @see https://tailwindcss.com/docs/container
-           * @deprecated since Tailwind CSS v4.0.0
-           */ container: ["container"],
-          /**
-           * Columns
-           * @see https://tailwindcss.com/docs/columns
-           */ columns: [
+          
+
+
+
+ container: ["container"],
+          
+
+
+ columns: [
             {
               columns: [
                 isNumber,
@@ -6028,50 +6028,50 @@
               ],
             },
           ],
-          /**
-           * Break After
-           * @see https://tailwindcss.com/docs/break-after
-           */ "break-after": [
+          
+
+
+ "break-after": [
             {
               "break-after": scaleBreak(),
             },
           ],
-          /**
-           * Break Before
-           * @see https://tailwindcss.com/docs/break-before
-           */ "break-before": [
+          
+
+
+ "break-before": [
             {
               "break-before": scaleBreak(),
             },
           ],
-          /**
-           * Break Inside
-           * @see https://tailwindcss.com/docs/break-inside
-           */ "break-inside": [
+          
+
+
+ "break-inside": [
             {
               "break-inside": ["auto", "avoid", "avoid-page", "avoid-column"],
             },
           ],
-          /**
-           * Box Decoration Break
-           * @see https://tailwindcss.com/docs/box-decoration-break
-           */ "box-decoration": [
+          
+
+
+ "box-decoration": [
             {
               "box-decoration": ["slice", "clone"],
             },
           ],
-          /**
-           * Box Sizing
-           * @see https://tailwindcss.com/docs/box-sizing
-           */ box: [
+          
+
+
+ box: [
             {
               box: ["border", "content"],
             },
           ],
-          /**
-           * Display
-           * @see https://tailwindcss.com/docs/display
-           */ display: [
+          
+
+
+ display: [
             "block",
             "inline-block",
             "inline",
@@ -6094,189 +6094,189 @@
             "list-item",
             "hidden",
           ],
-          /**
-           * Screen Reader Only
-           * @see https://tailwindcss.com/docs/display#screen-reader-only
-           */ sr: ["sr-only", "not-sr-only"],
-          /**
-           * Floats
-           * @see https://tailwindcss.com/docs/float
-           */ float: [
+          
+
+
+ sr: ["sr-only", "not-sr-only"],
+          
+
+
+ float: [
             {
               float: ["right", "left", "none", "start", "end"],
             },
           ],
-          /**
-           * Clear
-           * @see https://tailwindcss.com/docs/clear
-           */ clear: [
+          
+
+
+ clear: [
             {
               clear: ["left", "right", "both", "none", "start", "end"],
             },
           ],
-          /**
-           * Isolation
-           * @see https://tailwindcss.com/docs/isolation
-           */ isolation: ["isolate", "isolation-auto"],
-          /**
-           * Object Fit
-           * @see https://tailwindcss.com/docs/object-fit
-           */ "object-fit": [
+          
+
+
+ isolation: ["isolate", "isolation-auto"],
+          
+
+
+ "object-fit": [
             {
               object: ["contain", "cover", "fill", "none", "scale-down"],
             },
           ],
-          /**
-           * Object Position
-           * @see https://tailwindcss.com/docs/object-position
-           */ "object-position": [
+          
+
+
+ "object-position": [
             {
               object: scalePositionWithArbitrary(),
             },
           ],
-          /**
-           * Overflow
-           * @see https://tailwindcss.com/docs/overflow
-           */ overflow: [
+          
+
+
+ overflow: [
             {
               overflow: scaleOverflow(),
             },
           ],
-          /**
-           * Overflow X
-           * @see https://tailwindcss.com/docs/overflow
-           */ "overflow-x": [
+          
+
+
+ "overflow-x": [
             {
               "overflow-x": scaleOverflow(),
             },
           ],
-          /**
-           * Overflow Y
-           * @see https://tailwindcss.com/docs/overflow
-           */ "overflow-y": [
+          
+
+
+ "overflow-y": [
             {
               "overflow-y": scaleOverflow(),
             },
           ],
-          /**
-           * Overscroll Behavior
-           * @see https://tailwindcss.com/docs/overscroll-behavior
-           */ overscroll: [
+          
+
+
+ overscroll: [
             {
               overscroll: scaleOverscroll(),
             },
           ],
-          /**
-           * Overscroll Behavior X
-           * @see https://tailwindcss.com/docs/overscroll-behavior
-           */ "overscroll-x": [
+          
+
+
+ "overscroll-x": [
             {
               "overscroll-x": scaleOverscroll(),
             },
           ],
-          /**
-           * Overscroll Behavior Y
-           * @see https://tailwindcss.com/docs/overscroll-behavior
-           */ "overscroll-y": [
+          
+
+
+ "overscroll-y": [
             {
               "overscroll-y": scaleOverscroll(),
             },
           ],
-          /**
-           * Position
-           * @see https://tailwindcss.com/docs/position
-           */ position: ["static", "fixed", "absolute", "relative", "sticky"],
-          /**
-           * Top / Right / Bottom / Left
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ inset: [
+          
+
+
+ position: ["static", "fixed", "absolute", "relative", "sticky"],
+          
+
+
+ inset: [
             {
               inset: scaleInset(),
             },
           ],
-          /**
-           * Right / Left
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ "inset-x": [
+          
+
+
+ "inset-x": [
             {
               "inset-x": scaleInset(),
             },
           ],
-          /**
-           * Top / Bottom
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ "inset-y": [
+          
+
+
+ "inset-y": [
             {
               "inset-y": scaleInset(),
             },
           ],
-          /**
-           * Start
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ start: [
+          
+
+
+ start: [
             {
               start: scaleInset(),
             },
           ],
-          /**
-           * End
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ end: [
+          
+
+
+ end: [
             {
               end: scaleInset(),
             },
           ],
-          /**
-           * Top
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ top: [
+          
+
+
+ top: [
             {
               top: scaleInset(),
             },
           ],
-          /**
-           * Right
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ right: [
+          
+
+
+ right: [
             {
               right: scaleInset(),
             },
           ],
-          /**
-           * Bottom
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ bottom: [
+          
+
+
+ bottom: [
             {
               bottom: scaleInset(),
             },
           ],
-          /**
-           * Left
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ left: [
+          
+
+
+ left: [
             {
               left: scaleInset(),
             },
           ],
-          /**
-           * Visibility
-           * @see https://tailwindcss.com/docs/visibility
-           */ visibility: ["visible", "invisible", "collapse"],
-          /**
-           * Z-Index
-           * @see https://tailwindcss.com/docs/z-index
-           */ z: [
+          
+
+
+ visibility: ["visible", "invisible", "collapse"],
+          
+
+
+ z: [
             {
               z: [isInteger, "auto", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          // ------------------------
-          // --- Flexbox and Grid ---
-          // ------------------------
-          /**
-           * Flex Basis
-           * @see https://tailwindcss.com/docs/flex-basis
-           */ basis: [
+          
+          
+          
+          
+
+
+ basis: [
             {
               basis: [
                 isFraction,
@@ -6287,26 +6287,26 @@
               ],
             },
           ],
-          /**
-           * Flex Direction
-           * @see https://tailwindcss.com/docs/flex-direction
-           */ "flex-direction": [
+          
+
+
+ "flex-direction": [
             {
               flex: ["row", "row-reverse", "col", "col-reverse"],
             },
           ],
-          /**
-           * Flex Wrap
-           * @see https://tailwindcss.com/docs/flex-wrap
-           */ "flex-wrap": [
+          
+
+
+ "flex-wrap": [
             {
               flex: ["nowrap", "wrap", "wrap-reverse"],
             },
           ],
-          /**
-           * Flex
-           * @see https://tailwindcss.com/docs/flex
-           */ flex: [
+          
+
+
+ flex: [
             {
               flex: [
                 isNumber,
@@ -6318,26 +6318,26 @@
               ],
             },
           ],
-          /**
-           * Flex Grow
-           * @see https://tailwindcss.com/docs/flex-grow
-           */ grow: [
+          
+
+
+ grow: [
             {
               grow: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Flex Shrink
-           * @see https://tailwindcss.com/docs/flex-shrink
-           */ shrink: [
+          
+
+
+ shrink: [
             {
               shrink: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Order
-           * @see https://tailwindcss.com/docs/order
-           */ order: [
+          
+
+
+ order: [
             {
               order: [
                 isInteger,
@@ -6349,154 +6349,154 @@
               ],
             },
           ],
-          /**
-           * Grid Template Columns
-           * @see https://tailwindcss.com/docs/grid-template-columns
-           */ "grid-cols": [
+          
+
+
+ "grid-cols": [
             {
               "grid-cols": scaleGridTemplateColsRows(),
             },
           ],
-          /**
-           * Grid Column Start / End
-           * @see https://tailwindcss.com/docs/grid-column
-           */ "col-start-end": [
+          
+
+
+ "col-start-end": [
             {
               col: scaleGridColRowStartAndEnd(),
             },
           ],
-          /**
-           * Grid Column Start
-           * @see https://tailwindcss.com/docs/grid-column
-           */ "col-start": [
+          
+
+
+ "col-start": [
             {
               "col-start": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Column End
-           * @see https://tailwindcss.com/docs/grid-column
-           */ "col-end": [
+          
+
+
+ "col-end": [
             {
               "col-end": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Template Rows
-           * @see https://tailwindcss.com/docs/grid-template-rows
-           */ "grid-rows": [
+          
+
+
+ "grid-rows": [
             {
               "grid-rows": scaleGridTemplateColsRows(),
             },
           ],
-          /**
-           * Grid Row Start / End
-           * @see https://tailwindcss.com/docs/grid-row
-           */ "row-start-end": [
+          
+
+
+ "row-start-end": [
             {
               row: scaleGridColRowStartAndEnd(),
             },
           ],
-          /**
-           * Grid Row Start
-           * @see https://tailwindcss.com/docs/grid-row
-           */ "row-start": [
+          
+
+
+ "row-start": [
             {
               "row-start": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Row End
-           * @see https://tailwindcss.com/docs/grid-row
-           */ "row-end": [
+          
+
+
+ "row-end": [
             {
               "row-end": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Auto Flow
-           * @see https://tailwindcss.com/docs/grid-auto-flow
-           */ "grid-flow": [
+          
+
+
+ "grid-flow": [
             {
               "grid-flow": ["row", "col", "dense", "row-dense", "col-dense"],
             },
           ],
-          /**
-           * Grid Auto Columns
-           * @see https://tailwindcss.com/docs/grid-auto-columns
-           */ "auto-cols": [
+          
+
+
+ "auto-cols": [
             {
               "auto-cols": scaleGridAutoColsRows(),
             },
           ],
-          /**
-           * Grid Auto Rows
-           * @see https://tailwindcss.com/docs/grid-auto-rows
-           */ "auto-rows": [
+          
+
+
+ "auto-rows": [
             {
               "auto-rows": scaleGridAutoColsRows(),
             },
           ],
-          /**
-           * Gap
-           * @see https://tailwindcss.com/docs/gap
-           */ gap: [
+          
+
+
+ gap: [
             {
               gap: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Gap X
-           * @see https://tailwindcss.com/docs/gap
-           */ "gap-x": [
+          
+
+
+ "gap-x": [
             {
               "gap-x": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Gap Y
-           * @see https://tailwindcss.com/docs/gap
-           */ "gap-y": [
+          
+
+
+ "gap-y": [
             {
               "gap-y": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Justify Content
-           * @see https://tailwindcss.com/docs/justify-content
-           */ "justify-content": [
+          
+
+
+ "justify-content": [
             {
               justify: [...scaleAlignPrimaryAxis(), "normal"],
             },
           ],
-          /**
-           * Justify Items
-           * @see https://tailwindcss.com/docs/justify-items
-           */ "justify-items": [
+          
+
+
+ "justify-items": [
             {
               "justify-items": [...scaleAlignSecondaryAxis(), "normal"],
             },
           ],
-          /**
-           * Justify Self
-           * @see https://tailwindcss.com/docs/justify-self
-           */ "justify-self": [
+          
+
+
+ "justify-self": [
             {
               "justify-self": ["auto", ...scaleAlignSecondaryAxis()],
             },
           ],
-          /**
-           * Align Content
-           * @see https://tailwindcss.com/docs/align-content
-           */ "align-content": [
+          
+
+
+ "align-content": [
             {
               content: ["normal", ...scaleAlignPrimaryAxis()],
             },
           ],
-          /**
-           * Align Items
-           * @see https://tailwindcss.com/docs/align-items
-           */ "align-items": [
+          
+
+
+ "align-items": [
             {
               items: [
                 ...scaleAlignSecondaryAxis(),
@@ -6506,10 +6506,10 @@
               ],
             },
           ],
-          /**
-           * Align Self
-           * @see https://tailwindcss.com/docs/align-self
-           */ "align-self": [
+          
+
+
+ "align-self": [
             {
               self: [
                 "auto",
@@ -6520,279 +6520,279 @@
               ],
             },
           ],
-          /**
-           * Place Content
-           * @see https://tailwindcss.com/docs/place-content
-           */ "place-content": [
+          
+
+
+ "place-content": [
             {
               "place-content": scaleAlignPrimaryAxis(),
             },
           ],
-          /**
-           * Place Items
-           * @see https://tailwindcss.com/docs/place-items
-           */ "place-items": [
+          
+
+
+ "place-items": [
             {
               "place-items": [...scaleAlignSecondaryAxis(), "baseline"],
             },
           ],
-          /**
-           * Place Self
-           * @see https://tailwindcss.com/docs/place-self
-           */ "place-self": [
+          
+
+
+ "place-self": [
             {
               "place-self": ["auto", ...scaleAlignSecondaryAxis()],
             },
           ],
-          // Spacing
-          /**
-           * Padding
-           * @see https://tailwindcss.com/docs/padding
-           */ p: [
+          
+          
+
+
+ p: [
             {
               p: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding X
-           * @see https://tailwindcss.com/docs/padding
-           */ px: [
+          
+
+
+ px: [
             {
               px: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Y
-           * @see https://tailwindcss.com/docs/padding
-           */ py: [
+          
+
+
+ py: [
             {
               py: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Start
-           * @see https://tailwindcss.com/docs/padding
-           */ ps: [
+          
+
+
+ ps: [
             {
               ps: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding End
-           * @see https://tailwindcss.com/docs/padding
-           */ pe: [
+          
+
+
+ pe: [
             {
               pe: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Top
-           * @see https://tailwindcss.com/docs/padding
-           */ pt: [
+          
+
+
+ pt: [
             {
               pt: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Right
-           * @see https://tailwindcss.com/docs/padding
-           */ pr: [
+          
+
+
+ pr: [
             {
               pr: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Bottom
-           * @see https://tailwindcss.com/docs/padding
-           */ pb: [
+          
+
+
+ pb: [
             {
               pb: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Left
-           * @see https://tailwindcss.com/docs/padding
-           */ pl: [
+          
+
+
+ pl: [
             {
               pl: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Margin
-           * @see https://tailwindcss.com/docs/margin
-           */ m: [
+          
+
+
+ m: [
             {
               m: scaleMargin(),
             },
           ],
-          /**
-           * Margin X
-           * @see https://tailwindcss.com/docs/margin
-           */ mx: [
+          
+
+
+ mx: [
             {
               mx: scaleMargin(),
             },
           ],
-          /**
-           * Margin Y
-           * @see https://tailwindcss.com/docs/margin
-           */ my: [
+          
+
+
+ my: [
             {
               my: scaleMargin(),
             },
           ],
-          /**
-           * Margin Start
-           * @see https://tailwindcss.com/docs/margin
-           */ ms: [
+          
+
+
+ ms: [
             {
               ms: scaleMargin(),
             },
           ],
-          /**
-           * Margin End
-           * @see https://tailwindcss.com/docs/margin
-           */ me: [
+          
+
+
+ me: [
             {
               me: scaleMargin(),
             },
           ],
-          /**
-           * Margin Top
-           * @see https://tailwindcss.com/docs/margin
-           */ mt: [
+          
+
+
+ mt: [
             {
               mt: scaleMargin(),
             },
           ],
-          /**
-           * Margin Right
-           * @see https://tailwindcss.com/docs/margin
-           */ mr: [
+          
+
+
+ mr: [
             {
               mr: scaleMargin(),
             },
           ],
-          /**
-           * Margin Bottom
-           * @see https://tailwindcss.com/docs/margin
-           */ mb: [
+          
+
+
+ mb: [
             {
               mb: scaleMargin(),
             },
           ],
-          /**
-           * Margin Left
-           * @see https://tailwindcss.com/docs/margin
-           */ ml: [
+          
+
+
+ ml: [
             {
               ml: scaleMargin(),
             },
           ],
-          /**
-           * Space Between X
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-x": [
+          
+
+
+ "space-x": [
             {
               "space-x": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Space Between X Reverse
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-x-reverse": ["space-x-reverse"],
-          /**
-           * Space Between Y
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-y": [
+          
+
+
+ "space-x-reverse": ["space-x-reverse"],
+          
+
+
+ "space-y": [
             {
               "space-y": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Space Between Y Reverse
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-y-reverse": ["space-y-reverse"],
-          // --------------
-          // --- Sizing ---
-          // --------------
-          /**
-           * Size
-           * @see https://tailwindcss.com/docs/width#setting-both-width-and-height
-           */ size: [
+          
+
+
+ "space-y-reverse": ["space-y-reverse"],
+          
+          
+          
+          
+
+
+ size: [
             {
               size: scaleSizing(),
             },
           ],
-          /**
-           * Width
-           * @see https://tailwindcss.com/docs/width
-           */ w: [
+          
+
+
+ w: [
             {
               w: [themeContainer, "screen", ...scaleSizing()],
             },
           ],
-          /**
-           * Min-Width
-           * @see https://tailwindcss.com/docs/min-width
-           */ "min-w": [
+          
+
+
+ "min-w": [
             {
               "min-w": [
                 themeContainer,
                 "screen",
-                /** Deprecated. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ "none",
+                 "none",
                 ...scaleSizing(),
               ],
             },
           ],
-          /**
-           * Max-Width
-           * @see https://tailwindcss.com/docs/max-width
-           */ "max-w": [
+          
+
+
+ "max-w": [
             {
               "max-w": [
                 themeContainer,
                 "screen",
                 "none",
-                /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ "prose",
-                /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ {
+                 "prose",
+                 {
                   screen: [themeBreakpoint],
                 },
                 ...scaleSizing(),
               ],
             },
           ],
-          /**
-           * Height
-           * @see https://tailwindcss.com/docs/height
-           */ h: [
+          
+
+
+ h: [
             {
               h: ["screen", "lh", ...scaleSizing()],
             },
           ],
-          /**
-           * Min-Height
-           * @see https://tailwindcss.com/docs/min-height
-           */ "min-h": [
+          
+
+
+ "min-h": [
             {
               "min-h": ["screen", "lh", "none", ...scaleSizing()],
             },
           ],
-          /**
-           * Max-Height
-           * @see https://tailwindcss.com/docs/max-height
-           */ "max-h": [
+          
+
+
+ "max-h": [
             {
               "max-h": ["screen", "lh", ...scaleSizing()],
             },
           ],
-          // ------------------
-          // --- Typography ---
-          // ------------------
-          /**
-           * Font Size
-           * @see https://tailwindcss.com/docs/font-size
-           */ "font-size": [
+          
+          
+          
+          
+
+
+ "font-size": [
             {
               text: [
                 "base",
@@ -6802,26 +6802,26 @@
               ],
             },
           ],
-          /**
-           * Font Smoothing
-           * @see https://tailwindcss.com/docs/font-smoothing
-           */ "font-smoothing": ["antialiased", "subpixel-antialiased"],
-          /**
-           * Font Style
-           * @see https://tailwindcss.com/docs/font-style
-           */ "font-style": ["italic", "not-italic"],
-          /**
-           * Font Weight
-           * @see https://tailwindcss.com/docs/font-weight
-           */ "font-weight": [
+          
+
+
+ "font-smoothing": ["antialiased", "subpixel-antialiased"],
+          
+
+
+ "font-style": ["italic", "not-italic"],
+          
+
+
+ "font-weight": [
             {
               font: [themeFontWeight, isArbitraryVariable, isArbitraryNumber],
             },
           ],
-          /**
-           * Font Stretch
-           * @see https://tailwindcss.com/docs/font-stretch
-           */ "font-stretch": [
+          
+
+
+ "font-stretch": [
             {
               "font-stretch": [
                 "ultra-condensed",
@@ -6838,10 +6838,10 @@
               ],
             },
           ],
-          /**
-           * Font Family
-           * @see https://tailwindcss.com/docs/font-family
-           */ "font-family": [
+          
+
+
+ "font-family": [
             {
               font: [
                 isArbitraryVariableFamilyName,
@@ -6850,42 +6850,42 @@
               ],
             },
           ],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-normal": ["normal-nums"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-ordinal": ["ordinal"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-slashed-zero": ["slashed-zero"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-figure": ["lining-nums", "oldstyle-nums"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-spacing": ["proportional-nums", "tabular-nums"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
-          /**
-           * Letter Spacing
-           * @see https://tailwindcss.com/docs/letter-spacing
-           */ tracking: [
+          
+
+
+ "fvn-normal": ["normal-nums"],
+          
+
+
+ "fvn-ordinal": ["ordinal"],
+          
+
+
+ "fvn-slashed-zero": ["slashed-zero"],
+          
+
+
+ "fvn-figure": ["lining-nums", "oldstyle-nums"],
+          
+
+
+ "fvn-spacing": ["proportional-nums", "tabular-nums"],
+          
+
+
+ "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
+          
+
+
+ tracking: [
             {
               tracking: [themeTracking, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Line Clamp
-           * @see https://tailwindcss.com/docs/line-clamp
-           */ "line-clamp": [
+          
+
+
+ "line-clamp": [
             {
               "line-clamp": [
                 isNumber,
@@ -6895,37 +6895,37 @@
               ],
             },
           ],
-          /**
-           * Line Height
-           * @see https://tailwindcss.com/docs/line-height
-           */ leading: [
+          
+
+
+ leading: [
             {
               leading: [
-                /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ themeLeading,
+                 themeLeading,
                 ...scaleUnambiguousSpacing(),
               ],
             },
           ],
-          /**
-           * List Style Image
-           * @see https://tailwindcss.com/docs/list-style-image
-           */ "list-image": [
+          
+
+
+ "list-image": [
             {
               "list-image": ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * List Style Position
-           * @see https://tailwindcss.com/docs/list-style-position
-           */ "list-style-position": [
+          
+
+
+ "list-style-position": [
             {
               list: ["inside", "outside"],
             },
           ],
-          /**
-           * List Style Type
-           * @see https://tailwindcss.com/docs/list-style-type
-           */ "list-style-type": [
+          
+
+
+ "list-style-type": [
             {
               list: [
                 "disc",
@@ -6936,52 +6936,52 @@
               ],
             },
           ],
-          /**
-           * Text Alignment
-           * @see https://tailwindcss.com/docs/text-align
-           */ "text-alignment": [
+          
+
+
+ "text-alignment": [
             {
               text: ["left", "center", "right", "justify", "start", "end"],
             },
           ],
-          /**
-           * Placeholder Color
-           * @deprecated since Tailwind CSS v3.0.0
-           * @see https://v3.tailwindcss.com/docs/placeholder-color
-           */ "placeholder-color": [
+          
+
+
+
+ "placeholder-color": [
             {
               placeholder: scaleColor(),
             },
           ],
-          /**
-           * Text Color
-           * @see https://tailwindcss.com/docs/text-color
-           */ "text-color": [
+          
+
+
+ "text-color": [
             {
               text: scaleColor(),
             },
           ],
-          /**
-           * Text Decoration
-           * @see https://tailwindcss.com/docs/text-decoration
-           */ "text-decoration": [
+          
+
+
+ "text-decoration": [
             "underline",
             "overline",
             "line-through",
             "no-underline",
           ],
-          /**
-           * Text Decoration Style
-           * @see https://tailwindcss.com/docs/text-decoration-style
-           */ "text-decoration-style": [
+          
+
+
+ "text-decoration-style": [
             {
               decoration: [...scaleLineStyle(), "wavy"],
             },
           ],
-          /**
-           * Text Decoration Thickness
-           * @see https://tailwindcss.com/docs/text-decoration-thickness
-           */ "text-decoration-thickness": [
+          
+
+
+ "text-decoration-thickness": [
             {
               decoration: [
                 isNumber,
@@ -6992,18 +6992,18 @@
               ],
             },
           ],
-          /**
-           * Text Decoration Color
-           * @see https://tailwindcss.com/docs/text-decoration-color
-           */ "text-decoration-color": [
+          
+
+
+ "text-decoration-color": [
             {
               decoration: scaleColor(),
             },
           ],
-          /**
-           * Text Underline Offset
-           * @see https://tailwindcss.com/docs/text-underline-offset
-           */ "underline-offset": [
+          
+
+
+ "underline-offset": [
             {
               "underline-offset": [
                 isNumber,
@@ -7013,39 +7013,39 @@
               ],
             },
           ],
-          /**
-           * Text Transform
-           * @see https://tailwindcss.com/docs/text-transform
-           */ "text-transform": [
+          
+
+
+ "text-transform": [
             "uppercase",
             "lowercase",
             "capitalize",
             "normal-case",
           ],
-          /**
-           * Text Overflow
-           * @see https://tailwindcss.com/docs/text-overflow
-           */ "text-overflow": ["truncate", "text-ellipsis", "text-clip"],
-          /**
-           * Text Wrap
-           * @see https://tailwindcss.com/docs/text-wrap
-           */ "text-wrap": [
+          
+
+
+ "text-overflow": ["truncate", "text-ellipsis", "text-clip"],
+          
+
+
+ "text-wrap": [
             {
               text: ["wrap", "nowrap", "balance", "pretty"],
             },
           ],
-          /**
-           * Text Indent
-           * @see https://tailwindcss.com/docs/text-indent
-           */ indent: [
+          
+
+
+ indent: [
             {
               indent: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Vertical Alignment
-           * @see https://tailwindcss.com/docs/vertical-align
-           */ "vertical-align": [
+          
+
+
+ "vertical-align": [
             {
               align: [
                 "baseline",
@@ -7061,10 +7061,10 @@
               ],
             },
           ],
-          /**
-           * Whitespace
-           * @see https://tailwindcss.com/docs/whitespace
-           */ whitespace: [
+          
+
+
+ whitespace: [
             {
               whitespace: [
                 "normal",
@@ -7076,93 +7076,93 @@
               ],
             },
           ],
-          /**
-           * Word Break
-           * @see https://tailwindcss.com/docs/word-break
-           */ break: [
+          
+
+
+ break: [
             {
               break: ["normal", "words", "all", "keep"],
             },
           ],
-          /**
-           * Overflow Wrap
-           * @see https://tailwindcss.com/docs/overflow-wrap
-           */ wrap: [
+          
+
+
+ wrap: [
             {
               wrap: ["break-word", "anywhere", "normal"],
             },
           ],
-          /**
-           * Hyphens
-           * @see https://tailwindcss.com/docs/hyphens
-           */ hyphens: [
+          
+
+
+ hyphens: [
             {
               hyphens: ["none", "manual", "auto"],
             },
           ],
-          /**
-           * Content
-           * @see https://tailwindcss.com/docs/content
-           */ content: [
+          
+
+
+ content: [
             {
               content: ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          // -------------------
-          // --- Backgrounds ---
-          // -------------------
-          /**
-           * Background Attachment
-           * @see https://tailwindcss.com/docs/background-attachment
-           */ "bg-attachment": [
+          
+          
+          
+          
+
+
+ "bg-attachment": [
             {
               bg: ["fixed", "local", "scroll"],
             },
           ],
-          /**
-           * Background Clip
-           * @see https://tailwindcss.com/docs/background-clip
-           */ "bg-clip": [
+          
+
+
+ "bg-clip": [
             {
               "bg-clip": ["border", "padding", "content", "text"],
             },
           ],
-          /**
-           * Background Origin
-           * @see https://tailwindcss.com/docs/background-origin
-           */ "bg-origin": [
+          
+
+
+ "bg-origin": [
             {
               "bg-origin": ["border", "padding", "content"],
             },
           ],
-          /**
-           * Background Position
-           * @see https://tailwindcss.com/docs/background-position
-           */ "bg-position": [
+          
+
+
+ "bg-position": [
             {
               bg: scaleBgPosition(),
             },
           ],
-          /**
-           * Background Repeat
-           * @see https://tailwindcss.com/docs/background-repeat
-           */ "bg-repeat": [
+          
+
+
+ "bg-repeat": [
             {
               bg: scaleBgRepeat(),
             },
           ],
-          /**
-           * Background Size
-           * @see https://tailwindcss.com/docs/background-size
-           */ "bg-size": [
+          
+
+
+ "bg-size": [
             {
               bg: scaleBgSize(),
             },
           ],
-          /**
-           * Background Image
-           * @see https://tailwindcss.com/docs/background-image
-           */ "bg-image": [
+          
+
+
+ "bg-image": [
             {
               bg: [
                 "none",
@@ -7183,389 +7183,389 @@
               ],
             },
           ],
-          /**
-           * Background Color
-           * @see https://tailwindcss.com/docs/background-color
-           */ "bg-color": [
+          
+
+
+ "bg-color": [
             {
               bg: scaleColor(),
             },
           ],
-          /**
-           * Gradient Color Stops From Position
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-from-pos": [
+          
+
+
+ "gradient-from-pos": [
             {
               from: scaleGradientStopPosition(),
             },
           ],
-          /**
-           * Gradient Color Stops Via Position
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-via-pos": [
+          
+
+
+ "gradient-via-pos": [
             {
               via: scaleGradientStopPosition(),
             },
           ],
-          /**
-           * Gradient Color Stops To Position
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-to-pos": [
+          
+
+
+ "gradient-to-pos": [
             {
               to: scaleGradientStopPosition(),
             },
           ],
-          /**
-           * Gradient Color Stops From
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-from": [
+          
+
+
+ "gradient-from": [
             {
               from: scaleColor(),
             },
           ],
-          /**
-           * Gradient Color Stops Via
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-via": [
+          
+
+
+ "gradient-via": [
             {
               via: scaleColor(),
             },
           ],
-          /**
-           * Gradient Color Stops To
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-to": [
+          
+
+
+ "gradient-to": [
             {
               to: scaleColor(),
             },
           ],
-          // ---------------
-          // --- Borders ---
-          // ---------------
-          /**
-           * Border Radius
-           * @see https://tailwindcss.com/docs/border-radius
-           */ rounded: [
+          
+          
+          
+          
+
+
+ rounded: [
             {
               rounded: scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Start
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-s": [
+          
+
+
+ "rounded-s": [
             {
               "rounded-s": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius End
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-e": [
+          
+
+
+ "rounded-e": [
             {
               "rounded-e": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Top
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-t": [
+          
+
+
+ "rounded-t": [
             {
               "rounded-t": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Right
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-r": [
+          
+
+
+ "rounded-r": [
             {
               "rounded-r": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Bottom
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-b": [
+          
+
+
+ "rounded-b": [
             {
               "rounded-b": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Left
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-l": [
+          
+
+
+ "rounded-l": [
             {
               "rounded-l": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Start Start
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-ss": [
+          
+
+
+ "rounded-ss": [
             {
               "rounded-ss": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Start End
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-se": [
+          
+
+
+ "rounded-se": [
             {
               "rounded-se": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius End End
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-ee": [
+          
+
+
+ "rounded-ee": [
             {
               "rounded-ee": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius End Start
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-es": [
+          
+
+
+ "rounded-es": [
             {
               "rounded-es": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Top Left
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-tl": [
+          
+
+
+ "rounded-tl": [
             {
               "rounded-tl": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Top Right
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-tr": [
+          
+
+
+ "rounded-tr": [
             {
               "rounded-tr": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Bottom Right
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-br": [
+          
+
+
+ "rounded-br": [
             {
               "rounded-br": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Bottom Left
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-bl": [
+          
+
+
+ "rounded-bl": [
             {
               "rounded-bl": scaleRadius(),
             },
           ],
-          /**
-           * Border Width
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w": [
+          
+
+
+ "border-w": [
             {
               border: scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width X
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-x": [
+          
+
+
+ "border-w-x": [
             {
               "border-x": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Y
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-y": [
+          
+
+
+ "border-w-y": [
             {
               "border-y": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Start
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-s": [
+          
+
+
+ "border-w-s": [
             {
               "border-s": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width End
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-e": [
+          
+
+
+ "border-w-e": [
             {
               "border-e": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Top
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-t": [
+          
+
+
+ "border-w-t": [
             {
               "border-t": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Right
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-r": [
+          
+
+
+ "border-w-r": [
             {
               "border-r": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Bottom
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-b": [
+          
+
+
+ "border-w-b": [
             {
               "border-b": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Left
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-l": [
+          
+
+
+ "border-w-l": [
             {
               "border-l": scaleBorderWidth(),
             },
           ],
-          /**
-           * Divide Width X
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-x": [
+          
+
+
+ "divide-x": [
             {
               "divide-x": scaleBorderWidth(),
             },
           ],
-          /**
-           * Divide Width X Reverse
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-x-reverse": ["divide-x-reverse"],
-          /**
-           * Divide Width Y
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-y": [
+          
+
+
+ "divide-x-reverse": ["divide-x-reverse"],
+          
+
+
+ "divide-y": [
             {
               "divide-y": scaleBorderWidth(),
             },
           ],
-          /**
-           * Divide Width Y Reverse
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-y-reverse": ["divide-y-reverse"],
-          /**
-           * Border Style
-           * @see https://tailwindcss.com/docs/border-style
-           */ "border-style": [
+          
+
+
+ "divide-y-reverse": ["divide-y-reverse"],
+          
+
+
+ "border-style": [
             {
               border: [...scaleLineStyle(), "hidden", "none"],
             },
           ],
-          /**
-           * Divide Style
-           * @see https://tailwindcss.com/docs/border-style#setting-the-divider-style
-           */ "divide-style": [
+          
+
+
+ "divide-style": [
             {
               divide: [...scaleLineStyle(), "hidden", "none"],
             },
           ],
-          /**
-           * Border Color
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color": [
+          
+
+
+ "border-color": [
             {
               border: scaleColor(),
             },
           ],
-          /**
-           * Border Color X
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-x": [
+          
+
+
+ "border-color-x": [
             {
               "border-x": scaleColor(),
             },
           ],
-          /**
-           * Border Color Y
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-y": [
+          
+
+
+ "border-color-y": [
             {
               "border-y": scaleColor(),
             },
           ],
-          /**
-           * Border Color S
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-s": [
+          
+
+
+ "border-color-s": [
             {
               "border-s": scaleColor(),
             },
           ],
-          /**
-           * Border Color E
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-e": [
+          
+
+
+ "border-color-e": [
             {
               "border-e": scaleColor(),
             },
           ],
-          /**
-           * Border Color Top
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-t": [
+          
+
+
+ "border-color-t": [
             {
               "border-t": scaleColor(),
             },
           ],
-          /**
-           * Border Color Right
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-r": [
+          
+
+
+ "border-color-r": [
             {
               "border-r": scaleColor(),
             },
           ],
-          /**
-           * Border Color Bottom
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-b": [
+          
+
+
+ "border-color-b": [
             {
               "border-b": scaleColor(),
             },
           ],
-          /**
-           * Border Color Left
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-l": [
+          
+
+
+ "border-color-l": [
             {
               "border-l": scaleColor(),
             },
           ],
-          /**
-           * Divide Color
-           * @see https://tailwindcss.com/docs/divide-color
-           */ "divide-color": [
+          
+
+
+ "divide-color": [
             {
               divide: scaleColor(),
             },
           ],
-          /**
-           * Outline Style
-           * @see https://tailwindcss.com/docs/outline-style
-           */ "outline-style": [
+          
+
+
+ "outline-style": [
             {
               outline: [...scaleLineStyle(), "none", "hidden"],
             },
           ],
-          /**
-           * Outline Offset
-           * @see https://tailwindcss.com/docs/outline-offset
-           */ "outline-offset": [
+          
+
+
+ "outline-offset": [
             {
               "outline-offset": [
                 isNumber,
@@ -7574,10 +7574,10 @@
               ],
             },
           ],
-          /**
-           * Outline Width
-           * @see https://tailwindcss.com/docs/outline-width
-           */ "outline-w": [
+          
+
+
+ "outline-w": [
             {
               outline: [
                 "",
@@ -7587,24 +7587,24 @@
               ],
             },
           ],
-          /**
-           * Outline Color
-           * @see https://tailwindcss.com/docs/outline-color
-           */ "outline-color": [
+          
+
+
+ "outline-color": [
             {
               outline: scaleColor(),
             },
           ],
-          // ---------------
-          // --- Effects ---
-          // ---------------
-          /**
-           * Box Shadow
-           * @see https://tailwindcss.com/docs/box-shadow
-           */ shadow: [
+          
+          
+          
+          
+
+
+ shadow: [
             {
               shadow: [
-                // Deprecated since Tailwind CSS v4.0.0
+                
                 "",
                 "none",
                 themeShadow,
@@ -7613,18 +7613,18 @@
               ],
             },
           ],
-          /**
-           * Box Shadow Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-shadow-color
-           */ "shadow-color": [
+          
+
+
+ "shadow-color": [
             {
               shadow: scaleColor(),
             },
           ],
-          /**
-           * Inset Box Shadow
-           * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-shadow
-           */ "inset-shadow": [
+          
+
+
+ "inset-shadow": [
             {
               "inset-shadow": [
                 "none",
@@ -7634,76 +7634,76 @@
               ],
             },
           ],
-          /**
-           * Inset Box Shadow Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-shadow-color
-           */ "inset-shadow-color": [
+          
+
+
+ "inset-shadow-color": [
             {
               "inset-shadow": scaleColor(),
             },
           ],
-          /**
-           * Ring Width
-           * @see https://tailwindcss.com/docs/box-shadow#adding-a-ring
-           */ "ring-w": [
+          
+
+
+ "ring-w": [
             {
               ring: scaleBorderWidth(),
             },
           ],
-          /**
-           * Ring Width Inset
-           * @see https://v3.tailwindcss.com/docs/ring-width#inset-rings
-           * @deprecated since Tailwind CSS v4.0.0
-           * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
-           */ "ring-w-inset": ["ring-inset"],
-          /**
-           * Ring Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-ring-color
-           */ "ring-color": [
+          
+
+
+
+
+ "ring-w-inset": ["ring-inset"],
+          
+
+
+ "ring-color": [
             {
               ring: scaleColor(),
             },
           ],
-          /**
-           * Ring Offset Width
-           * @see https://v3.tailwindcss.com/docs/ring-offset-width
-           * @deprecated since Tailwind CSS v4.0.0
-           * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
-           */ "ring-offset-w": [
+          
+
+
+
+
+ "ring-offset-w": [
             {
               "ring-offset": [isNumber, isArbitraryLength],
             },
           ],
-          /**
-           * Ring Offset Color
-           * @see https://v3.tailwindcss.com/docs/ring-offset-color
-           * @deprecated since Tailwind CSS v4.0.0
-           * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
-           */ "ring-offset-color": [
+          
+
+
+
+
+ "ring-offset-color": [
             {
               "ring-offset": scaleColor(),
             },
           ],
-          /**
-           * Inset Ring Width
-           * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-ring
-           */ "inset-ring-w": [
+          
+
+
+ "inset-ring-w": [
             {
               "inset-ring": scaleBorderWidth(),
             },
           ],
-          /**
-           * Inset Ring Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-ring-color
-           */ "inset-ring-color": [
+          
+
+
+ "inset-ring-color": [
             {
               "inset-ring": scaleColor(),
             },
           ],
-          /**
-           * Text Shadow
-           * @see https://tailwindcss.com/docs/text-shadow
-           */ "text-shadow": [
+          
+
+
+ "text-shadow": [
             {
               "text-shadow": [
                 "none",
@@ -7713,42 +7713,42 @@
               ],
             },
           ],
-          /**
-           * Text Shadow Color
-           * @see https://tailwindcss.com/docs/text-shadow#setting-the-shadow-color
-           */ "text-shadow-color": [
+          
+
+
+ "text-shadow-color": [
             {
               "text-shadow": scaleColor(),
             },
           ],
-          /**
-           * Opacity
-           * @see https://tailwindcss.com/docs/opacity
-           */ opacity: [
+          
+
+
+ opacity: [
             {
               opacity: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Mix Blend Mode
-           * @see https://tailwindcss.com/docs/mix-blend-mode
-           */ "mix-blend": [
+          
+
+
+ "mix-blend": [
             {
               "mix-blend": [...scaleBlendMode(), "plus-darker", "plus-lighter"],
             },
           ],
-          /**
-           * Background Blend Mode
-           * @see https://tailwindcss.com/docs/background-blend-mode
-           */ "bg-blend": [
+          
+
+
+ "bg-blend": [
             {
               "bg-blend": scaleBlendMode(),
             },
           ],
-          /**
-           * Mask Clip
-           * @see https://tailwindcss.com/docs/mask-clip
-           */ "mask-clip": [
+          
+
+
+ "mask-clip": [
             {
               "mask-clip": [
                 "border",
@@ -7761,18 +7761,18 @@
             },
             "mask-no-clip",
           ],
-          /**
-           * Mask Composite
-           * @see https://tailwindcss.com/docs/mask-composite
-           */ "mask-composite": [
+          
+
+
+ "mask-composite": [
             {
               mask: ["add", "subtract", "intersect", "exclude"],
             },
           ],
-          /**
-           * Mask Image
-           * @see https://tailwindcss.com/docs/mask-image
-           */ "mask-image-linear-pos": [
+          
+
+
+ "mask-image-linear-pos": [
             {
               "mask-linear": [isNumber],
             },
@@ -7987,18 +7987,18 @@
               "mask-conic-to": scaleColor(),
             },
           ],
-          /**
-           * Mask Mode
-           * @see https://tailwindcss.com/docs/mask-mode
-           */ "mask-mode": [
+          
+
+
+ "mask-mode": [
             {
               mask: ["alpha", "luminance", "match"],
             },
           ],
-          /**
-           * Mask Origin
-           * @see https://tailwindcss.com/docs/mask-origin
-           */ "mask-origin": [
+          
+
+
+ "mask-origin": [
             {
               "mask-origin": [
                 "border",
@@ -8010,56 +8010,56 @@
               ],
             },
           ],
-          /**
-           * Mask Position
-           * @see https://tailwindcss.com/docs/mask-position
-           */ "mask-position": [
+          
+
+
+ "mask-position": [
             {
               mask: scaleBgPosition(),
             },
           ],
-          /**
-           * Mask Repeat
-           * @see https://tailwindcss.com/docs/mask-repeat
-           */ "mask-repeat": [
+          
+
+
+ "mask-repeat": [
             {
               mask: scaleBgRepeat(),
             },
           ],
-          /**
-           * Mask Size
-           * @see https://tailwindcss.com/docs/mask-size
-           */ "mask-size": [
+          
+
+
+ "mask-size": [
             {
               mask: scaleBgSize(),
             },
           ],
-          /**
-           * Mask Type
-           * @see https://tailwindcss.com/docs/mask-type
-           */ "mask-type": [
+          
+
+
+ "mask-type": [
             {
               "mask-type": ["alpha", "luminance"],
             },
           ],
-          /**
-           * Mask Image
-           * @see https://tailwindcss.com/docs/mask-image
-           */ "mask-image": [
+          
+
+
+ "mask-image": [
             {
               mask: ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          // ---------------
-          // --- Filters ---
-          // ---------------
-          /**
-           * Filter
-           * @see https://tailwindcss.com/docs/filter
-           */ filter: [
+          
+          
+          
+          
+
+
+ filter: [
             {
               filter: [
-                // Deprecated since Tailwind CSS v3.0.0
+                
                 "",
                 "none",
                 isArbitraryVariable,
@@ -8067,37 +8067,37 @@
               ],
             },
           ],
-          /**
-           * Blur
-           * @see https://tailwindcss.com/docs/blur
-           */ blur: [
+          
+
+
+ blur: [
             {
               blur: scaleBlur(),
             },
           ],
-          /**
-           * Brightness
-           * @see https://tailwindcss.com/docs/brightness
-           */ brightness: [
+          
+
+
+ brightness: [
             {
               brightness: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Contrast
-           * @see https://tailwindcss.com/docs/contrast
-           */ contrast: [
+          
+
+
+ contrast: [
             {
               contrast: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Drop Shadow
-           * @see https://tailwindcss.com/docs/drop-shadow
-           */ "drop-shadow": [
+          
+
+
+ "drop-shadow": [
             {
               "drop-shadow": [
-                // Deprecated since Tailwind CSS v4.0.0
+                
                 "",
                 "none",
                 themeDropShadow,
@@ -8106,61 +8106,61 @@
               ],
             },
           ],
-          /**
-           * Drop Shadow Color
-           * @see https://tailwindcss.com/docs/filter-drop-shadow#setting-the-shadow-color
-           */ "drop-shadow-color": [
+          
+
+
+ "drop-shadow-color": [
             {
               "drop-shadow": scaleColor(),
             },
           ],
-          /**
-           * Grayscale
-           * @see https://tailwindcss.com/docs/grayscale
-           */ grayscale: [
+          
+
+
+ grayscale: [
             {
               grayscale: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Hue Rotate
-           * @see https://tailwindcss.com/docs/hue-rotate
-           */ "hue-rotate": [
+          
+
+
+ "hue-rotate": [
             {
               "hue-rotate": [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Invert
-           * @see https://tailwindcss.com/docs/invert
-           */ invert: [
+          
+
+
+ invert: [
             {
               invert: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Saturate
-           * @see https://tailwindcss.com/docs/saturate
-           */ saturate: [
+          
+
+
+ saturate: [
             {
               saturate: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Sepia
-           * @see https://tailwindcss.com/docs/sepia
-           */ sepia: [
+          
+
+
+ sepia: [
             {
               sepia: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Backdrop Filter
-           * @see https://tailwindcss.com/docs/backdrop-filter
-           */ "backdrop-filter": [
+          
+
+
+ "backdrop-filter": [
             {
               "backdrop-filter": [
-                // Deprecated since Tailwind CSS v3.0.0
+                
                 "",
                 "none",
                 isArbitraryVariable,
@@ -8168,18 +8168,18 @@
               ],
             },
           ],
-          /**
-           * Backdrop Blur
-           * @see https://tailwindcss.com/docs/backdrop-blur
-           */ "backdrop-blur": [
+          
+
+
+ "backdrop-blur": [
             {
               "backdrop-blur": scaleBlur(),
             },
           ],
-          /**
-           * Backdrop Brightness
-           * @see https://tailwindcss.com/docs/backdrop-brightness
-           */ "backdrop-brightness": [
+          
+
+
+ "backdrop-brightness": [
             {
               "backdrop-brightness": [
                 isNumber,
@@ -8188,10 +8188,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Contrast
-           * @see https://tailwindcss.com/docs/backdrop-contrast
-           */ "backdrop-contrast": [
+          
+
+
+ "backdrop-contrast": [
             {
               "backdrop-contrast": [
                 isNumber,
@@ -8200,10 +8200,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Grayscale
-           * @see https://tailwindcss.com/docs/backdrop-grayscale
-           */ "backdrop-grayscale": [
+          
+
+
+ "backdrop-grayscale": [
             {
               "backdrop-grayscale": [
                 "",
@@ -8213,10 +8213,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Hue Rotate
-           * @see https://tailwindcss.com/docs/backdrop-hue-rotate
-           */ "backdrop-hue-rotate": [
+          
+
+
+ "backdrop-hue-rotate": [
             {
               "backdrop-hue-rotate": [
                 isNumber,
@@ -8225,10 +8225,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Invert
-           * @see https://tailwindcss.com/docs/backdrop-invert
-           */ "backdrop-invert": [
+          
+
+
+ "backdrop-invert": [
             {
               "backdrop-invert": [
                 "",
@@ -8238,10 +8238,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Opacity
-           * @see https://tailwindcss.com/docs/backdrop-opacity
-           */ "backdrop-opacity": [
+          
+
+
+ "backdrop-opacity": [
             {
               "backdrop-opacity": [
                 isNumber,
@@ -8250,10 +8250,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Saturate
-           * @see https://tailwindcss.com/docs/backdrop-saturate
-           */ "backdrop-saturate": [
+          
+
+
+ "backdrop-saturate": [
             {
               "backdrop-saturate": [
                 isNumber,
@@ -8262,10 +8262,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Sepia
-           * @see https://tailwindcss.com/docs/backdrop-sepia
-           */ "backdrop-sepia": [
+          
+
+
+ "backdrop-sepia": [
             {
               "backdrop-sepia": [
                 "",
@@ -8275,64 +8275,64 @@
               ],
             },
           ],
-          // --------------
-          // --- Tables ---
-          // --------------
-          /**
-           * Border Collapse
-           * @see https://tailwindcss.com/docs/border-collapse
-           */ "border-collapse": [
+          
+          
+          
+          
+
+
+ "border-collapse": [
             {
               border: ["collapse", "separate"],
             },
           ],
-          /**
-           * Border Spacing
-           * @see https://tailwindcss.com/docs/border-spacing
-           */ "border-spacing": [
+          
+
+
+ "border-spacing": [
             {
               "border-spacing": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Border Spacing X
-           * @see https://tailwindcss.com/docs/border-spacing
-           */ "border-spacing-x": [
+          
+
+
+ "border-spacing-x": [
             {
               "border-spacing-x": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Border Spacing Y
-           * @see https://tailwindcss.com/docs/border-spacing
-           */ "border-spacing-y": [
+          
+
+
+ "border-spacing-y": [
             {
               "border-spacing-y": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Table Layout
-           * @see https://tailwindcss.com/docs/table-layout
-           */ "table-layout": [
+          
+
+
+ "table-layout": [
             {
               table: ["auto", "fixed"],
             },
           ],
-          /**
-           * Caption Side
-           * @see https://tailwindcss.com/docs/caption-side
-           */ caption: [
+          
+
+
+ caption: [
             {
               caption: ["top", "bottom"],
             },
           ],
-          // ---------------------------------
-          // --- Transitions and Animation ---
-          // ---------------------------------
-          /**
-           * Transition Property
-           * @see https://tailwindcss.com/docs/transition-property
-           */ transition: [
+          
+          
+          
+          
+
+
+ transition: [
             {
               transition: [
                 "",
@@ -8347,18 +8347,18 @@
               ],
             },
           ],
-          /**
-           * Transition Behavior
-           * @see https://tailwindcss.com/docs/transition-behavior
-           */ "transition-behavior": [
+          
+
+
+ "transition-behavior": [
             {
               transition: ["normal", "discrete"],
             },
           ],
-          /**
-           * Transition Duration
-           * @see https://tailwindcss.com/docs/transition-duration
-           */ duration: [
+          
+
+
+ duration: [
             {
               duration: [
                 isNumber,
@@ -8368,10 +8368,10 @@
               ],
             },
           ],
-          /**
-           * Transition Timing Function
-           * @see https://tailwindcss.com/docs/transition-timing-function
-           */ ease: [
+          
+
+
+ ease: [
             {
               ease: [
                 "linear",
@@ -8382,18 +8382,18 @@
               ],
             },
           ],
-          /**
-           * Transition Delay
-           * @see https://tailwindcss.com/docs/transition-delay
-           */ delay: [
+          
+
+
+ delay: [
             {
               delay: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Animation
-           * @see https://tailwindcss.com/docs/animation
-           */ animate: [
+          
+
+
+ animate: [
             {
               animate: [
                 "none",
@@ -8403,21 +8403,21 @@
               ],
             },
           ],
-          // ------------------
-          // --- Transforms ---
-          // ------------------
-          /**
-           * Backface Visibility
-           * @see https://tailwindcss.com/docs/backface-visibility
-           */ backface: [
+          
+          
+          
+          
+
+
+ backface: [
             {
               backface: ["hidden", "visible"],
             },
           ],
-          /**
-           * Perspective
-           * @see https://tailwindcss.com/docs/perspective
-           */ perspective: [
+          
+
+
+ perspective: [
             {
               perspective: [
                 themePerspective,
@@ -8426,110 +8426,110 @@
               ],
             },
           ],
-          /**
-           * Perspective Origin
-           * @see https://tailwindcss.com/docs/perspective-origin
-           */ "perspective-origin": [
+          
+
+
+ "perspective-origin": [
             {
               "perspective-origin": scalePositionWithArbitrary(),
             },
           ],
-          /**
-           * Rotate
-           * @see https://tailwindcss.com/docs/rotate
-           */ rotate: [
+          
+
+
+ rotate: [
             {
               rotate: scaleRotate(),
             },
           ],
-          /**
-           * Rotate X
-           * @see https://tailwindcss.com/docs/rotate
-           */ "rotate-x": [
+          
+
+
+ "rotate-x": [
             {
               "rotate-x": scaleRotate(),
             },
           ],
-          /**
-           * Rotate Y
-           * @see https://tailwindcss.com/docs/rotate
-           */ "rotate-y": [
+          
+
+
+ "rotate-y": [
             {
               "rotate-y": scaleRotate(),
             },
           ],
-          /**
-           * Rotate Z
-           * @see https://tailwindcss.com/docs/rotate
-           */ "rotate-z": [
+          
+
+
+ "rotate-z": [
             {
               "rotate-z": scaleRotate(),
             },
           ],
-          /**
-           * Scale
-           * @see https://tailwindcss.com/docs/scale
-           */ scale: [
+          
+
+
+ scale: [
             {
               scale: scaleScale(),
             },
           ],
-          /**
-           * Scale X
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-x": [
+          
+
+
+ "scale-x": [
             {
               "scale-x": scaleScale(),
             },
           ],
-          /**
-           * Scale Y
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-y": [
+          
+
+
+ "scale-y": [
             {
               "scale-y": scaleScale(),
             },
           ],
-          /**
-           * Scale Z
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-z": [
+          
+
+
+ "scale-z": [
             {
               "scale-z": scaleScale(),
             },
           ],
-          /**
-           * Scale 3D
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-3d": ["scale-3d"],
-          /**
-           * Skew
-           * @see https://tailwindcss.com/docs/skew
-           */ skew: [
+          
+
+
+ "scale-3d": ["scale-3d"],
+          
+
+
+ skew: [
             {
               skew: scaleSkew(),
             },
           ],
-          /**
-           * Skew X
-           * @see https://tailwindcss.com/docs/skew
-           */ "skew-x": [
+          
+
+
+ "skew-x": [
             {
               "skew-x": scaleSkew(),
             },
           ],
-          /**
-           * Skew Y
-           * @see https://tailwindcss.com/docs/skew
-           */ "skew-y": [
+          
+
+
+ "skew-y": [
             {
               "skew-y": scaleSkew(),
             },
           ],
-          /**
-           * Transform
-           * @see https://tailwindcss.com/docs/transform
-           */ transform: [
+          
+
+
+ transform: [
             {
               transform: [
                 isArbitraryVariable,
@@ -8541,89 +8541,89 @@
               ],
             },
           ],
-          /**
-           * Transform Origin
-           * @see https://tailwindcss.com/docs/transform-origin
-           */ "transform-origin": [
+          
+
+
+ "transform-origin": [
             {
               origin: scalePositionWithArbitrary(),
             },
           ],
-          /**
-           * Transform Style
-           * @see https://tailwindcss.com/docs/transform-style
-           */ "transform-style": [
+          
+
+
+ "transform-style": [
             {
               transform: ["3d", "flat"],
             },
           ],
-          /**
-           * Translate
-           * @see https://tailwindcss.com/docs/translate
-           */ translate: [
+          
+
+
+ translate: [
             {
               translate: scaleTranslate(),
             },
           ],
-          /**
-           * Translate X
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-x": [
+          
+
+
+ "translate-x": [
             {
               "translate-x": scaleTranslate(),
             },
           ],
-          /**
-           * Translate Y
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-y": [
+          
+
+
+ "translate-y": [
             {
               "translate-y": scaleTranslate(),
             },
           ],
-          /**
-           * Translate Z
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-z": [
+          
+
+
+ "translate-z": [
             {
               "translate-z": scaleTranslate(),
             },
           ],
-          /**
-           * Translate None
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-none": ["translate-none"],
-          // ---------------------
-          // --- Interactivity ---
-          // ---------------------
-          /**
-           * Accent Color
-           * @see https://tailwindcss.com/docs/accent-color
-           */ accent: [
+          
+
+
+ "translate-none": ["translate-none"],
+          
+          
+          
+          
+
+
+ accent: [
             {
               accent: scaleColor(),
             },
           ],
-          /**
-           * Appearance
-           * @see https://tailwindcss.com/docs/appearance
-           */ appearance: [
+          
+
+
+ appearance: [
             {
               appearance: ["none", "auto"],
             },
           ],
-          /**
-           * Caret Color
-           * @see https://tailwindcss.com/docs/just-in-time-mode#caret-color-utilities
-           */ "caret-color": [
+          
+
+
+ "caret-color": [
             {
               caret: scaleColor(),
             },
           ],
-          /**
-           * Color Scheme
-           * @see https://tailwindcss.com/docs/color-scheme
-           */ "color-scheme": [
+          
+
+
+ "color-scheme": [
             {
               scheme: [
                 "normal",
@@ -8635,10 +8635,10 @@
               ],
             },
           ],
-          /**
-           * Cursor
-           * @see https://tailwindcss.com/docs/cursor
-           */ cursor: [
+          
+
+
+ cursor: [
             {
               cursor: [
                 "auto",
@@ -8682,254 +8682,254 @@
               ],
             },
           ],
-          /**
-           * Field Sizing
-           * @see https://tailwindcss.com/docs/field-sizing
-           */ "field-sizing": [
+          
+
+
+ "field-sizing": [
             {
               "field-sizing": ["fixed", "content"],
             },
           ],
-          /**
-           * Pointer Events
-           * @see https://tailwindcss.com/docs/pointer-events
-           */ "pointer-events": [
+          
+
+
+ "pointer-events": [
             {
               "pointer-events": ["auto", "none"],
             },
           ],
-          /**
-           * Resize
-           * @see https://tailwindcss.com/docs/resize
-           */ resize: [
+          
+
+
+ resize: [
             {
               resize: ["none", "", "y", "x"],
             },
           ],
-          /**
-           * Scroll Behavior
-           * @see https://tailwindcss.com/docs/scroll-behavior
-           */ "scroll-behavior": [
+          
+
+
+ "scroll-behavior": [
             {
               scroll: ["auto", "smooth"],
             },
           ],
-          /**
-           * Scroll Margin
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-m": [
+          
+
+
+ "scroll-m": [
             {
               "scroll-m": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin X
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mx": [
+          
+
+
+ "scroll-mx": [
             {
               "scroll-mx": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Y
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-my": [
+          
+
+
+ "scroll-my": [
             {
               "scroll-my": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Start
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-ms": [
+          
+
+
+ "scroll-ms": [
             {
               "scroll-ms": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin End
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-me": [
+          
+
+
+ "scroll-me": [
             {
               "scroll-me": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Top
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mt": [
+          
+
+
+ "scroll-mt": [
             {
               "scroll-mt": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Right
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mr": [
+          
+
+
+ "scroll-mr": [
             {
               "scroll-mr": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Bottom
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mb": [
+          
+
+
+ "scroll-mb": [
             {
               "scroll-mb": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Left
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-ml": [
+          
+
+
+ "scroll-ml": [
             {
               "scroll-ml": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-p": [
+          
+
+
+ "scroll-p": [
             {
               "scroll-p": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding X
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-px": [
+          
+
+
+ "scroll-px": [
             {
               "scroll-px": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Y
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-py": [
+          
+
+
+ "scroll-py": [
             {
               "scroll-py": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Start
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-ps": [
+          
+
+
+ "scroll-ps": [
             {
               "scroll-ps": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding End
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pe": [
+          
+
+
+ "scroll-pe": [
             {
               "scroll-pe": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Top
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pt": [
+          
+
+
+ "scroll-pt": [
             {
               "scroll-pt": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Right
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pr": [
+          
+
+
+ "scroll-pr": [
             {
               "scroll-pr": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Bottom
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pb": [
+          
+
+
+ "scroll-pb": [
             {
               "scroll-pb": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Left
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pl": [
+          
+
+
+ "scroll-pl": [
             {
               "scroll-pl": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Snap Align
-           * @see https://tailwindcss.com/docs/scroll-snap-align
-           */ "snap-align": [
+          
+
+
+ "snap-align": [
             {
               snap: ["start", "end", "center", "align-none"],
             },
           ],
-          /**
-           * Scroll Snap Stop
-           * @see https://tailwindcss.com/docs/scroll-snap-stop
-           */ "snap-stop": [
+          
+
+
+ "snap-stop": [
             {
               snap: ["normal", "always"],
             },
           ],
-          /**
-           * Scroll Snap Type
-           * @see https://tailwindcss.com/docs/scroll-snap-type
-           */ "snap-type": [
+          
+
+
+ "snap-type": [
             {
               snap: ["none", "x", "y", "both"],
             },
           ],
-          /**
-           * Scroll Snap Type Strictness
-           * @see https://tailwindcss.com/docs/scroll-snap-type
-           */ "snap-strictness": [
+          
+
+
+ "snap-strictness": [
             {
               snap: ["mandatory", "proximity"],
             },
           ],
-          /**
-           * Touch Action
-           * @see https://tailwindcss.com/docs/touch-action
-           */ touch: [
+          
+
+
+ touch: [
             {
               touch: ["auto", "none", "manipulation"],
             },
           ],
-          /**
-           * Touch Action X
-           * @see https://tailwindcss.com/docs/touch-action
-           */ "touch-x": [
+          
+
+
+ "touch-x": [
             {
               "touch-pan": ["x", "left", "right"],
             },
           ],
-          /**
-           * Touch Action Y
-           * @see https://tailwindcss.com/docs/touch-action
-           */ "touch-y": [
+          
+
+
+ "touch-y": [
             {
               "touch-pan": ["y", "up", "down"],
             },
           ],
-          /**
-           * Touch Action Pinch Zoom
-           * @see https://tailwindcss.com/docs/touch-action
-           */ "touch-pz": ["touch-pinch-zoom"],
-          /**
-           * User Select
-           * @see https://tailwindcss.com/docs/user-select
-           */ select: [
+          
+
+
+ "touch-pz": ["touch-pinch-zoom"],
+          
+
+
+ select: [
             {
               select: ["none", "text", "all", "auto"],
             },
           ],
-          /**
-           * Will Change
-           * @see https://tailwindcss.com/docs/will-change
-           */ "will-change": [
+          
+
+
+ "will-change": [
             {
               "will-change": [
                 "auto",
@@ -8941,21 +8941,21 @@
               ],
             },
           ],
-          // -----------
-          // --- SVG ---
-          // -----------
-          /**
-           * Fill
-           * @see https://tailwindcss.com/docs/fill
-           */ fill: [
+          
+          
+          
+          
+
+
+ fill: [
             {
               fill: ["none", ...scaleColor()],
             },
           ],
-          /**
-           * Stroke Width
-           * @see https://tailwindcss.com/docs/stroke-width
-           */ "stroke-w": [
+          
+
+
+ "stroke-w": [
             {
               stroke: [
                 isNumber,
@@ -8965,21 +8965,21 @@
               ],
             },
           ],
-          /**
-           * Stroke
-           * @see https://tailwindcss.com/docs/stroke
-           */ stroke: [
+          
+
+
+ stroke: [
             {
               stroke: ["none", ...scaleColor()],
             },
           ],
-          // ---------------------
-          // --- Accessibility ---
-          // ---------------------
-          /**
-           * Forced Color Adjust
-           * @see https://tailwindcss.com/docs/forced-color-adjust
-           */ "forced-color-adjust": [
+          
+          
+          
+          
+
+
+ "forced-color-adjust": [
             {
               "forced-color-adjust": ["auto", "none"],
             },
@@ -9125,10 +9125,10 @@
         ],
       };
     };
-    /**
-     * @param baseConfig Config where other config will be merged into. This object will be mutated.
-     * @param configExtension Partial config to merge into the `baseConfig`.
-     */ const mergeConfigs = (
+    
+
+
+ const mergeConfigs = (
       baseConfig,
       {
         cacheSize,
@@ -9211,9 +9211,9 @@
             () => mergeConfigs(getDefaultConfig(), configExtension),
             ...createConfig,
           );
-    const twMerge = /*#__PURE__*/ createTailwindMerge(getDefaultConfig);
-    //# sourceMappingURL=bundle-mjs.mjs.map
+    const twMerge =  createTailwindMerge(getDefaultConfig);
+    
   },
 ]);
 
-//# sourceMappingURL=c729b_4c7a18d9._.js.map
+

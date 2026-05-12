@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 
 const COLLECTION = "whatsapp_templates";
 
-// ── GET — list all local templates (optionally filter by category/status) ──
+
 export async function GET(req: NextRequest) {
   try {
     const db = await getDb();
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
       .sort({ createdAt: -1 })
       .toArray();
 
-    // Explicitly stringify _id so the client always gets a plain string
+    
     const serialized = templates.map((t) => ({
       ...t,
       _id: t._id.toString(),
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// ── POST — create a new template record locally ──
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
 
     const db = await getDb();
 
-    // Check for duplicate name
+    
     const existing = await db.collection(COLLECTION).findOne({ name });
     if (existing) {
       return NextResponse.json(
@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
       variables: Array.isArray(variables) ? variables : [],
       exampleValues: Array.isArray(exampleValues) ? exampleValues : [],
       notes: notes ? String(notes) : null,
-      status: "LOCAL", // LOCAL | SUBMITTED | APPROVED | REJECTED | PAUSED
+      status: "LOCAL", 
       metaTemplateId: null,
       submittedAt: null,
       approvedAt: null,

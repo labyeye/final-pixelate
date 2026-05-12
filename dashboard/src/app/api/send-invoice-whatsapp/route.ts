@@ -260,7 +260,7 @@ export async function POST(req: NextRequest) {
     bodyTemplateName || process.env.WHATSAPP_TEMPLATE_NAME || "invoicing";
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
-  // Resolve template language: body param > DB lookup > env > fallback
+  
   let templateLang =
     bodyTemplateLang || process.env.WHATSAPP_TEMPLATE_LANG || "en_US";
   try {

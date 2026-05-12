@@ -83,7 +83,7 @@ module.exports = [
           },
         );
       }
-      // ── Parse multipart form ───────────────────────────────────────────────────
+      
       let formData;
       try {
         formData = await req.formData();
@@ -119,7 +119,7 @@ module.exports = [
       console.info(
         `[upload-media] file="${fileName}" type="${fileType}" size=${fileLength}`,
       );
-      // ── Step 1: Create upload session ─────────────────────────────────────────
+      
       const sessionUrl =
         `https://graph.facebook.com/${apiVersion}/${appId}/uploads` +
         `?file_name=${encodeURIComponent(fileName)}` +
@@ -177,7 +177,7 @@ module.exports = [
         );
       }
       console.info(`[upload-media] session created: ${sessionId}`);
-      // ── Step 2: Upload file bytes ──────────────────────────────────────────────
+      
       let uploadRes;
       try {
         uploadRes = await fetch(
@@ -222,7 +222,7 @@ module.exports = [
           },
         );
       }
-      // Meta returns { "h": "4::ABC..." } — this is the header_handle
+      
       const handle = uploadJson?.h;
       if (!handle) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
@@ -250,4 +250,4 @@ module.exports = [
   },
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__20768786._.js.map
+

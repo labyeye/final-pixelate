@@ -4,16 +4,16 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * @license React
-     * react-jsx-dev-runtime.development.js
-     *
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+    
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -365,11 +365,11 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
-    if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+    if (("TURBOPACK compile-time falsy", 0)) 
     ;
     else {
       module.exports = __turbopack_context__.r(
@@ -381,7 +381,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    // src/primitive.tsx
+    
     __turbopack_context__.s([
       "canUseDOM",
       () => canUseDOM,
@@ -450,13 +450,13 @@
     function isFrame(element) {
       return element.tagName === "IFRAME";
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/compose-refs/src/compose-refs.tsx
+    
     __turbopack_context__.s([
       "composeRefs",
       () => composeRefs,
@@ -503,13 +503,13 @@
         "useCallback"
       ](composeRefs(...refs), refs);
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-context/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/context/src/create-context.tsx
+    
     __turbopack_context__.s([
       "createContext",
       () => createContext2,
@@ -540,7 +540,7 @@
             }["createContext2.Provider.useMemo[value]"],
             Object.values(context),
           );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(Context.Provider, {
@@ -584,7 +584,7 @@
               }["createContextScope.createContext3.Provider.useMemo[value]"],
               Object.values(context),
             );
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Context.Provider, {
@@ -672,13 +672,13 @@
       createScope.scopeName = baseScope.scopeName;
       return createScope;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/slot.tsx
+    
     __turbopack_context__.s([
       "Root",
       () => Slot,
@@ -703,9 +703,9 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
       );
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlot(ownerName) {
-      const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+      const SlotClone =  createSlotClone(ownerName);
       const Slot2 =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "forwardRef"
@@ -737,7 +737,7 @@
                 return child;
               }
             });
-            return /* @__PURE__ */ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SlotClone, {
@@ -753,7 +753,7 @@
                   : null,
             });
           }
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(SlotClone, {
@@ -765,8 +765,8 @@
       Slot2.displayName = `${ownerName}.Slot`;
       return Slot2;
     }
-    var Slot = /* @__PURE__ */ createSlot("Slot");
-    // @__NO_SIDE_EFFECTS__
+    var Slot =  createSlot("Slot");
+    
     function createSlotClone(ownerName) {
       const SlotClone =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -809,10 +809,10 @@
       return SlotClone;
     }
     var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlottable(ownerName) {
       const Slottable2 = ({ children }) => {
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -828,7 +828,7 @@
       Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
       return Slottable2;
     }
-    var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+    var Slottable =  createSlottable("Slottable");
     function isSlottable(child) {
       return (
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -887,7 +887,7 @@
       }
       return element.props.ref || element.ref;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -899,7 +899,7 @@
       "unstable_createCollection",
       () => createCollection2,
     ]);
-    // src/collection-legacy.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -932,7 +932,7 @@
           collectionRef: {
             current: null,
           },
-          itemMap: /* @__PURE__ */ new Map(),
+          itemMap:  new Map(),
         });
       const CollectionProvider = (props) => {
         const { scope, children } = props;
@@ -943,8 +943,8 @@
         const itemMap =
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
-          ].useRef(/* @__PURE__ */ new Map()).current;
-        return /* @__PURE__ */ (0,
+          ].useRef( new Map()).current;
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionProviderImpl, {
@@ -970,7 +970,7 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "useComposedRefs"
           ])(forwardedRef, context.collectionRef);
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionSlotImpl, {
@@ -1015,7 +1015,7 @@
               },
             }["createCollection.CollectionItemSlot.useEffect"],
           );
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionItemSlotImpl, {
@@ -1071,8 +1071,8 @@
         createCollectionScope,
       ];
     }
-    // src/ordered-dictionary.ts
-    var __instanciated = /* @__PURE__ */ new WeakMap();
+    
+    var __instanciated =  new WeakMap();
     var OrderedDict = class _OrderedDict extends Map {
       #keys;
       constructor(entries) {
@@ -1150,9 +1150,9 @@
         }
         return this.entryAt(index);
       }
-      /**
-       * Sets a new key-value pair at the position before the given key.
-       */ setBefore(key, newKey, value) {
+      
+
+ setBefore(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
           return this;
@@ -1167,9 +1167,9 @@
         }
         return this.entryAt(index);
       }
-      /**
-       * Sets a new key-value pair at the position after the given key.
-       */ setAfter(key, newKey, value) {
+      
+
+ setAfter(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
           return this;
@@ -1413,14 +1413,14 @@
         });
       const CollectionProvider = ({ state, ...props }) => {
         return state
-          ? /* @__PURE__ */ (0,
+          ?  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(CollectionProviderImpl, {
               ...props,
               state,
             })
-          : /* @__PURE__ */ (0,
+          :  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(CollectionInit, {
@@ -1430,7 +1430,7 @@
       CollectionProvider.displayName = PROVIDER_NAME;
       const CollectionInit = (props) => {
         const state = useInitCollection();
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionProviderImpl, {
@@ -1481,7 +1481,7 @@
           }["createCollection2.CollectionProviderImpl.useEffect"],
           [collectionElement],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionContextProvider, {
@@ -1510,7 +1510,7 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "useComposedRefs"
           ])(forwardedRef, context.collectionRef);
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionSlotImpl, {
@@ -1601,7 +1601,7 @@
             }["createCollection2.CollectionItemSlot.useEffect"],
             [element, memoizedItemData, setItemMap],
           );
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionItemSlotImpl, {
@@ -1675,13 +1675,13 @@
       });
       return observer;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/slot.tsx
+    
     __turbopack_context__.s([
       "Root",
       () => Slot,
@@ -1706,9 +1706,9 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
       );
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlot(ownerName) {
-      const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+      const SlotClone =  createSlotClone(ownerName);
       const Slot2 =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "forwardRef"
@@ -1740,7 +1740,7 @@
                 return child;
               }
             });
-            return /* @__PURE__ */ (0,
+            return  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SlotClone, {
@@ -1756,7 +1756,7 @@
                   : null,
             });
           }
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(SlotClone, {
@@ -1768,8 +1768,8 @@
       Slot2.displayName = `${ownerName}.Slot`;
       return Slot2;
     }
-    var Slot = /* @__PURE__ */ createSlot("Slot");
-    // @__NO_SIDE_EFFECTS__
+    var Slot =  createSlot("Slot");
+    
     function createSlotClone(ownerName) {
       const SlotClone =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1812,10 +1812,10 @@
       return SlotClone;
     }
     var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-    // @__NO_SIDE_EFFECTS__
+    
     function createSlottable(ownerName) {
       const Slottable2 = ({ children }) => {
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1831,7 +1831,7 @@
       Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
       return Slottable2;
     }
-    var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+    var Slottable =  createSlottable("Slottable");
     function isSlottable(child) {
       return (
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1890,13 +1890,13 @@
       }
       return element.props.ref || element.ref;
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/primitive.tsx
+    
     __turbopack_context__.s([
       "Primitive",
       () => Primitive,
@@ -1954,7 +1954,7 @@
           if (typeof window !== "undefined") {
             window[Symbol.for("radix-ui")] = true;
           }
-          return /* @__PURE__ */ (0,
+          return  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Comp, {
@@ -1975,13 +1975,13 @@
         ](() => target.dispatchEvent(event));
     }
     var Root = Primitive;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/use-callback-ref/src/use-callback-ref.tsx
+    
     __turbopack_context__.s(["useCallbackRef", () => useCallbackRef]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2014,13 +2014,13 @@
         [],
       );
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/use-escape-keydown/src/use-escape-keydown.tsx
+    
     __turbopack_context__.s(["useEscapeKeydown", () => useEscapeKeydown]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2064,7 +2064,7 @@
         [onEscapeKeyDown, ownerDocument],
       );
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -2080,7 +2080,7 @@
       "Root",
       () => Root,
     ]);
-    // src/dismissable-layer.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -2119,9 +2119,9 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "createContext"
       ]({
-        layers: /* @__PURE__ */ new Set(),
-        layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
-        branches: /* @__PURE__ */ new Set(),
+        layers:  new Set(),
+        layersWithOutsidePointerEventsDisabled:  new Set(),
+        branches:  new Set(),
       });
     var DismissableLayer =
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -2294,7 +2294,7 @@
           }["DismissableLayer.useEffect"],
           [],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -2366,7 +2366,7 @@
           }["DismissableLayerBranch.useEffect"],
           [context.branches],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -2483,7 +2483,7 @@
         [ownerDocument, handlePointerDownOutside],
       );
       return {
-        // ensures we check React component tree (not just DOM tree)
+        
         onPointerDownCapture: () =>
           (isPointerInsideReactTreeRef.current = true),
       };
@@ -2562,13 +2562,13 @@
     }
     var Root = DismissableLayer;
     var Branch = DismissableLayerBranch;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // packages/react/use-layout-effect/src/use-layout-effect.tsx
+    
     __turbopack_context__.s(["useLayoutEffect", () => useLayoutEffect2]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2579,14 +2579,14 @@
           "useLayoutEffect"
         ]
       : () => {};
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-portal/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
     __turbopack_context__.s(["Portal", () => Portal, "Root", () => Root]);
-    // src/portal.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -2633,7 +2633,7 @@
           ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createPortal(
-              /* @__PURE__ */ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -2651,14 +2651,14 @@
       });
     Portal.displayName = PORTAL_NAME;
     var Root = Portal;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-presence/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
     __turbopack_context__.s(["Presence", () => Presence, "Root", () => Root]);
-    // src/presence.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -2685,7 +2685,7 @@
         initialState,
       );
     }
-    // src/presence.tsx
+    
     var Presence = (props) => {
       const { present, children } = props;
       const presence = usePresence(present);
@@ -2889,13 +2889,13 @@
       return element.props.ref || element.ref;
     }
     var Root = Presence;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-effect-event/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/use-effect-event.tsx
+    
     __turbopack_context__.s(["useEffectEvent", () => useEffectEvent]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$use$2d$layout$2d$effect$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2955,13 +2955,13 @@
         [],
       );
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/use-controllable-state.tsx
+    
     __turbopack_context__.s([
       "useControllableState",
       () => useControllableState,
@@ -3194,13 +3194,13 @@
       );
       return [state, dispatch];
     }
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-visually-hidden/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    // src/visually-hidden.tsx
+    
     __turbopack_context__.s([
       "Root",
       () => Root,
@@ -3222,7 +3222,7 @@
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
       );
     var VISUALLY_HIDDEN_STYLES = Object.freeze({
-      // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
+      
       position: "absolute",
       border: 0,
       width: 1,
@@ -3239,7 +3239,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ]((props, forwardedRef) => {
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3258,7 +3258,7 @@
       });
     VisuallyHidden.displayName = NAME;
     var Root = VisuallyHidden;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-toast/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -3296,7 +3296,7 @@
       "createToastScope",
       () => createToastScope,
     ]);
-    // src/toast.tsx
+    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -3399,12 +3399,12 @@
           `Invalid prop \`label\` supplied to \`${PROVIDER_NAME}\`. Expected non-empty \`string\`.`,
         );
       }
-      return /* @__PURE__ */ (0,
+      return  (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(Collection.Provider, {
         scope: __scopeToast,
-        children: /* @__PURE__ */ (0,
+        children:  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastProviderProvider, {
@@ -3679,7 +3679,7 @@
           }["ToastViewport.useEffect"],
           [getItems, getSortedTabbableCandidates],
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -3696,7 +3696,7 @@
             },
             children: [
               hasToasts &&
-                /* @__PURE__ */ (0,
+                 (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(FocusProxy, {
@@ -3708,12 +3708,12 @@
                     focusFirst(tabbableCandidates);
                   },
                 }),
-              /* @__PURE__ */ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(Collection.Slot, {
                 scope: __scopeToast,
-                children: /* @__PURE__ */ (0,
+                children:  (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(
@@ -3728,7 +3728,7 @@
                 ),
               }),
               hasToasts &&
-                /* @__PURE__ */ (0,
+                 (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(FocusProxy, {
@@ -3753,7 +3753,7 @@
         const { __scopeToast, onFocusFromOutsideViewport, ...proxyProps } =
           props;
         const context = useToastProviderContext(FOCUS_PROXY_NAME, __scopeToast);
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3802,7 +3802,7 @@
           onChange: onOpenChange,
           caller: TOAST_NAME,
         });
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3811,7 +3811,7 @@
           ],
           {
             present: forceMount || open,
-            children: /* @__PURE__ */ (0,
+            children:  (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(ToastImpl, {
@@ -3974,7 +3974,7 @@
                 if (!duration2 || duration2 === Infinity) return;
                 window.clearTimeout(closeTimerRef.current);
                 closeTimerStartTimeRef.current =
-                  /* @__PURE__ */ new Date().getTime();
+                   new Date().getTime();
                 closeTimerRef.current = window.setTimeout(
                   handleClose,
                   duration2,
@@ -3999,7 +3999,7 @@
                 const handlePause = {
                   "ToastImpl.useEffect.handlePause": () => {
                     const elapsedTime =
-                      /* @__PURE__ */ new Date().getTime() -
+                       new Date().getTime() -
                       closeTimerStartTimeRef.current;
                     closeTimerRemainingTimeRef.current =
                       closeTimerRemainingTimeRef.current - elapsedTime;
@@ -4056,7 +4056,7 @@
             [node],
           );
         if (!context.viewport) return null;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -4066,7 +4066,7 @@
           {
             children: [
               announceTextContent &&
-                /* @__PURE__ */ (0,
+                 (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(ToastAnnounce, {
@@ -4075,7 +4075,7 @@
                   "aria-live": type === "foreground" ? "assertive" : "polite",
                   children: announceTextContent,
                 }),
-              /* @__PURE__ */ (0,
+               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(ToastInteractiveProvider, {
@@ -4085,12 +4085,12 @@
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "createPortal"
                   ](
-                    /* @__PURE__ */ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "jsx"
                     ])(Collection.ItemSlot, {
                       scope: __scopeToast,
-                      children: /* @__PURE__ */ (0,
+                      children:  (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsx"
                       ])(
@@ -4107,7 +4107,7 @@
                               handleClose();
                             context.isFocusedToastEscapeKeyDownRef.current = false;
                           }),
-                          children: /* @__PURE__ */ (0,
+                          children:  (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                             "jsx"
                           ])(
@@ -4318,7 +4318,7 @@
       );
       return isAnnounced
         ? null
-        : /* @__PURE__ */ (0,
+        :  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -4327,7 +4327,7 @@
             ],
             {
               asChild: true,
-              children: /* @__PURE__ */ (0,
+              children:  (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -4338,7 +4338,7 @@
                   ...announceProps,
                   children:
                     renderAnnounceText &&
-                    /* @__PURE__ */ (0,
+                     (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "jsxs"
                     ])(
@@ -4360,7 +4360,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, ...titleProps } = props;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -4380,7 +4380,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, ...descriptionProps } = props;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -4406,13 +4406,13 @@
           );
           return null;
         }
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastAnnounceExclude, {
           altText,
           asChild: true,
-          children: /* @__PURE__ */ (0,
+          children:  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(ToastClose, {
@@ -4432,12 +4432,12 @@
           CLOSE_NAME,
           __scopeToast,
         );
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastAnnounceExclude, {
           asChild: true,
-          children: /* @__PURE__ */ (0,
+          children:  (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -4462,7 +4462,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, altText, ...announceExcludeProps } = props;
-        return /* @__PURE__ */ (0,
+        return  (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -4597,7 +4597,7 @@
     var Description = ToastDescription;
     var Action = ToastAction;
     var Close = ToastClose;
-    //# sourceMappingURL=index.mjs.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -4633,21 +4633,21 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * Copyright 2022 Joe Bell. All rights reserved.
-     *
-     * This file is licensed to you under the Apache License, Version 2.0
-     * (the "License"); you may not use this file except in compliance with the
-     * License. You may obtain a copy of the License at
-     *
-     *   http://www.apache.org/licenses/LICENSE-2.0
-     *
-     * Unless required by applicable law or agreed to in writing, software
-     * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-     * WARRANTIES OR REPRESENTATIONS OF ANY KIND, either express or implied. See the
-     * License for the specific language governing permissions and limitations under
-     * the License.
-     */ __turbopack_context__.s(["cva", () => cva, "cx", () => cx]);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s(["cva", () => cva, "cx", () => cx]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
@@ -4734,12 +4734,12 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "mergeClasses",
       () => mergeClasses,
       "toKebabCase",
@@ -4758,18 +4758,18 @@
         })
         .join(" ")
         .trim();
-    //# sourceMappingURL=utils.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/defaultAttributes.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s(["default", () => defaultAttributes]);
+    
+
+
+
+
+ __turbopack_context__.s(["default", () => defaultAttributes]);
     var defaultAttributes = {
       xmlns: "http://www.w3.org/2000/svg",
       width: 24,
@@ -4781,18 +4781,18 @@
       strokeLinecap: "round",
       strokeLinejoin: "round",
     };
-    //# sourceMappingURL=defaultAttributes.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/Icon.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s(["default", () => Icon]);
+    
+
+
+
+
+ __turbopack_context__.s(["default", () => Icon]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -4856,18 +4856,18 @@
         );
       },
     );
-    //# sourceMappingURL=Icon.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s(["default", () => createLucideIcon]);
+    
+
+
+
+
+ __turbopack_context__.s(["default", () => createLucideIcon]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -4909,18 +4909,18 @@
       Component.displayName = `${iconName}`;
       return Component;
     };
-    //# sourceMappingURL=createLucideIcon.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * @license lucide-react v0.475.0 - ISC
-     *
-     * This source code is licensed under the ISC license.
-     * See the LICENSE file in the root directory of this source tree.
-     */ __turbopack_context__.s([
+    
+
+
+
+
+ __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -4950,7 +4950,7 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("X", __iconNode);
-    //# sourceMappingURL=x.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>",
   (__turbopack_context__) => {
@@ -4972,9 +4972,9 @@
   (__turbopack_context__) => {
     "use strict";
 
-    /**
-     * Concatenates two arrays faster than the array spread operator.
-     */ __turbopack_context__.s([
+    
+
+ __turbopack_context__.s([
       "createTailwindMerge",
       () => createTailwindMerge,
       "extendTailwindMerge",
@@ -4993,7 +4993,7 @@
       () => validators,
     ]);
     const concatArrays = (array1, array2) => {
-      // Pre-allocate for better V8 optimization
+      
       const combinedArray = new Array(array1.length + array2.length);
       for (let i = 0; i < array1.length; i++) {
         combinedArray[i] = array1[i];
@@ -5003,12 +5003,12 @@
       }
       return combinedArray;
     };
-    // Factory function ensures consistent object shapes
+    
     const createClassValidatorObject = (classGroupId, validator) => ({
       classGroupId,
       validator,
     });
-    // Factory ensures consistent ClassPartObject shape
+    
     const createClassPartObject = (
       nextPart = new Map(),
       validators = null,
@@ -5020,7 +5020,7 @@
     });
     const CLASS_PART_SEPARATOR = "-";
     const EMPTY_CONFLICTS = [];
-    // I use two dots here because one dot is used as prefix for class groups in plugins
+    
     const ARBITRARY_PROPERTY_PREFIX = "arbitrary..";
     const createClassGroupUtils = (config) => {
       const classMap = createClassMap(config);
@@ -5030,7 +5030,7 @@
           return getGroupIdForArbitraryProperty(className);
         }
         const classParts = className.split(CLASS_PART_SEPARATOR);
-        // Classes like `-inset-1` produce an empty string as first classPart. We assume that classes for negative values are used correctly and skip it.
+        
         const startIndex =
           classParts[0] === "" && classParts.length > 1 ? 1 : 0;
         return getGroupRecursive(classParts, startIndex, classMap);
@@ -5045,13 +5045,13 @@
           const baseConflicts = conflictingClassGroups[classGroupId];
           if (modifierConflicts) {
             if (baseConflicts) {
-              // Merge base conflicts with modifier conflicts
+              
               return concatArrays(baseConflicts, modifierConflicts);
             }
-            // Only modifier conflicts
+            
             return modifierConflicts;
           }
-          // Fall back to without postfix if no modifier conflicts
+          
           return baseConflicts || EMPTY_CONFLICTS;
         }
         return conflictingClassGroups[classGroupId] || EMPTY_CONFLICTS;
@@ -5081,7 +5081,7 @@
       if (validators === null) {
         return undefined;
       }
-      // Build classRest string efficiently by joining from startIndex onwards
+      
       const classRest =
         startIndex === 0
           ? classParts.join(CLASS_PART_SEPARATOR)
@@ -5095,11 +5095,11 @@
       }
       return undefined;
     };
-    /**
-     * Get the class group ID for an arbitrary property.
-     *
-     * @param className - The class name to get the group ID for. Is expected to be string starting with `[` and ending with `]`.
-     */ const getGroupIdForArbitraryProperty = (className) =>
+    
+
+
+
+ const getGroupIdForArbitraryProperty = (className) =>
       className.slice(1, -1).indexOf(":") === -1
         ? undefined
         : (() => {
@@ -5108,13 +5108,13 @@
             const property = content.slice(0, colonIndex);
             return property ? ARBITRARY_PROPERTY_PREFIX + property : undefined;
           })();
-    /**
-     * Exported for testing only
-     */ const createClassMap = (config) => {
+    
+
+ const createClassMap = (config) => {
       const { theme, classGroups } = config;
       return processClassGroups(classGroups, theme);
     };
-    // Split into separate functions to maintain monomorphic call sites
+    
     const processClassGroups = (classGroups, theme) => {
       const classMap = createClassPartObject();
       for (const classGroupId in classGroups) {
@@ -5140,7 +5140,7 @@
         );
       }
     };
-    // Split into separate functions for each type to maintain monomorphic call sites
+    
     const processClassDefinition = (
       classDefinition,
       classPartObject,
@@ -5233,10 +5233,10 @@
       }
       return current;
     };
-    // Type guard maintains monomorphic check
+    
     const isThemeGetter = (func) =>
       "isThemeGetter" in func && func.isThemeGetter === true;
-    // LRU cache implementation using plain objects for simplicity
+    
     const createLruCache = (maxCacheSize) => {
       if (maxCacheSize < 1) {
         return {
@@ -5279,7 +5279,7 @@
     const IMPORTANT_MODIFIER = "!";
     const MODIFIER_SEPARATOR = ":";
     const EMPTY_MODIFIERS = [];
-    // Pre-allocated result object shape for consistency
+    
     const createResultObject = (
       modifiers,
       hasImportantModifier,
@@ -5295,13 +5295,13 @@
     });
     const createParseClassName = (config) => {
       const { prefix, experimentalParseClassName } = config;
-      /**
-       * Parse class name into parts.
-       *
-       * Inspired by `splitAtTopLevelOnly` used in Tailwind CSS
-       * @see https://github.com/tailwindlabs/tailwindcss/blob/v3.2.2/src/util/splitAtTopLevelOnly.js
-       */ let parseClassName = (className) => {
-        // Use simple array with push for better performance
+      
+
+
+
+
+ let parseClassName = (className) => {
+        
         const modifiers = [];
         let bracketDepth = 0;
         let parenDepth = 0;
@@ -5328,17 +5328,17 @@
         }
         const baseClassNameWithImportantModifier =
           modifiers.length === 0 ? className : className.slice(modifierStart);
-        // Inline important modifier check
+        
         let baseClassName = baseClassNameWithImportantModifier;
         let hasImportantModifier = false;
         if (baseClassNameWithImportantModifier.endsWith(IMPORTANT_MODIFIER)) {
           baseClassName = baseClassNameWithImportantModifier.slice(0, -1);
           hasImportantModifier = true;
         } else if (
-          /**
-           * In Tailwind CSS v3 the important modifier was at the start of the base class name. This is still supported for legacy reasons.
-           * @see https://github.com/dcastil/tailwind-merge/issues/513#issuecomment-2614029864
-           */ baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)
+          
+
+
+ baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)
         ) {
           baseClassName = baseClassNameWithImportantModifier.slice(1);
           hasImportantModifier = true;
@@ -5378,28 +5378,28 @@
       }
       return parseClassName;
     };
-    /**
-     * Sorts modifiers according to following schema:
-     * - Predefined modifiers are sorted alphabetically
-     * - When an arbitrary variant appears, it must be preserved which modifiers are before and after it
-     */ const createSortModifiers = (config) => {
-      // Pre-compute weights for all known modifiers for O(1) comparison
+    
+
+
+
+ const createSortModifiers = (config) => {
+      
       const modifierWeights = new Map();
-      // Assign weights to sensitive modifiers (highest priority, but preserve order)
+      
       config.orderSensitiveModifiers.forEach((mod, index) => {
-        modifierWeights.set(mod, 1000000 + index); // High weights for sensitive mods
+        modifierWeights.set(mod, 1000000 + index); 
       });
       return (modifiers) => {
         const result = [];
         let currentSegment = [];
-        // Process modifiers in one pass
+        
         for (let i = 0; i < modifiers.length; i++) {
           const modifier = modifiers[i];
-          // Check if modifier is sensitive (starts with '[' or in orderSensitiveModifiers)
+          
           const isArbitrary = modifier[0] === "[";
           const isOrderSensitive = modifierWeights.has(modifier);
           if (isArbitrary || isOrderSensitive) {
-            // Sort and flush current segment alphabetically
+            
             if (currentSegment.length > 0) {
               currentSegment.sort();
               result.push(...currentSegment);
@@ -5407,11 +5407,11 @@
             }
             result.push(modifier);
           } else {
-            // Regular modifier - add to current segment for batch sorting
+            
             currentSegment.push(modifier);
           }
         }
-        // Sort and add any remaining segment items
+        
         if (currentSegment.length > 0) {
           currentSegment.sort();
           result.push(...currentSegment);
@@ -5433,13 +5433,13 @@
         getConflictingClassGroupIds,
         sortModifiers,
       } = configUtils;
-      /**
-       * Set of classGroupIds in following format:
-       * `{importantModifier}{variantModifiers}{classGroupId}`
-       * @example 'float'
-       * @example 'hover:focus:bg-color'
-       * @example 'md:!pr'
-       */ const classGroupsInConflict = [];
+      
+
+
+
+
+
+ const classGroupsInConflict = [];
       const classNames = classList.trim().split(SPLIT_CLASSES_REGEX);
       let result = "";
       for (let index = classNames.length - 1; index >= 0; index -= 1) {
@@ -5464,21 +5464,21 @@
         );
         if (!classGroupId) {
           if (!hasPostfixModifier) {
-            // Not a Tailwind class
+            
             result =
               originalClassName + (result.length > 0 ? " " + result : result);
             continue;
           }
           classGroupId = getClassGroupId(baseClassName);
           if (!classGroupId) {
-            // Not a Tailwind class
+            
             result =
               originalClassName + (result.length > 0 ? " " + result : result);
             continue;
           }
           hasPostfixModifier = false;
         }
-        // Fast path: skip sorting for empty or single modifier
+        
         const variantModifier =
           modifiers.length === 0
             ? ""
@@ -5501,21 +5501,21 @@
           const group = conflictGroups[i];
           classGroupsInConflict.push(modifierId + group);
         }
-        // Tailwind class not in conflict
+        
         result =
           originalClassName + (result.length > 0 ? " " + result : result);
       }
       return result;
     };
-    /**
-     * The code in this file is copied from https://github.com/lukeed/clsx and modified to suit the needs of tailwind-merge better.
-     *
-     * Specifically:
-     * - Runtime code from https://github.com/lukeed/clsx/blob/v1.2.1/src/index.js
-     * - TypeScript types from https://github.com/lukeed/clsx/blob/v1.2.1/clsx.d.ts
-     *
-     * Original code has MIT license: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
-     */ const twJoin = (...classLists) => {
+    
+
+
+
+
+
+
+
+ const twJoin = (...classLists) => {
       let index = 0;
       let argument;
       let resolvedValue;
@@ -5531,7 +5531,7 @@
       return string;
     };
     const toValue = (mix) => {
-      // Fast path for strings
+      
       if (typeof mix === "string") {
         return mix;
       }
@@ -5590,7 +5590,7 @@
       /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/;
     const colorFunctionRegex =
       /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix)\(.+\)$/;
-    // Shadow always begins with x and y offset separated by underscore optionally prepended by inset
+    
     const shadowRegex =
       /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/;
     const imageRegex =
@@ -5603,10 +5603,10 @@
     const isTshirtSize = (value) => tshirtUnitRegex.test(value);
     const isAny = () => true;
     const isLengthOnly = (
-      value, // `colorFunctionRegex` check is necessary because color functions can have percentages in them which which would be incorrectly classified as lengths.
+      value, 
     ) =>
-      // For example, `hsl(0 0% 0%)` would be classified as a length without this check.
-      // I could also use lookbehind assertion in `lengthUnitRegex` but that isn't supported widely enough.
+      
+      
       lengthUnitRegex.test(value) && !colorFunctionRegex.test(value);
     const isNever = () => false;
     const isShadow = (value) => shadowRegex.test(value);
@@ -5639,7 +5639,7 @@
       getIsArbitraryVariable(value, isLabelImage);
     const isArbitraryVariableShadow = (value) =>
       getIsArbitraryVariable(value, isLabelShadow, true);
-    // Helpers
+    
     const getIsArbitraryValue = (value, testLabel, testValue) => {
       const result = arbitraryValueRegex.exec(value);
       if (result) {
@@ -5664,7 +5664,7 @@
       }
       return false;
     };
-    // Labels
+    
     const isLabelPosition = (label) =>
       label === "position" || label === "percentage";
     const isLabelImage = (label) => label === "image" || label === "url";
@@ -5674,7 +5674,7 @@
     const isLabelNumber = (label) => label === "number";
     const isLabelFamilyName = (label) => label === "family-name";
     const isLabelShadow = (label) => label === "shadow";
-    const validators = /*#__PURE__*/ Object.defineProperty(
+    const validators =  Object.defineProperty(
       {
         __proto__: null,
         isAny,
@@ -5705,10 +5705,10 @@
       },
     );
     const getDefaultConfig = () => {
-      /**
-       * Theme getters for theme variable namespaces
-       * @see https://tailwindcss.com/docs/theme#theme-variable-namespaces
-       */ /***/ const themeColor = fromTheme("color");
+      
+
+
+  const themeColor = fromTheme("color");
       const themeFont = fromTheme("font");
       const themeText = fromTheme("text");
       const themeFontWeight = fromTheme("font-weight");
@@ -5727,12 +5727,12 @@
       const themeAspect = fromTheme("aspect");
       const themeEase = fromTheme("ease");
       const themeAnimate = fromTheme("animate");
-      /**
-       * Helpers to avoid repeating the same scales
-       *
-       * We use functions that create a new array every time they're called instead of static arrays.
-       * This ensures that users who modify any scale by mutating the array (e.g. with `array.push(element)`) don't accidentally mutate arrays in other parts of the config.
-       */ /***/ const scaleBreak = () => [
+      
+
+
+
+
+  const scaleBreak = () => [
         "auto",
         "avoid",
         "all",
@@ -5749,16 +5749,16 @@
         "left",
         "right",
         "top-left",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "left-top",
         "top-right",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "right-top",
         "bottom-right",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "right-bottom",
         "bottom-left",
-        // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+        
         "left-bottom",
       ];
       const scalePositionWithArbitrary = () => [
@@ -5886,7 +5886,7 @@
         isArbitraryLength,
       ];
       const scaleRadius = () => [
-        // Deprecated since Tailwind CSS v4.0.0
+        
         "",
         "none",
         "full",
@@ -5926,7 +5926,7 @@
         isArbitraryPosition,
       ];
       const scaleBlur = () => [
-        // Deprecated since Tailwind CSS v4.0.0
+        
         "",
         "none",
         themeBlur,
@@ -5992,13 +5992,13 @@
           tracking: ["tighter", "tight", "normal", "wide", "wider", "widest"],
         },
         classGroups: {
-          // --------------
-          // --- Layout ---
-          // --------------
-          /**
-           * Aspect Ratio
-           * @see https://tailwindcss.com/docs/aspect-ratio
-           */ aspect: [
+          
+          
+          
+          
+
+
+ aspect: [
             {
               aspect: [
                 "auto",
@@ -6010,15 +6010,15 @@
               ],
             },
           ],
-          /**
-           * Container
-           * @see https://tailwindcss.com/docs/container
-           * @deprecated since Tailwind CSS v4.0.0
-           */ container: ["container"],
-          /**
-           * Columns
-           * @see https://tailwindcss.com/docs/columns
-           */ columns: [
+          
+
+
+
+ container: ["container"],
+          
+
+
+ columns: [
             {
               columns: [
                 isNumber,
@@ -6028,50 +6028,50 @@
               ],
             },
           ],
-          /**
-           * Break After
-           * @see https://tailwindcss.com/docs/break-after
-           */ "break-after": [
+          
+
+
+ "break-after": [
             {
               "break-after": scaleBreak(),
             },
           ],
-          /**
-           * Break Before
-           * @see https://tailwindcss.com/docs/break-before
-           */ "break-before": [
+          
+
+
+ "break-before": [
             {
               "break-before": scaleBreak(),
             },
           ],
-          /**
-           * Break Inside
-           * @see https://tailwindcss.com/docs/break-inside
-           */ "break-inside": [
+          
+
+
+ "break-inside": [
             {
               "break-inside": ["auto", "avoid", "avoid-page", "avoid-column"],
             },
           ],
-          /**
-           * Box Decoration Break
-           * @see https://tailwindcss.com/docs/box-decoration-break
-           */ "box-decoration": [
+          
+
+
+ "box-decoration": [
             {
               "box-decoration": ["slice", "clone"],
             },
           ],
-          /**
-           * Box Sizing
-           * @see https://tailwindcss.com/docs/box-sizing
-           */ box: [
+          
+
+
+ box: [
             {
               box: ["border", "content"],
             },
           ],
-          /**
-           * Display
-           * @see https://tailwindcss.com/docs/display
-           */ display: [
+          
+
+
+ display: [
             "block",
             "inline-block",
             "inline",
@@ -6094,189 +6094,189 @@
             "list-item",
             "hidden",
           ],
-          /**
-           * Screen Reader Only
-           * @see https://tailwindcss.com/docs/display#screen-reader-only
-           */ sr: ["sr-only", "not-sr-only"],
-          /**
-           * Floats
-           * @see https://tailwindcss.com/docs/float
-           */ float: [
+          
+
+
+ sr: ["sr-only", "not-sr-only"],
+          
+
+
+ float: [
             {
               float: ["right", "left", "none", "start", "end"],
             },
           ],
-          /**
-           * Clear
-           * @see https://tailwindcss.com/docs/clear
-           */ clear: [
+          
+
+
+ clear: [
             {
               clear: ["left", "right", "both", "none", "start", "end"],
             },
           ],
-          /**
-           * Isolation
-           * @see https://tailwindcss.com/docs/isolation
-           */ isolation: ["isolate", "isolation-auto"],
-          /**
-           * Object Fit
-           * @see https://tailwindcss.com/docs/object-fit
-           */ "object-fit": [
+          
+
+
+ isolation: ["isolate", "isolation-auto"],
+          
+
+
+ "object-fit": [
             {
               object: ["contain", "cover", "fill", "none", "scale-down"],
             },
           ],
-          /**
-           * Object Position
-           * @see https://tailwindcss.com/docs/object-position
-           */ "object-position": [
+          
+
+
+ "object-position": [
             {
               object: scalePositionWithArbitrary(),
             },
           ],
-          /**
-           * Overflow
-           * @see https://tailwindcss.com/docs/overflow
-           */ overflow: [
+          
+
+
+ overflow: [
             {
               overflow: scaleOverflow(),
             },
           ],
-          /**
-           * Overflow X
-           * @see https://tailwindcss.com/docs/overflow
-           */ "overflow-x": [
+          
+
+
+ "overflow-x": [
             {
               "overflow-x": scaleOverflow(),
             },
           ],
-          /**
-           * Overflow Y
-           * @see https://tailwindcss.com/docs/overflow
-           */ "overflow-y": [
+          
+
+
+ "overflow-y": [
             {
               "overflow-y": scaleOverflow(),
             },
           ],
-          /**
-           * Overscroll Behavior
-           * @see https://tailwindcss.com/docs/overscroll-behavior
-           */ overscroll: [
+          
+
+
+ overscroll: [
             {
               overscroll: scaleOverscroll(),
             },
           ],
-          /**
-           * Overscroll Behavior X
-           * @see https://tailwindcss.com/docs/overscroll-behavior
-           */ "overscroll-x": [
+          
+
+
+ "overscroll-x": [
             {
               "overscroll-x": scaleOverscroll(),
             },
           ],
-          /**
-           * Overscroll Behavior Y
-           * @see https://tailwindcss.com/docs/overscroll-behavior
-           */ "overscroll-y": [
+          
+
+
+ "overscroll-y": [
             {
               "overscroll-y": scaleOverscroll(),
             },
           ],
-          /**
-           * Position
-           * @see https://tailwindcss.com/docs/position
-           */ position: ["static", "fixed", "absolute", "relative", "sticky"],
-          /**
-           * Top / Right / Bottom / Left
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ inset: [
+          
+
+
+ position: ["static", "fixed", "absolute", "relative", "sticky"],
+          
+
+
+ inset: [
             {
               inset: scaleInset(),
             },
           ],
-          /**
-           * Right / Left
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ "inset-x": [
+          
+
+
+ "inset-x": [
             {
               "inset-x": scaleInset(),
             },
           ],
-          /**
-           * Top / Bottom
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ "inset-y": [
+          
+
+
+ "inset-y": [
             {
               "inset-y": scaleInset(),
             },
           ],
-          /**
-           * Start
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ start: [
+          
+
+
+ start: [
             {
               start: scaleInset(),
             },
           ],
-          /**
-           * End
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ end: [
+          
+
+
+ end: [
             {
               end: scaleInset(),
             },
           ],
-          /**
-           * Top
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ top: [
+          
+
+
+ top: [
             {
               top: scaleInset(),
             },
           ],
-          /**
-           * Right
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ right: [
+          
+
+
+ right: [
             {
               right: scaleInset(),
             },
           ],
-          /**
-           * Bottom
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ bottom: [
+          
+
+
+ bottom: [
             {
               bottom: scaleInset(),
             },
           ],
-          /**
-           * Left
-           * @see https://tailwindcss.com/docs/top-right-bottom-left
-           */ left: [
+          
+
+
+ left: [
             {
               left: scaleInset(),
             },
           ],
-          /**
-           * Visibility
-           * @see https://tailwindcss.com/docs/visibility
-           */ visibility: ["visible", "invisible", "collapse"],
-          /**
-           * Z-Index
-           * @see https://tailwindcss.com/docs/z-index
-           */ z: [
+          
+
+
+ visibility: ["visible", "invisible", "collapse"],
+          
+
+
+ z: [
             {
               z: [isInteger, "auto", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          // ------------------------
-          // --- Flexbox and Grid ---
-          // ------------------------
-          /**
-           * Flex Basis
-           * @see https://tailwindcss.com/docs/flex-basis
-           */ basis: [
+          
+          
+          
+          
+
+
+ basis: [
             {
               basis: [
                 isFraction,
@@ -6287,26 +6287,26 @@
               ],
             },
           ],
-          /**
-           * Flex Direction
-           * @see https://tailwindcss.com/docs/flex-direction
-           */ "flex-direction": [
+          
+
+
+ "flex-direction": [
             {
               flex: ["row", "row-reverse", "col", "col-reverse"],
             },
           ],
-          /**
-           * Flex Wrap
-           * @see https://tailwindcss.com/docs/flex-wrap
-           */ "flex-wrap": [
+          
+
+
+ "flex-wrap": [
             {
               flex: ["nowrap", "wrap", "wrap-reverse"],
             },
           ],
-          /**
-           * Flex
-           * @see https://tailwindcss.com/docs/flex
-           */ flex: [
+          
+
+
+ flex: [
             {
               flex: [
                 isNumber,
@@ -6318,26 +6318,26 @@
               ],
             },
           ],
-          /**
-           * Flex Grow
-           * @see https://tailwindcss.com/docs/flex-grow
-           */ grow: [
+          
+
+
+ grow: [
             {
               grow: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Flex Shrink
-           * @see https://tailwindcss.com/docs/flex-shrink
-           */ shrink: [
+          
+
+
+ shrink: [
             {
               shrink: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Order
-           * @see https://tailwindcss.com/docs/order
-           */ order: [
+          
+
+
+ order: [
             {
               order: [
                 isInteger,
@@ -6349,154 +6349,154 @@
               ],
             },
           ],
-          /**
-           * Grid Template Columns
-           * @see https://tailwindcss.com/docs/grid-template-columns
-           */ "grid-cols": [
+          
+
+
+ "grid-cols": [
             {
               "grid-cols": scaleGridTemplateColsRows(),
             },
           ],
-          /**
-           * Grid Column Start / End
-           * @see https://tailwindcss.com/docs/grid-column
-           */ "col-start-end": [
+          
+
+
+ "col-start-end": [
             {
               col: scaleGridColRowStartAndEnd(),
             },
           ],
-          /**
-           * Grid Column Start
-           * @see https://tailwindcss.com/docs/grid-column
-           */ "col-start": [
+          
+
+
+ "col-start": [
             {
               "col-start": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Column End
-           * @see https://tailwindcss.com/docs/grid-column
-           */ "col-end": [
+          
+
+
+ "col-end": [
             {
               "col-end": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Template Rows
-           * @see https://tailwindcss.com/docs/grid-template-rows
-           */ "grid-rows": [
+          
+
+
+ "grid-rows": [
             {
               "grid-rows": scaleGridTemplateColsRows(),
             },
           ],
-          /**
-           * Grid Row Start / End
-           * @see https://tailwindcss.com/docs/grid-row
-           */ "row-start-end": [
+          
+
+
+ "row-start-end": [
             {
               row: scaleGridColRowStartAndEnd(),
             },
           ],
-          /**
-           * Grid Row Start
-           * @see https://tailwindcss.com/docs/grid-row
-           */ "row-start": [
+          
+
+
+ "row-start": [
             {
               "row-start": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Row End
-           * @see https://tailwindcss.com/docs/grid-row
-           */ "row-end": [
+          
+
+
+ "row-end": [
             {
               "row-end": scaleGridColRowStartOrEnd(),
             },
           ],
-          /**
-           * Grid Auto Flow
-           * @see https://tailwindcss.com/docs/grid-auto-flow
-           */ "grid-flow": [
+          
+
+
+ "grid-flow": [
             {
               "grid-flow": ["row", "col", "dense", "row-dense", "col-dense"],
             },
           ],
-          /**
-           * Grid Auto Columns
-           * @see https://tailwindcss.com/docs/grid-auto-columns
-           */ "auto-cols": [
+          
+
+
+ "auto-cols": [
             {
               "auto-cols": scaleGridAutoColsRows(),
             },
           ],
-          /**
-           * Grid Auto Rows
-           * @see https://tailwindcss.com/docs/grid-auto-rows
-           */ "auto-rows": [
+          
+
+
+ "auto-rows": [
             {
               "auto-rows": scaleGridAutoColsRows(),
             },
           ],
-          /**
-           * Gap
-           * @see https://tailwindcss.com/docs/gap
-           */ gap: [
+          
+
+
+ gap: [
             {
               gap: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Gap X
-           * @see https://tailwindcss.com/docs/gap
-           */ "gap-x": [
+          
+
+
+ "gap-x": [
             {
               "gap-x": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Gap Y
-           * @see https://tailwindcss.com/docs/gap
-           */ "gap-y": [
+          
+
+
+ "gap-y": [
             {
               "gap-y": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Justify Content
-           * @see https://tailwindcss.com/docs/justify-content
-           */ "justify-content": [
+          
+
+
+ "justify-content": [
             {
               justify: [...scaleAlignPrimaryAxis(), "normal"],
             },
           ],
-          /**
-           * Justify Items
-           * @see https://tailwindcss.com/docs/justify-items
-           */ "justify-items": [
+          
+
+
+ "justify-items": [
             {
               "justify-items": [...scaleAlignSecondaryAxis(), "normal"],
             },
           ],
-          /**
-           * Justify Self
-           * @see https://tailwindcss.com/docs/justify-self
-           */ "justify-self": [
+          
+
+
+ "justify-self": [
             {
               "justify-self": ["auto", ...scaleAlignSecondaryAxis()],
             },
           ],
-          /**
-           * Align Content
-           * @see https://tailwindcss.com/docs/align-content
-           */ "align-content": [
+          
+
+
+ "align-content": [
             {
               content: ["normal", ...scaleAlignPrimaryAxis()],
             },
           ],
-          /**
-           * Align Items
-           * @see https://tailwindcss.com/docs/align-items
-           */ "align-items": [
+          
+
+
+ "align-items": [
             {
               items: [
                 ...scaleAlignSecondaryAxis(),
@@ -6506,10 +6506,10 @@
               ],
             },
           ],
-          /**
-           * Align Self
-           * @see https://tailwindcss.com/docs/align-self
-           */ "align-self": [
+          
+
+
+ "align-self": [
             {
               self: [
                 "auto",
@@ -6520,279 +6520,279 @@
               ],
             },
           ],
-          /**
-           * Place Content
-           * @see https://tailwindcss.com/docs/place-content
-           */ "place-content": [
+          
+
+
+ "place-content": [
             {
               "place-content": scaleAlignPrimaryAxis(),
             },
           ],
-          /**
-           * Place Items
-           * @see https://tailwindcss.com/docs/place-items
-           */ "place-items": [
+          
+
+
+ "place-items": [
             {
               "place-items": [...scaleAlignSecondaryAxis(), "baseline"],
             },
           ],
-          /**
-           * Place Self
-           * @see https://tailwindcss.com/docs/place-self
-           */ "place-self": [
+          
+
+
+ "place-self": [
             {
               "place-self": ["auto", ...scaleAlignSecondaryAxis()],
             },
           ],
-          // Spacing
-          /**
-           * Padding
-           * @see https://tailwindcss.com/docs/padding
-           */ p: [
+          
+          
+
+
+ p: [
             {
               p: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding X
-           * @see https://tailwindcss.com/docs/padding
-           */ px: [
+          
+
+
+ px: [
             {
               px: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Y
-           * @see https://tailwindcss.com/docs/padding
-           */ py: [
+          
+
+
+ py: [
             {
               py: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Start
-           * @see https://tailwindcss.com/docs/padding
-           */ ps: [
+          
+
+
+ ps: [
             {
               ps: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding End
-           * @see https://tailwindcss.com/docs/padding
-           */ pe: [
+          
+
+
+ pe: [
             {
               pe: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Top
-           * @see https://tailwindcss.com/docs/padding
-           */ pt: [
+          
+
+
+ pt: [
             {
               pt: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Right
-           * @see https://tailwindcss.com/docs/padding
-           */ pr: [
+          
+
+
+ pr: [
             {
               pr: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Bottom
-           * @see https://tailwindcss.com/docs/padding
-           */ pb: [
+          
+
+
+ pb: [
             {
               pb: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Padding Left
-           * @see https://tailwindcss.com/docs/padding
-           */ pl: [
+          
+
+
+ pl: [
             {
               pl: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Margin
-           * @see https://tailwindcss.com/docs/margin
-           */ m: [
+          
+
+
+ m: [
             {
               m: scaleMargin(),
             },
           ],
-          /**
-           * Margin X
-           * @see https://tailwindcss.com/docs/margin
-           */ mx: [
+          
+
+
+ mx: [
             {
               mx: scaleMargin(),
             },
           ],
-          /**
-           * Margin Y
-           * @see https://tailwindcss.com/docs/margin
-           */ my: [
+          
+
+
+ my: [
             {
               my: scaleMargin(),
             },
           ],
-          /**
-           * Margin Start
-           * @see https://tailwindcss.com/docs/margin
-           */ ms: [
+          
+
+
+ ms: [
             {
               ms: scaleMargin(),
             },
           ],
-          /**
-           * Margin End
-           * @see https://tailwindcss.com/docs/margin
-           */ me: [
+          
+
+
+ me: [
             {
               me: scaleMargin(),
             },
           ],
-          /**
-           * Margin Top
-           * @see https://tailwindcss.com/docs/margin
-           */ mt: [
+          
+
+
+ mt: [
             {
               mt: scaleMargin(),
             },
           ],
-          /**
-           * Margin Right
-           * @see https://tailwindcss.com/docs/margin
-           */ mr: [
+          
+
+
+ mr: [
             {
               mr: scaleMargin(),
             },
           ],
-          /**
-           * Margin Bottom
-           * @see https://tailwindcss.com/docs/margin
-           */ mb: [
+          
+
+
+ mb: [
             {
               mb: scaleMargin(),
             },
           ],
-          /**
-           * Margin Left
-           * @see https://tailwindcss.com/docs/margin
-           */ ml: [
+          
+
+
+ ml: [
             {
               ml: scaleMargin(),
             },
           ],
-          /**
-           * Space Between X
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-x": [
+          
+
+
+ "space-x": [
             {
               "space-x": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Space Between X Reverse
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-x-reverse": ["space-x-reverse"],
-          /**
-           * Space Between Y
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-y": [
+          
+
+
+ "space-x-reverse": ["space-x-reverse"],
+          
+
+
+ "space-y": [
             {
               "space-y": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Space Between Y Reverse
-           * @see https://tailwindcss.com/docs/margin#adding-space-between-children
-           */ "space-y-reverse": ["space-y-reverse"],
-          // --------------
-          // --- Sizing ---
-          // --------------
-          /**
-           * Size
-           * @see https://tailwindcss.com/docs/width#setting-both-width-and-height
-           */ size: [
+          
+
+
+ "space-y-reverse": ["space-y-reverse"],
+          
+          
+          
+          
+
+
+ size: [
             {
               size: scaleSizing(),
             },
           ],
-          /**
-           * Width
-           * @see https://tailwindcss.com/docs/width
-           */ w: [
+          
+
+
+ w: [
             {
               w: [themeContainer, "screen", ...scaleSizing()],
             },
           ],
-          /**
-           * Min-Width
-           * @see https://tailwindcss.com/docs/min-width
-           */ "min-w": [
+          
+
+
+ "min-w": [
             {
               "min-w": [
                 themeContainer,
                 "screen",
-                /** Deprecated. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ "none",
+                 "none",
                 ...scaleSizing(),
               ],
             },
           ],
-          /**
-           * Max-Width
-           * @see https://tailwindcss.com/docs/max-width
-           */ "max-w": [
+          
+
+
+ "max-w": [
             {
               "max-w": [
                 themeContainer,
                 "screen",
                 "none",
-                /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ "prose",
-                /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ {
+                 "prose",
+                 {
                   screen: [themeBreakpoint],
                 },
                 ...scaleSizing(),
               ],
             },
           ],
-          /**
-           * Height
-           * @see https://tailwindcss.com/docs/height
-           */ h: [
+          
+
+
+ h: [
             {
               h: ["screen", "lh", ...scaleSizing()],
             },
           ],
-          /**
-           * Min-Height
-           * @see https://tailwindcss.com/docs/min-height
-           */ "min-h": [
+          
+
+
+ "min-h": [
             {
               "min-h": ["screen", "lh", "none", ...scaleSizing()],
             },
           ],
-          /**
-           * Max-Height
-           * @see https://tailwindcss.com/docs/max-height
-           */ "max-h": [
+          
+
+
+ "max-h": [
             {
               "max-h": ["screen", "lh", ...scaleSizing()],
             },
           ],
-          // ------------------
-          // --- Typography ---
-          // ------------------
-          /**
-           * Font Size
-           * @see https://tailwindcss.com/docs/font-size
-           */ "font-size": [
+          
+          
+          
+          
+
+
+ "font-size": [
             {
               text: [
                 "base",
@@ -6802,26 +6802,26 @@
               ],
             },
           ],
-          /**
-           * Font Smoothing
-           * @see https://tailwindcss.com/docs/font-smoothing
-           */ "font-smoothing": ["antialiased", "subpixel-antialiased"],
-          /**
-           * Font Style
-           * @see https://tailwindcss.com/docs/font-style
-           */ "font-style": ["italic", "not-italic"],
-          /**
-           * Font Weight
-           * @see https://tailwindcss.com/docs/font-weight
-           */ "font-weight": [
+          
+
+
+ "font-smoothing": ["antialiased", "subpixel-antialiased"],
+          
+
+
+ "font-style": ["italic", "not-italic"],
+          
+
+
+ "font-weight": [
             {
               font: [themeFontWeight, isArbitraryVariable, isArbitraryNumber],
             },
           ],
-          /**
-           * Font Stretch
-           * @see https://tailwindcss.com/docs/font-stretch
-           */ "font-stretch": [
+          
+
+
+ "font-stretch": [
             {
               "font-stretch": [
                 "ultra-condensed",
@@ -6838,10 +6838,10 @@
               ],
             },
           ],
-          /**
-           * Font Family
-           * @see https://tailwindcss.com/docs/font-family
-           */ "font-family": [
+          
+
+
+ "font-family": [
             {
               font: [
                 isArbitraryVariableFamilyName,
@@ -6850,42 +6850,42 @@
               ],
             },
           ],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-normal": ["normal-nums"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-ordinal": ["ordinal"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-slashed-zero": ["slashed-zero"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-figure": ["lining-nums", "oldstyle-nums"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-spacing": ["proportional-nums", "tabular-nums"],
-          /**
-           * Font Variant Numeric
-           * @see https://tailwindcss.com/docs/font-variant-numeric
-           */ "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
-          /**
-           * Letter Spacing
-           * @see https://tailwindcss.com/docs/letter-spacing
-           */ tracking: [
+          
+
+
+ "fvn-normal": ["normal-nums"],
+          
+
+
+ "fvn-ordinal": ["ordinal"],
+          
+
+
+ "fvn-slashed-zero": ["slashed-zero"],
+          
+
+
+ "fvn-figure": ["lining-nums", "oldstyle-nums"],
+          
+
+
+ "fvn-spacing": ["proportional-nums", "tabular-nums"],
+          
+
+
+ "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
+          
+
+
+ tracking: [
             {
               tracking: [themeTracking, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Line Clamp
-           * @see https://tailwindcss.com/docs/line-clamp
-           */ "line-clamp": [
+          
+
+
+ "line-clamp": [
             {
               "line-clamp": [
                 isNumber,
@@ -6895,37 +6895,37 @@
               ],
             },
           ],
-          /**
-           * Line Height
-           * @see https://tailwindcss.com/docs/line-height
-           */ leading: [
+          
+
+
+ leading: [
             {
               leading: [
-                /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ themeLeading,
+                 themeLeading,
                 ...scaleUnambiguousSpacing(),
               ],
             },
           ],
-          /**
-           * List Style Image
-           * @see https://tailwindcss.com/docs/list-style-image
-           */ "list-image": [
+          
+
+
+ "list-image": [
             {
               "list-image": ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * List Style Position
-           * @see https://tailwindcss.com/docs/list-style-position
-           */ "list-style-position": [
+          
+
+
+ "list-style-position": [
             {
               list: ["inside", "outside"],
             },
           ],
-          /**
-           * List Style Type
-           * @see https://tailwindcss.com/docs/list-style-type
-           */ "list-style-type": [
+          
+
+
+ "list-style-type": [
             {
               list: [
                 "disc",
@@ -6936,52 +6936,52 @@
               ],
             },
           ],
-          /**
-           * Text Alignment
-           * @see https://tailwindcss.com/docs/text-align
-           */ "text-alignment": [
+          
+
+
+ "text-alignment": [
             {
               text: ["left", "center", "right", "justify", "start", "end"],
             },
           ],
-          /**
-           * Placeholder Color
-           * @deprecated since Tailwind CSS v3.0.0
-           * @see https://v3.tailwindcss.com/docs/placeholder-color
-           */ "placeholder-color": [
+          
+
+
+
+ "placeholder-color": [
             {
               placeholder: scaleColor(),
             },
           ],
-          /**
-           * Text Color
-           * @see https://tailwindcss.com/docs/text-color
-           */ "text-color": [
+          
+
+
+ "text-color": [
             {
               text: scaleColor(),
             },
           ],
-          /**
-           * Text Decoration
-           * @see https://tailwindcss.com/docs/text-decoration
-           */ "text-decoration": [
+          
+
+
+ "text-decoration": [
             "underline",
             "overline",
             "line-through",
             "no-underline",
           ],
-          /**
-           * Text Decoration Style
-           * @see https://tailwindcss.com/docs/text-decoration-style
-           */ "text-decoration-style": [
+          
+
+
+ "text-decoration-style": [
             {
               decoration: [...scaleLineStyle(), "wavy"],
             },
           ],
-          /**
-           * Text Decoration Thickness
-           * @see https://tailwindcss.com/docs/text-decoration-thickness
-           */ "text-decoration-thickness": [
+          
+
+
+ "text-decoration-thickness": [
             {
               decoration: [
                 isNumber,
@@ -6992,18 +6992,18 @@
               ],
             },
           ],
-          /**
-           * Text Decoration Color
-           * @see https://tailwindcss.com/docs/text-decoration-color
-           */ "text-decoration-color": [
+          
+
+
+ "text-decoration-color": [
             {
               decoration: scaleColor(),
             },
           ],
-          /**
-           * Text Underline Offset
-           * @see https://tailwindcss.com/docs/text-underline-offset
-           */ "underline-offset": [
+          
+
+
+ "underline-offset": [
             {
               "underline-offset": [
                 isNumber,
@@ -7013,39 +7013,39 @@
               ],
             },
           ],
-          /**
-           * Text Transform
-           * @see https://tailwindcss.com/docs/text-transform
-           */ "text-transform": [
+          
+
+
+ "text-transform": [
             "uppercase",
             "lowercase",
             "capitalize",
             "normal-case",
           ],
-          /**
-           * Text Overflow
-           * @see https://tailwindcss.com/docs/text-overflow
-           */ "text-overflow": ["truncate", "text-ellipsis", "text-clip"],
-          /**
-           * Text Wrap
-           * @see https://tailwindcss.com/docs/text-wrap
-           */ "text-wrap": [
+          
+
+
+ "text-overflow": ["truncate", "text-ellipsis", "text-clip"],
+          
+
+
+ "text-wrap": [
             {
               text: ["wrap", "nowrap", "balance", "pretty"],
             },
           ],
-          /**
-           * Text Indent
-           * @see https://tailwindcss.com/docs/text-indent
-           */ indent: [
+          
+
+
+ indent: [
             {
               indent: scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Vertical Alignment
-           * @see https://tailwindcss.com/docs/vertical-align
-           */ "vertical-align": [
+          
+
+
+ "vertical-align": [
             {
               align: [
                 "baseline",
@@ -7061,10 +7061,10 @@
               ],
             },
           ],
-          /**
-           * Whitespace
-           * @see https://tailwindcss.com/docs/whitespace
-           */ whitespace: [
+          
+
+
+ whitespace: [
             {
               whitespace: [
                 "normal",
@@ -7076,93 +7076,93 @@
               ],
             },
           ],
-          /**
-           * Word Break
-           * @see https://tailwindcss.com/docs/word-break
-           */ break: [
+          
+
+
+ break: [
             {
               break: ["normal", "words", "all", "keep"],
             },
           ],
-          /**
-           * Overflow Wrap
-           * @see https://tailwindcss.com/docs/overflow-wrap
-           */ wrap: [
+          
+
+
+ wrap: [
             {
               wrap: ["break-word", "anywhere", "normal"],
             },
           ],
-          /**
-           * Hyphens
-           * @see https://tailwindcss.com/docs/hyphens
-           */ hyphens: [
+          
+
+
+ hyphens: [
             {
               hyphens: ["none", "manual", "auto"],
             },
           ],
-          /**
-           * Content
-           * @see https://tailwindcss.com/docs/content
-           */ content: [
+          
+
+
+ content: [
             {
               content: ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          // -------------------
-          // --- Backgrounds ---
-          // -------------------
-          /**
-           * Background Attachment
-           * @see https://tailwindcss.com/docs/background-attachment
-           */ "bg-attachment": [
+          
+          
+          
+          
+
+
+ "bg-attachment": [
             {
               bg: ["fixed", "local", "scroll"],
             },
           ],
-          /**
-           * Background Clip
-           * @see https://tailwindcss.com/docs/background-clip
-           */ "bg-clip": [
+          
+
+
+ "bg-clip": [
             {
               "bg-clip": ["border", "padding", "content", "text"],
             },
           ],
-          /**
-           * Background Origin
-           * @see https://tailwindcss.com/docs/background-origin
-           */ "bg-origin": [
+          
+
+
+ "bg-origin": [
             {
               "bg-origin": ["border", "padding", "content"],
             },
           ],
-          /**
-           * Background Position
-           * @see https://tailwindcss.com/docs/background-position
-           */ "bg-position": [
+          
+
+
+ "bg-position": [
             {
               bg: scaleBgPosition(),
             },
           ],
-          /**
-           * Background Repeat
-           * @see https://tailwindcss.com/docs/background-repeat
-           */ "bg-repeat": [
+          
+
+
+ "bg-repeat": [
             {
               bg: scaleBgRepeat(),
             },
           ],
-          /**
-           * Background Size
-           * @see https://tailwindcss.com/docs/background-size
-           */ "bg-size": [
+          
+
+
+ "bg-size": [
             {
               bg: scaleBgSize(),
             },
           ],
-          /**
-           * Background Image
-           * @see https://tailwindcss.com/docs/background-image
-           */ "bg-image": [
+          
+
+
+ "bg-image": [
             {
               bg: [
                 "none",
@@ -7183,389 +7183,389 @@
               ],
             },
           ],
-          /**
-           * Background Color
-           * @see https://tailwindcss.com/docs/background-color
-           */ "bg-color": [
+          
+
+
+ "bg-color": [
             {
               bg: scaleColor(),
             },
           ],
-          /**
-           * Gradient Color Stops From Position
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-from-pos": [
+          
+
+
+ "gradient-from-pos": [
             {
               from: scaleGradientStopPosition(),
             },
           ],
-          /**
-           * Gradient Color Stops Via Position
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-via-pos": [
+          
+
+
+ "gradient-via-pos": [
             {
               via: scaleGradientStopPosition(),
             },
           ],
-          /**
-           * Gradient Color Stops To Position
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-to-pos": [
+          
+
+
+ "gradient-to-pos": [
             {
               to: scaleGradientStopPosition(),
             },
           ],
-          /**
-           * Gradient Color Stops From
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-from": [
+          
+
+
+ "gradient-from": [
             {
               from: scaleColor(),
             },
           ],
-          /**
-           * Gradient Color Stops Via
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-via": [
+          
+
+
+ "gradient-via": [
             {
               via: scaleColor(),
             },
           ],
-          /**
-           * Gradient Color Stops To
-           * @see https://tailwindcss.com/docs/gradient-color-stops
-           */ "gradient-to": [
+          
+
+
+ "gradient-to": [
             {
               to: scaleColor(),
             },
           ],
-          // ---------------
-          // --- Borders ---
-          // ---------------
-          /**
-           * Border Radius
-           * @see https://tailwindcss.com/docs/border-radius
-           */ rounded: [
+          
+          
+          
+          
+
+
+ rounded: [
             {
               rounded: scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Start
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-s": [
+          
+
+
+ "rounded-s": [
             {
               "rounded-s": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius End
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-e": [
+          
+
+
+ "rounded-e": [
             {
               "rounded-e": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Top
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-t": [
+          
+
+
+ "rounded-t": [
             {
               "rounded-t": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Right
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-r": [
+          
+
+
+ "rounded-r": [
             {
               "rounded-r": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Bottom
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-b": [
+          
+
+
+ "rounded-b": [
             {
               "rounded-b": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Left
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-l": [
+          
+
+
+ "rounded-l": [
             {
               "rounded-l": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Start Start
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-ss": [
+          
+
+
+ "rounded-ss": [
             {
               "rounded-ss": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Start End
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-se": [
+          
+
+
+ "rounded-se": [
             {
               "rounded-se": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius End End
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-ee": [
+          
+
+
+ "rounded-ee": [
             {
               "rounded-ee": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius End Start
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-es": [
+          
+
+
+ "rounded-es": [
             {
               "rounded-es": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Top Left
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-tl": [
+          
+
+
+ "rounded-tl": [
             {
               "rounded-tl": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Top Right
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-tr": [
+          
+
+
+ "rounded-tr": [
             {
               "rounded-tr": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Bottom Right
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-br": [
+          
+
+
+ "rounded-br": [
             {
               "rounded-br": scaleRadius(),
             },
           ],
-          /**
-           * Border Radius Bottom Left
-           * @see https://tailwindcss.com/docs/border-radius
-           */ "rounded-bl": [
+          
+
+
+ "rounded-bl": [
             {
               "rounded-bl": scaleRadius(),
             },
           ],
-          /**
-           * Border Width
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w": [
+          
+
+
+ "border-w": [
             {
               border: scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width X
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-x": [
+          
+
+
+ "border-w-x": [
             {
               "border-x": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Y
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-y": [
+          
+
+
+ "border-w-y": [
             {
               "border-y": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Start
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-s": [
+          
+
+
+ "border-w-s": [
             {
               "border-s": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width End
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-e": [
+          
+
+
+ "border-w-e": [
             {
               "border-e": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Top
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-t": [
+          
+
+
+ "border-w-t": [
             {
               "border-t": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Right
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-r": [
+          
+
+
+ "border-w-r": [
             {
               "border-r": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Bottom
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-b": [
+          
+
+
+ "border-w-b": [
             {
               "border-b": scaleBorderWidth(),
             },
           ],
-          /**
-           * Border Width Left
-           * @see https://tailwindcss.com/docs/border-width
-           */ "border-w-l": [
+          
+
+
+ "border-w-l": [
             {
               "border-l": scaleBorderWidth(),
             },
           ],
-          /**
-           * Divide Width X
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-x": [
+          
+
+
+ "divide-x": [
             {
               "divide-x": scaleBorderWidth(),
             },
           ],
-          /**
-           * Divide Width X Reverse
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-x-reverse": ["divide-x-reverse"],
-          /**
-           * Divide Width Y
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-y": [
+          
+
+
+ "divide-x-reverse": ["divide-x-reverse"],
+          
+
+
+ "divide-y": [
             {
               "divide-y": scaleBorderWidth(),
             },
           ],
-          /**
-           * Divide Width Y Reverse
-           * @see https://tailwindcss.com/docs/border-width#between-children
-           */ "divide-y-reverse": ["divide-y-reverse"],
-          /**
-           * Border Style
-           * @see https://tailwindcss.com/docs/border-style
-           */ "border-style": [
+          
+
+
+ "divide-y-reverse": ["divide-y-reverse"],
+          
+
+
+ "border-style": [
             {
               border: [...scaleLineStyle(), "hidden", "none"],
             },
           ],
-          /**
-           * Divide Style
-           * @see https://tailwindcss.com/docs/border-style#setting-the-divider-style
-           */ "divide-style": [
+          
+
+
+ "divide-style": [
             {
               divide: [...scaleLineStyle(), "hidden", "none"],
             },
           ],
-          /**
-           * Border Color
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color": [
+          
+
+
+ "border-color": [
             {
               border: scaleColor(),
             },
           ],
-          /**
-           * Border Color X
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-x": [
+          
+
+
+ "border-color-x": [
             {
               "border-x": scaleColor(),
             },
           ],
-          /**
-           * Border Color Y
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-y": [
+          
+
+
+ "border-color-y": [
             {
               "border-y": scaleColor(),
             },
           ],
-          /**
-           * Border Color S
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-s": [
+          
+
+
+ "border-color-s": [
             {
               "border-s": scaleColor(),
             },
           ],
-          /**
-           * Border Color E
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-e": [
+          
+
+
+ "border-color-e": [
             {
               "border-e": scaleColor(),
             },
           ],
-          /**
-           * Border Color Top
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-t": [
+          
+
+
+ "border-color-t": [
             {
               "border-t": scaleColor(),
             },
           ],
-          /**
-           * Border Color Right
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-r": [
+          
+
+
+ "border-color-r": [
             {
               "border-r": scaleColor(),
             },
           ],
-          /**
-           * Border Color Bottom
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-b": [
+          
+
+
+ "border-color-b": [
             {
               "border-b": scaleColor(),
             },
           ],
-          /**
-           * Border Color Left
-           * @see https://tailwindcss.com/docs/border-color
-           */ "border-color-l": [
+          
+
+
+ "border-color-l": [
             {
               "border-l": scaleColor(),
             },
           ],
-          /**
-           * Divide Color
-           * @see https://tailwindcss.com/docs/divide-color
-           */ "divide-color": [
+          
+
+
+ "divide-color": [
             {
               divide: scaleColor(),
             },
           ],
-          /**
-           * Outline Style
-           * @see https://tailwindcss.com/docs/outline-style
-           */ "outline-style": [
+          
+
+
+ "outline-style": [
             {
               outline: [...scaleLineStyle(), "none", "hidden"],
             },
           ],
-          /**
-           * Outline Offset
-           * @see https://tailwindcss.com/docs/outline-offset
-           */ "outline-offset": [
+          
+
+
+ "outline-offset": [
             {
               "outline-offset": [
                 isNumber,
@@ -7574,10 +7574,10 @@
               ],
             },
           ],
-          /**
-           * Outline Width
-           * @see https://tailwindcss.com/docs/outline-width
-           */ "outline-w": [
+          
+
+
+ "outline-w": [
             {
               outline: [
                 "",
@@ -7587,24 +7587,24 @@
               ],
             },
           ],
-          /**
-           * Outline Color
-           * @see https://tailwindcss.com/docs/outline-color
-           */ "outline-color": [
+          
+
+
+ "outline-color": [
             {
               outline: scaleColor(),
             },
           ],
-          // ---------------
-          // --- Effects ---
-          // ---------------
-          /**
-           * Box Shadow
-           * @see https://tailwindcss.com/docs/box-shadow
-           */ shadow: [
+          
+          
+          
+          
+
+
+ shadow: [
             {
               shadow: [
-                // Deprecated since Tailwind CSS v4.0.0
+                
                 "",
                 "none",
                 themeShadow,
@@ -7613,18 +7613,18 @@
               ],
             },
           ],
-          /**
-           * Box Shadow Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-shadow-color
-           */ "shadow-color": [
+          
+
+
+ "shadow-color": [
             {
               shadow: scaleColor(),
             },
           ],
-          /**
-           * Inset Box Shadow
-           * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-shadow
-           */ "inset-shadow": [
+          
+
+
+ "inset-shadow": [
             {
               "inset-shadow": [
                 "none",
@@ -7634,76 +7634,76 @@
               ],
             },
           ],
-          /**
-           * Inset Box Shadow Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-shadow-color
-           */ "inset-shadow-color": [
+          
+
+
+ "inset-shadow-color": [
             {
               "inset-shadow": scaleColor(),
             },
           ],
-          /**
-           * Ring Width
-           * @see https://tailwindcss.com/docs/box-shadow#adding-a-ring
-           */ "ring-w": [
+          
+
+
+ "ring-w": [
             {
               ring: scaleBorderWidth(),
             },
           ],
-          /**
-           * Ring Width Inset
-           * @see https://v3.tailwindcss.com/docs/ring-width#inset-rings
-           * @deprecated since Tailwind CSS v4.0.0
-           * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
-           */ "ring-w-inset": ["ring-inset"],
-          /**
-           * Ring Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-ring-color
-           */ "ring-color": [
+          
+
+
+
+
+ "ring-w-inset": ["ring-inset"],
+          
+
+
+ "ring-color": [
             {
               ring: scaleColor(),
             },
           ],
-          /**
-           * Ring Offset Width
-           * @see https://v3.tailwindcss.com/docs/ring-offset-width
-           * @deprecated since Tailwind CSS v4.0.0
-           * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
-           */ "ring-offset-w": [
+          
+
+
+
+
+ "ring-offset-w": [
             {
               "ring-offset": [isNumber, isArbitraryLength],
             },
           ],
-          /**
-           * Ring Offset Color
-           * @see https://v3.tailwindcss.com/docs/ring-offset-color
-           * @deprecated since Tailwind CSS v4.0.0
-           * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
-           */ "ring-offset-color": [
+          
+
+
+
+
+ "ring-offset-color": [
             {
               "ring-offset": scaleColor(),
             },
           ],
-          /**
-           * Inset Ring Width
-           * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-ring
-           */ "inset-ring-w": [
+          
+
+
+ "inset-ring-w": [
             {
               "inset-ring": scaleBorderWidth(),
             },
           ],
-          /**
-           * Inset Ring Color
-           * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-ring-color
-           */ "inset-ring-color": [
+          
+
+
+ "inset-ring-color": [
             {
               "inset-ring": scaleColor(),
             },
           ],
-          /**
-           * Text Shadow
-           * @see https://tailwindcss.com/docs/text-shadow
-           */ "text-shadow": [
+          
+
+
+ "text-shadow": [
             {
               "text-shadow": [
                 "none",
@@ -7713,42 +7713,42 @@
               ],
             },
           ],
-          /**
-           * Text Shadow Color
-           * @see https://tailwindcss.com/docs/text-shadow#setting-the-shadow-color
-           */ "text-shadow-color": [
+          
+
+
+ "text-shadow-color": [
             {
               "text-shadow": scaleColor(),
             },
           ],
-          /**
-           * Opacity
-           * @see https://tailwindcss.com/docs/opacity
-           */ opacity: [
+          
+
+
+ opacity: [
             {
               opacity: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Mix Blend Mode
-           * @see https://tailwindcss.com/docs/mix-blend-mode
-           */ "mix-blend": [
+          
+
+
+ "mix-blend": [
             {
               "mix-blend": [...scaleBlendMode(), "plus-darker", "plus-lighter"],
             },
           ],
-          /**
-           * Background Blend Mode
-           * @see https://tailwindcss.com/docs/background-blend-mode
-           */ "bg-blend": [
+          
+
+
+ "bg-blend": [
             {
               "bg-blend": scaleBlendMode(),
             },
           ],
-          /**
-           * Mask Clip
-           * @see https://tailwindcss.com/docs/mask-clip
-           */ "mask-clip": [
+          
+
+
+ "mask-clip": [
             {
               "mask-clip": [
                 "border",
@@ -7761,18 +7761,18 @@
             },
             "mask-no-clip",
           ],
-          /**
-           * Mask Composite
-           * @see https://tailwindcss.com/docs/mask-composite
-           */ "mask-composite": [
+          
+
+
+ "mask-composite": [
             {
               mask: ["add", "subtract", "intersect", "exclude"],
             },
           ],
-          /**
-           * Mask Image
-           * @see https://tailwindcss.com/docs/mask-image
-           */ "mask-image-linear-pos": [
+          
+
+
+ "mask-image-linear-pos": [
             {
               "mask-linear": [isNumber],
             },
@@ -7987,18 +7987,18 @@
               "mask-conic-to": scaleColor(),
             },
           ],
-          /**
-           * Mask Mode
-           * @see https://tailwindcss.com/docs/mask-mode
-           */ "mask-mode": [
+          
+
+
+ "mask-mode": [
             {
               mask: ["alpha", "luminance", "match"],
             },
           ],
-          /**
-           * Mask Origin
-           * @see https://tailwindcss.com/docs/mask-origin
-           */ "mask-origin": [
+          
+
+
+ "mask-origin": [
             {
               "mask-origin": [
                 "border",
@@ -8010,56 +8010,56 @@
               ],
             },
           ],
-          /**
-           * Mask Position
-           * @see https://tailwindcss.com/docs/mask-position
-           */ "mask-position": [
+          
+
+
+ "mask-position": [
             {
               mask: scaleBgPosition(),
             },
           ],
-          /**
-           * Mask Repeat
-           * @see https://tailwindcss.com/docs/mask-repeat
-           */ "mask-repeat": [
+          
+
+
+ "mask-repeat": [
             {
               mask: scaleBgRepeat(),
             },
           ],
-          /**
-           * Mask Size
-           * @see https://tailwindcss.com/docs/mask-size
-           */ "mask-size": [
+          
+
+
+ "mask-size": [
             {
               mask: scaleBgSize(),
             },
           ],
-          /**
-           * Mask Type
-           * @see https://tailwindcss.com/docs/mask-type
-           */ "mask-type": [
+          
+
+
+ "mask-type": [
             {
               "mask-type": ["alpha", "luminance"],
             },
           ],
-          /**
-           * Mask Image
-           * @see https://tailwindcss.com/docs/mask-image
-           */ "mask-image": [
+          
+
+
+ "mask-image": [
             {
               mask: ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          // ---------------
-          // --- Filters ---
-          // ---------------
-          /**
-           * Filter
-           * @see https://tailwindcss.com/docs/filter
-           */ filter: [
+          
+          
+          
+          
+
+
+ filter: [
             {
               filter: [
-                // Deprecated since Tailwind CSS v3.0.0
+                
                 "",
                 "none",
                 isArbitraryVariable,
@@ -8067,37 +8067,37 @@
               ],
             },
           ],
-          /**
-           * Blur
-           * @see https://tailwindcss.com/docs/blur
-           */ blur: [
+          
+
+
+ blur: [
             {
               blur: scaleBlur(),
             },
           ],
-          /**
-           * Brightness
-           * @see https://tailwindcss.com/docs/brightness
-           */ brightness: [
+          
+
+
+ brightness: [
             {
               brightness: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Contrast
-           * @see https://tailwindcss.com/docs/contrast
-           */ contrast: [
+          
+
+
+ contrast: [
             {
               contrast: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Drop Shadow
-           * @see https://tailwindcss.com/docs/drop-shadow
-           */ "drop-shadow": [
+          
+
+
+ "drop-shadow": [
             {
               "drop-shadow": [
-                // Deprecated since Tailwind CSS v4.0.0
+                
                 "",
                 "none",
                 themeDropShadow,
@@ -8106,61 +8106,61 @@
               ],
             },
           ],
-          /**
-           * Drop Shadow Color
-           * @see https://tailwindcss.com/docs/filter-drop-shadow#setting-the-shadow-color
-           */ "drop-shadow-color": [
+          
+
+
+ "drop-shadow-color": [
             {
               "drop-shadow": scaleColor(),
             },
           ],
-          /**
-           * Grayscale
-           * @see https://tailwindcss.com/docs/grayscale
-           */ grayscale: [
+          
+
+
+ grayscale: [
             {
               grayscale: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Hue Rotate
-           * @see https://tailwindcss.com/docs/hue-rotate
-           */ "hue-rotate": [
+          
+
+
+ "hue-rotate": [
             {
               "hue-rotate": [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Invert
-           * @see https://tailwindcss.com/docs/invert
-           */ invert: [
+          
+
+
+ invert: [
             {
               invert: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Saturate
-           * @see https://tailwindcss.com/docs/saturate
-           */ saturate: [
+          
+
+
+ saturate: [
             {
               saturate: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Sepia
-           * @see https://tailwindcss.com/docs/sepia
-           */ sepia: [
+          
+
+
+ sepia: [
             {
               sepia: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Backdrop Filter
-           * @see https://tailwindcss.com/docs/backdrop-filter
-           */ "backdrop-filter": [
+          
+
+
+ "backdrop-filter": [
             {
               "backdrop-filter": [
-                // Deprecated since Tailwind CSS v3.0.0
+                
                 "",
                 "none",
                 isArbitraryVariable,
@@ -8168,18 +8168,18 @@
               ],
             },
           ],
-          /**
-           * Backdrop Blur
-           * @see https://tailwindcss.com/docs/backdrop-blur
-           */ "backdrop-blur": [
+          
+
+
+ "backdrop-blur": [
             {
               "backdrop-blur": scaleBlur(),
             },
           ],
-          /**
-           * Backdrop Brightness
-           * @see https://tailwindcss.com/docs/backdrop-brightness
-           */ "backdrop-brightness": [
+          
+
+
+ "backdrop-brightness": [
             {
               "backdrop-brightness": [
                 isNumber,
@@ -8188,10 +8188,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Contrast
-           * @see https://tailwindcss.com/docs/backdrop-contrast
-           */ "backdrop-contrast": [
+          
+
+
+ "backdrop-contrast": [
             {
               "backdrop-contrast": [
                 isNumber,
@@ -8200,10 +8200,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Grayscale
-           * @see https://tailwindcss.com/docs/backdrop-grayscale
-           */ "backdrop-grayscale": [
+          
+
+
+ "backdrop-grayscale": [
             {
               "backdrop-grayscale": [
                 "",
@@ -8213,10 +8213,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Hue Rotate
-           * @see https://tailwindcss.com/docs/backdrop-hue-rotate
-           */ "backdrop-hue-rotate": [
+          
+
+
+ "backdrop-hue-rotate": [
             {
               "backdrop-hue-rotate": [
                 isNumber,
@@ -8225,10 +8225,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Invert
-           * @see https://tailwindcss.com/docs/backdrop-invert
-           */ "backdrop-invert": [
+          
+
+
+ "backdrop-invert": [
             {
               "backdrop-invert": [
                 "",
@@ -8238,10 +8238,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Opacity
-           * @see https://tailwindcss.com/docs/backdrop-opacity
-           */ "backdrop-opacity": [
+          
+
+
+ "backdrop-opacity": [
             {
               "backdrop-opacity": [
                 isNumber,
@@ -8250,10 +8250,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Saturate
-           * @see https://tailwindcss.com/docs/backdrop-saturate
-           */ "backdrop-saturate": [
+          
+
+
+ "backdrop-saturate": [
             {
               "backdrop-saturate": [
                 isNumber,
@@ -8262,10 +8262,10 @@
               ],
             },
           ],
-          /**
-           * Backdrop Sepia
-           * @see https://tailwindcss.com/docs/backdrop-sepia
-           */ "backdrop-sepia": [
+          
+
+
+ "backdrop-sepia": [
             {
               "backdrop-sepia": [
                 "",
@@ -8275,64 +8275,64 @@
               ],
             },
           ],
-          // --------------
-          // --- Tables ---
-          // --------------
-          /**
-           * Border Collapse
-           * @see https://tailwindcss.com/docs/border-collapse
-           */ "border-collapse": [
+          
+          
+          
+          
+
+
+ "border-collapse": [
             {
               border: ["collapse", "separate"],
             },
           ],
-          /**
-           * Border Spacing
-           * @see https://tailwindcss.com/docs/border-spacing
-           */ "border-spacing": [
+          
+
+
+ "border-spacing": [
             {
               "border-spacing": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Border Spacing X
-           * @see https://tailwindcss.com/docs/border-spacing
-           */ "border-spacing-x": [
+          
+
+
+ "border-spacing-x": [
             {
               "border-spacing-x": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Border Spacing Y
-           * @see https://tailwindcss.com/docs/border-spacing
-           */ "border-spacing-y": [
+          
+
+
+ "border-spacing-y": [
             {
               "border-spacing-y": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Table Layout
-           * @see https://tailwindcss.com/docs/table-layout
-           */ "table-layout": [
+          
+
+
+ "table-layout": [
             {
               table: ["auto", "fixed"],
             },
           ],
-          /**
-           * Caption Side
-           * @see https://tailwindcss.com/docs/caption-side
-           */ caption: [
+          
+
+
+ caption: [
             {
               caption: ["top", "bottom"],
             },
           ],
-          // ---------------------------------
-          // --- Transitions and Animation ---
-          // ---------------------------------
-          /**
-           * Transition Property
-           * @see https://tailwindcss.com/docs/transition-property
-           */ transition: [
+          
+          
+          
+          
+
+
+ transition: [
             {
               transition: [
                 "",
@@ -8347,18 +8347,18 @@
               ],
             },
           ],
-          /**
-           * Transition Behavior
-           * @see https://tailwindcss.com/docs/transition-behavior
-           */ "transition-behavior": [
+          
+
+
+ "transition-behavior": [
             {
               transition: ["normal", "discrete"],
             },
           ],
-          /**
-           * Transition Duration
-           * @see https://tailwindcss.com/docs/transition-duration
-           */ duration: [
+          
+
+
+ duration: [
             {
               duration: [
                 isNumber,
@@ -8368,10 +8368,10 @@
               ],
             },
           ],
-          /**
-           * Transition Timing Function
-           * @see https://tailwindcss.com/docs/transition-timing-function
-           */ ease: [
+          
+
+
+ ease: [
             {
               ease: [
                 "linear",
@@ -8382,18 +8382,18 @@
               ],
             },
           ],
-          /**
-           * Transition Delay
-           * @see https://tailwindcss.com/docs/transition-delay
-           */ delay: [
+          
+
+
+ delay: [
             {
               delay: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          /**
-           * Animation
-           * @see https://tailwindcss.com/docs/animation
-           */ animate: [
+          
+
+
+ animate: [
             {
               animate: [
                 "none",
@@ -8403,21 +8403,21 @@
               ],
             },
           ],
-          // ------------------
-          // --- Transforms ---
-          // ------------------
-          /**
-           * Backface Visibility
-           * @see https://tailwindcss.com/docs/backface-visibility
-           */ backface: [
+          
+          
+          
+          
+
+
+ backface: [
             {
               backface: ["hidden", "visible"],
             },
           ],
-          /**
-           * Perspective
-           * @see https://tailwindcss.com/docs/perspective
-           */ perspective: [
+          
+
+
+ perspective: [
             {
               perspective: [
                 themePerspective,
@@ -8426,110 +8426,110 @@
               ],
             },
           ],
-          /**
-           * Perspective Origin
-           * @see https://tailwindcss.com/docs/perspective-origin
-           */ "perspective-origin": [
+          
+
+
+ "perspective-origin": [
             {
               "perspective-origin": scalePositionWithArbitrary(),
             },
           ],
-          /**
-           * Rotate
-           * @see https://tailwindcss.com/docs/rotate
-           */ rotate: [
+          
+
+
+ rotate: [
             {
               rotate: scaleRotate(),
             },
           ],
-          /**
-           * Rotate X
-           * @see https://tailwindcss.com/docs/rotate
-           */ "rotate-x": [
+          
+
+
+ "rotate-x": [
             {
               "rotate-x": scaleRotate(),
             },
           ],
-          /**
-           * Rotate Y
-           * @see https://tailwindcss.com/docs/rotate
-           */ "rotate-y": [
+          
+
+
+ "rotate-y": [
             {
               "rotate-y": scaleRotate(),
             },
           ],
-          /**
-           * Rotate Z
-           * @see https://tailwindcss.com/docs/rotate
-           */ "rotate-z": [
+          
+
+
+ "rotate-z": [
             {
               "rotate-z": scaleRotate(),
             },
           ],
-          /**
-           * Scale
-           * @see https://tailwindcss.com/docs/scale
-           */ scale: [
+          
+
+
+ scale: [
             {
               scale: scaleScale(),
             },
           ],
-          /**
-           * Scale X
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-x": [
+          
+
+
+ "scale-x": [
             {
               "scale-x": scaleScale(),
             },
           ],
-          /**
-           * Scale Y
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-y": [
+          
+
+
+ "scale-y": [
             {
               "scale-y": scaleScale(),
             },
           ],
-          /**
-           * Scale Z
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-z": [
+          
+
+
+ "scale-z": [
             {
               "scale-z": scaleScale(),
             },
           ],
-          /**
-           * Scale 3D
-           * @see https://tailwindcss.com/docs/scale
-           */ "scale-3d": ["scale-3d"],
-          /**
-           * Skew
-           * @see https://tailwindcss.com/docs/skew
-           */ skew: [
+          
+
+
+ "scale-3d": ["scale-3d"],
+          
+
+
+ skew: [
             {
               skew: scaleSkew(),
             },
           ],
-          /**
-           * Skew X
-           * @see https://tailwindcss.com/docs/skew
-           */ "skew-x": [
+          
+
+
+ "skew-x": [
             {
               "skew-x": scaleSkew(),
             },
           ],
-          /**
-           * Skew Y
-           * @see https://tailwindcss.com/docs/skew
-           */ "skew-y": [
+          
+
+
+ "skew-y": [
             {
               "skew-y": scaleSkew(),
             },
           ],
-          /**
-           * Transform
-           * @see https://tailwindcss.com/docs/transform
-           */ transform: [
+          
+
+
+ transform: [
             {
               transform: [
                 isArbitraryVariable,
@@ -8541,89 +8541,89 @@
               ],
             },
           ],
-          /**
-           * Transform Origin
-           * @see https://tailwindcss.com/docs/transform-origin
-           */ "transform-origin": [
+          
+
+
+ "transform-origin": [
             {
               origin: scalePositionWithArbitrary(),
             },
           ],
-          /**
-           * Transform Style
-           * @see https://tailwindcss.com/docs/transform-style
-           */ "transform-style": [
+          
+
+
+ "transform-style": [
             {
               transform: ["3d", "flat"],
             },
           ],
-          /**
-           * Translate
-           * @see https://tailwindcss.com/docs/translate
-           */ translate: [
+          
+
+
+ translate: [
             {
               translate: scaleTranslate(),
             },
           ],
-          /**
-           * Translate X
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-x": [
+          
+
+
+ "translate-x": [
             {
               "translate-x": scaleTranslate(),
             },
           ],
-          /**
-           * Translate Y
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-y": [
+          
+
+
+ "translate-y": [
             {
               "translate-y": scaleTranslate(),
             },
           ],
-          /**
-           * Translate Z
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-z": [
+          
+
+
+ "translate-z": [
             {
               "translate-z": scaleTranslate(),
             },
           ],
-          /**
-           * Translate None
-           * @see https://tailwindcss.com/docs/translate
-           */ "translate-none": ["translate-none"],
-          // ---------------------
-          // --- Interactivity ---
-          // ---------------------
-          /**
-           * Accent Color
-           * @see https://tailwindcss.com/docs/accent-color
-           */ accent: [
+          
+
+
+ "translate-none": ["translate-none"],
+          
+          
+          
+          
+
+
+ accent: [
             {
               accent: scaleColor(),
             },
           ],
-          /**
-           * Appearance
-           * @see https://tailwindcss.com/docs/appearance
-           */ appearance: [
+          
+
+
+ appearance: [
             {
               appearance: ["none", "auto"],
             },
           ],
-          /**
-           * Caret Color
-           * @see https://tailwindcss.com/docs/just-in-time-mode#caret-color-utilities
-           */ "caret-color": [
+          
+
+
+ "caret-color": [
             {
               caret: scaleColor(),
             },
           ],
-          /**
-           * Color Scheme
-           * @see https://tailwindcss.com/docs/color-scheme
-           */ "color-scheme": [
+          
+
+
+ "color-scheme": [
             {
               scheme: [
                 "normal",
@@ -8635,10 +8635,10 @@
               ],
             },
           ],
-          /**
-           * Cursor
-           * @see https://tailwindcss.com/docs/cursor
-           */ cursor: [
+          
+
+
+ cursor: [
             {
               cursor: [
                 "auto",
@@ -8682,254 +8682,254 @@
               ],
             },
           ],
-          /**
-           * Field Sizing
-           * @see https://tailwindcss.com/docs/field-sizing
-           */ "field-sizing": [
+          
+
+
+ "field-sizing": [
             {
               "field-sizing": ["fixed", "content"],
             },
           ],
-          /**
-           * Pointer Events
-           * @see https://tailwindcss.com/docs/pointer-events
-           */ "pointer-events": [
+          
+
+
+ "pointer-events": [
             {
               "pointer-events": ["auto", "none"],
             },
           ],
-          /**
-           * Resize
-           * @see https://tailwindcss.com/docs/resize
-           */ resize: [
+          
+
+
+ resize: [
             {
               resize: ["none", "", "y", "x"],
             },
           ],
-          /**
-           * Scroll Behavior
-           * @see https://tailwindcss.com/docs/scroll-behavior
-           */ "scroll-behavior": [
+          
+
+
+ "scroll-behavior": [
             {
               scroll: ["auto", "smooth"],
             },
           ],
-          /**
-           * Scroll Margin
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-m": [
+          
+
+
+ "scroll-m": [
             {
               "scroll-m": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin X
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mx": [
+          
+
+
+ "scroll-mx": [
             {
               "scroll-mx": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Y
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-my": [
+          
+
+
+ "scroll-my": [
             {
               "scroll-my": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Start
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-ms": [
+          
+
+
+ "scroll-ms": [
             {
               "scroll-ms": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin End
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-me": [
+          
+
+
+ "scroll-me": [
             {
               "scroll-me": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Top
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mt": [
+          
+
+
+ "scroll-mt": [
             {
               "scroll-mt": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Right
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mr": [
+          
+
+
+ "scroll-mr": [
             {
               "scroll-mr": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Bottom
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-mb": [
+          
+
+
+ "scroll-mb": [
             {
               "scroll-mb": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Margin Left
-           * @see https://tailwindcss.com/docs/scroll-margin
-           */ "scroll-ml": [
+          
+
+
+ "scroll-ml": [
             {
               "scroll-ml": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-p": [
+          
+
+
+ "scroll-p": [
             {
               "scroll-p": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding X
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-px": [
+          
+
+
+ "scroll-px": [
             {
               "scroll-px": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Y
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-py": [
+          
+
+
+ "scroll-py": [
             {
               "scroll-py": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Start
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-ps": [
+          
+
+
+ "scroll-ps": [
             {
               "scroll-ps": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding End
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pe": [
+          
+
+
+ "scroll-pe": [
             {
               "scroll-pe": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Top
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pt": [
+          
+
+
+ "scroll-pt": [
             {
               "scroll-pt": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Right
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pr": [
+          
+
+
+ "scroll-pr": [
             {
               "scroll-pr": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Bottom
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pb": [
+          
+
+
+ "scroll-pb": [
             {
               "scroll-pb": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Padding Left
-           * @see https://tailwindcss.com/docs/scroll-padding
-           */ "scroll-pl": [
+          
+
+
+ "scroll-pl": [
             {
               "scroll-pl": scaleUnambiguousSpacing(),
             },
           ],
-          /**
-           * Scroll Snap Align
-           * @see https://tailwindcss.com/docs/scroll-snap-align
-           */ "snap-align": [
+          
+
+
+ "snap-align": [
             {
               snap: ["start", "end", "center", "align-none"],
             },
           ],
-          /**
-           * Scroll Snap Stop
-           * @see https://tailwindcss.com/docs/scroll-snap-stop
-           */ "snap-stop": [
+          
+
+
+ "snap-stop": [
             {
               snap: ["normal", "always"],
             },
           ],
-          /**
-           * Scroll Snap Type
-           * @see https://tailwindcss.com/docs/scroll-snap-type
-           */ "snap-type": [
+          
+
+
+ "snap-type": [
             {
               snap: ["none", "x", "y", "both"],
             },
           ],
-          /**
-           * Scroll Snap Type Strictness
-           * @see https://tailwindcss.com/docs/scroll-snap-type
-           */ "snap-strictness": [
+          
+
+
+ "snap-strictness": [
             {
               snap: ["mandatory", "proximity"],
             },
           ],
-          /**
-           * Touch Action
-           * @see https://tailwindcss.com/docs/touch-action
-           */ touch: [
+          
+
+
+ touch: [
             {
               touch: ["auto", "none", "manipulation"],
             },
           ],
-          /**
-           * Touch Action X
-           * @see https://tailwindcss.com/docs/touch-action
-           */ "touch-x": [
+          
+
+
+ "touch-x": [
             {
               "touch-pan": ["x", "left", "right"],
             },
           ],
-          /**
-           * Touch Action Y
-           * @see https://tailwindcss.com/docs/touch-action
-           */ "touch-y": [
+          
+
+
+ "touch-y": [
             {
               "touch-pan": ["y", "up", "down"],
             },
           ],
-          /**
-           * Touch Action Pinch Zoom
-           * @see https://tailwindcss.com/docs/touch-action
-           */ "touch-pz": ["touch-pinch-zoom"],
-          /**
-           * User Select
-           * @see https://tailwindcss.com/docs/user-select
-           */ select: [
+          
+
+
+ "touch-pz": ["touch-pinch-zoom"],
+          
+
+
+ select: [
             {
               select: ["none", "text", "all", "auto"],
             },
           ],
-          /**
-           * Will Change
-           * @see https://tailwindcss.com/docs/will-change
-           */ "will-change": [
+          
+
+
+ "will-change": [
             {
               "will-change": [
                 "auto",
@@ -8941,21 +8941,21 @@
               ],
             },
           ],
-          // -----------
-          // --- SVG ---
-          // -----------
-          /**
-           * Fill
-           * @see https://tailwindcss.com/docs/fill
-           */ fill: [
+          
+          
+          
+          
+
+
+ fill: [
             {
               fill: ["none", ...scaleColor()],
             },
           ],
-          /**
-           * Stroke Width
-           * @see https://tailwindcss.com/docs/stroke-width
-           */ "stroke-w": [
+          
+
+
+ "stroke-w": [
             {
               stroke: [
                 isNumber,
@@ -8965,21 +8965,21 @@
               ],
             },
           ],
-          /**
-           * Stroke
-           * @see https://tailwindcss.com/docs/stroke
-           */ stroke: [
+          
+
+
+ stroke: [
             {
               stroke: ["none", ...scaleColor()],
             },
           ],
-          // ---------------------
-          // --- Accessibility ---
-          // ---------------------
-          /**
-           * Forced Color Adjust
-           * @see https://tailwindcss.com/docs/forced-color-adjust
-           */ "forced-color-adjust": [
+          
+          
+          
+          
+
+
+ "forced-color-adjust": [
             {
               "forced-color-adjust": ["auto", "none"],
             },
@@ -9125,10 +9125,10 @@
         ],
       };
     };
-    /**
-     * @param baseConfig Config where other config will be merged into. This object will be mutated.
-     * @param configExtension Partial config to merge into the `baseConfig`.
-     */ const mergeConfigs = (
+    
+
+
+ const mergeConfigs = (
       baseConfig,
       {
         cacheSize,
@@ -9211,15 +9211,15 @@
             () => mergeConfigs(getDefaultConfig(), configExtension),
             ...createConfig,
           );
-    const twMerge = /*#__PURE__*/ createTailwindMerge(getDefaultConfig);
-    //# sourceMappingURL=bundle-mjs.mjs.map
+    const twMerge =  createTailwindMerge(getDefaultConfig);
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/disable-smooth-scroll.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -9236,8 +9236,8 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [app-client] (ecmascript)",
     );
     function disableSmoothScrollDuringRouteTransition(fn, options = {}) {
-      // if only the hash is changed, we don't need to disable smooth scrolling
-      // we only care to prevent smooth scrolling when navigating to a new page to avoid jarring UX
+      
+      
       if (options.onlyHashChange) {
         fn();
         return;
@@ -9245,7 +9245,7 @@
       const htmlElement = document.documentElement;
       const hasDataAttribute = htmlElement.dataset.scrollBehavior === "smooth";
       if (!hasDataAttribute) {
-        // Warn if smooth scrolling is detected but no data attribute is present
+        
         if (
           ("TURBOPACK compile-time value", "development") === "development" &&
           getComputedStyle(htmlElement).scrollBehavior === "smooth"
@@ -9256,29 +9256,29 @@
               "Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior",
           );
         }
-        // No smooth scrolling configured, run directly without style manipulation
+        
         fn();
         return;
       }
-      // Proceed with temporarily disabling smooth scrolling
+      
       const existing = htmlElement.style.scrollBehavior;
       htmlElement.style.scrollBehavior = "auto";
       if (!options.dontForceLayout) {
-        // In Chrome-based browsers we need to force reflow before calling `scrollTo`.
-        // Otherwise it will not pickup the change in scrollBehavior
-        // More info here: https://github.com/vercel/next.js/issues/40719#issuecomment-1336248042
+        
+        
+        
         htmlElement.getClientRects();
       }
       fn();
       htmlElement.style.scrollBehavior = existing;
-    } //# sourceMappingURL=disable-smooth-scroll.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/bfcache.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -9294,20 +9294,20 @@
     const _react = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
     );
-    // When the flag is disabled, only track the currently active tree
+    
     const MAX_BF_CACHE_ENTRIES = ("TURBOPACK compile-time falsy", 0)
       ? "TURBOPACK unreachable"
       : 1;
     function useRouterBFCache(activeTree, activeStateKey) {
-      // The currently active entry. The entries form a linked list, sorted in
-      // order of most recently active. This allows us to reuse parts of the list
-      // without cloning, unless there's a reordering or removal.
-      // TODO: Once we start tracking back/forward history at each route level,
-      // we should use the history order instead. In other words, when traversing
-      // to an existing entry as a result of a popstate event, we should maintain
-      // the existing order instead of moving it to the front of the list. I think
-      // an initial implementation of this could be to pass an incrementing id
-      // to history.pushState/replaceState, then use that here for ordering.
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const [prevActiveEntry, setPrevActiveEntry] = (0, _react.useState)(() => {
         const initialEntry = {
           tree: activeTree,
@@ -9317,42 +9317,42 @@
         return initialEntry;
       });
       if (prevActiveEntry.tree === activeTree) {
-        // Fast path. The active tree hasn't changed, so we can reuse the
-        // existing state.
+        
+        
         return prevActiveEntry;
       }
-      // The route tree changed. Note that this doesn't mean that the tree changed
-      // *at this level* — the change may be due to a child route. Either way, we
-      // need to either add or update the router tree in the bfcache.
-      //
-      // The rest of the code looks more complicated than it actually is because we
-      // can't mutate the state in place; we have to copy-on-write.
-      // Create a new entry for the active cache key. This is the head of the new
-      // linked list.
+      
+      
+      
+      
+      
+      
+      
+      
       const newActiveEntry = {
         tree: activeTree,
         stateKey: activeStateKey,
         next: null,
       };
-      // We need to append the old list onto the new list. If the head of the new
-      // list was already present in the cache, then we'll need to clone everything
-      // that came before it. Then we can reuse the rest.
+      
+      
+      
       let n = 1;
       let oldEntry = prevActiveEntry;
       let clonedEntry = newActiveEntry;
       while (oldEntry !== null && n < MAX_BF_CACHE_ENTRIES) {
         if (oldEntry.stateKey === activeStateKey) {
-          // Fast path. This entry in the old list that corresponds to the key that
-          // is now active. We've already placed a clone of this entry at the front
-          // of the new list. We can reuse the rest of the old list without cloning.
-          // NOTE: We don't need to worry about eviction in this case because we
-          // haven't increased the size of the cache, and we assume the max size
-          // is constant across renders. If we were to change it to a dynamic limit,
-          // then the implementation would need to account for that.
+          
+          
+          
+          
+          
+          
+          
           clonedEntry.next = oldEntry.next;
           break;
         } else {
-          // Clone the entry and append it to the list.
+          
           n++;
           const entry = {
             tree: oldEntry.tree,
@@ -9377,14 +9377,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=bfcache.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -9394,10 +9394,10 @@
     });
     Object.defineProperty(
       exports,
-      /**
-       * OuterLayoutRouter handles the current segment as well as <Offscreen> rendering of other segments.
-       * It can be rendered next to each other with a different `parallelRouterKey`, allowing for Parallel routes.
-       */ "default",
+      
+
+
+ "default",
       {
         enumerable: true,
         get: function () {
@@ -9417,12 +9417,12 @@
     const _routerreducertypes = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/router-reducer-types.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _reactdom = /*#__PURE__*/ _interop_require_default._(
+    const _reactdom =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/index.js [app-client] (ecmascript)",
       ),
@@ -9472,10 +9472,10 @@
     const _routeparams = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/route-params.js [app-client] (ecmascript)",
     );
-    /**
-     * Add refetch marker to router state at the point of the current layout segment.
-     * This ensures the response returned is not further down than the current layout segment.
-     */ function walkAddRefetch(segmentPathToWalk, treeToRecreate) {
+    
+
+
+ function walkAddRefetch(segmentPathToWalk, treeToRecreate) {
       if (segmentPathToWalk) {
         const [segment, parallelRouteKey] = segmentPathToWalk;
         const isLast = segmentPathToWalk.length === 2;
@@ -9517,14 +9517,14 @@
     const __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE =
       _reactdom.default
         .__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
-    // TODO-APP: Replace with new React API for finding dom nodes without a `ref` when available
-    /**
-     * Wraps ReactDOM.findDOMNode with additional logic to hide React Strict Mode warning
-     */ function findDOMNode(instance) {
-      // Tree-shake for server bundle
+    
+    
+
+ function findDOMNode(instance) {
+      
       if (typeof window === "undefined") return null;
-      // __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.findDOMNode is null during module init.
-      // We need to lazily reference it.
+      
+      
       const internal_reactDOMfindDOMNode =
         __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.findDOMNode;
       return internal_reactDOMfindDOMNode(instance);
@@ -9539,39 +9539,39 @@
       "x",
       "y",
     ];
-    /**
-     * Check if a HTMLElement is hidden or fixed/sticky position
-     */ function shouldSkipElement(element) {
-      // we ignore fixed or sticky positioned elements since they'll likely pass the "in-viewport" check
-      // and will result in a situation we bail on scroll because of something like a fixed nav,
-      // even though the actual page content is offscreen
+    
+
+ function shouldSkipElement(element) {
+      
+      
+      
       if (["sticky", "fixed"].includes(getComputedStyle(element).position)) {
         return true;
       }
-      // Uses `getBoundingClientRect` to check if the element is hidden instead of `offsetParent`
-      // because `offsetParent` doesn't consider document/body
+      
+      
       const rect = element.getBoundingClientRect();
       return rectProperties.every((item) => rect[item] === 0);
     }
-    /**
-     * Check if the top corner of the HTMLElement is in the viewport.
-     */ function topOfElementInViewport(element, viewportHeight) {
+    
+
+ function topOfElementInViewport(element, viewportHeight) {
       const rect = element.getBoundingClientRect();
       return rect.top >= 0 && rect.top <= viewportHeight;
     }
-    /**
-     * Find the DOM node for a hash fragment.
-     * If `top` the page has to scroll to the top of the page. This mirrors the browser's behavior.
-     * If the hash fragment is an id, the page has to scroll to the element with that id.
-     * If the hash fragment is a name, the page has to scroll to the first element with that name.
-     */ function getHashFragmentDomNode(hashFragment) {
-      // If the hash fragment is `top` the page has to scroll to the top of the page.
+    
+
+
+
+
+ function getHashFragmentDomNode(hashFragment) {
+      
       if (hashFragment === "top") {
         return document.body;
       }
-      // If the hash fragment is an id, the page has to scroll to the element with that id.
+      
       return (
-        document.getElementById(hashFragment) ?? // If the hash fragment is a name, the page has to scroll to the first element with that name.
+        document.getElementById(hashFragment) ?? 
         document.getElementsByName(hashFragment)[0]
       );
     }
@@ -9580,7 +9580,7 @@
         this.handlePotentialScroll();
       }
       componentDidUpdate() {
-        // Because this property is overwritten in handlePotentialScroll it's fine to always run it when true as it'll be set to false for subsequent renders.
+        
         if (this.props.focusAndScrollRef.apply) {
           this.handlePotentialScroll();
         }
@@ -9591,12 +9591,12 @@
       constructor(...args) {
         (super(...args),
           (this.handlePotentialScroll = () => {
-            // Handle scroll and focus, it's only applied once in the first useEffect that triggers that changed.
+            
             const { focusAndScrollRef, segmentPath } = this.props;
             if (focusAndScrollRef.apply) {
-              // segmentPaths is an array of segment paths that should be scrolled to
-              // if the current segment path is not in the array, the scroll is not applied
-              // unless the array is empty, in which case the scroll is always applied
+              
+              
+              
               if (
                 focusAndScrollRef.segmentPaths.length !== 0 &&
                 !focusAndScrollRef.segmentPaths.some((scrollRefSegmentPath) =>
@@ -9615,74 +9615,74 @@
               if (hashFragment) {
                 domNode = getHashFragmentDomNode(hashFragment);
               }
-              // `findDOMNode` is tricky because it returns just the first child if the component is a fragment.
-              // This already caused a bug where the first child was a <link/> in head.
+              
+              
               if (!domNode) {
                 domNode = findDOMNode(this);
               }
-              // If there is no DOM node this layout-router level is skipped. It'll be handled higher-up in the tree.
+              
               if (!(domNode instanceof Element)) {
                 return;
               }
-              // Verify if the element is a HTMLElement and if we want to consider it for scroll behavior.
-              // If the element is skipped, try to select the next sibling and try again.
+              
+              
               while (
                 !(domNode instanceof HTMLElement) ||
                 shouldSkipElement(domNode)
               ) {
                 if (("TURBOPACK compile-time truthy", 1)) {
                   if (domNode.parentElement?.localName === "head") {
-                    // TODO: We enter this state when metadata was rendered as part of the page or via Next.js.
-                    // This is always a bug in Next.js and caused by React hoisting metadata.
-                    // We need to replace `findDOMNode` in favor of Fragment Refs (when available) so that we can skip over metadata.
+                    
+                    
+                    
                   }
                 }
-                // No siblings found that match the criteria are found, so handle scroll higher up in the tree instead.
+                
                 if (domNode.nextElementSibling === null) {
                   return;
                 }
                 domNode = domNode.nextElementSibling;
               }
-              // State is mutated to ensure that the focus and scroll is applied only once.
+              
               focusAndScrollRef.apply = false;
               focusAndScrollRef.hashFragment = null;
               focusAndScrollRef.segmentPaths = [];
               (0,
               _disablesmoothscroll.disableSmoothScrollDuringRouteTransition)(
                 () => {
-                  // In case of hash scroll, we only need to scroll the element into view
+                  
                   if (hashFragment) {
                     domNode.scrollIntoView();
                     return;
                   }
-                  // Store the current viewport height because reading `clientHeight` causes a reflow,
-                  // and it won't change during this function.
+                  
+                  
                   const htmlElement = document.documentElement;
                   const viewportHeight = htmlElement.clientHeight;
-                  // If the element's top edge is already in the viewport, exit early.
+                  
                   if (topOfElementInViewport(domNode, viewportHeight)) {
                     return;
                   }
-                  // Otherwise, try scrolling go the top of the document to be backward compatible with pages
-                  // scrollIntoView() called on `<html/>` element scrolls horizontally on chrome and firefox (that shouldn't happen)
-                  // We could use it to scroll horizontally following RTL but that also seems to be broken - it will always scroll left
-                  // scrollLeft = 0 also seems to ignore RTL and manually checking for RTL is too much hassle so we will scroll just vertically
+                  
+                  
+                  
+                  
                   htmlElement.scrollTop = 0;
-                  // Scroll to domNode if domNode is not in viewport when scrolled to top of document
+                  
                   if (!topOfElementInViewport(domNode, viewportHeight)) {
-                    // Scroll into view doesn't scroll horizontally by default when not needed
+                    
                     domNode.scrollIntoView();
                   }
                 },
                 {
-                  // We will force layout by querying domNode position
+                  
                   dontForceLayout: true,
                   onlyHashChange: focusAndScrollRef.onlyHashChange,
                 },
               );
-              // Mutate after scrolling so that it can be read by `disableSmoothScrollDuringRouteTransition`
+              
               focusAndScrollRef.onlyHashChange = false;
-              // Set focus on the element
+              
               domNode.focus();
             }
           }));
@@ -9703,15 +9703,15 @@
           },
         );
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(InnerScrollAndFocusHandler, {
+      return  (0, _jsxruntime.jsx)(InnerScrollAndFocusHandler, {
         segmentPath: segmentPath,
         focusAndScrollRef: context.focusAndScrollRef,
         children: children,
       });
     }
-    /**
-     * InnerLayoutRouter handles rendering the provided segment based on the cache.
-     */ function InnerLayoutRouter({
+    
+
+ function InnerLayoutRouter({
       tree,
       segmentPath,
       debugNameContext,
@@ -9738,25 +9738,25 @@
         );
       }
       const { tree: fullTree } = context;
-      // `rsc` represents the renderable node for this segment.
-      // If this segment has a `prefetchRsc`, it's the statically prefetched data.
-      // We should use that on initial render instead of `rsc`. Then we'll switch
-      // to `rsc` when the dynamic response streams in.
-      //
-      // If no prefetch data is available, then we go straight to rendering `rsc`.
+      
+      
+      
+      
+      
+      
       const resolvedPrefetchRsc =
         cacheNode.prefetchRsc !== null ? cacheNode.prefetchRsc : cacheNode.rsc;
-      // We use `useDeferredValue` to handle switching between the prefetched and
-      // final values. The second argument is returned on initial render, then it
-      // re-renders with the first argument.
+      
+      
+      
       const rsc = (0, _react.useDeferredValue)(
         cacheNode.rsc,
         resolvedPrefetchRsc,
       );
-      // `rsc` is either a React node or a promise for a React node, except we
-      // special case `null` to represent that this segment's data is missing. If
-      // it's a promise, we need to unwrap it so we can determine whether or not the
-      // data is missing.
+      
+      
+      
+      
       const resolvedRsc =
         typeof rsc === "object" &&
         rsc !== null &&
@@ -9764,18 +9764,18 @@
           ? (0, _react.use)(rsc)
           : rsc;
       if (!resolvedRsc) {
-        // The data for this segment is not available, and there's no pending
-        // navigation that will be able to fulfill it. We need to fetch more from
-        // the server and patch the cache.
-        // Only fetch data for the active segment. Inactive segments (rendered
-        // offscreen for bfcache) should not trigger fetches.
+        
+        
+        
+        
+        
         if (isActive) {
-          // Check if there's already a pending request.
+          
           let lazyData = cacheNode.lazyData;
           if (lazyData === null) {
-            /**
-             * Router state with refetch marker added
-             */ // TODO-APP: remove ''
+            
+
+ 
             const refetchTree = walkAddRefetch(["", ...segmentPath], fullTree);
             const includeNextUrl = (0,
             _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
@@ -9787,9 +9787,9 @@
               new URL(url, location.origin),
               {
                 flightRouterState: refetchTree,
-                nextUrl: includeNextUrl // the next-url after a navigation, but we want the same
-                  ? // interception route to be matched that used the last
-                    // next-url.
+                nextUrl: includeNextUrl 
+                  ? 
+                    
                     context.previousNextUrl || context.nextUrl
                   : null,
               },
@@ -9804,19 +9804,19 @@
               });
               return serverResponse;
             });
-            // Suspend while waiting for lazyData to resolve
+            
             (0, _react.use)(lazyData);
           }
         }
-        // Suspend infinitely as `changeByServerResponse` will cause a different part of the tree to be rendered.
-        // A falsey `resolvedRsc` indicates missing data -- we should not commit that branch, and we need to wait for the data to arrive.
+        
+        
         (0, _react.use)(_unresolvedthenable.unresolvedThenable);
       }
-      // If we get to this point, then we know we have something we can render.
+      
       let content = resolvedRsc;
-      // In dev, we create a NavigationPromisesContext containing the instrumented promises that provide
-      // `useSelectedLayoutSegment` and `useSelectedLayoutSegments`.
-      // Promises are cached outside of render to survive suspense retries.
+      
+      
+      
       let navigationPromises = null;
       if (("TURBOPACK compile-time truthy", 1)) {
         const { createNestedLayoutNavigationPromises } =
@@ -9829,7 +9829,7 @@
         );
       }
       if (navigationPromises) {
-        content = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+        content =  (0, _jsxruntime.jsx)(
           _hooksclientcontextsharedruntime.NavigationPromisesContext.Provider,
           {
             value: navigationPromises,
@@ -9837,7 +9837,7 @@
           },
         );
       }
-      const subtree = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+      const subtree =  (0, _jsxruntime.jsx)(
         _approutercontextsharedruntime.LayoutRouterContext.Provider,
         {
           value: {
@@ -9846,28 +9846,28 @@
             parentSegmentPath: segmentPath,
             parentParams: params,
             debugNameContext: debugNameContext,
-            // TODO-APP: overriding of url for parallel routes
+            
             url: url,
             isActive: isActive,
           },
           children: content,
         },
       );
-      // Ensure root layout is not wrapped in a div as the root layout renders `<html>`
+      
       return subtree;
     }
-    /**
-     * Renders suspense boundary with the provided "loading" property as the fallback.
-     * If no loading property is provided it renders the children without a suspense boundary.
-     */ function LoadingBoundary({ name, loading, children }) {
-      // If loading is a promise, unwrap it. This happens in cases where we haven't
-      // yet received the loading data from the server — which includes whether or
-      // not this layout has a loading component at all.
-      //
-      // It's OK to suspend here instead of inside the fallback because this
-      // promise will resolve simultaneously with the data for the segment itself.
-      // So it will never suspend for longer than it would have if we didn't use
-      // a Suspense fallback at all.
+    
+
+
+ function LoadingBoundary({ name, loading, children }) {
+      
+      
+      
+      
+      
+      
+      
+      
       let loadingModuleData;
       if (
         typeof loading === "object" &&
@@ -9883,15 +9883,15 @@
         const loadingRsc = loadingModuleData[0];
         const loadingStyles = loadingModuleData[1];
         const loadingScripts = loadingModuleData[2];
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(_react.Suspense, {
+        return  (0, _jsxruntime.jsx)(_react.Suspense, {
           name: name,
-          fallback: /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+          fallback:  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [loadingStyles, loadingScripts, loadingRsc],
           }),
           children: children,
         });
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -9931,43 +9931,43 @@
         isActive,
         debugNameContext,
       } = context;
-      // Get the CacheNode for this segment by reading it from the parent segment's
-      // child map.
+      
+      
       const parentParallelRoutes = parentCacheNode.parallelRoutes;
       let segmentMap = parentParallelRoutes.get(parallelRouterKey);
-      // If the parallel router cache node does not exist yet, create it.
-      // This writes to the cache when there is no item in the cache yet. It never *overwrites* existing cache items which is why it's safe in concurrent mode.
+      
+      
       if (!segmentMap) {
         segmentMap = new Map();
         parentParallelRoutes.set(parallelRouterKey, segmentMap);
       }
       const parentTreeSegment = parentTree[0];
       const segmentPath =
-        parentSegmentPath === null // the code. We should clean this up.
+        parentSegmentPath === null 
           ? [parallelRouterKey]
           : parentSegmentPath.concat([parentTreeSegment, parallelRouterKey]);
-      // The "state" key of a segment is the one passed to React — it represents the
-      // identity of the UI tree. Whenever the state key changes, the tree is
-      // recreated and the state is reset. In the App Router model, search params do
-      // not cause state to be lost, so two segments with the same segment path but
-      // different search params should have the same state key.
-      //
-      // The "cache" key of a segment, however, *does* include the search params, if
-      // it's possible that the segment accessed the search params on the server.
-      // (This only applies to page segments; layout segments cannot access search
-      // params on the server.)
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       const activeTree = parentTree[1][parallelRouterKey];
       const activeSegment = activeTree[0];
       const activeStateKey = (0, _createroutercachekey.createRouterCacheKey)(
         activeSegment,
         true,
-      ); // no search params
-      // At each level of the route tree, not only do we render the currently
-      // active segment — we also render the last N segments that were active at
-      // this level inside a hidden <Activity> boundary, to preserve their state
-      // if or when the user navigates to them again.
-      //
-      // bfcacheEntry is a linked list of FlightRouterStates.
+      ); 
+      
+      
+      
+      
+      
+      
       let bfcacheEntry = (0, _bfcache.useRouterBFCache)(
         activeTree,
         activeStateKey,
@@ -9980,11 +9980,11 @@
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
           segment,
         );
-        // Read segment path from the parallel router cache node.
+        
         let cacheNode = segmentMap.get(cacheKey);
         if (cacheNode === undefined) {
-          // When data is not available during rendering client-side we need to fetch
-          // it from the server.
+          
+          
           const newLazyCacheNode = {
             lazyData: null,
             rsc: null,
@@ -9995,20 +9995,20 @@
             loading: null,
             navigatedAt: -1,
           };
-          // Flight data fetch kicked off during render and put into the cache.
+          
           cacheNode = newLazyCacheNode;
           segmentMap.set(cacheKey, newLazyCacheNode);
         }
-        /*
-    - Error boundary
-      - Only renders error boundary if error component is provided.
-      - Rendered for each segment to ensure they have their own error state.
-      - When gracefully degrade for bots, skip rendering error boundary.
-    - Loading boundary
-      - Only renders suspense boundary if loading components is provided.
-      - Rendered for each segment to ensure they have their own loading state.
-      - Passed to the router during rendering to ensure it can be immediately rendered when suspending on a Flight fetch.
-  */ let segmentBoundaryTriggerNode = null;
+        
+
+
+
+
+
+
+
+
+ let segmentBoundaryTriggerNode = null;
         let segmentViewStateNode = null;
         if (("TURBOPACK compile-time truthy", 1)) {
           const { SegmentBoundaryTriggerNode, SegmentViewStateNode } =
@@ -10016,17 +10016,17 @@
               "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",
             );
           const pagePrefix = (0, _apppaths.normalizeAppPath)(url);
-          segmentViewStateNode = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+          segmentViewStateNode =  (0, _jsxruntime.jsx)(
             SegmentViewStateNode,
             {
               page: pagePrefix,
             },
             pagePrefix,
           );
-          segmentBoundaryTriggerNode = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+          segmentBoundaryTriggerNode =  (0, _jsxruntime.jsx)(
             _jsxruntime.Fragment,
             {
-              children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+              children:  (0, _jsxruntime.jsx)(
                 SegmentBoundaryTriggerNode,
                 {},
               ),
@@ -10035,9 +10035,9 @@
         }
         let params = parentParams;
         if (Array.isArray(segment)) {
-          // This segment contains a route param. Accumulate these as we traverse
-          // down the router tree. The result represents the set of params that
-          // the layout/page components are permitted to access below this point.
+          
+          
+          
           const paramName = segment[0];
           const paramCacheKey = segment[1];
           const paramType = segment[2];
@@ -10053,57 +10053,57 @@
           }
         }
         const debugName = getBoundaryDebugNameFromSegment(segment);
-        // `debugNameContext` represents the nearest non-"virtual" parent segment.
-        // `getBoundaryDebugNameFromSegment` returns undefined for virtual segments.
-        // So if `debugName` is undefined, the context is passed through unchanged.
+        
+        
+        
         const childDebugNameContext = debugName ?? debugNameContext;
-        // In practical terms, clicking this name in the Suspense DevTools
-        // should select the child slots of that layout.
-        //
-        // So the name we apply to the Activity boundary is actually based on
-        // the nearest parent segments.
-        //
-        // We skip over "virtual" parents, i.e. ones inserted by Next.js that
-        // don't correspond to application-defined code.
+        
+        
+        
+        
+        
+        
+        
+        
         const isVirtual = debugName === undefined;
         const debugNameToDisplay = isVirtual ? undefined : debugNameContext;
-        // TODO: The loading module data for a segment is stored on the parent, then
-        // applied to each of that parent segment's parallel route slots. In the
-        // simple case where there's only one parallel route (the `children` slot),
-        // this is no different from if the loading module data where stored on the
-        // child directly. But I'm not sure this actually makes sense when there are
-        // multiple parallel routes. It's not a huge issue because you always have
-        // the option to define a narrower loading boundary for a particular slot. But
-        // this sort of smells like an implementation accident to me.
+        
+        
+        
+        
+        
+        
+        
+        
         const loadingModuleData = parentCacheNode.loading;
-        let child = /*#__PURE__*/ (0, _jsxruntime.jsxs)(
+        let child =  (0, _jsxruntime.jsxs)(
           _approutercontextsharedruntime.TemplateContext.Provider,
           {
-            value: /*#__PURE__*/ (0, _jsxruntime.jsxs)(ScrollAndFocusHandler, {
+            value:  (0, _jsxruntime.jsxs)(ScrollAndFocusHandler, {
               segmentPath: segmentPath,
               children: [
-                /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                 (0, _jsxruntime.jsx)(
                   _errorboundary.ErrorBoundary,
                   {
                     errorComponent: error,
                     errorStyles: errorStyles,
                     errorScripts: errorScripts,
-                    children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                    children:  (0, _jsxruntime.jsx)(
                       LoadingBoundary,
                       {
                         name: debugNameToDisplay,
                         loading: loadingModuleData,
-                        children: /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                        children:  (0, _jsxruntime.jsx)(
                           _errorboundary1.HTTPAccessFallbackBoundary,
                           {
                             notFound: notFound,
                             forbidden: forbidden,
                             unauthorized: unauthorized,
-                            children: /*#__PURE__*/ (0, _jsxruntime.jsxs)(
+                            children:  (0, _jsxruntime.jsxs)(
                               _redirectboundary.RedirectBoundary,
                               {
                                 children: [
-                                  /*#__PURE__*/ (0, _jsxruntime.jsx)(
+                                   (0, _jsxruntime.jsx)(
                                     InnerLayoutRouter,
                                     {
                                       url: url,
@@ -10137,7 +10137,7 @@
           const { SegmentStateProvider } = __turbopack_context__.r(
             "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",
           );
-          child = /*#__PURE__*/ (0, _jsxruntime.jsxs)(
+          child =  (0, _jsxruntime.jsxs)(
             SegmentStateProvider,
             {
               children: [child, segmentViewBoundaries],
@@ -10145,7 +10145,7 @@
             stateKey,
           );
         }
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         children.push(child);
         bfcacheEntry = bfcacheEntry.next;
@@ -10154,7 +10154,7 @@
     }
     function getBoundaryDebugNameFromSegment(segment) {
       if (segment === "/") {
-        // Reached the root
+        
         return "/";
       }
       if (typeof segment === "string") {
@@ -10169,8 +10169,8 @@
     }
     function isVirtualLayout(segment) {
       return (
-        // in a more special way instead of checking the name, to distinguish them
-        // from app-defined groups.
+        
+        
         segment === "(slot)"
       );
     }
@@ -10184,7 +10184,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=layout-router.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10205,7 +10205,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -10217,7 +10217,7 @@
       const children = (0, _react.useContext)(
         _approutercontextsharedruntime.TemplateContext,
       );
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -10231,7 +10231,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=render-from-template-context.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/web/spec-extension/adapters/reflect.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10263,17 +10263,17 @@
       static deleteProperty(target, prop) {
         return Reflect.deleteProperty(target, prop);
       }
-    } //# sourceMappingURL=reflect.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/reflect-utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // This regex will have fast negatives meaning valid identifiers may not pass
-    // this test. However this is only used during static generation to provide hints
-    // about why a page bailed out of some or all prerendering and we can use bracket notation
-    // for example while `ಠ_ಠ` is a valid identifier it's ok to print `searchParams['ಠ_ಠ']`
-    // even if this would have been fine too `searchParams.ಠ_ಠ`
+    
+    
+    
+    
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -10319,22 +10319,22 @@
       "toString",
       "valueOf",
       "toLocaleString",
-      // Promise prototype
+      
       "then",
       "catch",
       "finally",
-      // React Promise extension
+      
       "status",
-      // 'value',
-      // 'error',
-      // React introspection
+      
+      
+      
       "displayName",
       "_debugInfo",
-      // Common tested properties
+      
       "toJSON",
       "$$typeof",
       "__esModule",
-    ]); //# sourceMappingURL=reflect-utils.js.map
+    ]); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/search-params.browser.dev.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10365,8 +10365,8 @@
       const promise = Promise.resolve(underlyingSearchParams);
       Object.keys(underlyingSearchParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          // These properties cannot be shadowed because they need to be the
-          // true underlying value for Promises to work correctly at runtime
+          
+          
         } else {
           proxiedProperties.add(prop);
         }
@@ -10376,8 +10376,8 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || // We are accessing a property that doesn't exist on the promise nor
-                // the underlying searchParams.
+              (proxiedProperties.has(prop) || 
+                
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -10397,8 +10397,8 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || // We are accessing a property that doesn't exist on the promise nor
-                // the underlying searchParams.
+              (proxiedProperties.has(prop) || 
+                
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -10446,14 +10446,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=search-params.browser.dev.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/search-params.browser.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -10482,7 +10482,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=search-params.browser.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.dev.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10509,15 +10509,15 @@
       if (cachedParams) {
         return cachedParams;
       }
-      // We don't use makeResolvedReactPromise here because params
-      // supports copying with spread and we don't want to unnecessarily
-      // instrument the promise with spreadable properties of ReactPromise.
+      
+      
+      
       const promise = Promise.resolve(underlyingParams);
       const proxiedProperties = new Set();
       Object.keys(underlyingParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          // These properties cannot be shadowed because they need to be the
-          // true underlying value for Promises to work correctly at runtime
+          
+          
         } else {
           proxiedProperties.add(prop);
         }
@@ -10574,14 +10574,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=params.browser.dev.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -10609,14 +10609,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=params.browser.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/create-deduped-by-callsite-server-error-logger.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -10633,7 +10633,7 @@
         },
       },
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard(
+    const _react =  _interop_require_wildcard(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -10691,17 +10691,17 @@
     const errorRef = {
       current: null,
     };
-    // React.cache is currently only available in canary/experimental React channels.
+    
     const cache =
       typeof _react.cache === "function" ? _react.cache : (fn) => fn;
-    // When Cache Components is enabled, we record these as errors so that they
-    // are captured by the dev overlay as it's more critical to fix these
-    // when enabled.
+    
+    
+    
     const logErrorOrWarn = ("TURBOPACK compile-time falsy", 0)
       ? "TURBOPACK unreachable"
       : console.warn;
-    // We don't want to dedupe across requests.
-    // The developer might've just attempted to fix the warning so we should warn again if it still happens.
+    
+    
     const flushCurrentErrorIfNew = cache((key) => {
       try {
         logErrorOrWarn(errorRef.current);
@@ -10719,19 +10719,19 @@
           if (callStackFrames === undefined || callStackFrames.length < 4) {
             logErrorOrWarn(message);
           } else {
-            // Error:
-            //   logDedupedError
-            //   asyncApiBeingAccessedSynchronously
-            //   <userland callsite>
-            // TODO: This breaks if sourcemaps with ignore lists are enabled.
+            
+            
+            
+            
+            
             const key = callStackFrames[4];
             errorRef.current = message;
             flushCurrentErrorIfNew(key);
           }
-        } //TURBOPACK unreachable
+        } 
         else;
       };
-    } //# sourceMappingURL=create-deduped-by-callsite-server-error-logger.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/after-task-async-storage-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10750,7 +10750,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
     );
     const afterTaskAsyncStorageInstance = (0,
-    _asynclocalstorage.createAsyncLocalStorage)(); //# sourceMappingURL=after-task-async-storage-instance.js.map
+    _asynclocalstorage.createAsyncLocalStorage)(); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/after-task-async-storage.external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10767,7 +10767,7 @@
     });
     const _aftertaskasyncstorageinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/after-task-async-storage-instance.js [app-client] (ecmascript)",
-    ); //# sourceMappingURL=after-task-async-storage.external.js.map
+    ); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10846,14 +10846,14 @@
           ? void 0
           : afterTaskStore.rootTaskSpawnPhase) === "action"
       );
-    } //# sourceMappingURL=utils.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/search-params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -11015,8 +11015,8 @@
     }
     function createPrerenderSearchParamsForClientPage(workStore) {
       if (workStore.forceStatic) {
-        // When using forceStatic we override all other logic and always just return an empty
-        // dictionary object.
+        
+        
         return Promise.resolve({});
       }
       const workUnitStore =
@@ -11025,8 +11025,8 @@
         switch (workUnitStore.type) {
           case "prerender":
           case "prerender-client":
-            // We're prerendering in a mode that aborts (cacheComponents) and should stall
-            // the promise to ensure the RSC side is considered dynamic
+            
+            
             return (0, _dynamicrenderingutils.makeHangingPromise)(
               workUnitStore.renderSignal,
               workStore.route,
@@ -11070,19 +11070,19 @@
     }
     function createStaticPrerenderSearchParams(workStore, prerenderStore) {
       if (workStore.forceStatic) {
-        // When using forceStatic we override all other logic and always just return an empty
-        // dictionary object.
+        
+        
         return Promise.resolve({});
       }
       switch (prerenderStore.type) {
         case "prerender":
         case "prerender-client":
-          // We are in a cacheComponents (PPR or otherwise) prerender
+          
           return makeHangingSearchParams(workStore, prerenderStore);
         case "prerender-ppr":
         case "prerender-legacy":
-          // We are in a legacy static generation and need to interrupt the
-          // prerender when search params are accessed.
+          
+          
           return makeErroringSearchParams(workStore, prerenderStore);
         default:
           return prerenderStore;
@@ -11103,20 +11103,20 @@
       requestStore,
     ) {
       if (workStore.forceStatic) {
-        // When using forceStatic we override all other logic and always just return an empty
-        // dictionary object.
+        
+        
         return Promise.resolve({});
       } else {
         if (("TURBOPACK compile-time truthy", 1)) {
-          // Semantically we only need the dev tracking when running in `next dev`
-          // but since you would never use next dev with production NODE_ENV we use this
-          // as a proxy so we can statically exclude this code from production builds.
+          
+          
+          
           return makeUntrackedSearchParamsWithDevWarnings(
             underlyingSearchParams,
             workStore,
             requestStore,
           );
-        } //TURBOPACK unreachable
+        } 
         else;
       }
     }
@@ -11135,9 +11135,9 @@
       const proxiedPromise = new Proxy(promise, {
         get(target, prop, receiver) {
           if (Object.hasOwn(promise, prop)) {
-            // The promise has this property directly. we must return it.
-            // We know it isn't a dynamic access because it can only be something
-            // that was previously written to the promise and thus not an underlying searchParam value
+            
+            
+            
             return _reflect.ReflectAdapter.get(target, prop, receiver);
           }
           switch (prop) {
@@ -11174,16 +11174,16 @@
         return cachedSearchParams;
       }
       const underlyingSearchParams = {};
-      // For search params we don't construct a ReactPromise because we want to interrupt
-      // rendering on any property access that was not set from outside and so we only want
-      // to have properties like value and status if React sets them.
+      
+      
+      
       const promise = Promise.resolve(underlyingSearchParams);
       const proxiedPromise = new Proxy(promise, {
         get(target, prop, receiver) {
           if (Object.hasOwn(promise, prop)) {
-            // The promise has this property directly. we must return it.
-            // We know it isn't a dynamic access because it can only be something
-            // that was previously written to the promise and thus not an underlying searchParam value
+            
+            
+            
             return _reflect.ReflectAdapter.get(target, prop, receiver);
           }
           if (typeof prop === "string" && prop === "then") {
@@ -11195,14 +11195,14 @@
                 expression,
               );
             } else if (prerenderStore.type === "prerender-ppr") {
-              // PPR Prerender (no cacheComponents)
+              
               (0, _dynamicrendering.postponeWithTracking)(
                 workStore.route,
                 expression,
                 prerenderStore.dynamicTracking,
               );
             } else {
-              // Legacy Prerender
+              
               (0, _dynamicrendering.throwToInterruptStaticGeneration)(
                 expression,
                 workStore,
@@ -11225,10 +11225,10 @@
       const proxiedPromise = new Proxy(promise, {
         get: function get(target, prop, receiver) {
           if (Object.hasOwn(promise, prop)) {
-            // The promise has this property directly. we must return it. We know it
-            // isn't a dynamic access because it can only be something that was
-            // previously written to the promise and thus not an underlying
-            // searchParam value
+            
+            
+            
+            
             return _reflect.ReflectAdapter.get(target, prop, receiver);
           }
           if (
@@ -11258,8 +11258,8 @@
       requestStore,
     ) {
       if (requestStore.asyncApiPromises) {
-        // Do not cache the resulting promise. If we do, we'll only show the first "awaited at"
-        // across all segments that receive searchParams.
+        
+        
         return makeUntrackedSearchParamsWithDevWarningsImpl(
           underlyingSearchParams,
           workStore,
@@ -11296,9 +11296,9 @@
       );
       let promise;
       if (requestStore.asyncApiPromises) {
-        // We wrap each instance of searchParams in a `new Promise()`.
-        // This is important when all awaits are in third party which would otherwise
-        // track all the way to the internal params.
+        
+        
+        
         const sharedSearchParamsParent =
           requestStore.asyncApiPromises.sharedSearchParamsParent;
         promise = new Promise((resolve, reject) => {
@@ -11307,7 +11307,7 @@
             reject,
           );
         });
-        // @ts-expect-error
+        
         promise.displayName = "searchParams";
       } else {
         promise = (0, _dynamicrenderingutils.makeDevtoolsIOAwarePromise)(
@@ -11319,13 +11319,13 @@
       promise.then(
         () => {
           promiseInitialized.current = true;
-        }, // is aborted before it can reach the runtime stage.
-        // In that case, we have to prevent an unhandled rejection from the promise
-        // created by this `.then()` call.
-        // This does not affect the `promiseInitialized` logic above,
-        // because `proxiedUnderlying` will not be used to resolve the promise,
-        // so there's no risk of any of its properties being accessed and triggering
-        // an undesireable warning.
+        }, 
+        
+        
+        
+        
+        
+        
         ignoreReject,
       );
       return instrumentSearchParamsPromiseWithDevWarnings(
@@ -11340,12 +11340,12 @@
       workStore,
       promiseInitialized,
     ) {
-      // We have an unfortunate sequence of events that requires this initialization logic. We want to instrument the underlying
-      // searchParams object to detect if you are accessing values in dev. This is used for warnings and for things like the static prerender
-      // indicator. However when we pass this proxy to our Promise.resolve() below the VM checks if the resolved value is a promise by looking
-      // at the `.then` property. To our dynamic tracking logic this is indistinguishable from a `then` searchParam and so we would normally trigger
-      // dynamic tracking. However we know that this .then is not real dynamic access, it's just how thenables resolve in sequence. So we introduce
-      // this initialization concept so we omit the dynamic check until after we've constructed our resolved promise.
+      
+      
+      
+      
+      
+      
       return new Proxy(underlyingSearchParams, {
         get(target, prop, receiver) {
           if (typeof prop === "string" && promiseInitialized.current) {
@@ -11394,12 +11394,12 @@
       promise,
       workStore,
     ) {
-      // Track which properties we should warn for.
+      
       const proxiedProperties = new Set();
       Object.keys(underlyingSearchParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          // These properties cannot be shadowed because they need to be the
-          // true underlying value for Promises to work correctly at runtime
+          
+          
         } else {
           proxiedProperties.add(prop);
         }
@@ -11416,8 +11416,8 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || // We are accessing a property that doesn't exist on the promise nor
-                // the underlying searchParams.
+              (proxiedProperties.has(prop) || 
+                
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -11437,8 +11437,8 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || // We are accessing a property that doesn't exist on the promise nor
-                // the underlying searchParams.
+              (proxiedProperties.has(prop) || 
+                
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -11477,7 +11477,7 @@
           configurable: true,
         },
       );
-    } //# sourceMappingURL=search-params.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11496,7 +11496,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
     );
     const dynamicAccessAsyncStorageInstance = (0,
-    _asynclocalstorage.createAsyncLocalStorage)(); //# sourceMappingURL=dynamic-access-async-storage-instance.js.map
+    _asynclocalstorage.createAsyncLocalStorage)(); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11513,14 +11513,14 @@
     });
     const _dynamicaccessasyncstorageinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js [app-client] (ecmascript)",
-    ); //# sourceMappingURL=dynamic-access-async-storage.external.js.map
+    ); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -11631,9 +11631,9 @@
             );
           case "request":
             if (("TURBOPACK compile-time truthy", 1)) {
-              // Semantically we only need the dev tracking when running in `next dev`
-              // but since you would never use next dev with production NODE_ENV we use this
-              // as a proxy so we can statically exclude this code from production builds.
+              
+              
+              
               const devFallbackParams = workUnitStore.devFallbackParams;
               return createRenderParamsInDev(
                 underlyingParams,
@@ -11641,7 +11641,7 @@
                 workStore,
                 workUnitStore,
               );
-            } //TURBOPACK unreachable
+            } 
             else;
           default:
             workUnitStore;
@@ -11685,9 +11685,9 @@
             );
           case "request":
             if (("TURBOPACK compile-time truthy", 1)) {
-              // Semantically we only need the dev tracking when running in `next dev`
-              // but since you would never use next dev with production NODE_ENV we use this
-              // as a proxy so we can statically exclude this code from production builds.
+              
+              
+              
               const devFallbackParams = workUnitStore.devFallbackParams;
               return createRenderParamsInDev(
                 underlyingParams,
@@ -11695,7 +11695,7 @@
                 workStore,
                 workUnitStore,
               );
-            } //TURBOPACK unreachable
+            } 
             else;
           default:
             workUnitStore;
@@ -11738,9 +11738,9 @@
             );
           case "request":
             if (("TURBOPACK compile-time truthy", 1)) {
-              // Semantically we only need the dev tracking when running in `next dev`
-              // but since you would never use next dev with production NODE_ENV we use this
-              // as a proxy so we can statically exclude this code from production builds.
+              
+              
+              
               const devFallbackParams = workUnitStore.devFallbackParams;
               return createRenderParamsInDev(
                 underlyingParams,
@@ -11748,7 +11748,7 @@
                 workStore,
                 workUnitStore,
               );
-            } //TURBOPACK unreachable
+            } 
             else;
           default:
             workUnitStore;
@@ -11781,10 +11781,10 @@
             if (fallbackParams) {
               for (let key in underlyingParams) {
                 if (fallbackParams.has(key)) {
-                  // This params object has one or more fallback params, so we need
-                  // to consider the awaiting of this params object "dynamic". Since
-                  // we are in cacheComponents mode we encode this as a promise that never
-                  // resolves.
+                  
+                  
+                  
+                  
                   return (0, _dynamicrenderingutils.makeHangingPromise)(
                     workUnitStore.renderSignal,
                     workStore.route,
@@ -11817,9 +11817,9 @@
             workUnitStore;
         }
       }
-      // We're prerendering in a mode that does not abort. We resolve the promise without
-      // any tracking because we're just transporting a value from server to client where the tracking
-      // will be applied.
+      
+      
+      
       return Promise.resolve(underlyingParams);
     }
     function createStaticPrerenderParams(
@@ -11834,10 +11834,10 @@
           if (fallbackParams) {
             for (const key in underlyingParams) {
               if (fallbackParams.has(key)) {
-                // This params object has one or more fallback params, so we need
-                // to consider the awaiting of this params object "dynamic". Since
-                // we are in cacheComponents mode we encode this as a promise that never
-                // resolves.
+                
+                
+                
+                
                 return makeHangingParams(
                   underlyingParams,
                   workStore,
@@ -11969,36 +11969,36 @@
       const augmentedUnderlying = {
         ...underlyingParams,
       };
-      // We don't use makeResolvedReactPromise here because params
-      // supports copying with spread and we don't want to unnecessarily
-      // instrument the promise with spreadable properties of ReactPromise.
+      
+      
+      
       const promise = Promise.resolve(augmentedUnderlying);
       CachedParams.set(underlyingParams, promise);
       Object.keys(underlyingParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          // These properties cannot be shadowed because they need to be the
-          // true underlying value for Promises to work correctly at runtime
+          
+          
         } else {
           if (fallbackParams.has(prop)) {
             Object.defineProperty(augmentedUnderlying, prop, {
               get() {
                 const expression = (0,
                 _reflectutils.describeStringPropertyAccess)("params", prop);
-                // In most dynamic APIs we also throw if `dynamic = "error"` however
-                // for params is only dynamic when we're generating a fallback shell
-                // and even when `dynamic = "error"` we still support generating dynamic
-                // fallback shells
-                // TODO remove this comment when cacheComponents is the default since there
-                // will be no `dynamic = "error"`
+                
+                
+                
+                
+                
+                
                 if (prerenderStore.type === "prerender-ppr") {
-                  // PPR Prerender (no cacheComponents)
+                  
                   (0, _dynamicrendering.postponeWithTracking)(
                     workStore.route,
                     expression,
                     prerenderStore.dynamicTracking,
                   );
                 } else {
-                  // Legacy Prerender
+                  
                   (0, _dynamicrendering.throwToInterruptStaticGeneration)(
                     expression,
                     workStore,
@@ -12029,17 +12029,17 @@
       requestStore,
     ) {
       if (requestStore.asyncApiPromises && hasFallbackParams) {
-        // We wrap each instance of params in a `new Promise()`, because deduping
-        // them across requests doesn't work anyway and this let us show each
-        // await a different set of values. This is important when all awaits
-        // are in third party which would otherwise track all the way to the
-        // internal params.
+        
+        
+        
+        
+        
         const sharedParamsParent =
           requestStore.asyncApiPromises.sharedParamsParent;
         const promise = new Promise((resolve, reject) => {
           sharedParamsParent.then(() => resolve(underlyingParams), reject);
         });
-        // @ts-expect-error
+        
         promise.displayName = "params";
         return instrumentParamsPromiseWithDevWarnings(
           underlyingParams,
@@ -12051,9 +12051,9 @@
       if (cachedParams) {
         return cachedParams;
       }
-      // We don't use makeResolvedReactPromise here because params
-      // supports copying with spread and we don't want to unnecessarily
-      // instrument the promise with spreadable properties of ReactPromise.
+      
+      
+      
       const promise = hasFallbackParams
         ? (0, _dynamicrenderingutils.makeDevtoolsIOAwarePromise)(
             underlyingParams,
@@ -12074,12 +12074,12 @@
       promise,
       workStore,
     ) {
-      // Track which properties we should warn for.
+      
       const proxiedProperties = new Set();
       Object.keys(underlyingParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          // These properties cannot be shadowed because they need to be the
-          // true underlying value for Promises to work correctly at runtime
+          
+          
         } else {
           proxiedProperties.add(prop);
         }
@@ -12127,7 +12127,7 @@
           configurable: true,
         },
       );
-    } //# sourceMappingURL=params.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/client-page.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12167,18 +12167,18 @@
         searchParams = serverProvidedParams.searchParams;
         params = serverProvidedParams.params;
       } else {
-        // When Cache Components is enabled, the server does not pass the params as
-        // props; they are parsed on the client and passed via context.
+        
+        
         const layoutRouterContext = (0, _react.use)(
           _approutercontextsharedruntime.LayoutRouterContext,
         );
         params =
           layoutRouterContext !== null ? layoutRouterContext.parentParams : {};
-        // This is an intentional behavior change: when Cache Components is enabled,
-        // client segments receive the "canonical" search params, not the
-        // rewritten ones. Users should either call useSearchParams directly or pass
-        // the rewritten ones in from a Server Component.
-        // TODO: Log a deprecation error when this object is accessed
+        
+        
+        
+        
+        
         searchParams = (0, _routeparams.urlSearchParamsToParsedUrlQuery)(
           (0, _react.use)(_hooksclientcontextsharedruntime.SearchParamsContext),
         );
@@ -12189,8 +12189,8 @@
         );
         let clientSearchParams;
         let clientParams;
-        // We are going to instrument the searchParams prop with tracking for the
-        // appropriate context. We wrap differently in prerendering vs rendering
+        
+        
         const store = workAsyncStorage.getStore();
         if (!store) {
           throw Object.defineProperty(
@@ -12213,7 +12213,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/params.js [app-client] (ecmascript)",
         );
         clientParams = createParamsFromClient(params, store);
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(Component, {
+        return  (0, _jsxruntime.jsx)(Component, {
           params: clientParams,
           searchParams: clientSearchParams,
         });
@@ -12227,7 +12227,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.js [app-client] (ecmascript)",
         );
         const clientParams = createRenderParamsFromClient(params);
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(Component, {
+        return  (0, _jsxruntime.jsx)(Component, {
           params: clientParams,
           searchParams: clientSearchParams,
         });
@@ -12243,7 +12243,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=client-page.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/client-segment.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12275,8 +12275,8 @@
       if (serverProvidedParams !== null) {
         params = serverProvidedParams.params;
       } else {
-        // When Cache Components is enabled, the server does not pass the params
-        // as props; they are parsed on the client and passed via context.
+        
+        
         const layoutRouterContext = (0, _react.use)(
           _approutercontextsharedruntime.LayoutRouterContext,
         );
@@ -12288,8 +12288,8 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-async-storage.external.js [app-client] (ecmascript)",
         );
         let clientParams;
-        // We are going to instrument the searchParams prop with tracking for the
-        // appropriate context. We wrap differently in prerendering vs rendering
+        
+        
         const store = workAsyncStorage.getStore();
         if (!store) {
           throw Object.defineProperty(
@@ -12308,7 +12308,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/params.js [app-client] (ecmascript)",
         );
         clientParams = createParamsFromClient(params, store);
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(Component, {
+        return  (0, _jsxruntime.jsx)(Component, {
           ...slots,
           params: clientParams,
         });
@@ -12317,7 +12317,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.js [app-client] (ecmascript)",
         );
         const clientParams = createRenderParamsFromClient(params);
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(Component, {
+        return  (0, _jsxruntime.jsx)(Component, {
           ...slots,
           params: clientParams,
         });
@@ -12333,7 +12333,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=client-segment.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/metadata/generate/icon-mark.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12355,11 +12355,11 @@
       if (typeof window !== "undefined") {
         return null;
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+      return  (0, _jsxruntime.jsx)("meta", {
         name: "\xabnxt-icon\xbb",
       });
-    }; //# sourceMappingURL=icon-mark.js.map
+    }; 
   },
 ]);
 
-//# sourceMappingURL=c729b_efa620da._.js.map
+

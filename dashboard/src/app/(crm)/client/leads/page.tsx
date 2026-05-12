@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+
 
 interface StatusHistoryEntry {
   from: string;
@@ -36,7 +36,7 @@ interface Lead {
   statusHistory?: StatusHistoryEntry[];
 }
 
-// ── Constants ─────────────────────────────────────────────────────────────────
+
 
 const STATUS_CONFIG: Record<
   string,
@@ -88,7 +88,7 @@ const STATUS_CONFIG: Record<
 
 const ALL_STATUSES = Object.keys(STATUS_CONFIG);
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+
 
 function getAuthHeaders() {
   const token =
@@ -111,7 +111,7 @@ function StatusBadge({ status }: { status: string }) {
   );
 }
 
-// ── Confirm Modal ─────────────────────────────────────────────────────────────
+
 
 function ConfirmModal({
   title,
@@ -152,7 +152,7 @@ function ConfirmModal({
   );
 }
 
-// ── Lead Detail Modal ─────────────────────────────────────────────────────────
+
 
 function LeadModal({
   lead,
@@ -217,7 +217,7 @@ function LeadModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
       <div className="bg-white border-2 border-black rounded-xl shadow-2xl w-full max-w-lg max-h-[92vh] overflow-y-auto">
-        {/* Header */}
+        {}
         <div className="sticky top-0 bg-black text-white px-5 py-4 flex items-center justify-between rounded-t-xl">
           <div>
             <h2 className="font-black text-lg">{lead.name}</h2>
@@ -234,7 +234,7 @@ function LeadModal({
         </div>
 
         <div className="p-5 space-y-5">
-          {/* Contact Info */}
+          {}
           <div className="grid grid-cols-2 gap-3">
             {lead.phone && (
               <div className="border-2 border-black rounded-lg p-3">
@@ -282,7 +282,7 @@ function LeadModal({
             )}
           </div>
 
-          {/* Campaign Info */}
+          {}
           <div className="border-2 border-black rounded-lg p-3 bg-blue-50 space-y-1.5">
             <p className="text-xs font-black text-gray-500 uppercase mb-2">
               Ad Campaign Info
@@ -317,7 +317,7 @@ function LeadModal({
             )}
           </div>
 
-          {/* Extra form fields */}
+          {}
           {extraFields.length > 0 && (
             <div className="border-2 border-black rounded-lg p-3">
               <p className="text-xs font-black text-gray-500 uppercase mb-2">
@@ -338,7 +338,7 @@ function LeadModal({
             </div>
           )}
 
-          {/* Status Update */}
+          {}
           <div className="border-2 border-black rounded-lg p-3">
             <p className="text-xs font-black text-gray-500 uppercase mb-2">
               Lead Status
@@ -363,7 +363,7 @@ function LeadModal({
             </div>
           </div>
 
-          {/* Follow-up Date */}
+          {}
           <div className="border-2 border-black rounded-lg p-3">
             <p className="text-xs font-black text-gray-500 uppercase mb-2">
               Follow-up Date
@@ -376,7 +376,7 @@ function LeadModal({
             />
           </div>
 
-          {/* Notes */}
+          {}
           <div className="border-2 border-black rounded-lg p-3">
             <p className="text-xs font-black text-gray-500 uppercase mb-2">
               Notes
@@ -390,7 +390,7 @@ function LeadModal({
             />
           </div>
 
-          {/* Status History */}
+          {}
           {lead.statusHistory && lead.statusHistory.length > 0 && (
             <div className="border-2 border-black rounded-lg p-3">
               <p className="text-xs font-black text-gray-500 uppercase mb-3">
@@ -436,7 +436,7 @@ function LeadModal({
             </div>
           )}
 
-          {/* Actions */}
+          {}
           {saveError && (
             <div className="border-2 border-red-400 bg-red-50 rounded-lg px-4 py-3 text-sm font-bold text-red-700">
               ⚠ {saveError}
@@ -478,7 +478,7 @@ function LeadModal({
   );
 }
 
-// ── Main Page ─────────────────────────────────────────────────────────────────
+
 
 export default function ClientLeadsPage() {
   const { user } = useAuth();
@@ -489,7 +489,7 @@ export default function ClientLeadsPage() {
   const [syncError, setSyncError] = useState<string | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
-  // Filters
+  
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [campaignFilter, setCampaignFilter] = useState("");
@@ -570,7 +570,7 @@ export default function ClientLeadsPage() {
     }
   };
 
-  // Stats
+  
   const stats = useMemo(() => {
     const total = leads.length;
     const converted = leads.filter(
@@ -593,7 +593,7 @@ export default function ClientLeadsPage() {
     };
   }, [leads]);
 
-  // Unique campaigns for filter
+  
   const campaigns = useMemo(
     () =>
       Array.from(
@@ -602,7 +602,7 @@ export default function ClientLeadsPage() {
     [leads],
   );
 
-  // City extractor
+  
   const getCity = (lead: Lead): string => {
     if (lead.city) return lead.city;
     if (lead.metaFields) {
@@ -614,7 +614,7 @@ export default function ClientLeadsPage() {
     return "";
   };
 
-  // Filtered + sorted leads
+  
   const filtered = useMemo(() => {
     const now = new Date();
     const todayStr = now.toISOString().slice(0, 10);
@@ -660,7 +660,7 @@ export default function ClientLeadsPage() {
     return result;
   }, [leads, search, statusFilter, campaignFilter, dateFilter, dateSortDir]);
 
-  // Follow-ups due today or overdue
+  
   const followUpsDue = useMemo(() => {
     const today = new Date().toISOString().slice(0, 10);
     return leads.filter(
@@ -683,7 +683,7 @@ export default function ClientLeadsPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {/* Header */}
+      {}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-4xl font-black tracking-tighter">
@@ -713,7 +713,7 @@ export default function ClientLeadsPage() {
         </div>
       </div>
 
-      {/* Follow-up Alert */}
+      {}
       {followUpsDue.length > 0 && (
         <div className="border-2 border-orange-400 bg-orange-50 rounded-xl px-4 py-3 flex items-center justify-between flex-wrap gap-2">
           <p className="text-sm font-bold text-orange-800">
@@ -734,7 +734,7 @@ export default function ClientLeadsPage() {
         </div>
       )}
 
-      {/* Stats */}
+      {}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         {[
           {
@@ -783,7 +783,7 @@ export default function ClientLeadsPage() {
         ))}
       </div>
 
-      {/* Status Breakdown */}
+      {}
       <div className="border-2 border-black rounded-xl p-4">
         <p className="text-xs font-black text-gray-500 uppercase mb-3">
           Status Breakdown
@@ -816,9 +816,9 @@ export default function ClientLeadsPage() {
         </div>
       </div>
 
-      {/* Filters + Table */}
+      {}
       <div className="border-2 border-black rounded-xl overflow-hidden">
-        {/* Filter Bar */}
+        {}
         <div className="border-b-2 border-black px-4 py-3 bg-gray-50 flex flex-wrap gap-3 items-center justify-between">
           <div className="flex flex-wrap gap-3 flex-1">
             <Input
@@ -845,7 +845,7 @@ export default function ClientLeadsPage() {
           </span>
         </div>
 
-        {/* Table */}
+        {}
         {loading ? (
           <div className="p-12 text-center text-muted-foreground font-semibold">
             Loading leads…
@@ -1055,7 +1055,7 @@ export default function ClientLeadsPage() {
         )}
       </div>
 
-      {/* Lead Detail Modal */}
+      {}
       {selectedLead && (
         <LeadModal
           lead={selectedLead}

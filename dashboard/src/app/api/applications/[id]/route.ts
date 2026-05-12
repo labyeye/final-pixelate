@@ -4,16 +4,17 @@ import { ObjectId } from "mongodb";
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const db = await getDb();
 
     const result = await db
       .collection("applications")
       .updateOne(
-        { _id: new ObjectId(params.id) },
+        { _id: new ObjectId(id) },
         { $set: { status: body.status, updatedAt: new Date().toISOString() } },
       );
 
@@ -38,13 +39,14 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const db = await getDb();
 
     const result = await db.collection("applications").deleteOne({
-      _id: new ObjectId(params.id),
+      _id: new ObjectId(id),
     });
 
     if (result.deletedCount === 0) {

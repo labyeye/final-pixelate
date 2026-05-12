@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Core Pages -->
+  
   <url>
     <loc>https://www.pixelatenest.com/</loc>
     <lastmod>2026-05-04</lastmod>
@@ -43,7 +43,7 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- Services -->
+  
   <url>
     <loc>https://www.pixelatenest.com/services/software-development.html</loc>
     <lastmod>2026-05-04</lastmod>
@@ -77,7 +77,7 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- Products -->
+  
   <url>
     <loc>https://www.pixelatenest.com/products/counter-billing-software.html</loc>
     <lastmod>2026-05-04</lastmod>
@@ -111,7 +111,7 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- Industries -->
+  
   <url>
     <loc>https://www.pixelatenest.com/industries/education.html</loc>
     <lastmod>2026-05-04</lastmod>
@@ -141,7 +141,7 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- New Location Pages (Software Company & Digital Marketing) -->
+  
   <url>
     <loc>https://www.pixelatenest.com/locations/software-company-patna.html</loc>
     <lastmod>2026-05-04</lastmod>
@@ -159,7 +159,7 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- Counter Billing Bihar Location Pages -->
+  
   <url>
     <loc>https://www.pixelatenest.com/locations/counter-billing-bihar/counter-billing-patna.html</loc>
     <lastmod>2026-05-04</lastmod>
@@ -241,7 +241,7 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- School CRM Bihar Location Pages -->
+  
   <url>
     <loc>https://www.pixelatenest.com/locations/school-crm-bihar/school-crm-patna.html</loc>
     <lastmod>2026-05-04</lastmod>
@@ -327,7 +327,7 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- Factory Management Bihar Location Pages -->
+  
   <url>
     <loc>https://www.pixelatenest.com/locations/factory-management-bihar/factory-management-patna.html</loc>
     <lastmod>2026-05-04</lastmod>
@@ -409,13 +409,13 @@
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- Blog -->
+  
   <url>
     <loc>https://www.pixelatenest.com/blog/index.html</loc>
     <lastmod>2026-05-04</lastmod>
   </url>
 
-  <!-- Legal -->
+  
   <url>
     <loc>https://www.pixelatenest.com/legal/privacy-policy.html</loc>
     <lastmod>2026-05-04</lastmod>

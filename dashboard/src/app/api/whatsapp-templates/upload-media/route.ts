@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 
-/**
- * POST /api/whatsapp-templates/upload-media
- *
- * Accepts a multipart/form-data body with a single `file` field.
- * Uploads the file to Meta's Resumable Upload API and returns
- * the header_handle string needed for template submission.
- *
- * Flow:
- *  1. POST /{waba-id}/uploads  — create upload session → { id: "upload:{session}" }
- *  2. POST /{session-id}       — upload bytes           → { h: "4::..." }
- */
+
+
+
+
+
+
+
+
+
+
+
 export async function POST(req: NextRequest) {
   const accessToken = process.env.META_ACCESS_TOKEN;
   const appId = process.env.WHATSAPP_APP_ID;
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // ── Parse multipart form ───────────────────────────────────────────────────
+  
   let formData: FormData;
   try {
     formData = await req.formData();
@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
     `[upload-media] file="${fileName}" type="${fileType}" size=${fileLength}`,
   );
 
-  // ── Step 1: Create upload session ─────────────────────────────────────────
+  
   const sessionUrl =
     `https://graph.facebook.com/${apiVersion}/${appId}/uploads` +
     `?file_name=${encodeURIComponent(fileName)}` +
@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
   }
   console.info(`[upload-media] session created: ${sessionId}`);
 
-  // ── Step 2: Upload file bytes ──────────────────────────────────────────────
+  
   let uploadRes: Response;
   try {
     uploadRes = await fetch(
@@ -132,7 +132,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Meta returns { "h": "4::ABC..." } — this is the header_handle
+  
   const handle: string = (uploadJson as any)?.h;
   if (!handle) {
     return NextResponse.json(

@@ -38,9 +38,9 @@ export async function POST(req: NextRequest) {
 
   const digits = sanitisePhone(phone);
 
-  // payment_receipt template uses positional params {{1}}–{{6}}
-  // {{1}} = client name, {{2}} = amount, {{3}} = invoice/receipt no,
-  // {{4}} = date, {{5}} = mode, {{6}} = ref
+  
+  
+  
   const payload = {
     messaging_product: "whatsapp",
     to: digits,

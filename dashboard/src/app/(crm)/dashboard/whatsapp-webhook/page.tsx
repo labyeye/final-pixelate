@@ -102,7 +102,7 @@ function formatTs(iso?: string) {
 
 function wamidShort(wamid?: string) {
   if (!wamid) return "—";
-  // Show last 12 chars for readability
+  
   return "…" + wamid.slice(-20);
 }
 
@@ -126,7 +126,7 @@ export default function WhatsAppWebhookPage() {
       setEntries(data);
       setLastRefreshed(new Date());
     } catch {
-      // silent — keep stale data
+      
     } finally {
       setLoading(false);
     }
@@ -142,7 +142,7 @@ export default function WhatsAppWebhookPage() {
     return () => clearInterval(id);
   }, [autoRefresh, fetchData]);
 
-  // Summary counts
+  
   const counts = entries.reduce(
     (acc, e) => {
       const s = e.whatsapp_send_status ?? "sent";
@@ -154,7 +154,7 @@ export default function WhatsAppWebhookPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {}
       <div className="flex items-start justify-between flex-wrap gap-4">
         <div>
           <h1 className="text-3xl font-black tracking-tight flex items-center gap-2">
@@ -213,7 +213,7 @@ export default function WhatsAppWebhookPage() {
         </div>
       </div>
 
-      {/* Summary Cards */}
+      {}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {(["sent", "delivered", "read", "failed"] as const).map((s) => {
           const cfg = STATUS_CONFIG[s];
@@ -239,7 +239,7 @@ export default function WhatsAppWebhookPage() {
         })}
       </div>
 
-      {/* Table */}
+      {}
       <div className="rounded-xl border-2 border-black overflow-hidden shadow-[3px_3px_0px_black]">
         <div className="bg-black text-white px-4 py-2 flex items-center justify-between">
           <span className="font-bold text-sm">
@@ -327,7 +327,7 @@ export default function WhatsAppWebhookPage() {
                     <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
                       {formatTs(entry.whatsapp_sent_at)}
                     </TableCell>
-                    {/* Sent (webhook confirmed) */}
+                    {}
                     <TableCell className="text-xs whitespace-nowrap">
                       {entry.whatsapp_send_status === "sent" ||
                       entry.whatsapp_send_status === "delivered" ||
@@ -391,7 +391,7 @@ export default function WhatsAppWebhookPage() {
         </div>
       </div>
 
-      {/* Legend */}
+      {}
       <div className="flex flex-wrap gap-4 text-xs text-muted-foreground border-t pt-4">
         <span className="font-bold text-black">Legend:</span>
         <span>

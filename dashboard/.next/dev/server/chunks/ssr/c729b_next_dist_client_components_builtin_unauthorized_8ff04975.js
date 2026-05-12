@@ -19,7 +19,7 @@ module.exports = [
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-fallback.js [app-rsc] (ecmascript)",
     );
     function Unauthorized() {
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+      return  (0, _jsxruntime.jsx)(
         _errorfallback.HTTPAccessErrorFallback,
         {
           status: 401,
@@ -37,8 +37,8 @@ module.exports = [
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=unauthorized.js.map
+    } 
   },
 ];
 
-//# sourceMappingURL=c729b_next_dist_client_components_builtin_unauthorized_8ff04975.js.map
+

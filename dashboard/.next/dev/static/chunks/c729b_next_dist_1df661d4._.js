@@ -7,19 +7,19 @@
     var _global_process, _global_process1;
     module.exports =
       ((_global_process =
-        /*TURBOPACK member replacement*/ __turbopack_context__.g.process) ==
+         __turbopack_context__.g.process) ==
       null
         ? void 0
         : _global_process.env) &&
       typeof ((_global_process1 =
-        /*TURBOPACK member replacement*/ __turbopack_context__.g.process) ==
+         __turbopack_context__.g.process) ==
       null
         ? void 0
         : _global_process1.env) === "object"
-        ? /*TURBOPACK member replacement*/ __turbopack_context__.g.process
+        ?  __turbopack_context__.g.process
         : __turbopack_context__.r(
             "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/process/browser.js [app-client] (ecmascript)",
-          ); //# sourceMappingURL=process.js.map
+          ); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/polyfill-module.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -110,7 +110,7 @@
         );
         this.name = "InvariantError";
       }
-    } //# sourceMappingURL=invariant-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-plain-object.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -147,24 +147,24 @@
         return false;
       }
       const prototype = Object.getPrototypeOf(value);
-      /**
-       * this used to be previously:
-       *
-       * `return prototype === null || prototype === Object.prototype`
-       *
-       * but Edge Runtime expose Object from vm, being that kind of type-checking wrongly fail.
-       *
-       * It was changed to the current implementation since it's resilient to serialization.
-       */ return (
+      
+
+
+
+
+
+
+
+ return (
         prototype === null || prototype.hasOwnProperty("isPrototypeOf")
       );
-    } //# sourceMappingURL=is-plain-object.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/bailout-to-csr.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // This has to be a shared module which is shared between client component error boundary and dynamic component
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -201,7 +201,7 @@
         return false;
       }
       return err.digest === BAILOUT_TO_CSR;
-    } //# sourceMappingURL=bailout-to-csr.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/error-source.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -241,14 +241,14 @@
         configurable: false,
         value: type,
       });
-    } //# sourceMappingURL=error-source.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -264,7 +264,7 @@
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -272,14 +272,14 @@
     const HeadManagerContext = _react.default.createContext({});
     if (("TURBOPACK compile-time truthy", 1)) {
       HeadManagerContext.displayName = "HeadManagerContext";
-    } //# sourceMappingURL=head-manager-context.shared-runtime.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -338,16 +338,16 @@
       PathnameContext.displayName = "PathnameContext";
       PathParamsContext.displayName = "PathParamsContext";
       NavigationPromisesContext.displayName = "NavigationPromisesContext";
-    } //# sourceMappingURL=hooks-client-context.shared-runtime.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/html-bots.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // This regex contains the bots that we need to do a blocking render for and can't safely stream the response
-    // due to how they parse the DOM. For example, they might explicitly check for metadata in the `head` tag, so we can't stream metadata tags after the `head` was sent.
-    // Note: The pattern [\w-]+-Google captures all Google crawlers with "-Google" suffix (e.g., Mediapartners-Google, AdsBot-Google, Storebot-Google)
-    // as well as crawlers starting with "Google-" (e.g., Google-PageRenderer, Google-InspectionTool)
+    
+    
+    
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -358,7 +358,7 @@
       },
     });
     const HTML_LIMITED_BOT_UA_RE =
-      /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; //# sourceMappingURL=html-bots.js.map
+      /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-bot.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -398,10 +398,10 @@
     const _htmlbots = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/html-bots.js [app-client] (ecmascript)",
     );
-    // Bot crawler that will spin up a headless browser and execute JS.
-    // Only the main Googlebot search crawler executes JavaScript, not other Google crawlers.
-    // x-ref: https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers
-    // This regex specifically matches "Googlebot" but NOT "Mediapartners-Google", "AdsBot-Google", etc.
+    
+    
+    
+    
     const HEADLESS_BROWSER_BOT_UA_RE = /Googlebot(?!-)|Googlebot$/i;
     const HTML_LIMITED_BOT_UA_RE_STRING =
       _htmlbots.HTML_LIMITED_BOT_UA_RE.source;
@@ -422,18 +422,18 @@
         return "html";
       }
       return undefined;
-    } //# sourceMappingURL=is-bot.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-thenable.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * Check to see if a value is Thenable.
-     *
-     * @param promise the maybe-thenable value
-     * @returns true if the value is thenable
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "isThenable", {
@@ -449,16 +449,16 @@
         "then" in promise &&
         typeof promise.then === "function"
       );
-    } //# sourceMappingURL=is-thenable.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/ensure-leading-slash.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * For a given page path, this function ensures that there is a leading slash.
-     * If there is not a leading slash, one is added, otherwise it is noop.
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "ensureLeadingSlash", {
@@ -469,7 +469,7 @@
     });
     function ensureLeadingSlash(path) {
       return path.startsWith("/") ? path : `/${path}`;
-    } //# sourceMappingURL=ensure-leading-slash.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -526,7 +526,7 @@
       return Array.isArray(segment) ? segment[1] : segment;
     }
     function isGroupSegment(segment) {
-      // Use array[0] for performant purpose
+      
       return segment[0] === "(" && segment.endsWith(")");
     }
     function isParallelRouteSegment(segment) {
@@ -546,13 +546,13 @@
       if (!segments || segments.length === 0) {
         return null;
       }
-      // For 'children', use first segment; for other parallel routes, use last segment
+      
       const rawSegment =
         parallelRouteKey === "children"
           ? segments[0]
           : segments[segments.length - 1];
-      // If the default slot is showing, return null since it's not technically "selected" (it's a fallback)
-      // Returning an internal value like `__DEFAULT__` would be confusing
+      
+      
       return rawSegment === DEFAULT_SEGMENT_KEY ? null : rawSegment;
     }
     function getSelectedLayoutSegmentPath(
@@ -563,10 +563,10 @@
     ) {
       let node;
       if (first) {
-        // Use the provided parallel route key on the first parallel route
+        
         node = tree[1][parallelRouteKey];
       } else {
-        // After first parallel route prefer children, if there's no children pick the first parallel route.
+        
         const parallelRoutes = tree[1];
         node = parallelRoutes.children ?? Object.values(parallelRoutes)[0];
       }
@@ -585,7 +585,7 @@
       );
     }
     const PAGE_SEGMENT_KEY = "__PAGE__";
-    const DEFAULT_SEGMENT_KEY = "__DEFAULT__"; //# sourceMappingURL=segment.js.map
+    const DEFAULT_SEGMENT_KEY = "__DEFAULT__"; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/app-paths.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -623,19 +623,19 @@
     function normalizeAppPath(route) {
       return (0, _ensureleadingslash.ensureLeadingSlash)(
         route.split("/").reduce((pathname, segment, index, segments) => {
-          // Empty segments are ignored.
+          
           if (!segment) {
             return pathname;
           }
-          // Groups are ignored.
+          
           if ((0, _segment.isGroupSegment)(segment)) {
             return pathname;
           }
-          // Parallel segments are ignored.
+          
           if (segment[0] === "@") {
             return pathname;
           }
-          // The last segment (if it's a leaf) should be ignored.
+          
           if (
             (segment === "page" || segment === "route") &&
             index === segments.length - 1
@@ -648,7 +648,7 @@
     }
     function normalizeRscURL(url) {
       return url.replace(/\.rsc($|\?)/, "$1");
-    } //# sourceMappingURL=app-paths.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -686,7 +686,7 @@
     );
     const INTERCEPTION_ROUTE_MARKERS = ["(..)(..)", "(.)", "(..)", "(...)"];
     function isInterceptionRouteAppPath(path) {
-      // TODO-APP: add more serious validation
+      
       return (
         path
           .split("/")
@@ -719,10 +719,10 @@
           },
         );
       }
-      interceptingRoute = (0, _apppaths.normalizeAppPath)(interceptingRoute); // normalize the path, e.g. /(blog)/feed -> /feed
+      interceptingRoute = (0, _apppaths.normalizeAppPath)(interceptingRoute); 
       switch (marker) {
         case "(.)":
-          // (.) indicates that we should match with sibling routes, so we just need to append the intercepted route to the intercepting route
+          
           if (interceptingRoute === "/") {
             interceptedRoute = `/${interceptedRoute}`;
           } else {
@@ -730,7 +730,7 @@
           }
           break;
         case "(..)":
-          // (..) indicates that we should match at one level up, so we need to remove the last segment of the intercepting route
+          
           if (interceptingRoute === "/") {
             throw Object.defineProperty(
               new Error(
@@ -751,11 +751,11 @@
             .join("/");
           break;
         case "(...)":
-          // (...) will match the route segment in the root directory, so we need to use the root directory to prepend the intercepted route
+          
           interceptedRoute = "/" + interceptedRoute;
           break;
         case "(..)(..)":
-          // (..)(..) indicates that we should match at two levels up, so we need to remove the last two segments of the intercepting route
+          
           const splitInterceptingRoute = interceptingRoute.split("/");
           if (splitInterceptingRoute.length <= 2) {
             throw Object.defineProperty(
@@ -790,7 +790,7 @@
         interceptingRoute,
         interceptedRoute,
       };
-    } //# sourceMappingURL=interception-routes.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment-cache/segment-value-encoding.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -839,24 +839,24 @@
     function createSegmentRequestKeyPart(segment) {
       if (typeof segment === "string") {
         if (segment.startsWith(_segment.PAGE_SEGMENT_KEY)) {
-          // The Flight Router State type sometimes includes the search params in
-          // the page segment. However, the Segment Cache tracks this as a separate
-          // key. So, we strip the search params here, and then add them back when
-          // the cache entry is turned back into a FlightRouterState. This is an
-          // unfortunate consequence of the FlightRouteState being used both as a
-          // transport type and as a cache key; we'll address this once more of the
-          // Segment Cache implementation has settled.
-          // TODO: We should hoist the search params out of the FlightRouterState
-          // type entirely, This is our plan for dynamic route params, too.
+          
+          
+          
+          
+          
+          
+          
+          
+          
           return _segment.PAGE_SEGMENT_KEY;
         }
-        const safeName = // But params typically don't include the leading slash. We should use
-          // a different encoding to avoid this special case.
+        const safeName = 
+          
           segment === "/_not-found"
             ? "_not-found"
             : encodeToFilesystemAndURLSafeString(segment);
-        // Since this is not a dynamic segment, it's fully encoded. It does not
-        // need to be "hydrated" with a param value.
+        
+        
         return safeName;
       }
       const name = segment[0];
@@ -870,52 +870,52 @@
       parallelRouteKey,
       childRequestKeyPart,
     ) {
-      // Aside from being filesystem safe, segment keys are also designed so that
-      // each segment and parallel route creates its own subdirectory. Roughly in
-      // the same shape as the source app directory. This is mostly just for easier
-      // debugging (you can open up the build folder and navigate the output); if
-      // we wanted to do we could just use a flat structure.
-      // Omit the parallel route key for children, since this is the most
-      // common case. Saves some bytes (and it's what the app directory does).
+      
+      
+      
+      
+      
+      
+      
       const slotKey =
         parallelRouteKey === "children"
           ? childRequestKeyPart
           : `@${encodeToFilesystemAndURLSafeString(parallelRouteKey)}/${childRequestKeyPart}`;
       return parentRequestKey + "/" + slotKey;
     }
-    // Define a regex pattern to match the most common characters found in a route
-    // param. It excludes anything that might not be cross-platform filesystem
-    // compatible, like |. It does not need to be precise because the fallback is to
-    // just base64url-encode the whole parameter, which is fine; we just don't do it
-    // by default for compactness, and for easier debugging.
+    
+    
+    
+    
+    
     const simpleParamValueRegex = /^[a-zA-Z0-9\-_@]+$/;
     function encodeToFilesystemAndURLSafeString(value) {
       if (simpleParamValueRegex.test(value)) {
         return value;
       }
-      // If there are any unsafe characters, base64url-encode the entire value.
-      // We also add a ! prefix so it doesn't collide with the simple case.
+      
+      
       const base64url = btoa(value)
-        .replace(/\+/g, "-") // Replace '+' with '-'
-        .replace(/\//g, "_") // Replace '/' with '_'
-        .replace(/=+$/, ""); // Remove trailing '='
+        .replace(/\+/g, "-") 
+        .replace(/\
+        .replace(/=+$/, ""); 
       return "!" + base64url;
     }
     function convertSegmentPathToStaticExportFilename(segmentPath) {
       return `__next${segmentPath.replace(/\//g, ".")}.txt`;
-    } //# sourceMappingURL=segment-value-encoding.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/hash.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // http://www.cse.yorku.ca/~oz/hash.html
-    // More specifically, 32-bit hash via djbxor
-    // (ref: https://gist.github.com/eplawless/52813b1d8ad9af510d85?permalink_comment_id=3367765#gistcomment-3367765)
-    // This is due to number type differences between rust for turbopack to js number types,
-    // where rust does not have easy way to repreesnt js's 53-bit float number type for the matching
-    // overflow behavior. This is more `correct` in terms of having canonical hash across different runtime / implementation
-    // as can gaurantee determinstic output from 32bit hash.
+    
+    
+    
+    
+    
+    
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -949,7 +949,7 @@
     }
     function hexHash(str) {
       return djb2Hash(str).toString(36).slice(0, 5);
-    } //# sourceMappingURL=hash.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/cache-busting-search-param.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -989,18 +989,18 @@
           nextUrlHeader || "0",
         ].join(","),
       );
-    } //# sourceMappingURL=cache-busting-search-param.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/app-router-types.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * App Router types - Client-safe types for the Next.js App Router
-     *
-     * This file contains type definitions that can be safely imported
-     * by both client-side and server-side code without circular dependencies.
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "HasLoadingBoundary", {
@@ -1009,32 +1009,32 @@
         return HasLoadingBoundary;
       },
     });
-    var HasLoadingBoundary = /*#__PURE__*/ (function (HasLoadingBoundary) {
-      // There is a loading boundary in this particular segment
+    var HasLoadingBoundary =  (function (HasLoadingBoundary) {
+      
       HasLoadingBoundary[
         (HasLoadingBoundary["SegmentHasLoadingBoundary"] = 1)
       ] = "SegmentHasLoadingBoundary";
-      // There is a loading boundary somewhere in the subtree (but not in
-      // this segment)
+      
+      
       HasLoadingBoundary[
         (HasLoadingBoundary["SubtreeHasLoadingBoundary"] = 2)
       ] = "SubtreeHasLoadingBoundary";
-      // There is no loading boundary in this segment or any of its descendants
+      
       HasLoadingBoundary[
         (HasLoadingBoundary["SubtreeHasNoLoadingBoundary"] = 3)
       ] = "SubtreeHasNoLoadingBoundary";
       return HasLoadingBoundary;
-    })({}); //# sourceMappingURL=app-router-types.js.map
+    })({}); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/parse-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * Given a path this function will find the pathname, query and hash and return
-     * them. This is useful to parse full paths on the client side.
-     * @param path A path to parse e.g. /foo/bar?id=1#hash
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "parsePath", {
@@ -1062,7 +1062,7 @@
         query: "",
         hash: "",
       };
-    } //# sourceMappingURL=parse-path.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1086,19 +1086,19 @@
       }
       const { pathname, query, hash } = (0, _parsepath.parsePath)(path);
       return `${prefix}${pathname}${query}${hash}`;
-    } //# sourceMappingURL=add-path-prefix.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * Removes the trailing slash for a given route or page path. Preserves the
-     * root page. Examples:
-     *   - `/foo/bar/` -> `/foo/bar`
-     *   - `/foo/bar` -> `/foo/bar`
-     *   - `/` -> `/`
-     */ Object.defineProperty(exports, "__esModule", {
+    
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "removeTrailingSlash", {
@@ -1109,26 +1109,26 @@
     });
     function removeTrailingSlash(route) {
       return route.replace(/\/$/, "") || "/";
-    } //# sourceMappingURL=remove-trailing-slash.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment-cache/output-export-prefetch-encoding.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // In output: export mode, the build id is added to the start of the HTML
-    // document, directly after the doctype declaration. During a prefetch, the
-    // client performs a range request to get the build id, so it can check whether
-    // the target page belongs to the same build.
-    //
-    // The first 64 bytes of the document are requested. The exact number isn't
-    // too important; it must be larger than the build id + doctype + closing and
-    // ending comment markers, but it doesn't need to match the end of the
-    // comment exactly.
-    //
-    // Build ids are 21 bytes long in the default implementation, though this
-    // can be overridden in the Next.js config. For the purposes of this check,
-    // it's OK to only match the start of the id, so we'll truncate it if exceeds
-    // a certain length.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -1156,42 +1156,42 @@
         return insertBuildIdComment;
       },
     });
-    const DOCTYPE_PREFIX = "<!DOCTYPE html>"; // 15 bytes
+    const DOCTYPE_PREFIX = "<!DOCTYPE html>"; 
     const MAX_BUILD_ID_LENGTH = 24;
     const DOC_PREFETCH_RANGE_HEADER_VALUE = "bytes=0-63";
     function escapeBuildId(buildId) {
-      // If the build id is longer than the given limit, it's OK for our purposes
-      // to only match the beginning.
+      
+      
       const truncated = buildId.slice(0, MAX_BUILD_ID_LENGTH);
-      // Replace hyphens with underscores so it doesn't break the HTML comment.
-      // (Unlikely, but if this did happen it would break the whole document.)
+      
+      
       return truncated.replace(/-/g, "_");
     }
     function insertBuildIdComment(originalHtml, buildId) {
       if (
-        buildId.includes("-->") || // React always inserts a doctype at the start of the document. Skip if it
-        // isn't present. Shouldn't happen; suggests an issue elsewhere.
+        buildId.includes("-->") || 
+        
         !originalHtml.startsWith(DOCTYPE_PREFIX)
       ) {
-        // Return the original HTML unchanged. This means the document will not
-        // be prefetched.
-        // TODO: The build id comment is currently only used during prefetches, but
-        // if we eventually use this mechanism for regular navigations, we may need
-        // to error during build if we fail to insert it for some reason.
+        
+        
+        
+        
+        
         return originalHtml;
       }
-      // The comment must be inserted after the doctype.
+      
       return originalHtml.replace(
         DOCTYPE_PREFIX,
         DOCTYPE_PREFIX + "<!--" + escapeBuildId(buildId) + "-->",
       );
     }
     function doesExportedHtmlMatchBuildId(partialHtmlDocument, buildId) {
-      // Check whether the document starts with the expected buildId.
+      
       return partialHtmlDocument.startsWith(
         DOCTYPE_PREFIX + "<!--" + escapeBuildId(buildId) + "-->",
       );
-    } //# sourceMappingURL=output-export-prefetch-encoding.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/promise-with-resolvers.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1207,7 +1207,7 @@
       },
     });
     function createPromiseWithResolvers() {
-      // Shim of Stage 4 Promise.withResolvers proposal
+      
       let resolve;
       let reject;
       const promise = new Promise((res, rej) => {
@@ -1219,14 +1219,14 @@
         reject: reject,
         promise,
       };
-    } //# sourceMappingURL=promise-with-resolvers.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -1269,7 +1269,7 @@
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1284,7 +1284,7 @@
       GlobalLayoutRouterContext.displayName = "GlobalLayoutRouterContext";
       TemplateContext.displayName = "TemplateContext";
     }
-    const MissingSlotContext = _react.default.createContext(new Set()); //# sourceMappingURL=app-router-context.shared-runtime.js.map
+    const MissingSlotContext = _react.default.createContext(new Set()); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1316,22 +1316,22 @@
     const _interop_require_wildcard = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_wildcard._(
+    const _react =  _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
     const ServerInsertedHTMLContext =
-      /*#__PURE__*/ _react.default.createContext(null);
+       _react.default.createContext(null);
     function useServerInsertedHTML(callback) {
       const addInsertedServerHTMLCallback = (0, _react.useContext)(
         ServerInsertedHTMLContext,
       );
-      // Should have no effects on client where there's no flush effects provider
+      
       if (addInsertedServerHTMLCallback) {
         addInsertedServerHTMLCallback(callback);
       }
-    } //# sourceMappingURL=server-inserted-html.shared-runtime.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1355,14 +1355,14 @@
       }
       const { pathname } = (0, _parsepath.parsePath)(path);
       return pathname === prefix || pathname.startsWith(prefix + "/");
-    } //# sourceMappingURL=path-has-prefix.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1384,35 +1384,35 @@
         }
         warnings.add(msg);
       };
-    } //# sourceMappingURL=warn-once.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/format-webpack-messages.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-MIT License
+    
 
-Copyright (c) 2015-present, Facebook, Inc.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "default", {
@@ -1424,13 +1424,13 @@ SOFTWARE.
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _stripansi = /*#__PURE__*/ _interop_require_default._(
+    const _stripansi =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/strip-ansi/index.js [app-client] (ecmascript)",
       ),
     );
-    // This file is based on https://github.com/facebook/create-react-app/blob/7b1a32be6ec9f99a6c9a3c66813f3ac09c4736b9/packages/react-dev-utils/formatWebpackMessages.js
-    // It's been edited to remove chalk and CRA-specific logic
+    
+    
     const friendlySyntaxErrorLabel = "Syntax error:";
     const WEBPACK_BREAKING_CHANGE_POLYFILLS =
       "\n\nBREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.";
@@ -1440,9 +1440,9 @@ SOFTWARE.
       );
     }
     let hadMissingSassError = false;
-    // Cleans up webpack error messages.
+    
     function formatMessage(message, verbose, importTraceNote) {
-      // TODO: Replace this once webpack 5 is stable
+      
       if (typeof message === "object" && message.message) {
         const filteredModuleTrace =
           message.moduleTrace &&
@@ -1475,11 +1475,11 @@ SOFTWARE.
           (message.stack && verbose ? "\n" + message.stack : "");
       }
       let lines = message.split("\n");
-      // Strip Webpack-added headers off errors/warnings
-      // https://github.com/webpack/webpack/blob/master/lib/ModuleError.js
+      
+      
       lines = lines.filter((line) => !/Module [A-z ]+\(from/.test(line));
-      // Transform parsing error into syntax error
-      // TODO: move this to our ESLint formatter?
+      
+      
       lines = lines.map((line) => {
         const parsingError =
           /Line (\d+):(?:(\d+):)?\s*Parsing error: (.+)$/.exec(line);
@@ -1490,12 +1490,12 @@ SOFTWARE.
         return `${friendlySyntaxErrorLabel} ${errorMessage} (${errorLine}:${errorColumn})`;
       });
       message = lines.join("\n");
-      // Smoosh syntax errors (commonly found in CSS)
+      
       message = message.replace(
         /SyntaxError\s+\((\d+):(\d+)\)\s*(.+?)\n/g,
         `${friendlySyntaxErrorLabel} $3 ($1:$2)\n`,
       );
-      // Clean up export errors
+      
       message = message.replace(
         /^.*export '(.+?)' was not found in '(.+?)'.*$/gm,
         `Attempted import error: '$1' is not exported from '$2'.`,
@@ -1509,11 +1509,11 @@ SOFTWARE.
         `Attempted import error: '$1' is not exported from '$3' (imported as '$2').`,
       );
       lines = message.split("\n");
-      // Remove leading newline
+      
       if (lines.length > 2 && lines[1].trim() === "") {
         lines.splice(1, 1);
       }
-      // Cleans up verbose "module not found" messages for files and packages.
+      
       if (lines[1] && lines[1].startsWith("Module not found: ")) {
         lines = [
           lines[0],
@@ -1526,9 +1526,9 @@ SOFTWARE.
           ...lines.slice(2),
         ];
       }
-      // Add helpful message for users trying to use Sass for the first time
+      
       if (lines[1] && lines[1].match(/Cannot find module.+sass/)) {
-        // ./file.module.scss (<<loader info>>) => ./file.module.scss
+        
         const firstLine = lines[0].split("!");
         lines[0] = firstLine[firstLine.length - 1];
         lines[1] =
@@ -1537,41 +1537,41 @@ SOFTWARE.
           "Run `npm i sass` or `yarn add sass` inside your workspace.\n";
         lines[1] +=
           "\nLearn more: https://nextjs.org/docs/messages/install-sass";
-        // dispose of unhelpful stack trace
+        
         lines = lines.slice(0, 2);
         hadMissingSassError = true;
       } else if (
         hadMissingSassError &&
         message.match(/(sass-loader|resolve-url-loader: CSS error)/)
       ) {
-        // dispose of unhelpful stack trace following missing sass module
+        
         lines = [];
       }
       if (!verbose) {
         message = lines.join("\n");
-        // Internal stacks are generally useless so we strip them... with the
-        // exception of stacks containing `webpack:` because they're normally
-        // from user code generated by Webpack. For more information see
-        // https://github.com/facebook/create-react-app/pull/1050
+        
+        
+        
+        
         message = message.replace(
           /^\s*at\s((?!webpack:).)*:\d+:\d+[\s)]*(\n|$)/gm,
           "",
-        ); // at ... ...:x:y
-        message = message.replace(/^\s*at\s<anonymous>(\n|$)/gm, ""); // at <anonymous>
+        ); 
+        message = message.replace(/^\s*at\s<anonymous>(\n|$)/gm, ""); 
         message = message.replace(
           /File was processed with these loaders:\n(.+[\\/](next[\\/]dist[\\/].+|@next[\\/]react-refresh-utils[\\/]loader)\.js\n)*You may need an additional loader to handle the result of these loaders.\n/g,
           "",
         );
         lines = message.split("\n");
       }
-      // Remove duplicated newlines
+      
       lines = lines.filter(
         (line, index, arr) =>
           index === 0 ||
           line.trim() !== "" ||
           line.trim() !== arr[index - 1].trim(),
       );
-      // Reassemble the message
+      
       message = lines.join("\n");
       return message.trim();
     }
@@ -1585,7 +1585,7 @@ SOFTWARE.
       const formattedWarnings = json.warnings.map((message) => {
         return formatMessage(message, verbose);
       });
-      // Reorder errors to put the most relevant ones first.
+      
       let reactServerComponentsError = -1;
       for (let i = 0; i < formattedErrors.length; i++) {
         const error = formattedErrors[i];
@@ -1594,7 +1594,7 @@ SOFTWARE.
           break;
         }
       }
-      // Move the reactServerComponentsError to the top if it exists
+      
       if (reactServerComponentsError !== -1) {
         const error = formattedErrors.splice(reactServerComponentsError, 1);
         formattedErrors.unshift(error[0]);
@@ -1605,12 +1605,12 @@ SOFTWARE.
         warnings: formattedWarnings,
       };
       if (!verbose && result.errors.some(isLikelyASyntaxError)) {
-        // If there are any syntax errors, show just them.
+        
         result.errors = result.errors.filter(isLikelyASyntaxError);
         result.warnings = [];
       }
       return result;
-    } //# sourceMappingURL=format-webpack-messages.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/errors/constants.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1636,7 +1636,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=constants.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/normalized-asset-prefix.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1652,11 +1652,11 @@ SOFTWARE.
       },
     });
     function normalizedAssetPrefix(assetPrefix) {
-      // remove all leading slashes and trailing slashes
+      
       const escapedAssetPrefix =
         assetPrefix?.replace(/^\/+|\/+$/g, "") || false;
-      // if an assetPrefix was '/', we return empty string
-      // because it could be an unnecessary trailing slash
+      
+      
       if (!escapedAssetPrefix) {
         return "";
       }
@@ -1664,10 +1664,10 @@ SOFTWARE.
         const url = new URL(escapedAssetPrefix).toString();
         return url.endsWith("/") ? url.slice(0, -1) : url;
       }
-      // assuming assetPrefix here is a pathname-style,
-      // restore the leading slash
+      
+      
       return `/${escapedAssetPrefix}`;
-    } //# sourceMappingURL=normalized-asset-prefix.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/server-reference-info.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1717,22 +1717,22 @@ SOFTWARE.
       const filteredArgs = new Array(args.length);
       for (let index = 0; index < args.length; index++) {
         if (
-          (index < 6 && info.usedArgs[index]) || // This assumes that the server reference info byte has the restArgs bit
-          // set to 1 if there are more than 6 args.
+          (index < 6 && info.usedArgs[index]) || 
+          
           (index >= 6 && info.hasRestArgs)
         ) {
           filteredArgs[index] = args[index];
         }
       }
       return filteredArgs;
-    } //# sourceMappingURL=server-reference-info.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1752,10 +1752,10 @@ SOFTWARE.
         });
     }
     _export(exports, {
-      /**
-       * Checks whether the given value is a NextError.
-       * This can be used to print a more detailed error message with properties like `code` & `digest`.
-       */ default: function () {
+      
+
+
+ default: function () {
         return isError;
       },
       getProperError: function () {
@@ -1765,16 +1765,16 @@ SOFTWARE.
     const _isplainobject = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-plain-object.js [app-client] (ecmascript)",
     );
-    /**
-     * This is a safe stringify function that handles circular references.
-     * We're using a simpler version here to avoid introducing
-     * the dependency `safe-stable-stringify` into production bundle.
-     *
-     * This helper is used both in development and production.
-     */ function safeStringifyLite(obj) {
+    
+
+
+
+
+
+ function safeStringifyLite(obj) {
       const seen = new WeakSet();
       return JSON.stringify(obj, (_key, value) => {
-        // If value is an object and already seen, replace with "[Circular]"
+        
         if (typeof value === "object" && value !== null) {
           if (seen.has(value)) {
             return "[Circular]";
@@ -1797,8 +1797,8 @@ SOFTWARE.
         return err;
       }
       if (("TURBOPACK compile-time truthy", 1)) {
-        // provide better error for case where `throw undefined`
-        // is called in development
+        
+        
         if (typeof err === "undefined") {
           return Object.defineProperty(
             new Error(
@@ -1841,41 +1841,41 @@ SOFTWARE.
           configurable: true,
         },
       );
-    } //# sourceMappingURL=is-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/require-instrumentation-client.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * This module imports the client instrumentation hook from the project root.
-     *
-     * The `private-next-instrumentation-client` module is automatically aliased to
-     * the `instrumentation-client.ts` file in the project root by webpack or turbopack.
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+    
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
     if (("TURBOPACK compile-time truthy", 1)) {
       const measureName = "Client Instrumentation Hook";
       const startTime = performance.now();
-      // eslint-disable-next-line @next/internal/typechecked-require -- Not a module.
+      
       module.exports = {};
       const endTime = performance.now();
       const duration = endTime - startTime;
-      // Using 16ms threshold as it represents one frame (1000ms/60fps)
-      // This helps identify if the instrumentation hook initialization
-      // could potentially cause frame drops during development.
+      
+      
+      
       const THRESHOLD = 16;
       if (duration > THRESHOLD) {
         console.log(
           `[${measureName}] Slow execution detected: ${duration.toFixed(0)}ms (Note: Code download overhead is not included in this measurement)`,
         );
       }
-    } //TURBOPACK unreachable
+    } 
     else;
-    //# sourceMappingURL=require-instrumentation-client.js.map
+    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/framework/boundary-constants.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1915,14 +1915,14 @@ SOFTWARE.
     const METADATA_BOUNDARY_NAME = "__next_metadata_boundary__";
     const VIEWPORT_BOUNDARY_NAME = "__next_viewport_boundary__";
     const OUTLET_BOUNDARY_NAME = "__next_outlet_boundary__";
-    const ROOT_LAYOUT_BOUNDARY_NAME = "__next_root_layout_boundary__"; //# sourceMappingURL=boundary-constants.js.map
+    const ROOT_LAYOUT_BOUNDARY_NAME = "__next_root_layout_boundary__"; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/scheduler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1958,14 +1958,14 @@ SOFTWARE.
       },
     });
     const scheduleOnNextTick = (cb) => {
-      // We use Promise.resolve().then() here so that the operation is scheduled at
-      // the end of the promise job queue, we then add it to the next process tick
-      // to ensure it's evaluated afterwards.
-      //
-      // This was inspired by the implementation of the DataLoader interface: https://github.com/graphql/dataloader/blob/d336bd15282664e0be4b4a657cb796f09bafbc6b/src/index.js#L213-L255
-      //
+      
+      
+      
+      
+      
+      
       Promise.resolve().then(() => {
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         else {
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1975,7 +1975,7 @@ SOFTWARE.
       });
     };
     const scheduleImmediate = (cb) => {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       else {
         setImmediate(cb);
@@ -1985,12 +1985,12 @@ SOFTWARE.
       return new Promise((resolve) => scheduleImmediate(resolve));
     }
     function waitAtLeastOneReactRenderTask() {
-      if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+      if (("TURBOPACK compile-time falsy", 0)) 
       ;
       else {
         return new Promise((r) => setImmediate(r));
       }
-    } //# sourceMappingURL=scheduler.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2030,8 +2030,8 @@ SOFTWARE.
     const _boundaryconstants = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/framework/boundary-constants.js [app-client] (ecmascript)",
     );
-    // We use a namespace object to allow us to recover the name of the function
-    // at runtime even when production bundling/minification is used.
+    
+    
     const NameSpace = {
       [_boundaryconstants.METADATA_BOUNDARY_NAME]: function ({ children }) {
         return children;
@@ -2046,14 +2046,14 @@ SOFTWARE.
         return children;
       },
     };
-    const MetadataBoundary = // so it retains the name inferred from the namespace object
+    const MetadataBoundary = 
       NameSpace[_boundaryconstants.METADATA_BOUNDARY_NAME.slice(0)];
-    const ViewportBoundary = // so it retains the name inferred from the namespace object
+    const ViewportBoundary = 
       NameSpace[_boundaryconstants.VIEWPORT_BOUNDARY_NAME.slice(0)];
-    const OutletBoundary = // so it retains the name inferred from the namespace object
+    const OutletBoundary = 
       NameSpace[_boundaryconstants.OUTLET_BOUNDARY_NAME.slice(0)];
-    const RootLayoutBoundary = // so it retains the name inferred from the namespace object
-      NameSpace[_boundaryconstants.ROOT_LAYOUT_BOUNDARY_NAME.slice(0)]; //# sourceMappingURL=boundary-components.js.map
+    const RootLayoutBoundary = 
+      NameSpace[_boundaryconstants.ROOT_LAYOUT_BOUNDARY_NAME.slice(0)]; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/constants.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2379,50 +2379,50 @@ SOFTWARE.
       nodejs: "nodejs",
     };
     const WEB_SOCKET_MAX_RECONNECTIONS = 12;
-    /**
-     * The names of the webpack layers. These layers are the primitives for the
-     * webpack chunks.
-     */ const WEBPACK_LAYERS_NAMES = {
-      /**
-       * The layer for the shared code between the client and server bundles.
-       */ shared: "shared",
-      /**
-       * The layer for server-only runtime and picking up `react-server` export conditions.
-       * Including app router RSC pages and app router custom routes and metadata routes.
-       */ reactServerComponents: "rsc",
-      /**
-       * Server Side Rendering layer for app (ssr).
-       */ serverSideRendering: "ssr",
-      /**
-       * The browser client bundle layer for actions.
-       */ actionBrowser: "action-browser",
-      /**
-       * The Node.js bundle layer for the API routes.
-       */ apiNode: "api-node",
-      /**
-       * The Edge Lite bundle layer for the API routes.
-       */ apiEdge: "api-edge",
-      /**
-       * The layer for the middleware code.
-       */ middleware: "middleware",
-      /**
-       * The layer for the instrumentation hooks.
-       */ instrument: "instrument",
-      /**
-       * The layer for assets on the edge.
-       */ edgeAsset: "edge-asset",
-      /**
-       * The browser client bundle layer for App directory.
-       */ appPagesBrowser: "app-pages-browser",
-      /**
-       * The browser client bundle layer for Pages directory.
-       */ pagesDirBrowser: "pages-dir-browser",
-      /**
-       * The Edge Lite bundle layer for Pages directory.
-       */ pagesDirEdge: "pages-dir-edge",
-      /**
-       * The Node.js bundle layer for Pages directory.
-       */ pagesDirNode: "pages-dir-node",
+    
+
+
+ const WEBPACK_LAYERS_NAMES = {
+      
+
+ shared: "shared",
+      
+
+
+ reactServerComponents: "rsc",
+      
+
+ serverSideRendering: "ssr",
+      
+
+ actionBrowser: "action-browser",
+      
+
+ apiNode: "api-node",
+      
+
+ apiEdge: "api-edge",
+      
+
+ middleware: "middleware",
+      
+
+ instrument: "instrument",
+      
+
+ edgeAsset: "edge-asset",
+      
+
+ appPagesBrowser: "app-pages-browser",
+      
+
+ pagesDirBrowser: "pages-dir-browser",
+      
+
+ pagesDirEdge: "pages-dir-edge",
+      
+
+ pagesDirNode: "pages-dir-node",
     };
     const WEBPACK_LAYERS = {
       ...WEBPACK_LAYERS_NAMES,
@@ -2438,7 +2438,7 @@ SOFTWARE.
           WEBPACK_LAYERS_NAMES.middleware,
         ],
         neutralTarget: [
-          // pages api
+          
           WEBPACK_LAYERS_NAMES.apiNode,
           WEBPACK_LAYERS_NAMES.apiEdge,
         ],
@@ -2456,7 +2456,7 @@ SOFTWARE.
           WEBPACK_LAYERS_NAMES.middleware,
         ],
         appPages: [
-          // app router pages and layouts
+          
           WEBPACK_LAYERS_NAMES.reactServerComponents,
           WEBPACK_LAYERS_NAMES.serverSideRendering,
           WEBPACK_LAYERS_NAMES.appPagesBrowser,
@@ -2469,7 +2469,7 @@ SOFTWARE.
       metadata: "__next_metadata__",
       metadataRoute: "__next_metadata_route__",
       metadataImageMeta: "__next_metadata_image_meta__",
-    }; //# sourceMappingURL=constants.js.map
+    }; 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2513,12 +2513,12 @@ SOFTWARE.
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _iserror = /*#__PURE__*/ _interop_require_default._(
+    const _iserror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
       ),
@@ -2540,7 +2540,7 @@ SOFTWARE.
           });
     }
     function setOwnerStackIfAvailable(error) {
-      // React 18 and prod does not have `captureOwnerStack`
+      
       if ("captureOwnerStack" in _react.default) {
         setOwnerStack(error, _react.default.captureOwnerStack());
       }
@@ -2560,13 +2560,13 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=stitched-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/shared/console-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    // To distinguish from React error.digest, we use a different symbol here to determine if the error is from console.error or unhandled promise rejection.
+    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -2619,14 +2619,14 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=console-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/terminal-logging-config.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -2674,7 +2674,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=terminal-logging-config.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/shared/forward-logs-shared.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2746,7 +2746,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=forward-logs-shared.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/forward-logs-utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2865,14 +2865,14 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=forward-logs-utils.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/forward-logs.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -2926,7 +2926,7 @@ SOFTWARE.
     const _forwardlogsutils = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/forward-logs-utils.js [app-client] (ecmascript)",
     );
-    // Client-side file logger for browser logs
+    
     class ClientFileLogger {
       formatTimestamp() {
         const now = new Date();
@@ -2940,7 +2940,7 @@ SOFTWARE.
         if (isReactServerReplayedLog(args)) {
           return;
         }
-        // Format the args into a message string
+        
         const message = args
           .map((arg) => {
             if (typeof arg === "string") return arg;
@@ -2948,7 +2948,7 @@ SOFTWARE.
               return String(arg);
             if (arg === null) return "null";
             if (arg === undefined) return "undefined";
-            // Handle DOM nodes - only log the tag name to avoid React proxied elements
+            
             if (arg instanceof Element) {
               return `<${arg.tagName.toLowerCase()}>`;
             }
@@ -2961,7 +2961,7 @@ SOFTWARE.
           message,
         };
         this.logEntries.push(logEntry);
-        // Schedule flush when new log is added
+        
         scheduleLogFlush();
       }
       getLogs() {
@@ -2975,7 +2975,7 @@ SOFTWARE.
       }
     }
     const clientFileLogger = new ClientFileLogger();
-    // Set up flush-based sending of client file logs
+    
     let logFlushTimeout = null;
     let heartbeatInterval = null;
     const scheduleLogFlush = () => {
@@ -2985,7 +2985,7 @@ SOFTWARE.
       logFlushTimeout = setTimeout(() => {
         sendClientFileLogs();
         logFlushTimeout = null;
-      }, 100); // Send after 100ms (much faster with debouncing)
+      }, 100); 
     };
     const cancelLogFlush = () => {
       if (logFlushTimeout) {
@@ -2998,20 +2998,20 @@ SOFTWARE.
       heartbeatInterval = setInterval(() => {
         if (logQueue.socket && logQueue.socket.readyState === WebSocket.OPEN) {
           try {
-            // Send a ping to keep the connection alive
+            
             logQueue.socket.send(
               JSON.stringify({
                 event: "ping",
               }),
             );
           } catch (error) {
-            // Connection might be closed, stop heartbeat
+            
             stopHeartbeat();
           }
         } else {
           stopHeartbeat();
         }
-      }, 5000); // Send ping every 5 seconds
+      }, 5000); 
     };
     const stopHeartbeat = () => {
       if (heartbeatInterval) {
@@ -3066,7 +3066,7 @@ SOFTWARE.
           }
         }
       });
-    // Function to send client file logs to server
+    
     const sendClientFileLogs = () => {
       if (!logQueue.socket || logQueue.socket.readyState !== WebSocket.OPEN) {
         return;
@@ -3084,7 +3084,7 @@ SOFTWARE.
       } catch (error) {
         console.error(error);
       } finally {
-        // Clear logs regardless of send success to prevent memory leaks
+        
         clientFileLogger.clear();
       }
     };
@@ -3100,54 +3100,54 @@ SOFTWARE.
         if (logQueue.flushScheduled) {
           return;
         }
-        // safe to deref and use in setTimeout closure since we cancel on new socket
+        
         const socket = logQueue.socket;
         if (!socket) {
           return;
         }
-        // we probably dont need this
+        
         logQueue.flushScheduled = true;
-        // non blocking log flush, runs at most once per frame
+        
         logQueue.cancelFlush = afterThisFrame(() => {
           logQueue.flushScheduled = false;
-          // just incase
+          
           try {
             const payload = JSON.stringify({
               event: "browser-logs",
               entries: serializeEntries(logQueue.entries),
               router: logQueue.router,
-              // needed for source mapping, we just assign the sourceType from the last error for the whole batch
+              
               sourceType: logQueue.sourceType,
             });
             socket.send(payload);
             logQueue.entries = [];
             logQueue.sourceType = undefined;
-            // Also send client file logs
+            
             sendClientFileLogs();
           } catch {
-            // error (make sure u don't infinite loop)
-            /* noop */
+            
+            
           }
         });
       },
       onSocketReady: (socket) => {
-        // When MCP or terminal logging is enabled, we enable the socket connection,
-        // otherwise it will not proceed.
-        if (("TURBOPACK compile-time falsy", 0)) //TURBOPACK unreachable
+        
+        
+        if (("TURBOPACK compile-time falsy", 0)) 
         ;
         if (socket.readyState !== WebSocket.OPEN) {
-          // invariant
+          
           return;
         }
-        // incase an existing timeout was going to run with a stale socket
+        
         logQueue.cancelFlush?.();
         logQueue.socket = socket;
-        // Add socket event listeners to track connection state
+        
         socket.addEventListener("close", () => {
           cancelLogFlush();
           stopHeartbeat();
         });
-        // Only send terminal logs if enabled
+        
         if (isTerminalLoggingEnabled) {
           try {
             const payload = JSON.stringify({
@@ -3160,12 +3160,12 @@ SOFTWARE.
             logQueue.entries = [];
             logQueue.sourceType = undefined;
           } catch {
-            /** noop just incase */
+            
           }
         }
-        // Always send client file logs when socket is ready
+        
         sendClientFileLogs();
-        // Start heartbeat to keep connection alive
+        
         startHeartbeat();
       },
     };
@@ -3189,17 +3189,17 @@ SOFTWARE.
       };
     };
     const createLogEntry = (level, args) => {
-      // Always log to client file logger with args (formatting done inside log method)
+      
       clientFileLogger.log(level, args);
-      // Only forward to terminal if enabled
+      
       if (!isTerminalLoggingEnabled) {
         return;
       }
-      // do not abstract this, it implicitly relies on which functions call it. forcing the inlined implementation makes you think about callers
-      // error capture stack trace maybe
+      
+      
       const stack = stackWithOwners(new Error());
       const stackLines = stack?.split("\n");
-      const cleanStack = stackLines?.slice(3).join("\n"); // this is probably ignored anyways
+      const cleanStack = stackLines?.slice(3).join("\n"); 
       const entry = {
         kind: "console",
         consoleMethodStack: cleanStack ?? null,
@@ -3217,9 +3217,9 @@ SOFTWARE.
       logQueue.scheduleLogSend(entry);
     };
     const forwardErrorLog = (args) => {
-      // Always log to client file logger with args (formatting done inside log method)
+      
       clientFileLogger.log("error", args);
-      // Only forward to terminal if enabled
+      
       if (!isTerminalLoggingEnabled) {
         return;
       }
@@ -3231,11 +3231,11 @@ SOFTWARE.
           logQueue.sourceType = source;
         }
       }
-      /**
-       * browser shows stack regardless of type of data passed to console.error, so we should do the same
-       *
-       * do not abstract this, it implicitly relies on which functions call it. forcing the inlined implementation makes you think about callers
-       */ const stack = stackWithOwners(new Error());
+      
+
+
+
+ const stack = stackWithOwners(new Error());
       const stackLines = stack?.split("\n");
       const cleanStack = stackLines?.slice(3).join("\n");
       const entry = {
@@ -3271,13 +3271,13 @@ SOFTWARE.
       return stack;
     };
     function logUnhandledRejection(reason) {
-      // Always log to client file logger
+      
       const message =
         reason instanceof Error
           ? `${reason.name}: ${reason.message}`
           : JSON.stringify(reason);
       clientFileLogger.log("error", [`unhandledRejection: ${message}`]);
-      // Only forward to terminal if enabled
+      
       if (!isTerminalLoggingEnabled) {
         return;
       }
@@ -3303,7 +3303,7 @@ SOFTWARE.
     const createUnhandledRejectionNonErrorEntry = (reason) => {
       const entry = {
         kind: "any-logged-error",
-        // we can't access the stack since the event is dispatched async and creating an inline error would be meaningless
+        
         consoleErrorStack: "",
         method: "error",
         args: [
@@ -3333,9 +3333,9 @@ SOFTWARE.
       }
       return false;
     };
-    /**
-     * Matches the format of logs arguments React replayed from the RSC.
-     */ const isReactServerReplayedLog = (args) => {
+    
+
+ const isReactServerReplayedLog = (args) => {
       if (args.length < 3) {
         return false;
       }
@@ -3350,11 +3350,11 @@ SOFTWARE.
       return format.startsWith("%c%s%c") && styles.includes("background:");
     };
     function forwardUnhandledError(error) {
-      // Always log to client file logger
+      
       clientFileLogger.log("error", [
         `uncaughtError: ${error.name}: ${error.message}`,
       ]);
-      // Only forward to terminal if enabled
+      
       if (!isTerminalLoggingEnabled) {
         return;
       }
@@ -3365,15 +3365,15 @@ SOFTWARE.
       );
     }
     const initializeDebugLogForwarding = (router) => {
-      // probably don't need this
+      
       if (isPatched) {
         return;
       }
-      // TODO(rob): why does this break rendering on server, important to know incase the same bug appears in browser
+      
       if (typeof window === "undefined") {
         return;
       }
-      // better to be safe than sorry
+      
       try {
         methods.forEach((method) =>
           (0, _forwardlogsshared.patchConsoleMethod)(method, (_, ...args) => {
@@ -3389,11 +3389,11 @@ SOFTWARE.
       } catch {}
       logQueue.router = router;
       isPatched = true;
-      // Cleanup on page unload
+      
       window.addEventListener("beforeunload", () => {
         cancelLogFlush();
         stopHeartbeat();
-        // Send any remaining logs before page unloads
+        
         sendClientFileLogs();
       });
     };
@@ -3407,7 +3407,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=forward-logs.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3456,7 +3456,7 @@ SOFTWARE.
     const _console = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/lib/console.js [app-client] (ecmascript)",
     );
-    const _iserror = /*#__PURE__*/ _interop_require_default._(
+    const _iserror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
       ),
@@ -3495,8 +3495,8 @@ SOFTWARE.
       (0, _stitchederror.setOwnerStackIfAvailable)(error);
       errorQueue.push(error);
       for (const handler of errorHandlers) {
-        // Delayed the error being passed to React Dev Overlay,
-        // avoid the state being synchronously updated in the component.
+        
+        
         queueMicroTask(() => {
           handler(error);
         });
@@ -3505,8 +3505,8 @@ SOFTWARE.
     function handleClientError(error) {
       errorQueue.push(error);
       for (const handler of errorHandlers) {
-        // Delayed the error being passed to React Dev Overlay,
-        // avoid the state being synchronously updated in the component.
+        
+        
         queueMicroTask(() => {
           handler(error);
         });
@@ -3517,14 +3517,14 @@ SOFTWARE.
       handleOnUnhandledRejection,
     ) {
       (0, _react.useEffect)(() => {
-        // Handle queued errors.
+        
         errorQueue.forEach(handleOnUnhandledError);
         rejectionQueue.forEach(handleOnUnhandledRejection);
-        // Listen to new errors.
+        
         errorHandlers.push(handleOnUnhandledError);
         rejectionHandlers.push(handleOnUnhandledRejection);
         return () => {
-          // Remove listeners.
+          
           errorHandlers.splice(
             errorHandlers.indexOf(handleOnUnhandledError),
             1,
@@ -3533,7 +3533,7 @@ SOFTWARE.
             rejectionHandlers.indexOf(handleOnUnhandledRejection),
             1,
           );
-          // Reset error queues.
+          
           errorQueue.splice(0, errorQueue.length);
           rejectionQueue.splice(0, rejectionQueue.length);
         };
@@ -3545,8 +3545,8 @@ SOFTWARE.
         event.preventDefault();
         return false;
       }
-      // When there's an error property present, we log the error to error overlay.
-      // Otherwise we don't do anything as it's not logging in the console either.
+      
+      
       if (thrownValue) {
         const error = (0, _stitchederror.coerceError)(thrownValue);
         (0, _stitchederror.setOwnerStackIfAvailable)(error);
@@ -3571,7 +3571,7 @@ SOFTWARE.
     function handleGlobalErrors() {
       if (typeof window !== "undefined") {
         try {
-          // Increase the number of stack frames on the client
+          
           Error.stackTraceLimit = 50;
         } catch {}
         window.addEventListener("error", onUnhandledError);
@@ -3588,14 +3588,14 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=use-error-handler.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -3625,7 +3625,7 @@ SOFTWARE.
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _iserror = /*#__PURE__*/ _interop_require_default._(
+    const _iserror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
       ),
@@ -3644,7 +3644,7 @@ SOFTWARE.
     );
     const originConsoleError = globalThis.console.error;
     function patchConsoleError() {
-      // Ensure it's only patched once
+      
       if (typeof window === "undefined") {
         return;
       }
@@ -3657,15 +3657,15 @@ SOFTWARE.
           } else if ((0, _iserror.default)(args[0])) {
             maybeError = args[0];
           } else {
-            // See https://github.com/facebook/react/blob/d50323eb845c5fde0d720cae888bf35dedd05506/packages/react-reconciler/src/ReactFiberErrorLogger.js#L78
+            
             maybeError = args[1];
           }
-        } //TURBOPACK unreachable
+        } 
         else;
         if (!(0, _isnextroutererror.isNextRouterError)(maybeError)) {
           if (("TURBOPACK compile-time truthy", 1)) {
             (0, _useerrorhandler.handleConsoleError)(
-              // but if we pass the error directly, `handleClientError` will ignore it
+              
               maybeError,
               args,
             );
@@ -3685,7 +3685,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=intercept-console-error.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-setup.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3716,7 +3716,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-dev-overlay-setup.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/errors/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3768,7 +3768,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=index.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3837,8 +3837,8 @@ SOFTWARE.
           setBoundaryType,
         };
       }, [type, pagePath, boundaryType, setBoundaryType]);
-      // Use `useLayoutEffect` to ensure the state is updated during suspense.
-      // `useEffect` won't work as the state is preserved during suspense.
+      
+      
       (0, _react.useLayoutEffect)(() => {
         _nextdevtools.dispatcher.segmentExplorerNodeAdd(nodeState);
         return () => {
@@ -3879,22 +3879,22 @@ SOFTWARE.
       const { boundaryType } = useSegmentState();
       let segmentNode = null;
       if (boundaryType === "loading") {
-        segmentNode = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+        segmentNode =  (0, _jsxruntime.jsx)(
           LoadingSegmentNode,
           {},
         );
       } else if (boundaryType === "not-found") {
-        segmentNode = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+        segmentNode =  (0, _jsxruntime.jsx)(
           NotFoundSegmentNode,
           {},
         );
       } else if (boundaryType === "error") {
-        segmentNode = /*#__PURE__*/ (0, _jsxruntime.jsx)(ErrorSegmentNode, {});
+        segmentNode =  (0, _jsxruntime.jsx)(ErrorSegmentNode, {});
       }
       return segmentNode;
     }
     function SegmentViewNode({ type, pagePath, children }) {
-      const segmentNode = /*#__PURE__*/ (0, _jsxruntime.jsx)(
+      const segmentNode =  (0, _jsxruntime.jsx)(
         SegmentTrieNode,
         {
           type: type,
@@ -3902,11 +3902,11 @@ SOFTWARE.
         },
         type,
       );
-      return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+      return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
         children: [segmentNode, children],
       });
     }
-    const SegmentStateContext = /*#__PURE__*/ (0, _react.createContext)({
+    const SegmentStateContext =  (0, _react.createContext)({
       boundaryType: null,
       setBoundaryType: () => {},
     });
@@ -3926,7 +3926,7 @@ SOFTWARE.
         },
         [reloadBoundary],
       );
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+      return  (0, _jsxruntime.jsx)(
         SegmentStateContext.Provider,
         {
           value: {
@@ -3951,14 +3951,14 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=segment-explorer-node.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -3989,7 +3989,7 @@ SOFTWARE.
     const _errorboundary = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/error-boundary.js [app-client] (ecmascript)",
     );
-    const _globalerror = /*#__PURE__*/ _interop_require_default._(
+    const _globalerror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
       ),
@@ -4002,18 +4002,18 @@ SOFTWARE.
       error,
     }) {
       if (!error) {
-        return /*#__PURE__*/ (0, _jsxruntime.jsxs)("html", {
+        return  (0, _jsxruntime.jsxs)("html", {
           children: [
-            /*#__PURE__*/ (0, _jsxruntime.jsx)("head", {}),
-            /*#__PURE__*/ (0, _jsxruntime.jsx)("body", {}),
+             (0, _jsxruntime.jsx)("head", {}),
+             (0, _jsxruntime.jsx)("body", {}),
           ],
         });
       }
-      return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_errorboundary.ErrorBoundary, {
+      return  (0, _jsxruntime.jsxs)(_errorboundary.ErrorBoundary, {
         errorComponent: _globalerror.default,
         children: [
           globalErrorStyles,
-          /*#__PURE__*/ (0, _jsxruntime.jsx)(GlobalError, {
+           (0, _jsxruntime.jsx)(GlobalError, {
             error: error,
           }),
         ],
@@ -4039,7 +4039,7 @@ SOFTWARE.
       render() {
         const { children, globalError } = this.props;
         const { reactError } = this.state;
-        const fallback = /*#__PURE__*/ (0, _jsxruntime.jsx)(ErroredHtml, {
+        const fallback =  (0, _jsxruntime.jsx)(ErroredHtml, {
           globalError: globalError,
           error: reactError,
         });
@@ -4062,7 +4062,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=app-dev-overlay-error-boundary.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/use-app-dev-rendering-indicator.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4104,14 +4104,14 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=use-app-dev-rendering-indicator.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/errors/replay-ssr-only-errors.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -4163,7 +4163,7 @@ SOFTWARE.
         if (digest) {
           error.digest = digest;
         }
-        // Skip Next.js SSR'd internal errors that which will be handled by the error boundaries.
+        
         if ((0, _isnextroutererror.isNextRouterError)(error)) {
           return null;
         }
@@ -4174,16 +4174,16 @@ SOFTWARE.
     }
     function ReplaySsrOnlyErrors({ onBlockingError }) {
       if (("TURBOPACK compile-time truthy", 1)) {
-        // Need to read during render. The attributes will be gone after commit.
+        
         const ssrError = readSsrError();
-        // eslint-disable-next-line react-hooks/rules-of-hooks
+        
         (0, _react.useEffect)(() => {
           if (ssrError !== null) {
-            // TODO(veil): Include original Owner Stack (NDX-905)
-            // TODO(veil): Mark as recoverable error
-            // TODO(veil): console.error
+            
+            
+            
             (0, _useerrorhandler.handleClientError)(ssrError);
-            // If it's missing root tags, we can't recover, make it blocking.
+            
             if (ssrError.digest === _constants.MISSING_ROOT_TAGS_ERROR) {
               onBlockingError();
             }
@@ -4202,7 +4202,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=replay-ssr-only-errors.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/client-entry.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4223,12 +4223,12 @@ SOFTWARE.
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react = /*#__PURE__*/ _interop_require_default._(
+    const _react =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _globalerror = /*#__PURE__*/ _interop_require_default._(
+    const _globalerror =  _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
       ),
@@ -4237,7 +4237,7 @@ SOFTWARE.
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js [app-client] (ecmascript)",
     );
     function RootLevelDevOverlayElement({ children }) {
-      return /*#__PURE__*/ (0, _jsxruntime.jsx)(
+      return  (0, _jsxruntime.jsx)(
         _appdevoverlayerrorboundary.AppDevOverlayErrorBoundary,
         {
           globalError: [_globalerror.default, null],
@@ -4255,7 +4255,7 @@ SOFTWARE.
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } //# sourceMappingURL=client-entry.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4304,7 +4304,7 @@ SOFTWARE.
         throw sharedAsyncLocalStorageNotAvailableError;
       }
       getStore() {
-        // This fake implementation of AsyncLocalStorage always returns `undefined`.
+        
         return undefined;
       }
       run() {
@@ -4341,7 +4341,7 @@ SOFTWARE.
       return function (fn, ...args) {
         return fn(...args);
       };
-    } //# sourceMappingURL=async-local-storage.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-unit-async-storage-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4360,7 +4360,7 @@ SOFTWARE.
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
     );
     const workUnitAsyncStorageInstance = (0,
-    _asynclocalstorage.createAsyncLocalStorage)(); //# sourceMappingURL=work-unit-async-storage-instance.js.map
+    _asynclocalstorage.createAsyncLocalStorage)(); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4467,15 +4467,15 @@ SOFTWARE.
         case "prerender-ppr":
           return workUnitStore.prerenderResumeDataCache;
         case "prerender-client":
-          // TODO eliminate fetch caching in client scope and stop exposing this data
-          // cache during SSR.
+          
+          
           return workUnitStore.prerenderResumeDataCache;
         case "request": {
-          // In dev, we might fill caches even during a dynamic request.
+          
           if (workUnitStore.prerenderResumeDataCache) {
             return workUnitStore.prerenderResumeDataCache;
           }
-          // fallthrough
+          
         }
         case "prerender-legacy":
         case "cache":
@@ -4493,14 +4493,14 @@ SOFTWARE.
         case "prerender-runtime":
         case "prerender-client":
           if (workUnitStore.renderResumeDataCache) {
-            // If we are in a prerender, we might have a render resume data cache
-            // that is used to read from prefilled caches.
+            
+            
             return workUnitStore.renderResumeDataCache;
           }
-        // fallthrough
+        
         case "prerender-ppr":
-          // Otherwise we return the mutable resume data cache here as an immutable
-          // version of the cache as it can also be used for reading.
+          
+          
           return workUnitStore.prerenderResumeDataCache ?? null;
         case "cache":
         case "private-cache":
@@ -4604,11 +4604,11 @@ SOFTWARE.
         case "prerender-runtime":
           return workUnitStore.cacheSignal;
         case "request": {
-          // In dev, we might fill caches even during a dynamic request.
+          
           if (workUnitStore.cacheSignal) {
             return workUnitStore.cacheSignal;
           }
-          // fallthrough
+          
         }
         case "prerender-ppr":
         case "prerender-legacy":
@@ -4636,7 +4636,7 @@ SOFTWARE.
         default:
           return workUnitStore;
       }
-    } //# sourceMappingURL=work-unit-async-storage.external.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-async-storage-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4655,7 +4655,7 @@ SOFTWARE.
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
     );
     const workAsyncStorageInstance = (0,
-    _asynclocalstorage.createAsyncLocalStorage)(); //# sourceMappingURL=work-async-storage-instance.js.map
+    _asynclocalstorage.createAsyncLocalStorage)(); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-async-storage.external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4672,7 +4672,7 @@ SOFTWARE.
     });
     const _workasyncstorageinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-async-storage-instance.js [app-client] (ecmascript)",
-    ); //# sourceMappingURL=work-async-storage.external.js.map
+    ); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/action-async-storage-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4691,7 +4691,7 @@ SOFTWARE.
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
     );
     const actionAsyncStorageInstance = (0,
-    _asynclocalstorage.createAsyncLocalStorage)(); //# sourceMappingURL=action-async-storage-instance.js.map
+    _asynclocalstorage.createAsyncLocalStorage)(); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/action-async-storage.external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4708,7 +4708,7 @@ SOFTWARE.
     });
     const _actionasyncstorageinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/action-async-storage-instance.js [app-client] (ecmascript)",
-    ); //# sourceMappingURL=action-async-storage.external.js.map
+    ); 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/dynamic-rendering-utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4789,9 +4789,9 @@ SOFTWARE.
             );
           }
         });
-        // We are fine if no one actually awaits this promise. We shouldn't consider this an unhandled rejection so
-        // we attach a noop catch handler here to suppress this warning. If you actually await somewhere or construct
-        // your own promise out of it you'll need to ensure you handle the error when it rejects.
+        
+        
+        
         hangingPromise.catch(ignoreReject);
         return hangingPromise;
       }
@@ -4799,22 +4799,22 @@ SOFTWARE.
     function ignoreReject() {}
     function makeDevtoolsIOAwarePromise(underlying, requestStore, stage) {
       if (requestStore.stagedRendering) {
-        // We resolve each stage in a timeout, so React DevTools will pick this up as IO.
+        
         return requestStore.stagedRendering.delayUntilStage(
           stage,
           undefined,
           underlying,
         );
       }
-      // in React DevTools if we resolve in a setTimeout we will observe
-      // the promise resolution as something that can suspend a boundary or root.
+      
+      
       return new Promise((resolve) => {
-        // Must use setTimeout to be considered IO React DevTools. setImmediate will not work.
+        
         setTimeout(() => {
           resolve(underlying);
         }, 0);
       });
-    } //# sourceMappingURL=dynamic-rendering-utils.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/lib/router-utils/is-postpone.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4836,7 +4836,7 @@ SOFTWARE.
         error !== null &&
         error.$$typeof === REACT_POSTPONE_TYPE
       );
-    } //# sourceMappingURL=is-postpone.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/staged-rendering.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4871,7 +4871,7 @@ SOFTWARE.
     const _promisewithresolvers = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/promise-with-resolvers.js [app-client] (ecmascript)",
     );
-    var RenderStage = /*#__PURE__*/ (function (RenderStage) {
+    var RenderStage =  (function (RenderStage) {
       RenderStage[(RenderStage["Static"] = 1)] = "Static";
       RenderStage[(RenderStage["Runtime"] = 2)] = "Runtime";
       RenderStage[(RenderStage["Dynamic"] = 3)] = "Dynamic";
@@ -4891,11 +4891,11 @@ SOFTWARE.
             () => {
               const { reason } = abortSignal;
               if (this.currentStage < 2) {
-                this.runtimeStagePromise.promise.catch(ignoreReject); // avoid unhandled rejections
+                this.runtimeStagePromise.promise.catch(ignoreReject); 
                 this.runtimeStagePromise.reject(reason);
               }
               if (this.currentStage < 3) {
-                this.dynamicStagePromise.promise.catch(ignoreReject); // avoid unhandled rejections
+                this.dynamicStagePromise.promise.catch(ignoreReject); 
                 this.dynamicStagePromise.reject(reason);
               }
             },
@@ -4906,14 +4906,14 @@ SOFTWARE.
         }
       }
       advanceStage(stage) {
-        // If we're already at the target stage or beyond, do nothing.
-        // (this can happen e.g. if sync IO advanced us to the dynamic stage)
+        
+        
         if (this.currentStage >= stage) {
           return;
         }
         this.currentStage = stage;
-        // Note that we might be going directly from Static to Dynamic,
-        // so we need to resolve the runtime stage as well.
+        
+        
         if (stage >= 2) {
           this.runtimeStagePromise.resolve();
         }
@@ -4955,9 +4955,9 @@ SOFTWARE.
           displayName,
           resolvedValue,
         );
-        // Analogously to `makeHangingPromise`, we might reject this promise if the signal is invoked.
-        // (e.g. in the case where we don't want want the render to proceed to the dynamic stage and abort it).
-        // We shouldn't consider this an unhandled rejection, so we attach a noop catch handler here to suppress this warning.
+        
+        
+        
         if (this.abortSignal) {
           promise.catch(ignoreReject);
         }
@@ -4965,55 +4965,55 @@ SOFTWARE.
       }
     }
     function ignoreReject() {}
-    // TODO(restart-on-cache-miss): the layering of `delayUntilStage`,
-    // `makeDevtoolsIOPromiseFromIOTrigger` and and `makeDevtoolsIOAwarePromise`
-    // is confusing, we should clean it up.
+    
+    
+    
     function makeDevtoolsIOPromiseFromIOTrigger(
       ioTrigger,
       displayName,
       resolvedValue,
     ) {
-      // If we create a `new Promise` and give it a displayName
-      // (with no userspace code above us in the stack)
-      // React Devtools will use it as the IO cause when determining "suspended by".
-      // In particular, it should shadow any inner IO that resolved/rejected the promise
-      // (in case of staged rendering, this will be the `setTimeout` that triggers the relevant stage)
+      
+      
+      
+      
+      
       const promise = new Promise((resolve, reject) => {
         ioTrigger.then(resolve.bind(null, resolvedValue), reject);
       });
       if (displayName !== undefined) {
-        // @ts-expect-error
+        
         promise.displayName = displayName;
       }
       return promise;
-    } //# sourceMappingURL=staged-rendering.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-rendering.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    /**
-     * The functions provided by this module are used to communicate certain properties
-     * about the currently running code so that Next.js can make decisions on how to handle
-     * the current execution in different rendering modes such as pre-rendering, resuming, and SSR.
-     *
-     * Today Next.js treats all code as potentially static. Certain APIs may only make sense when dynamically rendering.
-     * Traditionally this meant deopting the entire render to dynamic however with PPR we can now deopt parts
-     * of a React tree as dynamic while still keeping other parts static. There are really two different kinds of
-     * Dynamic indications.
-     *
-     * The first is simply an intention to be dynamic. unstable_noStore is an example of this where
-     * the currently executing code simply declares that the current scope is dynamic but if you use it
-     * inside unstable_cache it can still be cached. This type of indication can be removed if we ever
-     * make the default dynamic to begin with because the only way you would ever be static is inside
-     * a cache scope which this indication does not affect.
-     *
-     * The second is an indication that a dynamic data source was read. This is a stronger form of dynamic
-     * because it means that it is inappropriate to cache this at all. using a dynamic data source inside
-     * unstable_cache should error. If you want to use some dynamic data inside unstable_cache you should
-     * read that data outside the cache and pass it in as an argument to the cached function.
-     */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-      /*#__PURE__*/ __turbopack_context__.i(
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -5136,7 +5136,7 @@ SOFTWARE.
         return useDynamicSearchParams;
       },
     });
-    const _react = /*#__PURE__*/ _interop_require_default(
+    const _react =  _interop_require_default(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -5207,13 +5207,13 @@ SOFTWARE.
         switch (workUnitStore.type) {
           case "cache":
           case "unstable-cache":
-            // Inside cache scopes, marking a scope as dynamic has no effect,
-            // because the outer cache scope creates a cache boundary. This is
-            // subtly different from reading a dynamic data source, which is
-            // forbidden inside a cache scope.
+            
+            
+            
+            
             return;
           case "private-cache":
-            // A private cache scope is already dynamic by definition.
+            
             return;
           case "prerender-legacy":
           case "prerender-ppr":
@@ -5223,9 +5223,9 @@ SOFTWARE.
             workUnitStore;
         }
       }
-      // If we're forcing dynamic rendering or we're forcing static rendering, we
-      // don't need to do anything here because the entire page is already dynamic
-      // or it's static and it should not throw or postpone here.
+      
+      
+      
       if (store.forceDynamic || store.forceStatic) return;
       if (store.dynamicShouldError) {
         throw Object.defineProperty(
@@ -5250,8 +5250,8 @@ SOFTWARE.
             );
           case "prerender-legacy":
             workUnitStore.revalidate = 0;
-            // We aren't prerendering, but we are generating a static page. We need
-            // to bail out of static generation.
+            
+            
             const err = Object.defineProperty(
               new _hooksservercontext.DynamicServerError(
                 `Route ${store.route} couldn't be rendered statically because it used ${expression}. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`,
@@ -5281,7 +5281,7 @@ SOFTWARE.
       store,
       prerenderStore,
     ) {
-      // We aren't prerendering but we are generating a static page. We need to bail out of static generation
+      
       const err = Object.defineProperty(
         new _hooksservercontext.DynamicServerError(
           `Route ${store.route} couldn't be rendered statically because it used \`${expression}\`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`,
@@ -5302,13 +5302,13 @@ SOFTWARE.
       switch (workUnitStore.type) {
         case "cache":
         case "unstable-cache":
-          // Inside cache scopes, marking a scope as dynamic has no effect,
-          // because the outer cache scope creates a cache boundary. This is
-          // subtly different from reading a dynamic data source, which is
-          // forbidden inside a cache scope.
+          
+          
+          
+          
           return;
         case "private-cache":
-          // A private cache scope is already dynamic by definition.
+          
           return;
         case "prerender":
         case "prerender-runtime":
@@ -5336,8 +5336,8 @@ SOFTWARE.
       const dynamicTracking = prerenderStore.dynamicTracking;
       if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-          // When we aren't debugging, we don't need to create another error for the
-          // stack trace.
+          
+          
           stack: dynamicTracking.isDebugDynamicAccesses
             ? new Error().stack
             : undefined,
@@ -5353,10 +5353,10 @@ SOFTWARE.
     ) {
       const dynamicTracking = prerenderStore.dynamicTracking;
       abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-      // It is important that we set this tracking value after aborting. Aborts are executed
-      // synchronously except for the case where you abort during render itself. By setting this
-      // value late we can use it to determine if any of the aborted tasks are the task that
-      // called the sync IO expression in the first place.
+      
+      
+      
+      
       if (dynamicTracking) {
         if (dynamicTracking.syncDynamicErrorWithStack === null) {
           dynamicTracking.syncDynamicErrorWithStack = errorWithStack;
@@ -5364,11 +5364,11 @@ SOFTWARE.
       }
     }
     function trackSynchronousPlatformIOAccessInDev(requestStore) {
-      // We don't actually have a controller to abort but we do the semantic equivalent by
-      // advancing the request store out of the prerender stage
+      
+      
       if (requestStore.stagedRendering) {
-        // TODO: error for sync IO in the runtime stage
-        // (which is not currently covered by the validation render in `spawnDynamicValidationInDev`)
+        
+        
         requestStore.stagedRendering.advanceStage(
           _stagedrendering.RenderStage.Dynamic,
         );
@@ -5382,16 +5382,16 @@ SOFTWARE.
     ) {
       const prerenderSignal = prerenderStore.controller.signal;
       if (prerenderSignal.aborted === false) {
-        // TODO it would be better to move this aborted check into the callsite so we can avoid making
-        // the error object when it isn't relevant to the aborting of the prerender however
-        // since we need the throw semantics regardless of whether we abort it is easier to land
-        // this way. See how this was handled with `abortOnSynchronousPlatformIOAccess` for a closer
-        // to ideal implementation
+        
+        
+        
+        
+        
         abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-        // It is important that we set this tracking value after aborting. Aborts are executed
-        // synchronously except for the case where you abort during render itself. By setting this
-        // value late we can use it to determine if any of the aborted tasks are the task that
-        // called the sync IO expression in the first place.
+        
+        
+        
+        
         const dynamicTracking = prerenderStore.dynamicTracking;
         if (dynamicTracking) {
           if (dynamicTracking.syncDynamicErrorWithStack === null) {
@@ -5416,8 +5416,8 @@ SOFTWARE.
       assertPostpone();
       if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-          // When we aren't debugging, we don't need to create another error for the
-          // stack trace.
+          
+          
           stack: dynamicTracking.isDebugDynamicAccesses
             ? new Error().stack
             : undefined,
@@ -5494,9 +5494,9 @@ SOFTWARE.
       return dynamicAccesses.length > 0;
     }
     function consumeDynamicAccess(serverDynamic, clientDynamic) {
-      // We mutate because we only call this once we are no longer writing
-      // to the dynamicTrackingState and it's more efficient than creating a new
-      // array.
+      
+      
+      
       serverDynamic.dynamicAccesses.push(...clientDynamic.dynamicAccesses);
       return serverDynamic.dynamicAccesses;
     }
@@ -5508,20 +5508,20 @@ SOFTWARE.
         )
         .map(({ expression, stack }) => {
           stack = stack
-            .split("\n") // Remove the "Error: " prefix from the first line of the stack trace as
-            // well as the first 4 lines of the stack trace which is the distance
-            // from the user code and the `new Error().stack` call.
+            .split("\n") 
+            
+            
             .slice(4)
             .filter((line) => {
-              // Exclude Next.js internals from the stack trace.
+              
               if (line.includes("node_modules/next/")) {
                 return false;
               }
-              // Exclude anonymous functions from the stack trace.
+              
               if (line.includes(" (<anonymous>)")) {
                 return false;
               }
-              // Exclude Node.js internals from the stack trace.
+              
               if (line.includes(" (node:")) {
                 return false;
               }
@@ -5567,25 +5567,25 @@ SOFTWARE.
         case "prerender-runtime":
           const controller = new AbortController();
           if (workUnitStore.cacheSignal) {
-            // If we have a cacheSignal it means we're in a prospective render. If
-            // the input we're waiting on is coming from another cache, we do want
-            // to wait for it so that we can resolve this cache entry too.
+            
+            
+            
             workUnitStore.cacheSignal.inputReady().then(() => {
               controller.abort();
             });
           } else {
-            // Otherwise we're in the final render and we should already have all
-            // our caches filled.
-            // If the prerender uses stages, we have wait until the runtime stage,
-            // at which point all runtime inputs will be resolved.
-            // (otherwise, a runtime prerender might consider `cookies()` hanging
-            //  even though they'd resolve in the next task.)
-            //
-            // We might still be waiting on some microtasks so we
-            // wait one tick before giving up. When we give up, we still want to
-            // render the content of this cache as deeply as we can so that we can
-            // suspend as deeply as possible in the tree or not at all if we don't
-            // end up waiting for the input.
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             const runtimeStagePromise = (0,
             _workunitasyncstorageexternal.getRuntimeStagePromise)(
               workUnitStore,
@@ -5632,9 +5632,9 @@ SOFTWARE.
           case "prerender": {
             const fallbackParams = workUnitStore.fallbackRouteParams;
             if (fallbackParams && fallbackParams.size > 0) {
-              // We are in a prerender with cacheComponents semantics. We are going to
-              // hang here and never resolve. This will cause the currently
-              // rendering component to effectively be a dynamic hole.
+              
+              
+              
               _react.default.use(
                 (0, _dynamicrenderingutils.makeHangingPromise)(
                   workUnitStore.renderSignal,
@@ -5695,7 +5695,7 @@ SOFTWARE.
       const workUnitStore =
         _workunitasyncstorageexternal.workUnitAsyncStorage.getStore();
       if (!workStore) {
-        // We assume pages router context and just return
+        
         return;
       }
       if (!workUnitStore) {
@@ -5763,21 +5763,21 @@ SOFTWARE.
       }
     }
     const hasSuspenseRegex = /\n\s+at Suspense \(<anonymous>\)/;
-    // Common implicit body tags that React will treat as body when placed directly in html
+    
     const bodyAndImplicitTags =
       "body|div|main|section|article|aside|header|footer|nav|form|p|span|h1|h2|h3|h4|h5|h6";
-    // Detects when RootLayoutBoundary (our framework marker component) appears
-    // after Suspense in the component stack, indicating the root layout is wrapped
-    // within a Suspense boundary. Ensures no body/html/implicit-body components are in between.
-    //
-    // Example matches:
-    //   at Suspense (<anonymous>)
-    //   at __next_root_layout_boundary__ (<anonymous>)
-    //
-    // Or with other components in between (but not body/html/implicit-body):
-    //   at Suspense (<anonymous>)
-    //   at SomeComponent (<anonymous>)
-    //   at __next_root_layout_boundary__ (<anonymous>)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     const hasSuspenseBeforeRootLayoutWithoutBodyOrImplicitBodyRegex =
       new RegExp(
         `\\n\\s+at Suspense \\(<anonymous>\\)(?:(?!\\n\\s+at (?:${bodyAndImplicitTags}) \\(<anonymous>\\))[\\s\\S])*?\\n\\s+at ${_boundaryconstants.ROOT_LAYOUT_BOUNDARY_NAME} \\([^\\n]*\\)`,
@@ -5798,7 +5798,7 @@ SOFTWARE.
       clientDynamic,
     ) {
       if (hasOutletRegex.test(componentStack)) {
-        // We don't need to track that this is dynamic. It is only so when something else is also dynamic.
+        
         return;
       } else if (hasMetadataRegex.test(componentStack)) {
         dynamicValidation.hasDynamicMetadata = true;
@@ -5811,19 +5811,19 @@ SOFTWARE.
           componentStack,
         )
       ) {
-        // For Suspense within body, the prelude wouldn't be empty so it wouldn't violate the empty static shells rule.
-        // But if you have Suspense above body, the prelude is empty but we allow that because having Suspense
-        // is an explicit signal from the user that they acknowledge the empty shell and want dynamic rendering.
+        
+        
+        
         dynamicValidation.hasAllowedDynamic = true;
         dynamicValidation.hasSuspenseAboveBody = true;
         return;
       } else if (hasSuspenseRegex.test(componentStack)) {
-        // this error had a Suspense boundary above it so we don't need to report it as a source
-        // of disallowed
+        
+        
         dynamicValidation.hasAllowedDynamic = true;
         return;
       } else if (clientDynamic.syncDynamicErrorWithStack) {
-        // This task was the task that called the sync error.
+        
         dynamicValidation.dynamicErrors.push(
           clientDynamic.syncDynamicErrorWithStack,
         );
@@ -5842,10 +5842,10 @@ SOFTWARE.
         return;
       }
     }
-    /**
-     * In dev mode, we prefer using the owner stack, otherwise the provided
-     * component stack is used.
-     */ function createErrorWithComponentOrOwnerStack(message, componentStack) {
+    
+
+
+ function createErrorWithComponentOrOwnerStack(message, componentStack) {
       const ownerStack =
         ("TURBOPACK compile-time value", "development") !== "production" &&
         _react.default.captureOwnerStack
@@ -5864,7 +5864,7 @@ SOFTWARE.
         error.name + ": " + message + (ownerStack ?? componentStack);
       return error;
     }
-    var PreludeState = /*#__PURE__*/ (function (PreludeState) {
+    var PreludeState =  (function (PreludeState) {
       PreludeState[(PreludeState["Full"] = 0)] = "Full";
       PreludeState[(PreludeState["Empty"] = 1)] = "Empty";
       PreludeState[(PreludeState["Errored"] = 2)] = "Errored";
@@ -5899,14 +5899,14 @@ SOFTWARE.
       }
       if (prelude !== 0) {
         if (dynamicValidation.hasSuspenseAboveBody) {
-          // This route has opted into allowing fully dynamic rendering
-          // by including a Suspense boundary above the body. In this case
-          // a lack of a shell is not considered disallowed so we simply return
+          
+          
+          
           return;
         }
-        // We didn't have any sync bailouts but there may be user code which
-        // blocked the root. We would have captured these during the prerender
-        // and can log them here and then terminate the build/validating render
+        
+        
+        
         const dynamicErrors = dynamicValidation.dynamicErrors;
         if (dynamicErrors.length > 0) {
           for (let i = 0; i < dynamicErrors.length; i++) {
@@ -5914,10 +5914,10 @@ SOFTWARE.
           }
           throw new _staticgenerationbailout.StaticGenBailoutError();
         }
-        // If we got this far then the only other thing that could be blocking
-        // the root is dynamic Viewport. If this is dynamic then
-        // you need to opt into that by adding a Suspense boundary above the body
-        // to indicate your are ok with fully dynamic rendering.
+        
+        
+        
+        
         if (dynamicValidation.hasDynamicViewport) {
           console.error(
             `Route "${workStore.route}" has a \`generateViewport\` that depends on Request data (\`cookies()\`, etc...) or uncached external data (\`fetch(...)\`, etc...) without explicitly allowing fully dynamic rendering. See more info here: https://nextjs.org/docs/messages/next-prerender-dynamic-viewport`,
@@ -5925,9 +5925,9 @@ SOFTWARE.
           throw new _staticgenerationbailout.StaticGenBailoutError();
         }
         if (prelude === 1) {
-          // If we ever get this far then we messed up the tracking of invalid dynamic.
-          // We still adhere to the constraint that you must produce a shell but invite the
-          // user to report this as a bug in Next.js.
+          
+          
+          
           console.error(
             `Route "${workStore.route}" did not produce a static shell and Next.js was unable to determine a reason. This is a bug in Next.js.`,
           );
@@ -5950,7 +5950,7 @@ SOFTWARE.
         return prerenderStore.runtimeStagePromise.then(() => result);
       }
       return result;
-    } //# sourceMappingURL=dynamic-rendering.js.map
+    } 
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/dev/hot-reloader-types.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -5979,10 +5979,10 @@ SOFTWARE.
         return HMR_MESSAGE_SENT_TO_SERVER;
       },
     });
-    var HMR_MESSAGE_SENT_TO_BROWSER = /*#__PURE__*/ (function (
+    var HMR_MESSAGE_SENT_TO_BROWSER =  (function (
       HMR_MESSAGE_SENT_TO_BROWSER,
     ) {
-      // JSON messages:
+      
       HMR_MESSAGE_SENT_TO_BROWSER["ADDED_PAGE"] = "addedPage";
       HMR_MESSAGE_SENT_TO_BROWSER["REMOVED_PAGE"] = "removedPage";
       HMR_MESSAGE_SENT_TO_BROWSER["RELOAD_PAGE"] = "reloadPage";
@@ -6008,24 +6008,24 @@ SOFTWARE.
         "requestCurrentErrorState";
       HMR_MESSAGE_SENT_TO_BROWSER["REQUEST_PAGE_METADATA"] =
         "requestPageMetadata";
-      // Binary messages:
+      
       HMR_MESSAGE_SENT_TO_BROWSER[
         (HMR_MESSAGE_SENT_TO_BROWSER["REACT_DEBUG_CHUNK"] = 0)
       ] = "REACT_DEBUG_CHUNK";
       return HMR_MESSAGE_SENT_TO_BROWSER;
     })({});
-    var HMR_MESSAGE_SENT_TO_SERVER = /*#__PURE__*/ (function (
+    var HMR_MESSAGE_SENT_TO_SERVER =  (function (
       HMR_MESSAGE_SENT_TO_SERVER,
     ) {
-      // JSON messages:
+      
       HMR_MESSAGE_SENT_TO_SERVER["MCP_ERROR_STATE_RESPONSE"] =
         "mcp-error-state-response";
       HMR_MESSAGE_SENT_TO_SERVER["MCP_PAGE_METADATA_RESPONSE"] =
         "mcp-page-metadata-response";
       HMR_MESSAGE_SENT_TO_SERVER["PING"] = "ping";
       return HMR_MESSAGE_SENT_TO_SERVER;
-    })({}); //# sourceMappingURL=hot-reloader-types.js.map
+    })({}); 
   },
 ]);
 
-//# sourceMappingURL=c729b_next_dist_1df661d4._.js.map
+

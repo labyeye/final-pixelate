@@ -21764,7 +21764,7 @@ a {
                 }
                 return a.exports;
               }
-              ((r.ab = "//"), (e.exports = r(629)));
+              ((r.ab = "
             })();
           },
         },
@@ -22034,7 +22034,7 @@ a {
               return e + t + n[r];
             }, "") + e[o]
           )
-            .replace(/\/\*[\s\S]*?\*\//g, "")
+            .replace(/\/\*[\s\S]*?\*\
             .replace(/\s+/g, " ")
             .replace(/\s*([:;,{}])\s*/g, "$1")
             .replace(/;+}/g, "}")
@@ -22516,8 +22516,8 @@ a {
         }
         function ez(e, t) {
           var n;
-          return "file://" === e.file ||
-            (null == (n = e.file) ? void 0 : n.match(/https?:\/\//))
+          return "file:
+            (null == (n = e.file) ? void 0 : n.match(/https?:\/\
             ? Promise.resolve({
                 error: !1,
                 reason: null,
@@ -24825,7 +24825,7 @@ a {
                       height: "14",
                       viewBox: "0 0 14 14",
                       fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg",
+                      xmlns: "http:
                     },
                     e,
                   )),

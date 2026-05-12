@@ -12,12 +12,12 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-// Returns whether token exists (never exposes the actual token)
+
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = (await params) as any;
+  const { id } = await params;
   const col = await svc.getCollection("clients");
   const { ObjectId } = await import("mongodb");
   const client = await col.findOne({ _id: new ObjectId(id) });
@@ -33,10 +33,10 @@ export async function GET(
   );
 }
 
-// Save / update the client's Meta System User Token
+
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const auth = request.headers.get("authorization") || "";
@@ -49,7 +49,7 @@ export async function PUT(
       );
     }
 
-    const { id } = (await params) as any;
+    const { id } = await params;
     const body = await request.json();
     const { metaAccessToken } = body;
 

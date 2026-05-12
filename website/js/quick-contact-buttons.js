@@ -1,14 +1,109 @@
 !(function () {
   "use strict";
-  if (document.querySelector(".quick-contact-stack")) return;
-  const n = document.createElement("style");
-  ((n.textContent =
-    "\n    .quick-contact-stack {\n      position: fixed;\n      right: 20px;\n      bottom: 95px;\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n      z-index: 9998;\n    }\n\n    .quick-contact-btn {\n      width: 60px;\n      height: 60px;\n      border-radius: 50%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-decoration: none;\n      color: #fff;\n      font-size: 24px;\n      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);\n      transition: transform 0.2s ease, box-shadow 0.2s ease;\n    }\n\n    .quick-contact-btn:hover {\n      transform: translateY(-2px) scale(1.04);\n      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);\n    }\n\n    .quick-contact-whatsapp {\n      background: #22c55e;\n    }\n\n    .quick-contact-call {\n      background: #0f4ea8;\n    }\n\n    @media (max-width: 480px) {\n      .quick-contact-stack {\n        right: 15px;\n        bottom: 80px;\n        gap: 8px;\n      }\n\n      .quick-contact-btn {\n        width: 56px;\n        height: 56px;\n        font-size: 22px;\n      }\n    }\n  "),
-    document.head.appendChild(n));
-  const t = document.createElement("div");
-  ((t.className = "quick-contact-stack"),
-    t.setAttribute("aria-label", "Quick Contact Buttons"),
-    (t.innerHTML =
-      '\n    <a\n      class="quick-contact-btn quick-contact-whatsapp"\n      href="https://wa.me/918406912345"\n      target="_blank"\n      rel="noopener noreferrer"\n      aria-label="Chat on WhatsApp"\n      title="WhatsApp"\n    >\n      <i class="fab fa-whatsapp" aria-hidden="true"></i>\n    </a>\n    <a\n      class="quick-contact-btn quick-contact-call"\n      href="tel:+918406912345"\n      aria-label="Call Us"\n      title="Call"\n    >\n      <i class="fas fa-phone-alt" aria-hidden="true"></i>\n    </a>\n  '),
-    document.body.appendChild(t));
+
+  function initializeContactButtons() {
+    
+    if (document.querySelector(".quick-contact-stack")) return;
+
+    
+    const styleEl = document.createElement("style");
+    styleEl.textContent = `
+      .quick-contact-stack {
+        position: fixed;
+        right: 20px;
+        bottom: 95px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 9998;
+      }
+
+      .quick-contact-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #fff;
+        font-size: 24px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        flex-shrink: 0;
+      }
+
+      .quick-contact-btn:hover {
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+      }
+
+      .quick-contact-whatsapp {
+        background: #22c55e;
+      }
+
+      .quick-contact-call {
+        background: #0f4ea8;
+      }
+
+      .quick-contact-upi {
+        background: #f97316;
+      }
+
+      @media (max-width: 480px) {
+        .quick-contact-stack {
+          right: 15px;
+          bottom: 80px;
+          gap: 8px;
+        }
+
+        .quick-contact-btn {
+          width: 56px;
+          height: 56px;
+          font-size: 22px;
+        }
+      }
+    `;
+    document.head.appendChild(styleEl);
+
+    
+    const container = document.createElement("div");
+    container.className = "quick-contact-stack";
+    container.setAttribute("aria-label", "Quick Contact Buttons");
+    container.innerHTML = `
+      <a
+        class="quick-contact-btn quick-contact-whatsapp"
+        href="https://wa.me/918406912345"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        title="WhatsApp"
+      >
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      </a>
+      <a
+        class="quick-contact-btn quick-contact-call"
+        href="tel:+918406912345"
+        aria-label="Call Us"
+        title="Call"
+      >
+        <i class="fas fa-phone-alt" aria-hidden="true"></i>
+      </a>
+      
+    `;
+
+    
+    document.body.appendChild(container);
+  }
+
+  
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeContactButtons);
+  } else {
+    
+    initializeContactButtons();
+  }
+
+  
+  setTimeout(initializeContactButtons, 500);
 })();

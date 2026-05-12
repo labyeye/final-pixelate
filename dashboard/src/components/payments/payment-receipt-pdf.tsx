@@ -10,8 +10,8 @@ import {
 import logoImg from "../../assets/images/Logo_Color_Name_Large.png";
 import signImg from "../../assets/images/sign.png";
 
-// Next.js static imports return StaticImageData { src, width, height }.
-// react-pdf's <Image> needs a plain URL string.
+
+
 const LOGO_PATH = logoImg.src;
 const SIGN_PATH = signImg.src;
 
@@ -33,7 +33,7 @@ const S = StyleSheet.create({
     paddingRight: 28,
   },
 
-  // Outer cheque-style border
+  
   outerBorder: {
     border: "2pt solid #1e3a8a",
     borderRadius: 2,
@@ -43,7 +43,7 @@ const S = StyleSheet.create({
     margin: 3,
   },
 
-  // Header band
+  
   headerBand: {
     backgroundColor: "#ffffff",
     flexDirection: "row",
@@ -67,7 +67,7 @@ const S = StyleSheet.create({
     marginTop: 2,
   },
 
-  // Receipt meta strip
+  
   metaStrip: {
     flexDirection: "row",
     backgroundColor: "#ffffff",
@@ -91,7 +91,7 @@ const S = StyleSheet.create({
     color: DARK,
   },
 
-  // Main receipt body — cheque style
+  
   chequeBody: {
     paddingHorizontal: 14,
     paddingTop: 14,
@@ -99,7 +99,7 @@ const S = StyleSheet.create({
     borderBottom: `1pt solid #ffffff`,
   },
 
-  // "Received from" row
+  
   receivedRow: {
     flexDirection: "row",
     alignItems: "flex-end",
@@ -122,7 +122,7 @@ const S = StyleSheet.create({
     letterSpacing: 0.3,
   },
 
-  // Amount row — cheque style
+  
   amountSection: {
     flexDirection: "row",
     alignItems: "stretch",
@@ -173,7 +173,7 @@ const S = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  // Details row
+  
   detailsRow: {
     flexDirection: "row",
     gap: 0,
@@ -206,7 +206,7 @@ const S = StyleSheet.create({
     color: DARK,
   },
 
-  // Invoice reference bar
+  
   invoiceRefBar: {
     backgroundColor: "#ffffff",
     border: "0.75pt solid #a8d5c2",
@@ -240,7 +240,7 @@ const S = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  // Signature section
+  
   signatureSection: {
     flexDirection: "row",
     alignItems: "flex-end",
@@ -291,7 +291,7 @@ const S = StyleSheet.create({
     textAlign: "right",
   },
 
-  // Footer
+  
   footer: {
     flexDirection: "row",
     alignItems: "center",
@@ -302,7 +302,7 @@ const S = StyleSheet.create({
   footerText: { fontSize: 7, color: "#666" },
   footerBrand: { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: BLUE },
 
-  // Watermark-style "PAID" text overlay
+  
   paidWatermark: {
     position: "absolute",
     top: 130,
@@ -315,36 +315,36 @@ const S = StyleSheet.create({
   },
 });
 
-// ── Helpers ────────────────────────────────────────────────────────────────
 
-/** Safely convert any value that might be a BSON Decimal128 / extended JSON / object to a JS number */
+
+
 function toNum(v: unknown): number {
   if (v === null || v === undefined) return 0;
   if (typeof v === "number") return isFinite(v) ? v : 0;
   if (typeof v === "string") return parseFloat(v) || 0;
-  // BSON Decimal128 / extended JSON: { $numberDecimal: "5000" } or { $numberLong: "5000" }
+  
   if (typeof v === "object") {
     const o = v as Record<string, unknown>;
     const raw =
       o.$numberDecimal ?? o.$numberLong ?? o.$numberInt ?? o.$numberDouble;
     if (raw !== undefined) return parseFloat(String(raw)) || 0;
-    // Last resort: try toString()
+    
     const s = String(v);
     return parseFloat(s) || 0;
   }
   return 0;
 }
 
-/** Safely convert any value to a plain string — never lets an object leak into a Text node */
+
 function toStr(v: unknown): string {
   if (v === null || v === undefined) return "";
   if (typeof v === "string") return v;
   if (typeof v === "number") return isFinite(v) ? String(v) : "";
   if (typeof v === "object") {
     const o = v as Record<string, unknown>;
-    // BSON Date extended JSON
+    
     if (o.$date) return String(o.$date);
-    // BSON numeric types
+    
     const n = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt;
     if (n !== undefined) return String(n);
     return "";
@@ -457,7 +457,7 @@ function getFinancialYear(): string {
   return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
 }
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+
 
 export interface PaymentReceiptData {
   receiptNo: string;
@@ -475,7 +475,7 @@ export interface PaymentReceiptData {
   invoiceStatus?: string;
 }
 
-// ── PDF Component ─────────────────────────────────────────────────────────────
+
 
 export function PaymentReceiptPDFDocument({
   data,
@@ -495,10 +495,10 @@ export function PaymentReceiptPDFDocument({
       <Page size="A4" style={S.page}>
         <View style={S.outerBorder}>
           <View style={S.innerBorder}>
-            {/* PAID watermark */}
+            {}
             <Text style={S.paidWatermark}>PAID</Text>
 
-            {/* Header Band */}
+            {}
             <View style={S.headerBand}>
               <Image src={LOGO_PATH} style={S.logo} />
               <View style={S.headerRight}>
@@ -509,7 +509,7 @@ export function PaymentReceiptPDFDocument({
               </View>
             </View>
 
-            {/* Meta strip */}
+            {}
             <View style={S.metaStrip}>
               <View style={S.metaItem}>
                 <Text style={S.metaLabel}>Receipt No.</Text>
@@ -531,9 +531,9 @@ export function PaymentReceiptPDFDocument({
               </View>
             </View>
 
-            {/* Cheque Body */}
+            {}
             <View style={S.chequeBody}>
-              {/* Received From */}
+              {}
               <View style={S.receivedRow}>
                 <Text style={S.receivedLabel}>Received with thanks from:</Text>
                 <Text style={S.receivedValue}>
@@ -541,7 +541,7 @@ export function PaymentReceiptPDFDocument({
                 </Text>
               </View>
 
-              {/* Amount in Words + Amount Box */}
+              {}
               <View style={S.amountSection}>
                 <View style={S.amountWords}>
                   <Text style={S.amountWordsLabel}>Amount in Words (INR)</Text>
@@ -553,7 +553,7 @@ export function PaymentReceiptPDFDocument({
                 </View>
               </View>
 
-              {/* Payment Details Row */}
+              {}
               <View style={S.detailsRow}>
                 <View style={S.detailBlock}>
                   <Text style={S.detailLabel}>Payment Mode</Text>
@@ -575,7 +575,7 @@ export function PaymentReceiptPDFDocument({
                 </View>
               </View>
 
-              {/* Invoice Reference Bar */}
+              {}
               <View style={S.invoiceRefBar}>
                 <Text style={S.invoiceRefLabel}>
                   Being payment against Invoice:
@@ -604,7 +604,7 @@ export function PaymentReceiptPDFDocument({
                 ) : null}
               </View>
 
-              {/* Client & Company details */}
+              {}
               {(data.clientAddress || data.clientPhone) && (
                 <View style={{ flexDirection: "row", gap: 0, marginBottom: 4 }}>
                   <View style={[S.detailBlock, { flex: 2 }]}>
@@ -638,7 +638,7 @@ export function PaymentReceiptPDFDocument({
               )}
             </View>
 
-            {/* Signature Section */}
+            {}
             <View style={S.signatureSection}>
               <Text style={S.companyNote}>
                 {
@@ -664,7 +664,7 @@ export function PaymentReceiptPDFDocument({
               </View>
             </View>
 
-            {/* Footer */}
+            {}
             <View style={S.footer}>
               <Text style={S.footerText}>
                 This is a computer-generated receipt. No physical signature

@@ -63,7 +63,7 @@ export default function SocialMediaCalendarPage() {
     loadPosts(selectedClientId);
   }, [selectedClientId]);
 
-  // Parse date string to Date object
+  
   const parseDate = (dateStr: string): Date => {
     if (!dateStr) return new Date();
     if (dateStr.includes("T")) {
@@ -72,17 +72,17 @@ export default function SocialMediaCalendarPage() {
     return new Date(dateStr);
   };
 
-  // Get days in month
+  
   const getDaysInMonth = (date: Date): number => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   };
 
-  // Get first day of month
+  
   const getFirstDayOfMonth = (date: Date): number => {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   };
 
-  // Format date to YYYY-MM-DD
+  
   const formatDateKey = (date: Date): string => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -90,7 +90,7 @@ export default function SocialMediaCalendarPage() {
     return `${year}-${month}-${day}`;
   };
 
-  // Group posts by date
+  
   const postsByDate = useMemo(() => {
     const map = new Map<string, SocialMediaPost[]>();
     posts.forEach((post) => {
@@ -102,7 +102,7 @@ export default function SocialMediaCalendarPage() {
       map.get(key)!.push(post);
     });
 
-    // Apply platform filter
+    
     if (platformFilter) {
       const filtered = new Map<string, SocialMediaPost[]>();
       map.forEach((postsForDate, key) => {
@@ -119,7 +119,7 @@ export default function SocialMediaCalendarPage() {
     return map;
   }, [posts, platformFilter]);
 
-  // Render month calendar
+  
   const renderMonthCalendar = () => {
     const daysInMonth = getDaysInMonth(currentDate);
     const firstDay = getFirstDayOfMonth(currentDate);
@@ -230,7 +230,7 @@ export default function SocialMediaCalendarPage() {
     );
   };
 
-  // Render list view
+  
   const renderListView = () => {
     const sortedDates = Array.from(postsByDate.keys()).sort();
 
@@ -349,7 +349,7 @@ export default function SocialMediaCalendarPage() {
         </p>
       </div>
 
-      {/* Filters */}
+      {}
       <div className="bg-white rounded-lg border p-4 space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
@@ -403,7 +403,7 @@ export default function SocialMediaCalendarPage() {
         )}
       </div>
 
-      {/* Calendar/List Display */}
+      {}
       <div className="bg-white rounded-lg border p-6">
         {!selectedClientId ? (
           <div className="text-center py-12">
@@ -418,7 +418,7 @@ export default function SocialMediaCalendarPage() {
         )}
       </div>
 
-      {/* Status Legend */}
+      {}
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Status Legend</CardTitle>

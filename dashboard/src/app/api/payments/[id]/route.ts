@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { searchParams } = new URL(req.url);
@@ -87,7 +87,7 @@ export async function DELETE(
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { invoiceId, index, amount, date, mode, remarks } = await req.json();

@@ -4,7 +4,7 @@ import { getCollection } from "@/lib/services";
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const status = searchParams.get("status"); // filter by status
+    const status = searchParams.get("status"); 
     const limit = parseInt(searchParams.get("limit") ?? "100", 10);
 
     const col = await getCollection("invoices");
