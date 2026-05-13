@@ -56,6 +56,9 @@ export default function PhotoGalleriesPage() {
     thumbnailBase64: "",
     showOn: [],
   });
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [showPreview, setShowPreview] = useState(false);
   const { user } = useAuth();
   const { toast } = useToast();
 
@@ -329,7 +332,7 @@ export default function PhotoGalleriesPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-sm">{stats.latest}</div>
+            <div className="text-2xl font-bold">{stats.latest}</div>
             <p className="text-xs text-muted-foreground mt-1">
               Most recent photo
             </p>
@@ -666,6 +669,34 @@ export default function PhotoGalleriesPage() {
               {isSaving && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
               {editingPhoto ? "Update Photo" : "Add Photo"}
             </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Preview Dialog */}
+      <Dialog open={showPreview} onOpenChange={setShowPreview}>
+        <DialogContent className="max-w-3xl">
+          <DialogHeader>
+            <DialogTitle>{selectedPhoto?.title}</DialogTitle>
+            <DialogDescription>{selectedPhoto?.category}</DialogDescription>
+          </DialogHeader>
+          <div className="mt-4">
+            {selectedPhoto && (
+              <div className="space-y-4">
+                <div className="aspect-video relative overflow-hidden rounded-lg bg-muted">
+                  <img
+                    src={getImageUrl(selectedPhoto)}
+                    alt={selectedPhoto.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                {selectedPhoto.description && (
+                  <p className="text-sm text-muted-foreground">
+                    {selectedPhoto.description}
+                  </p>
+                )}
+              </div>
+            )}
           </div>
         </DialogContent>
       </Dialog>

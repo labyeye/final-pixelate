@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -1354,33 +1354,17 @@
           const res = await fetch(
             "https://backend.pixelatenest.com/api/photos",
           );
-          let galleries = [];
+          let photos = [];
           if (res.ok) {
-            const json = await res.json();
-
-            if (
-              Array.isArray(json) &&
-              json.length &&
-              (json[0].thumbnailBase64 || json[0].thumbnail || json[0].url)
-            ) {
-              galleries = [{ brandName: "All Photos", entries: json }];
-            } else {
-              galleries = json;
-            }
+            photos = await res.json();
           } else {
             const local = await fetch("./photo-galleries-sample.json");
-            galleries = local.ok ? await local.json() : [];
+            photos = local.ok ? await local.json() : [];
           }
 
           const grid = document.getElementById("portfolio-grid");
           if (!grid) return;
           grid.innerHTML = "";
-
-          const photos = [];
-          galleries.forEach((g) => {
-            const entries = Array.isArray(g.entries) ? g.entries : [];
-            entries.forEach((e) => photos.push(e));
-          });
 
           if (!photos || photos.length === 0) {
             grid.innerHTML =
@@ -1388,37 +1372,73 @@
             return;
           }
 
-          photos.forEach((p, idx) => {
-            const card = document.createElement("div");
-
-            let forceLarge = false;
-            if (p.height === 3 || p.height === "3") forceLarge = true;
-            else if (p.height == null) {
-              forceLarge = Math.random() < 0.24;
-
-              if (!forceLarge && idx % 8 === 0 && Math.random() < 0.5)
-                forceLarge = true;
-            }
-
-            const sizeClass = forceLarge ? "size-large" : "size-small";
-            card.className = `portfolio-card ${sizeClass}`;
-
-            const img = document.createElement("img");
-            img.className = "portfolio-image";
-            img.alt = p.title || "Photo";
-            img.loading = "lazy";
-            img.src =
-              p.thumbnailBase64 ||
-              p.thumbnail ||
-              p.url ||
-              "/assets/placeholder.png";
-
-            img.addEventListener("load", () => card.classList.add("loaded"));
-
-            card.appendChild(img);
-            grid.appendChild(card);
+          // Group photos by category
+          const groups = {};
+          photos.forEach((p) => {
+            const cat = p.category || "General Portfolio";
+            if (!groups[cat]) groups[cat] = [];
+            groups[cat].push(p);
           });
-        } catch (err) {}
+
+          // Render groups
+          Object.entries(groups).forEach(([category, categoryPhotos]) => {
+            // Add Category Title
+            const titleSection = document.createElement("div");
+            titleSection.style.gridColumn = "1 / -1";
+            titleSection.style.marginTop = "40px";
+            titleSection.style.marginBottom = "20px";
+            titleSection.style.textAlign = "left";
+            
+            const title = document.createElement("h2");
+            title.className = "text-linear";
+            title.style.fontSize = "2rem";
+            title.style.fontWeight = "bold";
+            title.textContent = category;
+            titleSection.appendChild(title);
+            
+            const divider = document.createElement("div");
+            divider.style.height = "2px";
+            divider.style.width = "60px";
+            divider.style.background = "var(--primary-500, #3b82f6)";
+            divider.style.marginTop = "8px";
+            titleSection.appendChild(divider);
+            
+            grid.appendChild(titleSection);
+
+            // Add Photos for this category
+            categoryPhotos.forEach((p, idx) => {
+              const card = document.createElement("div");
+
+              let forceLarge = false;
+              if (p.height === 3 || p.height === "3") forceLarge = true;
+              else if (p.height == null) {
+                forceLarge = Math.random() < 0.24;
+                if (!forceLarge && idx % 8 === 0 && Math.random() < 0.5)
+                  forceLarge = true;
+              }
+
+              const sizeClass = forceLarge ? "size-large" : "size-small";
+              card.className = `portfolio-card ${sizeClass}`;
+
+              const img = document.createElement("img");
+              img.className = "portfolio-image";
+              img.alt = p.title || "Photo";
+              img.loading = "lazy";
+              img.src =
+                p.thumbnailBase64 ||
+                p.thumbnail ||
+                p.url ||
+                "/assets/placeholder.png";
+
+              img.addEventListener("load", () => card.classList.add("loaded"));
+
+              card.appendChild(img);
+              grid.appendChild(card);
+            });
+          });
+        } catch (err) {
+          console.error("Error loading gallery:", err);
+        }
       }
 
       if (
