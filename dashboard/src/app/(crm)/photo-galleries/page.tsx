@@ -21,7 +21,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Image, Grid3x3, Trash2, Eye, Plus } from "lucide-react";
+import { Image, Grid3x3, Trash2, Eye, Plus, Edit2, Upload, Loader2, List as ListIcon } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface Photo {
   _id: string;
@@ -44,9 +46,16 @@ export default function PhotoGalleriesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [categories, setCategories] = useState<string[]>([]);
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  const [showPreview, setShowPreview] = useState(false);
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingPhoto, setEditingPhoto] = useState<Photo | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [formData, setFormData] = useState<Partial<Photo>>({
+    title: "",
+    description: "",
+    category: "",
+    thumbnailBase64: "",
+    showOn: [],
+  });
   const { user } = useAuth();
   const { toast } = useToast();
 
@@ -133,6 +142,99 @@ export default function PhotoGalleriesPage() {
     }
   };
 
+  const handleOpenAddDialog = () => {
+    setEditingPhoto(null);
+    setFormData({
+      title: "",
+      description: "",
+      category: "",
+      thumbnailBase64: "",
+      showOn: [],
+    });
+    setIsDialogOpen(true);
+  };
+
+  const handleOpenEditDialog = (photo: Photo) => {
+    setEditingPhoto(photo);
+    setFormData({
+      title: photo.title,
+      description: photo.description || "",
+      category: photo.category || "",
+      thumbnailBase64: photo.thumbnailBase64 || photo.thumbnail || photo.url || "",
+      showOn: photo.showOn || [],
+    });
+    setIsDialogOpen(true);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 2 * 1024 * 1024) {
+        toast({
+          title: "File too large",
+          description: "Please select an image smaller than 2MB",
+          variant: "destructive",
+        });
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData({ ...formData, thumbnailBase64: reader.result as string });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSavePhoto = async () => {
+    if (!formData.title) {
+      toast({
+        title: "Title required",
+        description: "Please provide a title for the photo",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      setIsSaving(true);
+      const token = localStorage.getItem("token");
+      const url = editingPhoto ? `/api/photos/${editingPhoto._id}` : "/api/photos";
+      const method = editingPhoto ? "PUT" : "POST";
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error("Failed to save photo");
+
+      const savedPhoto = await response.json();
+
+      if (editingPhoto) {
+        setPhotos(photos.map((p) => (p._id === savedPhoto._id ? savedPhoto : p)));
+        toast({ title: "Success", description: "Photo updated successfully" });
+      } else {
+        setPhotos([savedPhoto, ...photos]);
+        toast({ title: "Success", description: "Photo added successfully" });
+      }
+
+      setIsDialogOpen(false);
+    } catch (error) {
+      console.error("Error saving photo:", error);
+      toast({
+        title: "Error",
+        description: "Failed to save photo",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const getImageUrl = (photo: Photo) => {
     return (
       photo.thumbnailBase64 ||
@@ -141,6 +243,18 @@ export default function PhotoGalleriesPage() {
       "/assets/placeholder.png"
     );
   };
+
+  const groupPhotosByCategory = (photosList: Photo[]) => {
+    const groups: { [key: string]: Photo[] } = {};
+    photosList.forEach((photo) => {
+      const cat = photo.category || "General";
+      if (!groups[cat]) groups[cat] = [];
+      groups[cat].push(photo);
+    });
+    return groups;
+  };
+
+  const groupedPhotos = groupPhotosByCategory(filteredPhotos);
 
   const stats = {
     total: photos.length,
@@ -164,15 +278,23 @@ export default function PhotoGalleriesPage() {
   return (
     <div className="space-y-8">
       {}
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold flex items-center gap-2">
-          <Image className="w-8 h-8" />
-          Photo Galleries
-        </h1>
-        <p className="text-muted-foreground">
-          Manage and organize your photography portfolio
-        </p>
-      </div>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex flex-col gap-2">
+            <h1 className="text-3xl font-bold flex items-center gap-2">
+              <Image className="w-8 h-8" />
+              Photo Galleries
+            </h1>
+            <p className="text-muted-foreground">
+              Manage and organize your photography portfolio
+            </p>
+          </div>
+          {user?.role === "admin" && (
+            <Button onClick={handleOpenAddDialog} className="w-fit">
+              <Plus className="w-4 h-4 mr-2" />
+              Add Photo
+            </Button>
+          )}
+        </div>
 
       {}
       <div className="grid gap-4 md:grid-cols-3">
@@ -244,7 +366,7 @@ export default function PhotoGalleriesPage() {
                   size="sm"
                   onClick={() => setViewMode("list")}
                 >
-                  <i className="fas fa-list w-4 h-4" />
+                  <ListIcon className="w-4 h-4 mr-2" />
                   List
                 </Button>
               </div>
@@ -293,182 +415,258 @@ export default function PhotoGalleriesPage() {
         </Card>
       ) : (
         <>
-          {viewMode === "grid" ? (
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {filteredPhotos.map((photo) => (
-                <div
-                  key={photo._id}
-                  className="group relative overflow-hidden rounded-lg border bg-card hover:shadow-lg transition-shadow"
-                >
-                  {}
-                  <div className="aspect-square overflow-hidden bg-muted">
-                    <img
-                      src={getImageUrl(photo)}
-                      alt={photo.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
+          {Object.entries(groupedPhotos).map(([category, categoryPhotos]) => (
+            <div key={category} className="space-y-4">
+              <div className="flex items-center gap-4">
+                <h2 className="text-xl font-bold text-primary">{category}</h2>
+                <div className="h-px flex-1 bg-border" />
+                <Badge variant="outline">{categoryPhotos.length} Photos</Badge>
+              </div>
 
-                  {}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      onClick={() => {
-                        setSelectedPhoto(photo);
-                        setShowPreview(true);
-                      }}
+              {viewMode === "grid" ? (
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {categoryPhotos.map((photo) => (
+                    <div
+                      key={photo._id}
+                      className="group relative overflow-hidden rounded-lg border bg-card hover:shadow-lg transition-shadow"
                     >
-                      <Eye className="w-4 h-4 mr-1" />
-                      View
-                    </Button>
-                    {user?.role === "admin" && (
-                      <Button
-                        size="sm"
-                        variant="destructive"
-                        onClick={() => handleDeletePhoto(photo._id)}
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </Button>
-                    )}
-                  </div>
+                      {}
+                      <div className="aspect-square overflow-hidden bg-muted">
+                        <img
+                          src={getImageUrl(photo)}
+                          alt={photo.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
 
-                  {}
-                  <div className="p-3 space-y-1">
-                    <h3 className="font-semibold text-sm line-clamp-1">
-                      {photo.title}
-                    </h3>
-                    {photo.category && (
-                      <Badge variant="secondary" className="w-fit text-xs">
-                        {photo.category}
-                      </Badge>
-                    )}
-                    {photo.description && (
-                      <p className="text-xs text-muted-foreground line-clamp-2">
-                        {photo.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <Card>
-              <CardContent className="divide-y pt-6">
-                {filteredPhotos.map((photo) => (
-                  <div
-                    key={photo._id}
-                    className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"
-                  >
-                    {}
-                    <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
-                      <img
-                        src={getImageUrl(photo)}
-                        alt={photo.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-
-                    {}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-sm">{photo.title}</h3>
-                      {photo.description && (
-                        <p className="text-sm text-muted-foreground line-clamp-1">
-                          {photo.description}
-                        </p>
-                      )}
-                      <div className="flex gap-2 mt-2">
-                        {photo.category && (
-                          <Badge variant="secondary" className="text-xs">
-                            {photo.category}
-                          </Badge>
+                      {}
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                        <Button
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => {
+                            setSelectedPhoto(photo);
+                            setShowPreview(true);
+                          }}
+                        >
+                          <Eye className="w-4 h-4 mr-1" />
+                          View
+                        </Button>
+                        {user?.role === "admin" && (
+                          <>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="bg-white/10 text-white border-white/20 hover:bg-white/20"
+                              onClick={() => handleOpenEditDialog(photo)}
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="destructive"
+                              onClick={() => handleDeletePhoto(photo._id)}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </>
                         )}
-                        {photo.showOn && photo.showOn.length > 0 && (
-                          <Badge variant="outline" className="text-xs">
-                            Featured on {photo.showOn.length} page(s)
-                          </Badge>
+                      </div>
+
+                      {}
+                      <div className="p-3 space-y-1">
+                        <h3 className="font-semibold text-sm line-clamp-1">
+                          {photo.title}
+                        </h3>
+                        {photo.description && (
+                          <p className="text-xs text-muted-foreground line-clamp-2">
+                            {photo.description}
+                          </p>
                         )}
                       </div>
                     </div>
-
-                    {}
-                    <div className="flex gap-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => {
-                          setSelectedPhoto(photo);
-                          setShowPreview(true);
-                        }}
+                  ))}
+                </div>
+              ) : (
+                <Card>
+                  <CardContent className="divide-y pt-6">
+                    {categoryPhotos.map((photo) => (
+                      <div
+                        key={photo._id}
+                        className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"
                       >
-                        <Eye className="w-4 h-4" />
-                      </Button>
-                      {user?.role === "admin" && (
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => handleDeletePhoto(photo._id)}
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          )}
+                        {}
+                        <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
+                          <img
+                            src={getImageUrl(photo)}
+                            alt={photo.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+
+                        {}
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-sm">{photo.title}</h3>
+                          {photo.description && (
+                            <p className="text-sm text-muted-foreground line-clamp-1">
+                              {photo.description}
+                            </p>
+                          )}
+                          <div className="flex gap-2 mt-2">
+                            {photo.showOn && photo.showOn.length > 0 && (
+                              <Badge variant="outline" className="text-xs">
+                                Featured on {photo.showOn.length} page(s)
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+
+                        {}
+                        <div className="flex gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => {
+                              setSelectedPhoto(photo);
+                              setShowPreview(true);
+                            }}
+                          >
+                            <Eye className="w-4 h-4" />
+                          </Button>
+                          {user?.role === "admin" && (
+                            <>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => handleOpenEditDialog(photo)}
+                              >
+                                <Edit2 className="w-4 h-4" />
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="destructive"
+                                onClick={() => handleDeletePhoto(photo._id)}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </Button>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          ))}
         </>
       )}
 
       {}
-      <Dialog open={showPreview} onOpenChange={setShowPreview}>
-        <DialogContent className="max-w-2xl">
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>{selectedPhoto?.title}</DialogTitle>
-            {selectedPhoto?.description && (
-              <DialogDescription>{selectedPhoto.description}</DialogDescription>
-            )}
+            <DialogTitle>{editingPhoto ? "Edit Photo" : "Add New Photo"}</DialogTitle>
+            <DialogDescription>
+              {editingPhoto ? "Update the details of your photo" : "Fill in the details to add a new photo to your gallery"}
+            </DialogDescription>
           </DialogHeader>
-          {selectedPhoto && (
-            <div className="space-y-4">
-              <div className="w-full rounded-lg overflow-hidden bg-muted">
-                <img
-                  src={getImageUrl(selectedPhoto)}
-                  alt={selectedPhoto.title}
-                  className="w-full h-auto max-h-96 object-cover"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-muted-foreground">Category:</span>
-                  <p className="font-medium">
-                    {selectedPhoto.category || "N/A"}
-                  </p>
-                </div>
-                <div>
-                  <span className="text-muted-foreground">Created:</span>
-                  <p className="font-medium">
-                    {selectedPhoto.createdAt
-                      ? new Date(selectedPhoto.createdAt).toLocaleDateString()
-                      : "N/A"}
-                  </p>
-                </div>
-                {selectedPhoto.showOn && selectedPhoto.showOn.length > 0 && (
-                  <div className="col-span-2">
-                    <span className="text-muted-foreground">Featured on:</span>
-                    <div className="flex gap-2 mt-2">
-                      {selectedPhoto.showOn.map((page) => (
-                        <Badge key={page} variant="secondary">
-                          {page}
-                        </Badge>
-                      ))}
+
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="title">Title *</Label>
+              <Input
+                id="title"
+                placeholder="Photo Title"
+                value={formData.title}
+                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="category">Category / Gallery Title</Label>
+              <Input
+                id="category"
+                placeholder="e.g. Products, Events, Portrait"
+                value={formData.category}
+                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              />
+              <p className="text-xs text-muted-foreground">
+                Photos are grouped by this field on the website.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="description">Description</Label>
+              <Textarea
+                id="description"
+                placeholder="Brief description of the photo..."
+                value={formData.description}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Photo Upload</Label>
+              <div className="flex items-center gap-4">
+                <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-muted border">
+                  {formData.thumbnailBase64 ? (
+                    <img
+                      src={formData.thumbnailBase64}
+                      alt="Preview"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                      <Image className="w-8 h-8" />
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
+                <div className="flex-1">
+                  <Input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="cursor-pointer"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Max size: 2MB. Recommended: square or 4:3 ratio.
+                  </p>
+                </div>
               </div>
             </div>
-          )}
+
+            <div className="flex items-center space-x-2 pt-2">
+              <Checkbox
+                id="featured"
+                checked={formData.showOn?.includes("photography")}
+                onCheckedChange={(checked) => {
+                  const currentShowOn = formData.showOn || [];
+                  if (checked) {
+                    setFormData({ ...formData, showOn: [...currentShowOn, "photography"] });
+                  } else {
+                    setFormData({
+                      ...formData,
+                      showOn: currentShowOn.filter((p) => p !== "photography"),
+                    });
+                  }
+                }}
+              />
+              <Label htmlFor="featured" className="text-sm font-normal cursor-pointer">
+                Show on Photography page
+              </Label>
+            </div>
+          </div>
+
+          <div className="flex justify-end gap-2">
+            <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleSavePhoto} disabled={isSaving}>
+              {isSaving && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
+              {editingPhoto ? "Update Photo" : "Add Photo"}
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
     </div>

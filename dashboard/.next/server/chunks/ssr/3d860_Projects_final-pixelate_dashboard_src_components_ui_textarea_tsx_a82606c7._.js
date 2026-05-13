@@ -1,3 +1,0 @@
-module.exports=[759361,a=>{"use strict";var b=a.i(957457),c=a.i(590782),d=a.i(859104);let e=c.forwardRef(({className:a,...c},e)=>(0,b.jsx)("textarea",{className:(0,d.cn)("flex min-h-[80px] w-full rounded-none border-2 border-foreground bg-background px-4 py-3 text-lg ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",a),ref:e,...c}));e.displayName="Textarea",a.s(["Textarea",()=>e])}];
-
-//# sourceMappingURL=3d860_Projects_final-pixelate_dashboard_src_components_ui_textarea_tsx_a82606c7._.js.map

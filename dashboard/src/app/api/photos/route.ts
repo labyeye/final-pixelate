@@ -28,10 +28,16 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const doc = {
-      thumbnailBase64: body.thumbnailBase64 || "",
       title: body.title || "",
+      description: body.description || "",
+      category: body.category || "",
+      thumbnailBase64: body.thumbnailBase64 || "",
+      thumbnail: body.thumbnail || "",
+      url: body.url || "",
       link: body.link || "",
+      showOn: body.showOn || [],
       createdAt: new Date(),
+      updatedAt: new Date(),
     };
     const col = await svc.getCollection("photos");
     const res = await col.insertOne(doc);
