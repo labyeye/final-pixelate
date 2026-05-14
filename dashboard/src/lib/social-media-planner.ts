@@ -28,6 +28,7 @@ export const POST_STATUSES = [
   "Scheduled",
   "Posted",
   "Missed",
+  "Failed",
   "Cancelled",
 ] as const;
 

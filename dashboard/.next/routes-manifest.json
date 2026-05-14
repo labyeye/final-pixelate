@@ -421,6 +421,12 @@
       "namedRegex": "^/api/clients(?:/)?$"
     },
     {
+      "page": "/api/cron/process-scheduled-posts",
+      "regex": "^/api/cron/process\\-scheduled\\-posts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cron/process\\-scheduled\\-posts(?:/)?$"
+    },
+    {
       "page": "/api/emi",
       "regex": "^/api/emi(?:/)?$",
       "routeKeys": {},

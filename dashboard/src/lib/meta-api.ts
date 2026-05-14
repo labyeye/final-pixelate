@@ -325,6 +325,151 @@ export async function fetchFbPostMetrics(
   };
 }
 
+/**
+ * Publishes a post to Instagram.
+ * 1. Create a media container (image/video).
+ * 2. Publish the container.
+ */
+export async function publishInstagramPost(
+  igAccountId: string,
+  accessToken: string,
+  caption: string,
+  mediaUrl: string,
+  mediaType: "IMAGE" | "REELS" | "VIDEO" = "IMAGE",
+): Promise<{ id: string; permalink: string }> {
+  // Step 1: Create Media Container
+  const containerUrl = new URL(`${META_GRAPH_API}/${igAccountId}/media`);
+  containerUrl.searchParams.set("caption", caption);
+  containerUrl.searchParams.set("access_token", accessToken);
+
+  if (mediaType === "REELS" || mediaType === "VIDEO") {
+    containerUrl.searchParams.set("video_url", mediaUrl);
+    containerUrl.searchParams.set("media_type", "REELS");
+  } else {
+    containerUrl.searchParams.set("image_url", mediaUrl);
+  }
+
+  const containerRes = await fetch(containerUrl.toString(), { method: "POST" });
+  const containerData = await containerRes.json();
+
+  if (!containerRes.ok || containerData.error) {
+    throw new Error(
+      `IG Container Creation Failed: ${containerData.error?.message || containerRes.statusText}`,
+    );
+  }
+
+  const containerId = containerData.id;
+
+  // Step 2: Wait for container to be ready (especially for Reels/Video)
+  let ready = false;
+  let attempts = 0;
+  while (!ready && attempts < 10) {
+    attempts++;
+    const statusUrl = new URL(`${META_GRAPH_API}/${containerId}`);
+    statusUrl.searchParams.set("fields", "status_code");
+    statusUrl.searchParams.set("access_token", accessToken);
+
+    const statusRes = await fetch(statusUrl.toString());
+    const statusData = await statusRes.json();
+
+    if (statusData.status_code === "FINISHED") {
+      ready = true;
+    } else if (statusData.status_code === "ERROR") {
+      throw new Error(
+        `IG Media Processing Failed: ${statusData.error_message || "Unknown error"}`,
+      );
+    } else {
+      // Wait 5 seconds before next check
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+    }
+  }
+
+  // Step 3: Publish Container
+  const publishUrl = new URL(`${META_GRAPH_API}/${igAccountId}/media_publish`);
+  publishUrl.searchParams.set("creation_id", containerId);
+  publishUrl.searchParams.set("access_token", accessToken);
+
+  const publishRes = await fetch(publishUrl.toString(), { method: "POST" });
+  const publishData = await publishRes.json();
+
+  if (!publishRes.ok || publishData.error) {
+    throw new Error(
+      `IG Publishing Failed: ${publishData.error?.message || publishRes.statusText}`,
+    );
+  }
+
+  // Fetch permalink
+  const mediaDetailsUrl = new URL(`${META_GRAPH_API}/${publishData.id}`);
+  mediaDetailsUrl.searchParams.set("fields", "permalink");
+  mediaDetailsUrl.searchParams.set("access_token", accessToken);
+  const mediaDetailsRes = await fetch(mediaDetailsUrl.toString());
+  const mediaDetailsData = await mediaDetailsRes.json();
+
+  return {
+    id: publishData.id,
+    permalink: mediaDetailsData.permalink || "",
+  };
+}
+
+/**
+ * Publishes a post to Facebook.
+ */
+export async function publishFacebookPost(
+  pageId: string,
+  pageToken: string,
+  caption: string,
+  mediaUrl?: string,
+): Promise<{ id: string; permalink: string }> {
+  let endpoint = `${META_GRAPH_API}/${pageId}/feed`;
+  const params: Record<string, string> = {
+    message: caption,
+    access_token: pageToken,
+  };
+
+  if (mediaUrl) {
+    // If there's media, use the photos or videos endpoint
+    const isVideo =
+      mediaUrl.toLowerCase().includes(".mp4") ||
+      mediaUrl.toLowerCase().includes(".mov");
+    endpoint = isVideo
+      ? `${META_GRAPH_API}/${pageId}/videos`
+      : `${META_GRAPH_API}/${pageId}/photos`;
+
+    if (isVideo) {
+      params.file_url = mediaUrl;
+      params.description = caption;
+    } else {
+      params.url = mediaUrl;
+      params.caption = caption;
+    }
+  }
+
+  const url = new URL(endpoint);
+  Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+
+  const res = await fetch(url.toString(), { method: "POST" });
+  const data = await res.json();
+
+  if (!res.ok || data.error) {
+    throw new Error(
+      `FB Publishing Failed: ${data.error?.message || res.statusText}`,
+    );
+  }
+
+  // Fetch permalink
+  const id = data.id || data.post_id;
+  const detailsUrl = new URL(`${META_GRAPH_API}/${id}`);
+  detailsUrl.searchParams.set("fields", "permalink_url");
+  detailsUrl.searchParams.set("access_token", pageToken);
+  const detailsRes = await fetch(detailsUrl.toString());
+  const detailsData = await detailsRes.json();
+
+  return {
+    id,
+    permalink: detailsData.permalink_url || "",
+  };
+}
+
 async function resolveIgMediaId(
   permalink: string,
   igAccountId: string,

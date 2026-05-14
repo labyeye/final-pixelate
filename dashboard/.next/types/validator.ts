@@ -767,6 +767,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/cron/process-scheduled-posts/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/cron/process-scheduled-posts">> = Specific
+  const handler = {} as typeof import("../../src/app/api/cron/process-scheduled-posts/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/emi/[id]/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/emi/[id]">> = Specific

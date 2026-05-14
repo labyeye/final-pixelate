@@ -76,6 +76,7 @@ const POST_STATUSES = [
     "Scheduled",
     "Posted",
     "Missed",
+    "Failed",
     "Cancelled"
 ];
 const toDateTime = (scheduledDate, scheduledTime)=>{

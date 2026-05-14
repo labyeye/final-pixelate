@@ -12,13 +12,16 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Briefcase, FileText, LogOut, User } from "lucide-react";
+import { Briefcase, FileText, LogOut, User, Instagram, Facebook, Check, X, Eye, Share2 } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 export default function ClientPortalPage() {
   const { user, logout } = useAuth();
   const [projects, setProjects] = useState<any[]>([]);
   const [invoices, setInvoices] = useState<any[]>([]);
+  const [socialPosts, setSocialPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [processingPostId, setProcessingPostId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user || user.role !== "client") return;
@@ -31,12 +34,14 @@ export default function ClientPortalPage() {
 
     (async () => {
       try {
-        const [projRes, invRes] = await Promise.all([
+        const [projRes, invRes, socialRes] = await Promise.all([
           fetch("/api/projects", { headers }),
           fetch("/api/invoices", { headers }),
+          fetch(`/api/social-media-posts?clientId=${user.clientId}`, { headers }),
         ]);
         const allProjects = projRes.ok ? await projRes.json() : [];
         const allInvoices = invRes.ok ? await invRes.json() : [];
+        const allSocialPosts = socialRes.ok ? await socialRes.json() : [];
 
         const cid = user.clientId;
         const myProjects = allProjects.filter(
@@ -47,6 +52,7 @@ export default function ClientPortalPage() {
         );
         setProjects(myProjects);
         setInvoices(myInvoices);
+        setSocialPosts(Array.isArray(allSocialPosts) ? allSocialPosts : []);
       } catch (e) {
         console.error("Failed to load client portal data", e);
       } finally {
@@ -54,6 +60,46 @@ export default function ClientPortalPage() {
       }
     })();
   }, [user]);
+
+  const handleUpdateApproval = async (postId: string, status: string) => {
+    setProcessingPostId(postId);
+    try {
+      const token = localStorage.getItem("auth_token");
+      const res = await fetch("/api/social-media-posts", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ id: postId, approvalStatus: status }),
+      });
+
+      if (!res.ok) throw new Error("Failed to update status");
+
+      setSocialPosts((prev) =>
+        prev.map((p) =>
+          (p._id || p.id) === postId ? { ...p, approvalStatus: status } : p
+        )
+      );
+      toast({
+        title: `Post ${status}`,
+        description: `The post has been marked as ${status.toLowerCase()}.`,
+      });
+    } catch (e) {
+      console.error(e);
+      toast({
+        title: "Error",
+        description: "Failed to update post status.",
+        variant: "destructive",
+      });
+    } finally {
+      setProcessingPostId(null);
+    }
+  };
+
+  const pendingSocialPosts = socialPosts.filter(
+    (p) => p.approvalStatus === "Pending" || !p.approvalStatus
+  );
 
   if (!user) return null;
 
@@ -127,7 +173,7 @@ export default function ClientPortalPage() {
         </section>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <Card className="border-2 border-black">
             <CardContent className="pt-6 flex items-center gap-4">
               <div className="p-3 rounded-lg bg-primary/10 border-2 border-black">
@@ -154,7 +200,104 @@ export default function ClientPortalPage() {
               </div>
             </CardContent>
           </Card>
+          <Card className="border-2 border-black">
+            <CardContent className="pt-6 flex items-center gap-4">
+              <div className="p-3 rounded-lg bg-primary/10 border-2 border-black">
+                <Share2 className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-3xl font-black">{pendingSocialPosts.length}</p>
+                <p className="text-sm text-muted-foreground font-bold">
+                  Posts to Approve
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
+
+        {/* Social Media Approval */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-2xl font-black tracking-tighter flex items-center gap-2">
+              <Instagram className="w-5 h-5" /> Social Media Approval
+            </h3>
+            {pendingSocialPosts.length > 0 && (
+              <Badge className="bg-amber-500 border-black animate-pulse">Action Required</Badge>
+            )}
+          </div>
+          {loading ? (
+            <p className="text-muted-foreground">Loading...</p>
+          ) : pendingSocialPosts.length === 0 ? (
+            <Card className="border-2 border-black">
+              <CardContent className="py-8 text-center text-muted-foreground">
+                No posts awaiting your approval.
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {pendingSocialPosts.map((post) => (
+                <Card
+                  key={String(post._id ?? post.id)}
+                  className="border-2 border-black overflow-hidden flex flex-col"
+                >
+                  <div className="aspect-video bg-muted relative border-b-2 border-black">
+                    {post.mediaFile ? (
+                      <img
+                        src={post.mediaFile}
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center h-full">
+                        <FileText className="w-10 h-10 text-muted-foreground" />
+                      </div>
+                    )}
+                    <Badge className="absolute top-2 right-2 bg-white text-black border-2 border-black font-black">
+                      {post.platform}
+                    </Badge>
+                  </div>
+                  <CardContent className="p-4 flex-1 flex flex-col gap-3">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <p className="font-black text-lg leading-tight">
+                          {post.title}
+                        </p>
+                        <Badge variant="outline" className="border-black text-[10px]">
+                          {post.contentType}
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground font-bold mt-1">
+                        Scheduled: {post.scheduledDate} {post.scheduledTime}
+                      </p>
+                    </div>
+                    <div className="bg-muted/50 p-3 rounded border border-black/10 text-sm italic line-clamp-3">
+                      "{post.caption}"
+                    </div>
+                    <div className="flex gap-2 mt-auto pt-2">
+                      <Button
+                        size="sm"
+                        className="flex-1 bg-green-500 hover:bg-green-600 text-white border-2 border-black"
+                        onClick={() => handleUpdateApproval(post._id || post.id, "Approved")}
+                        disabled={processingPostId === (post._id || post.id)}
+                      >
+                        <Check className="w-4 h-4 mr-1" /> Approve
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="destructive"
+                        className="flex-1 border-2 border-black"
+                        onClick={() => handleUpdateApproval(post._id || post.id, "Rejected")}
+                        disabled={processingPostId === (post._id || post.id)}
+                      >
+                        <X className="w-4 h-4 mr-1" /> Reject
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        </section>
 
         {/* Projects */}
         <section className="space-y-4">

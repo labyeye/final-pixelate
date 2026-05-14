@@ -79,6 +79,7 @@
   "/api/clients/[id]/meta-token/route": "/api/clients/[id]/meta-token",
   "/api/clients/[id]/route": "/api/clients/[id]",
   "/api/clients/route": "/api/clients",
+  "/api/cron/process-scheduled-posts/route": "/api/cron/process-scheduled-posts",
   "/api/emi/[id]/route": "/api/emi/[id]",
   "/api/emi/route": "/api/emi",
   "/api/enquiries/route": "/api/enquiries",
