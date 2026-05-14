@@ -36,6 +36,12 @@ export async function GET() {
         email: "contact@pixelatenest.com",
         phone: "+91 XXXXXXXXXX",
         website: "https://www.pixelatenest.com",
+        invoicePrefix: "KTS/",
+        invoiceStartNumber: 1,
+        receiptPrefix: "RCPT/",
+        receiptStartNumber: 1,
+        quotationPrefix: "PXL-",
+        quotationStartNumber: 1,
       });
     }
 

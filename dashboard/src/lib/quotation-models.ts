@@ -132,17 +132,20 @@ export function calculateQuotationTotals(quotation: Quotation) {
   return { subtotal, taxAmount, grandTotal };
 }
 
-export function generateQuotationId(lastId?: string): string {
-  const year = new Date().getFullYear();
-  const prefix = `PXL-${year}-`;
+export function generateQuotationId(
+  lastId?: string,
+  prefix: string = `PXL-${new Date().getFullYear()}-`,
+  startNumber: number = 1,
+): string {
+  if (!lastId) return `${prefix}${String(startNumber).padStart(3, "0")}`;
 
-  if (!lastId) return `${prefix}001`;
-
-  const match = lastId.match(/PXL-\d{4}-(\d+)/);
+  // Try to extract the number from the end of the lastId
+  const match = lastId.match(/(\d+)$/);
   if (match) {
-    const num = parseInt(match[1], 10) + 1;
-    return `${prefix}${String(num).padStart(3, "0")}`;
+    const lastNum = parseInt(match[0], 10);
+    const nextNum = Math.max(lastNum + 1, startNumber);
+    return `${prefix}${String(nextNum).padStart(3, "0")}`;
   }
 
-  return `${prefix}001`;
+  return `${prefix}${String(startNumber).padStart(3, "0")}`;
 }

@@ -101,6 +101,7 @@ export default function PaymentsPage() {
   const [selectedClientObj, setSelectedClientObj] = useState<any>(null);
   const [invoices, setInvoices] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [settings, setSettings] = useState<any>(null);
 
   const [paymentAmount, setPaymentAmount] = useState<string>("");
   const [paymentDate, setPaymentDate] = useState<string>(
@@ -185,7 +186,7 @@ export default function PaymentsPage() {
                   .join(", ")
               : undefined,
           paymentIndex: idx,
-          receiptNo: `RCPT/${fy}/${String(globalIndex++).padStart(4, "0")}`,
+          receiptNo: `${settings?.receiptPrefix ?? "RCPT/"}${fy}/${String(globalIndex++).padStart(4, "0")}`,
           amount: Number(h.amount),
           date: h.date,
           mode: h.mode || "Bank Transfer",
@@ -210,6 +211,11 @@ export default function PaymentsPage() {
     fetch("/api/clients")
       .then((res) => res.json())
       .then((data) => setClients(data))
+      .catch(console.error);
+    
+    fetch("/api/settings")
+      .then((res) => res.json())
+      .then((data) => setSettings(data))
       .catch(console.error);
   }, [isClient, myClientId]);
 

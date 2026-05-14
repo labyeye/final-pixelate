@@ -36,7 +36,9 @@ import {
   ChevronRight,
   ChevronDown,
   ShieldAlert,
+  FileText,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 interface ManagedUser {
   id: string;
@@ -535,6 +537,215 @@ function ClientPermissions() {
   );
 }
 
+function DocumentSettings() {
+  const { toast } = useToast();
+  const [settings, setSettings] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch("/api/settings");
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data = await res.json();
+        setSettings({
+          invoicePrefix: data.invoicePrefix ?? "KTS/",
+          invoiceStartNumber: data.invoiceStartNumber ?? 1,
+          receiptPrefix: data.receiptPrefix ?? "RCPT/",
+          receiptStartNumber: data.receiptStartNumber ?? 1,
+          quotationPrefix: data.quotationPrefix ?? "PXL-",
+          quotationStartNumber: data.quotationStartNumber ?? 1,
+        });
+      } catch {
+        toast({
+          title: "Error",
+          description: "Failed to load document settings.",
+          variant: "destructive",
+        });
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
+
+  const save = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch("/api/settings", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(settings),
+      });
+      if (!res.ok) throw new Error("Failed to save");
+      toast({
+        title: "Saved",
+        description: "Document numbering settings updated successfully.",
+      });
+    } catch {
+      toast({
+        title: "Error",
+        description: "Failed to save settings.",
+        variant: "destructive",
+      });
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-16">
+        <Loader2 className="w-7 h-7 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-8">
+      <div className="grid gap-8 md:grid-cols-2">
+        {/* Invoice Settings */}
+        <div className="space-y-4 p-4 border-2 border-black rounded-lg bg-muted/30">
+          <h3 className="font-black text-lg flex items-center gap-2">
+            <FileText className="w-5 h-5" />
+            Invoice Numbering
+          </h3>
+          <div className="space-y-2">
+            <Label htmlFor="invPrefix" className="font-bold">
+              Prefix
+            </Label>
+            <Input
+              id="invPrefix"
+              value={settings.invoicePrefix}
+              onChange={(e) =>
+                setSettings({ ...settings, invoicePrefix: e.target.value })
+              }
+              className="border-2 border-black font-semibold"
+              placeholder="e.g. KTS/"
+            />
+            <p className="text-xs text-muted-foreground font-medium">
+              Prefix added before the number (e.g. KTS/2024-2025/0001)
+            </p>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="invStart" className="font-bold">
+              Starting Number
+            </Label>
+            <Input
+              id="invStart"
+              type="number"
+              value={settings.invoiceStartNumber}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  invoiceStartNumber: parseInt(e.target.value) || 1,
+                })
+              }
+              className="border-2 border-black font-semibold"
+            />
+            <p className="text-xs text-muted-foreground font-medium">
+              The sequence will start from this number for new invoices.
+            </p>
+          </div>
+        </div>
+
+        {/* Receipt Settings */}
+        <div className="space-y-4 p-4 border-2 border-black rounded-lg bg-muted/30">
+          <h3 className="font-black text-lg flex items-center gap-2">
+            <FileText className="w-5 h-5" />
+            Receipt Numbering
+          </h3>
+          <div className="space-y-2">
+            <Label htmlFor="rcptPrefix" className="font-bold">
+              Prefix
+            </Label>
+            <Input
+              id="rcptPrefix"
+              value={settings.receiptPrefix}
+              onChange={(e) =>
+                setSettings({ ...settings, receiptPrefix: e.target.value })
+              }
+              className="border-2 border-black font-semibold"
+              placeholder="e.g. RCPT/"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="rcptStart" className="font-bold">
+              Starting Number
+            </Label>
+            <Input
+              id="rcptStart"
+              type="number"
+              value={settings.receiptStartNumber}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  receiptStartNumber: parseInt(e.target.value) || 1,
+                })
+              }
+              className="border-2 border-black font-semibold"
+            />
+          </div>
+        </div>
+
+        {/* Quotation Settings */}
+        <div className="space-y-4 p-4 border-2 border-black rounded-lg bg-muted/30">
+          <h3 className="font-black text-lg flex items-center gap-2">
+            <FileText className="w-5 h-5" />
+            Quotation Numbering
+          </h3>
+          <div className="space-y-2">
+            <Label htmlFor="quotPrefix" className="font-bold">
+              Prefix
+            </Label>
+            <Input
+              id="quotPrefix"
+              value={settings.quotationPrefix}
+              onChange={(e) =>
+                setSettings({ ...settings, quotationPrefix: e.target.value })
+              }
+              className="border-2 border-black font-semibold"
+              placeholder="e.g. PXL-"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="quotStart" className="font-bold">
+              Starting Number
+            </Label>
+            <Input
+              id="quotStart"
+              type="number"
+              value={settings.quotationStartNumber}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  quotationStartNumber: parseInt(e.target.value) || 1,
+                })
+              }
+              className="border-2 border-black font-semibold"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-end pt-4 border-t-2 border-black/10">
+        <Button
+          onClick={save}
+          disabled={saving}
+          className="border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all font-black"
+        >
+          {saving ? (
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          ) : (
+            <Save className="w-4 h-4 mr-2" />
+          )}
+          {saving ? "Saving…" : "Save Changes"}
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 /* ─────────────────────────────────────────────────────────────────── */
 /*  Main Settings Page                                                  */
 /* ─────────────────────────────────────────────────────────────────── */
@@ -584,6 +795,13 @@ export default function SettingsPage() {
             <UserCheck className="w-4 h-4" />
             Client Portal
           </TabsTrigger>
+          <TabsTrigger
+            value="documents"
+            className="font-black data-[state=active]:border-2 data-[state=active]:border-black data-[state=active]:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-md px-5 py-2 flex items-center gap-2"
+          >
+            <FileText className="w-4 h-4" />
+            Documents
+          </TabsTrigger>
         </TabsList>
 
         {/* ── Staff Tab ─────────────────────────────────────────────── */}
@@ -621,6 +839,25 @@ export default function SettingsPage() {
             </CardHeader>
             <CardContent className="pt-6">
               <ClientPermissions />
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* ── Document Tab ─────────────────────────────────────────── */}
+        <TabsContent value="documents">
+          <Card className="border-2 border-black">
+            <CardHeader className="border-b-2 border-black">
+              <CardTitle className="font-black tracking-tight text-xl flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                Document Numbering Settings
+              </CardTitle>
+              <CardDescription className="font-semibold">
+                Configure how Invoice, Receipt, and Quotation numbers are
+                generated.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <DocumentSettings />
             </CardContent>
           </Card>
         </TabsContent>

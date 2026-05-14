@@ -24,6 +24,7 @@ import {
   faTrash,
   faComment,
   faCheckCircle,
+  faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   CONTENT_TYPES,
@@ -920,6 +921,19 @@ export default function SocialMediaPlannerPage() {
                   />{" "}
                   Reschedule
                 </button>
+                {dp.status === "Posted" && (
+                  <button
+                    onClick={() => {
+                      setPostForLinks(dp);
+                      setIsPostLinksModalOpen(true);
+                      setDropdownInfo(null);
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-blue-50 text-blue-700 flex items-center gap-2.5 font-medium"
+                  >
+                    <FontAwesomeIcon icon={faLink} className="w-3.5 h-3.5" />{" "}
+                    Edit Posted Links
+                  </button>
+                )}
                 <div className="border-t border-gray-100 my-1" />
                 <button
                   onClick={() => {

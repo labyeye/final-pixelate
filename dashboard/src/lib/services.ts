@@ -398,11 +398,16 @@ export async function renumberInvoices(financialYear?: string) {
   const invoices = await col.find({}).sort({ createdAt: 1 }).toArray();
   if (!invoices || !invoices.length) return { updated: 0 };
 
-  let counter = 1;
+  const settingsCol = await getCollection("agencySettings");
+  const settings = await settingsCol.findOne({});
+  const prefix = settings?.invoicePrefix ?? "KTS/";
+  const startNum = settings?.invoiceStartNumber ?? 1;
+
+  let counter = startNum;
   for (const inv of invoices) {
     const fy = financialYear || getFinancialYear(inv.createdAt || new Date());
     const padded = String(counter).padStart(4, "0");
-    const invoiceNo = `KTS/${fy}/${padded}`;
+    const invoiceNo = `${prefix}${fy}/${padded}`;
     await col.updateOne({ _id: inv._id }, { $set: { invoiceNo } });
     counter++;
   }
@@ -415,12 +420,17 @@ export async function createInvoice(invoice: any) {
   try {
     const fy = getFinancialYear(new Date());
 
-    const regex = new RegExp(`^KTS/${fy}/(\\d+)$`);
+    const settingsCol = await getCollection("agencySettings");
+    const settings = await settingsCol.findOne({});
+    const prefix = settings?.invoicePrefix ?? "KTS/";
+    const startNum = settings?.invoiceStartNumber ?? 1;
+
+    const regex = new RegExp(`^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${fy}/(\\d+)$`);
     const docs = await col
-      .find({ invoiceNo: { $regex: `^KTS/${fy}/` } })
+      .find({ invoiceNo: { $regex: `^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${fy}/` } })
       .project({ invoiceNo: 1 })
       .toArray();
-    let maxNum = 0;
+    let maxNum = startNum - 1;
     for (const d of docs) {
       const s = String(d.invoiceNo || "");
       const m = s.match(regex);
@@ -431,7 +441,7 @@ export async function createInvoice(invoice: any) {
     }
     const nextNum = maxNum + 1;
     const padded = String(nextNum).padStart(4, "0");
-    const invoiceNo = `KTS/${fy}/${padded}`;
+    const invoiceNo = `${prefix}${fy}/${padded}`;
     const id = `PN-${padded}`;
     const res = await col.insertOne({
       ...invoice,

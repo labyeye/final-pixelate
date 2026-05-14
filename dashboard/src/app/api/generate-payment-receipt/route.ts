@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { renderToBuffer } from "@react-pdf/renderer";
 import React from "react";
 import { PaymentReceiptPDFDocument } from "@/components/payments/payment-receipt-pdf";
+import { getCollection } from "@/lib/services";
 
 function getFinancialYear(): string {
   const now = new Date();
@@ -11,11 +12,39 @@ function getFinancialYear(): string {
   return `${fyStart}-${fyStart + 1}`;
 }
 
-let receiptCounter = 1;
-
-function generateReceiptNo(index: number): string {
+async function generateReceiptNo(index?: number): Promise<string> {
   const fy = getFinancialYear();
-  return `RCPT/${fy}/${String(index).padStart(4, "0")}`;
+  const settingsCol = await getCollection("agencySettings");
+  const settings = await settingsCol.findOne({});
+  const prefix = settings?.receiptPrefix ?? "RCPT/";
+  const startNum = settings?.receiptStartNumber ?? 1;
+
+  if (index !== undefined) {
+    return `${prefix}${fy}/${String(index).padStart(4, "0")}`;
+  }
+
+  // Find the max receipt number in the database if index is not provided
+  const invoicesCol = await getCollection("invoices");
+  const invoices = await invoicesCol.find({ "paymentHistory.receiptNo": { $regex: `^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}` } }).toArray();
+  
+  let maxIdx = startNum - 1;
+  const regex = new RegExp(`${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${fy}/(\\d+)`);
+  
+  for (const inv of invoices) {
+    if (inv.paymentHistory) {
+      for (const p of inv.paymentHistory) {
+        if (p.receiptNo) {
+          const m = p.receiptNo.match(regex);
+          if (m) {
+            const n = parseInt(m[1], 10);
+            if (!isNaN(n) && n > maxIdx) maxIdx = n;
+          }
+        }
+      }
+    }
+  }
+
+  return `${prefix}${fy}/${String(maxIdx + 1).padStart(4, "0")}`;
 }
 
 export async function POST(req: NextRequest) {
@@ -54,7 +83,7 @@ export async function POST(req: NextRequest) {
   }
 
   const finalReceiptNo =
-    receiptNo || generateReceiptNo(receiptIndex || receiptCounter++);
+    receiptNo || (await generateReceiptNo(receiptIndex));
 
   
   function coerceNum(v: unknown): number {

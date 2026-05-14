@@ -43,7 +43,12 @@ export async function POST(request: NextRequest) {
 
     if (!quotationData.quoteId) {
       const lastQuote = await col.findOne({}, { sort: { createdAt: -1 } });
-      quotationData.quoteId = generateQuotationId(lastQuote?.quoteId);
+      const settingsCol = await svc.getCollection("agencySettings");
+      const settings = await settingsCol.findOne({});
+      const prefix = settings?.quotationPrefix ?? `PXL-${new Date().getFullYear()}-`;
+      const startNumber = settings?.quotationStartNumber ?? 1;
+      
+      quotationData.quoteId = generateQuotationId(lastQuote?.quoteId, prefix, startNumber);
     }
 
     const newQuotation = {
