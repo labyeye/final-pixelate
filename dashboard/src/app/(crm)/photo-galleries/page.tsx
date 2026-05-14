@@ -56,6 +56,7 @@ export default function PhotoGalleriesPage() {
     thumbnailBase64: "",
     showOn: [],
   });
+  const [pendingFiles, setPendingFiles] = useState<{ file: File; preview: string }[]>([]);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [showPreview, setShowPreview] = useState(false);
@@ -154,6 +155,7 @@ export default function PhotoGalleriesPage() {
       thumbnailBase64: "",
       showOn: [],
     });
+    setPendingFiles([]);
     setIsDialogOpen(true);
   };
 
@@ -170,29 +172,50 @@ export default function PhotoGalleriesPage() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      if (file.size > 2 * 1024 * 1024) {
-        toast({
-          title: "File too large",
-          description: "Please select an image smaller than 2MB",
-          variant: "destructive",
-        });
-        return;
-      }
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, thumbnailBase64: reader.result as string });
-      };
-      reader.readAsDataURL(file);
+    const files = Array.from(e.target.files || []);
+    if (files.length > 0) {
+      const newFiles: { file: File; preview: string }[] = [];
+      let processedCount = 0;
+
+      files.forEach((file) => {
+        if (file.size > 2 * 1024 * 1024) {
+          toast({
+            title: "File too large",
+            description: `${file.name} is larger than 2MB and will be skipped.`,
+            variant: "destructive",
+          });
+          processedCount++;
+          if (processedCount === files.length && newFiles.length > 0) {
+            setPendingFiles([...pendingFiles, ...newFiles]);
+          }
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          newFiles.push({ file, preview: reader.result as string });
+          processedCount++;
+          if (processedCount === files.length) {
+            setPendingFiles([...pendingFiles, ...newFiles]);
+            if (!editingPhoto && !formData.title && files.length === 1) {
+              setFormData((prev) => ({ ...prev, title: file.name.split(".")[0] }));
+            }
+          }
+        };
+        reader.readAsDataURL(file);
+      });
     }
   };
 
+  const removePendingFile = (index: number) => {
+    setPendingFiles(pendingFiles.filter((_, i) => i !== index));
+  };
+
   const handleSavePhoto = async () => {
-    if (!formData.title) {
+    if (!formData.title && pendingFiles.length === 0) {
       toast({
-        title: "Title required",
-        description: "Please provide a title for the photo",
+        title: "Title or files required",
+        description: "Please provide a title or select files to upload",
         variant: "destructive",
       });
       return;
@@ -201,36 +224,62 @@ export default function PhotoGalleriesPage() {
     try {
       setIsSaving(true);
       const token = localStorage.getItem("token");
-      const url = editingPhoto ? `/api/photos/${editingPhoto._id}` : "/api/photos";
-      const method = editingPhoto ? "PUT" : "POST";
-
-      const response = await fetch(url, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error("Failed to save photo");
-
-      const savedPhoto = await response.json();
-
+      
       if (editingPhoto) {
+        // Single update
+        const response = await fetch(`/api/photos/${editingPhoto._id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            ...formData,
+            thumbnailBase64: pendingFiles[0]?.preview || formData.thumbnailBase64
+          }),
+        });
+
+        if (!response.ok) throw new Error("Failed to update photo");
+        const savedPhoto = await response.json();
         setPhotos(photos.map((p) => (p._id === savedPhoto._id ? savedPhoto : p)));
         toast({ title: "Success", description: "Photo updated successfully" });
       } else {
-        setPhotos([savedPhoto, ...photos]);
-        toast({ title: "Success", description: "Photo added successfully" });
+        // Bulk or single add
+        const uploadPromises = pendingFiles.map(async (pf) => {
+          const photoData = {
+            ...formData,
+            title: pendingFiles.length > 1 ? (pf.file.name.split('.')[0]) : (formData.title || pf.file.name.split('.')[0]),
+            thumbnailBase64: pf.preview,
+          };
+
+          const response = await fetch("/api/photos", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(photoData),
+          });
+
+          if (!response.ok) throw new Error(`Failed to upload ${pf.file.name}`);
+          return response.json();
+        });
+
+        const savedPhotos = await Promise.all(uploadPromises);
+        setPhotos([...savedPhotos, ...photos]);
+        toast({ 
+          title: "Success", 
+          description: `${savedPhotos.length} photo(s) added successfully` 
+        });
       }
 
       setIsDialogOpen(false);
-    } catch (error) {
+      setPendingFiles([]);
+    } catch (error: any) {
       console.error("Error saving photo:", error);
       toast({
         title: "Error",
-        description: "Failed to save photo",
+        description: error.message || "Failed to save photo(s)",
         variant: "destructive",
       });
     } finally {
@@ -610,32 +659,59 @@ export default function PhotoGalleriesPage() {
             </div>
 
             <div className="space-y-2">
-              <Label>Photo Upload</Label>
-              <div className="flex items-center gap-4">
-                <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-muted border">
-                  {formData.thumbnailBase64 ? (
-                    <img
-                      src={formData.thumbnailBase64}
-                      alt="Preview"
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                      <Image className="w-8 h-8" />
+              <Label>Photos Upload (Multiple allowed)</Label>
+              <div className="space-y-4">
+                <div className="grid grid-cols-4 gap-2">
+                  {pendingFiles.map((pf, idx) => (
+                    <div key={idx} className="relative aspect-square rounded-lg overflow-hidden bg-muted border group">
+                      <img
+                        src={pf.preview}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                      />
+                      <button
+                        onClick={() => removePendingFile(idx)}
+                        className="absolute top-1 right-1 bg-destructive text-destructive-foreground rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <Trash2 className="w-3 h-3" />
+                      </button>
+                    </div>
+                  ))}
+                  {!editingPhoto && (
+                    <div className="relative aspect-square rounded-lg border-2 border-dashed flex items-center justify-center text-muted-foreground hover:bg-muted transition-colors cursor-pointer">
+                      <Plus className="w-6 h-6" />
+                      <Input
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={handleFileChange}
+                        className="absolute inset-0 opacity-0 cursor-pointer"
+                      />
+                    </div>
+                  )}
+                  {editingPhoto && pendingFiles.length === 0 && (
+                    <div className="relative aspect-square rounded-lg overflow-hidden bg-muted border">
+                      <img
+                        src={formData.thumbnailBase64}
+                        alt="Current"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   )}
                 </div>
-                <div className="flex-1">
-                  <Input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    className="cursor-pointer"
-                  />
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Max size: 2MB. Recommended: square or 4:3 ratio.
-                  </p>
-                </div>
+                {editingPhoto && (
+                  <div className="flex-1">
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                      className="cursor-pointer"
+                    />
+                  </div>
+                )}
+                <p className="text-xs text-muted-foreground">
+                  Max size: 2MB per photo. You can select multiple files.
+                </p>
               </div>
             </div>
 
