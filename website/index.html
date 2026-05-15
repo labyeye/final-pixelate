@@ -284,6 +284,13 @@
       onload="this.media = 'all'"
     />
     <link
+      href="./css/pages/services/video-ed-styles.css"
+      rel="stylesheet"
+      type="text/css"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <link
       href="https://backend.pixelatenest.com"
       rel="preconnect"
       crossorigin
@@ -1451,31 +1458,8 @@
               Portfolio Works
             </h2>
           </div>
-          <div class="filter-tags">
-            <button type="button" class="filter-btn active" data-filter="all">
-              All
-            </button>
-            <button type="button" class="filter-btn" data-filter="web-dev">
-              Web Dev
-            </button>
-            <button type="button" class="filter-btn" data-filter="app-dev">
-              App Dev
-            </button>
-            <button type="button" class="filter-btn" data-filter="software-dev">
-              Software Dev
-            </button>
-          </div>
-
-          <div class="masonry-grid" id="home-masonry-grid">
-            <div id="portfolioLoader" class="portfolio-loader">
-              <div class="loader">
-                <img
-                  src="./assets/images/logos/Logo_Color.webp"
-                  class="logo"
-                  alt="Pixelate Nest"
-                />
-              </div>
-            </div>
+          <div class="portfolio-slider-wrap">
+            <div id="home-portfolio-grid" class="portfolio-grid"></div>
           </div>
         </div>
       </section>
@@ -3938,241 +3922,98 @@
     <script src="js/review-modal.js" defer></script>
     <script src="js/quick-contact-buttons.js" defer></script>
     <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const gridContainer = document.querySelector(".masonry-grid");
-        const filterBtns = document.querySelectorAll(".filter-btn");
-
-        // 1. Define the pages to fetch from and the category label for filtering
-        const sources = [];
-        // Portfolio files commented out - they don't exist yet
-        // { url: "webdev.html", category: "web-dev" },
-        // { url: "app-dev.html", category: "app-dev" },
-        // { url: "software-dev.html", category: "software-dev" },
-
-        let allFetchedProjects = [];
-
-        // Optional: Show a loading message while fetching
-        gridContainer.innerHTML =
-          '<div class="portfolio-loader" role="status" aria-live="polite" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 0;grid-column:1 / -1;">' +
-          '<svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><g transform="translate(22 22)">' +
-          '<circle r="18" stroke="#e6e6e6" stroke-width="4" fill="none"></circle>' +
-          '<circle r="18" stroke="#044bab" stroke-width="4" fill="none" stroke-dasharray="60 120" stroke-linecap="round">' +
-          '<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.9s" repeatCount="indefinite"/></circle>' +
-          "</g></svg>" +
-          '<div class="loader-text" style="font-weight:600;font-size:16px;color:#111;margin-top:12px;">Loading Works...</div></div>';
+      async function loadHomePortfolio() {
+        const grid = document.getElementById("home-portfolio-grid");
 
         try {
-          // 2. Fetch all HTML files simultaneously
-          const fetchPromises = sources.map((source) =>
-            fetch(source.url)
-              .then((response) => {
-                if (!response.ok)
-                  throw new Error(`Could not fetch ${source.url}`);
-                return response.text();
-              })
-              .then((htmlString) => ({
-                html: htmlString,
-                category: source.category,
-              })),
-          );
-
-          const pagesData = await Promise.all(fetchPromises);
-
-          // 3. Parse the HTML and extract the cards
-          pagesData.forEach((page) => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(page.html, "text/html");
-
-            // CRITICAL: This selector must match the class you added in Step 1
-            const projectCards = doc.querySelectorAll(".fetchable-card");
-
-            projectCards.forEach((card) => {
-              // Clone the node so we can safely move it to the new page
-              const newCard = card.cloneNode(true);
-
-              // Add the necessary classes for our grid layout and filtering
-              newCard.classList.add("grid-item");
-              newCard.classList.add(page.category);
-
-              allFetchedProjects.push(newCard);
-            });
-          });
-
-          // 4. Randomize (Shuffle) the combined array of projects
-          allFetchedProjects = allFetchedProjects.sort(
-            () => Math.random() - 0.5,
-          );
-
-          // 5. Clear the loading message and inject the randomized cards
-          gridContainer.innerHTML = "";
-          allFetchedProjects.forEach((card) => {
-            gridContainer.appendChild(card);
-          });
-
-          // 6. Set up the Filtering functionality
-          setupFiltering(allFetchedProjects);
-        } catch (error) {
-          gridContainer.innerHTML =
-            '<p style="text-align:center; grid-column: 1 / -1; color: red;">Failed to load portfolio items.</p>';
-        }
-
-        // --- Filtering Logic ---
-        function setupFiltering(projects) {
-          filterBtns.forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-              // Handle active state on buttons
-              filterBtns.forEach((b) => b.classList.remove("active"));
-              e.target.classList.add("active");
-
-              const filterValue = e.target.getAttribute("data-filter");
-
-              // Show/Hide projects based on the filter
-              projects.forEach((project) => {
-                if (
-                  filterValue === "all" ||
-                  project.classList.contains(filterValue)
-                ) {
-                  project.style.display = "block";
-                } else {
-                  project.style.display = "none";
-                }
-              });
-            });
-          });
-        }
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const grid = document.getElementById("home-masonry-grid");
-        const filterBtns = document.querySelectorAll(".filter-btn");
-
-        // Show a temporary loading message
-        grid.innerHTML =
-          '<div class="portfolio-loader" role="status" aria-live="polite" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 0;grid-column:1 / -1;">' +
-          '<svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><g transform="translate(22 22)">' +
-          '<circle r="18" stroke="#e6e6e6" stroke-width="4" fill="none"></circle>' +
-          '<circle r="18" stroke="#044bab" stroke-width="4" fill="none" stroke-dasharray="60 120" stroke-linecap="round">' +
-          '<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.9s" repeatCount="indefinite"/></circle>' +
-          "</g></svg>" +
-          '<div class="loader-text" style="font-weight:600;font-size:16px;color:#111;margin-top:12px;">Loading Works...</div></div>';
-
-        try {
-          // 1. Fetch data directly from your backend API
           const res = await fetch(
             "https://backend.pixelatenest.com/api/work-gallery",
           );
-
           if (!res.ok) throw new Error("Failed to fetch gallery");
 
           let items = await res.json();
-
-          // Filter out any items that aren't web, app, or software (just in case)
           items = items.filter(
             (i) =>
               i.showOn === "web-development" ||
               i.showOn === "app-development" ||
               i.showOn === "software-development",
           );
-
-          // 2. Randomize (Shuffle) the items array
           items = items.sort(() => Math.random() - 0.5);
 
-          // 3. Clear the loading message
           grid.innerHTML = "";
+          const colCount =
+            window.innerWidth > 1400
+              ? 6
+              : window.innerWidth > 1024
+                ? 4
+                : window.innerWidth > 768
+                  ? 2
+                  : 1;
+          const columns = [];
 
-          // 4. Build the HTML cards dynamically
-          items.forEach((it) => {
-            // Map your backend 'showOn' values to the CSS classes we used for the filter buttons
-            let categoryClass = "";
-            if (it.showOn === "web-development") categoryClass = "web-dev";
-            else if (it.showOn === "app-development") categoryClass = "app-dev";
-            else if (it.showOn === "software-development")
-              categoryClass = "software-dev";
+          grid.style.display = "flex";
+          grid.style.gap = "30px";
+          grid.style.animation = "none";
 
-            // Create the card container
-            const card = document.createElement("div");
-            card.className = `grid-item ${categoryClass}`;
+          for (let i = 0; i < colCount; i++) {
+            const col = document.createElement("div");
+            col.className = "portfolio-column";
+            const speed = 40 + i * 15;
+            col.style.animation = `verticalMarquee ${speed}s linear infinite`;
+            if (i % 2 === 1) col.style.animationDirection = "reverse";
+            grid.appendChild(col);
+            columns.push(col);
+          }
 
-            // Create Image
-            const img = document.createElement("img");
-            img.src = it.thumbnailBase64 || "/assets/placeholder.png";
-            img.alt = it.title || "Project Image";
-            img.loading = "lazy";
-
-            // Create Title
-            const h3 = document.createElement("h3");
-            h3.innerText = it.title || "Untitled Project";
-
-            // Create Description (Truncated so the cards don't get too tall)
-            const p = document.createElement("p");
-            const fullDesc = (
-              it.description ||
-              it.summary ||
-              it.excerpt ||
-              ""
-            ).trim();
-            // Truncate to 120 characters, add "..." if it's longer
-            p.innerText =
-              fullDesc.length > 120 ? fullDesc.slice(0, 120) + "..." : fullDesc;
-
-            // Append everything into the card, and the card into the grid
-            card.appendChild(img);
-            card.appendChild(h3);
-            card.appendChild(p);
-            grid.appendChild(card);
+          items.forEach((photo, index) => {
+            const colIndex = index % colCount;
+            columns[colIndex].appendChild(createHomePortfolioCard(photo));
           });
 
-          // 5. Setup the Filter Button Click Events
-          filterBtns.forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-              // Remove 'active' class from all buttons, add to the clicked one
-              filterBtns.forEach((b) => b.classList.remove("active"));
-              e.target.classList.add("active");
-
-              const filterValue = e.target.getAttribute("data-filter");
-              const allCards = grid.querySelectorAll(".grid-item");
-
-              // Show or hide cards based on the selected filter
-              allCards.forEach((card) => {
-                if (
-                  filterValue === "all" ||
-                  card.classList.contains(filterValue)
-                ) {
-                  card.style.display = "block";
-                } else {
-                  card.style.display = "none";
-                }
-              });
+          columns.forEach((col) => {
+            Array.from(col.children).forEach((child) => {
+              col.appendChild(child.cloneNode(true));
             });
           });
-        } catch (error) {
-          grid.innerHTML =
-            '<p style="text-align:center; grid-column: 1 / -1; color: red;">Failed to load portfolio items.</p>';
-        }
-      });
-    </script>
-    <script>
-      const loader = document.getElementById("portfolioLoader");
-      const grid = document.getElementById("home-masonry-grid");
-
-      async function loadPortfolio() {
-        // simulate API
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        // remove loader
-        loader.remove();
-
-        // add items
-        for (let i = 0; i < 6; i++) {
-          const div = document.createElement("div");
-          div.className = "portfolio-item";
-          div.innerHTML = `<div style="height:150px;background:#eee;border-radius:10px;"></div>`;
-          grid.appendChild(div);
+        } catch (e) {
+          document.getElementById("home-portfolio-grid").innerHTML =
+            '<p style="text-align:center;color:red;padding:40px 0;">Failed to load portfolio items.</p>';
         }
       }
 
-      loadPortfolio();
+      function createHomePortfolioCard(photo) {
+        const card = document.createElement("div");
+        card.className = "portfolio-card w-inline-block";
+
+        const imgWrap = document.createElement("div");
+        imgWrap.className = "portfolio-image-wrapper";
+
+        const img = document.createElement("img");
+        img.className = "portfolio-image";
+        img.alt = photo.title || "Portfolio";
+        img.src = photo.thumbnailBase64 || photo.thumbnail || photo.url || "/assets/placeholder.png";
+        img.loading = "lazy";
+        imgWrap.appendChild(img);
+
+        const overlay = document.createElement("div");
+        overlay.className = "portfolio-overlay";
+
+        const h4 = document.createElement("h4");
+        h4.className = "portfolio-title";
+        h4.innerText = photo.title || "Untitled";
+
+        const desc = document.createElement("p");
+        desc.className = "portfolio-desc";
+        desc.innerText = photo.description || photo.category || "";
+
+        overlay.appendChild(h4);
+        overlay.appendChild(desc);
+        card.appendChild(imgWrap);
+        card.appendChild(overlay);
+        return card;
+      }
+
+      loadHomePortfolio();
     </script>
   </body>
 </html>

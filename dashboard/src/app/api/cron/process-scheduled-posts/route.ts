@@ -7,6 +7,12 @@ import { ObjectId } from "mongodb";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
+  // Protect endpoint - only allow calls with correct secret
+  const secret = request.headers.get("x-cron-secret") || request.nextUrl.searchParams.get("secret");
+  if (process.env.CRON_SECRET && secret !== process.env.CRON_SECRET) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     // 1. Fetch posts that are Approved, Scheduled, and time has passed
     const postsCol = await svc.getCollection("socialMediaPosts");
@@ -72,11 +78,20 @@ export async function GET(request: NextRequest) {
         
         console.log(`[DEBUG] Token present: ${!!effectiveToken}`);
         
-        let mediaUrl = post.mediaFile;
+        // For Reel content type, video URL lives in reelLink field, not mediaFile
+        let mediaUrl =
+          (post.contentType === "Reel" || post.contentType === "Video")
+            ? (post.reelLink || post.mediaFile)
+            : post.mediaFile;
+
         // Fix for Nextcloud share links - they need /download at the end for direct access
-        if (mediaUrl.includes("cloud.laxmilube.in/s/") && !mediaUrl.endsWith("/download")) {
+        if (mediaUrl && mediaUrl.includes("cloud.laxmilube.in/s/") && !mediaUrl.endsWith("/download")) {
           mediaUrl = mediaUrl.endsWith("/") ? mediaUrl + "download" : mediaUrl + "/download";
           console.log(`[DEBUG] Fixed Media URL for Nextcloud: ${mediaUrl}`);
+        }
+
+        if (!mediaUrl) {
+          throw new Error(`No media URL found for post: ${post.title}. Add a Reel Video Link or Media URL.`);
         }
 
         console.log(`[DEBUG] Final Media File URL: ${mediaUrl}`);
@@ -89,13 +104,18 @@ export async function GET(request: NextRequest) {
         if (post.platform === "Instagram") {
           const igId = account?.igAccountId || post.igAccountId;
           if (!igId) throw new Error("Instagram Account ID missing in settings");
-          
+
+          const isVideoContent =
+            post.contentType === "Reel" ||
+            post.contentType === "Video" ||
+            /\.(mp4|mov|avi|mkv|webm|m4v)(\?|$)/i.test(mediaUrl || "");
+
           publishRes = await publishInstagramPost(
             igId,
             effectiveToken,
             post.caption + (post.hashtags ? "\n\n" + post.hashtags : ""),
             mediaUrl,
-            post.contentType === "Reel" ? "REELS" : "IMAGE"
+            isVideoContent ? "REELS" : "IMAGE"
           );
         } else if (post.platform === "Facebook") {
           const fbId = account?.platformAccountId || post.platformAccountId;

@@ -76,6 +76,7 @@ export default function SocialMediaPlannerPage() {
   const [selectedClientId, setSelectedClientId] = useState<string>("");
   const [posts, setPosts] = useState<SocialMediaPost[]>([]);
   const [team, setTeam] = useState<any[]>([]);
+  const [accountsMap, setAccountsMap] = useState<Record<string, string>>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<SocialMediaPost | null>(null);
   const [viewingPlan, setViewingPlan] = useState<SocialMediaPost | null>(null);
@@ -153,6 +154,23 @@ export default function SocialMediaPlannerPage() {
 
   useEffect(() => {
     loadPosts(selectedClientId);
+    if (selectedClientId) {
+      fetch(`/api/social-media-accounts?clientId=${selectedClientId}`, { cache: "no-store" })
+        .then((r) => r.json())
+        .then((data) => {
+          if (Array.isArray(data)) {
+            const map: Record<string, string> = {};
+            data.forEach((a: any) => {
+              const id = String(a._id || a.id || "");
+              if (id) map[id] = a.displayName || `@${a.handle}`;
+            });
+            setAccountsMap(map);
+          }
+        })
+        .catch(() => {});
+    } else {
+      setAccountsMap({});
+    }
   }, [selectedClientId, user]);
 
   const staffOptions = useMemo(() => {
@@ -597,6 +615,7 @@ export default function SocialMediaPlannerPage() {
                         Title
                       </th>
                       <th className="text-left p-2 border-b">Platform</th>
+                      <th className="text-left p-2 border-b">Account</th>
                       <th className="text-left p-2 border-b">Content</th>
                       <th className="text-left p-2 border-b">
                         Scheduled / Posted
@@ -660,6 +679,28 @@ export default function SocialMediaPlannerPage() {
                               />
                               <span>{item.platform}</span>
                             </div>
+                          </td>
+                          <td className="p-2 border-b align-top">
+                            {(() => {
+                              const ids = item.socialAccountIds?.length
+                                ? item.socialAccountIds
+                                : item.socialAccountId
+                                  ? [item.socialAccountId]
+                                  : [];
+                              if (!ids.length) return <span className="text-xs text-muted-foreground">—</span>;
+                              return (
+                                <div className="flex flex-col gap-1">
+                                  {ids.map((aid) => (
+                                    <span
+                                      key={aid}
+                                      className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-700 whitespace-nowrap"
+                                    >
+                                      {accountsMap[aid] || aid}
+                                    </span>
+                                  ))}
+                                </div>
+                              );
+                            })()}
                           </td>
                           <td className="p-2 border-b align-top whitespace-nowrap">
                             {item.contentType}
@@ -782,7 +823,7 @@ export default function SocialMediaPlannerPage() {
                     {!filtered.length && posts.length > 0 && (
                       <tr>
                         <td
-                          colSpan={8}
+                          colSpan={9}
                           className="p-6 text-center text-muted-foreground"
                         >
                           No posts found for selected filters.

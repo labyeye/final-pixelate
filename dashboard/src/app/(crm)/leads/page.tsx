@@ -440,6 +440,7 @@ export default function LeadsPage() {
         "Project Type",
         "Budget",
         "Source",
+        "Campaign",
         "Status",
         "Priority",
         "Assigned To",
@@ -453,6 +454,7 @@ export default function LeadsPage() {
         l.projectType || "",
         String(l.budget || ""),
         l.source || "",
+        l.campaign || "",
         l.status || "",
         l.priority || "",
         l.assignedToName || "",
@@ -864,6 +866,7 @@ export default function LeadsPage() {
                   <TableHead className="font-bold">Contact</TableHead>
                   <TableHead className="font-bold">Project / Budget</TableHead>
                   <TableHead className="font-bold">Source</TableHead>
+                  <TableHead className="font-bold">Campaign</TableHead>
                   <TableHead className="font-bold">Assigned</TableHead>
                   <TableHead className="font-bold">Priority</TableHead>
                   <TableHead className="font-bold">Follow-up</TableHead>
@@ -877,7 +880,7 @@ export default function LeadsPage() {
                 {filtered.length === 0 && (
                   <TableRow>
                     <TableCell
-                      colSpan={10}
+                      colSpan={11}
                       className="text-center py-12 text-muted-foreground"
                     >
                       No leads match your filters.
@@ -944,6 +947,15 @@ export default function LeadsPage() {
                         <span className="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
                           {lead.source || "Unknown"}
                         </span>
+                      </TableCell>
+                      <TableCell>
+                        {lead.campaign ? (
+                          <span className="text-xs px-2 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 max-w-[140px] truncate block">
+                            {lead.campaign}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">—</span>
+                        )}
                       </TableCell>
                       <TableCell className="text-sm">
                         {lead.assignedToName || "—"}

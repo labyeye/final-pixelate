@@ -41,3 +41,56 @@
 [00:37:43.787] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
 [00:37:43.788] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
 [00:37:43.789] Server  ERROR   Error logging ERP event: TypeError: fetch failed
+[01:05:11.185] Server  LOG     [DEBUG] Processing post: आपकी बाइक की परफॉर्मेंस
+[01:05:11.188] Server  LOG     [DEBUG] Linked Account ID: 69e3d88b3cf1d64ef0148b50
+[01:05:11.257] Server  LOG     [DEBUG] Account found: Yes
+[01:05:11.326] Server  LOG     [DEBUG] Using token from Client: 68e6b754d5f58f82267a82ae
+[01:05:11.327] Server  LOG     [DEBUG] Token present: true
+[01:05:11.327] Server  LOG     [DEBUG] Final Media File URL: 
+[01:05:12.798] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__83671355._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.823] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.869] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_19b3f9a4._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.879] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.882] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.884] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.885] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.886] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.887] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:05:12.889] Server  ERROR   Failed to post 6a075f7f600ee9d4df26d85e: Error: IG Container Creation Failed: (#100) The parameter video_url is required
+[01:06:34.034] Server  LOG     [DEBUG] Processing post: आपकी बाइक की परफॉर्मेंस
+[01:06:34.034] Server  LOG     [DEBUG] Linked Account ID: 69e3d88b3cf1d64ef0148b50
+[01:06:34.105] Server  LOG     [DEBUG] Account found: Yes
+[01:06:34.172] Server  LOG     [DEBUG] Using token from Client: 68e6b754d5f58f82267a82ae
+[01:06:34.172] Server  LOG     [DEBUG] Token present: true
+[01:06:34.173] Server  LOG     [DEBUG] Final Media File URL: 
+[01:06:36.036] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__83671355._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.037] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.052] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_19b3f9a4._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.052] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.053] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.053] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.054] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.054] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.057] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:06:36.058] Server  ERROR   Failed to post 6a075f7f600ee9d4df26d85e: Error: IG Container Creation Failed: (#100) The parameter video_url is required
+[01:09:32.170] Server  LOG     [DEBUG] Processing post: आपकी बाइक की परफॉर्मेंस
+[01:09:32.170] Server  LOG     [DEBUG] Linked Account ID: 69e3d88b3cf1d64ef0148b50
+[01:09:32.245] Server  LOG     [DEBUG] Account found: Yes
+[01:09:32.322] Server  LOG     [DEBUG] Using token from Client: 68e6b754d5f58f82267a82ae
+[01:09:32.322] Server  LOG     [DEBUG] Token present: true
+[01:09:32.322] Server  LOG     [DEBUG] Fixed Media URL for Nextcloud: https://cloud.laxmilube.in/s/FsQNriFN2opE2wa/download
+[01:09:32.322] Server  LOG     [DEBUG] Final Media File URL: https://cloud.laxmilube.in/s/FsQNriFN2opE2wa/download
+[01:10:08.248] Server  LOG     [DEBUG] Processing post: आपकी बाइक की परफॉर्मेंस
+[01:10:08.248] Server  LOG     [DEBUG] Linked Account ID: 69e3d88b3cf1d64ef0148b50
+[01:10:08.327] Server  LOG     [DEBUG] Account found: Yes
+[01:10:08.406] Server  LOG     [DEBUG] Using token from Client: 68e6b754d5f58f82267a82ae
+[01:10:08.406] Server  LOG     [DEBUG] Token present: true
+[01:10:08.406] Server  LOG     [DEBUG] Fixed Media URL for Nextcloud: https://cloud.laxmilube.in/s/FsQNriFN2opE2wa/download
+[01:10:08.407] Server  LOG     [DEBUG] Final Media File URL: https://cloud.laxmilube.in/s/FsQNriFN2opE2wa/download
+[01:10:29.835] Server  LOG     [DEBUG] Processing post: आपकी बाइक की परफॉर्मेंस
+[01:10:29.836] Server  LOG     [DEBUG] Linked Account ID: 69e3d88b3cf1d64ef0148b50
+[01:10:29.903] Server  LOG     [DEBUG] Account found: Yes
+[01:10:29.970] Server  LOG     [DEBUG] Using token from Client: 68e6b754d5f58f82267a82ae
+[01:10:29.971] Server  LOG     [DEBUG] Token present: true
+[01:10:29.971] Server  LOG     [DEBUG] Fixed Media URL for Nextcloud: https://cloud.laxmilube.in/s/FsQNriFN2opE2wa/download
+[01:10:29.971] Server  LOG     [DEBUG] Final Media File URL: https://cloud.laxmilube.in/s/FsQNriFN2opE2wa/download
