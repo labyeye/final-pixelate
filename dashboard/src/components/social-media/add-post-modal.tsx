@@ -44,6 +44,9 @@ const initialForm: SocialMediaPost = {
   caption: "",
   hashtags: "",
   mediaFile: "",
+  carouselMediaLinks: [],
+  reelLink: "",
+  reelCoverLink: "",
   scheduledDate: "",
   scheduledTime: "",
   assignedTo: "",
@@ -414,70 +417,171 @@ export function AddPostModal({
           </div>
 
           {}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div>
-              <label className="block text-sm font-semibold mb-1">
-                Hashtags
-              </label>
-              <Input
-                placeholder="#hashtag1 #hashtag2"
-                value={form.hashtags || ""}
-                onChange={(e) => handleChange("hashtags", e.target.value)}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold mb-1">
-                Media URL or Path
-              </label>
-              <Input
-                placeholder="https://example.com/image.jpg"
-                value={form.mediaFile || ""}
-                onChange={(e) => handleChange("mediaFile", e.target.value)}
-              />
-            </div>
-          </div>
-
-          {}
           <div>
-            <label className="block text-sm font-semibold mb-1">
-              Upload Media File
-            </label>
+            <label className="block text-sm font-semibold mb-1">Hashtags</label>
             <Input
-              type="file"
-              accept="image/*,video/*"
-              onChange={async (e) => {
-                const file = e.target.files?.[0] || null;
-                const data = await fileToBase64(file);
-                if (data) handleChange("mediaFile", data);
-              }}
+              placeholder="#hashtag1 #hashtag2"
+              value={form.hashtags || ""}
+              onChange={(e) => handleChange("hashtags", e.target.value)}
             />
           </div>
 
           {}
-          {form.mediaFile && (
-            <div className="border rounded p-3 bg-gray-50">
-              <div className="text-xs font-semibold text-muted-foreground mb-2">
-                Media
-              </div>
-              {String(form.mediaFile).startsWith("data:image") ? (
-                <img
-                  src={form.mediaFile}
-                  alt="preview"
-                  className="h-32 w-32 object-cover rounded"
-                />
-              ) : String(form.mediaFile).startsWith("data:video") ? (
-                <video src={form.mediaFile} className="h-40 rounded" controls />
-              ) : (
-                <a
-                  href={form.mediaFile}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm"
+          {form.contentType === "Carousel" && (
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-semibold">
+                  Carousel Media Links
+                </label>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setForm((prev) => ({
+                      ...prev,
+                      carouselMediaLinks: [
+                        ...(prev.carouselMediaLinks || []),
+                        "",
+                      ],
+                    }))
+                  }
+                  className="text-xs px-2 py-1 border rounded hover:bg-gray-100 font-semibold"
                 >
-                  Open Link
-                </a>
+                  + Add Slide
+                </button>
+              </div>
+              {(form.carouselMediaLinks || []).length === 0 && (
+                <p className="text-xs text-muted-foreground">
+                  Click "+ Add Slide" to add media links for each carousel slide.
+                </p>
               )}
+              <div className="space-y-2">
+                {(form.carouselMediaLinks || []).map((link, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <span className="text-xs font-semibold text-gray-500 w-6 shrink-0">
+                      {idx + 1}.
+                    </span>
+                    <Input
+                      placeholder={`Slide ${idx + 1} media URL`}
+                      value={link}
+                      onChange={(e) => {
+                        const updated = [
+                          ...(form.carouselMediaLinks || []),
+                        ];
+                        updated[idx] = e.target.value;
+                        setForm((prev) => ({
+                          ...prev,
+                          carouselMediaLinks: updated,
+                        }));
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const updated = (form.carouselMediaLinks || []).filter(
+                          (_, i) => i !== idx,
+                        );
+                        setForm((prev) => ({
+                          ...prev,
+                          carouselMediaLinks: updated,
+                        }));
+                      }}
+                      className="text-red-500 hover:text-red-700 text-lg leading-none shrink-0"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
+          )}
+
+          {}
+          {form.contentType === "Reel" && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Reel Video Link *
+                </label>
+                <Input
+                  placeholder="https://example.com/reel.mp4"
+                  value={form.reelLink || ""}
+                  onChange={(e) => handleChange("reelLink", e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Cover Page Link
+                </label>
+                <Input
+                  placeholder="https://example.com/cover.jpg"
+                  value={form.reelCoverLink || ""}
+                  onChange={(e) =>
+                    handleChange("reelCoverLink", e.target.value)
+                  }
+                />
+              </div>
+            </div>
+          )}
+
+          {}
+          {form.contentType !== "Carousel" && form.contentType !== "Reel" && (
+            <>
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Media URL or Path
+                </label>
+                <Input
+                  placeholder="https://example.com/image.jpg"
+                  value={form.mediaFile || ""}
+                  onChange={(e) => handleChange("mediaFile", e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1">
+                  Upload Media File
+                </label>
+                <Input
+                  type="file"
+                  accept="image/*,video/*"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0] || null;
+                    const data = await fileToBase64(file);
+                    if (data) handleChange("mediaFile", data);
+                  }}
+                />
+              </div>
+
+              {form.mediaFile && (
+                <div className="border rounded p-3 bg-gray-50">
+                  <div className="text-xs font-semibold text-muted-foreground mb-2">
+                    Media
+                  </div>
+                  {String(form.mediaFile).startsWith("data:image") ? (
+                    <img
+                      src={form.mediaFile}
+                      alt="preview"
+                      className="h-32 w-32 object-cover rounded"
+                    />
+                  ) : String(form.mediaFile).startsWith("data:video") ? (
+                    <video
+                      src={form.mediaFile}
+                      className="h-40 rounded"
+                      controls
+                    />
+                  ) : (
+                    <a
+                      href={form.mediaFile}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm"
+                    >
+                      Open Link
+                    </a>
+                  )}
+                </div>
+              )}
+            </>
           )}
 
           {}

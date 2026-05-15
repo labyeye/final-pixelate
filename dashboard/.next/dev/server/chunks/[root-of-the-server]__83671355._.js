@@ -1175,10 +1175,20 @@ async function publishInstagramPost(igAccountId, accessToken, caption, mediaUrl,
     };
 }
 async function publishFacebookPost(pageId, pageToken, caption, mediaUrl) {
+    // Exchange user token for page token — page tokens never expire and avoid the deprecated publish_actions path
+    let token = pageToken;
+    try {
+        const ptUrl = new URL(`${META_GRAPH_API}/${pageId}`);
+        ptUrl.searchParams.set("fields", "access_token");
+        ptUrl.searchParams.set("access_token", pageToken);
+        const ptRes = await fetch(ptUrl.toString());
+        const ptData = await ptRes.json();
+        if (ptData.access_token) token = ptData.access_token;
+    } catch  {}
     let endpoint = `${META_GRAPH_API}/${pageId}/feed`;
     const params = {
         message: caption,
-        access_token: pageToken
+        access_token: token
     };
     if (mediaUrl) {
         // If there's media, use the photos or videos endpoint
@@ -1205,7 +1215,7 @@ async function publishFacebookPost(pageId, pageToken, caption, mediaUrl) {
     const id = data.id || data.post_id;
     const detailsUrl = new URL(`${META_GRAPH_API}/${id}`);
     detailsUrl.searchParams.set("fields", "permalink_url");
-    detailsUrl.searchParams.set("access_token", pageToken);
+    detailsUrl.searchParams.set("access_token", token);
     const detailsRes = await fetch(detailsUrl.toString());
     const detailsData = await detailsRes.json();
     return {
@@ -1634,7 +1644,13 @@ async function GET(request) {
                     if (!fbId) throw new Error("Facebook Page ID missing in settings");
                     publishRes = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$meta$2d$api$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["publishFacebookPost"])(fbId, effectiveToken, post.caption + (post.hashtags ? "\n\n" + post.hashtags : ""), mediaUrl);
                 } else {
-                    throw new Error(`Platform ${post.platform} auto-posting not implemented yet`);
+                    // Skip unsupported platforms without marking as failed
+                    results.push({
+                        id: post._id,
+                        status: "Skipped",
+                        error: `Platform ${post.platform} auto-posting not supported`
+                    });
+                    continue;
                 }
                 // Update post status
                 await postsCol.updateOne({

@@ -108,7 +108,9 @@ export async function GET(request: NextRequest) {
             mediaUrl
           );
         } else {
-          throw new Error(`Platform ${post.platform} auto-posting not implemented yet`);
+          // Skip unsupported platforms without marking as failed
+          results.push({ id: post._id, status: "Skipped", error: `Platform ${post.platform} auto-posting not supported` });
+          continue;
         }
 
         // Update post status

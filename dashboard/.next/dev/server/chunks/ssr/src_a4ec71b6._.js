@@ -82,7 +82,8 @@ const POST_STATUSES = [
 const toDateTime = (scheduledDate, scheduledTime)=>{
     if (!scheduledDate) return null;
     const time = scheduledTime && scheduledTime.trim() ? scheduledTime : "00:00";
-    const date = new Date(`${scheduledDate}T${time}:00`);
+    // Treat as IST (UTC+5:30) since the dashboard operates in India
+    const date = new Date(`${scheduledDate}T${time}:00+05:30`);
     return Number.isNaN(date.getTime()) ? null : date;
 };
 const isSameDate = (a, b)=>a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
@@ -1251,6 +1252,9 @@ const initialForm = {
     caption: "",
     hashtags: "",
     mediaFile: "",
+    carouselMediaLinks: [],
+    reelLink: "",
+    reelCoverLink: "",
     scheduledDate: "",
     scheduledTime: "",
     assignedTo: "",
@@ -1396,7 +1400,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: isEditing ? "Edit Social Post" : "Add New Social Post"
                         }, void 0, false, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 207,
+                            lineNumber: 210,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1406,13 +1410,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: "×"
                         }, void 0, false, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 210,
+                            lineNumber: 213,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                    lineNumber: 206,
+                    lineNumber: 209,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1428,7 +1432,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Post Title *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 224,
+                                            lineNumber: 227,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1437,13 +1441,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("title", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 227,
+                                            lineNumber: 230,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 223,
+                                    lineNumber: 226,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$media$2f$platform$2d$selector$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PlatformSelector"], {
@@ -1452,7 +1456,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     label: "Platform"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 233,
+                                    lineNumber: 236,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1462,7 +1466,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Content Type *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 242,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -1474,24 +1478,24 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                     children: contentType
                                                 }, contentType, false, {
                                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 248,
+                                                    lineNumber: 251,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 242,
+                                            lineNumber: 245,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 238,
+                                    lineNumber: 241,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 222,
+                            lineNumber: 225,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1501,7 +1505,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: "Campaign / Project"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 258,
+                                    lineNumber: 261,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1510,13 +1514,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     onChange: (e)=>handleChange("campaign", e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 261,
+                                    lineNumber: 264,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 257,
+                            lineNumber: 260,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1529,7 +1533,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Social Accounts *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 271,
+                                            lineNumber: 274,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1540,7 +1544,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                     children: "Single"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 275,
+                                                    lineNumber: 278,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1551,12 +1555,12 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                         className: `inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${isMultipleMode ? "translate-x-6" : "translate-x-1"}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 290,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 280,
+                                                    lineNumber: 283,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1564,19 +1568,19 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                     children: "Multiple"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 293,
+                                                    lineNumber: 296,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 274,
+                                            lineNumber: 277,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 270,
+                                    lineNumber: 273,
                                     columnNumber: 13
                                 }, this),
                                 isMultipleMode ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$media$2f$multi$2d$account$2d$selector$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MultiAccountSelector"], {
@@ -1586,7 +1590,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     onChange: (accountIds)=>handleAccountsChange(accountIds)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 302,
+                                    lineNumber: 305,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                     value: form.socialAccountId || "",
@@ -1598,7 +1602,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Select an account..."
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 314,
+                                            lineNumber: 317,
                                             columnNumber: 17
                                         }, this),
                                         singleModeAccounts.map((account)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1606,19 +1610,19 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 children: account.displayName || account.handle
                                             }, account._id || account.id, false, {
                                                 fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 316,
+                                                lineNumber: 319,
                                                 columnNumber: 19
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 309,
+                                    lineNumber: 312,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 269,
+                            lineNumber: 272,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1631,7 +1635,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Schedule Date *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 330,
+                                            lineNumber: 333,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1640,13 +1644,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("scheduledDate", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 333,
+                                            lineNumber: 336,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 329,
+                                    lineNumber: 332,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1656,7 +1660,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Schedule Time *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 340,
+                                            lineNumber: 343,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1665,13 +1669,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("scheduledTime", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 343,
+                                            lineNumber: 346,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 339,
+                                    lineNumber: 342,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1681,7 +1685,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Assigned Staff"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 350,
+                                            lineNumber: 353,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -1694,7 +1698,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                     children: "-- Unassigned --"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 358,
+                                                    lineNumber: 361,
                                                     columnNumber: 17
                                                 }, this),
                                                 staffOptions.map((name)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1702,25 +1706,25 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                         children: name
                                                     }, name, false, {
                                                         fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                        lineNumber: 360,
+                                                        lineNumber: 363,
                                                         columnNumber: 19
                                                     }, this))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 353,
+                                            lineNumber: 356,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 349,
+                                    lineNumber: 352,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 328,
+                            lineNumber: 331,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1732,7 +1736,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                         children: "Approval Status"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                        lineNumber: 371,
+                                        lineNumber: 374,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -1745,7 +1749,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 children: "Pending"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 379,
+                                                lineNumber: 382,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1753,7 +1757,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 children: "Approved"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 380,
+                                                lineNumber: 383,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1761,24 +1765,24 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 children: "Rejected"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 381,
+                                                lineNumber: 384,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                        lineNumber: 374,
+                                        lineNumber: 377,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                lineNumber: 370,
+                                lineNumber: 373,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 369,
+                            lineNumber: 372,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1791,7 +1795,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Caption"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 389,
+                                            lineNumber: 392,
                                             columnNumber: 15
                                         }, this),
                                         (()=>{
@@ -1809,14 +1813,14 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 402,
+                                                lineNumber: 405,
                                                 columnNumber: 19
                                             }, this);
                                         })()
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 388,
+                                    lineNumber: 391,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1826,43 +1830,211 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     className: "h-24"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 408,
+                                    lineNumber: 411,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 387,
+                            lineNumber: 390,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    className: "block text-sm font-semibold mb-1",
+                                    children: "Hashtags"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                    lineNumber: 421,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                    placeholder: "#hashtag1 #hashtag2",
+                                    value: form.hashtags || "",
+                                    onChange: (e)=>handleChange("hashtags", e.target.value)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                    lineNumber: 422,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                            lineNumber: 420,
+                            columnNumber: 11
+                        }, this),
+                        form.contentType === "Carousel" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-between mb-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "block text-sm font-semibold",
+                                            children: "Carousel Media Links"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 433,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: ()=>setForm((prev)=>({
+                                                        ...prev,
+                                                        carouselMediaLinks: [
+                                                            ...prev.carouselMediaLinks || [],
+                                                            ""
+                                                        ]
+                                                    })),
+                                            className: "text-xs px-2 py-1 border rounded hover:bg-gray-100 font-semibold",
+                                            children: "+ Add Slide"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 436,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                    lineNumber: 432,
+                                    columnNumber: 15
+                                }, this),
+                                (form.carouselMediaLinks || []).length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-xs text-muted-foreground",
+                                    children: 'Click "+ Add Slide" to add media links for each carousel slide.'
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                    lineNumber: 453,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "space-y-2",
+                                    children: (form.carouselMediaLinks || []).map((link, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-2",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-xs font-semibold text-gray-500 w-6 shrink-0",
+                                                    children: [
+                                                        idx + 1,
+                                                        "."
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                                    lineNumber: 460,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                    placeholder: `Slide ${idx + 1} media URL`,
+                                                    value: link,
+                                                    onChange: (e)=>{
+                                                        const updated = [
+                                                            ...form.carouselMediaLinks || []
+                                                        ];
+                                                        updated[idx] = e.target.value;
+                                                        setForm((prev)=>({
+                                                                ...prev,
+                                                                carouselMediaLinks: updated
+                                                            }));
+                                                    }
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                                    lineNumber: 463,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    type: "button",
+                                                    onClick: ()=>{
+                                                        const updated = (form.carouselMediaLinks || []).filter((_, i)=>i !== idx);
+                                                        setForm((prev)=>({
+                                                                ...prev,
+                                                                carouselMediaLinks: updated
+                                                            }));
+                                                    },
+                                                    className: "text-red-500 hover:text-red-700 text-lg leading-none shrink-0",
+                                                    children: "×"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                                    lineNumber: 477,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, idx, true, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 459,
+                                            columnNumber: 19
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                    lineNumber: 457,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                            lineNumber: 431,
+                            columnNumber: 13
+                        }, this),
+                        form.contentType === "Reel" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "grid grid-cols-1 md:grid-cols-2 gap-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "block text-sm font-semibold mb-1",
-                                            children: "Hashtags"
+                                            children: "Reel Video Link *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 419,
-                                            columnNumber: 15
+                                            lineNumber: 502,
+                                            columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
-                                            placeholder: "#hashtag1 #hashtag2",
-                                            value: form.hashtags || "",
-                                            onChange: (e)=>handleChange("hashtags", e.target.value)
+                                            placeholder: "https://example.com/reel.mp4",
+                                            value: form.reelLink || "",
+                                            onChange: (e)=>handleChange("reelLink", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 422,
-                                            columnNumber: 15
+                                            lineNumber: 505,
+                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 418,
-                                    columnNumber: 13
+                                    lineNumber: 501,
+                                    columnNumber: 15
                                 }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "block text-sm font-semibold mb-1",
+                                            children: "Cover Page Link"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 512,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                            placeholder: "https://example.com/cover.jpg",
+                                            value: form.reelCoverLink || "",
+                                            onChange: (e)=>handleChange("reelCoverLink", e.target.value)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 515,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                    lineNumber: 511,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                            lineNumber: 500,
+                            columnNumber: 13
+                        }, this),
+                        form.contentType !== "Carousel" && form.contentType !== "Reel" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                            children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1870,8 +2042,8 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Media URL or Path"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 429,
-                                            columnNumber: 15
+                                            lineNumber: 530,
+                                            columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                             placeholder: "https://example.com/image.jpg",
@@ -1879,94 +2051,90 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("mediaFile", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 432,
-                                            columnNumber: 15
+                                            lineNumber: 533,
+                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 428,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 417,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    className: "block text-sm font-semibold mb-1",
-                                    children: "Upload Media File"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 442,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
-                                    type: "file",
-                                    accept: "image/*,video/*",
-                                    onChange: async (e)=>{
-                                        const file = e.target.files?.[0] || null;
-                                        const data = await fileToBase64(file);
-                                        if (data) handleChange("mediaFile", data);
-                                    }
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 445,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 441,
-                            columnNumber: 11
-                        }, this),
-                        form.mediaFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "border rounded p-3 bg-gray-50",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-xs font-semibold text-muted-foreground mb-2",
-                                    children: "Media"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 459,
+                                    lineNumber: 529,
                                     columnNumber: 15
                                 }, this),
-                                String(form.mediaFile).startsWith("data:image") ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: form.mediaFile,
-                                    alt: "preview",
-                                    className: "h-32 w-32 object-cover rounded"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "block text-sm font-semibold mb-1",
+                                            children: "Upload Media File"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 541,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                            type: "file",
+                                            accept: "image/*,video/*",
+                                            onChange: async (e)=>{
+                                                const file = e.target.files?.[0] || null;
+                                                const data = await fileToBase64(file);
+                                                if (data) handleChange("mediaFile", data);
+                                            }
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 544,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 463,
-                                    columnNumber: 17
-                                }, this) : String(form.mediaFile).startsWith("data:video") ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
-                                    src: form.mediaFile,
-                                    className: "h-40 rounded",
-                                    controls: true
-                                }, void 0, false, {
+                                    lineNumber: 540,
+                                    columnNumber: 15
+                                }, this),
+                                form.mediaFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "border rounded p-3 bg-gray-50",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "text-xs font-semibold text-muted-foreground mb-2",
+                                            children: "Media"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 557,
+                                            columnNumber: 19
+                                        }, this),
+                                        String(form.mediaFile).startsWith("data:image") ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                            src: form.mediaFile,
+                                            alt: "preview",
+                                            className: "h-32 w-32 object-cover rounded"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 561,
+                                            columnNumber: 21
+                                        }, this) : String(form.mediaFile).startsWith("data:video") ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
+                                            src: form.mediaFile,
+                                            className: "h-40 rounded",
+                                            controls: true
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 567,
+                                            columnNumber: 21
+                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            href: form.mediaFile,
+                                            target: "_blank",
+                                            rel: "noopener noreferrer",
+                                            className: "inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm",
+                                            children: "Open Link"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
+                                            lineNumber: 573,
+                                            columnNumber: 21
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 469,
-                                    columnNumber: 17
-                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: form.mediaFile,
-                                    target: "_blank",
-                                    rel: "noopener noreferrer",
-                                    className: "inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm",
-                                    children: "Open Link"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 471,
+                                    lineNumber: 556,
                                     columnNumber: 17
                                 }, this)
                             ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 458,
-                            columnNumber: 13
-                        }, this),
+                        }, void 0, true),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1979,13 +2147,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "(staff only, not visible to client)"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 487,
+                                            lineNumber: 591,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 485,
+                                    lineNumber: 589,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1995,13 +2163,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     className: "h-20"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 491,
+                                    lineNumber: 595,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 484,
+                            lineNumber: 588,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2016,13 +2184,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "(visible to client)"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 503,
+                                            lineNumber: 607,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 501,
+                                    lineNumber: 605,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -2032,19 +2200,19 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     className: "h-20"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 507,
+                                    lineNumber: 611,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 500,
+                            lineNumber: 604,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                    lineNumber: 220,
+                    lineNumber: 223,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2057,7 +2225,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 518,
+                            lineNumber: 622,
                             columnNumber: 11
                         }, this),
                         isEditing ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2066,7 +2234,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: saving ? "Saving..." : "Save Changes"
                         }, void 0, false, {
                             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 522,
+                            lineNumber: 626,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
@@ -2077,7 +2245,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: saving ? "Saving..." : "Save as Draft"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 527,
+                                    lineNumber: 631,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2086,7 +2254,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: saving ? "Scheduling..." : "Schedule Post"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 534,
+                                    lineNumber: 638,
                                     columnNumber: 15
                                 }, this)
                             ]
@@ -2094,18 +2262,18 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-                    lineNumber: 517,
+                    lineNumber: 621,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-            lineNumber: 204,
+            lineNumber: 207,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/social-media/add-post-modal.tsx",
-        lineNumber: 203,
+        lineNumber: 206,
         columnNumber: 5
     }, this);
 }

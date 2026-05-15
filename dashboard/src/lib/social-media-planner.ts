@@ -64,6 +64,9 @@ export type SocialMediaPost = {
   caption: string;
   hashtags?: string;
   mediaFile?: string;
+  carouselMediaLinks?: string[];
+  reelLink?: string;
+  reelCoverLink?: string;
   scheduledDate: string;
   scheduledTime: string;
   assignedTo: string;
@@ -106,7 +109,8 @@ export type SocialMediaPost = {
 export const toDateTime = (scheduledDate?: string, scheduledTime?: string) => {
   if (!scheduledDate) return null;
   const time = scheduledTime && scheduledTime.trim() ? scheduledTime : "00:00";
-  const date = new Date(`${scheduledDate}T${time}:00`);
+  // Treat as IST (UTC+5:30) since the dashboard operates in India
+  const date = new Date(`${scheduledDate}T${time}:00+05:30`);
   return Number.isNaN(date.getTime()) ? null : date;
 };
 

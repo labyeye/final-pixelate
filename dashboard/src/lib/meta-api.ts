@@ -420,10 +420,21 @@ export async function publishFacebookPost(
   caption: string,
   mediaUrl?: string,
 ): Promise<{ id: string; permalink: string }> {
+  // Exchange user token for page token — page tokens never expire and avoid the deprecated publish_actions path
+  let token = pageToken;
+  try {
+    const ptUrl = new URL(`${META_GRAPH_API}/${pageId}`);
+    ptUrl.searchParams.set("fields", "access_token");
+    ptUrl.searchParams.set("access_token", pageToken);
+    const ptRes = await fetch(ptUrl.toString());
+    const ptData = await ptRes.json();
+    if (ptData.access_token) token = ptData.access_token;
+  } catch {}
+
   let endpoint = `${META_GRAPH_API}/${pageId}/feed`;
   const params: Record<string, string> = {
     message: caption,
-    access_token: pageToken,
+    access_token: token,
   };
 
   if (mediaUrl) {
@@ -460,7 +471,7 @@ export async function publishFacebookPost(
   const id = data.id || data.post_id;
   const detailsUrl = new URL(`${META_GRAPH_API}/${id}`);
   detailsUrl.searchParams.set("fields", "permalink_url");
-  detailsUrl.searchParams.set("access_token", pageToken);
+  detailsUrl.searchParams.set("access_token", token);
   const detailsRes = await fetch(detailsUrl.toString());
   const detailsData = await detailsRes.json();
 
