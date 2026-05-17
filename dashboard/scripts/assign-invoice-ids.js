@@ -38,12 +38,12 @@ async function run() {
 
     if (skipExisting) {
       const existing = await col
-        .find({ id: { $type: "string", $regex: "^PN-\\d{5}$" } })
+        .find({ id: { $type: "string", $regex: "^KHT-\\d{4}$" } })
         .project({ id: 1 })
         .toArray();
       let max = 0;
       for (const e of existing) {
-        const m = (e.id || "").match(/^PN-(\d{5})$/);
+        const m = (e.id || "").match(/^KHT-(\d{4})$/);
         if (m) max = Math.max(max, parseInt(m[1], 10));
       }
 
@@ -55,7 +55,7 @@ async function run() {
       let applied = 0;
       while (await cursor.hasNext()) {
         const doc = await cursor.next();
-        const newId = `PN-${String(nextNum).padStart(5, "0")}`;
+        const newId = `KHT-${String(nextNum).padStart(4, "0")}`;
         if (!applyChanges) {
           console.log(`[DRY] Would set _id=${doc._id} -> id=${newId}`);
           wouldUpdate++;
@@ -84,7 +84,7 @@ async function run() {
     let applied = 0;
     while (await cursor.hasNext()) {
       const doc = await cursor.next();
-      const newId = `PN-${String(counter).padStart(5, "0")}`;
+      const newId = `KHT-${String(counter).padStart(4, "0")}`;
       if (!applyChanges) {
         console.log(`[DRY] Would set _id=${doc._id} -> id=${newId}`);
         wouldUpdate++;

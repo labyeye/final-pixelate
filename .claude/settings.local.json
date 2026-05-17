@@ -16,7 +16,8 @@
       "Bash(Select-Object -ExpandProperty Count)",
       "Bash(wc -l /Users/labh/Desktop/Projects/final-pixelate/website/*.html /Users/labh/Desktop/Projects/final-pixelate/website/pages/*.html)",
       "WebFetch(domain:www.pixelatenest.com)",
-      "Skill(schedule)"
+      "Skill(schedule)",
+      "Bash(npx tsc *)"
     ]
   }
 }

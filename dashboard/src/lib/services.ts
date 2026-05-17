@@ -392,7 +392,7 @@ export async function getInvoices() {
   return col.find().toArray();
 }
 
-export async function renumberInvoices(financialYear?: string) {
+export async function renumberInvoices(_financialYear?: string) {
   const col = await getCollection("invoices");
 
   const invoices = await col.find({}).sort({ createdAt: 1 }).toArray();
@@ -400,14 +400,13 @@ export async function renumberInvoices(financialYear?: string) {
 
   const settingsCol = await getCollection("agencySettings");
   const settings = await settingsCol.findOne({});
-  const prefix = settings?.invoicePrefix ?? "KTS/";
+  const prefix = settings?.invoicePrefix ?? "KHT/";
   const startNum = settings?.invoiceStartNumber ?? 1;
 
   let counter = startNum;
   for (const inv of invoices) {
-    const fy = financialYear || getFinancialYear(inv.createdAt || new Date());
     const padded = String(counter).padStart(4, "0");
-    const invoiceNo = `${prefix}${fy}/${padded}`;
+    const invoiceNo = `${prefix}${padded}`;
     await col.updateOne({ _id: inv._id }, { $set: { invoiceNo } });
     counter++;
   }
@@ -418,16 +417,15 @@ export async function createInvoice(invoice: any) {
   const col = await getCollection("invoices");
 
   try {
-    const fy = getFinancialYear(new Date());
-
     const settingsCol = await getCollection("agencySettings");
     const settings = await settingsCol.findOne({});
-    const prefix = settings?.invoicePrefix ?? "KTS/";
+    const prefix = settings?.invoicePrefix ?? "KHT/";
     const startNum = settings?.invoiceStartNumber ?? 1;
 
-    const regex = new RegExp(`^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${fy}/(\\d+)$`);
+    const escapedPrefix = prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(`^${escapedPrefix}(\\d+)$`);
     const docs = await col
-      .find({ invoiceNo: { $regex: `^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${fy}/` } })
+      .find({ invoiceNo: { $regex: `^${escapedPrefix}` } })
       .project({ invoiceNo: 1 })
       .toArray();
     let maxNum = startNum - 1;
@@ -441,8 +439,8 @@ export async function createInvoice(invoice: any) {
     }
     const nextNum = maxNum + 1;
     const padded = String(nextNum).padStart(4, "0");
-    const invoiceNo = `${prefix}${fy}/${padded}`;
-    const id = `PN-${padded}`;
+    const invoiceNo = `${prefix}${padded}`;
+    const id = `KHT-${padded}`;
     const res = await col.insertOne({
       ...invoice,
       id,

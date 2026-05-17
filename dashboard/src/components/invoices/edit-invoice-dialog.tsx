@@ -70,6 +70,8 @@ export function EditInvoiceDialog({
 }) {
   const [open, setOpen] = React.useState(false);
   const [lineItems, setLineItems] = useState<LineItem[]>([emptyLineItem()]);
+  const [discountType, setDiscountType] = useState<"flat" | "percent">("flat");
+  const [discountInput, setDiscountInput] = useState<string>("0");
 
   const form = useForm<FormValues>({
     defaultValues: {
@@ -104,6 +106,9 @@ export function EditInvoiceDialog({
         includeVenueName: Boolean(invoice.venueName),
         includeVenueAddress: Boolean(invoice.venueAddress),
       });
+
+      setDiscountInput(String(invoice.discount ?? 0));
+      setDiscountType("flat");
 
       if (Array.isArray(invoice.lineItems) && invoice.lineItems.length) {
         setLineItems(
@@ -142,8 +147,13 @@ export function EditInvoiceDialog({
     (s, r) => s + Number(r.rate || 0) * Number(r.quantity || 0),
     0,
   );
-  const tax = (subtotal * 18) / 100;
-  const total = subtotal + tax;
+  const discountAmt =
+    discountType === "percent"
+      ? (subtotal * Math.max(0, Math.min(100, Number(discountInput || 0)))) / 100
+      : Math.max(0, Number(discountInput || 0));
+  const taxable = Math.max(0, subtotal - discountAmt);
+  const tax = (taxable * 18) / 100;
+  const total = taxable + tax;
 
   const handleSave = async (values: FormValues) => {
     try {
@@ -179,6 +189,7 @@ export function EditInvoiceDialog({
         title: values.title || values.projectTitle || "Invoice",
         lineItems: apiLineItems,
         amount: subtotal,
+        discount: discountAmt,
         hsnCode: primaryHsn,
         applyGst: true,
         gstPercent: 18,
@@ -405,14 +416,41 @@ export function EditInvoiceDialog({
               </div>
 
               {}
-              <div className="mt-4 flex flex-col items-end gap-1 text-sm border-t pt-3">
+              <div className="mt-4 flex flex-col items-end gap-1.5 text-sm border-t pt-3">
                 <div className="flex gap-8">
                   <span className="text-muted-foreground">Subtotal</span>
                   <span className="w-28 text-right font-medium">
-                    ₹
-                    {subtotal.toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                    })}
+                    ₹{subtotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                  </span>
+                </div>
+                <div className="flex gap-8 items-center">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-muted-foreground">Discount</span>
+                    <div className="flex rounded border overflow-hidden text-xs">
+                      <button
+                        type="button"
+                        className={`px-1.5 py-0.5 font-medium ${discountType === "flat" ? "bg-primary text-primary-foreground" : "bg-muted"}`}
+                        onClick={() => setDiscountType("flat")}
+                      >₹</button>
+                      <button
+                        type="button"
+                        className={`px-1.5 py-0.5 font-medium ${discountType === "percent" ? "bg-primary text-primary-foreground" : "bg-muted"}`}
+                        onClick={() => setDiscountType("percent")}
+                      >%</button>
+                    </div>
+                    <Input
+                      type="number"
+                      min={0}
+                      max={discountType === "percent" ? 100 : undefined}
+                      value={discountInput}
+                      onChange={(e) => setDiscountInput(e.target.value)}
+                      className="w-20 h-7 text-right text-sm"
+                    />
+                  </div>
+                  <span className="w-28 text-right font-medium text-green-700">
+                    {discountAmt > 0
+                      ? `-₹${discountAmt.toLocaleString("en-IN", { minimumFractionDigits: 2 })}`
+                      : "—"}
                   </span>
                 </div>
                 <div className="flex gap-8">
@@ -424,10 +462,7 @@ export function EditInvoiceDialog({
                 <div className="flex gap-8 text-base font-semibold border-t pt-1 mt-1">
                   <span>Total</span>
                   <span className="w-28 text-right">
-                    ₹
-                    {total.toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                    })}
+                    ₹{total.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
                   </span>
                 </div>
               </div>
