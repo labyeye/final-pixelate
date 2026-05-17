@@ -4530,6 +4530,7 @@ function SocialMediaPlannerPage() {
     const [selectedClientId, setSelectedClientId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [team, setTeam] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [accountsMap, setAccountsMap] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
     const [isModalOpen, setIsModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [editingPost, setEditingPost] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [viewingPlan, setViewingPlan] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -4600,6 +4601,22 @@ function SocialMediaPlannerPage() {
     }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         loadPosts(selectedClientId);
+        if (selectedClientId) {
+            fetch(`/api/social-media-accounts?clientId=${selectedClientId}`, {
+                cache: "no-store"
+            }).then((r)=>r.json()).then((data)=>{
+                if (Array.isArray(data)) {
+                    const map = {};
+                    data.forEach((a)=>{
+                        const id = String(a._id || a.id || "");
+                        if (id) map[id] = a.displayName || `@${a.handle}`;
+                    });
+                    setAccountsMap(map);
+                }
+            }).catch(()=>{});
+        } else {
+            setAccountsMap({});
+        }
     }, [
         selectedClientId,
         user
@@ -4811,7 +4828,7 @@ function SocialMediaPlannerPage() {
                         children: metaBanner.message
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 388,
+                        lineNumber: 406,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4820,13 +4837,13 @@ function SocialMediaPlannerPage() {
                         children: "Dismiss"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 389,
+                        lineNumber: 407,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 381,
+                lineNumber: 399,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -4839,7 +4856,7 @@ function SocialMediaPlannerPage() {
                                 children: "CONTENT PLANNER / SCHEDULER"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 401,
+                                lineNumber: 419,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4847,13 +4864,13 @@ function SocialMediaPlannerPage() {
                                 children: "Plan, schedule and track social media posts by platform and staff."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 404,
+                                lineNumber: 422,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 400,
+                        lineNumber: 418,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4865,7 +4882,7 @@ function SocialMediaPlannerPage() {
                                 children: "Dashboard"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 409,
+                                lineNumber: 427,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -4874,7 +4891,7 @@ function SocialMediaPlannerPage() {
                                 children: "Calendar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 415,
+                                lineNumber: 433,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -4883,19 +4900,19 @@ function SocialMediaPlannerPage() {
                                 children: "Analytics"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 421,
+                                lineNumber: 439,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 408,
+                        lineNumber: 426,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 399,
+                lineNumber: 417,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -4904,12 +4921,12 @@ function SocialMediaPlannerPage() {
                     onClientSelected: setSelectedClientId
                 }, void 0, false, {
                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                    lineNumber: 432,
+                    lineNumber: 450,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 431,
+                lineNumber: 449,
                 columnNumber: 7
             }, this),
             !selectedClientId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -4920,7 +4937,7 @@ function SocialMediaPlannerPage() {
                         className: "text-yellow-600 w-5 h-5 flex-shrink-0"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 438,
+                        lineNumber: 456,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4930,7 +4947,7 @@ function SocialMediaPlannerPage() {
                                 children: "Please select a client to view and manage content"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 443,
+                                lineNumber: 461,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4938,19 +4955,19 @@ function SocialMediaPlannerPage() {
                                 children: "Select a client from the dropdown above to start planning."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 446,
+                                lineNumber: 464,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 442,
+                        lineNumber: 460,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 437,
+                lineNumber: 455,
                 columnNumber: 9
             }, this),
             selectedClientId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -4969,14 +4986,14 @@ function SocialMediaPlannerPage() {
                                             className: "w-3 h-3"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 458,
+                                            lineNumber: 476,
                                             columnNumber: 17
                                         }, this),
                                         "Filters"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 457,
+                                    lineNumber: 475,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4986,7 +5003,7 @@ function SocialMediaPlannerPage() {
                                     onChange: (e)=>setSearch(e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 461,
+                                    lineNumber: 479,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -4999,7 +5016,7 @@ function SocialMediaPlannerPage() {
                                             children: "All Platforms"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 472,
+                                            lineNumber: 490,
                                             columnNumber: 17
                                         }, this),
                                         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$social$2d$media$2d$planner$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SOCIAL_PLATFORMS"].map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -5007,13 +5024,13 @@ function SocialMediaPlannerPage() {
                                                 children: p
                                             }, p, false, {
                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                lineNumber: 474,
+                                                lineNumber: 492,
                                                 columnNumber: 19
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 467,
+                                    lineNumber: 485,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -5026,7 +5043,7 @@ function SocialMediaPlannerPage() {
                                             children: "All Status"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 484,
+                                            lineNumber: 502,
                                             columnNumber: 17
                                         }, this),
                                         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$social$2d$media$2d$planner$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["POST_STATUSES"].map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -5034,13 +5051,13 @@ function SocialMediaPlannerPage() {
                                                 children: s
                                             }, s, false, {
                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                lineNumber: 486,
+                                                lineNumber: 504,
                                                 columnNumber: 19
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 479,
+                                    lineNumber: 497,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -5053,7 +5070,7 @@ function SocialMediaPlannerPage() {
                                             children: "All Staff"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 496,
+                                            lineNumber: 514,
                                             columnNumber: 17
                                         }, this),
                                         staffOptions.map((n)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -5061,13 +5078,13 @@ function SocialMediaPlannerPage() {
                                                 children: n
                                             }, n, false, {
                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                lineNumber: 498,
+                                                lineNumber: 516,
                                                 columnNumber: 19
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 491,
+                                    lineNumber: 509,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -5080,7 +5097,7 @@ function SocialMediaPlannerPage() {
                                             children: "All Types"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 508,
+                                            lineNumber: 526,
                                             columnNumber: 17
                                         }, this),
                                         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$social$2d$media$2d$planner$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CONTENT_TYPES"].map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -5088,13 +5105,13 @@ function SocialMediaPlannerPage() {
                                                 children: c
                                             }, c, false, {
                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                lineNumber: 510,
+                                                lineNumber: 528,
                                                 columnNumber: 19
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 503,
+                                    lineNumber: 521,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -5104,7 +5121,7 @@ function SocialMediaPlannerPage() {
                                     onChange: (e)=>setCampaignFilter(e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 515,
+                                    lineNumber: 533,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5114,7 +5131,7 @@ function SocialMediaPlannerPage() {
                                     onChange: (e)=>setDateFrom(e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 521,
+                                    lineNumber: 539,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5124,7 +5141,7 @@ function SocialMediaPlannerPage() {
                                     onChange: (e)=>setDateTo(e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 527,
+                                    lineNumber: 545,
                                     columnNumber: 15
                                 }, this),
                                 (search || platformFilter || statusFilter || staffFilter || contentTypeFilter || campaignFilter || dateFrom || dateTo) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5145,25 +5162,25 @@ function SocialMediaPlannerPage() {
                                             className: "w-3 h-3"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 554,
+                                            lineNumber: 572,
                                             columnNumber: 19
                                         }, this),
                                         "Clear"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 541,
+                                    lineNumber: 559,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                            lineNumber: 456,
+                            lineNumber: 474,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 455,
+                        lineNumber: 473,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -5176,20 +5193,20 @@ function SocialMediaPlannerPage() {
                                 className: "w-3 h-3"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 565,
+                                lineNumber: 583,
                                 columnNumber: 13
                             }, this),
                             "Add Plan"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 560,
+                        lineNumber: 578,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 453,
+                lineNumber: 471,
                 columnNumber: 9
             }, this),
             selectedClientId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5203,7 +5220,7 @@ function SocialMediaPlannerPage() {
                                 children: "Planned Posts"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 573,
+                                lineNumber: 591,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5214,13 +5231,13 @@ function SocialMediaPlannerPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 574,
+                                lineNumber: 592,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 572,
+                        lineNumber: 590,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5233,7 +5250,7 @@ function SocialMediaPlannerPage() {
                                     children: "No posts planned for this client"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 582,
+                                    lineNumber: 600,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5246,20 +5263,20 @@ function SocialMediaPlannerPage() {
                                             className: "w-2.5 h-2.5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 587,
+                                            lineNumber: 605,
                                             columnNumber: 19
                                         }, this),
                                         " Add Plan to create your first post"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 585,
+                                    lineNumber: 603,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                            lineNumber: 581,
+                            lineNumber: 599,
                             columnNumber: 15
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
@@ -5274,7 +5291,7 @@ function SocialMediaPlannerPage() {
                                                     children: "Title"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 596,
+                                                    lineNumber: 614,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -5282,7 +5299,15 @@ function SocialMediaPlannerPage() {
                                                     children: "Platform"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 599,
+                                                    lineNumber: 617,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                    className: "text-left p-2 border-b",
+                                                    children: "Account"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
+                                                    lineNumber: 618,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -5290,7 +5315,7 @@ function SocialMediaPlannerPage() {
                                                     children: "Content"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 600,
+                                                    lineNumber: 619,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -5298,7 +5323,7 @@ function SocialMediaPlannerPage() {
                                                     children: "Scheduled / Posted"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 601,
+                                                    lineNumber: 620,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -5306,7 +5331,7 @@ function SocialMediaPlannerPage() {
                                                     children: "Assigned"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 604,
+                                                    lineNumber: 623,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -5314,7 +5339,7 @@ function SocialMediaPlannerPage() {
                                                     children: "Status"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 605,
+                                                    lineNumber: 624,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -5322,7 +5347,7 @@ function SocialMediaPlannerPage() {
                                                     children: "Approval"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 606,
+                                                    lineNumber: 625,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -5330,18 +5355,18 @@ function SocialMediaPlannerPage() {
                                                     children: "Actions"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 607,
+                                                    lineNumber: 626,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 595,
+                                            lineNumber: 613,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                        lineNumber: 594,
+                                        lineNumber: 612,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -5368,7 +5393,7 @@ function SocialMediaPlannerPage() {
                                                                     children: item.title
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                    lineNumber: 643,
+                                                                    lineNumber: 662,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5376,7 +5401,7 @@ function SocialMediaPlannerPage() {
                                                                     children: item.caption
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                    lineNumber: 646,
+                                                                    lineNumber: 665,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 item.campaign && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5384,13 +5409,13 @@ function SocialMediaPlannerPage() {
                                                                     children: item.campaign
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                    lineNumber: 650,
+                                                                    lineNumber: 669,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 642,
+                                                            lineNumber: 661,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5403,25 +5428,60 @@ function SocialMediaPlannerPage() {
                                                                         size: "sm"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                        lineNumber: 657,
+                                                                        lineNumber: 676,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         children: item.platform
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                        lineNumber: 661,
+                                                                        lineNumber: 680,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                lineNumber: 656,
+                                                                lineNumber: 675,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 655,
+                                                            lineNumber: 674,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "p-2 border-b align-top",
+                                                            children: (()=>{
+                                                                const ids = item.socialAccountIds?.length ? item.socialAccountIds : item.socialAccountId ? [
+                                                                    item.socialAccountId
+                                                                ] : [];
+                                                                if (!ids.length) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-xs text-muted-foreground",
+                                                                    children: "—"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
+                                                                    lineNumber: 690,
+                                                                    columnNumber: 55
+                                                                }, this);
+                                                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex flex-col gap-1",
+                                                                    children: ids.map((aid)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-700 whitespace-nowrap",
+                                                                            children: accountsMap[aid] || aid
+                                                                        }, aid, false, {
+                                                                            fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
+                                                                            lineNumber: 694,
+                                                                            columnNumber: 37
+                                                                        }, this))
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
+                                                                    lineNumber: 692,
+                                                                    columnNumber: 33
+                                                                }, this);
+                                                            })()
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
+                                                            lineNumber: 683,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5429,7 +5489,7 @@ function SocialMediaPlannerPage() {
                                                             children: item.contentType
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 664,
+                                                            lineNumber: 705,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5445,7 +5505,7 @@ function SocialMediaPlannerPage() {
                                                                                 className: "w-2.5 h-2.5 text-muted-foreground mr-1"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 670,
+                                                                                lineNumber: 711,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5453,7 +5513,7 @@ function SocialMediaPlannerPage() {
                                                                                 children: item.scheduledDate
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 674,
+                                                                                lineNumber: 715,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             item.scheduledTime && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5464,13 +5524,13 @@ function SocialMediaPlannerPage() {
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 678,
+                                                                                lineNumber: 719,
                                                                                 columnNumber: 35
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                        lineNumber: 669,
+                                                                        lineNumber: 710,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     postedAt && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5481,7 +5541,7 @@ function SocialMediaPlannerPage() {
                                                                                 className: "w-2.5 h-2.5"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 686,
+                                                                                lineNumber: 727,
                                                                                 columnNumber: 35
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5489,24 +5549,24 @@ function SocialMediaPlannerPage() {
                                                                                 children: postedAt
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 690,
+                                                                                lineNumber: 731,
                                                                                 columnNumber: 35
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                        lineNumber: 685,
+                                                                        lineNumber: 726,
                                                                         columnNumber: 33
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                lineNumber: 668,
+                                                                lineNumber: 709,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 667,
+                                                            lineNumber: 708,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5514,7 +5574,7 @@ function SocialMediaPlannerPage() {
                                                             children: item.assignedTo || "Unassigned"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 697,
+                                                            lineNumber: 738,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5524,12 +5584,12 @@ function SocialMediaPlannerPage() {
                                                                 children: item.status
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                lineNumber: 701,
+                                                                lineNumber: 742,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 700,
+                                                            lineNumber: 741,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5545,14 +5605,14 @@ function SocialMediaPlannerPage() {
                                                                                 className: `w-2.5 h-2.5 ${approvalIconColor[item.approvalStatus]}`
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 713,
+                                                                                lineNumber: 754,
                                                                                 columnNumber: 35
                                                                             }, this),
                                                                             item.approvalStatus
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                        lineNumber: 710,
+                                                                        lineNumber: 751,
                                                                         columnNumber: 33
                                                                     }, this),
                                                                     item.approvalStatus === "Rejected" && item.rejectionReason && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5564,20 +5624,20 @@ function SocialMediaPlannerPage() {
                                                                                 className: "w-2.5 h-2.5 mt-0.5 flex-shrink-0"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 725,
+                                                                                lineNumber: 766,
                                                                                 columnNumber: 39
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                 children: item.rejectionReason
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 729,
+                                                                                lineNumber: 770,
                                                                                 columnNumber: 39
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                        lineNumber: 721,
+                                                                        lineNumber: 762,
                                                                         columnNumber: 37
                                                                     }, this),
                                                                     item.clientRemarks && item.approvalStatus !== "Rejected" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5589,38 +5649,38 @@ function SocialMediaPlannerPage() {
                                                                                 className: "w-2.5 h-2.5 mt-0.5 flex-shrink-0"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 740,
+                                                                                lineNumber: 781,
                                                                                 columnNumber: 39
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                 children: item.clientRemarks
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                                lineNumber: 744,
+                                                                                lineNumber: 785,
                                                                                 columnNumber: 39
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                        lineNumber: 736,
+                                                                        lineNumber: 777,
                                                                         columnNumber: 37
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                lineNumber: 709,
+                                                                lineNumber: 750,
                                                                 columnNumber: 31
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 className: "text-xs text-muted-foreground",
                                                                 children: "—"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                lineNumber: 749,
+                                                                lineNumber: 790,
                                                                 columnNumber: 31
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 707,
+                                                            lineNumber: 748,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5646,63 +5706,63 @@ function SocialMediaPlannerPage() {
                                                                     children: "⋯"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                    lineNumber: 756,
+                                                                    lineNumber: 797,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                                lineNumber: 755,
+                                                                lineNumber: 796,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                            lineNumber: 754,
+                                                            lineNumber: 795,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, itemId, true, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 638,
+                                                    lineNumber: 657,
                                                     columnNumber: 25
                                                 }, this);
                                             }),
                                             !filtered.length && posts.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                    colSpan: 8,
+                                                    colSpan: 9,
                                                     className: "p-6 text-center text-muted-foreground",
                                                     children: "No posts found for selected filters."
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                    lineNumber: 784,
+                                                    lineNumber: 825,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                                lineNumber: 783,
+                                                lineNumber: 824,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                        lineNumber: 610,
+                                        lineNumber: 629,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                lineNumber: 593,
+                                lineNumber: 611,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                        lineNumber: 579,
+                        lineNumber: 597,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 571,
+                lineNumber: 589,
                 columnNumber: 9
             }, this),
             selectedClientId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5711,12 +5771,12 @@ function SocialMediaPlannerPage() {
                     clientId: selectedClientId
                 }, void 0, false, {
                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                    lineNumber: 803,
+                    lineNumber: 844,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 802,
+                lineNumber: 843,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$media$2f$add$2d$post$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AddPostModal"], {
@@ -5732,7 +5792,7 @@ function SocialMediaPlannerPage() {
                 editingPost: editingPost
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 808,
+                lineNumber: 849,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$media$2f$view$2d$plan$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ViewPlanModal"], {
@@ -5744,7 +5804,7 @@ function SocialMediaPlannerPage() {
                 }
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 822,
+                lineNumber: 863,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$media$2f$post$2d$links$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PostLinksModal"], {
@@ -5760,7 +5820,7 @@ function SocialMediaPlannerPage() {
                 onSave: handleSavePostedLinks
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                lineNumber: 831,
+                lineNumber: 872,
                 columnNumber: 7
             }, this),
             dropdownInfo && (()=>{
@@ -5774,7 +5834,7 @@ function SocialMediaPlannerPage() {
                             onClick: ()=>setDropdownInfo(null)
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                            lineNumber: 858,
+                            lineNumber: 899,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5799,7 +5859,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 879,
+                                            lineNumber: 920,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -5807,7 +5867,7 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 872,
+                                    lineNumber: 913,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5822,7 +5882,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 892,
+                                            lineNumber: 933,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -5830,7 +5890,7 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 885,
+                                    lineNumber: 926,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5845,7 +5905,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 905,
+                                            lineNumber: 946,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -5853,7 +5913,7 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 898,
+                                    lineNumber: 939,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5868,7 +5928,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 918,
+                                            lineNumber: 959,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -5876,7 +5936,7 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 911,
+                                    lineNumber: 952,
                                     columnNumber: 17
                                 }, this),
                                 dp.status === "Posted" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5892,7 +5952,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 933,
+                                            lineNumber: 974,
                                             columnNumber: 21
                                         }, this),
                                         " ",
@@ -5900,14 +5960,14 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 925,
+                                    lineNumber: 966,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "border-t border-gray-100 my-1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 937,
+                                    lineNumber: 978,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5922,7 +5982,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 945,
+                                            lineNumber: 986,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -5930,7 +5990,7 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 938,
+                                    lineNumber: 979,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5945,7 +6005,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 955,
+                                            lineNumber: 996,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -5953,14 +6013,14 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 948,
+                                    lineNumber: 989,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "border-t border-gray-100 my-1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 961,
+                                    lineNumber: 1002,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5975,7 +6035,7 @@ function SocialMediaPlannerPage() {
                                             className: "w-3.5 h-3.5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                            lineNumber: 969,
+                                            lineNumber: 1010,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -5983,13 +6043,13 @@ function SocialMediaPlannerPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                                    lineNumber: 962,
+                                    lineNumber: 1003,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-                            lineNumber: 862,
+                            lineNumber: 903,
                             columnNumber: 15
                         }, this)
                     ]
@@ -5998,7 +6058,7 @@ function SocialMediaPlannerPage() {
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/social-media-planner/planner/page.tsx",
-        lineNumber: 378,
+        lineNumber: 396,
         columnNumber: 5
     }, this);
 }

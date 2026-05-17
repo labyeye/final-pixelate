@@ -39,21 +39,59 @@ export async function OPTIONS() {
 }
 
 
+async function getTokenPermissions(
+  token: string,
+): Promise<{ granted: string[]; declined: string[]; error?: any }> {
+  try {
+    const res = await fetch(
+      `${GRAPH}/me/permissions?access_token=${token}`,
+    );
+    const data = await res.json();
+    if (data.error) {
+      console.warn(
+        "[LeadsSync] permissions error:",
+        JSON.stringify(data.error),
+      );
+      return { granted: [], declined: [], error: data.error };
+    }
+    const granted: string[] = [];
+    const declined: string[] = [];
+    for (const p of data.data || []) {
+      if (p.status === "granted") granted.push(p.permission);
+      else declined.push(p.permission);
+    }
+    return { granted, declined };
+  } catch (e: any) {
+    return {
+      granted: [],
+      declined: [],
+      error: { message: e?.message || String(e), type: "exception" },
+    };
+  }
+}
+
+
 async function getAdAccounts(
   token: string,
-): Promise<{ id: string; name: string }[]> {
+): Promise<{ accounts: { id: string; name: string }[]; error?: any }> {
   try {
     const res = await fetch(
       `${GRAPH}/me/adaccounts?fields=id,name&limit=50&access_token=${token}`,
     );
     const data = await res.json();
     if (data.error) {
-      console.warn("adaccounts error:", data.error.message);
-      return [];
+      console.warn(
+        "[LeadsSync] adaccounts error:",
+        JSON.stringify(data.error),
+      );
+      return { accounts: [], error: data.error };
     }
-    return data.data || [];
-  } catch {
-    return [];
+    return { accounts: data.data || [] };
+  } catch (e: any) {
+    return {
+      accounts: [],
+      error: { message: e?.message || String(e), type: "exception" },
+    };
   }
 }
 
@@ -61,29 +99,39 @@ async function getAdAccounts(
 async function fetchAdAccountLeads(
   adAccountId: string,
   token: string,
-): Promise<any[]> {
+): Promise<{ leads: any[]; error?: any; httpStatus?: number }> {
   const leads: any[] = [];
   let nextUrl: string | null =
     `${GRAPH}/${adAccountId}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&limit=100&access_token=${token}`;
+  let firstError: any = undefined;
+  let lastStatus: number | undefined = undefined;
 
   while (nextUrl) {
     try {
       const res = await fetch(nextUrl);
+      lastStatus = res.status;
       const data = await res.json();
       if (data.error) {
         console.warn(
-          `Ad account leads error [${adAccountId}]:`,
-          data.error.message,
+          `[LeadsSync] Ad account leads error [${adAccountId}] http=${res.status}:`,
+          JSON.stringify(data.error),
         );
+        if (!firstError) firstError = data.error;
         break;
       }
       leads.push(...(data.data || []));
       nextUrl = data.paging?.next || null;
-    } catch {
+    } catch (e: any) {
+      console.warn(
+        `[LeadsSync] Ad account leads fetch threw [${adAccountId}]:`,
+        e?.message,
+      );
+      if (!firstError)
+        firstError = { message: e?.message || String(e), type: "exception" };
       break;
     }
   }
-  return leads;
+  return { leads, error: firstError, httpStatus: lastStatus };
 }
 
 
@@ -101,7 +149,7 @@ async function fetchPageFormLeads(
 
     for (const form of formsData.data || []) {
       let nextUrl: string | null =
-        `${GRAPH}/${form.id}/leads?fields=id,created_time,ad_id,field_data&limit=100&access_token=${pageToken}`;
+        `${GRAPH}/${form.id}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&limit=100&access_token=${pageToken}`;
       while (nextUrl) {
         try {
           const res = await fetch(nextUrl);
@@ -198,38 +246,78 @@ export async function POST(request: Request) {
     let skipped = 0;
     let filteredNonBihar = 0;
 
-    
+
     const allRawLeads: any[] = [];
     const seenMetaIds = new Set<string>();
 
-    
+
     const fbAdsCol = await svc.getCollection("fbAdsConnections");
     const fbConn = await fbAdsCol.findOne({ clientId });
     const fbToken = fbConn?.accessToken || token;
+    const fbTokenSource = fbConn?.accessToken
+      ? "fbAdsConnection.accessToken"
+      : "client.metaAccessToken";
+    console.log(`[LeadsSync] Using token from: ${fbTokenSource}`);
+
+
+    // Check what the token can actually do. If ads_read / ads_management
+    // are missing, ad-account lead fetching will return nothing — surface
+    // that in the response so the operator knows to re-auth.
+    const permInfo = await getTokenPermissions(fbToken);
+    const hasAdsRead =
+      permInfo.granted.includes("ads_read") ||
+      permInfo.granted.includes("ads_management");
+    const hasLeadsRetrieval = permInfo.granted.includes("leads_retrieval");
+    console.log(
+      `[LeadsSync] Token permissions — granted: [${permInfo.granted.join(", ")}], declined: [${permInfo.declined.join(", ")}]`,
+    );
+    console.log(
+      `[LeadsSync] ads_read/ads_management present: ${hasAdsRead}; leads_retrieval present: ${hasLeadsRetrieval}`,
+    );
 
     const adAccounts: { id: string; name: string }[] = [];
+    let adAccountDiscoveryError: any = undefined;
 
     if (fbConn?.adAccountId) {
-      
+
       const storedId = fbConn.adAccountId.startsWith("act_")
         ? fbConn.adAccountId
         : `act_${fbConn.adAccountId}`;
       adAccounts.push({ id: storedId, name: storedId });
       console.log(`[LeadsSync] Using stored ad account: ${storedId}`);
     } else {
-      
-      const discovered = await getAdAccounts(fbToken);
-      adAccounts.push(...discovered);
+
+      const { accounts, error } = await getAdAccounts(fbToken);
+      adAccounts.push(...accounts);
+      if (error) adAccountDiscoveryError = error;
       console.log(
-        `[LeadsSync] Discovered ${discovered.length} ad accounts via token`,
+        `[LeadsSync] Discovered ${accounts.length} ad accounts via token${error ? ` (error: ${JSON.stringify(error)})` : ""}`,
       );
     }
 
+    const adAccountStats: Array<{
+      id: string;
+      name: string;
+      leadCount: number;
+      httpStatus?: number;
+      error?: any;
+    }> = [];
+
     for (const adAccount of adAccounts) {
-      const leads = await fetchAdAccountLeads(adAccount.id, fbToken);
-      console.log(
-        `[LeadsSync] Ad account ${adAccount.name} (${adAccount.id}): ${leads.length} leads`,
+      const { leads, error, httpStatus } = await fetchAdAccountLeads(
+        adAccount.id,
+        fbToken,
       );
+      console.log(
+        `[LeadsSync] Ad account ${adAccount.name} (${adAccount.id}): ${leads.length} leads, http=${httpStatus ?? "n/a"}${error ? `, error=${JSON.stringify(error)}` : ""}`,
+      );
+      adAccountStats.push({
+        id: adAccount.id,
+        name: adAccount.name,
+        leadCount: leads.length,
+        httpStatus,
+        error,
+      });
       for (const lead of leads) {
         if (!seenMetaIds.has(lead.id)) {
           seenMetaIds.add(lead.id);
@@ -275,18 +363,17 @@ export async function POST(request: Request) {
         $or: [{ metaLeadId: ml.id }, { fbLeadId: ml.id }],
       });
       if (existingById) {
-        
-        if (!existingById.metaLeadId) {
-          await leadsCol.updateOne(
-            { _id: existingById._id },
-            {
-              $set: {
-                metaLeadId: ml.id,
-                campaignName: ml.campaign_name || "",
-                adName: ml.ad_name || "",
-              },
-            },
-          );
+        const patch: Record<string, any> = {};
+        if (!existingById.metaLeadId) patch.metaLeadId = ml.id;
+        if (!existingById.campaignName && ml.campaign_name)
+          patch.campaignName = ml.campaign_name;
+        if (!existingById.campaignId && ml.campaign_id)
+          patch.campaignId = ml.campaign_id;
+        if (!existingById.adSetName && ml.adset_name)
+          patch.adSetName = ml.adset_name;
+        if (!existingById.adName && ml.ad_name) patch.adName = ml.ad_name;
+        if (Object.keys(patch).length) {
+          await leadsCol.updateOne({ _id: existingById._id }, { $set: patch });
         }
         skipped++;
         continue;
@@ -302,15 +389,18 @@ export async function POST(request: Request) {
           $or: orClauses,
         });
         if (existingByContact) {
+          const patch: Record<string, any> = { metaLeadId: ml.id };
+          if (!existingByContact.campaignName && ml.campaign_name)
+            patch.campaignName = ml.campaign_name;
+          if (!existingByContact.campaignId && ml.campaign_id)
+            patch.campaignId = ml.campaign_id;
+          if (!existingByContact.adSetName && ml.adset_name)
+            patch.adSetName = ml.adset_name;
+          if (!existingByContact.adName && ml.ad_name)
+            patch.adName = ml.ad_name;
           await leadsCol.updateOne(
             { _id: existingByContact._id },
-            {
-              $set: {
-                metaLeadId: ml.id,
-                campaignName: ml.campaign_name || "",
-                adName: ml.ad_name || "",
-              },
-            },
+            { $set: patch },
           );
           skipped++;
           continue;
@@ -358,6 +448,18 @@ export async function POST(request: Request) {
         total: allRawLeads.length,
         adAccounts: adAccounts.length,
         pages: pages.length,
+        diagnostics: {
+          tokenSource: fbTokenSource,
+          tokenPermissions: {
+            granted: permInfo.granted,
+            declined: permInfo.declined,
+            hasAdsRead,
+            hasLeadsRetrieval,
+            permissionsError: permInfo.error,
+          },
+          adAccountDiscoveryError,
+          adAccountStats,
+        },
       },
       { headers: CORS },
     );

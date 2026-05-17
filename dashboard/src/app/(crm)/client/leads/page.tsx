@@ -292,11 +292,6 @@ function LeadModal({
                 📢 <span className="font-black">{lead.campaignName}</span>
               </p>
             )}
-            {lead.adSetName && (
-              <p className="text-xs text-gray-600">
-                🎯 Ad Set: {lead.adSetName}
-              </p>
-            )}
             {lead.adName && (
               <p className="text-xs text-gray-600">📄 Ad: {lead.adName}</p>
             )}

@@ -16,7 +16,7 @@ const CITY_KEYS = ["city", "location", "town", "district"];
 
 const TARGET_CITIES = [
   // Previous batch
-  "Ahamadabad",
+  "Aurangabad",
   "rohtak haryana",
   "Pune",
   "Ausa",
