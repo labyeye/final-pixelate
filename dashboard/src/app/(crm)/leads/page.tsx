@@ -485,9 +485,11 @@ export default function LeadsPage() {
       if (res.ok) {
         const items = await fetchLeads();
         setLeads(items);
+        const parts = [`${data.synced} new leads imported`];
+        if (data.backfilled) parts.push(`${data.backfilled} existing updated with campaign info`);
         toast({
           title: "Meta Ads Sync Complete",
-          description: `${data.synced} new leads imported`,
+          description: parts.join(" · "),
         });
       } else {
         toast({

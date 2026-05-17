@@ -106,6 +106,8 @@ export interface Lead {
   source?: string;
   campaignName?: string;
   formName?: string;
+  adName?: string;
+  fbLeadId?: string;
   indiamrtSynced?: boolean;
   indiamrtResponse?: any;
 

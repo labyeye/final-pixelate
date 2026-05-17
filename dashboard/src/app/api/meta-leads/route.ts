@@ -59,10 +59,12 @@ export async function GET() {
     const forms: any[] = formsData.data || [];
     const col = await svc.getCollection("leads");
     let synced = 0;
+    let backfilled = 0;
 
     for (const form of forms) {
+      const formName: string = form.name || "";
       const leadsRes = await fetch(
-        `https://graph.facebook.com/v19.0/${form.id}/leads?fields=field_data,created_time&access_token=${pageToken}`,
+        `https://graph.facebook.com/v19.0/${form.id}/leads?fields=id,field_data,created_time,campaign_name,campaign_id,ad_name,ad_id,adset_name,adset_id&access_token=${pageToken}`,
       );
       const leadsData = await leadsRes.json();
       const metaLeads: any[] = leadsData.data || [];
@@ -76,14 +78,32 @@ export async function GET() {
         const phone = f["phone_number"] || f["phone"] || "";
         const email = f["email"] || "";
 
-        
         if (!phone && !email) continue;
 
-        
+        const campaignName: string = ml.campaign_name || formName || "";
+        const adName: string = ml.ad_name || "";
+        const fbLeadId: string = ml.id || "";
+
         const existing = await col.findOne({
-          $or: [...(phone ? [{ phone }] : []), ...(email ? [{ email }] : [])],
+          $or: [
+            ...(fbLeadId ? [{ fbLeadId }] : []),
+            ...(phone ? [{ phone }] : []),
+            ...(email ? [{ email }] : []),
+          ],
         });
-        if (existing) continue;
+
+        if (existing) {
+          const patch: Record<string, any> = {};
+          if (campaignName && !existing.campaignName) patch.campaignName = campaignName;
+          if (formName && !existing.formName) patch.formName = formName;
+          if (adName && !existing.adName) patch.adName = adName;
+          if (fbLeadId && !existing.fbLeadId) patch.fbLeadId = fbLeadId;
+          if (Object.keys(patch).length) {
+            await col.updateOne({ _id: existing._id }, { $set: patch });
+            backfilled++;
+          }
+          continue;
+        }
 
         await col.insertOne({
           name: f["full_name"] || f["name"] || "Meta Ads Lead",
@@ -91,13 +111,17 @@ export async function GET() {
           email,
           source: "Meta Ads",
           status: "not called",
+          campaignName,
+          formName,
+          adName,
+          fbLeadId,
           createdAt: new Date(ml.created_time),
         });
         synced++;
       }
     }
 
-    return NextResponse.json({ synced }, { headers: CORS });
+    return NextResponse.json({ synced, backfilled }, { headers: CORS });
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || String(err) },
