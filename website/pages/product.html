@@ -45,12 +45,255 @@
     />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/pages/product.css" />
+    <style>
+      /* ===== Process Snake Timeline (cloned from index.html) ===== */
+      .pn-section {
+        padding: 100px 0;
+        background: #fff;
+      }
+      .pn-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .pn-header {
+        text-align: center;
+        margin-bottom: 72px;
+      }
+      .pn-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #f97316;
+        margin-bottom: 14px;
+      }
+      .pn-headline {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 900;
+        color: #111;
+        line-height: 1.2;
+        margin: 0 0 16px;
+      }
+      .pn-subtext {
+        font-size: 16px;
+        color: #6b7280;
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .pn-snake {
+        position: relative;
+      }
+      .pn-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+      }
+      .pn-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .pn-row + .pn-row {
+        margin-top: 80px;
+      }
+      .pn-rtl {
+        flex-direction: row-reverse;
+      }
+      .pn-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 30%;
+        position: relative;
+      }
+      .pn-num {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        color: #d1d5db;
+        margin-bottom: 12px;
+        transition: color 0.5s ease;
+      }
+      .pn-circle {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        border: 2.5px solid #e5e7eb;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: #d1d5db;
+        position: relative;
+        z-index: 2;
+        transition:
+          border-color 0.5s ease,
+          color 0.5s ease,
+          box-shadow 0.5s ease,
+          transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .pn-step.active .pn-num {
+        color: #f97316;
+      }
+      .pn-step.active .pn-circle {
+        border-color: #f97316;
+        color: #f97316;
+        box-shadow: 0 0 0 8px rgba(249, 115, 22, 0.1);
+        transform: scale(1.1);
+      }
+      .pn-label {
+        font-size: 15px;
+        font-weight: 700;
+        color: #374151;
+        margin-top: 16px;
+        line-height: 1.3;
+        transition: color 0.5s ease;
+      }
+      .pn-step.active .pn-label {
+        color: #111;
+      }
+      .pn-desc {
+        font-size: 13px;
+        color: #9ca3af;
+        margin-top: 8px;
+        line-height: 1.65;
+        max-width: 220px;
+      }
+      @media (max-width: 768px) {
+        .pn-row,
+        .pn-rtl {
+          flex-direction: column !important;
+          align-items: center;
+          gap: 48px;
+        }
+        .pn-row + .pn-row {
+          margin-top: 48px;
+        }
+        .pn-step {
+          width: 100%;
+          max-width: 260px;
+        }
+        .pn-svg {
+          display: none;
+        }
+      }
+      /* ===== Benefits of Joining Us ===== */
+      .benefits-section {
+        background: #fff;
+        padding: 90px 24px 100px;
+      }
+      .benefits-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .benefits-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .benefits-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #f97316;
+        margin-bottom: 14px;
+      }
+      .benefits-headline {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 900;
+        color: var(--primary-900);
+        line-height: 1.2;
+        margin: 0 0 16px;
+      }
+      .benefits-sub {
+        font-size: 16px;
+        color: #6b7280;
+        max-width: 720px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .benefit-card {
+        background: #fff;
+        border: 1px solid #eef0f3;
+        border-radius: 16px;
+        padding: 28px 24px;
+        text-align: left;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .benefit-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(249, 115, 22, 0.35);
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      }
+      .benefit-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(249, 115, 22, 0.1);
+        color: #f97316;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+      .benefit-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #111827;
+        margin: 0 0 8px;
+        line-height: 1.3;
+      }
+      .benefit-desc {
+        font-size: 13.5px;
+        color: #6b7280;
+        line-height: 1.6;
+        margin: 0;
+      }
+      @media (max-width: 1024px) {
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media = 'all'"
     />
     <link
       rel="stylesheet"
@@ -268,35 +511,91 @@
                           <a
                             href="https://www.pixelatenest.com/products/school-management-system.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/school-manage.webp" alt="School Management System" class="dropdown-item-img"><span class="dropdown-item-name">School Management System</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/school-manage.webp"
+                              alt="School Management System"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >School Management System</span
+                            ></a
+                          >
                           <a
                             href="https://www.pixelatenest.com/products/counter-billing-software.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/counter-billing.webp" alt="Counter Billing Software" class="dropdown-item-img"><span class="dropdown-item-name">Counter Billing Software</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/counter-billing.webp"
+                              alt="Counter Billing Software"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >Counter Billing Software</span
+                            ></a
+                          >
                           <a
                             href="https://www.pixelatenest.com/products/fmcg-retail-and-wholesale-software.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/fmcg-manage.webp" alt="FMCG Retail and Wholesale Software" class="dropdown-item-img"><span class="dropdown-item-name">FMCG Retail and Wholesale Software</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/fmcg-manage.webp"
+                              alt="FMCG Retail and Wholesale Software"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >FMCG Retail and Wholesale Software</span
+                            ></a
+                          >
                           <a
                             href="https://www.pixelatenest.com/products/library-management-software.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/library-manage.webp" alt="Library Management Software" class="dropdown-item-img"><span class="dropdown-item-name">Library Management Software</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/library-manage.webp"
+                              alt="Library Management Software"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >Library Management Software</span
+                            ></a
+                          >
                           <a
                             href="https://www.pixelatenest.com/products/transport-management-software.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/transport-manage.webp" alt="Transport Management Software" class="dropdown-item-img"><span class="dropdown-item-name">Transport Management Software</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/transport-manage.webp"
+                              alt="Transport Management Software"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >Transport Management Software</span
+                            ></a
+                          >
                           <a
                             href="https://www.pixelatenest.com/products/lead-generation-software.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/lead-manage.webp" alt="Lead Generation Software" class="dropdown-item-img"><span class="dropdown-item-name">Lead Generation Software</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/lead-manage.webp"
+                              alt="Lead Generation Software"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >Lead Generation Software</span
+                            ></a
+                          >
                           <a
                             href="https://www.pixelatenest.com/products/hotel-management-software.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/hotel-manage.webp" alt="Hotel Management Software" class="dropdown-item-img"><span class="dropdown-item-name">Hotel Management Software</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/hotel-manage.webp"
+                              alt="Hotel Management Software"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >Hotel Management Software</span
+                            ></a
+                          >
                           <a
                             href="https://www.pixelatenest.com/products/gst-billing-software.html"
                             class="dropdown-item"
-                            ><img src="https://www.pixelatenest.com/assets/images/products/gst-bill-manage.webp" alt="GST Billing Software" class="dropdown-item-img"><span class="dropdown-item-name">GST Billing Software</span></a>
+                            ><img
+                              src="https://www.pixelatenest.com/assets/images/products/gst-bill-manage.webp"
+                              alt="GST Billing Software"
+                              class="dropdown-item-img"
+                            /><span class="dropdown-item-name"
+                              >GST Billing Software</span
+                            ></a
+                          >
                         </div>
                       </li>
                       <li class="nav-item">
@@ -515,249 +814,1631 @@
           style="
             background: white;
             padding: 48px 24px 0;
-            max-width: 1200px;
             margin: 0 auto;
+            text-align: center;
           "
         >
-          <h2
+          <span
             style="
-              font-size: 1.8rem;
-              font-weight: 700;
+              font-size: clamp(2rem, 4vw, 5rem);
+              font-weight: 400;
               color: var(--primary-900);
               margin-bottom: 16px;
+              text-align: center;
             "
           >
-            Business Software Products by Pixelate Nest
-          </h2>
-          <p
-            style="
-              color: var(--primary-700);
-              line-height: 1.8;
-              margin-bottom: 24px;
-            "
-          >
-            Pixelate Nest builds practical, affordable business software
-            products tailored for Indian SMBs and enterprises. Our products span
-            education administration, retail billing, inventory management,
-            logistics, and more — all available in both offline and cloud-based
-            modes. Every product is designed with real business workflows in
-            mind, ensuring ease of use, data security, and long-term
-            reliability.
-          </p>
-          <h3
-            style="
-              font-size: 1.4rem;
-              font-weight: 600;
-              color: var(--primary-900);
-              margin-bottom: 12px;
-            "
-          >
-            Our Software Product Categories
-          </h3>
-          <ul
-            style="
-              color: var(--primary-700);
-              line-height: 2;
-              padding-left: 24px;
-              margin-bottom: 32px;
-              column-count: 2;
-              column-gap: 32px;
-            "
-          >
-            <li>
-              <strong>School Management System</strong> — Admissions,
-              attendance, fee collection, timetabling, and parent communication
-              for schools and colleges.
-            </li>
-            <li>
-              <strong>Counter Billing Software</strong> — Fast point-of-sale
-              billing with GST support, inventory tracking, and sales reporting
-              for retail shops.
-            </li>
-            <li>
-              <strong>FMCG Retail &amp; Wholesale Software</strong> — End-to-end
-              inventory, order management, and distributor tracking for FMCG
-              businesses.
-            </li>
-            <li>
-              <strong>Library Management Software</strong> — Book cataloguing,
-              member management, issue/return tracking, and fine calculation for
-              libraries.
-            </li>
-            <li>
-              <strong>Transport Management Software</strong> — Fleet tracking,
-              trip scheduling, driver management, and logistics reporting for
-              transport companies.
-            </li>
-            <li>
-              <strong>Lead Generation Software</strong> — CRM-powered lead
-              capture, follow-up automation, and sales pipeline management for
-              sales teams.
-            </li>
-            <li>
-              <strong>Hotel Management Software</strong> — Room booking, guest
-              management, housekeeping, billing, and reporting for hotels and
-              guest houses.
-            </li>
-            <li>
-              <strong>GST Billing Software</strong> — GST-compliant invoicing,
-              tax calculations, purchase/sales ledgers, and return filing
-              support.
-            </li>
-          </ul>
-          <p
-            style="
-              color: var(--primary-700);
-              line-height: 1.8;
-              margin-bottom: 40px;
-            "
-          >
-            All Pixelate Nest software products come with free setup support,
-            training, and ongoing maintenance. Products are customizable to
-            match your specific business workflows.
-            <a
-              href="https://www.pixelatenest.com/pages/contact.html"
-              style="color: var(--primary-900); font-weight: 600"
-              >Contact us</a
-            >
-            to get a demo or a custom quote.
-          </p>
+            Software Products by Pixelate Nest
+          </span>
         </section>
         <section
-          class="products-grid"
-          id="productsGrid"
-          aria-label="Products list"
-        ></section>
-      </main>
-
-      <section class="footer">
-        <div class="container">
-          <div class="footer-wrap">
-            <div class="footer-top">
-              <div class="footer-top-left">
-                <div class="footer-logo-details">
-                  <div class="footer-logo-wrap">
-                    <a
-                      href="https://www.pixelatenest.com/"
-                      class="footer-logo w-inline-block"
-                    >
-                      <img
-                        src="../assets/images/logos/Logo_Color_Name_Large.webp"
-                        loading="lazy"
-                        alt="Pixelate Nest Logo"
-                        class="fit-cover"
-                        width="180"
-                        height="54"
-                      />
-                    </a>
+          class="section-off"
+          aria-label="Pixelate Nest software product details"
+        >
+          <div class="section-header reveal">
+            <span class="section-label">Specifications</span>
+            <h2>Product Details</h2>
+          </div>
+          <div class="p-carousel">
+            <div class="list">
+              <div class="item">
+                <img
+                  src="../assets/images/products/counter-billing.webp"
+                  alt="Counter Billing Software"
+                />
+                <div class="intro">
+                  <div class="title">Retail POS</div>
+                  <div class="topic">Counter Billing</div>
+                  <div class="des">
+                    Lightning-fast counter billing software for retail shops,
+                    supermarkets and quick-service stores. GST-ready invoices,
+                    barcode scanning, inventory and CRM in one screen.
                   </div>
-                  <p class="p-text-03">
-                    AI-first creative technology partner for web, app, and video
-                    that delivers measurable growth.
-                  </p>
+                  <div style="margin-top: 1.4rem">
+                    <a
+                      class="seeMore"
+                      href="../products/counter-billing-software.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="detail">
+                  <div class="title">Counter Billing Software</div>
+                  <div class="des">
+                    End-to-end POS billing built for Indian retail. Print GST
+                    invoices in seconds, manage stock in real time, track every
+                    customer and grow your store from a single screen.
+                  </div>
+                  <div class="material">
+                    Built with: React + Node.js + PostgreSQL
+                  </div>
+                  <div class="sizes">
+                    Plans: Single Counter / Multi Counter / Chain
+                  </div>
+                  <div class="safety">
+                    Security: Encrypted data &amp; daily auto-backup
+                  </div>
+                  <div class="moq">Starts from: 1 counter, billed monthly</div>
+                  <div class="printing">
+                    Customization: Logo, GST details &amp; invoice template
+                  </div>
+                  <div class="delivery">
+                    Deployment: Cloud + offline-first PWA
+                  </div>
                 </div>
               </div>
-
-              <div class="footer-right-link-wrap">
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Company</div>
-                  <div class="footer-link-list">
+              <div class="item">
+                <img
+                  src="../assets/images/products/fmcg-manage.webp"
+                  alt="FMCG Retail and Wholesale Software"
+                />
+                <div class="intro">
+                  <div class="title">Distribution</div>
+                  <div class="topic">FMCG Retail &amp; Wholesale</div>
+                  <div class="des">
+                    Complete FMCG retail and wholesale management — distributor
+                    invoicing, beat planning, SKU tracking and route-wise stock
+                    reports for India's fastest-moving brands.
+                  </div>
+                  <div style="margin-top: 1.4rem">
                     <a
-                      href="https://www.pixelatenest.com/pages/about.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">About Us</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/pages/careers.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Careers</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/pages/contact.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Contact Us</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/blog/index.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Blog</div>
-                    </a>
+                      class="seeMore"
+                      href="../products/fmcg-retail-and-wholesale-software.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
                   </div>
                 </div>
-
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Services</div>
-                  <div class="footer-link-list">
-                    <a
-                      href="https://www.pixelatenest.com/services/video-editing.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Video Editing</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/services/web-development.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Web Development</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/services/app-development.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">App Development</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/services/software-development.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Software Development</div>
-                    </a>
+                <div class="detail">
+                  <div class="title">FMCG Retail &amp; Wholesale Software</div>
+                  <div class="des">
+                    Manage your entire FMCG supply chain — from godown stock to
+                    retail counters. Track distributors, salesmen, beats,
+                    schemes, claims and shelf-level inventory in real time.
+                  </div>
+                  <div class="material">Built with: Laravel + Vue + MySQL</div>
+                  <div class="sizes">
+                    Plans: Wholesale / Multi-warehouse / Enterprise
+                  </div>
+                  <div class="safety">
+                    Security: Role-based access &amp; audit logs
+                  </div>
+                  <div class="moq">Starts from: 1 warehouse + 5 users</div>
+                  <div class="printing">
+                    Customization: Scheme rules, GST templates &amp; claim
+                    formats
+                  </div>
+                  <div class="delivery">
+                    Deployment: Cloud + salesman mobile app
                   </div>
                 </div>
-
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Legal</div>
-                  <div class="footer-link-list">
+              </div>
+              <div class="item">
+                <img
+                  src="../assets/images/products/gst-bill-manage.webp"
+                  alt="GST Billing Software"
+                />
+                <div class="intro">
+                  <div class="title">Invoicing</div>
+                  <div class="topic">GST Billing</div>
+                  <div class="des">
+                    Generate GST-compliant invoices, e-Way bills and e-invoices
+                    in seconds. Built for shops, traders and CAs across
+                    Muzaffarpur and Bihar — no manual reconciliation.
+                  </div>
+                  <div style="margin-top: 1.4rem">
                     <a
-                      href="https://www.pixelatenest.com/legal/privacy-policy.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Privacy Policy</div>
-                    </a>
+                      class="seeMore"
+                      href="../products/gst-billing-software.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="detail">
+                  <div class="title">GST Billing Software</div>
+                  <div class="des">
+                    A full GST billing suite — sales, purchase, credit notes,
+                    e-invoicing, GSTR-1 / GSTR-3B filing and ITC reconciliation,
+                    all designed for Indian SMEs.
+                  </div>
+                  <div class="material">
+                    Built with: Next.js + Node.js + PostgreSQL
+                  </div>
+                  <div class="sizes">Plans: Basic / Pro / CA Practice</div>
+                  <div class="safety">
+                    Security: GSTN-secure APIs &amp; encrypted storage
+                  </div>
+                  <div class="moq">Starts from: 1 user, billed annually</div>
+                  <div class="printing">
+                    Customization: Multi-template invoice designs
+                  </div>
+                  <div class="delivery">
+                    Deployment: Web app + Android / iOS
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <img
+                  src="../assets/images/products/hotel-manage.webp"
+                  alt="Hotel Management Software"
+                />
+                <div class="intro">
+                  <div class="title">Hospitality</div>
+                  <div class="topic">Hotel Management</div>
+                  <div class="des">
+                    Complete property management for hotels, lodges and resorts
+                    — front desk, bookings, billing, housekeeping and channel
+                    manager integration in one dashboard.
+                  </div>
+                  <div style="margin-top: 1.4rem">
                     <a
-                      href="https://www.pixelatenest.com/legal/terms-of-service.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Terms of Service</div>
-                    </a>
+                      class="seeMore"
+                      href="../products/hotel-management-software.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="detail">
+                  <div class="title">Hotel Management Software</div>
+                  <div class="des">
+                    Front-desk to back-office hotel software — room bookings,
+                    check-in / check-out, F&amp;B billing, housekeeping, expense
+                    tracking and direct OTA channel sync.
+                  </div>
+                  <div class="material">
+                    Built with: React + Node.js + MongoDB
+                  </div>
+                  <div class="sizes">
+                    Plans: Single Property / Chain / Resort
+                  </div>
+                  <div class="safety">Security: PCI-DSS payment handling</div>
+                  <div class="moq">Starts from: 1 property, billed monthly</div>
+                  <div class="printing">
+                    Customization: Branded invoices &amp; guest folios
+                  </div>
+                  <div class="delivery">
+                    Deployment: Cloud + offline desk app
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <img
+                  src="../assets/images/products/lead-manage.webp"
+                  alt="Lead Generation Software"
+                />
+                <div class="intro">
+                  <div class="title">Sales CRM</div>
+                  <div class="topic">Lead Generation</div>
+                  <div class="des">
+                    Capture, qualify and convert leads from your website, Meta
+                    Ads, Google Ads and WhatsApp into one pipeline — built for
+                    sales teams that close, not just track.
+                  </div>
+                  <div style="margin-top: 1.4rem">
                     <a
-                      href="https://www.pixelatenest.com/legal/refund-policy.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Refund Policy</div>
-                    </a>
+                      class="seeMore"
+                      href="../products/lead-generation-software.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="detail">
+                  <div class="title">Lead Generation Software</div>
+                  <div class="des">
+                    AI-powered lead capture and CRM — auto-import from your ads
+                    and forms, score leads, auto-assign to reps, track calls and
+                    WhatsApp follow-ups end-to-end.
+                  </div>
+                  <div class="material">
+                    Built with: Next.js + Python + PostgreSQL
+                  </div>
+                  <div class="sizes">Plans: Starter / Growth / Agency</div>
+                  <div class="safety">
+                    Security: GDPR-ready, encrypted lead data
+                  </div>
+                  <div class="moq">Starts from: 1 user, billed monthly</div>
+                  <div class="printing">
+                    Customization: Custom pipelines, fields &amp; automations
+                  </div>
+                  <div class="delivery">
+                    Deployment: Cloud + Android / iOS apps
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <img
+                  src="../assets/images/products/library-manage.webp"
+                  alt="Library Management Software"
+                />
+                <div class="intro">
+                  <div class="title">Education</div>
+                  <div class="topic">Library Management</div>
+                  <div class="des">
+                    Issue, return and track books with barcode scanning. Manage
+                    members, fines, reservations and digital catalogues for
+                    schools, colleges and public libraries.
+                  </div>
+                  <div style="margin-top: 1.4rem">
                     <a
-                      href="https://www.pixelatenest.com/legal/cookie-policy.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Cookie Policy</div>
-                    </a>
+                      class="seeMore"
+                      href="../products/library-management-software.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="detail">
+                  <div class="title">Library Management Software</div>
+                  <div class="des">
+                    Run your entire library — book catalogue, member cards,
+                    issue / return, fines, reservations and Open Library /
+                    Z39.50 catalogue imports — from one screen.
+                  </div>
+                  <div class="material">Built with: Laravel + Vue + MySQL</div>
+                  <div class="sizes">
+                    Plans: School / College / Public Library
+                  </div>
+                  <div class="safety">
+                    Security: Role-based access for staff &amp; librarians
+                  </div>
+                  <div class="moq">Starts from: 1 library, billed annually</div>
+                  <div class="printing">
+                    Customization: Barcode labels &amp; member cards
+                  </div>
+                  <div class="delivery">Deployment: Cloud + offline mode</div>
+                </div>
+              </div>
+              <div class="item">
+                <img
+                  src="../assets/images/products/school-manage.webp"
+                  alt="School Management System"
+                />
+                <div class="intro">
+                  <div class="title">EdTech</div>
+                  <div class="topic">School Management</div>
+                  <div class="des">
+                    Complete school ERP — admissions, attendance, fees,
+                    timetable, exams, transport, parent app and SMS / WhatsApp
+                    notifications, all in one branded portal.
+                  </div>
+                  <div style="margin-top: 1.4rem">
+                    <a
+                      class="seeMore"
+                      href="../products/school-management-system.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="detail">
+                  <div class="title">School Management System</div>
+                  <div class="des">
+                    End-to-end school ERP with student records, online
+                    admissions, fee collection, exam &amp; marksheet generation,
+                    timetable, transport, hostel and a parent / student mobile
+                    app.
+                  </div>
+                  <div class="material">
+                    Built with: Laravel + Flutter + MySQL
+                  </div>
+                  <div class="sizes">
+                    Plans: Single School / Multi-branch / Chain
+                  </div>
+                  <div class="safety">
+                    Security: Encrypted student data &amp; role-based access
+                  </div>
+                  <div class="moq">Starts from: 1 school, billed annually</div>
+                  <div class="printing">
+                    Customization: Branded ID cards, fee receipts &amp; report
+                    cards
+                  </div>
+                  <div class="delivery">
+                    Deployment: Cloud + parent / student mobile app
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <img
+                  src="../assets/images/products/transport-manage.webp"
+                  alt="Transport Management Software"
+                />
+                <div class="intro">
+                  <div class="title">Logistics</div>
+                  <div class="topic">Transport Management</div>
+                  <div class="des">
+                    Fleet, driver and consignment management for transport
+                    companies, packers &amp; movers and goods carriers —
+                    real-time GPS tracking, e-Way bills and billing built in.
+                  </div>
+                  <div style="margin-top: 1.4rem">
+                    <a
+                      class="seeMore"
+                      href="../products/transport-management-software.html"
+                      >Subscribe <i><fa class="fas fa-arrow-right"></fa></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="detail">
+                  <div class="title">Transport Management Software</div>
+                  <div class="des">
+                    Manage your fleet from one screen — vehicle docs, driver
+                    assignments, consignment notes, GPS tracking, fuel logs,
+                    e-Way bills and customer invoicing.
+                  </div>
+                  <div class="material">
+                    Built with: React + Node.js + PostgreSQL
+                  </div>
+                  <div class="sizes">
+                    Plans: Single Fleet / Multi-fleet / Enterprise
+                  </div>
+                  <div class="safety">
+                    Security: Encrypted vehicle &amp; consignment data
+                  </div>
+                  <div class="moq">Starts from: 1 fleet, billed monthly</div>
+                  <div class="printing">
+                    Customization: Branded consignment &amp; invoice templates
+                  </div>
+                  <div class="delivery">
+                    Deployment: Cloud + driver mobile app
                   </div>
                 </div>
               </div>
             </div>
+            <div class="arrows">
+              <button id="prev"><</button>
+              <button id="back">Go Back</button>
+              <button id="next">></button>
+            </div>
+          </div>
+        </section>
+        
+      </main>
+      <section
+          class="services-section"
+          style="
+            position: relative;
+            width: 100%;
+            background: white;
+            padding: 40px 0;
+          "
+        >
+          <style>
+            .services-grid .service-item {
+              position: relative;
+              padding-bottom: 2.5rem;
+            }
 
-            <div class="footer-bottom">
-              <div class="vertical-divider"></div>
-              <div class="footer-bottom-wrap">
-                <div class="p-text-03 text-white-60">
-                  © 2026 Kalahanu Tech Studios LLP. All Rights Reserved.
+            .services-grid .service-item .service-description {
+              margin-bottom: 1rem;
+            }
+
+            .services-grid .service-item a {
+              color: var(--secondary-900);
+              text-decoration: none;
+              position: absolute;
+              left: 16px;
+              bottom: 12px;
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              font-weight: 600;
+            }
+
+            .services-grid .service-item a:hover {
+              color: var(--secondary-800);
+              text-decoration: none;
+            }
+
+            .services-grid .service-item a i.fa-arrow-right {
+              font-size: 0.85em;
+              line-height: 1;
+            }
+          </style>
+          <div style="position: absolute; inset: 0"></div>
+          <div style="position: relative; z-index: 1">
+            <div class="services-wrap">
+              <div class="heading-wrap">
+                <h2
+                  style="
+                    margin-bottom: 10px;
+                    font-size: clamp(2rem, 4vw, 5rem);
+                    color: var(--primary-900);
+                    line-height: 1.2;
+                  "
+                >
+                  Industries We Serve
+                </h2>
+                <span
+                  style="
+                    display: block;
+                    font-size: clamp(0.8rem, 1vw, 1.25rem);
+                    margin-top: 20px;
+                    color: var(--tertiary-700);
+                    text-align: justify;
+                    line-height: 1.6;
+                    max-width: 900px;
+                    margin-left: auto;
+                    margin-right: auto;
+                  "
+                >
+                  At Pixelate Nest, we serve a wide range of industries by
+                  building industry-specific digital solutions. Our experience
+                  across diverse sectors helps us understand unique challenges
+                  and deliver scalable, technology-driven solutions that support
+                  long-term business growth.
+                </span>
+              </div>
+              <div class="services-grid">
+                <div
+                  href="https://www.pixelatenest.com/services/web-development.html"
+                  class="service-item"
+                >
+                  <img
+                    src="../assets/images/industries/ecommerce.webp"
+                    alt="Ecommerce &amp; Multivendor Website Development Services by Pixelate Nest"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                  <h3 class="service-caption">Ecommerce &amp; Multivendor</h3>
+                  <div class="service-description">
+                    At Pixelate Nest, we provide ecommerce website and app
+                    development services in India. We aim to help businesses
+                    sell online with confidence. Our ecommerce solutions include
+                    custom online stores, mobile-friendly ecommerce websites,
+                    payment gateway integration, order and inventory management,
+                    and scalable ecommerce platforms. These are designed to
+                    boost sales and enhance customer experience.
+                  </div>
+                  <a
+                    href="https://www.pixelatenest.com/industries/ecommerce.html"
+                    ><span
+                      style="text-decoration: none; color: var(--secondary-900)"
+                      >Explore E-commerce Solutions</span
+                    >
+                    <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+                <div
+                  href="https://www.pixelatenest.com/services/app-development.html"
+                  class="service-item"
+                >
+                  <img
+                    src="../assets/images/industries/education.webp"
+                    alt="Education Industry Software Solutions by Pixelate Nest"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                  <h3 class="service-caption">Education</h3>
+                  <div class="service-description">
+                    At Pixelate Nest, we offer technology solutions for the
+                    education sector that support modern learning and
+                    administration. Our education software development services
+                    include school and college websites, learning management
+                    systems (LMS), student and teacher portals, and online
+                    education platforms. These are designed to improve
+                    communication, engagement, and the overall learning
+                    experience.
+                  </div>
+                  <a
+                    href="https://www.pixelatenest.com/industries/education.html"
+                    ><span
+                      style="text-decoration: none; color: var(--secondary-900)"
+                      >Explore Education Solutions</span
+                    >
+                    <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+                <div
+                  href="https://www.pixelatenest.com/industries/manufacturing.html"
+                  class="service-item"
+                >
+                  <img
+                    src="../assets/images/industries/manufacture.webp"
+                    alt="Manufacturing Business Software Solutions by Pixelate Nest"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                  <h3 class="service-caption">Manufacturing Business</h3>
+                  <div class="service-description">
+                    At Pixelate Nest, we offer software solutions for the
+                    manufacturing industry. Our goal is to simplify production
+                    and business processes. Our manufacturing software
+                    development services include ERP systems, inventory
+                    management, production tracking, supply chain management,
+                    and business intelligence tools. These tools help
+                    manufacturers boost productivity and make decisions based on
+                    data.
+                  </div>
+                  <a
+                    href="https://www.pixelatenest.com/industries/manufacturing.html"
+                    ><span
+                      style="text-decoration: none; color: var(--secondary-900)"
+                      >Explore Manufacturing Solutions</span
+                    >
+                    <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+                <div
+                  href="https://www.pixelatenest.com/industries/real-estate.html"
+                  class="service-item"
+                >
+                  <img
+                    src="../assets/images/industries/realestate.webp"
+                    alt="Real Estate Software and Website Development Services"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                  <h3 class="service-caption">Real Estate Services</h3>
+                  <div class="service-description">
+                    At Pixelate Nest, we develop digital solutions for real
+                    estate businesses in order to assist organizations in
+                    managing real estate and generating leads. Real estate
+                    businesses can sell, rent, and manage properties more
+                    effectively with the help of our custom software solutions
+                    and real estate website development, which include CRM
+                    systems, lead management, booking tools, and websites for
+                    property listings.
+                  </div>
+                  <a
+                    href="https://www.pixelatenest.com/industries/real-estate.html"
+                    ><span
+                      style="text-decoration: none; color: var(--secondary-900)"
+                      >Explore Real Estate Solutions</span
+                    >
+                    <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+                <div
+                  href="https://www.pixelatenest.com/industries/logistics.html"
+                  class="service-item"
+                >
+                  <img
+                    src="../assets/images/industries/transport.webp"
+                    alt="Transportation and Logistics Software Solutions"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                  <h3 class="service-caption">
+                    Transportation &amp; Logistics
+                  </h3>
+                  <div class="service-description">
+                    At Pixelate Nest, we build custom software for
+                    transportation and logistics companies to improve
+                    efficiency. Our logistics software services include fleet
+                    management, vehicle tracking, route planning, delivery
+                    management, and real-time dashboards. These tools help
+                    logistics businesses keep an eye on operations and reduce
+                    costs.
+                  </div>
+                  <a
+                    href="https://www.pixelatenest.com/industries/logistics.html"
+                    ><span
+                      style="text-decoration: none; color: var(--secondary-900)"
+                      >Explore Logistics Solutions</span
+                    >
+                    <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+                <div
+                  href="https://www.pixelatenest.com/industries/travel.html"
+                  class="service-item"
+                >
+                  <img
+                    src="../assets/images/industries/travel.webp"
+                    alt="Travel and Tourism Website Development Services"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                  <h3 class="service-caption">Travel &amp; Tourism</h3>
+                  <div class="service-description">
+                    At Pixelate Nest, we provide website and app development for
+                    travel businesses to make bookings and customer management
+                    easier. Our travel software solutions include travel booking
+                    websites, tour and package management systems, payment
+                    integrations, and travel mobile apps. These tools help
+                    travel companies provide smooth and reliable customer
+                    experiences.
+                  </div>
+                  <a href="https://www.pixelatenest.com/industries/travel.html"
+                    ><span
+                      style="text-decoration: none; color: var(--secondary-900)"
+                      >Explore Travel Solutions</span
+                    >
+                    <i class="fa-solid fa-arrow-right"></i
+                  ></a>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+      <!-- ======== PROCESS SNAKE TIMELINE — How Software Is Delivered ======== -->
+      <section class="pn-section" id="pn-section">
+        <div class="pn-container">
+          <div class="pn-header">
+            <span class="pn-eyebrow">DELIVERY PROCESS</span>
+            <h2 class="pn-headline">How Your Software Is Delivered</h2>
+            <p class="pn-subtext">
+              From the first discovery call to going live and beyond — a clear,
+              step-by-step journey that gets your software in your hands without
+              surprises.
+            </p>
+          </div>
+
+          <div class="pn-snake" id="pn-snake">
+            <svg id="pn-svg" class="pn-svg" aria-hidden="true">
+              <path
+                id="pn-path-bg"
+                fill="none"
+                stroke="#e5e7eb"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                id="pn-path-fg"
+                fill="none"
+                stroke="#f97316"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <div class="pn-row pn-ltr">
+              <div class="pn-step" data-index="0">
+                <div class="pn-num">01</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-comments"></i>
+                </div>
+                <div class="pn-label">Free Consultation</div>
+                <div class="pn-desc">
+                  A discovery call to understand your business, your team, and
+                  exactly what your software needs to do.
+                </div>
+              </div>
+              <div class="pn-step" data-index="1">
+                <div class="pn-num">02</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <div class="pn-label">Quote &amp; Roadmap</div>
+                <div class="pn-desc">
+                  A transparent quotation with scope, timeline, modules and
+                  pricing — no hidden fees, no surprises.
+                </div>
+              </div>
+              <div class="pn-step" data-index="2">
+                <div class="pn-num">03</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-pen-ruler"></i>
+                </div>
+                <div class="pn-label">Design &amp; Approval</div>
+                <div class="pn-desc">
+                  Wireframes and UI mockups for every screen — reviewed and
+                  signed off by you before a single line of code.
+                </div>
+              </div>
+            </div>
+
+            <div class="pn-row pn-rtl">
+              <div class="pn-step" data-index="3">
+                <div class="pn-num">04</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="pn-label">Build &amp; Configure</div>
+                <div class="pn-desc">
+                  Your modules are built, branded and configured to your
+                  workflows — with weekly progress on a private admin panel.
+                </div>
+              </div>
+              <div class="pn-step" data-index="4">
+                <div class="pn-num">05</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="pn-label">Testing &amp; QA</div>
+                <div class="pn-desc">
+                  Functional, security and device testing — plus a UAT round on
+                  your own data so you sign off with confidence.
+                </div>
+              </div>
+              <div class="pn-step" data-index="5">
+                <div class="pn-num">06</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="pn-label">Go-Live &amp; Support</div>
+                <div class="pn-desc">
+                  Deployment, team training, data migration and 24/7 support —
+                  we stay with you long after launch day.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======== END PROCESS TIMELINE ======== -->
+
+      <!-- ======== BENEFITS OF JOINING US ======== -->
+      <section class="benefits-section" aria-label="Benefits of choosing Pixelate Nest software">
+        <div class="benefits-wrap">
+          <div class="benefits-header">
+            <span class="benefits-eyebrow">WHY CHOOSE US</span>
+            <h2 class="benefits-headline">Benefits of Joining Us</h2>
+            <p class="benefits-sub">
+              More than just software — you get a long-term technology partner
+              built for Indian businesses, with the prices, support and
+              flexibility you actually need.
+            </p>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-sliders"></i></div>
+              <h3 class="benefit-title">Tailored to Your Business</h3>
+              <p class="benefit-desc">
+                Every module, report and invoice is customised to your workflow
+                — not a generic, one-size-fits-all template.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+              <h3 class="benefit-title">Affordable Indian Pricing</h3>
+              <p class="benefit-desc">
+                Enterprise-grade software at SME-friendly prices. Monthly,
+                annual and one-time plans that fit small and mid-sized teams.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+              <h3 class="benefit-title">Free Lifetime Updates</h3>
+              <p class="benefit-desc">
+                GST rule changes, new features and security patches — pushed to
+                your software for free as long as you're with us.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-headset"></i></div>
+              <h3 class="benefit-title">24/7 Dedicated Support</h3>
+              <p class="benefit-desc">
+                Call, WhatsApp, email or remote login — our support team is
+                available round the clock in Hindi and English.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h3 class="benefit-title">Quick Onboarding &amp; Training</h3>
+              <p class="benefit-desc">
+                Free training sessions for your billing, accounts and admin
+                staff so your team is productive from day one.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-database"></i></div>
+              <h3 class="benefit-title">Bank-Grade Data Security</h3>
+              <p class="benefit-desc">
+                Encrypted storage, daily auto-backups, role-based access and
+                audit logs to keep your business data safe.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+              <h3 class="benefit-title">Web + Mobile, Online &amp; Offline</h3>
+              <p class="benefit-desc">
+                Use your software from the shop counter, the godown, or your
+                phone — even when the internet goes down.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-handshake"></i></div>
+              <h3 class="benefit-title">Trusted by 100+ Businesses</h3>
+              <p class="benefit-desc">
+                Shops, schools, hotels, libraries and fleets across Bihar and
+                India already run their operations on Pixelate Nest.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======== END BENEFITS ======== -->
+
+      <!-- ======== TESTIMONIALS ======== -->
+      <section
+        class="testimonials-section"
+        style="
+          position: relative;
+          width: 100%;
+          background: white;
+          padding: 80px 0 40px 0;
+        "
+      >
+        <div class="testimonials-wrap">
+          <div class="heading-wrap testimonials-heading">
+            <h2
+              class="h2 text-linear"
+              style="font-size: clamp(2rem, 4vw, 5rem)"
+            >
+              What Our Clients Say
+            </h2>
+            <p
+              class="p-text-02 text-white-70"
+              style="
+                display: block;
+                font-size: clamp(1rem, 1vw, 1.25rem);
+                margin-top: 20px;
+                color: var(--tertiary-900);
+                max-width: 100%;
+              "
+            >
+              Real experiences from businesses we've helped transform
+            </p>
+          </div>
+
+          <div class="testimonials-carousel-wrap">
+            <button
+              type="button"
+              class="carousel-btn prev-btn"
+              aria-label="Previous testimonial"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div class="testimonials-carousel">
+              <div class="testimonials-track" id="testimonialsTrack">
+                <div class="testimonial-card skeleton">
+                  <div class="skeleton-loader"></div>
+                </div>
+                <div class="testimonial-card skeleton">
+                  <div class="skeleton-loader"></div>
+                </div>
+                <div class="testimonial-card skeleton">
+                  <div class="skeleton-loader"></div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="carousel-btn next-btn"
+              aria-label="Next testimonial"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+      </section>
+      <!-- ======== END TESTIMONIALS ======== -->
+
+      <!-- ======== FAQ ======== -->
+      <div style="position: relative; z-index: 1">
+        <div class="faq-wrap">
+          <div>
+            <div class="heading-wrap faq-heading">
+              <h2
+                style="
+                  margin-top: 20px;
+                  font-size: clamp(2rem, 4vw, 5rem);
+                  color: var(--primary-900);
+                "
+              >
+                Frequently Asked Questions
+              </h2>
+            </div>
+          </div>
+          <div class="faq-right">
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  Can your software work without internet (offline mode)?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  Yes. Most of our products — Counter Billing, FMCG Retail,
+                  Hotel Management and School ERP — ship with an offline-first
+                  mode. Your billing, attendance and stock entries keep working
+                  even when your internet drops, and everything auto-syncs to
+                  the cloud the moment you're back online. You never lose a
+                  bill or a record.
+                </p>
+              </div>
+            </div>
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  How long does it take to deliver and set up the software?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  For our ready-to-use products like GST Billing, Counter
+                  Billing and Library Management, you're typically live in 3–7
+                  working days — including branding, GST setup and team
+                  training. Heavier deployments like School ERP, FMCG
+                  distribution or Hotel chains usually take 2–4 weeks depending
+                  on the number of branches, users and data migration involved.
+                </p>
+              </div>
+            </div>
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  Can the software be customised to match my exact workflow?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  Absolutely. Every module — invoice template, fee structure,
+                  fleet log, lead pipeline or library card — can be configured
+                  to match exactly how your business already runs. If something
+                  doesn't exist out of the box, our team builds it as a custom
+                  module so you don't have to change the way you work. You can
+                  read more on our
+                  <a
+                    style="text-decoration: none"
+                    href="https://www.pixelatenest.com/services/software-development.html"
+                    >software development page</a
+                  >.
+                </p>
+              </div>
+            </div>
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  Is my business data safe? Where is it stored?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  Your data is encrypted at rest and in transit, stored in
+                  India-region cloud servers with daily automated backups.
+                  Access is strictly role-based — your billing staff, manager
+                  and owner each see only what they're supposed to — and every
+                  sensitive action is recorded in an audit log. For sectors
+                  that need it, we also support PCI-DSS for payments and
+                  on-premise hosting on your own server.
+                </p>
+              </div>
+            </div>
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  Do you provide training for my team after delivery?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  Yes — and it's free. We run live onboarding sessions in
+                  Hindi or English for your billing staff, teachers,
+                  receptionists or drivers, walk through real-life day-to-day
+                  scenarios, and leave you with quick-reference video guides.
+                  If a new team member joins later, we re-train them at no
+                  extra cost.
+                </p>
+              </div>
+            </div>
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  Can I migrate my existing data (Excel, Tally, old software)?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  Yes. We import your existing item masters, customer ledgers,
+                  student records, room inventory, vehicle lists or stock data
+                  from Excel, Tally, Busy or any older system you're using.
+                  Our team cleans, validates and loads it for you so you go
+                  live without re-typing a single entry.
+                </p>
+              </div>
+            </div>
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  How is the software priced — one-time or subscription?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  Both options are available. Most clients pick our monthly or
+                  annual subscription — it includes hosting, support and free
+                  updates. If you'd prefer a one-time purchase with self
+                  hosting on your own server, that's available for most
+                  products too. Detailed plans are listed on our
+                  <a
+                    style="text-decoration: none"
+                    href="https://www.pixelatenest.com/pages/pricing.html"
+                    >pricing page</a
+                  >.
+                </p>
+              </div>
+            </div>
+            <div class="faq-list">
+              <div class="faq-question-wrap">
+                <h3 class="p-text-02">
+                  What kind of after-sales support do you offer?
+                </h3>
+                <div class="faq-icon-wrap">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9510136ebac9a8a44_arrow-square-left.svg"
+                    alt="Arrow UP"
+                    class="faq-icon _01"
+                  /><img
+                    loading="lazy"
+                    src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855a2b9c5891e9138a3a5f3_arrow-square-left%20(1).svg"
+                    alt="Arrow UP"
+                    class="faq-icon"
+                  />
+                </div>
+              </div>
+              <div class="faq-answer-wrap">
+                <p class="p-text-03 text-white-60 faq-answer">
+                  You get 24/7 support over WhatsApp, phone, email and remote
+                  desktop. Bug fixes, GST/compliance updates and security
+                  patches are pushed to your system automatically. If you
+                  ever want a new feature, custom report or extra module, our
+                  development team can build it for you on request.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ======== END FAQ ======== -->
+
+      <section class="priceing-01">
+        <div class="priceing-01-wrap">
+          <div class="priceing-01-top">
+            <div
+              data-w-id="f45b20ca-9f45-fafa-f816-47d73e45a344"
+              class="short-teg-wrap"
+            >
+              <footer class="footer">
+                <div class="container">
+                  <div class="footer-wrap">
+                    <div class="footer-top">
+                      <div class="footer-top-left">
+                        <div class="footer-logo-details">
+                          <div class="footer-logo-wrap">
+                            <a
+                              href="https://www.pixelatenest.com/"
+                              class="footer-logo w-inline-block"
+                            >
+                              <img
+                                src="../assets/images/logos/Logo_Color_Name_Large.webp"
+                                loading="lazy"
+                                alt="Pixelate Nest Logo"
+                                class="fit-cover"
+                              />
+                            </a>
+                          </div>
+                          <div
+                            id="footer-review-stars"
+                            style="
+                              display: flex;
+                              gap: 8px;
+                              font-size: 18px;
+                              margin: 12px 0 16px 0;
+                              cursor: pointer;
+                              transition: transform 0.2s;
+                            "
+                            title="Click to leave a review"
+                          >
+                            <span
+                              class="star"
+                              data-value="1"
+                              style="color: #fbbf24; transition: color 0.2s"
+                              >★</span
+                            >
+                            <span
+                              class="star"
+                              data-value="2"
+                              style="color: #fbbf24; transition: color 0.2s"
+                              >★</span
+                            >
+                            <span
+                              class="star"
+                              data-value="3"
+                              style="color: #fbbf24; transition: color 0.2s"
+                              >★</span
+                            >
+                            <span
+                              class="star"
+                              data-value="4"
+                              style="color: #fbbf24; transition: color 0.2s"
+                              >★</span
+                            >
+                            <span
+                              class="star"
+                              data-value="5"
+                              style="color: #d1d5db; transition: color 0.2s"
+                              >★</span
+                            >
+                          </div>
+                          <p class="p-text-03">
+                            AI-first creative technology partner for web, app,
+                            and video that delivers measurable growth.
+                          </p>
+                          <div style="margin-top: 20px">
+                            <p class="p-text-03" style="margin-bottom: 8px">
+                              <strong>Contact Us</strong>
+                            </p>
+                            <p
+                              class="p-text-03 text-white-60"
+                              style="margin-bottom: 5px"
+                            >
+                              <i
+                                class="fas fa-envelope"
+                                style="margin-right: 8px"
+                              ></i
+                              >support@pixelatenest.com
+                            </p>
+                            <p
+                              class="p-text-03 text-white-60"
+                              style="margin-bottom: 5px"
+                            >
+                              <i
+                                class="fas fa-phone"
+                                style="margin-right: 8px"
+                              ></i
+                              >+91-84069-12345
+                            </p>
+                            <p class="p-text-03 text-white-60">
+                              <i
+                                class="fas fa-map-marker-alt"
+                                style="margin-right: 8px"
+                              ></i
+                              >Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar,
+                              842001
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="footer-right-link-wrap">
+                        <div class="footer-link-wrap">
+                          <div class="p-text-01">Company</div>
+                          <div class="footer-link-list">
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">About Us</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/careers.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Careers</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/contact.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Contact Us</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/blog/index.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Blog</div>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="footer-link-wrap">
+                          <div class="p-text-01">Services</div>
+                          <div class="footer-link-list">
+                            <a
+                              href="https://www.pixelatenest.com/services/video-editing.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Video Editing</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/web-development.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                Web Development
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/app-development.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                App Development
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/software-development.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                Software Development
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="footer-link-wrap">
+                          <div class="p-text-01">Industries We Serve</div>
+                          <div class="footer-link-list">
+                            <a
+                              href="https://www.pixelatenest.com/industries/ecommerce.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                Ecommerce & Multivendor
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/industries/real-estate.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                Real Estate & Construction
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/industries/travel.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                Travel & Hospitality
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/industries/education.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Education</div>
+                            </a>
+
+                            <a
+                              href="https://www.pixelatenest.com/industries/logistics.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                Transportation & Logistics
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/industries/manufacturing.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Manufacturing</div>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="footer-link-wrap">
+                          <div class="p-text-01">Resources</div>
+                          <div class="footer-link-list">
+                            <a
+                              href="https://www.pixelatenest.com/pages/pricing.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Pricing</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/locations.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Locations</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/technologies.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Technologies</div>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="footer-link-wrap">
+                          <div class="p-text-01">Legal</div>
+                          <div class="footer-link-list">
+                            <a
+                              href="https://www.pixelatenest.com/legal/privacy-policy.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Privacy Policy</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/legal/terms-of-service.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">
+                                Terms of Service
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/legal/refund-policy.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Refund Policy</div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/legal/cookie-policy.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Cookie Policy</div>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="footer-link-wrap">
+                          <div class="p-text-01">Follow Us</div>
+                          <div class="footer-link-list">
+                            <a
+                              href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="footer-link w-inline-block"
+                            >
+                              <div
+                                class="footer-link-text"
+                                style="
+                                  flex-direction: row;
+                                  display: flex;
+                                  gap: 10px;
+                                "
+                              >
+                                <i
+                                  class="fab fa-linkedin-in"
+                                  aria-hidden="true"
+                                ></i>
+                                <span>LinkedIn</span>
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.instagram.com/pixelate.nest/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="footer-link w-inline-block"
+                            >
+                              <div
+                                class="footer-link-text"
+                                style="
+                                  flex-direction: row;
+                                  display: flex;
+                                  gap: 10px;
+                                "
+                              >
+                                <i
+                                  class="fab fa-instagram"
+                                  aria-hidden="true"
+                                ></i>
+                                <span>Instagram</span>
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.facebook.com/profile.php?id=61587634310440"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="footer-link w-inline-block"
+                            >
+                              <div
+                                class="footer-link-text"
+                                style="
+                                  flex-direction: row;
+                                  display: flex;
+                                  gap: 10px;
+                                "
+                              >
+                                <i
+                                  class="fab fa-facebook-f"
+                                  aria-hidden="true"
+                                ></i>
+                                <span>Facebook</span>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                      <div class="vertical-divider"></div>
+                      <div class="footer-bottom-wrap">
+                        <div class="p-text-03 text-white-60">
+                          © 2026 Kalahanu Tech Studios LLP. All Rights Reserved.
+                          | Crafted with
+                          <i class="fas fa-heart" style="color: #e74c3c"></i>
+                          in India
+                        </div>
+                        <div class="p-text-03 text-white-60">
+                          <strong>Payments Accepted:</strong>
+                          <div
+                            style="
+                              display: inline-flex;
+                              align-items: center;
+                              gap: 15px;
+                              margin-left: 10px;
+                            "
+                          >
+                            <span
+                              style="
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                              "
+                            >
+                              <i class="fas fa-money-bill-wave"></i> Cash
+                            </span>
+                            <span
+                              style="
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                              "
+                            >
+                              <i class="fas fa-university"></i> Bank
+                            </span>
+                            <span
+                              style="
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                              "
+                            >
+                              <i class="fas fa-mobile-alt"></i> UPI
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
             </div>
           </div>
         </div>
@@ -907,5 +2588,156 @@
       defer
     ></script>
     <script src="../js/main.js" defer></script>
+    <script src="../js/product-animation.js" defer></script>
+
+    <script>
+      (function () {
+        function initSnake() {
+          var section = document.getElementById("pn-section");
+          var snake = document.getElementById("pn-snake");
+          if (!snake || !section) return;
+
+          var svg = document.getElementById("pn-svg");
+          var pathBg = document.getElementById("pn-path-bg");
+          var pathFg = document.getElementById("pn-path-fg");
+          var circles = Array.from(document.querySelectorAll(".pn-circle"));
+          var steps = Array.from(document.querySelectorAll(".pn-step"));
+
+          var totalLen = 0;
+          var thresholds = [];
+          var progress = 0;
+          var accDelta = 0;
+          var TOTAL_DELTA = 1200;
+          var touchPrevY = 0;
+
+          function buildPath() {
+            var svgRect = svg.getBoundingClientRect();
+            var pts = circles.map(function (c) {
+              var r = c.getBoundingClientRect();
+              return {
+                x: r.left + r.width / 2 - svgRect.left,
+                y: r.top + r.height / 2 - svgRect.top,
+                r: r.width / 2,
+              };
+            });
+
+            var p0 = pts[0],
+              p2 = pts[2],
+              p3 = pts[3],
+              p5 = pts[5];
+            var dy = p3.y - p2.y;
+
+            var d = [
+              "M " + p0.x + "," + p0.y,
+              "L " + p2.x + "," + p2.y,
+              "a " + dy / 2 + "," + dy / 2 + " 0 0,1 0," + dy,
+              "L " + p5.x + "," + p5.y,
+            ].join(" ");
+
+            pathBg.setAttribute("d", d);
+            pathFg.setAttribute("d", d);
+
+            totalLen = pathFg.getTotalLength();
+            pathFg.style.strokeDasharray = totalLen;
+            pathFg.style.strokeDashoffset = totalLen - totalLen * progress;
+
+            thresholds = pts.map(function (p) {
+              var best = 0,
+                bestDist = Infinity;
+              for (var i = 0; i <= 400; i++) {
+                var t = (i / 400) * totalLen;
+                var pt = pathFg.getPointAtLength(t);
+                var d2 = Math.hypot(pt.x - p.x, pt.y - p.y);
+                if (d2 < bestDist) {
+                  bestDist = d2;
+                  best = t;
+                }
+              }
+              return best;
+            });
+          }
+
+          function setProgress(p) {
+            progress = Math.max(0, Math.min(1, p));
+            accDelta = progress * TOTAL_DELTA;
+            var drawn = totalLen * progress;
+            pathFg.style.strokeDashoffset = totalLen - drawn;
+            thresholds.forEach(function (t, i) {
+              steps[i].classList.toggle("active", drawn >= t - 1);
+            });
+          }
+
+          function inLockZone(goingDown) {
+            var rect = section.getBoundingClientRect();
+            var wh = window.innerHeight;
+            if (rect.top > wh || rect.bottom < 0) return false;
+            if (goingDown) {
+              if (progress > 0 && progress < 1) return true;
+              if (progress >= 1) return false;
+              return rect.top <= 60;
+            }
+            return progress > 0 && rect.top <= wh;
+          }
+
+          window.addEventListener(
+            "wheel",
+            function (e) {
+              var goingDown = e.deltaY >= 0;
+              if (!inLockZone(goingDown)) return;
+              e.preventDefault();
+              var raw = e.deltaY;
+              if (e.deltaMode === 1) raw *= 40;
+              if (e.deltaMode === 2) raw *= window.innerHeight;
+              accDelta = Math.max(0, Math.min(TOTAL_DELTA, accDelta + raw));
+              setProgress(accDelta / TOTAL_DELTA);
+            },
+            { passive: false },
+          );
+
+          window.addEventListener(
+            "touchstart",
+            function (e) {
+              touchPrevY = e.touches[0].clientY;
+            },
+            { passive: true },
+          );
+
+          window.addEventListener(
+            "touchmove",
+            function (e) {
+              var dy = touchPrevY - e.touches[0].clientY;
+              touchPrevY = e.touches[0].clientY;
+              var goingDown = dy >= 0;
+              if (!inLockZone(goingDown)) return;
+              e.preventDefault();
+              accDelta = Math.max(
+                0,
+                Math.min(TOTAL_DELTA, accDelta + dy * 2.5),
+              );
+              setProgress(accDelta / TOTAL_DELTA);
+            },
+            { passive: false },
+          );
+
+          function init() {
+            buildPath();
+            var rect = section.getBoundingClientRect();
+            if (rect.bottom < 0) setProgress(1);
+          }
+
+          if (document.readyState === "complete") {
+            init();
+          } else {
+            window.addEventListener("load", init);
+          }
+
+          window.addEventListener("resize", function () {
+            buildPath();
+          });
+        }
+
+        initSnake();
+      })();
+    </script>
   </body>
 </html>

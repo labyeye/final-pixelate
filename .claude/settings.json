@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff --stat website/index.html)",
+      "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff website/index.html)"
+    ]
+  }
+}

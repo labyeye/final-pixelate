@@ -2,6 +2,29 @@ import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import * as svc from "@/lib/services";
 import { getUserPages } from "@/lib/meta-api";
+import biharData from "@/lib/bihar-cities.json";
+
+// Geo filter — skip non-Bihar leads on insert for this specific client.
+// Mirrors the cleanup logic in scripts/delete-non-bihar-kalahanu-leads.js.
+const KALAHANU_CLIENT_ID = "68e6b754d5f58f82267a82ae";
+const CITY_KEYS = ["city", "location", "town", "district"];
+const normalizeCity = (v: unknown) => String(v ?? "").trim().toLowerCase();
+const BIHAR_SET = new Set((biharData.cities as string[]).map(normalizeCity));
+const isBiharCity = (v: string) =>
+  v != null && BIHAR_SET.has(normalizeCity(v));
+
+function extractCityFromFields(f: Record<string, string>): string {
+  for (const [k, v] of Object.entries(f)) {
+    if (
+      CITY_KEYS.includes(String(k).toLowerCase()) &&
+      typeof v === "string" &&
+      v.trim()
+    ) {
+      return v;
+    }
+  }
+  return "";
+}
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -173,6 +196,7 @@ export async function POST(request: Request) {
     const leadsCol = await svc.getCollection("leads");
     let synced = 0;
     let skipped = 0;
+    let filteredNonBihar = 0;
 
     
     const allRawLeads: any[] = [];
@@ -293,6 +317,17 @@ export async function POST(request: Request) {
         }
       }
 
+      // Bihar-only filter for the Kalahanu client. Anything outside
+      // the allowlist (including empty/missing city) is dropped before
+      // insert, so re-syncs don't keep adding leads we just cleaned up.
+      if (clientId === KALAHANU_CLIENT_ID) {
+        const cityValue = extractCityFromFields(f);
+        if (!isBiharCity(cityValue)) {
+          filteredNonBihar++;
+          continue;
+        }
+      }
+
       await leadsCol.insertOne({
         clientId,
         metaLeadId: ml.id,
@@ -319,6 +354,7 @@ export async function POST(request: Request) {
       {
         synced,
         skipped,
+        filteredNonBihar,
         total: allRawLeads.length,
         adAccounts: adAccounts.length,
         pages: pages.length,

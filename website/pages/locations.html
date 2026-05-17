@@ -1143,34 +1143,38 @@
       </footer>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", async () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("cities-container");
-        try {
-          const response = await fetch("../data/cities.json");
-          if (!response.ok) throw new Error("Failed to load cities");
-          const data = await response.json();
-          const locations = data.states;
-
-          container.innerHTML = locations
-            .map(
-              (loc) => `
-            <a href="../locations/state.html?city=${encodeURIComponent(loc.city)}" class="city-card">
+        if (!container) return;
+        const locations = [
+          {
+            city: "Muzaffarpur",
+            state: "Bihar",
+            href: "../states/bihar/muzaffarpur.html",
+            icon: "../assets/images/cities/bihar.webp",
+            services: [
+              "Website Development",
+              "Software Development",
+              "Digital Marketing",
+            ],
+          },
+        ];
+        container.innerHTML = locations
+          .map(
+            (loc) => `
+            <a href="${loc.href}" class="city-card">
               <div class="city-icon">
                 <img src="${loc.icon}" alt="${loc.city}" />
               </div>
               <h3 class="city-title">${loc.city}</h3>
               <div class="city-state">${loc.state}</div>
               <div class="service-tags">
-                ${loc.services.map((s) => `<span class="service-tag">${s.name}</span>`).join("")}
+                ${loc.services.map((s) => `<span class="service-tag">${s}</span>`).join("")}
               </div>
             </a>
           `,
-            )
-            .join("");
-        } catch (error) {
-          container.innerHTML =
-            '<p style="color:red">Failed to load locations. Please try again later.</p>';
-        }
+          )
+          .join("");
       });
     </script>
     <script src="../js/activity-tracker.js"></script>

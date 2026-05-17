@@ -70,7 +70,6 @@ Disallow: /api/
 # === SITEMAPS ===
 Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-index.xml
 Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-main.xml
-Sitemap: https://www.pixelatenest.com/sitemaps/sitemapstate.xml
 Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-detailed-services.xml
 Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-school-crm-bihar.xml
 Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-factory-management-bihar.xml
