@@ -104,7 +104,8 @@ export interface Lead {
   budget?: string | number | null;
   selectedPlan?: string | null;
   source?: string;
-  campaign?: string;
+  campaignName?: string;
+  formName?: string;
   indiamrtSynced?: boolean;
   indiamrtResponse?: any;
 

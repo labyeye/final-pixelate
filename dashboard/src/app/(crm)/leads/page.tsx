@@ -454,7 +454,7 @@ export default function LeadsPage() {
         l.projectType || "",
         String(l.budget || ""),
         l.source || "",
-        l.campaign || "",
+        l.campaignName || "",
         l.status || "",
         l.priority || "",
         l.assignedToName || "",
@@ -949,9 +949,9 @@ export default function LeadsPage() {
                         </span>
                       </TableCell>
                       <TableCell>
-                        {lead.campaign ? (
+                        {lead.campaignName ? (
                           <span className="text-xs px-2 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 max-w-[140px] truncate block">
-                            {lead.campaign}
+                            {lead.campaignName}
                           </span>
                         ) : (
                           <span className="text-xs text-muted-foreground">—</span>
