@@ -163,10 +163,10 @@ module.exports = [
         return null;
       }
     }
-    
+
     function buildComponents(template) {
       const components = [];
-      
+
       if (template.headerType && template.headerType !== "NONE") {
         if (template.headerType === "TEXT" && template.headerText) {
           const hasVar = /{{[^}]+}}/.test(template.headerText);
@@ -182,7 +182,6 @@ module.exports = [
           }
           components.push(comp);
         } else {
-          
           if (template.headerMediaHandle) {
             components.push({
               type: "HEADER",
@@ -192,7 +191,6 @@ module.exports = [
               },
             });
           } else {
-            
             components.push({
               type: "HEADER",
               format: template.headerType,
@@ -200,9 +198,8 @@ module.exports = [
           }
         }
       }
-      
+
       if (template.body) {
-        
         const cleanBody = template.body
           .split("\n")
           .map((line) => line.trimEnd())
@@ -212,15 +209,14 @@ module.exports = [
           type: "BODY",
           text: cleanBody,
         };
-        
-        
+
         const rawMatches = template.body.match(/\{\{(\d+)\}\}/g) ?? [];
         const varNums = [
           ...new Set(rawMatches.map((m) => parseInt(m.replace(/[{}]/g, "")))),
         ].sort((a, b) => a - b);
         if (varNums.length > 0) {
           const examples = varNums.map((n) => {
-            const i = n - 1; 
+            const i = n - 1;
             const val = template.exampleValues?.[i] ?? template.variables?.[i];
             return val && String(val).trim()
               ? String(val).trim()
@@ -232,14 +228,14 @@ module.exports = [
         }
         components.push(bodyComp);
       }
-      
+
       if (template.footer) {
         components.push({
           type: "FOOTER",
           text: template.footer,
         });
       }
-      
+
       if (Array.isArray(template.buttons) && template.buttons.length > 0) {
         const buttons = template.buttons.map((btn) => {
           if (btn.type === "QUICK_REPLY")
@@ -273,14 +269,12 @@ module.exports = [
     }
     async function POST(req, { params }) {
       const { id } = await params;
-      
+
       let nameOverride;
       try {
         const body = await req.json().catch(() => ({}));
         nameOverride = body?.name;
-      } catch {
-        
-      }
+      } catch {}
       const oid = toObjectId(id);
       const accessToken = process.env.META_ACCESS_TOKEN;
       const wabaId = process.env.WHATSAPP_BUSINESS_ACCOUNT_ID;
@@ -318,10 +312,7 @@ module.exports = [
           },
         );
       }
-      
-      
-      
-      
+
       let template = null;
       try {
         if (nameOverride) {
@@ -343,7 +334,6 @@ module.exports = [
           );
         }
         if (!template) {
-          
           const all = await db.collection(COLLECTION).find({}).toArray();
           console.info(
             `[submit] full scan, ${all.length} docs, looking for id="${id}"`,
@@ -427,13 +417,12 @@ module.exports = [
         const metaMessage = errDetail.message ?? "Meta API returned an error.";
         const metaDetails = errDetail.error_data?.details ?? "";
         const subcode = errDetail.error_subcode ?? "";
-        
+
         if (
           subcode === 2388023 ||
           String(subcode) === "2388023" ||
           metaMessage.toLowerCase().includes("already exists")
         ) {
-          
           await db.collection(COLLECTION).updateOne(
             {
               _id: template._id,
@@ -477,7 +466,7 @@ module.exports = [
       }
       const metaTemplateId = metaJson?.id ?? null;
       const metaStatus = metaJson?.status ?? "PENDING";
-      
+
       await db.collection(COLLECTION).updateOne(
         {
           _id: template._id,
@@ -503,5 +492,3 @@ module.exports = [
     }
   },
 ];
-
-

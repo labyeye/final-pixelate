@@ -171,7 +171,7 @@ module.exports = [
             createdAt: -1,
           })
           .toArray();
-        
+
         const serialized = templates.map((t) => ({
           ...t,
           _id: t._id.toString(),
@@ -225,7 +225,7 @@ module.exports = [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
           "default"
         ])();
-        
+
         const existing = await db.collection(COLLECTION).findOne({
           name,
         });
@@ -290,5 +290,3 @@ module.exports = [
     }
   },
 ];
-
-

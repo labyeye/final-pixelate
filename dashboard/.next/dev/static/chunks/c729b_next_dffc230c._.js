@@ -4,9 +4,7 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
- Object.defineProperty(exports, "__esModule", {
+    Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "getImageBlurSvg", {
@@ -36,7 +34,7 @@
             ? "xMidYMid slice"
             : "none";
       return `%3Csvg xmlns='http://www.w3.org/2000/svg' ${viewBox}%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='${preserveAspectRatio}' style='filter: url(%23b);' href='${blurDataURL}'/%3E%3C/svg%3E`;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -78,9 +76,8 @@
       path: "/_next/image",
       loader: "default",
       loaderFile: "",
-      
 
- domains: [],
+      domains: [],
       disableStaticImages: false,
       minimumCacheTTL: 14400,
       formats: ["image/webp"],
@@ -93,14 +90,14 @@
       remotePatterns: [],
       qualities: [75],
       unoptimized: false,
-    }; 
+    };
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/get-img-props.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -123,7 +120,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [app-client] (ecmascript)",
     );
     const VALID_LOADING_VALUES = ["lazy", "eager", undefined];
-    
+
     const INVALID_BACKGROUND_SIZE_VALUES = [
       "-moz-initial",
       "fill",
@@ -160,7 +157,6 @@
     }
     function getWidths({ deviceSizes, allSizes }, width, sizes) {
       if (sizes) {
-        
         const viewportWidthRe = /(^|\s)(1?\d?\d)vw/g;
         const percentSizes = [];
         for (let match; (match = viewportWidthRe.exec(sizes)); match) {
@@ -185,14 +181,8 @@
         };
       }
       const widths = [
-        ...new Set( 
-          
-          
-          
-          
-          
-          
-          [width, width * 2 ].map(
+        ...new Set(
+          [width, width * 2].map(
             (w) =>
               allSizes.find((p) => p >= w) || allSizes[allSizes.length - 1],
           ),
@@ -234,12 +224,7 @@
               })} ${kind === "w" ? w : i + 1}${kind}`,
           )
           .join(", "),
-        
-        
-        
-        
-        
-        
+
         src: loader({
           config,
           src,
@@ -310,11 +295,10 @@
         );
       }
       let loader = rest.loader || defaultLoader;
-      
+
       delete rest.loader;
       delete rest.srcSet;
-      
-      
+
       const isDefaultLoader = "__next_img_default" in loader;
       if (isDefaultLoader) {
         if (config.loader === "custom") {
@@ -332,9 +316,6 @@
           );
         }
       } else {
-        
-        
-        
         const customImageLoader = loader;
         loader = (obj) => {
           const { config: _, ...opts } = obj;
@@ -427,7 +408,6 @@
         !preload &&
         (loading === "lazy" || typeof loading === "undefined");
       if (!src || src.startsWith("data:") || src.startsWith("blob:")) {
-        
         unoptimized = true;
         isLazy = false;
       }
@@ -439,8 +419,6 @@
         !config.dangerouslyAllowSVG &&
         src.split("?", 1)[0].endsWith(".svg")
       ) {
-        
-        
         unoptimized = true;
       }
       const qualityInt = getInt(quality);
@@ -461,9 +439,6 @@
           );
         }
         if (!src) {
-          
-          
-          
           unoptimized = true;
         } else {
           if (fill) {
@@ -583,7 +558,7 @@
                 },
               );
             }
-            
+
             if (/^[\x00-\x20]/.test(src)) {
               throw Object.defineProperty(
                 new Error(
@@ -597,7 +572,7 @@
                 },
               );
             }
-            
+
             if (/[\x00-\x20]$/.test(src)) {
               throw Object.defineProperty(
                 new Error(
@@ -705,7 +680,7 @@
           );
         }
         if (placeholder === "blur" && !blurDataURL) {
-          const VALID_BLUR_EXT = ["jpeg", "png", "webp", "avif"]; 
+          const VALID_BLUR_EXT = ["jpeg", "png", "webp", "avif"];
           throw Object.defineProperty(
             new Error(`Image with src "${src}" has "placeholder='blur'" property but is missing the "blurDataURL" property.
         Possible solutions:
@@ -770,7 +745,6 @@
         ) {
           perfObserver = new PerformanceObserver((entryList) => {
             for (const entry of entryList.getEntries()) {
-              
               const imgSrc = entry?.element?.src || "";
               const lcpImage = allImgs.get(imgSrc);
               if (
@@ -780,7 +754,6 @@
                 !lcpImage.src.startsWith("data:") &&
                 !lcpImage.src.startsWith("blob:")
               ) {
-                
                 (0, _warnonce.warnOnce)(
                   `Image with src "${lcpImage.src}" was detected as the Largest Contentful Paint (LCP). Please add the \`loading="eager"\` property if this image is above the fold.` +
                     `\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading`,
@@ -794,7 +767,6 @@
               buffered: true,
             });
           } catch (err) {
-            
             console.error(err);
           }
         }
@@ -832,14 +804,14 @@
                 blurDataURL: blurDataURL || "",
                 objectFit: imgStyle.objectFit,
               })}")`
-            : `url("${placeholder}")` 
+            : `url("${placeholder}")`
           : null;
       const backgroundSize = !INVALID_BACKGROUND_SIZE_VALUES.includes(
         imgStyle.objectFit,
       )
         ? imgStyle.objectFit
         : imgStyle.objectFit === "fill"
-          ? "100% 100%" 
+          ? "100% 100%"
           : "cover";
       let placeholderStyle = backgroundImage
         ? {
@@ -855,9 +827,6 @@
           placeholder === "blur" &&
           blurDataURL?.startsWith("/")
         ) {
-          
-          
-          
           placeholderStyle.backgroundImage = `url("${blurDataURL}")`;
         }
       }
@@ -912,7 +881,7 @@
         props,
         meta,
       };
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -961,11 +930,7 @@
           },
         }["SideEffect.useClientOnlyLayoutEffect"],
       );
-      
-      
-      
-      
-      
+
       useClientOnlyLayoutEffect(
         {
           "SideEffect.useClientOnlyLayoutEffect": () => {
@@ -1001,14 +966,14 @@
         }["SideEffect.useClientOnlyEffect"],
       );
       return null;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -1045,12 +1010,12 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _sideeffect =  _interop_require_default._(
+    const _sideeffect = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-client] (ecmascript)",
       ),
@@ -1063,14 +1028,14 @@
     );
     function defaultHead() {
       const head = [
-         (0, _jsxruntime.jsx)(
+        (0, _jsxruntime.jsx)(
           "meta",
           {
             charSet: "utf-8",
           },
           "charset",
         ),
-         (0, _jsxruntime.jsx)(
+        (0, _jsxruntime.jsx)(
           "meta",
           {
             name: "viewport",
@@ -1082,11 +1047,10 @@
       return head;
     }
     function onlyReactElement(list, child) {
-      
       if (typeof child === "string" || typeof child === "number") {
         return list;
       }
-      
+
       if (child.type === _react.default.Fragment) {
         return list.concat(
           _react.default.Children.toArray(child.props.children).reduce(
@@ -1106,11 +1070,8 @@
       return list.concat(child);
     }
     const METATYPES = ["name", "httpEquiv", "charSet", "itemProp"];
-    
 
-
-
- function unique() {
+    function unique() {
       const keys = new Set();
       const tags = new Set();
       const metaTypes = new Set();
@@ -1127,7 +1088,7 @@
             keys.add(key);
           }
         }
-        
+
         switch (h.type) {
           case "title":
           case "base":
@@ -1166,10 +1127,8 @@
         return isUnique;
       };
     }
-    
 
-
- function reduceComponents(headChildrenElements) {
+    function reduceComponents(headChildrenElements) {
       return headChildrenElements
         .reduce(onlyReactElement, [])
         .reverse()
@@ -1179,7 +1138,6 @@
         .map((c, i) => {
           const key = c.key || i;
           if (("TURBOPACK compile-time truthy", 1)) {
-            
             if (
               c.type === "script" &&
               c.props["type"] !== "application/ld+json"
@@ -1196,19 +1154,17 @@
               );
             }
           }
-          return  _react.default.cloneElement(c, {
+          return _react.default.cloneElement(c, {
             key,
           });
         });
     }
-    
 
-
- function Head({ children }) {
+    function Head({ children }) {
       const headManager = (0, _react.useContext)(
         _headmanagercontextsharedruntime.HeadManagerContext,
       );
-      return  (0, _jsxruntime.jsx)(_sideeffect.default, {
+      return (0, _jsxruntime.jsx)(_sideeffect.default, {
         reduceComponentsToState: reduceComponents,
         headManager: headManager,
         children: children,
@@ -1225,14 +1181,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config-context.shared-runtime.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1248,7 +1204,7 @@
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_default._(
+    const _react = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1261,14 +1217,14 @@
     );
     if (("TURBOPACK compile-time truthy", 1)) {
       ImageConfigContext.displayName = "ImageConfigContext";
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router-context.shared-runtime.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1284,7 +1240,7 @@
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_default._(
+    const _react = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1292,7 +1248,7 @@
     const RouterContext = _react.default.createContext(null);
     if (("TURBOPACK compile-time truthy", 1)) {
       RouterContext.displayName = "RouterContext";
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/find-closest-quality.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1316,12 +1272,12 @@
         (prev, cur) => (Math.abs(cur - q) < Math.abs(prev - q) ? cur : prev),
         0,
       );
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/picomatch/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     (() => {
@@ -3104,7 +3060,7 @@
       }
       const url = new URL(urlPathAndQuery, "http://n");
       return localPatterns.some((p) => matchLocalPattern(p, url));
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-remote-pattern.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3171,7 +3127,7 @@
           return false;
         }
       }
-      
+
       if (
         !(0, _picomatch.makeRe)(pattern.pathname ?? "**", {
           dot: true,
@@ -3186,14 +3142,14 @@
         domains.some((domain) => url.hostname === domain) ||
         remotePatterns.some((p) => matchRemotePattern(p, url))
       );
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -3232,7 +3188,7 @@
       }
       if (("TURBOPACK compile-time truthy", 1)) {
         const missingValues = [];
-        
+
         if (!src) missingValues.push("src");
         if (!width) missingValues.push("width");
         if (missingValues.length > 0) {
@@ -3269,7 +3225,6 @@
         }
         if (src.startsWith("/") && config.localPatterns) {
           if (("TURBOPACK compile-time truthy", 1)) {
-            
             const { hasLocalMatch } = __turbopack_context__.r(
               "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-local-pattern.js [app-client] (ecmascript)",
             );
@@ -3308,7 +3263,6 @@
             );
           }
           if (("TURBOPACK compile-time truthy", 1)) {
-            
             const { hasRemoteMatch } = __turbopack_context__.r(
               "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-remote-pattern.js [app-client] (ecmascript)",
             );
@@ -3334,17 +3288,16 @@
       const q = (0, _findclosestquality.findClosestQuality)(quality, config);
       return `${config.path}?url=${encodeURIComponent(src)}&w=${width}&q=${q}${src.startsWith("/_next/static/media/") && ("TURBOPACK compile-time value", false) ? "TURBOPACK unreachable" : ""}`;
     }
-    
-    
+
     defaultLoader.__next_img_default = true;
-    const _default = defaultLoader; 
+    const _default = defaultLoader;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/image-component.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -3367,17 +3320,17 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _reactdom =  _interop_require_default._(
+    const _reactdom = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/index.js [app-client] (ecmascript)",
       ),
     );
-    const _head =  _interop_require_default._(
+    const _head = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-client] (ecmascript)",
       ),
@@ -3397,7 +3350,7 @@
     const _routercontextsharedruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router-context.shared-runtime.js [app-client] (ecmascript)",
     );
-    const _imageloader =  _interop_require_default._(
+    const _imageloader = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)",
       ),
@@ -3405,7 +3358,7 @@
     const _usemergedref = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/use-merged-ref.js [app-client] (ecmascript)",
     );
-    
+
     const configEnv =
       ("TURBOPACK compile-time value",
       {
@@ -3475,8 +3428,7 @@
     if (typeof window === "undefined") {
       globalThis.__NEXT_IMAGE_IMPORTED = true;
     }
-    
-    
+
     function handleLoading(
       img,
       placeholder,
@@ -3494,20 +3446,12 @@
       const p = "decode" in img ? img.decode() : Promise.resolve();
       p.catch(() => {}).then(() => {
         if (!img.parentElement || !img.isConnected) {
-          
-          
-          
-          
-          
           return;
         }
         if (placeholder !== "empty") {
           setBlurComplete(true);
         }
         if (onLoadRef?.current) {
-          
-          
-          
           const event = new Event("load");
           Object.defineProperty(event, "target", {
             writable: false,
@@ -3587,20 +3531,16 @@
     }
     function getDynamicProps(fetchPriority) {
       if (Boolean(_react.use)) {
-        
-        
-        
         return {
           fetchPriority,
         };
       }
-      
-      
+
       return {
         fetchpriority: fetchPriority,
       };
     }
-    const ImageElement =  (0, _react.forwardRef)(
+    const ImageElement = (0, _react.forwardRef)(
       (
         {
           src,
@@ -3633,10 +3573,6 @@
               return;
             }
             if (onError) {
-              
-              
-              
-              
               img.src = img.src;
             }
             if (("TURBOPACK compile-time truthy", 1)) {
@@ -3673,12 +3609,10 @@
           ],
         );
         const ref = (0, _usemergedref.useMergedRef)(forwardedRef, ownRef);
-        return  (0, _jsxruntime.jsx)("img", {
+        return (0, _jsxruntime.jsx)("img", {
           ...rest,
           ...getDynamicProps(fetchPriority),
-          
-          
-          
+
           loading: loading,
           width: width,
           height: height,
@@ -3686,12 +3620,7 @@
           "data-nimg": fill ? "fill" : "1",
           className: className,
           style: style,
-          
-          
-          
-          
-          
-          
+
           sizes: sizes,
           srcSet: srcSet,
           src: src,
@@ -3709,10 +3638,8 @@
             );
           },
           onError: (event) => {
-            
             setShowAltText(true);
             if (placeholder !== "empty") {
-              
               setBlurComplete(true);
             }
             if (onError) {
@@ -3735,16 +3662,12 @@
         _reactdom.default.preload(imgAttributes.src, opts);
         return null;
       }
-      return  (0, _jsxruntime.jsx)(_head.default, {
-        children:  (0, _jsxruntime.jsx)(
+      return (0, _jsxruntime.jsx)(_head.default, {
+        children: (0, _jsxruntime.jsx)(
           "link",
           {
             rel: "preload",
-            
-            
-            
-            
-            
+
             href: imgAttributes.srcSet ? undefined : imgAttributes.src,
             ...opts,
           },
@@ -3755,81 +3678,75 @@
         ),
       });
     }
-    const Image =  (0, _react.forwardRef)(
-      (props, forwardedRef) => {
-        const pagesRouter = (0, _react.useContext)(
-          _routercontextsharedruntime.RouterContext,
+    const Image = (0, _react.forwardRef)((props, forwardedRef) => {
+      const pagesRouter = (0, _react.useContext)(
+        _routercontextsharedruntime.RouterContext,
+      );
+
+      const isAppRouter = !pagesRouter;
+      const configContext = (0, _react.useContext)(
+        _imageconfigcontextsharedruntime.ImageConfigContext,
+      );
+      const config = (0, _react.useMemo)(() => {
+        const c = configEnv || configContext || _imageconfig.imageConfigDefault;
+        const allSizes = [...c.deviceSizes, ...c.imageSizes].sort(
+          (a, b) => a - b,
         );
-        
-        const isAppRouter = !pagesRouter;
-        const configContext = (0, _react.useContext)(
-          _imageconfigcontextsharedruntime.ImageConfigContext,
-        );
-        const config = (0, _react.useMemo)(() => {
-          const c =
-            configEnv || configContext || _imageconfig.imageConfigDefault;
-          const allSizes = [...c.deviceSizes, ...c.imageSizes].sort(
-            (a, b) => a - b,
-          );
-          const deviceSizes = c.deviceSizes.sort((a, b) => a - b);
-          const qualities = c.qualities?.sort((a, b) => a - b);
-          return {
-            ...c,
-            allSizes,
-            deviceSizes,
-            qualities,
-            
-            
-            
-            
-            localPatterns:
-              typeof window === "undefined"
-                ? configContext?.localPatterns
-                : c.localPatterns,
-          };
-        }, [configContext]);
-        const { onLoad, onLoadingComplete } = props;
-        const onLoadRef = (0, _react.useRef)(onLoad);
-        (0, _react.useEffect)(() => {
-          onLoadRef.current = onLoad;
-        }, [onLoad]);
-        const onLoadingCompleteRef = (0, _react.useRef)(onLoadingComplete);
-        (0, _react.useEffect)(() => {
-          onLoadingCompleteRef.current = onLoadingComplete;
-        }, [onLoadingComplete]);
-        const [blurComplete, setBlurComplete] = (0, _react.useState)(false);
-        const [showAltText, setShowAltText] = (0, _react.useState)(false);
-        const { props: imgAttributes, meta: imgMeta } = (0,
-        _getimgprops.getImgProps)(props, {
-          defaultLoader: _imageloader.default,
-          imgConf: config,
-          blurComplete,
-          showAltText,
-        });
-        return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
-          children: [
-             (0, _jsxruntime.jsx)(ImageElement, {
-              ...imgAttributes,
-              unoptimized: imgMeta.unoptimized,
-              placeholder: imgMeta.placeholder,
-              fill: imgMeta.fill,
-              onLoadRef: onLoadRef,
-              onLoadingCompleteRef: onLoadingCompleteRef,
-              setBlurComplete: setBlurComplete,
-              setShowAltText: setShowAltText,
-              sizesInput: props.sizes,
-              ref: forwardedRef,
-            }),
-            imgMeta.preload
-              ?  (0, _jsxruntime.jsx)(ImagePreload, {
-                  isAppRouter: isAppRouter,
-                  imgAttributes: imgAttributes,
-                })
-              : null,
-          ],
-        });
-      },
-    );
+        const deviceSizes = c.deviceSizes.sort((a, b) => a - b);
+        const qualities = c.qualities?.sort((a, b) => a - b);
+        return {
+          ...c,
+          allSizes,
+          deviceSizes,
+          qualities,
+
+          localPatterns:
+            typeof window === "undefined"
+              ? configContext?.localPatterns
+              : c.localPatterns,
+        };
+      }, [configContext]);
+      const { onLoad, onLoadingComplete } = props;
+      const onLoadRef = (0, _react.useRef)(onLoad);
+      (0, _react.useEffect)(() => {
+        onLoadRef.current = onLoad;
+      }, [onLoad]);
+      const onLoadingCompleteRef = (0, _react.useRef)(onLoadingComplete);
+      (0, _react.useEffect)(() => {
+        onLoadingCompleteRef.current = onLoadingComplete;
+      }, [onLoadingComplete]);
+      const [blurComplete, setBlurComplete] = (0, _react.useState)(false);
+      const [showAltText, setShowAltText] = (0, _react.useState)(false);
+      const { props: imgAttributes, meta: imgMeta } = (0,
+      _getimgprops.getImgProps)(props, {
+        defaultLoader: _imageloader.default,
+        imgConf: config,
+        blurComplete,
+        showAltText,
+      });
+      return (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+        children: [
+          (0, _jsxruntime.jsx)(ImageElement, {
+            ...imgAttributes,
+            unoptimized: imgMeta.unoptimized,
+            placeholder: imgMeta.placeholder,
+            fill: imgMeta.fill,
+            onLoadRef: onLoadRef,
+            onLoadingCompleteRef: onLoadingCompleteRef,
+            setBlurComplete: setBlurComplete,
+            setShowAltText: setShowAltText,
+            sizesInput: props.sizes,
+            ref: forwardedRef,
+          }),
+          imgMeta.preload
+            ? (0, _jsxruntime.jsx)(ImagePreload, {
+                isAppRouter: isAppRouter,
+                imgAttributes: imgAttributes,
+              })
+            : null,
+        ],
+      });
+    });
     if (
       (typeof exports.default === "function" ||
         (typeof exports.default === "object" && exports.default !== null)) &&
@@ -3840,14 +3757,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -3883,7 +3800,7 @@
     const _imagecomponent = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/image-component.js [app-client] (ecmascript)",
     );
-    const _imageloader =  _interop_require_default._(
+    const _imageloader = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)",
       ),
@@ -3891,7 +3808,7 @@
     function getImageProps(imgProps) {
       const { props } = (0, _getimgprops.getImgProps)(imgProps, {
         defaultLoader: _imageloader.default,
-        
+
         imgConf:
           ("TURBOPACK compile-time value",
           {
@@ -3960,9 +3877,7 @@
               ]),
           }),
       });
-      
-      
-      
+
       for (const [key, value] of Object.entries(props)) {
         if (value === undefined) {
           delete props[key];
@@ -3972,7 +3887,7 @@
         props,
       };
     }
-    const _default = _imagecomponent.Image; 
+    const _default = _imagecomponent.Image;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/image.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3981,5 +3896,3 @@
     );
   },
 ]);
-
-

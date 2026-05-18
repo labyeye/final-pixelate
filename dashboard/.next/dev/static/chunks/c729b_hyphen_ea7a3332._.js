@@ -2,29 +2,18 @@
   typeof document === "object" ? document.currentScript : undefined,
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hyphen/hyphen.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    
-
-
-
-
-
- (function (root, factory) {
+    (function (root, factory) {
       if (typeof define === "function" && define.amd) {
-        
         ((r) => r !== undefined && __turbopack_context__.v(r))(factory());
       } else if (
         ("TURBOPACK compile-time value", "object") === "object" &&
         module.exports
       ) {
-        
-        
-        
         module.exports = factory();
       } else {
-        
         root.createHyphenator = factory();
       }
-    })( __turbopack_context__.e, function () {
+    })(__turbopack_context__.e, function () {
       function createTextReader(setup) {
         var char1 = "";
         var char2 = "";
@@ -253,9 +242,9 @@
           ),
           resolveNewText = function () {};
         function nextTick() {
-          var loopStart =  new Date();
+          var loopStart = new Date();
           while (
-            (!isAsync ||  new Date() - loopStart < 10) &&
+            (!isAsync || new Date() - loopStart < 10) &&
             (fragments = readText(text))
           ) {
             if (fragments[1]) {
@@ -311,7 +300,7 @@
       var SETTING_NAME_HYPH_CHAR = "hyphenChar";
       var SETTING_NAME_MIN_WORD_LENGTH = "minWordLength";
       var _global = ("TURBOPACK compile-time truthy", 1)
-        ?  __turbopack_context__.g
+        ? __turbopack_context__.g
         : "TURBOPACK unreachable";
       function extend(target, source) {
         target = target || {};
@@ -468,7 +457,6 @@
   (__turbopack_context__, module, exports) => {
     (function (root, exports) {
       if (typeof define === "function" && define.amd) {
-        
         ((r) => r !== undefined && __turbopack_context__.v(r))(
           (function () {
             return exports;
@@ -478,15 +466,11 @@
         ("TURBOPACK compile-time value", "object") === "object" &&
         module.exports
       ) {
-        
-        
-        
         module.exports = exports;
       } else {
-        
         root.hyphenationPatternsEnUs = exports;
       }
-    })( __turbopack_context__.e, [
+    })(__turbopack_context__.e, [
       [
         [0, 0, 0, 4],
         [0, 0, 4],
@@ -15738,5 +15722,3 @@
     ]);
   },
 ]);
-
-

@@ -3153,19 +3153,14 @@ li {
 .card p {
   font-weight: bolder;
   font-size: 1rem;
-  background: linear-gradient(
-    45deg,
-    var(--primary-900) 4%,
-    var(--white),
-    var(--primary-900)
-  );
+  background: black;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
   line-height: 1;
   margin-bottom: 8px;
-  text-align: center;
+  text-align: justify;
   padding: auto;
 }
 .line {
@@ -3987,24 +3982,17 @@ video {
   }
 }
 
-/* =========================================================
-   Services Carousel (dark, image-left + scroll-snap cards)
-   ========================================================= */
 .svc-carousel-section {
   background: #fff;
   color: #fff;
   position: relative;
 }
-/* Tall scroll-track. The wrapper is what reserves the scroll distance —
-   the user must scroll all of this before reaching the next section. */
+
 .svc-pin-wrapper {
   position: relative;
-  height: 480vh; /* ~3.8x viewport height for 5 transitions across 6 cards */
+  height: 480vh;
 }
-/* Stage starts absolute at the wrapper top, JS toggles is-pinned (fixed)
-   while it's mid-scroll, and is-pinned-bottom (absolute at wrapper bottom)
-   once the user has scrolled past. Avoids position:sticky which is broken
-   by body{overflow-x:hidden} in this project. */
+
 .svc-pin-stage {
   position: absolute;
   top: 0;
@@ -4278,7 +4266,6 @@ video {
 }
 
 @media (max-width: 1024px) {
-  /* Disable pinning on tablet/mobile — let it scroll naturally */
   .svc-pin-wrapper {
     height: auto;
   }

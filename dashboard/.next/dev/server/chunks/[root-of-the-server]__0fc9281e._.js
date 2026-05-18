@@ -1414,5 +1414,3 @@ module.exports = [
     }
   },
 ];
-
-

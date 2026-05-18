@@ -12,7 +12,6 @@ function toObjectId(id: string) {
   }
 }
 
-
 export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
@@ -76,7 +75,6 @@ export async function PATCH(
     );
   }
 }
-
 
 export async function DELETE(
   _req: NextRequest,

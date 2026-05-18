@@ -12,7 +12,6 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> },
@@ -32,7 +31,6 @@ export async function GET(
     { headers: CORS },
   );
 }
-
 
 export async function PUT(
   request: Request,

@@ -155,7 +155,9 @@ export default function SocialMediaPlannerPage() {
   useEffect(() => {
     loadPosts(selectedClientId);
     if (selectedClientId) {
-      fetch(`/api/social-media-accounts?clientId=${selectedClientId}`, { cache: "no-store" })
+      fetch(`/api/social-media-accounts?clientId=${selectedClientId}`, {
+        cache: "no-store",
+      })
         .then((r) => r.json())
         .then((data) => {
           if (Array.isArray(data)) {
@@ -687,7 +689,12 @@ export default function SocialMediaPlannerPage() {
                                 : item.socialAccountId
                                   ? [item.socialAccountId]
                                   : [];
-                              if (!ids.length) return <span className="text-xs text-muted-foreground">—</span>;
+                              if (!ids.length)
+                                return (
+                                  <span className="text-xs text-muted-foreground">
+                                    —
+                                  </span>
+                                );
                               return (
                                 <div className="flex flex-col gap-1">
                                   {ids.map((aid) => (

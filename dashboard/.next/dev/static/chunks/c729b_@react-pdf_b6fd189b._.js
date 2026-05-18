@@ -111,7 +111,7 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/pdfkit/lib/pdfkit.browser.js [app-client] (ecmascript)",
       );
-    
+
     const STANDARD_FONTS = [
       "Courier",
       "Courier-Bold",
@@ -207,18 +207,18 @@
           isLigature: false,
           name: this.src.font.characterToGlyph(id),
           _font: this.src,
-          
+
           advanceWidth: undefined,
         };
       }
       hasGlyphForCodePoint(codePoint) {
         return this.src.font.characterToGlyph(codePoint) !== ".notdef";
       }
-      
+
       get ascent() {
         return 900;
       }
-      
+
       get capHeight() {
         switch (this.name) {
           case "Times-Roman":
@@ -235,7 +235,7 @@
             return 690;
         }
       }
-      
+
       get xHeight() {
         switch (this.name) {
           case "Times-Roman":
@@ -252,7 +252,7 @@
             return 490;
         }
       }
-      
+
       get descent() {
         switch (this.name) {
           case "Times-Roman":
@@ -422,7 +422,7 @@
         );
         const exactFit = styleSources.find((s) => s.fontWeight === fontWeight);
         if (exactFit) return exactFit;
-        
+
         let font = null;
         const numericFontWeight = resolveFontWeight(fontWeight);
         if (numericFontWeight >= 400 && numericFontWeight <= 500) {
@@ -534,7 +534,7 @@
             },
           ],
         });
-        
+
         this.register({
           family: "Helvetica-Bold",
           src: "Helvetica-Bold",
@@ -571,7 +571,7 @@
           family: "Times-BoldItalic",
           src: "Times-BoldItalic",
         });
-        
+
         this.load({
           fontFamily: "Helvetica",
           fontStyle: "normal",
@@ -599,7 +599,7 @@
         if (!this.fontFamilies[family]) {
           this.fontFamilies[family] = FontFamily.create(family);
         }
-        
+
         if ("fonts" in data) {
           for (let i = 0; i < data.fonts.length; i += 1) {
             const { src, fontStyle, fontWeight, ...options } = data.fonts[i];
@@ -662,14 +662,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "adjust",
       () => adjust,
       "asyncCompose",
@@ -717,12 +710,8 @@
         [i]: fn(collection[i]),
       });
     };
-     
 
-
-
-
- const asyncCompose =
+    const asyncCompose =
       (...fns) =>
       async (value, ...args) => {
         let result = value;
@@ -733,30 +722,17 @@
         }
         return result;
       };
-    
 
-
-
-
- const capitalize = (value) => {
+    const capitalize = (value) => {
       if (!value) return value;
       return value.replace(/(^|\s)\S/g, (l) => l.toUpperCase());
     };
-    
 
-
-
-
-
- const castArray = (value) => {
+    const castArray = (value) => {
       return Array.isArray(value) ? value : [value];
     };
-    
 
-
-
-
- const compose =
+    const compose =
       (...fns) =>
       (value, ...args) => {
         let result = value;
@@ -767,21 +743,10 @@
         }
         return result;
       };
-    
 
+    const dropLast = (array) => array.slice(0, array.length - 1);
 
-
-
-
- const dropLast = (array) => array.slice(0, array.length - 1);
-    
-
-
-
-
-
-
- function evolve(transformations, object) {
+    function evolve(transformations, object) {
       const result = {};
       const keys = Object.keys(object);
       for (let i = 0; i < keys.length; i += 1) {
@@ -795,21 +760,10 @@
       }
       return result;
     }
-    
 
+    const isNil = (value) => value === null || value === undefined;
 
-
-
-
- const isNil = (value) => value === null || value === undefined;
-    
-
-
-
-
-
-
- const get = (target, path, defaultValue) => {
+    const get = (target, path, defaultValue) => {
       if (isNil(target)) return defaultValue;
       const _path = castArray(path);
       let result = target;
@@ -822,13 +776,8 @@
     function last(value) {
       return value === "" ? "" : value[value.length - 1];
     }
-    
 
-
-
-
-
- const mapValues = (object, fn) => {
+    const mapValues = (object, fn) => {
       const entries = Object.entries(object);
       const acc = {};
       return entries.reduce((acc, [key, value], index) => {
@@ -837,12 +786,8 @@
       }, acc);
     };
     const isPercent = (value) => /((-)?\d+\.?\d*)%/g.exec(`${value}`);
-    
 
-
-
-
- const matchPercent = (value) => {
+    const matchPercent = (value) => {
       const match = isPercent(value);
       if (match) {
         const f = parseFloat(match[1]);
@@ -854,13 +799,8 @@
       }
       return null;
     };
-    
 
-
-
-
-
- const omit = (keys, object) => {
+    const omit = (keys, object) => {
       const _keys = castArray(keys);
       const copy = Object.assign({}, object);
       _keys.forEach((key) => {
@@ -868,13 +808,8 @@
       });
       return copy;
     };
-    
 
-
-
-
-
- const pick = (keys, obj) => {
+    const pick = (keys, obj) => {
       const result = {};
       for (let i = 0; i < keys.length; i += 1) {
         const key = keys[i];
@@ -882,43 +817,23 @@
       }
       return result;
     };
-    
 
-
-
-
-
-
- const repeat = (element, length = 0) => {
+    const repeat = (element, length = 0) => {
       const result = new Array(length);
       for (let i = 0; i < length; i += 1) {
         result[i] = element;
       }
       return result;
     };
-    
 
+    const reverse = (list) => Array.prototype.slice.call(list, 0).reverse();
 
-
-
-
- const reverse = (list) => Array.prototype.slice.call(list, 0).reverse();
-    
-
-
-
-
- const upperFirst = (value) => {
+    const upperFirst = (value) => {
       if (!value) return value;
       return value.charAt(0).toUpperCase() + value.slice(1);
     };
-    
 
-
-
-
-
- const without = (keys, array) => {
+    const without = (keys, array) => {
       const result = [];
       for (let i = 0; i < array.length; i += 1) {
         const value = array[i];
@@ -926,12 +841,8 @@
       }
       return result;
     };
-    
 
-
-
-
- const parseFloat$1 = (value) => {
+    const parseFloat$1 = (value) => {
       return typeof value === "string" ? Number.parseFloat(value) : value;
     };
   },
@@ -1023,9 +934,7 @@
       ctx.moveTo(x1, y1);
       ctx.lineTo(x2, y2);
     };
-    const renderGroup = () => {
-      
-    };
+    const renderGroup = () => {};
     const KAPPA$2 = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
     const drawEllipse = (ctx, rx, ry, cx = 0, cy = 0) => {
       const x = cx - rx;
@@ -1053,7 +962,7 @@
       const r = node.props?.r;
       drawEllipse(ctx, r, r, cx, cy);
     };
-     const number = (n) => {
+    const number = (n) => {
       if (n > -1e21 && n < 1e21) {
         return Math.round(n * 1e6) / 1e6;
       }
@@ -1066,20 +975,20 @@
       let last = 0;
       let hadOffset = false;
       ctx.save();
-      
+
       ctx.transform(1, 0, 0, -1, 0, ctx.page.height);
       y = ctx.page.height - y;
-      
+
       if (ctx.page.fonts[ctx._font.id] == null) {
         ctx.page.fonts[ctx._font.id] = ctx._font.ref();
       }
-      
+
       ctx.addContent("BT");
-      
+
       ctx.addContent(`1 0 0 1 ${number(x)} ${number(y)} Tm`);
-      
+
       ctx.addContent(`/${ctx._font.id} ${number(ctx._fontSize)} Tf`);
-      
+
       const addSegment = (cur) => {
         if (last < cur) {
           const hex = encoded.slice(last, cur).join("");
@@ -1089,7 +998,7 @@
         }
         return (last = cur);
       };
-      
+
       const flush = (s) => {
         addSegment(s);
         if (commands.length > 0) {
@@ -1098,43 +1007,39 @@
         }
       };
       for (i = 0; i < positions.length; i += 1) {
-        
-        
         const pos = positions[i];
         if (pos.xOffset || pos.yOffset) {
-          
           flush(i);
-          
+
           ctx.addContent(
             `1 0 0 1 ${number(x + pos.xOffset * scale)} ${number(y + pos.yOffset * scale)} Tm`,
           );
           flush(i + 1);
           hadOffset = true;
         } else {
-          
           if (hadOffset) {
             ctx.addContent(`1 0 0 1 ${number(x)} ${number(y)} Tm`);
             hadOffset = false;
           }
-          
+
           if (pos.xAdvance - pos.advanceWidth !== 0) {
             addSegment(i + 1);
           }
         }
         x += pos.xAdvance * scale;
       }
-      
+
       flush(i);
-      
+
       ctx.addContent("ET");
-      
+
       return ctx.restore();
     };
     const renderGlyphs = (ctx, glyphs, positions, x, y) => {
       const scale = 1000 / ctx._fontSize;
       const unitsPerEm = ctx._font.font.unitsPerEm || 1000;
       const advanceWidthScale = 1000 / unitsPerEm;
-      
+
       const encodedGlyphs = ctx._font.encodeGlyphs(glyphs);
       const encodedPositions = positions.map((pos, i) => ({
         xAdvance: pos.xAdvance * scale,
@@ -1231,12 +1136,8 @@
       }
       return result;
     };
-    
 
-
-
-
- const parsePoints = (points) => {
+    const parsePoints = (points) => {
       let values = (points || "")
         .trim()
         .replace(/,/g, " ")
@@ -1291,8 +1192,7 @@
         });
       ctx.restore();
     };
-    
-    
+
     const KAPPA$1 = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
     const clipNode = (ctx, node) => {
       if (!node.box) return;
@@ -1304,8 +1204,7 @@
         borderBottomRightRadius = 0,
         borderBottomLeftRadius = 0,
       } = node.style;
-      
-      
+
       const rtr = Math.min(borderTopRightRadius, 0.5 * width, 0.5 * height);
       const ctr = rtr * (1.0 - KAPPA$1);
       ctx.moveTo(left + rtr, top);
@@ -1318,8 +1217,7 @@
         left + width,
         top + rtr,
       );
-      
-      
+
       const rbr = Math.min(borderBottomRightRadius, 0.5 * width, 0.5 * height);
       const cbr = rbr * (1.0 - KAPPA$1);
       ctx.lineTo(left + width, top + height - rbr);
@@ -1331,8 +1229,7 @@
         left + width - rbr,
         top + height,
       );
-      
-      
+
       const rbl = Math.min(borderBottomLeftRadius, 0.5 * width, 0.5 * height);
       const cbl = rbl * (1.0 - KAPPA$1);
       ctx.lineTo(left + rbl, top + height);
@@ -1344,8 +1241,7 @@
         left,
         top + height - rbl,
       );
-      
-      
+
       const rtl = Math.min(borderTopLeftRadius, 0.5 * width, 0.5 * height);
       const ctl = rtl * (1.0 - KAPPA$1);
       ctx.lineTo(left, top + rtl);
@@ -1416,7 +1312,7 @@
         applySingleTransformation(ctx, operation, origin);
       });
     };
-    
+
     const getPathBoundingBox = (node) => {
       const path = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$normalize$2d$svg$2d$path$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1576,7 +1472,7 @@
       if (!node.props) return;
       if (!("strokeDasharray" in node.props)) return;
       const value = node.props?.strokeDasharray || null;
-      
+
       if (value) ctx.dash(value.split(/[\s,]+/).map(Number));
     };
     const hasLinearGradientFill = (node) => {
@@ -1654,7 +1550,7 @@
       const matrix = matrices.reduce(multiplyMatrices, [1, 0, 0, 1, 0, 0]);
       grad.setTransform(...matrix);
     };
-    
+
     const setLinearGradientFill = (ctx, node) => {
       if (!node.props) return;
       if (!("fill" in node.props)) return;
@@ -1688,7 +1584,7 @@
       });
       ctx.fill(grad);
     };
-    
+
     const setRadialGradientFill = (ctx, node) => {
       if (!node.props) return;
       if (!("fill" in node.props)) return;
@@ -1921,7 +1817,7 @@
       value: "#000",
       opacity: 1,
     };
-    
+
     const parseColor = (hex) => {
       if (!hex) return black;
       const parsed =
@@ -1995,7 +1891,7 @@
           ctx.link(0, -height - descent, xAdvance, height, link);
         }
       }
-      
+
       const glyphs = [...run.glyphs];
       renderAttachments(ctx, run, glyphs);
       ctx.font(font.type === "STANDARD" ? font.fullName : font, fontSize);
@@ -2027,7 +1923,7 @@
         const dist = Math.max(2, decorationLine.rect.height);
         let step = 1.1 * dist;
         const stepCount = Math.floor(decorationLine.rect.width / (2 * step));
-        
+
         const remainingWidth = decorationLine.rect.width - stepCount * 2 * step;
         const adjustment = remainingWidth / stepCount / 2;
         step += adjustment;
@@ -2353,7 +2249,7 @@
     const CONTENT_COLOR = "#a1c6e7";
     const PADDING_COLOR = "#c4deb9";
     const MARGIN_COLOR = "#f8cca1";
-    
+
     const debugContent = (ctx, node) => {
       if (!node.box) return;
       const {
@@ -2406,7 +2302,7 @@
         borderBottomWidth = 0,
       } = node.box;
       ctx.fillColor(PADDING_COLOR).opacity(0.5);
-      
+
       ctx
         .rect(
           left + paddingLeft + borderLeftWidth,
@@ -2419,7 +2315,7 @@
           paddingTop,
         )
         .fill();
-      
+
       ctx
         .rect(
           left + borderLeftWidth,
@@ -2428,7 +2324,7 @@
           height - borderTopWidth - borderBottomWidth,
         )
         .fill();
-      
+
       ctx
         .rect(
           left + width - paddingRight - borderRightWidth,
@@ -2437,7 +2333,7 @@
           height - borderTopWidth - borderBottomWidth,
         )
         .fill();
-      
+
       ctx
         .rect(
           left + paddingLeft + borderLeftWidth,
@@ -2461,9 +2357,9 @@
         marginBottom = 0,
       } = node.box;
       ctx.fillColor(MARGIN_COLOR).opacity(0.5);
-      
+
       ctx.rect(left, top - marginTop, width, marginTop).fill();
-      
+
       ctx
         .rect(
           left - marginLeft,
@@ -2472,7 +2368,7 @@
           height + marginTop + marginBottom,
         )
         .fill();
-      
+
       ctx
         .rect(
           left + width,
@@ -2481,7 +2377,7 @@
           height + marginTop + marginBottom,
         )
         .fill();
-      
+
       ctx.rect(left, top + height, width, marginBottom).fill();
     };
     const debugText = (ctx, node) => {
@@ -2569,7 +2465,6 @@
         (acc, prop) => ({
           ...acc,
           [prop]: (...args) => {
-            
             ctx[prop](...args);
             return p;
           },
@@ -2598,18 +2493,17 @@
       }
       ctx.restore();
     };
-    
-    
+
     const KAPPA = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
     const clipBorderTop = (ctx, layout, style, rtr, rtl) => {
       const { top, left, width, height } = layout;
       const { borderTopWidth, borderRightWidth, borderLeftWidth } = style;
-      
+
       ctx.moveTo(left + rtl, top);
       ctx.lineTo(left + width - rtr, top);
-      
+
       const c0 = rtr * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + width - c0,
         top,
@@ -2618,17 +2512,17 @@
         left + width,
         top + rtr,
       );
-      
+
       const topRightYCoord = top + Math.max(borderTopWidth, rtr);
       ctx.lineTo(left + width, topRightYCoord);
-      
+
       ctx.lineTo(left + width - borderRightWidth, topRightYCoord);
-      
+
       const innerTopRightRadiusX = Math.max(rtr - borderRightWidth, 0);
       const innerTopRightRadiusY = Math.max(rtr - borderTopWidth, 0);
       const c1 = innerTopRightRadiusX * (1.0 - KAPPA);
       const c2 = innerTopRightRadiusY * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + width - borderRightWidth,
         top + borderTopWidth + c2,
@@ -2637,15 +2531,15 @@
         left + width - borderRightWidth - innerTopRightRadiusX,
         top + borderTopWidth,
       );
-      
+
       ctx.lineTo(left + Math.max(rtl, borderLeftWidth), top + borderTopWidth);
-      
+
       const innerTopLeftRadiusX = Math.max(rtl - borderLeftWidth, 0);
       const innerTopLeftRadiusY = Math.max(rtl - borderTopWidth, 0);
       const c3 = innerTopLeftRadiusX * (1.0 - KAPPA);
       const c4 = innerTopLeftRadiusY * (1.0 - KAPPA);
       const topLeftYCoord = top + Math.max(borderTopWidth, rtl);
-      
+
       ctx.bezierCurveTo(
         left + borderLeftWidth + c3,
         top + borderTopWidth,
@@ -2655,15 +2549,15 @@
         topLeftYCoord,
       );
       ctx.lineTo(left, topLeftYCoord);
-      
+
       ctx.lineTo(left, top + rtl);
-      
+
       const c5 = rtl * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(left, top + c5, left + c5, top, left + rtl, top);
       ctx.closePath();
       ctx.clip();
-      
+
       if (borderRightWidth) {
         const trSlope = -borderTopWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, trSlope * (-width / 2) + top);
@@ -2724,12 +2618,12 @@
     const clipBorderRight = (ctx, layout, style, rtr, rbr) => {
       const { top, left, width, height } = layout;
       const { borderTopWidth, borderRightWidth, borderBottomWidth } = style;
-      
+
       ctx.moveTo(left + width, top + rtr);
       ctx.lineTo(left + width, top + height - rbr);
-      
+
       const c0 = rbr * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + width,
         top + height - c0,
@@ -2738,17 +2632,17 @@
         left + width - rbr,
         top + height,
       );
-      
+
       const topBottomXCoord = left + width - Math.max(borderRightWidth, rbr);
       ctx.lineTo(topBottomXCoord, top + height);
-      
+
       ctx.lineTo(topBottomXCoord, top + height - borderBottomWidth);
-      
+
       const innerBottomRightRadiusX = Math.max(rbr - borderRightWidth, 0);
       const innerBottomRightRadiusY = Math.max(rbr - borderBottomWidth, 0);
       const c1 = innerBottomRightRadiusX * (1.0 - KAPPA);
       const c2 = innerBottomRightRadiusY * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + width - borderRightWidth - c1,
         top + height - borderBottomWidth,
@@ -2757,18 +2651,18 @@
         left + width - borderRightWidth,
         top + height - Math.max(rbr, borderBottomWidth),
       );
-      
+
       ctx.lineTo(
         left + width - borderRightWidth,
         top + Math.max(rtr, borderTopWidth),
       );
-      
+
       const innerTopRightRadiusX = Math.max(rtr - borderRightWidth, 0);
       const innerTopRightRadiusY = Math.max(rtr - borderTopWidth, 0);
       const c3 = innerTopRightRadiusX * (1.0 - KAPPA);
       const c4 = innerTopRightRadiusY * (1.0 - KAPPA);
       const topRightXCoord = left + width - Math.max(rtr, borderRightWidth);
-      
+
       ctx.bezierCurveTo(
         left + width - borderRightWidth,
         top + borderTopWidth + c4,
@@ -2778,11 +2672,11 @@
         top + borderTopWidth,
       );
       ctx.lineTo(topRightXCoord, top);
-      
+
       ctx.lineTo(left + width - rtr, top);
-      
+
       const c5 = rtr * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + width - c5,
         top,
@@ -2793,7 +2687,7 @@
       );
       ctx.closePath();
       ctx.clip();
-      
+
       if (borderTopWidth) {
         const trSlope = -borderTopWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, trSlope * (-width / 2) + top);
@@ -2861,12 +2755,12 @@
     const clipBorderBottom = (ctx, layout, style, rbl, rbr) => {
       const { top, left, width, height } = layout;
       const { borderBottomWidth, borderRightWidth, borderLeftWidth } = style;
-      
+
       ctx.moveTo(left + width - rbr, top + height);
       ctx.lineTo(left + rbl, top + height);
-      
+
       const c0 = rbl * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + c0,
         top + height,
@@ -2875,17 +2769,17 @@
         left,
         top + height - rbl,
       );
-      
+
       const bottomLeftYCoord = top + height - Math.max(borderBottomWidth, rbl);
       ctx.lineTo(left, bottomLeftYCoord);
-      
+
       ctx.lineTo(left + borderLeftWidth, bottomLeftYCoord);
-      
+
       const innerBottomLeftRadiusX = Math.max(rbl - borderLeftWidth, 0);
       const innerBottomLeftRadiusY = Math.max(rbl - borderBottomWidth, 0);
       const c1 = innerBottomLeftRadiusX * (1.0 - KAPPA);
       const c2 = innerBottomLeftRadiusY * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + borderLeftWidth,
         top + height - borderBottomWidth - c2,
@@ -2894,18 +2788,18 @@
         left + borderLeftWidth + innerBottomLeftRadiusX,
         top + height - borderBottomWidth,
       );
-      
+
       ctx.lineTo(
         left + width - Math.max(rbr, borderRightWidth),
         top + height - borderBottomWidth,
       );
-      
+
       const innerBottomRightRadiusX = Math.max(rbr - borderRightWidth, 0);
       const innerBottomRightRadiusY = Math.max(rbr - borderBottomWidth, 0);
       const c3 = innerBottomRightRadiusX * (1.0 - KAPPA);
       const c4 = innerBottomRightRadiusY * (1.0 - KAPPA);
       const bottomRightYCoord = top + height - Math.max(borderBottomWidth, rbr);
-      
+
       ctx.bezierCurveTo(
         left + width - borderRightWidth - c3,
         top + height - borderBottomWidth,
@@ -2915,11 +2809,11 @@
         bottomRightYCoord,
       );
       ctx.lineTo(left + width, bottomRightYCoord);
-      
+
       ctx.lineTo(left + width, top + height - rbr);
-      
+
       const c5 = rbr * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + width,
         top + height - c5,
@@ -2930,7 +2824,7 @@
       );
       ctx.closePath();
       ctx.clip();
-      
+
       if (borderRightWidth) {
         const brSlope = borderBottomWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, brSlope * (-width / 2) + top + height);
@@ -2998,24 +2892,24 @@
     const clipBorderLeft = (ctx, layout, style, rbl, rtl) => {
       const { top, left, width, height } = layout;
       const { borderTopWidth, borderLeftWidth, borderBottomWidth } = style;
-      
+
       ctx.moveTo(left, top + height - rbl);
       ctx.lineTo(left, top + rtl);
-      
+
       const c0 = rtl * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(left, top + c0, left + c0, top, left + rtl, top);
-      
+
       const topLeftCoordX = left + Math.max(borderLeftWidth, rtl);
       ctx.lineTo(topLeftCoordX, top);
-      
+
       ctx.lineTo(topLeftCoordX, top + borderTopWidth);
-      
+
       const innerTopLeftRadiusX = Math.max(rtl - borderLeftWidth, 0);
       const innerTopLeftRadiusY = Math.max(rtl - borderTopWidth, 0);
       const c1 = innerTopLeftRadiusX * (1.0 - KAPPA);
       const c2 = innerTopLeftRadiusY * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + borderLeftWidth + c1,
         top + borderTopWidth,
@@ -3024,18 +2918,18 @@
         left + borderLeftWidth,
         top + Math.max(rtl, borderTopWidth),
       );
-      
+
       ctx.lineTo(
         left + borderLeftWidth,
         top + height - Math.max(rbl, borderBottomWidth),
       );
-      
+
       const innerBottomLeftRadiusX = Math.max(rbl - borderLeftWidth, 0);
       const innerBottomLeftRadiusY = Math.max(rbl - borderBottomWidth, 0);
       const c3 = innerBottomLeftRadiusX * (1.0 - KAPPA);
       const c4 = innerBottomLeftRadiusY * (1.0 - KAPPA);
       const bottomLeftXCoord = left + Math.max(rbl, borderLeftWidth);
-      
+
       ctx.bezierCurveTo(
         left + borderLeftWidth,
         top + height - borderBottomWidth - c4,
@@ -3045,11 +2939,11 @@
         top + height - borderBottomWidth,
       );
       ctx.lineTo(bottomLeftXCoord, top + height);
-      
+
       ctx.lineTo(left + rbl, top + height);
-      
+
       const c5 = rbl * (1.0 - KAPPA);
-      
+
       ctx.bezierCurveTo(
         left + c5,
         top + height,
@@ -3060,7 +2954,7 @@
       );
       ctx.closePath();
       ctx.clip();
-      
+
       if (borderBottomWidth) {
         const trSlope = -borderBottomWidth / borderLeftWidth;
         ctx.moveTo(left + width / 2, trSlope * (width / 2) + top + height);
@@ -3146,13 +3040,13 @@
         borderBottomColor = "black",
         borderBottomStyle = "solid",
       } = node.style;
-      
+
       const borderTopLeftRadius = node.style.borderTopLeftRadius || 0;
-      
+
       const borderTopRightRadius = node.style.borderTopRightRadius || 0;
-      
+
       const borderBottomLeftRadius = node.style.borderBottomLeftRadius || 0;
-      
+
       const borderBottomRightRadius = node.style.borderBottomRightRadius || 0;
       const style = {
         borderTopColor,
@@ -3254,7 +3148,7 @@
       const opt = {
         ...options,
       };
-      
+
       Object.entries(opt).forEach((pair) => {
         if (!pair[1]) {
           delete opt[pair[0]];
@@ -3263,7 +3157,6 @@
       return opt;
     };
     const parseCommonFormOptions = (node) => {
-      
       return {
         required: node.props?.required || false,
         noExport: node.props?.noExport || false,
@@ -3349,7 +3242,7 @@
     const renderTextInput = (ctx, node, options) => {
       if (!node.box) return;
       const { top, left, width, height } = node.box;
-      
+
       const name = node.props?.name || "";
       const fieldSetOptions = options.fieldSets?.at(0);
       if (!ctx._root.data.AcroForm) {
@@ -3367,7 +3260,7 @@
     const renderSelect = (ctx, node) => {
       if (!node.box) return;
       const { top, left, width, height } = node.box;
-      
+
       const name = node.props?.name || "";
       if (!ctx._root.data.AcroForm) {
         ctx.initForm();
@@ -3400,7 +3293,7 @@
     const renderList = (ctx, node) => {
       if (!node.box) return;
       const { top, left, width, height } = node.box || {};
-      
+
       const name = "name" in node.props ? node.props.name || "" : "";
       if (!ctx._root.data.AcroForm) {
         ctx.initForm();
@@ -3417,7 +3310,7 @@
     const renderCheckbox = (ctx, node, options) => {
       if (!node.box) return;
       const { top, left, width, height } = node.box;
-      
+
       const name = node.props?.name || "";
       const fieldSetOptions = options.fieldSets?.at(0);
       if (!ctx._root.data.AcroForm) {
@@ -3594,18 +3487,10 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/postcss-value-parser/lib/unit.js [app-client] (ecmascript)",
       );
-    
 
+    const compact = (array) => array.filter(Boolean);
 
-
-
- const compact = (array) => array.filter(Boolean);
-    
-
-
-
-
- const mergeStyles = (styles) =>
+    const mergeStyles = (styles) =>
       styles.reduce((acc, style) => {
         const s = Array.isArray(style) ? flatten(style) : style;
         Object.keys(s).forEach((key) => {
@@ -3615,12 +3500,8 @@
         });
         return acc;
       }, {});
-    
 
-
-
-
- const flatten = (0,
+    const flatten = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "compose"
     ])(
@@ -3630,13 +3511,8 @@
         "castArray"
       ],
     );
-    
 
-
-
-
-
- const resolveMediaQueries = (container, style) => {
+    const resolveMediaQueries = (container, style) => {
       return Object.keys(style).reduce((acc, key) => {
         if (/@media/.test(key)) {
           return {
@@ -3660,12 +3536,8 @@
     };
     const isRgb = (value) => /rgba?/g.test(value);
     const isHsl = (value) => /hsla?/g.test(value);
-    
 
-
-
-
- const parseRgb = (value) => {
+    const parseRgb = (value) => {
       const rgb =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$color$2d$string$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
@@ -3674,12 +3546,8 @@
         "default"
       ].to.hex(rgb);
     };
-    
 
-
-
-
- const parseHsl = (value) => {
+    const parseHsl = (value) => {
       const hsl =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$color$2d$string$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
@@ -3692,22 +3560,14 @@
       ])(...hsl);
       return hex.toUpperCase();
     };
-    
 
-
-
-
- const transformColor = (value) => {
+    const transformColor = (value) => {
       if (isRgb(value)) return parseRgb(value);
       if (isHsl(value)) return parseHsl(value);
       return value;
     };
-    
 
-
-
-
- const parseValue = (value) => {
+    const parseValue = (value) => {
       if (typeof value === "number")
         return {
           value,
@@ -3724,13 +3584,8 @@
             unit: undefined,
           };
     };
-    
 
-
-
-
-
- const transformUnit = (container, value) => {
+    const transformUnit = (container, value) => {
       const scalar = parseValue(value);
       const outputDpi = 72;
       const inputDpi = container.dpi || 72;
@@ -3854,7 +3709,6 @@
           borderLeftWidth: width,
         };
       }
-      
     };
     const handlers$b = {
       border: resolveBorderShorthand,
@@ -3896,8 +3750,7 @@
       minWidth: processUnitValue,
       width: processUnitValue,
     };
-    
-    
+
     const flexDefaults = [1, 1, 0];
     const flexAuto = [1, 1, "auto"];
     const processFlexShorthand = (key, value, container) => {
@@ -3965,7 +3818,7 @@
     const BOX_MODEL_UNITS = "px,in,mm,cm,pt,%,vw,vh";
     const logError = (style, value) => {
       const name = style.toString();
-      
+
       console.error(`
     @react-pdf/stylesheet parsing error:
     ${name}: ${value},
@@ -3973,12 +3826,8 @@
     Unsupported ${name} value format
   `);
     };
-    
 
-
-
-
- const expandBoxModel =
+    const expandBoxModel =
       ({ expandsTo, maxValues = 1, autoSupported = false } = {}) =>
       (model, value, container) => {
         const nodes = (0,
@@ -3988,8 +3837,7 @@
         const parts = [];
         for (let i = 0; i < nodes.length; i++) {
           const node = nodes[i];
-          
-          
+
           if (
             node.type === "function" ||
             node.type === "string" ||
@@ -4006,7 +3854,7 @@
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$postcss$2d$value$2d$parser$2f$lib$2f$unit$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ])(node.value);
-              
+
               if (result && BOX_MODEL_UNITS.includes(result.unit)) {
                 parts.push(node.value);
               } else {
@@ -4016,7 +3864,7 @@
             }
           }
         }
-        
+
         if (parts.length > maxValues) {
           logError(model, value);
           return {};
@@ -4183,14 +4031,14 @@
       if (value === "") return value;
       const fontSize = transformUnit(container, styles.fontSize || 18);
       const lineHeight = transformUnit(container, value);
-      
+
       const { percent } =
         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "matchPercent"
         ])(lineHeight) || {};
       if (percent) return percent * fontSize;
-      
+
       return isNaN(value) ? lineHeight : lineHeight * fontSize;
     };
     const processLineHeight = (key, value, container, styles) => {
@@ -4225,7 +4073,7 @@
     };
     const parse = (transformString) => {
       const transforms = transformString.trim().split(/\)[ ,]|\)/);
-      
+
       if (transforms.length === 1) {
         return [[transforms[0], true]];
       }
@@ -4351,7 +4199,7 @@
       const pair = values.length === 1 ? [values[0], "center"] : values;
       return pair.sort(sortTransformOriginPair);
     };
-    
+
     const processTransformOriginShorthand = (key, value, container) => {
       const match = `${value}`.split(" ");
       const pair = getTransformOriginPair(match);
@@ -4406,12 +4254,8 @@
       ...handlers$1,
       ...handlers,
     };
-    
 
-
-
-
- const resolve = (container) => (style) => {
+    const resolve = (container) => (style) => {
       const propsArray = Object.keys(style);
       const resolvedStyle = {};
       for (let i = 0; i < propsArray.length; i += 1) {
@@ -4431,13 +4275,8 @@
       }
       return resolvedStyle;
     };
-    
 
-
-
-
-
- const resolveStyles = (container, style) => {
+    const resolveStyles = (container, style) => {
       const computeMediaQueries = (value) =>
         resolveMediaQueries(container, value);
       return (0,
@@ -4494,12 +4333,8 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hyphen/patterns/en-us.js [app-client] (ecmascript)",
       );
-    
 
-
-
-
- const fromFragments = (fragments) => {
+    const fromFragments = (fragments) => {
       let offset = 0;
       let string = "";
       const runs = [];
@@ -4519,31 +4354,15 @@
       };
     };
     const SOFT_HYPHEN$1 = "\u00ad";
-    
 
+    const defaultHyphenate = (word) => [word];
 
-
-
-
- const defaultHyphenate = (word) => [word];
-    
-
-
-
-
- const removeSoftHyphens = (word) => {
+    const removeSoftHyphens = (word) => {
       return word.replaceAll(SOFT_HYPHEN$1, "");
     };
-    
 
-
-
-
- const wrapWords = (engines = {}, options = {}) => {
-      
-
-
- return (attributedString) => {
+    const wrapWords = (engines = {}, options = {}) => {
+      return (attributedString) => {
         const syllables = [];
         const fragments = [];
         const builtinHyphenate =
@@ -4565,7 +4384,7 @@
             syllables.push(...parts);
             string += parts.join("");
           }
-          
+
           const runOffset = run.end - run.start - string.length;
           const start = run.start - offset;
           const end = run.end - offset - runOffset;
@@ -4584,21 +4403,12 @@
         return result;
       };
     };
-    
 
-
-
-
- const copy = (rect) => {
+    const copy = (rect) => {
       return Object.assign({}, rect);
     };
-    
 
-
-
-
-
- const partition = (rect, height) => {
+    const partition = (rect, height) => {
       const a = Object.assign({}, rect, {
         height,
       });
@@ -4608,30 +4418,17 @@
       });
       return [a, b];
     };
-    
 
-
-
-
-
- const crop = (height, rect) => {
+    const crop = (height, rect) => {
       const [, result] = partition(rect, height);
       return result;
     };
-    
 
-
-
-
- const height$2 = (paragraph) => {
+    const height$2 = (paragraph) => {
       return paragraph.reduce((acc, block) => acc + block.box.height, 0);
     };
-    
 
-
-
-
- const calculateScale = (run) => {
+    const calculateScale = (run) => {
       const attributes = run.attributes || {};
       const fontSize = attributes.fontSize || 12;
       const font = attributes.font;
@@ -4639,68 +4436,35 @@
         typeof font === "string" ? null : font?.[0]?.unitsPerEm;
       return unitsPerEm ? fontSize / unitsPerEm : 0;
     };
-    
 
-
-
-
- const scale = (run) => {
+    const scale = (run) => {
       return run.attributes?.scale || calculateScale(run);
     };
-    
 
-
-
-
-
-
-
-
-
-
-
- const offset = (index, run) => {
+    const offset = (index, run) => {
       if (!run) return 0;
       const glyphIndices = run.glyphIndices || [];
       const value = glyphIndices[index];
       return glyphIndices.slice(0, index).filter((i) => i === value).length;
     };
-    
 
-
-
-
- const getFont = (run) => {
+    const getFont = (run) => {
       return run.attributes?.font?.[0] || null;
     };
-    
 
-
-
-
-
-
-
-
- const slice$2 = (start, end, font, glyph) => {
+    const slice$2 = (start, end, font, glyph) => {
       if (!glyph) return [];
       if (start === end) return [];
       if (start === 0 && end === glyph.codePoints.length) return [glyph];
       const codePoints = glyph.codePoints.slice(start, end);
       const string = String.fromCodePoint(...codePoints);
-      
+
       return font
         ? font.layout(string, undefined, undefined, undefined, "ltr").glyphs
         : [glyph];
     };
-    
 
-
-
-
-
-
- const glyphIndexAt = (index, run) => {
+    const glyphIndexAt = (index, run) => {
       const result = run?.glyphIndices?.[index];
       return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4709,42 +4473,32 @@
         ? index
         : result;
     };
-    
 
-
-
-
- const normalize = (array) => {
+    const normalize = (array) => {
       const head = array[0];
       return array.map((value) => value - head);
     };
-    
 
-
-
-
-
-
- const slice$1 = (start, end, run) => {
+    const slice$1 = (start, end, run) => {
       const runScale = scale(run);
       const font = getFont(run);
-      
+
       const startIndex = glyphIndexAt(start, run);
       const endIndex = glyphIndexAt(end, run);
-      
+
       const startGlyph = run.glyphs?.[startIndex];
       const endGlyph = run.glyphs?.[endIndex];
-      
+
       const startOffset = offset(start, run);
       const startGlyphs =
         startOffset > 0 ? slice$2(startOffset, Infinity, font, startGlyph) : [];
-      
+
       const endOffset = offset(end, run);
       const endGlyphs = slice$2(0, endOffset, font, endGlyph);
-      
+
       const sliceStart = startIndex + Math.min(1, startOffset);
       const glyphs = (run.glyphs || []).slice(sliceStart, endIndex);
-      
+
       const glyphPosition = (g) => ({
         xAdvance: g.advanceWidth * runScale,
         yAdvance: 0,
@@ -4762,35 +4516,19 @@
         positions: [startPositions, positions, endPositions].flat(),
       });
     };
-    
 
-
-
-
-
- const runIndexAt$1 = (index, runs) => {
+    const runIndexAt$1 = (index, runs) => {
       if (!runs) return -1;
       return runs.findIndex((run) => run.start <= index && index < run.end);
     };
-    
 
-
-
-
-
-
- const filter = (start, end, runs) => {
+    const filter = (start, end, runs) => {
       const startIndex = runIndexAt$1(start, runs);
       const endIndex = Math.max(runIndexAt$1(end - 1, runs), startIndex);
       return runs.slice(startIndex, endIndex + 1);
     };
-    
 
-
-
-
-
- const subtract = (index, run) => {
+    const subtract = (index, run) => {
       const start = run.start - index;
       const end = run.end - index;
       return Object.assign({}, run, {
@@ -4798,14 +4536,8 @@
         end,
       });
     };
-    
 
-
-
-
-
-
- const sliceRuns = (start, end, runs) => {
+    const sliceRuns = (start, end, runs) => {
       const sliceFirstRun = (a) => slice$1(start - a.start, end - a.start, a);
       const sliceLastRun = (a) => slice$1(0, end - a.start, a);
       return runs.map((run, i) => {
@@ -4817,14 +4549,8 @@
         return subtract(start, result);
       });
     };
-    
 
-
-
-
-
-
- const slice = (start, end, attributedString) => {
+    const slice = (start, end, attributedString) => {
       if (attributedString.string.length === 0) return attributedString;
       const string = attributedString.string.slice(start, end);
       const filteredRuns = filter(start, end, attributedString.runs);
@@ -4841,21 +4567,14 @@
       const match = string.match(/\S/g);
       return match ? string.lastIndexOf(match[match.length - 1]) : -1;
     };
-    
 
-
-
-
- const trim = (attributedString) => {
+    const trim = (attributedString) => {
       const start = findCharIndex(attributedString.string);
       const end = findLastCharIndex(attributedString.string);
       return slice(start, end + 1, attributedString);
     };
-    
 
-
-
- const empty$1 = () => {
+    const empty$1 = () => {
       return {
         start: 0,
         end: 0,
@@ -4865,23 +4584,12 @@
         attributes: {},
       };
     };
-    
 
-
-
-
- const isNumber = (value) => {
+    const isNumber = (value) => {
       return typeof value === "number";
     };
-    
 
-
-
-
-
-
-
- const appendIndices = (length, indices) => {
+    const appendIndices = (length, indices) => {
       const lastIndex = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "last"
@@ -4895,23 +4603,13 @@
       const newIndices = Array(length).fill(value);
       return indices.concat(newIndices);
     };
-    
 
-
-
-
-
- const fromCodePoint = (value, font) => {
+    const fromCodePoint = (value, font) => {
       if (typeof font === "string") return null;
       return font && value ? font.glyphForCodePoint(value) : null;
     };
-    
 
-
-
-
-
- const appendGlyph = (glyph, run) => {
+    const appendGlyph = (glyph, run) => {
       const glyphLength = glyph.codePoints?.length || 0;
       const end = run.end + glyphLength;
       const glyphs = run.glyphs.concat(glyph);
@@ -4935,33 +4633,19 @@
         positions,
       });
     };
-    
 
-
-
-
-
- const append$1 = (value, run) => {
+    const append$1 = (value, run) => {
       if (!value) return run;
       const font = getFont(run);
       const glyph = isNumber(value) ? fromCodePoint(value, font) : value;
       return appendGlyph(glyph, run);
     };
-    
 
-
-
-
- const stringFromCodePoints = (codePoints) => {
+    const stringFromCodePoints = (codePoints) => {
       return String.fromCodePoint(...(codePoints || []));
     };
-    
 
-
-
-
-
- const append = (glyph, attributedString) => {
+    const append = (glyph, attributedString) => {
       const codePoints =
         typeof glyph === "number" ? [glyph] : glyph?.codePoints;
       const codePointsString = stringFromCodePoints(codePoints || []);
@@ -4980,22 +4664,14 @@
     };
     const ELLIPSIS_UNICODE = 8230;
     const ELLIPSIS_STRING = String.fromCharCode(ELLIPSIS_UNICODE);
-    
 
-
-
-
- const getEllipsisCodePoint = (font) => {
+    const getEllipsisCodePoint = (font) => {
       if (!font.encode) return ELLIPSIS_UNICODE;
       const [codePoints] = font.encode(ELLIPSIS_STRING);
       return parseInt(codePoints[0], 16);
     };
-    
 
-
-
-
- const truncate = (paragraph) => {
+    const truncate = (paragraph) => {
       const runs =
         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -5016,76 +4692,46 @@
       }
       return paragraph;
     };
-    
 
-
-
-
-
- const omit = (value, run) => {
+    const omit = (value, run) => {
       const attributes = Object.assign({}, run.attributes);
       delete attributes[value];
       return Object.assign({}, run, {
         attributes,
       });
     };
-    
 
-
-
-
- const ascent$1 = (run) => {
+    const ascent$1 = (run) => {
       const { font, attachment } = run.attributes;
       const attachmentHeight = attachment?.height || 0;
       const fontAscent = typeof font === "string" ? 0 : font?.[0]?.ascent || 0;
       return Math.max(attachmentHeight, fontAscent * scale(run));
     };
-    
 
-
-
-
- const descent = (run) => {
+    const descent = (run) => {
       const font = run.attributes?.font;
       const fontDescent =
         typeof font === "string" ? 0 : font?.[0]?.descent || 0;
       return scale(run) * fontDescent;
     };
-    
 
-
-
-
- const lineGap = (run) => {
+    const lineGap = (run) => {
       const font = run.attributes?.font;
       const lineGap = typeof font === "string" ? 0 : font?.[0]?.lineGap || 0;
       return lineGap * scale(run);
     };
-    
 
-
-
-
- const height$1 = (run) => {
+    const height$1 = (run) => {
       const lineHeight = run.attributes?.lineHeight;
       return lineHeight || lineGap(run) + ascent$1(run) - descent(run);
     };
-    
 
-
-
-
- const height = (attributedString) => {
+    const height = (attributedString) => {
       const reducer = (acc, run) => Math.max(acc, height$1(run));
       return attributedString.runs.reduce(reducer, 0);
     };
-    
 
-
-
-
-
- const intersects = (a, b) => {
+    const intersects = (a, b) => {
       const x = Math.max(a.x, b.x);
       const num1 = Math.min(a.x + a.width, b.x + b.width);
       const y = Math.max(a.y, b.y);
@@ -5132,13 +4778,9 @@
       }
       return [...lineRects, currentRect];
     };
-    const ATTACHMENT_CODE$1 = "\ufffc"; 
-    
+    const ATTACHMENT_CODE$1 = "\ufffc";
 
-
-
-
- const purgeAttachments = (line) => {
+    const purgeAttachments = (line) => {
       const shouldPurge = !line.string.includes(ATTACHMENT_CODE$1);
       if (!shouldPurge) return line;
       const runs = line.runs.map((run) => omit("attachment", run));
@@ -5146,14 +4788,8 @@
         runs,
       });
     };
-    
 
-
-
-
-
-
- const layoutLines = (rects, lines, indent) => {
+    const layoutLines = (rects, lines, indent) => {
       let rect = rects.shift();
       let currentY = rect.y;
       return lines.map((line, i) => {
@@ -5178,17 +4814,9 @@
         return purgeAttachments(newLine);
       });
     };
-    
 
-
-
-
- const layoutParagraph = (engines, options = {}) => {
-      
-
-
-
- return (container, paragraph) => {
+    const layoutParagraph = (engines, options = {}) => {
+      return (container, paragraph) => {
         const height$1 = height(paragraph);
         const indent = paragraph.runs?.[0]?.attributes?.indent || 0;
         const rects = generateLineRects(container, height$1);
@@ -5198,13 +4826,8 @@
         return layoutLines(rects, lines, indent);
       };
     };
-    
 
-
-
-
-
- const sliceAtHeight = (height, paragraph) => {
+    const sliceAtHeight = (height, paragraph) => {
       const newBlock = [];
       let counter = 0;
       for (let i = 0; i < paragraph.length; i += 1) {
@@ -5218,18 +4841,9 @@
       }
       return newBlock;
     };
-    
 
-
-
-
-
-
- const typesetter = (engines, options, container) => {
-      
-
-
- return (attributedStrings) => {
+    const typesetter = (engines, options, container) => {
+      return (attributedStrings) => {
         const result = [];
         const paragraphs = [...attributedStrings];
         const layout = layoutParagraph(engines, options);
@@ -5264,21 +4878,13 @@
         return result;
       };
     };
-    
 
-
-
-
- const start = (attributedString) => {
+    const start = (attributedString) => {
       const { runs } = attributedString;
       return runs.length === 0 ? 0 : runs[0].start;
     };
-    
 
-
-
-
- const end = (attributedString) => {
+    const end = (attributedString) => {
       const { runs } = attributedString;
       return runs.length === 0
         ? 0
@@ -5287,12 +4893,8 @@
             "last"
           ])(runs).end;
     };
-    
 
-
-
-
- const length$1 = (attributedString) => {
+    const length$1 = (attributedString) => {
       return end(attributedString) - start(attributedString);
     };
     const bidi$2 = (0,
@@ -5310,12 +4912,11 @@
       }, []);
     };
     const getReorderedIndices = (string, segments) => {
-      
       const indices = [];
       for (let i = 0; i < string.length; i += 1) {
         indices[i] = i;
       }
-      
+
       segments.forEach(([start, end]) => {
         const slice = indices.slice(start, end + 1);
         for (let i = slice.length - 1; i >= 0; i -= 1) {
@@ -5351,7 +4952,7 @@
         levels,
       };
       const segments = bidi$2.getReorderSegments(line.string, embeddingLevels);
-      
+
       if (segments.length === 0) return line;
       const indices = getReorderedIndices(line.string, segments);
       const updatedString = bidi$2.getReorderedString(
@@ -5386,23 +4987,13 @@
       };
     };
     const reorderParagraph = (paragraph) => paragraph.map(reorderLine);
-    
 
-
-
- const bidiReordering = () => {
-      
-
-
- return (paragraphs) => paragraphs.map(reorderParagraph);
+    const bidiReordering = () => {
+      return (paragraphs) => paragraphs.map(reorderParagraph);
     };
     const DUMMY_CODEPOINT = 123;
-    
 
-
-
-
- const resolve = (glyphs = []) => {
+    const resolve = (glyphs = []) => {
       return glyphs.reduce((acc, glyph) => {
         const codePoints = glyph?.codePoints || [DUMMY_CODEPOINT];
         if (acc.length === 0) return codePoints.map(() => 0);
@@ -5414,13 +5005,8 @@
     const getCharacterSpacing = (run) => {
       return run.attributes?.characterSpacing || 0;
     };
-    
 
-
-
-
-
- const scalePositions = (run, positions) => {
+    const scalePositions = (run, positions) => {
       const runScale = scale(run);
       const characterSpacing = getCharacterSpacing(run);
       return positions.map((position, i) => {
@@ -5434,15 +5020,9 @@
         });
       });
     };
-    
 
-
-
- const layoutRun = (string) => {
-      
-
-
- return (run) => {
+    const layoutRun = (string) => {
+      return (run) => {
         const { start, end, attributes = {} } = run;
         const { font } = attributes;
         if (!font)
@@ -5454,7 +5034,7 @@
           };
         const runString = string.slice(start, end);
         if (typeof font === "string") throw new Error("Invalid font");
-        
+
         const glyphRun = font[0].layout(
           runString,
           undefined,
@@ -5473,13 +5053,9 @@
         return result;
       };
     };
-    
 
- const generateGlyphs = () => {
-      
-
-
- return (attributedString) => {
+    const generateGlyphs = () => {
+      return (attributedString) => {
         const runs = attributedString.runs.map(
           layoutRun(attributedString.string),
         );
@@ -5489,12 +5065,8 @@
         return res;
       };
     };
-    
 
-
-
-
- const resolveRunYOffset = (run) => {
+    const resolveRunYOffset = (run) => {
       if (!run.positions) return run;
       const unitsPerEm = run.attributes?.font?.[0]?.unitsPerEm || 0;
       const yOffset = (run.attributes?.yOffset || 0) * unitsPerEm;
@@ -5507,13 +5079,9 @@
         positions,
       });
     };
-    
 
- const resolveYOffset = () => {
-      
-
-
- return (attributedString) => {
+    const resolveYOffset = () => {
+      return (attributedString) => {
         const runs = attributedString.runs.map(resolveRunYOffset);
         const res = Object.assign({}, attributedString, {
           runs,
@@ -5521,34 +5089,20 @@
         return res;
       };
     };
-    
 
-
-
-
- const sort = (runs) => {
+    const sort = (runs) => {
       return runs.sort((a, b) => a.start - b.start || a.end - b.end);
     };
-    
 
-
-
-
- const isEmpty = (run) => {
+    const isEmpty = (run) => {
       return run.start === run.end;
     };
-    
 
-
-
-
- const sortPoints = (a, b) => {
+    const sortPoints = (a, b) => {
       return a[1] - b[1] || a[3] - b[3];
     };
-    
 
-
- const generatePoints = (runs) => {
+    const generatePoints = (runs) => {
       const result = runs.reduce((acc, run, i) => {
         return acc.concat([
           ["start", run.start, run.attributes, i],
@@ -5557,10 +5111,8 @@
       }, []);
       return result.sort(sortPoints);
     };
-    
 
-
- const mergeRuns = (runs) => {
+    const mergeRuns = (runs) => {
       return runs.reduce((acc, run) => {
         const attributes = Object.assign({}, acc.attributes, run.attributes);
         return Object.assign({}, run, {
@@ -5568,10 +5120,8 @@
         });
       }, {});
     };
-    
 
-
- const groupEmptyRuns = (runs) => {
+    const groupEmptyRuns = (runs) => {
       const groups = runs.reduce((acc, run) => {
         if (!acc[run.start]) acc[run.start] = [];
         acc[run.start].push(run);
@@ -5579,16 +5129,12 @@
       }, []);
       return Object.values(groups);
     };
-    
 
-
- const flattenEmptyRuns = (runs) => {
+    const flattenEmptyRuns = (runs) => {
       return groupEmptyRuns(runs).map(mergeRuns);
     };
-    
 
-
- const flattenRegularRuns = (runs) => {
+    const flattenRegularRuns = (runs) => {
       const res = [];
       const points = generatePoints(runs);
       let start = -1;
@@ -5623,45 +5169,29 @@
       }
       return res;
     };
-    
 
-
-
-
- const flatten = (runs = []) => {
+    const flatten = (runs = []) => {
       const emptyRuns = flattenEmptyRuns(runs.filter((run) => isEmpty(run)));
       const regularRuns = flattenRegularRuns(
         runs.filter((run) => !isEmpty(run)),
       );
       return sort(emptyRuns.concat(regularRuns));
     };
-    
 
-
-
- const empty = () => ({
+    const empty = () => ({
       string: "",
       runs: [],
     });
-    
 
-
-
- const omitFont = (attributedString) => {
+    const omitFont = (attributedString) => {
       const runs = attributedString.runs.map((run) => omit("font", run));
       return Object.assign({}, attributedString, {
         runs,
       });
     };
-    
 
-
-
- const preprocessRuns = (engines) => {
-      
-
-
- return (attributedString) => {
+    const preprocessRuns = (engines) => {
+      return (attributedString) => {
         if (
           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -5685,13 +5215,9 @@
         };
       };
     };
-    
 
- const splitParagraphs = () => {
-      
-
-
- return (attributedString) => {
+    const splitParagraphs = () => {
+      return (attributedString) => {
         const paragraphs = [];
         let start = 0;
         let breakPoint = attributedString.string.indexOf("\n") + 1;
@@ -5710,76 +5236,44 @@
         return paragraphs;
       };
     };
-    
 
-
-
-
- const advanceWidth$2 = (positions) => {
+    const advanceWidth$2 = (positions) => {
       return positions.reduce((acc, pos) => acc + (pos.xAdvance || 0), 0);
     };
-    
 
-
-
-
- const advanceWidth$1 = (run) => {
+    const advanceWidth$1 = (run) => {
       return advanceWidth$2(run.positions || []);
     };
-    
 
-
-
-
- const advanceWidth = (attributedString) => {
+    const advanceWidth = (attributedString) => {
       const reducer = (acc, run) => acc + advanceWidth$1(run);
       return attributedString.runs.reduce(reducer, 0);
     };
     const WHITE_SPACES_CODE = 32;
-    
 
-
-
-
- const isWhiteSpace = (glyph) => {
+    const isWhiteSpace = (glyph) => {
       const codePoints = glyph?.codePoints || [];
       return codePoints.includes(WHITE_SPACES_CODE);
     };
-    
 
-
-
-
- const leadingPositions = (run) => {
+    const leadingPositions = (run) => {
       const glyphs = run.glyphs || [];
       const positions = run.positions || [];
       const leadingWhitespaces = glyphs.findIndex((g) => !isWhiteSpace(g));
       return positions.slice(0, leadingWhitespaces);
     };
-    
 
-
-
-
- const leadingOffset$1 = (run) => {
+    const leadingOffset$1 = (run) => {
       const positions = leadingPositions(run);
       return positions.reduce((acc, pos) => acc + (pos.xAdvance || 0), 0);
     };
-    
 
-
-
-
- const leadingOffset = (attributedString) => {
+    const leadingOffset = (attributedString) => {
       const runs = attributedString.runs || [];
       return leadingOffset$1(runs[0]);
     };
-    
 
-
-
-
- const trailingPositions = (run) => {
+    const trailingPositions = (run) => {
       const glyphs = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "reverse"
@@ -5791,21 +5285,13 @@
       const leadingWhitespaces = glyphs.findIndex((g) => !isWhiteSpace(g));
       return positions.slice(0, leadingWhitespaces);
     };
-    
 
-
-
-
- const trailingOffset$1 = (run) => {
+    const trailingOffset$1 = (run) => {
       const positions = trailingPositions(run);
       return positions.reduce((acc, pos) => acc + (pos.xAdvance || 0), 0);
     };
-    
 
-
-
-
- const trailingOffset = (attributedString) => {
+    const trailingOffset = (attributedString) => {
       const runs = attributedString.runs || [];
       return trailingOffset$1(
         (0,
@@ -5814,20 +5300,12 @@
         ])(runs),
       );
     };
-    
 
-
-
-
- const dropLast$1 = (run) => {
+    const dropLast$1 = (run) => {
       return slice$1(0, run.end - run.start - 1, run);
     };
-    
 
-
-
-
- const dropLast = (attributedString) => {
+    const dropLast = (attributedString) => {
       const string = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "dropLast"
@@ -5845,12 +5323,8 @@
       center: 0.5,
       right: 1,
     };
-    
 
-
-
-
- const removeNewLine = (line) => {
+    const removeNewLine = (line) => {
       return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "last"
@@ -5864,12 +5338,8 @@
     const getOverflowRight = (line) => {
       return trailingOffset(line) + (line.overflowRight || 0);
     };
-    
 
-
-
-
- const adjustOverflow = (line) => {
+    const adjustOverflow = (line) => {
       const overflowLeft = getOverflowLeft(line);
       const overflowRight = getOverflowRight(line);
       const x = line.box.x - overflowLeft;
@@ -5884,17 +5354,9 @@
         overflowRight,
       });
     };
-    
 
-
-
-
-
- const justifyLine$1 = (engines, options, align) => {
-      
-
-
- return (line) => {
+    const justifyLine$1 = (engines, options, align) => {
+      return (line) => {
         const lineWidth = advanceWidth(line);
         const alignFactor = ALIGNMENT_FACTORS[align] || 0;
         const remainingWidth = Math.max(0, line.box.width - lineWidth);
@@ -5940,19 +5402,9 @@
         xAdvance: lineXAdvance,
       });
     };
-    
 
-
-
-
-
- const finalizeBlock = (engines, options) => {
-      
-
-
-
-
- return (line, index, lines) => {
+    const finalizeBlock = (engines, options) => {
+      return (line, index, lines) => {
         const isLastFragment = index === lines.length - 1;
         const style = line.runs?.[0]?.attributes || {};
         const align = isLastFragment ? style.alignLastLine : style.align;
@@ -5968,30 +5420,18 @@
         )(line);
       };
     };
-    
 
-
-
-
-
- const finalizeFragments = (engines, options) => {
-      
-
-
- return (paragraphs) => {
+    const finalizeFragments = (engines, options) => {
+      return (paragraphs) => {
         const blockFinalizer = finalizeBlock(engines, options);
         return paragraphs.map((paragraph) => paragraph.map(blockFinalizer));
       };
     };
-    const ATTACHMENT_CODE = 0xfffc; 
+    const ATTACHMENT_CODE = 0xfffc;
     const isReplaceGlyph = (glyph) =>
       glyph.codePoints.includes(ATTACHMENT_CODE);
-    
 
-
-
-
- const resolveRunAttachments = (run) => {
+    const resolveRunAttachments = (run) => {
       if (!run.positions) return run;
       const glyphs = run.glyphs || [];
       const attachment = run.attributes?.attachment;
@@ -6009,13 +5449,9 @@
         positions,
       });
     };
-    
 
- const resolveAttachments = () => {
-      
-
-
- return (attributedString) => {
+    const resolveAttachments = () => {
+      return (attributedString) => {
         const runs = attributedString.runs.map(resolveRunAttachments);
         const res = Object.assign({}, attributedString, {
           runs,
@@ -6023,10 +5459,8 @@
         return res;
       };
     };
-    
 
-
- const applyAttributes = (a) => {
+    const applyAttributes = (a) => {
       return {
         align: a.align || (a.direction === "rtl" ? "right" : "left"),
         alignLastLine:
@@ -6068,20 +5502,15 @@
         yOffset: a.yOffset || 0,
       };
     };
-    
 
-
-
-
- const applyRunStyles = (run) => {
+    const applyRunStyles = (run) => {
       const attributes = applyAttributes(run.attributes);
       return Object.assign({}, run, {
         attributes,
       });
     };
-    
 
- const applyDefaultStyles = () => {
+    const applyDefaultStyles = () => {
       return (attributedString) => {
         const string = attributedString.string || "";
         const runs = (attributedString.runs || []).map(applyRunStyles);
@@ -6091,13 +5520,9 @@
         };
       };
     };
-    
 
- const verticalAlignment = () => {
-      
-
-
- return (attributedString) => {
+    const verticalAlignment = () => {
+      return (attributedString) => {
         attributedString.runs.forEach((run) => {
           const { attributes } = run;
           const { verticalAlign } = attributes;
@@ -6114,10 +5539,8 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$bidi$2d$js$2f$dist$2f$bidi$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])();
-    
 
-
- const getBidiLevels = (runs) => {
+    const getBidiLevels = (runs) => {
       return runs.reduce((acc, run) => {
         const length = run.end - run.start;
         const levels = (0,
@@ -6127,13 +5550,9 @@
         return acc.concat(levels);
       }, []);
     };
-    
 
- const mirrorString = () => {
-      
-
-
- return (attributedString) => {
+    const mirrorString = () => {
+      return (attributedString) => {
         const levels = getBidiLevels(attributedString.runs);
         let updatedString = "";
         attributedString.string.split("").forEach((char, index) => {
@@ -6150,13 +5569,8 @@
         return result;
       };
     };
-    
 
-
-
-
-
- const layoutEngine = (engines) => {
+    const layoutEngine = (engines) => {
       return (attributedString, container, options = {}) => {
         const processParagraph = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -6190,10 +5604,7 @@
       "default"
     ])();
     const bidiEngine = () => {
-      
-
-
- return (attributedString) => {
+      return (attributedString) => {
         const { string } = attributedString;
         const direction = attributedString.runs[0]?.attributes.direction;
         const { levels } = bidi.getEmbeddingLevels(string, direction);
@@ -6330,7 +5741,7 @@
       }
       return breakpoints;
     };
-     class LinkedListNode {
+    class LinkedListNode {
       data;
       prev;
       next;
@@ -6458,11 +5869,8 @@
         return this;
       }
     }
-    
 
-
-
- function breakpoint(
+    function breakpoint(
       position,
       demerits,
       line,
@@ -6487,8 +5895,7 @@
       let width = sum.width - active.totals.width;
       let stretch = 0;
       let shrink = 0;
-      
-      
+
       const lineLength =
         currentLine < lineLengths.length
           ? lineLengths[currentLine - 1]
@@ -6496,7 +5903,7 @@
       if (nodes[end].type === "penalty") {
         width += nodes[end].width;
       }
-      
+
       if (width < lineLength) {
         stretch = sum.stretch - active.totals.stretch;
         if (stretch > 0) {
@@ -6504,7 +5911,7 @@
         }
         return linebreak.infinity;
       }
-      
+
       if (width > lineLength) {
         shrink = sum.shrink - active.totals.shrink;
         if (shrink > 0) {
@@ -6512,11 +5919,10 @@
         }
         return linebreak.infinity;
       }
-      
+
       return 0;
     }
-    
-    
+
     function computeSum(nodes, sum, breakPointIndex) {
       const result = {
         width: sum.width,
@@ -6548,7 +5954,7 @@
           demerits: Infinity,
         },
       };
-      
+
       activeNodes.forEach((node) => {
         if (node.data.demerits < tmp.data.demerits) {
           tmp = node;
@@ -6560,18 +5966,8 @@
       }
       return breakpoints.reverse();
     }
-    
 
-
-
-
- const linebreak = (nodes, availableWidths, tolerance) => {
-      
-      
-      
-      
-      
-      
+    const linebreak = (nodes, availableWidths, tolerance) => {
       const options = {
         demerits: {
           line: 10,
@@ -6587,20 +5983,17 @@
         shrink: 0,
       };
       const lineLengths = availableWidths;
-      
+
       activeNodes.push(
         new LinkedList.Node(breakpoint(0, 0, 0, 0, undefined, null)),
       );
-      
+
       function mainLoop(node, index, nodes) {
         let active = activeNodes.first();
-        
-        
-        
-        
+
         while (active !== null) {
           let currentLine = 0;
-          
+
           const candidates = [
             {
               active: undefined,
@@ -6619,7 +6012,7 @@
               demerits: Infinity,
             },
           ];
-          
+
           while (active !== null) {
             currentLine = active.data.line + 1;
             const ratio = computeCost(
@@ -6630,28 +6023,22 @@
               active.data,
               currentLine,
             );
-            
-            
-            
-            
-            
+
             if (
               ratio < -1 ||
               (node.type === "penalty" && node.penalty === -linebreak.infinity)
             ) {
               activeNodes.remove(active);
             }
-            
-            
+
             if (ratio >= -1 && ratio <= options.tolerance) {
               const badness = 100 * Math.pow(Math.abs(ratio), 3);
               let demerits = 0;
-              
+
               if (node.type === "penalty" && node.penalty >= 0) {
                 demerits =
                   Math.pow(options.demerits.line + badness, 2) +
                   Math.pow(node.penalty, 2);
-                
               } else if (
                 node.type === "penalty" &&
                 node.penalty !== -linebreak.infinity
@@ -6659,7 +6046,6 @@
                 demerits =
                   Math.pow(options.demerits.line + badness, 2) -
                   Math.pow(node.penalty, 2);
-                
               } else {
                 demerits = Math.pow(options.demerits.line + badness, 2);
               }
@@ -6669,10 +6055,10 @@
               ) {
                 demerits +=
                   options.demerits.flagged *
-                  node.flagged * 
+                  node.flagged *
                   nodes[active.data.position].flagged;
               }
-              
+
               let currentClass;
               if (ratio < -0.5) {
                 currentClass = 0;
@@ -6683,13 +6069,13 @@
               } else {
                 currentClass = 3;
               }
-              
+
               if (Math.abs(currentClass - active.data.fitnessClass) > 1) {
                 demerits += options.demerits.fitness;
               }
-              
+
               demerits += active.data.demerits;
-              
+
               if (demerits < candidates[currentClass].demerits) {
                 candidates[currentClass] = {
                   active,
@@ -6698,12 +6084,7 @@
               }
             }
             active = active.next;
-            
-            
-            
-            
-            
-            
+
             if (active !== null && active.data.line >= currentLine) {
               break;
             }
@@ -6775,13 +6156,8 @@
       penalty,
       flagged,
     });
-    
 
-
-
-
-
- const add = (index, run) => {
+    const add = (index, run) => {
       const start = run.start + index;
       const end = run.end + index;
       return Object.assign({}, run, {
@@ -6789,21 +6165,12 @@
         end,
       });
     };
-    
 
-
-
-
- const length = (run) => {
+    const length = (run) => {
       return run.end - run.start;
     };
-    
 
-
-
-
-
- const concat = (runA, runB) => {
+    const concat = (runA, runB) => {
       const end = runA.end + length(runB);
       const glyphs = (runA.glyphs || []).concat(runB.glyphs || []);
       const positions = (runA.positions || []).concat(runB.positions || []);
@@ -6826,51 +6193,28 @@
         glyphIndices,
       });
     };
-    
 
-
-
-
-
-
- const insertGlyph$1 = (index, glyph, run) => {
+    const insertGlyph$1 = (index, glyph, run) => {
       if (!glyph) return run;
-      
+
       const leadingRun = slice$1(0, index, run);
       const trailingRun = slice$1(index, Infinity, run);
       return concat(append$1(glyph, leadingRun), trailingRun);
     };
-    
 
-
-
-
-
-
- const insert = (index, value, run) => {
+    const insert = (index, value, run) => {
       const font = getFont(run);
       const glyph = isNumber(value) ? fromCodePoint(value, font) : value;
       return insertGlyph$1(index, glyph, run);
     };
-    
 
-
-
-
-
- const runIndexAt = (index, attributedString) => {
+    const runIndexAt = (index, attributedString) => {
       return runIndexAt$1(index, attributedString.runs);
     };
-    
 
-
-
-
-
-
- const insertGlyph = (index, glyph, attributedString) => {
+    const insertGlyph = (index, glyph, attributedString) => {
       const runIndex = runIndexAt(index, attributedString);
-      
+
       if (runIndex === -1) return append(glyph, attributedString);
       const codePoints = [glyph];
       const string =
@@ -6887,14 +6231,8 @@
         runs,
       });
     };
-    
 
-
-
-
-
-
- const advanceWidthBetween$1 = (start, end, run) => {
+    const advanceWidthBetween$1 = (start, end, run) => {
       const runStart = run.start || 0;
       const glyphStartIndex = Math.max(0, glyphIndexAt(start - runStart, run));
       const glyphEndIndex = Math.max(0, glyphIndexAt(end - runStart, run));
@@ -6904,16 +6242,8 @@
       );
       return advanceWidth$2(positions);
     };
-    
 
-
-
-
-
-
-
-
- const advanceWidthBetween = (start, end, attributedString) => {
+    const advanceWidthBetween = (start, end, attributedString) => {
       const runs = filter(start, end, attributedString.runs);
       return runs.reduce(
         (acc, run) => acc + advanceWidthBetween$1(start, end, run),
@@ -6928,24 +6258,17 @@
       stretch: 6,
       shrink: 9,
     };
-    
 
-
-
-
-
-
- const breakLines = (attributedString, nodes, breaks) => {
+    const breakLines = (attributedString, nodes, breaks) => {
       let start = 0;
       let end = null;
       const lines = breaks.reduce((acc, breakPoint) => {
         const node = nodes[breakPoint];
         const prevNode = nodes[breakPoint - 1];
-        
+
         if (breakPoint === nodes.length - 1) return acc;
         let line;
         if (node.type === "penalty") {
-          
           end = prevNode.end;
           line = slice(start, end, attributedString);
           line = insertGlyph(line.string.length, HYPHEN, line);
@@ -6961,14 +6284,8 @@
       );
       return lines;
     };
-    
 
-
-
-
-
-
- const getNodes = (attributedString, { align }, options) => {
+    const getNodes = (attributedString, { align }, options) => {
       let start = 0;
       const hyphenWidth = 5;
       const { syllables } = attributedString;
@@ -6984,48 +6301,37 @@
           const stretch = (width * opts.width) / opts.stretch;
           const shrink = (width * opts.width) / opts.shrink;
           const end = start + s.length;
-          
+
           acc.push(linebreak.glue(width, start, end, stretch, shrink));
         } else {
           const hyphenated = syllables[index + 1] !== " ";
           const end = start + s.length;
-          
+
           acc.push(linebreak.box(width, start, end, hyphenated));
           if (syllables[index + 1] && hyphenated) {
-            
             acc.push(linebreak.penalty(hyphenWidth, hyphenPenalty, 1));
           }
         }
         start += s.length;
         return acc;
       }, []);
-      
+
       result.push(linebreak.glue(0, start, start, linebreak.infinity, 0));
       result.push(linebreak.penalty(0, -linebreak.infinity, 1));
       return result;
     };
-    
 
-
- const getAttributes = (attributedString) => {
+    const getAttributes = (attributedString) => {
       return attributedString.runs?.[0]?.attributes || {};
     };
-    
 
-
-
-
- const linebreaker = (options) => {
-      
-
-
-
- return (attributedString, availableWidths) => {
+    const linebreaker = (options) => {
+      return (attributedString, availableWidths) => {
         let tolerance = options.tolerance || 4;
         const attributes = getAttributes(attributedString);
         const nodes = getNodes(attributedString, attributes, options);
         let breaks = linebreak(nodes, availableWidths, tolerance);
-        
+
         while (breaks.length === 0 && tolerance < TOLERANCE_LIMIT) {
           tolerance += TOLERANCE_STEPS;
           breaks = linebreak(nodes, availableWidths, tolerance);
@@ -7130,7 +6436,7 @@
       ) {
         priorities[priority] = unconstrained[priority] = 0;
       }
-      
+
       for (let j = 0; j < factors.length; j += 1) {
         const f = factors[j];
         const sum = f.before + f.after;
@@ -7140,7 +6446,7 @@
           unconstrained[f.priority] += sum;
         }
       }
-      
+
       let highestPriority = -1;
       let highestPrioritySum = 0;
       let remainingGap = gap;
@@ -7156,18 +6462,17 @@
             highestPriority = priority;
             highestPrioritySum = prioritySum;
           }
-          
+
           if (Math.abs(remainingGap) <= Math.abs(prioritySum)) {
             priorities[priority] = remainingGap / prioritySum;
             unconstrained[priority] = 0;
             remainingGap = 0;
             break;
           }
-          
-          
+
           priorities[priority] = 1;
           remainingGap -= prioritySum;
-          
+
           if (unconstrained[priority] !== 0) {
             unconstrained[priority] = remainingGap / unconstrained[priority];
             remainingGap = 0;
@@ -7175,29 +6480,26 @@
           }
         }
       }
-      
+
       for (let p = priority + 1; p <= NULL_PRIORITY; p += 1) {
         priorities[p] = 0;
         unconstrained[p] = 0;
       }
-      
-      
+
       if (remainingGap > 0 && highestPriority > -1) {
         priorities[highestPriority] =
           (highestPrioritySum + (gap - total)) / highestPrioritySum;
       }
-      
+
       const distances = [];
       for (let index = 0; index < factors.length; index += 1) {
-        
-        
         const f = factors[index];
         const next = factors[index + 1];
         let dist = f.after * priorities[f.priority];
         if (next) {
           dist += next.before * priorities[next.priority];
         }
-        
+
         if (f.unconstrained) {
           dist += f.after * unconstrained[f.priority];
           if (next) {
@@ -7208,13 +6510,8 @@
       }
       return distances;
     };
-    
 
-
-
-
-
- const justifyLine = (distances, line) => {
+    const justifyLine = (distances, line) => {
       let index = 0;
       for (const run of line.runs) {
         for (const position of run.positions) {
@@ -7223,40 +6520,25 @@
       }
       return line;
     };
-    
 
-
-
-
-
- const justification = (options) => {
-      
-
-
- return (line) => {
+    const justification = (options) => {
+      return (line) => {
         const gap = line.box.width - advanceWidth(line);
-        if (gap === 0) return line; 
+        if (gap === 0) return line;
         const factors = getFactors(gap, line, options);
         const distances = getDistances(gap, factors);
         return justifyLine(distances, line);
       };
     };
-    
 
-
-
-
- const ascent = (attributedString) => {
+    const ascent = (attributedString) => {
       const reducer = (acc, run) => Math.max(acc, ascent$1(run));
       return attributedString.runs.reduce(reducer, 0);
     };
-    
+
     const BASE_FONT_SIZE = 12;
-    
 
-
-
- const textDecoration = () => (line) => {
+    const textDecoration = () => (line) => {
       let x = line.overflowLeft || 0;
       const overflowRight = line.overflowRight || 0;
       const maxX = advanceWidth(line) - overflowRight;
@@ -7304,13 +6586,9 @@
       return line;
     };
     const ignoredScripts = ["Common", "Inherited", "Unknown"];
-    
 
- const scriptItemizer = () => {
-      
-
-
- return (attributedString) => {
+    const scriptItemizer = () => {
+      return (attributedString) => {
         const { string } = attributedString;
         let lastScript = "Unknown";
         let lastIndex = 0;
@@ -7364,25 +6642,18 @@
         "default"
       ],
     );
-    
 
-
- const splitHyphen = (word) => {
+    const splitHyphen = (word) => {
       return word.split(SOFT_HYPHEN);
     };
     const cache = {};
-    
 
-
- const getParts = (word) => {
+    const getParts = (word) => {
       const base = word.includes(SOFT_HYPHEN) ? word : hyphenator(word);
       return splitHyphen(base);
     };
     const wordHyphenation = () => {
-      
-
-
- return (word) => {
+      return (word) => {
         const cacheKey = `_${word}`;
         if (
           (0,
@@ -7437,14 +6708,14 @@
           for (let j = 0; j < chars.length; j += 1) {
             const char = chars[j];
             const codePoint = char.codePointAt(0);
-            
+
             const font = pickFontFromFontStack(
               codePoint,
               run.attributes.font,
               lastFont,
             );
             const fontSize = getFontSize(run);
-            
+
             if (
               font !== lastFont ||
               fontSize !== lastFontSize ||
@@ -7503,7 +6774,7 @@
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/jay-peg/src/index.js [app-client] (ecmascript)",
       );
     var global$1 = ("TURBOPACK compile-time truthy", 1)
-      ?  __turbopack_context__.g
+      ? __turbopack_context__.g
       : "TURBOPACK unreachable";
     var lookup = [];
     var revLookup = [];
@@ -7529,15 +6800,11 @@
       if (len % 4 > 0) {
         throw new Error("Invalid string. Length must be a multiple of 4");
       }
-      
-      
-      
-      
-      
+
       placeHolders = b64[len - 2] === "=" ? 2 : b64[len - 1] === "=" ? 1 : 0;
-      
+
       arr = new Arr((len * 3) / 4 - placeHolders);
-      
+
       l = placeHolders > 0 ? len - 4 : len;
       var L = 0;
       for (i = 0, j = 0; i < l; i += 4, j += 3) {
@@ -7588,11 +6855,11 @@
       }
       var tmp;
       var len = uint8.length;
-      var extraBytes = len % 3; 
+      var extraBytes = len % 3;
       var output = "";
       var parts = [];
-      var maxChunkLength = 16383; 
-      
+      var maxChunkLength = 16383;
+
       for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
         parts.push(
           encodeChunk(
@@ -7602,7 +6869,7 @@
           ),
         );
       }
-      
+
       if (extraBytes === 1) {
         tmp = uint8[len - 1];
         output += lookup[tmp >> 2];
@@ -7705,42 +6972,15 @@
       function (arr) {
         return toString.call(arr) == "[object Array]";
       };
-    
 
+    var INSPECT_MAX_BYTES = 50;
 
-
-
-  var INSPECT_MAX_BYTES = 50;
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- Buffer.TYPED_ARRAY_SUPPORT =
+    Buffer.TYPED_ARRAY_SUPPORT =
       global$1.TYPED_ARRAY_SUPPORT !== undefined
         ? global$1.TYPED_ARRAY_SUPPORT
         : true;
-    
 
- kMaxLength();
+    kMaxLength();
     function kMaxLength() {
       return Buffer.TYPED_ARRAY_SUPPORT ? 0x7fffffff : 0x3fffffff;
     }
@@ -7749,11 +6989,9 @@
         throw new RangeError("Invalid typed array length");
       }
       if (Buffer.TYPED_ARRAY_SUPPORT) {
-        
         that = new Uint8Array(length);
         that.__proto__ = Buffer.prototype;
       } else {
-        
         if (that === null) {
           that = new Buffer(length);
         }
@@ -7761,19 +6999,12 @@
       }
       return that;
     }
-    
 
-
-
-
-
-
-
- function Buffer(arg, encodingOrOffset, length) {
+    function Buffer(arg, encodingOrOffset, length) {
       if (!Buffer.TYPED_ARRAY_SUPPORT && !(this instanceof Buffer)) {
         return new Buffer(arg, encodingOrOffset, length);
       }
-      
+
       if (typeof arg === "number") {
         if (typeof encodingOrOffset === "string") {
           throw new Error(
@@ -7784,8 +7015,8 @@
       }
       return from(this, arg, encodingOrOffset, length);
     }
-    Buffer.poolSize = 8192; 
-    
+    Buffer.poolSize = 8192;
+
     Buffer._augment = function (arr) {
       arr.__proto__ = Buffer.prototype;
       return arr;
@@ -7802,14 +7033,8 @@
       }
       return fromObject(that, value);
     }
-    
 
-
-
-
-
-
- Buffer.from = function (value, encodingOrOffset, length) {
+    Buffer.from = function (value, encodingOrOffset, length) {
       return from(null, value, encodingOrOffset, length);
     };
     if (Buffer.TYPED_ARRAY_SUPPORT) {
@@ -7834,19 +7059,14 @@
         return createBuffer(that, size);
       }
       if (fill !== undefined) {
-        
-        
-        
         return typeof encoding === "string"
           ? createBuffer(that, size).fill(fill, encoding)
           : createBuffer(that, size).fill(fill);
       }
       return createBuffer(that, size);
     }
-    
 
-
- Buffer.alloc = function (size, fill, encoding) {
+    Buffer.alloc = function (size, fill, encoding) {
       return alloc(null, size, fill, encoding);
     };
     function allocUnsafe(that, size) {
@@ -7859,14 +7079,12 @@
       }
       return that;
     }
-    
 
- Buffer.allocUnsafe = function (size) {
+    Buffer.allocUnsafe = function (size) {
       return allocUnsafe(null, size);
     };
-    
 
- Buffer.allocUnsafeSlow = function (size) {
+    Buffer.allocUnsafeSlow = function (size) {
       return allocUnsafe(null, size);
     };
     function fromString(that, string, encoding) {
@@ -7880,9 +7098,6 @@
       that = createBuffer(that, length);
       var actual = that.write(string, encoding);
       if (actual !== length) {
-        
-        
-        
         that = that.slice(0, actual);
       }
       return that;
@@ -7896,7 +7111,7 @@
       return that;
     }
     function fromArrayBuffer(that, array, byteOffset, length) {
-      array.byteLength; 
+      array.byteLength;
       if (byteOffset < 0 || array.byteLength < byteOffset) {
         throw new RangeError("'offset' is out of bounds");
       }
@@ -7911,11 +7126,9 @@
         array = new Uint8Array(array, byteOffset, length);
       }
       if (Buffer.TYPED_ARRAY_SUPPORT) {
-        
         that = array;
         that.__proto__ = Buffer.prototype;
       } else {
-        
         that = fromArrayLike(that, array);
       }
       return that;
@@ -7950,8 +7163,6 @@
       );
     }
     function checked(length) {
-      
-      
       if (length >= kMaxLength()) {
         throw new RangeError(
           "Attempt to allocate Buffer larger than maximum " +
@@ -8044,7 +7255,7 @@
       }
       var len = string.length;
       if (len === 0) return 0;
-      
+
       var loweredCase = false;
       for (;;) {
         switch (encoding) {
@@ -8066,8 +7277,7 @@
           case "base64":
             return base64ToBytes(string).length;
           default:
-            if (loweredCase)
-              return utf8ToBytes(string).length; 
+            if (loweredCase) return utf8ToBytes(string).length;
             encoding = ("" + encoding).toLowerCase();
             loweredCase = true;
         }
@@ -8076,17 +7286,11 @@
     Buffer.byteLength = byteLength;
     function slowToString(encoding, start, end) {
       var loweredCase = false;
-      
-      
-      
-      
-      
-      
+
       if (start === undefined || start < 0) {
         start = 0;
       }
-      
-      
+
       if (start > this.length) {
         return "";
       }
@@ -8096,7 +7300,7 @@
       if (end <= 0) {
         return "";
       }
-      
+
       end >>>= 0;
       start >>>= 0;
       if (end <= start) {
@@ -8130,8 +7334,7 @@
         }
       }
     }
-    
-    
+
     Buffer.prototype._isBuffer = true;
     function swap(b, n, m) {
       var i = b[n];
@@ -8253,19 +7456,10 @@
       if (y < x) return 1;
       return 0;
     };
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     function bidirectionalIndexOf(buffer, val, byteOffset, encoding, dir) {
-      
       if (buffer.length === 0) return -1;
-      
+
       if (typeof byteOffset === "string") {
         encoding = byteOffset;
         byteOffset = 0;
@@ -8274,12 +7468,11 @@
       } else if (byteOffset < -2147483648) {
         byteOffset = -2147483648;
       }
-      byteOffset = +byteOffset; 
+      byteOffset = +byteOffset;
       if (isNaN(byteOffset)) {
-        
         byteOffset = dir ? 0 : buffer.length - 1;
       }
-      
+
       if (byteOffset < 0) byteOffset = buffer.length + byteOffset;
       if (byteOffset >= buffer.length) {
         if (dir) return -1;
@@ -8288,19 +7481,18 @@
         if (dir) byteOffset = 0;
         else return -1;
       }
-      
+
       if (typeof val === "string") {
         val = Buffer.from(val, encoding);
       }
-      
+
       if (internalIsBuffer(val)) {
-        
         if (val.length === 0) {
           return -1;
         }
         return arrayIndexOf(buffer, val, byteOffset, encoding, dir);
       } else if (typeof val === "number") {
-        val = val & 0xff; 
+        val = val & 0xff;
         if (
           Buffer.TYPED_ARRAY_SUPPORT &&
           typeof Uint8Array.prototype.indexOf === "function"
@@ -8401,7 +7593,7 @@
           length = remaining;
         }
       }
-      
+
       var strLen = string.length;
       if (strLen % 2 !== 0) throw new TypeError("Invalid hex string");
       if (length > strLen / 2) {
@@ -8440,17 +7632,14 @@
       );
     }
     Buffer.prototype.write = function write(string, offset, length, encoding) {
-      
       if (offset === undefined) {
         encoding = "utf8";
         length = this.length;
         offset = 0;
-        
       } else if (length === undefined && typeof offset === "string") {
         encoding = offset;
         length = this.length;
         offset = 0;
-        
       } else if (isFinite(offset)) {
         offset = offset | 0;
         if (isFinite(length)) {
@@ -8460,7 +7649,6 @@
           encoding = length;
           length = undefined;
         }
-        
       } else {
         throw new Error(
           "Buffer.write(string, encoding, offset[, length]) is no longer supported",
@@ -8489,7 +7677,6 @@
           case "binary":
             return latin1Write(this, string, offset, length);
           case "base64":
-            
             return base64Write(this, string, offset, length);
           case "ucs2":
           case "ucs-2":
@@ -8587,12 +7774,9 @@
           }
         }
         if (codePoint === null) {
-          
-          
           codePoint = 0xfffd;
           bytesPerSequence = 1;
         } else if (codePoint > 0xffff) {
-          
           codePoint -= 0x10000;
           res.push(((codePoint >>> 10) & 0x3ff) | 0xd800);
           codePoint = 0xdc00 | (codePoint & 0x3ff);
@@ -8602,16 +7786,14 @@
       }
       return decodeCodePointsArray(res);
     }
-    
-    
-    
+
     var MAX_ARGUMENTS_LENGTH = 0x1000;
     function decodeCodePointsArray(codePoints) {
       var len = codePoints.length;
       if (len <= MAX_ARGUMENTS_LENGTH) {
-        return String.fromCharCode.apply(String, codePoints); 
+        return String.fromCharCode.apply(String, codePoints);
       }
-      
+
       var res = "";
       var i = 0;
       while (i < len) {
@@ -8686,9 +7868,8 @@
       }
       return newBuf;
     };
-    
 
- function checkOffset(offset, ext, length) {
+    function checkOffset(offset, ext, length) {
       if (offset % 1 !== 0 || offset < 0)
         throw new RangeError("offset is not uint");
       if (offset + ext > length)
@@ -9149,24 +8330,24 @@
     ) {
       return writeDouble(this, value, offset, false, noAssert);
     };
-    
+
     Buffer.prototype.copy = function copy(target, targetStart, start, end) {
       if (!start) start = 0;
       if (!end && end !== 0) end = this.length;
       if (targetStart >= target.length) targetStart = target.length;
       if (!targetStart) targetStart = 0;
       if (end > 0 && end < start) end = start;
-      
+
       if (end === start) return 0;
       if (target.length === 0 || this.length === 0) return 0;
-      
+
       if (targetStart < 0) {
         throw new RangeError("targetStart out of bounds");
       }
       if (start < 0 || start >= this.length)
         throw new RangeError("sourceStart out of bounds");
       if (end < 0) throw new RangeError("sourceEnd out of bounds");
-      
+
       if (end > this.length) end = this.length;
       if (target.length - targetStart < end - start) {
         end = target.length - targetStart + start;
@@ -9174,12 +8355,10 @@
       var len = end - start;
       var i;
       if (this === target && start < targetStart && targetStart < end) {
-        
         for (i = len - 1; i >= 0; --i) {
           target[i + targetStart] = this[i + start];
         }
       } else if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
-        
         for (i = 0; i < len; ++i) {
           target[i + targetStart] = this[i + start];
         }
@@ -9192,12 +8371,8 @@
       }
       return len;
     };
-    
-    
-    
-    
+
     Buffer.prototype.fill = function fill(val, start, end, encoding) {
-      
       if (typeof val === "string") {
         if (typeof start === "string") {
           encoding = start;
@@ -9222,7 +8397,7 @@
       } else if (typeof val === "number") {
         val = val & 255;
       }
-      
+
       if (start < 0 || this.length < start || this.length < end) {
         throw new RangeError("Out of range index");
       }
@@ -9248,15 +8423,13 @@
       }
       return this;
     };
-    
-    
+
     var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g;
     function base64clean(str) {
-      
       str = stringtrim(str).replace(INVALID_BASE64_RE, "");
-      
+
       if (str.length < 2) return "";
-      
+
       while (str.length % 4 !== 0) {
         str = str + "=";
       }
@@ -9278,39 +8451,34 @@
       var bytes = [];
       for (var i = 0; i < length; ++i) {
         codePoint = string.charCodeAt(i);
-        
+
         if (codePoint > 0xd7ff && codePoint < 0xe000) {
-          
           if (!leadSurrogate) {
-            
             if (codePoint > 0xdbff) {
-              
               if ((units -= 3) > -1) bytes.push(0xef, 0xbf, 0xbd);
               continue;
             } else if (i + 1 === length) {
-              
               if ((units -= 3) > -1) bytes.push(0xef, 0xbf, 0xbd);
               continue;
             }
-            
+
             leadSurrogate = codePoint;
             continue;
           }
-          
+
           if (codePoint < 0xdc00) {
             if ((units -= 3) > -1) bytes.push(0xef, 0xbf, 0xbd);
             leadSurrogate = codePoint;
             continue;
           }
-          
+
           codePoint =
             (((leadSurrogate - 0xd800) << 10) | (codePoint - 0xdc00)) + 0x10000;
         } else if (leadSurrogate) {
-          
           if ((units -= 3) > -1) bytes.push(0xef, 0xbf, 0xbd);
         }
         leadSurrogate = null;
-        
+
         if (codePoint < 0x80) {
           if ((units -= 1) < 0) break;
           bytes.push(codePoint);
@@ -9341,7 +8509,6 @@
     function asciiToBytes(str) {
       var byteArray = [];
       for (var i = 0; i < str.length; ++i) {
-        
         byteArray.push(str.charCodeAt(i) & 0xff);
       }
       return byteArray;
@@ -9370,13 +8537,9 @@
       return i;
     }
     function isnan(val) {
-      return (
-        val !== val 
-      );
+      return val !== val;
     }
-    
-    
-    
+
     function isBuffer$1(obj) {
       return (
         obj != null &&
@@ -9390,7 +8553,7 @@
         obj.constructor.isBuffer(obj)
       );
     }
-    
+
     function isSlowBuffer(obj) {
       return (
         typeof obj.readFloatLE === "function" &&

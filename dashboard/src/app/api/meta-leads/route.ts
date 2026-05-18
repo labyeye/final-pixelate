@@ -24,7 +24,7 @@ async function getPageToken(
     (p: any) => String(p.id) === String(pageId),
   );
   if (page?.access_token) return page.access_token;
-  
+
   return userToken;
 }
 
@@ -40,10 +40,8 @@ export async function GET() {
   }
 
   try {
-    
     const pageToken = await getPageToken(TOKEN, PAGE_ID);
 
-    
     const formsRes = await fetch(
       `https://graph.facebook.com/v19.0/${PAGE_ID}/leadgen_forms?access_token=${pageToken}`,
     );
@@ -94,7 +92,8 @@ export async function GET() {
 
         if (existing) {
           const patch: Record<string, any> = {};
-          if (campaignName && !existing.campaignName) patch.campaignName = campaignName;
+          if (campaignName && !existing.campaignName)
+            patch.campaignName = campaignName;
           if (formName && !existing.formName) patch.formName = formName;
           if (adName && !existing.adName) patch.adName = adName;
           if (fbLeadId && !existing.fbLeadId) patch.fbLeadId = fbLeadId;

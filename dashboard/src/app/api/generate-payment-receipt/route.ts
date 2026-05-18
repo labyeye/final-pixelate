@@ -23,13 +23,20 @@ async function generateReceiptNo(index?: number): Promise<string> {
     return `${prefix}${fy}/${String(index).padStart(4, "0")}`;
   }
 
-  // Find the max receipt number in the database if index is not provided
   const invoicesCol = await getCollection("invoices");
-  const invoices = await invoicesCol.find({ "paymentHistory.receiptNo": { $regex: `^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}` } }).toArray();
-  
+  const invoices = await invoicesCol
+    .find({
+      "paymentHistory.receiptNo": {
+        $regex: `^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`,
+      },
+    })
+    .toArray();
+
   let maxIdx = startNum - 1;
-  const regex = new RegExp(`${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${fy}/(\\d+)`);
-  
+  const regex = new RegExp(
+    `${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${fy}/(\\d+)`,
+  );
+
   for (const inv of invoices) {
     if (inv.paymentHistory) {
       for (const p of inv.paymentHistory) {
@@ -82,10 +89,8 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const finalReceiptNo =
-    receiptNo || (await generateReceiptNo(receiptIndex));
+  const finalReceiptNo = receiptNo || (await generateReceiptNo(receiptIndex));
 
-  
   function coerceNum(v: unknown): number {
     if (v === null || v === undefined) return 0;
     if (typeof v === "number") return isFinite(v) ? v : 0;
@@ -135,7 +140,6 @@ export async function POST(req: NextRequest) {
   };
 
   try {
-    
     const pdfBuffer = await renderToBuffer(
       React.createElement(PaymentReceiptPDFDocument, { data }) as any,
     );

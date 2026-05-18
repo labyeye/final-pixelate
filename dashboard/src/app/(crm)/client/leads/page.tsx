@@ -6,8 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-
-
 interface StatusHistoryEntry {
   from: string;
   to: string;
@@ -35,8 +33,6 @@ interface Lead {
   metaFields?: Record<string, string>;
   statusHistory?: StatusHistoryEntry[];
 }
-
-
 
 const STATUS_CONFIG: Record<
   string,
@@ -88,8 +84,6 @@ const STATUS_CONFIG: Record<
 
 const ALL_STATUSES = Object.keys(STATUS_CONFIG);
 
-
-
 function getAuthHeaders() {
   const token =
     typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
@@ -110,8 +104,6 @@ function StatusBadge({ status }: { status: string }) {
     </span>
   );
 }
-
-
 
 function ConfirmModal({
   title,
@@ -151,8 +143,6 @@ function ConfirmModal({
     </div>
   );
 }
-
-
 
 function LeadModal({
   lead,
@@ -473,8 +463,6 @@ function LeadModal({
   );
 }
 
-
-
 export default function ClientLeadsPage() {
   const { user } = useAuth();
   const [leads, setLeads] = useState<Lead[]>([]);
@@ -484,7 +472,6 @@ export default function ClientLeadsPage() {
   const [syncError, setSyncError] = useState<string | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
-  
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [campaignFilter, setCampaignFilter] = useState("");
@@ -565,7 +552,6 @@ export default function ClientLeadsPage() {
     }
   };
 
-  
   const stats = useMemo(() => {
     const total = leads.length;
     const converted = leads.filter(
@@ -588,7 +574,6 @@ export default function ClientLeadsPage() {
     };
   }, [leads]);
 
-  
   const campaigns = useMemo(
     () =>
       Array.from(
@@ -597,7 +582,6 @@ export default function ClientLeadsPage() {
     [leads],
   );
 
-  
   const getCity = (lead: Lead): string => {
     if (lead.city) return lead.city;
     if (lead.metaFields) {
@@ -609,7 +593,6 @@ export default function ClientLeadsPage() {
     return "";
   };
 
-  
   const filtered = useMemo(() => {
     const now = new Date();
     const todayStr = now.toISOString().slice(0, 10);
@@ -655,7 +638,6 @@ export default function ClientLeadsPage() {
     return result;
   }, [leads, search, statusFilter, campaignFilter, dateFilter, dateSortDir]);
 
-  
   const followUpsDue = useMemo(() => {
     const today = new Date().toISOString().slice(0, 10);
     return leads.filter(

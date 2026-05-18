@@ -10,8 +10,6 @@ import {
 import logoImg from "../../assets/images/Logo_Color_Name_Large.png";
 import signImg from "../../assets/images/sign.png";
 
-
-
 const LOGO_PATH = logoImg.src;
 const SIGN_PATH = signImg.src;
 
@@ -33,7 +31,6 @@ const S = StyleSheet.create({
     paddingRight: 28,
   },
 
-  
   outerBorder: {
     border: "2pt solid #1e3a8a",
     borderRadius: 2,
@@ -43,7 +40,6 @@ const S = StyleSheet.create({
     margin: 3,
   },
 
-  
   headerBand: {
     backgroundColor: "#ffffff",
     flexDirection: "row",
@@ -67,7 +63,6 @@ const S = StyleSheet.create({
     marginTop: 2,
   },
 
-  
   metaStrip: {
     flexDirection: "row",
     backgroundColor: "#ffffff",
@@ -91,7 +86,6 @@ const S = StyleSheet.create({
     color: DARK,
   },
 
-  
   chequeBody: {
     paddingHorizontal: 14,
     paddingTop: 14,
@@ -99,7 +93,6 @@ const S = StyleSheet.create({
     borderBottom: `1pt solid #ffffff`,
   },
 
-  
   receivedRow: {
     flexDirection: "row",
     alignItems: "flex-end",
@@ -122,7 +115,6 @@ const S = StyleSheet.create({
     letterSpacing: 0.3,
   },
 
-  
   amountSection: {
     flexDirection: "row",
     alignItems: "stretch",
@@ -173,7 +165,6 @@ const S = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  
   detailsRow: {
     flexDirection: "row",
     gap: 0,
@@ -206,7 +197,6 @@ const S = StyleSheet.create({
     color: DARK,
   },
 
-  
   invoiceRefBar: {
     backgroundColor: "#ffffff",
     border: "0.75pt solid #a8d5c2",
@@ -240,7 +230,6 @@ const S = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  
   signatureSection: {
     flexDirection: "row",
     alignItems: "flex-end",
@@ -291,7 +280,6 @@ const S = StyleSheet.create({
     textAlign: "right",
   },
 
-  
   footer: {
     flexDirection: "row",
     alignItems: "center",
@@ -302,7 +290,6 @@ const S = StyleSheet.create({
   footerText: { fontSize: 7, color: "#666" },
   footerBrand: { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: BLUE },
 
-  
   paidWatermark: {
     position: "absolute",
     top: 130,
@@ -315,26 +302,22 @@ const S = StyleSheet.create({
   },
 });
 
-
-
-
 function toNum(v: unknown): number {
   if (v === null || v === undefined) return 0;
   if (typeof v === "number") return isFinite(v) ? v : 0;
   if (typeof v === "string") return parseFloat(v) || 0;
-  
+
   if (typeof v === "object") {
     const o = v as Record<string, unknown>;
     const raw =
       o.$numberDecimal ?? o.$numberLong ?? o.$numberInt ?? o.$numberDouble;
     if (raw !== undefined) return parseFloat(String(raw)) || 0;
-    
+
     const s = String(v);
     return parseFloat(s) || 0;
   }
   return 0;
 }
-
 
 function toStr(v: unknown): string {
   if (v === null || v === undefined) return "";
@@ -342,9 +325,9 @@ function toStr(v: unknown): string {
   if (typeof v === "number") return isFinite(v) ? String(v) : "";
   if (typeof v === "object") {
     const o = v as Record<string, unknown>;
-    
+
     if (o.$date) return String(o.$date);
-    
+
     const n = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt;
     if (n !== undefined) return String(n);
     return "";
@@ -457,8 +440,6 @@ function getFinancialYear(): string {
   return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
 }
 
-
-
 export interface PaymentReceiptData {
   receiptNo: string;
   clientName: string;
@@ -474,8 +455,6 @@ export interface PaymentReceiptData {
   balanceDue?: number;
   invoiceStatus?: string;
 }
-
-
 
 export function PaymentReceiptPDFDocument({
   data,

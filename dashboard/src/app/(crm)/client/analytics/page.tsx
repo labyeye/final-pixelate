@@ -128,7 +128,6 @@ export default function ClientAnalyticsPage() {
     );
   }
 
-  
   const postedPosts = posts.filter((p) => p.status === "Posted");
 
   let totalViews = 0,
@@ -210,7 +209,6 @@ export default function ClientAnalyticsPage() {
         ).toFixed(1)
       : "0.0";
 
-  
   const timelineData = postedPosts
     .sort(
       (a, b) =>
@@ -258,7 +256,6 @@ export default function ClientAnalyticsPage() {
       };
     });
 
-  
   const platformPieData = Object.entries(platformTotals)
     .map(([name, d]) => ({
       name,
@@ -266,7 +263,6 @@ export default function ClientAnalyticsPage() {
     }))
     .filter((d) => d.value > 0);
 
-  
   const platformBarData = Object.entries(platformTotals).map(([name, d]) => ({
     name,
     views: d.views,
@@ -276,7 +272,6 @@ export default function ClientAnalyticsPage() {
     posts: d.posts,
   }));
 
-  
   const topPosts = postedPosts
     .map((p) => {
       let v = 0,

@@ -5,18 +5,17 @@ const biharData = require("../src/lib/bihar-cities.json");
 const uri = "mongodb+srv://labhbother12:13801234@cluster0.dxbs57x.mongodb.net/";
 const dbName = "crm_pixelate";
 
-// Scope: this cleanup only touches the Kalahanu client.
 const KALAHANU_CLIENT_ID = "68e6b754d5f58f82267a82ae";
 
 const argv = process.argv.slice(2);
 const applyChanges = argv.includes("--yes") || argv.includes("-y");
 
-// Mirror the UI's getCity() helper in src/app/(crm)/client/leads/page.tsx:606
-// — fall back to metaFields when lead.city is empty, scanning keys
-// case-insensitively for: city, location, town, district.
 const CITY_KEYS = ["city", "location", "town", "district"];
 
-const normalize = (v) => String(v ?? "").trim().toLowerCase();
+const normalize = (v) =>
+  String(v ?? "")
+    .trim()
+    .toLowerCase();
 const BIHAR_SET = new Set(biharData.cities.map(normalize));
 const isBihar = (v) => v != null && BIHAR_SET.has(normalize(v));
 

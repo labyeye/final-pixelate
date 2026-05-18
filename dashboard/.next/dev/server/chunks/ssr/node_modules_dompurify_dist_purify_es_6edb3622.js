@@ -3,9 +3,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-     __turbopack_context__.s(
-      ["default", () => purify],
-    );
+    __turbopack_context__.s(["default", () => purify]);
     function _typeof(obj) {
       "@babel/helpers - typeof";
       return (
@@ -109,7 +107,7 @@ module.exports = [
       getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
     var freeze = Object.freeze,
       seal = Object.seal,
-      create = Object.create; 
+      create = Object.create;
     var _ref = typeof Reflect !== "undefined" && Reflect,
       apply = _ref.apply,
       construct = _ref.construct;
@@ -170,11 +168,7 @@ module.exports = [
         return construct(func, args);
       };
     }
-     function addToSet(
-      set,
-      array,
-      transformCaseFunc,
-    ) {
+    function addToSet(set, array, transformCaseFunc) {
       var _transformCaseFunc;
       transformCaseFunc =
         (_transformCaseFunc = transformCaseFunc) !== null &&
@@ -182,9 +176,6 @@ module.exports = [
           ? _transformCaseFunc
           : stringToLowerCase;
       if (setPrototypeOf) {
-        
-        
-        
         setPrototypeOf(set, null);
       }
       var l = array.length;
@@ -193,7 +184,6 @@ module.exports = [
         if (typeof element === "string") {
           var lcElement = transformCaseFunc(element);
           if (lcElement !== element) {
-            
             if (!isFrozen(array)) {
               array[l] = lcElement;
             }
@@ -204,7 +194,7 @@ module.exports = [
       }
       return set;
     }
-     function clone(object) {
+    function clone(object) {
       var newObject = create(null);
       var property;
       for (property in object) {
@@ -214,10 +204,8 @@ module.exports = [
       }
       return newObject;
     }
-    
 
-
- function lookupGetter(object, prop) {
+    function lookupGetter(object, prop) {
       while (object !== null) {
         var desc = getOwnPropertyDescriptor(object, prop);
         if (desc) {
@@ -355,7 +343,7 @@ module.exports = [
       "video",
       "wbr",
     ]);
-    
+
     var svg$1 = freeze([
       "svg",
       "a",
@@ -427,10 +415,7 @@ module.exports = [
       "feTile",
       "feTurbulence",
     ]);
-    
-    
-    
-    
+
     var svgDisallowed = freeze([
       "animate",
       "color-profile",
@@ -487,8 +472,7 @@ module.exports = [
       "munder",
       "munderover",
     ]);
-    
-    
+
     var mathMlDisallowed = freeze([
       "maction",
       "maligngroup",
@@ -864,18 +848,18 @@ module.exports = [
       "xml:space",
       "xmlns:xlink",
     ]);
-    
-    var MUSTACHE_EXPR = seal(/\{\{[\w\W]*|[\w\W]*\}\}/gm); 
+
+    var MUSTACHE_EXPR = seal(/\{\{[\w\W]*|[\w\W]*\}\}/gm);
     var ERB_EXPR = seal(/<%[\w\W]*|[\w\W]*%>/gm);
     var TMPLIT_EXPR = seal(/\${[\w\W]*}/gm);
-    var DATA_ATTR = seal(/^data-[\-\w.\u00B7-\uFFFF]+$/); 
-    var ARIA_ATTR = seal(/^aria-[\-\w]+$/); 
+    var DATA_ATTR = seal(/^data-[\-\w.\u00B7-\uFFFF]+$/);
+    var ARIA_ATTR = seal(/^aria-[\-\w]+$/);
     var IS_ALLOWED_URI = seal(
-      /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i, 
+      /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
     );
     var IS_SCRIPT_OR_DATA = seal(/^(?:\w+script|data):/i);
     var ATTR_WHITESPACE = seal(
-      /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g, 
+      /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g,
     );
     var DOCTYPE_NAME = seal(/^html$/i);
     var CUSTOM_ELEMENT = seal(/^[a-z][.\w]*(-[.\w]+)+$/i);
@@ -884,14 +868,8 @@ module.exports = [
         ? null
         : "TURBOPACK unreachable";
     };
-    
 
-
-
-
-
-
- var _createTrustedTypesPolicy = function _createTrustedTypesPolicy(
+    var _createTrustedTypesPolicy = function _createTrustedTypesPolicy(
       trustedTypes,
       document,
     ) {
@@ -901,9 +879,7 @@ module.exports = [
       ) {
         return null;
       }
-      
-      
-      
+
       var suffix = null;
       var ATTR_NAME = "data-tt-policy-suffix";
       if (
@@ -923,9 +899,6 @@ module.exports = [
           },
         });
       } catch (_) {
-        
-        
-        
         console.warn(
           "TrustedTypes policy " + policyName + " could not be created.",
         );
@@ -940,17 +913,11 @@ module.exports = [
       var DOMPurify = function DOMPurify(root) {
         return createDOMPurify(root);
       };
-      
 
+      DOMPurify.version = "2.5.8";
 
- DOMPurify.version = "2.5.8";
-      
-
-
- DOMPurify.removed = [];
+      DOMPurify.removed = [];
       if (!window || !window.document || window.document.nodeType !== 9) {
-        
-        
         DOMPurify.isSupported = false;
         return DOMPurify;
       }
@@ -974,12 +941,7 @@ module.exports = [
       var getNextSibling = lookupGetter(ElementPrototype, "nextSibling");
       var getChildNodes = lookupGetter(ElementPrototype, "childNodes");
       var getParentNode = lookupGetter(ElementPrototype, "parentNode");
-      
-      
-      
-      
-      
-      
+
       if (typeof HTMLTemplateElement === "function") {
         var template = document.createElement("template");
         if (template.content && template.content.ownerDocument) {
@@ -1006,9 +968,8 @@ module.exports = [
           : {};
       } catch (_) {}
       var hooks = {};
-      
 
- DOMPurify.isSupported =
+      DOMPurify.isSupported =
         typeof getParentNode === "function" &&
         implementation &&
         implementation.createHTMLDocument !== undefined &&
@@ -1022,10 +983,8 @@ module.exports = [
         ATTR_WHITESPACE$1 = ATTR_WHITESPACE,
         CUSTOM_ELEMENT$1 = CUSTOM_ELEMENT;
       var IS_ALLOWED_URI$1 = IS_ALLOWED_URI;
-      
 
-
-  var ALLOWED_TAGS = null;
+      var ALLOWED_TAGS = null;
       var DEFAULT_ALLOWED_TAGS = addToSet(
         {},
         [].concat(
@@ -1036,7 +995,7 @@ module.exports = [
           _toConsumableArray(text),
         ),
       );
-       var ALLOWED_ATTR = null;
+      var ALLOWED_ATTR = null;
       var DEFAULT_ALLOWED_ATTR = addToSet(
         {},
         [].concat(
@@ -1046,12 +1005,8 @@ module.exports = [
           _toConsumableArray(xml),
         ),
       );
-      
 
-
-
-
- var CUSTOM_ELEMENT_HANDLING = Object.seal(
+      var CUSTOM_ELEMENT_HANDLING = Object.seal(
         Object.create(null, {
           tagNameCheck: {
             writable: true,
@@ -1073,57 +1028,37 @@ module.exports = [
           },
         }),
       );
-       var FORBID_TAGS =
-        null;
-       var FORBID_ATTR =
-        null;
-       var ALLOW_ARIA_ATTR = true;
-       var ALLOW_DATA_ATTR = true;
-       var ALLOW_UNKNOWN_PROTOCOLS = false;
-      
- var ALLOW_SELF_CLOSE_IN_ATTR = true;
-      
+      var FORBID_TAGS = null;
+      var FORBID_ATTR = null;
+      var ALLOW_ARIA_ATTR = true;
+      var ALLOW_DATA_ATTR = true;
+      var ALLOW_UNKNOWN_PROTOCOLS = false;
 
- var SAFE_FOR_TEMPLATES = false;
-      
+      var ALLOW_SELF_CLOSE_IN_ATTR = true;
 
- var SAFE_FOR_XML = true;
-       var WHOLE_DOCUMENT = false;
-       var SET_CONFIG = false;
-      
- var FORCE_BODY = false;
-      
+      var SAFE_FOR_TEMPLATES = false;
 
+      var SAFE_FOR_XML = true;
+      var WHOLE_DOCUMENT = false;
+      var SET_CONFIG = false;
 
- var RETURN_DOM = false;
-      
- var RETURN_DOM_FRAGMENT = false;
-      
- var RETURN_TRUSTED_TYPE = false;
-      
+      var FORCE_BODY = false;
 
- var SANITIZE_DOM = true;
-      
+      var RETURN_DOM = false;
 
+      var RETURN_DOM_FRAGMENT = false;
 
+      var RETURN_TRUSTED_TYPE = false;
 
+      var SANITIZE_DOM = true;
 
-
-
-
-
-
-
-
- var SANITIZE_NAMED_PROPS = false;
+      var SANITIZE_NAMED_PROPS = false;
       var SANITIZE_NAMED_PROPS_PREFIX = "user-content-";
-       var KEEP_CONTENT = true;
-      
- var IN_PLACE = false;
-       var USE_PROFILES =
-        {};
-       var FORBID_CONTENTS =
-        null;
+      var KEEP_CONTENT = true;
+
+      var IN_PLACE = false;
+      var USE_PROFILES = {};
+      var FORBID_CONTENTS = null;
       var DEFAULT_FORBID_CONTENTS = addToSet({}, [
         "annotation-xml",
         "audio",
@@ -1151,7 +1086,7 @@ module.exports = [
         "video",
         "xmp",
       ]);
-       var DATA_URI_TAGS = null;
+      var DATA_URI_TAGS = null;
       var DEFAULT_DATA_URI_TAGS = addToSet({}, [
         "audio",
         "video",
@@ -1160,8 +1095,7 @@ module.exports = [
         "image",
         "track",
       ]);
-       var URI_SAFE_ATTRIBUTES =
-        null;
+      var URI_SAFE_ATTRIBUTES = null;
       var DEFAULT_URI_SAFE_ATTRIBUTES = addToSet({}, [
         "alt",
         "class",
@@ -1181,51 +1115,42 @@ module.exports = [
       var MATHML_NAMESPACE = "http://www.w3.org/1998/Math/MathML";
       var SVG_NAMESPACE = "http://www.w3.org/2000/svg";
       var HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
-       var NAMESPACE = HTML_NAMESPACE;
+      var NAMESPACE = HTML_NAMESPACE;
       var IS_EMPTY_INPUT = false;
-       var ALLOWED_NAMESPACES = null;
+      var ALLOWED_NAMESPACES = null;
       var DEFAULT_ALLOWED_NAMESPACES = addToSet(
         {},
         [MATHML_NAMESPACE, SVG_NAMESPACE, HTML_NAMESPACE],
         stringToString,
       );
-       var PARSER_MEDIA_TYPE;
+      var PARSER_MEDIA_TYPE;
       var SUPPORTED_PARSER_MEDIA_TYPES = ["application/xhtml+xml", "text/html"];
       var DEFAULT_PARSER_MEDIA_TYPE = "text/html";
       var transformCaseFunc;
-       var CONFIG = null;
-        var formElement =
-        document.createElement("form");
+      var CONFIG = null;
+      var formElement = document.createElement("form");
       var isRegexOrFunction = function isRegexOrFunction(testValue) {
         return testValue instanceof RegExp || testValue instanceof Function;
       };
-      
 
-
-
- 
       var _parseConfig = function _parseConfig(cfg) {
         if (CONFIG && CONFIG === cfg) {
           return;
         }
-         if (
-          !cfg ||
-          _typeof(cfg) !== "object"
-        ) {
+        if (!cfg || _typeof(cfg) !== "object") {
           cfg = {};
         }
-         cfg =
-          clone(cfg);
-        PARSER_MEDIA_TYPE = 
+        cfg = clone(cfg);
+        PARSER_MEDIA_TYPE =
           SUPPORTED_PARSER_MEDIA_TYPES.indexOf(cfg.PARSER_MEDIA_TYPE) === -1
             ? (PARSER_MEDIA_TYPE = DEFAULT_PARSER_MEDIA_TYPE)
             : (PARSER_MEDIA_TYPE = cfg.PARSER_MEDIA_TYPE);
-        
+
         transformCaseFunc =
           PARSER_MEDIA_TYPE === "application/xhtml+xml"
             ? stringToString
             : stringToLowerCase;
-         ALLOWED_TAGS =
+        ALLOWED_TAGS =
           "ALLOWED_TAGS" in cfg
             ? addToSet({}, cfg.ALLOWED_TAGS, transformCaseFunc)
             : DEFAULT_ALLOWED_TAGS;
@@ -1240,18 +1165,18 @@ module.exports = [
         URI_SAFE_ATTRIBUTES =
           "ADD_URI_SAFE_ATTR" in cfg
             ? addToSet(
-                clone(DEFAULT_URI_SAFE_ATTRIBUTES), 
-                cfg.ADD_URI_SAFE_ATTR, 
-                transformCaseFunc, 
-              ) 
+                clone(DEFAULT_URI_SAFE_ATTRIBUTES),
+                cfg.ADD_URI_SAFE_ATTR,
+                transformCaseFunc,
+              )
             : DEFAULT_URI_SAFE_ATTRIBUTES;
         DATA_URI_TAGS =
           "ADD_DATA_URI_TAGS" in cfg
             ? addToSet(
-                clone(DEFAULT_DATA_URI_TAGS), 
-                cfg.ADD_DATA_URI_TAGS, 
-                transformCaseFunc, 
-              ) 
+                clone(DEFAULT_DATA_URI_TAGS),
+                cfg.ADD_DATA_URI_TAGS,
+                transformCaseFunc,
+              )
             : DEFAULT_DATA_URI_TAGS;
         FORBID_CONTENTS =
           "FORBID_CONTENTS" in cfg
@@ -1266,21 +1191,21 @@ module.exports = [
             ? addToSet({}, cfg.FORBID_ATTR, transformCaseFunc)
             : {};
         USE_PROFILES = "USE_PROFILES" in cfg ? cfg.USE_PROFILES : false;
-        ALLOW_ARIA_ATTR = cfg.ALLOW_ARIA_ATTR !== false; 
-        ALLOW_DATA_ATTR = cfg.ALLOW_DATA_ATTR !== false; 
-        ALLOW_UNKNOWN_PROTOCOLS = cfg.ALLOW_UNKNOWN_PROTOCOLS || false; 
-        ALLOW_SELF_CLOSE_IN_ATTR = cfg.ALLOW_SELF_CLOSE_IN_ATTR !== false; 
-        SAFE_FOR_TEMPLATES = cfg.SAFE_FOR_TEMPLATES || false; 
-        SAFE_FOR_XML = cfg.SAFE_FOR_XML !== false; 
-        WHOLE_DOCUMENT = cfg.WHOLE_DOCUMENT || false; 
-        RETURN_DOM = cfg.RETURN_DOM || false; 
-        RETURN_DOM_FRAGMENT = cfg.RETURN_DOM_FRAGMENT || false; 
-        RETURN_TRUSTED_TYPE = cfg.RETURN_TRUSTED_TYPE || false; 
-        FORCE_BODY = cfg.FORCE_BODY || false; 
-        SANITIZE_DOM = cfg.SANITIZE_DOM !== false; 
-        SANITIZE_NAMED_PROPS = cfg.SANITIZE_NAMED_PROPS || false; 
-        KEEP_CONTENT = cfg.KEEP_CONTENT !== false; 
-        IN_PLACE = cfg.IN_PLACE || false; 
+        ALLOW_ARIA_ATTR = cfg.ALLOW_ARIA_ATTR !== false;
+        ALLOW_DATA_ATTR = cfg.ALLOW_DATA_ATTR !== false;
+        ALLOW_UNKNOWN_PROTOCOLS = cfg.ALLOW_UNKNOWN_PROTOCOLS || false;
+        ALLOW_SELF_CLOSE_IN_ATTR = cfg.ALLOW_SELF_CLOSE_IN_ATTR !== false;
+        SAFE_FOR_TEMPLATES = cfg.SAFE_FOR_TEMPLATES || false;
+        SAFE_FOR_XML = cfg.SAFE_FOR_XML !== false;
+        WHOLE_DOCUMENT = cfg.WHOLE_DOCUMENT || false;
+        RETURN_DOM = cfg.RETURN_DOM || false;
+        RETURN_DOM_FRAGMENT = cfg.RETURN_DOM_FRAGMENT || false;
+        RETURN_TRUSTED_TYPE = cfg.RETURN_TRUSTED_TYPE || false;
+        FORCE_BODY = cfg.FORCE_BODY || false;
+        SANITIZE_DOM = cfg.SANITIZE_DOM !== false;
+        SANITIZE_NAMED_PROPS = cfg.SANITIZE_NAMED_PROPS || false;
+        KEEP_CONTENT = cfg.KEEP_CONTENT !== false;
+        IN_PLACE = cfg.IN_PLACE || false;
         IS_ALLOWED_URI$1 = cfg.ALLOWED_URI_REGEXP || IS_ALLOWED_URI$1;
         NAMESPACE = cfg.NAMESPACE || HTML_NAMESPACE;
         CUSTOM_ELEMENT_HANDLING = cfg.CUSTOM_ELEMENT_HANDLING || {};
@@ -1312,7 +1237,7 @@ module.exports = [
         if (RETURN_DOM_FRAGMENT) {
           RETURN_DOM = true;
         }
-         if (USE_PROFILES) {
+        if (USE_PROFILES) {
           ALLOWED_TAGS = addToSet({}, _toConsumableArray(text));
           ALLOWED_ATTR = [];
           if (USE_PROFILES.html === true) {
@@ -1335,7 +1260,7 @@ module.exports = [
             addToSet(ALLOWED_ATTR, xml);
           }
         }
-         if (cfg.ADD_TAGS) {
+        if (cfg.ADD_TAGS) {
           if (ALLOWED_TAGS === DEFAULT_ALLOWED_TAGS) {
             ALLOWED_TAGS = clone(ALLOWED_TAGS);
           }
@@ -1360,22 +1285,17 @@ module.exports = [
           }
           addToSet(FORBID_CONTENTS, cfg.FORBID_CONTENTS, transformCaseFunc);
         }
-         if (KEEP_CONTENT) {
+        if (KEEP_CONTENT) {
           ALLOWED_TAGS["#text"] = true;
         }
-         if (
-          WHOLE_DOCUMENT
-        ) {
+        if (WHOLE_DOCUMENT) {
           addToSet(ALLOWED_TAGS, ["html", "head", "body"]);
         }
-         if (
-          ALLOWED_TAGS.table
-        ) {
+        if (ALLOWED_TAGS.table) {
           addToSet(ALLOWED_TAGS, ["tbody"]);
           delete FORBID_TAGS.tbody;
         }
-        
-        
+
         if (freeze) {
           freeze(cfg);
         }
@@ -1389,10 +1309,7 @@ module.exports = [
         "mtext",
       ]);
       var HTML_INTEGRATION_POINTS = addToSet({}, ["annotation-xml"]);
-      
-      
-      
-      
+
       var COMMON_SVG_AND_HTML_ELEMENTS = addToSet({}, [
         "title",
         "style",
@@ -1400,24 +1317,16 @@ module.exports = [
         "a",
         "script",
       ]);
-      
 
- var ALL_SVG_TAGS = addToSet({}, svg$1);
+      var ALL_SVG_TAGS = addToSet({}, svg$1);
       addToSet(ALL_SVG_TAGS, svgFilters);
       addToSet(ALL_SVG_TAGS, svgDisallowed);
       var ALL_MATHML_TAGS = addToSet({}, mathMl$1);
       addToSet(ALL_MATHML_TAGS, mathMlDisallowed);
-      
 
-
-
-
-
-
- var _checkValidNamespace = function _checkValidNamespace(element) {
+      var _checkValidNamespace = function _checkValidNamespace(element) {
         var parent = getParentNode(element);
-        
-        
+
         if (!parent || !parent.tagName) {
           parent = {
             namespaceURI: NAMESPACE,
@@ -1430,15 +1339,10 @@ module.exports = [
           return false;
         }
         if (element.namespaceURI === SVG_NAMESPACE) {
-          
-          
-          
           if (parent.namespaceURI === HTML_NAMESPACE) {
             return tagName === "svg";
           }
-          
-          
-          
+
           if (parent.namespaceURI === MATHML_NAMESPACE) {
             return (
               tagName === "svg" &&
@@ -1446,30 +1350,21 @@ module.exports = [
                 MATHML_TEXT_INTEGRATION_POINTS[parentTagName])
             );
           }
-          
-          
+
           return Boolean(ALL_SVG_TAGS[tagName]);
         }
         if (element.namespaceURI === MATHML_NAMESPACE) {
-          
-          
-          
           if (parent.namespaceURI === HTML_NAMESPACE) {
             return tagName === "math";
           }
-          
-          
+
           if (parent.namespaceURI === SVG_NAMESPACE) {
             return tagName === "math" && HTML_INTEGRATION_POINTS[parentTagName];
           }
-          
-          
+
           return Boolean(ALL_MATHML_TAGS[tagName]);
         }
         if (element.namespaceURI === HTML_NAMESPACE) {
-          
-          
-          
           if (
             parent.namespaceURI === SVG_NAMESPACE &&
             !HTML_INTEGRATION_POINTS[parentTagName]
@@ -1482,36 +1377,28 @@ module.exports = [
           ) {
             return false;
           }
-          
-          
+
           return (
             !ALL_MATHML_TAGS[tagName] &&
             (COMMON_SVG_AND_HTML_ELEMENTS[tagName] || !ALL_SVG_TAGS[tagName])
           );
         }
-        
+
         if (
           PARSER_MEDIA_TYPE === "application/xhtml+xml" &&
           ALLOWED_NAMESPACES[element.namespaceURI]
         ) {
           return true;
         }
-        
-        
-        
-        
+
         return false;
       };
-      
 
-
-
- var _forceRemove = function _forceRemove(node) {
+      var _forceRemove = function _forceRemove(node) {
         arrayPush(DOMPurify.removed, {
           element: node,
         });
         try {
-          
           node.parentNode.removeChild(node);
         } catch (_) {
           try {
@@ -1521,12 +1408,8 @@ module.exports = [
           }
         }
       };
-      
 
-
-
-
- var _removeAttribute = function _removeAttribute(name, node) {
+      var _removeAttribute = function _removeAttribute(name, node) {
         try {
           arrayPush(DOMPurify.removed, {
             attribute: node.getAttributeNode(name),
@@ -1539,7 +1422,7 @@ module.exports = [
           });
         }
         node.removeAttribute(name);
-        
+
         if (name === "is" && !ALLOWED_ATTR[name]) {
           if (RETURN_DOM || RETURN_DOM_FRAGMENT) {
             try {
@@ -1552,26 +1435,20 @@ module.exports = [
           }
         }
       };
-      
 
-
-
-
- var _initDocument = function _initDocument(dirty) {
-         var doc;
+      var _initDocument = function _initDocument(dirty) {
+        var doc;
         var leadingWhitespace;
         if (FORCE_BODY) {
           dirty = "<remove></remove>" + dirty;
         } else {
-           var matches =
-            stringMatch(dirty, /^[\r\n\t ]+/);
+          var matches = stringMatch(dirty, /^[\r\n\t ]+/);
           leadingWhitespace = matches && matches[0];
         }
         if (
           PARSER_MEDIA_TYPE === "application/xhtml+xml" &&
           NAMESPACE === HTML_NAMESPACE
         ) {
-          
           dirty =
             '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' +
             dirty +
@@ -1580,10 +1457,8 @@ module.exports = [
         var dirtyPayload = trustedTypesPolicy
           ? trustedTypesPolicy.createHTML(dirty)
           : dirty;
-        
 
-
- if (NAMESPACE === HTML_NAMESPACE) {
+        if (NAMESPACE === HTML_NAMESPACE) {
           try {
             doc = new DOMParser().parseFromString(
               dirtyPayload,
@@ -1591,18 +1466,13 @@ module.exports = [
             );
           } catch (_) {}
         }
-         if (
-          !doc ||
-          !doc.documentElement
-        ) {
+        if (!doc || !doc.documentElement) {
           doc = implementation.createDocument(NAMESPACE, "template", null);
           try {
             doc.documentElement.innerHTML = IS_EMPTY_INPUT
               ? emptyHTML
               : dirtyPayload;
-          } catch (_) {
-            
-          }
+          } catch (_) {}
         }
         var body = doc.body || doc.documentElement;
         if (dirty && leadingWhitespace) {
@@ -1611,9 +1481,7 @@ module.exports = [
             body.childNodes[0] || null,
           );
         }
-         if (
-          NAMESPACE === HTML_NAMESPACE
-        ) {
+        if (NAMESPACE === HTML_NAMESPACE) {
           return getElementsByTagName.call(
             doc,
             WHOLE_DOCUMENT ? "html" : "body",
@@ -1621,15 +1489,11 @@ module.exports = [
         }
         return WHOLE_DOCUMENT ? doc.documentElement : body;
       };
-      
 
-
-
-
- var _createIterator = function _createIterator(root) {
+      var _createIterator = function _createIterator(root) {
         return createNodeIterator.call(
           root.ownerDocument || root,
-          root, 
+          root,
           NodeFilter.SHOW_ELEMENT |
             NodeFilter.SHOW_COMMENT |
             NodeFilter.SHOW_TEXT |
@@ -1639,12 +1503,8 @@ module.exports = [
           false,
         );
       };
-      
 
-
-
-
- var _isClobbered = function _isClobbered(elm) {
+      var _isClobbered = function _isClobbered(elm) {
         return (
           elm instanceof HTMLFormElement &&
           (typeof elm.nodeName !== "string" ||
@@ -1658,12 +1518,8 @@ module.exports = [
             typeof elm.hasChildNodes !== "function")
         );
       };
-      
 
-
-
-
- var _isNode = function _isNode(object) {
+      var _isNode = function _isNode(object) {
         return _typeof(Node) === "object"
           ? object instanceof Node
           : object &&
@@ -1671,18 +1527,8 @@ module.exports = [
               typeof object.nodeType === "number" &&
               typeof object.nodeName === "string";
       };
-      
 
-
-
-
-
-
- var _executeHook = function _executeHook(
-        entryPoint,
-        currentNode,
-        data,
-      ) {
+      var _executeHook = function _executeHook(entryPoint, currentNode, data) {
         if (!hooks[entryPoint]) {
           return;
         }
@@ -1690,45 +1536,24 @@ module.exports = [
           hook.call(DOMPurify, currentNode, data, CONFIG);
         });
       };
-      
 
-
-
-
-
-
-
-
- var _sanitizeElements = function _sanitizeElements(currentNode) {
+      var _sanitizeElements = function _sanitizeElements(currentNode) {
         var content;
-         _executeHook(
-          "beforeSanitizeElements",
-          currentNode,
-          null,
-        );
-         if (
-          _isClobbered(currentNode)
-        ) {
+        _executeHook("beforeSanitizeElements", currentNode, null);
+        if (_isClobbered(currentNode)) {
           _forceRemove(currentNode);
           return true;
         }
-         if (
-          regExpTest(/[\u0080-\uFFFF]/, currentNode.nodeName)
-        ) {
+        if (regExpTest(/[\u0080-\uFFFF]/, currentNode.nodeName)) {
           _forceRemove(currentNode);
           return true;
         }
-         var tagName =
-          transformCaseFunc(currentNode.nodeName);
-         _executeHook(
-          "uponSanitizeElement",
-          currentNode,
-          {
-            tagName: tagName,
-            allowedTags: ALLOWED_TAGS,
-          },
-        );
-         if (
+        var tagName = transformCaseFunc(currentNode.nodeName);
+        _executeHook("uponSanitizeElement", currentNode, {
+          tagName: tagName,
+          allowedTags: ALLOWED_TAGS,
+        });
+        if (
           currentNode.hasChildNodes() &&
           !_isNode(currentNode.firstElementChild) &&
           (!_isNode(currentNode.content) ||
@@ -1739,20 +1564,18 @@ module.exports = [
           _forceRemove(currentNode);
           return true;
         }
-         if (
+        if (
           tagName === "select" &&
           regExpTest(/<template/i, currentNode.innerHTML)
         ) {
           _forceRemove(currentNode);
           return true;
         }
-         if (
-          currentNode.nodeType === 7
-        ) {
+        if (currentNode.nodeType === 7) {
           _forceRemove(currentNode);
           return true;
         }
-         if (
+        if (
           SAFE_FOR_XML &&
           currentNode.nodeType === 8 &&
           regExpTest(/<[/\w]/g, currentNode.data)
@@ -1760,14 +1583,8 @@ module.exports = [
           _forceRemove(currentNode);
           return true;
         }
-         if (
-          !ALLOWED_TAGS[tagName] ||
-          FORBID_TAGS[tagName]
-        ) {
-           if (
-            !FORBID_TAGS[tagName] &&
-            _basicCustomElementTest(tagName)
-          ) {
+        if (!ALLOWED_TAGS[tagName] || FORBID_TAGS[tagName]) {
+          if (!FORBID_TAGS[tagName] && _basicCustomElementTest(tagName)) {
             if (
               CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof RegExp &&
               regExpTest(CUSTOM_ELEMENT_HANDLING.tagNameCheck, tagName)
@@ -1779,10 +1596,7 @@ module.exports = [
             )
               return false;
           }
-           if (
-            KEEP_CONTENT &&
-            !FORBID_CONTENTS[tagName]
-          ) {
+          if (KEEP_CONTENT && !FORBID_CONTENTS[tagName]) {
             var parentNode =
               getParentNode(currentNode) || currentNode.parentNode;
             var childNodes =
@@ -1803,14 +1617,14 @@ module.exports = [
           _forceRemove(currentNode);
           return true;
         }
-         if (
+        if (
           currentNode instanceof Element &&
           !_checkValidNamespace(currentNode)
         ) {
           _forceRemove(currentNode);
           return true;
         }
-         if (
+        if (
           (tagName === "noscript" ||
             tagName === "noembed" ||
             tagName === "noframes") &&
@@ -1819,12 +1633,8 @@ module.exports = [
           _forceRemove(currentNode);
           return true;
         }
-         if (
-          SAFE_FOR_TEMPLATES &&
-          currentNode.nodeType === 3
-        ) {
-           content =
-            currentNode.textContent;
+        if (SAFE_FOR_TEMPLATES && currentNode.nodeType === 3) {
+          content = currentNode.textContent;
           content = stringReplace(content, MUSTACHE_EXPR$1, " ");
           content = stringReplace(content, ERB_EXPR$1, " ");
           content = stringReplace(content, TMPLIT_EXPR$1, " ");
@@ -1835,33 +1645,20 @@ module.exports = [
             currentNode.textContent = content;
           }
         }
-         _executeHook(
-          "afterSanitizeElements",
-          currentNode,
-          null,
-        );
+        _executeHook("afterSanitizeElements", currentNode, null);
         return false;
       };
-      
 
-
-
-
-
-
- 
       var _isValidAttribute = function _isValidAttribute(lcTag, lcName, value) {
-         if (
+        if (
           SANITIZE_DOM &&
           (lcName === "id" || lcName === "name") &&
           (value in document || value in formElement)
         ) {
           return false;
         }
-        
 
-
- if (
+        if (
           ALLOW_DATA_ATTR &&
           !FORBID_ATTR[lcName] &&
           regExpTest(DATA_ATTR$1, lcName)
@@ -1869,9 +1666,6 @@ module.exports = [
         else if (ALLOW_ARIA_ATTR && regExpTest(ARIA_ATTR$1, lcName));
         else if (!ALLOWED_ATTR[lcName] || FORBID_ATTR[lcName]) {
           if (
-            
-            
-            
             (_basicCustomElementTest(lcTag) &&
               ((CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof RegExp &&
                 regExpTest(CUSTOM_ELEMENT_HANDLING.tagNameCheck, lcTag)) ||
@@ -1884,8 +1678,7 @@ module.exports = [
                 )) ||
                 (CUSTOM_ELEMENT_HANDLING.attributeNameCheck instanceof
                   Function &&
-                  CUSTOM_ELEMENT_HANDLING.attributeNameCheck(lcName)))) || 
-            
+                  CUSTOM_ELEMENT_HANDLING.attributeNameCheck(lcName)))) ||
             (lcName === "is" &&
               CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements &&
               ((CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof RegExp &&
@@ -1896,7 +1689,6 @@ module.exports = [
           else {
             return false;
           }
-          
         } else if (URI_SAFE_ATTRIBUTES[lcName]);
         else if (
           regExpTest(
@@ -1922,42 +1714,21 @@ module.exports = [
         } else;
         return true;
       };
-      
 
-
-
-
- var _basicCustomElementTest = function _basicCustomElementTest(
-        tagName,
-      ) {
+      var _basicCustomElementTest = function _basicCustomElementTest(tagName) {
         return (
           tagName !== "annotation-xml" && stringMatch(tagName, CUSTOM_ELEMENT$1)
         );
       };
-      
 
-
-
-
-
-
-
-
- var _sanitizeAttributes = function _sanitizeAttributes(currentNode) {
+      var _sanitizeAttributes = function _sanitizeAttributes(currentNode) {
         var attr;
         var value;
         var lcName;
         var l;
-         _executeHook(
-          "beforeSanitizeAttributes",
-          currentNode,
-          null,
-        );
+        _executeHook("beforeSanitizeAttributes", currentNode, null);
         var attributes = currentNode.attributes;
-         if (
-          !attributes ||
-          _isClobbered(currentNode)
-        ) {
+        if (!attributes || _isClobbered(currentNode)) {
           return;
         }
         var hookEvent = {
@@ -1967,70 +1738,53 @@ module.exports = [
           allowedAttributes: ALLOWED_ATTR,
         };
         l = attributes.length;
-         while (
-          l--
-        ) {
+        while (l--) {
           attr = attributes[l];
           var _attr = attr,
             name = _attr.name,
             namespaceURI = _attr.namespaceURI;
           value = name === "value" ? attr.value : stringTrim(attr.value);
           lcName = transformCaseFunc(name);
-           hookEvent.attrName = lcName;
+          hookEvent.attrName = lcName;
           hookEvent.attrValue = value;
           hookEvent.keepAttr = true;
-          hookEvent.forceKeepAttr = undefined; 
+          hookEvent.forceKeepAttr = undefined;
           _executeHook("uponSanitizeAttribute", currentNode, hookEvent);
           value = hookEvent.attrValue;
-           if (
-            hookEvent.forceKeepAttr
-          ) {
+          if (hookEvent.forceKeepAttr) {
             continue;
           }
-           _removeAttribute(name, currentNode);
-           if (
-            !hookEvent.keepAttr
-          ) {
+          _removeAttribute(name, currentNode);
+          if (!hookEvent.keepAttr) {
             continue;
           }
-           if (
-            !ALLOW_SELF_CLOSE_IN_ATTR &&
-            regExpTest(/\/>/i, value)
-          ) {
+          if (!ALLOW_SELF_CLOSE_IN_ATTR && regExpTest(/\/>/i, value)) {
             _removeAttribute(name, currentNode);
             continue;
           }
-           if (
-            SAFE_FOR_TEMPLATES
-          ) {
+          if (SAFE_FOR_TEMPLATES) {
             value = stringReplace(value, MUSTACHE_EXPR$1, " ");
             value = stringReplace(value, ERB_EXPR$1, " ");
             value = stringReplace(value, TMPLIT_EXPR$1, " ");
           }
-           var lcTag =
-            transformCaseFunc(currentNode.nodeName);
+          var lcTag = transformCaseFunc(currentNode.nodeName);
           if (!_isValidAttribute(lcTag, lcName, value)) {
             continue;
           }
-          
 
- if (
-            SANITIZE_NAMED_PROPS &&
-            (lcName === "id" || lcName === "name")
-          ) {
-            
+          if (SANITIZE_NAMED_PROPS && (lcName === "id" || lcName === "name")) {
             _removeAttribute(name, currentNode);
-            
+
             value = SANITIZE_NAMED_PROPS_PREFIX + value;
           }
-           if (
+          if (
             SAFE_FOR_XML &&
             regExpTest(/((--!?|])>)|<\/(style|title)/i, value)
           ) {
             _removeAttribute(name, currentNode);
             continue;
           }
-           if (
+          if (
             trustedTypesPolicy &&
             _typeof(trustedTypes) === "object" &&
             typeof trustedTypes.getAttributeType === "function"
@@ -2049,14 +1803,11 @@ module.exports = [
               }
             }
           }
-           try {
+          try {
             if (namespaceURI) {
               currentNode.setAttributeNS(namespaceURI, name, value);
             } else {
-               currentNode.setAttribute(
-                name,
-                value,
-              );
+              currentNode.setAttribute(name, value);
             }
             if (_isClobbered(currentNode)) {
               _forceRemove(currentNode);
@@ -2065,51 +1816,24 @@ module.exports = [
             }
           } catch (_) {}
         }
-         _executeHook(
-          "afterSanitizeAttributes",
-          currentNode,
-          null,
-        );
+        _executeHook("afterSanitizeAttributes", currentNode, null);
       };
-      
 
-
-
- var _sanitizeShadowDOM = function _sanitizeShadowDOM(fragment) {
+      var _sanitizeShadowDOM = function _sanitizeShadowDOM(fragment) {
         var shadowNode;
         var shadowIterator = _createIterator(fragment);
-         _executeHook(
-          "beforeSanitizeShadowDOM",
-          fragment,
-          null,
-        );
+        _executeHook("beforeSanitizeShadowDOM", fragment, null);
         while ((shadowNode = shadowIterator.nextNode())) {
-           _executeHook(
-            "uponSanitizeShadowNode",
-            shadowNode,
-            null,
-          );
-           _sanitizeElements(shadowNode);
-           _sanitizeAttributes(shadowNode);
-           if (
-            shadowNode.content instanceof DocumentFragment
-          ) {
+          _executeHook("uponSanitizeShadowNode", shadowNode, null);
+          _sanitizeElements(shadowNode);
+          _sanitizeAttributes(shadowNode);
+          if (shadowNode.content instanceof DocumentFragment) {
             _sanitizeShadowDOM(shadowNode.content);
           }
         }
-         _executeHook(
-          "afterSanitizeShadowDOM",
-          fragment,
-          null,
-        );
+        _executeHook("afterSanitizeShadowDOM", fragment, null);
       };
-      
 
-
-
-
-
- 
       DOMPurify.sanitize = function (dirty) {
         var cfg =
           arguments.length > 1 && arguments[1] !== undefined
@@ -2120,17 +1844,12 @@ module.exports = [
         var currentNode;
         var oldNode;
         var returnNode;
-        
 
- IS_EMPTY_INPUT =
-          !dirty;
+        IS_EMPTY_INPUT = !dirty;
         if (IS_EMPTY_INPUT) {
           dirty = "<!-->";
         }
-         if (
-          typeof dirty !== "string" &&
-          !_isNode(dirty)
-        ) {
+        if (typeof dirty !== "string" && !_isNode(dirty)) {
           if (typeof dirty.toString === "function") {
             dirty = dirty.toString();
             if (typeof dirty !== "string") {
@@ -2140,9 +1859,7 @@ module.exports = [
             throw typeErrorCreate("toString is not a function");
           }
         }
-         if (
-          !DOMPurify.isSupported
-        ) {
+        if (!DOMPurify.isSupported) {
           if (
             _typeof(window.toStaticHTML) === "object" ||
             typeof window.toStaticHTML === "function"
@@ -2156,19 +1873,15 @@ module.exports = [
           }
           return dirty;
         }
-         if (!SET_CONFIG) {
+        if (!SET_CONFIG) {
           _parseConfig(cfg);
         }
-         DOMPurify.removed = [];
-         if (
-          typeof dirty === "string"
-        ) {
+        DOMPurify.removed = [];
+        if (typeof dirty === "string") {
           IN_PLACE = false;
         }
         if (IN_PLACE) {
-           if (
-            dirty.nodeName
-          ) {
+          if (dirty.nodeName) {
             var tagName = transformCaseFunc(dirty.nodeName);
             if (!ALLOWED_TAGS[tagName] || FORBID_TAGS[tagName]) {
               throw typeErrorCreate(
@@ -2177,88 +1890,66 @@ module.exports = [
             }
           }
         } else if (dirty instanceof Node) {
-          
- body =
-            _initDocument("<!---->");
+          body = _initDocument("<!---->");
           importedNode = body.ownerDocument.importNode(dirty, true);
           if (importedNode.nodeType === 1 && importedNode.nodeName === "BODY") {
-             body = importedNode;
+            body = importedNode;
           } else if (importedNode.nodeName === "HTML") {
             body = importedNode;
           } else {
-            
             body.appendChild(importedNode);
           }
         } else {
-           if (
+          if (
             !RETURN_DOM &&
             !SAFE_FOR_TEMPLATES &&
-            !WHOLE_DOCUMENT && 
+            !WHOLE_DOCUMENT &&
             dirty.indexOf("<") === -1
           ) {
             return trustedTypesPolicy && RETURN_TRUSTED_TYPE
               ? trustedTypesPolicy.createHTML(dirty)
               : dirty;
           }
-           body = _initDocument(dirty);
-           if (!body) {
+          body = _initDocument(dirty);
+          if (!body) {
             return RETURN_DOM ? null : RETURN_TRUSTED_TYPE ? emptyHTML : "";
           }
         }
-         if (
-          body &&
-          FORCE_BODY
-        ) {
+        if (body && FORCE_BODY) {
           _forceRemove(body.firstChild);
         }
-         var nodeIterator = _createIterator(
-          IN_PLACE ? dirty : body,
-        );
-         while (
-          (currentNode = nodeIterator.nextNode())
-        ) {
-           if (
-            currentNode.nodeType === 3 &&
-            currentNode === oldNode
-          ) {
+        var nodeIterator = _createIterator(IN_PLACE ? dirty : body);
+        while ((currentNode = nodeIterator.nextNode())) {
+          if (currentNode.nodeType === 3 && currentNode === oldNode) {
             continue;
           }
-           _sanitizeElements(currentNode);
-           _sanitizeAttributes(currentNode);
-           if (
-            currentNode.content instanceof DocumentFragment
-          ) {
+          _sanitizeElements(currentNode);
+          _sanitizeAttributes(currentNode);
+          if (currentNode.content instanceof DocumentFragment) {
             _sanitizeShadowDOM(currentNode.content);
           }
           oldNode = currentNode;
         }
         oldNode = null;
-         if (IN_PLACE) {
+        if (IN_PLACE) {
           return dirty;
         }
-         if (RETURN_DOM) {
+        if (RETURN_DOM) {
           if (RETURN_DOM_FRAGMENT) {
             returnNode = createDocumentFragment.call(body.ownerDocument);
             while (body.firstChild) {
-              
               returnNode.appendChild(body.firstChild);
             }
           } else {
             returnNode = body;
           }
           if (ALLOWED_ATTR.shadowroot || ALLOWED_ATTR.shadowrootmod) {
-            
-
-
-
-
-
- returnNode = importNode.call(originalDocument, returnNode, true);
+            returnNode = importNode.call(originalDocument, returnNode, true);
           }
           return returnNode;
         }
         var serializedHTML = WHOLE_DOCUMENT ? body.outerHTML : body.innerHTML;
-         if (
+        if (
           WHOLE_DOCUMENT &&
           ALLOWED_TAGS["!doctype"] &&
           body.ownerDocument &&
@@ -2272,7 +1963,7 @@ module.exports = [
             ">\n" +
             serializedHTML;
         }
-         if (SAFE_FOR_TEMPLATES) {
+        if (SAFE_FOR_TEMPLATES) {
           serializedHTML = stringReplace(serializedHTML, MUSTACHE_EXPR$1, " ");
           serializedHTML = stringReplace(serializedHTML, ERB_EXPR$1, " ");
           serializedHTML = stringReplace(serializedHTML, TMPLIT_EXPR$1, " ");
@@ -2281,87 +1972,51 @@ module.exports = [
           ? trustedTypesPolicy.createHTML(serializedHTML)
           : serializedHTML;
       };
-      
 
-
-
-
- DOMPurify.setConfig = function (cfg) {
+      DOMPurify.setConfig = function (cfg) {
         _parseConfig(cfg);
         SET_CONFIG = true;
       };
-      
 
-
-
- DOMPurify.clearConfig = function () {
+      DOMPurify.clearConfig = function () {
         CONFIG = null;
         SET_CONFIG = false;
       };
-      
 
-
-
-
-
-
-
-
- DOMPurify.isValidAttribute = function (tag, attr, value) {
-         if (!CONFIG) {
+      DOMPurify.isValidAttribute = function (tag, attr, value) {
+        if (!CONFIG) {
           _parseConfig({});
         }
         var lcTag = transformCaseFunc(tag);
         var lcName = transformCaseFunc(attr);
         return _isValidAttribute(lcTag, lcName, value);
       };
-      
 
-
-
-
-
- DOMPurify.addHook = function (entryPoint, hookFunction) {
+      DOMPurify.addHook = function (entryPoint, hookFunction) {
         if (typeof hookFunction !== "function") {
           return;
         }
         hooks[entryPoint] = hooks[entryPoint] || [];
         arrayPush(hooks[entryPoint], hookFunction);
       };
-      
 
-
-
-
-
-
- DOMPurify.removeHook = function (entryPoint) {
+      DOMPurify.removeHook = function (entryPoint) {
         if (hooks[entryPoint]) {
           return arrayPop(hooks[entryPoint]);
         }
       };
-      
 
-
-
-
- DOMPurify.removeHooks = function (entryPoint) {
+      DOMPurify.removeHooks = function (entryPoint) {
         if (hooks[entryPoint]) {
           hooks[entryPoint] = [];
         }
       };
-      
 
-
-
- DOMPurify.removeAllHooks = function () {
+      DOMPurify.removeAllHooks = function () {
         hooks = {};
       };
       return DOMPurify;
     }
     var purify = createDOMPurify();
-    
   },
 ];
-
-

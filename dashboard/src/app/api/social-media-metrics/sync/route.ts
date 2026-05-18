@@ -81,7 +81,6 @@ export async function POST(request: Request) {
       );
     }
 
-    
     let clientMetaToken: string | null = null;
     if (post.clientId) {
       try {
@@ -92,7 +91,7 @@ export async function POST(request: Request) {
         clientMetaToken = client?.metaAccessToken || null;
       } catch {}
     }
-    
+
     const baseToken = clientMetaToken || account.accessToken;
 
     if (!baseToken || !account.platformAccountId) {
@@ -108,8 +107,6 @@ export async function POST(request: Request) {
       );
     }
 
-    
-    
     let effectiveToken = baseToken;
     try {
       const pages = await getUserPages(baseToken);
@@ -119,14 +116,11 @@ export async function POST(request: Request) {
       if (matchedPage?.access_token) {
         effectiveToken = matchedPage.access_token;
       }
-    } catch {
-      
-    }
+    } catch {}
 
     const platform: string = post.platform;
     let metrics;
 
-    
     const urlLower = postedUrl.toLowerCase();
     if (
       platform === "Facebook" &&

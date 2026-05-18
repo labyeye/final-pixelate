@@ -7,20 +7,19 @@ import { ObjectId } from "mongodb";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  // Protect endpoint - only allow calls with correct secret
-  const secret = request.headers.get("x-cron-secret") || request.nextUrl.searchParams.get("secret");
+  const secret =
+    request.headers.get("x-cron-secret") ||
+    request.nextUrl.searchParams.get("secret");
   if (process.env.CRON_SECRET && secret !== process.env.CRON_SECRET) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   try {
-    // 1. Fetch posts that are Approved, Scheduled, and time has passed
     const postsCol = await svc.getCollection("socialMediaPosts");
     const accountsCol = await svc.getCollection("socialMediaAccounts");
 
     const now = new Date();
-    
-    // We fetch posts that are Scheduled AND Approved
+
     const pendingPosts = await postsCol
       .find({
         status: "Scheduled",
@@ -35,12 +34,13 @@ export async function GET(request: NextRequest) {
       if (!scheduledDt || scheduledDt > now) continue;
 
       try {
-        // Find the social account for tokens
-        let accountId = post.socialAccountId || (post.socialAccountIds && post.socialAccountIds[0]);
-        
+        let accountId =
+          post.socialAccountId ||
+          (post.socialAccountIds && post.socialAccountIds[0]);
+
         console.log(`[DEBUG] Processing post: ${post.title}`);
         console.log(`[DEBUG] Linked Account ID: ${accountId}`);
-        
+
         if (!accountId) {
           throw new Error("No social account linked to this post");
         }
@@ -57,15 +57,17 @@ export async function GET(request: NextRequest) {
         });
 
         console.log(`[DEBUG] Account found: ${account ? "Yes" : "No"}`);
-        
-        // Fetch token from Client document first (like metrics sync does)
+
         let effectiveToken = account?.accessToken || null;
-        
+
         if (post.clientId) {
           try {
             const clientsCol = await svc.getCollection("clients");
             const client = await clientsCol.findOne({
-              _id: typeof post.clientId === "string" ? new ObjectId(post.clientId) : post.clientId,
+              _id:
+                typeof post.clientId === "string"
+                  ? new ObjectId(post.clientId)
+                  : post.clientId,
             });
             if (client?.metaAccessToken) {
               effectiveToken = client.metaAccessToken;
@@ -75,35 +77,44 @@ export async function GET(request: NextRequest) {
             console.error("[DEBUG] Error fetching client token:", e);
           }
         }
-        
+
         console.log(`[DEBUG] Token present: ${!!effectiveToken}`);
-        
-        // For Reel content type, video URL lives in reelLink field, not mediaFile
+
         let mediaUrl =
-          (post.contentType === "Reel" || post.contentType === "Video")
-            ? (post.reelLink || post.mediaFile)
+          post.contentType === "Reel" || post.contentType === "Video"
+            ? post.reelLink || post.mediaFile
             : post.mediaFile;
 
-        // Fix for Nextcloud share links - they need /download at the end for direct access
-        if (mediaUrl && mediaUrl.includes("cloud.laxmilube.in/s/") && !mediaUrl.endsWith("/download")) {
-          mediaUrl = mediaUrl.endsWith("/") ? mediaUrl + "download" : mediaUrl + "/download";
+        if (
+          mediaUrl &&
+          mediaUrl.includes("cloud.laxmilube.in/s/") &&
+          !mediaUrl.endsWith("/download")
+        ) {
+          mediaUrl = mediaUrl.endsWith("/")
+            ? mediaUrl + "download"
+            : mediaUrl + "/download";
           console.log(`[DEBUG] Fixed Media URL for Nextcloud: ${mediaUrl}`);
         }
 
         if (!mediaUrl) {
-          throw new Error(`No media URL found for post: ${post.title}. Add a Reel Video Link or Media URL.`);
+          throw new Error(
+            `No media URL found for post: ${post.title}. Add a Reel Video Link or Media URL.`,
+          );
         }
 
         console.log(`[DEBUG] Final Media File URL: ${mediaUrl}`);
 
         if (!effectiveToken) {
-          throw new Error(`Access Token missing for post: ${post.title}. Please ensure client or account has a token.`);
+          throw new Error(
+            `Access Token missing for post: ${post.title}. Please ensure client or account has a token.`,
+          );
         }
 
         let publishRes;
         if (post.platform === "Instagram") {
           const igId = account?.igAccountId || post.igAccountId;
-          if (!igId) throw new Error("Instagram Account ID missing in settings");
+          if (!igId)
+            throw new Error("Instagram Account ID missing in settings");
 
           const isVideoContent =
             post.contentType === "Reel" ||
@@ -115,7 +126,7 @@ export async function GET(request: NextRequest) {
             effectiveToken,
             post.caption + (post.hashtags ? "\n\n" + post.hashtags : ""),
             mediaUrl,
-            isVideoContent ? "REELS" : "IMAGE"
+            isVideoContent ? "REELS" : "IMAGE",
           );
         } else if (post.platform === "Facebook") {
           const fbId = account?.platformAccountId || post.platformAccountId;
@@ -125,15 +136,17 @@ export async function GET(request: NextRequest) {
             fbId,
             effectiveToken,
             post.caption + (post.hashtags ? "\n\n" + post.hashtags : ""),
-            mediaUrl
+            mediaUrl,
           );
         } else {
-          // Skip unsupported platforms without marking as failed
-          results.push({ id: post._id, status: "Skipped", error: `Platform ${post.platform} auto-posting not supported` });
+          results.push({
+            id: post._id,
+            status: "Skipped",
+            error: `Platform ${post.platform} auto-posting not supported`,
+          });
           continue;
         }
 
-        // Update post status
         await postsCol.updateOne(
           { _id: post._id },
           {
@@ -144,13 +157,17 @@ export async function GET(request: NextRequest) {
               platformPostId: publishRes.id,
               updatedAt: new Date(),
             },
-          }
+          },
         );
 
-        results.push({ id: post._id, status: "Success", link: publishRes.permalink });
+        results.push({
+          id: post._id,
+          status: "Success",
+          link: publishRes.permalink,
+        });
       } catch (err: any) {
         console.error(`Failed to post ${post._id}:`, err);
-        // Update post with error
+
         await postsCol.updateOne(
           { _id: post._id },
           {
@@ -159,7 +176,7 @@ export async function GET(request: NextRequest) {
               notes: `Auto-post failed: ${err.message}`,
               updatedAt: new Date(),
             },
-          }
+          },
         );
         results.push({ id: post._id, status: "Failed", error: err.message });
       }

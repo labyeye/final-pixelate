@@ -41,8 +41,6 @@ import { useToast } from "@/hooks/use-toast";
 import { pdf } from "@react-pdf/renderer";
 import { PaymentReceiptPDFDocument } from "@/components/payments/payment-receipt-pdf";
 
-
-
 function getFinancialYear(): string {
   const now = new Date();
   const year = now.getFullYear();
@@ -67,8 +65,6 @@ function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-
-
 interface FlatPayment {
   invoiceId: string;
   invoiceNo: string;
@@ -86,8 +82,6 @@ interface FlatPayment {
   balanceDue: number;
   invoiceStatus: string;
 }
-
-
 
 export default function PaymentsPage() {
   const { user } = useAuth();
@@ -146,7 +140,6 @@ export default function PaymentsPage() {
   );
   const outstanding = clientSummary.billed - clientSummary.received;
 
-  
   const allPayments = useMemo<FlatPayment[]>(() => {
     const fy = getFinancialYear();
     let globalIndex = 1;
@@ -212,7 +205,7 @@ export default function PaymentsPage() {
       .then((res) => res.json())
       .then((data) => setClients(data))
       .catch(console.error);
-    
+
     fetch("/api/settings")
       .then((res) => res.json())
       .then((data) => setSettings(data))
@@ -367,7 +360,6 @@ export default function PaymentsPage() {
     }
   };
 
-  
   const handleDownloadReceipt = async (payment: FlatPayment) => {
     const key = `${payment.invoiceId}-${payment.paymentIndex}`;
     setDownloadingReceipt(key);
@@ -414,7 +406,6 @@ export default function PaymentsPage() {
     }
   };
 
-  
   const handleWhatsAppReceipt = async (payment: FlatPayment) => {
     const phone = payment.clientPhone?.replace(/\D/g, "") || "";
     if (!phone) {
@@ -430,7 +421,6 @@ export default function PaymentsPage() {
     setSendingWhatsApp(key);
 
     try {
-      
       const pdfBlob = await pdf(
         <PaymentReceiptPDFDocument
           data={{
@@ -452,7 +442,6 @@ export default function PaymentsPage() {
       ).toBlob();
       const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
 
-      
       const formData = new FormData();
       formData.append(
         "file",
@@ -470,7 +459,6 @@ export default function PaymentsPage() {
 
       const { mediaId } = await uploadRes.json();
 
-      
       const digits = phone.length === 10 ? "91" + phone : phone;
       const amountFormatted = new Intl.NumberFormat("en-IN", {
         style: "currency",

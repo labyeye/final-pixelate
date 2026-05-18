@@ -5,7 +5,7 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -22,8 +22,6 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [app-client] (ecmascript)",
     );
     function disableSmoothScrollDuringRouteTransition(fn, options = {}) {
-      
-      
       if (options.onlyHashChange) {
         fn();
         return;
@@ -31,7 +29,6 @@
       const htmlElement = document.documentElement;
       const hasDataAttribute = htmlElement.dataset.scrollBehavior === "smooth";
       if (!hasDataAttribute) {
-        
         if (
           ("TURBOPACK compile-time value", "development") === "development" &&
           getComputedStyle(htmlElement).scrollBehavior === "smooth"
@@ -42,29 +39,26 @@
               "Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior",
           );
         }
-        
+
         fn();
         return;
       }
-      
+
       const existing = htmlElement.style.scrollBehavior;
       htmlElement.style.scrollBehavior = "auto";
       if (!options.dontForceLayout) {
-        
-        
-        
         htmlElement.getClientRects();
       }
       fn();
       htmlElement.style.scrollBehavior = existing;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/bfcache.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -80,20 +74,11 @@
     const _react = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
     );
-    
+
     const MAX_BF_CACHE_ENTRIES = ("TURBOPACK compile-time falsy", 0)
       ? "TURBOPACK unreachable"
       : 1;
     function useRouterBFCache(activeTree, activeStateKey) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const [prevActiveEntry, setPrevActiveEntry] = (0, _react.useState)(() => {
         const initialEntry = {
           tree: activeTree,
@@ -103,42 +88,23 @@
         return initialEntry;
       });
       if (prevActiveEntry.tree === activeTree) {
-        
-        
         return prevActiveEntry;
       }
-      
-      
-      
-      
-      
-      
-      
-      
+
       const newActiveEntry = {
         tree: activeTree,
         stateKey: activeStateKey,
         next: null,
       };
-      
-      
-      
+
       let n = 1;
       let oldEntry = prevActiveEntry;
       let clonedEntry = newActiveEntry;
       while (oldEntry !== null && n < MAX_BF_CACHE_ENTRIES) {
         if (oldEntry.stateKey === activeStateKey) {
-          
-          
-          
-          
-          
-          
-          
           clonedEntry.next = oldEntry.next;
           break;
         } else {
-          
           n++;
           const entry = {
             tree: oldEntry.tree,
@@ -163,14 +129,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -180,10 +146,8 @@
     });
     Object.defineProperty(
       exports,
-      
 
-
- "default",
+      "default",
       {
         enumerable: true,
         get: function () {
@@ -203,12 +167,12 @@
     const _routerreducertypes = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/router-reducer-types.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _reactdom =  _interop_require_default._(
+    const _reactdom = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/index.js [app-client] (ecmascript)",
       ),
@@ -258,10 +222,8 @@
     const _routeparams = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/route-params.js [app-client] (ecmascript)",
     );
-    
 
-
- function walkAddRefetch(segmentPathToWalk, treeToRecreate) {
+    function walkAddRefetch(segmentPathToWalk, treeToRecreate) {
       if (segmentPathToWalk) {
         const [segment, parallelRouteKey] = segmentPathToWalk;
         const isLast = segmentPathToWalk.length === 2;
@@ -303,14 +265,10 @@
     const __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE =
       _reactdom.default
         .__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
-    
-    
 
- function findDOMNode(instance) {
-      
+    function findDOMNode(instance) {
       if (typeof window === "undefined") return null;
-      
-      
+
       const internal_reactDOMfindDOMNode =
         __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.findDOMNode;
       return internal_reactDOMfindDOMNode(instance);
@@ -325,39 +283,28 @@
       "x",
       "y",
     ];
-    
 
- function shouldSkipElement(element) {
-      
-      
-      
+    function shouldSkipElement(element) {
       if (["sticky", "fixed"].includes(getComputedStyle(element).position)) {
         return true;
       }
-      
-      
+
       const rect = element.getBoundingClientRect();
       return rectProperties.every((item) => rect[item] === 0);
     }
-    
 
- function topOfElementInViewport(element, viewportHeight) {
+    function topOfElementInViewport(element, viewportHeight) {
       const rect = element.getBoundingClientRect();
       return rect.top >= 0 && rect.top <= viewportHeight;
     }
-    
 
-
-
-
- function getHashFragmentDomNode(hashFragment) {
-      
+    function getHashFragmentDomNode(hashFragment) {
       if (hashFragment === "top") {
         return document.body;
       }
-      
+
       return (
-        document.getElementById(hashFragment) ?? 
+        document.getElementById(hashFragment) ??
         document.getElementsByName(hashFragment)[0]
       );
     }
@@ -366,7 +313,6 @@
         this.handlePotentialScroll();
       }
       componentDidUpdate() {
-        
         if (this.props.focusAndScrollRef.apply) {
           this.handlePotentialScroll();
         }
@@ -377,12 +323,8 @@
       constructor(...args) {
         (super(...args),
           (this.handlePotentialScroll = () => {
-            
             const { focusAndScrollRef, segmentPath } = this.props;
             if (focusAndScrollRef.apply) {
-              
-              
-              
               if (
                 focusAndScrollRef.segmentPaths.length !== 0 &&
                 !focusAndScrollRef.segmentPaths.some((scrollRefSegmentPath) =>
@@ -401,74 +343,62 @@
               if (hashFragment) {
                 domNode = getHashFragmentDomNode(hashFragment);
               }
-              
-              
+
               if (!domNode) {
                 domNode = findDOMNode(this);
               }
-              
+
               if (!(domNode instanceof Element)) {
                 return;
               }
-              
-              
+
               while (
                 !(domNode instanceof HTMLElement) ||
                 shouldSkipElement(domNode)
               ) {
                 if (("TURBOPACK compile-time truthy", 1)) {
                   if (domNode.parentElement?.localName === "head") {
-                    
-                    
-                    
                   }
                 }
-                
+
                 if (domNode.nextElementSibling === null) {
                   return;
                 }
                 domNode = domNode.nextElementSibling;
               }
-              
+
               focusAndScrollRef.apply = false;
               focusAndScrollRef.hashFragment = null;
               focusAndScrollRef.segmentPaths = [];
               (0,
               _disablesmoothscroll.disableSmoothScrollDuringRouteTransition)(
                 () => {
-                  
                   if (hashFragment) {
                     domNode.scrollIntoView();
                     return;
                   }
-                  
-                  
+
                   const htmlElement = document.documentElement;
                   const viewportHeight = htmlElement.clientHeight;
-                  
+
                   if (topOfElementInViewport(domNode, viewportHeight)) {
                     return;
                   }
-                  
-                  
-                  
-                  
+
                   htmlElement.scrollTop = 0;
-                  
+
                   if (!topOfElementInViewport(domNode, viewportHeight)) {
-                    
                     domNode.scrollIntoView();
                   }
                 },
                 {
-                  
                   dontForceLayout: true,
                   onlyHashChange: focusAndScrollRef.onlyHashChange,
                 },
               );
-              
+
               focusAndScrollRef.onlyHashChange = false;
-              
+
               domNode.focus();
             }
           }));
@@ -489,15 +419,14 @@
           },
         );
       }
-      return  (0, _jsxruntime.jsx)(InnerScrollAndFocusHandler, {
+      return (0, _jsxruntime.jsx)(InnerScrollAndFocusHandler, {
         segmentPath: segmentPath,
         focusAndScrollRef: context.focusAndScrollRef,
         children: children,
       });
     }
-    
 
- function InnerLayoutRouter({
+    function InnerLayoutRouter({
       tree,
       segmentPath,
       debugNameContext,
@@ -524,25 +453,15 @@
         );
       }
       const { tree: fullTree } = context;
-      
-      
-      
-      
-      
-      
+
       const resolvedPrefetchRsc =
         cacheNode.prefetchRsc !== null ? cacheNode.prefetchRsc : cacheNode.rsc;
-      
-      
-      
+
       const rsc = (0, _react.useDeferredValue)(
         cacheNode.rsc,
         resolvedPrefetchRsc,
       );
-      
-      
-      
-      
+
       const resolvedRsc =
         typeof rsc === "object" &&
         rsc !== null &&
@@ -550,18 +469,9 @@
           ? (0, _react.use)(rsc)
           : rsc;
       if (!resolvedRsc) {
-        
-        
-        
-        
-        
         if (isActive) {
-          
           let lazyData = cacheNode.lazyData;
           if (lazyData === null) {
-            
-
- 
             const refetchTree = walkAddRefetch(["", ...segmentPath], fullTree);
             const includeNextUrl = (0,
             _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
@@ -573,10 +483,8 @@
               new URL(url, location.origin),
               {
                 flightRouterState: refetchTree,
-                nextUrl: includeNextUrl 
-                  ? 
-                    
-                    context.previousNextUrl || context.nextUrl
+                nextUrl: includeNextUrl
+                  ? context.previousNextUrl || context.nextUrl
                   : null,
               },
             ).then((serverResponse) => {
@@ -590,19 +498,16 @@
               });
               return serverResponse;
             });
-            
+
             (0, _react.use)(lazyData);
           }
         }
-        
-        
+
         (0, _react.use)(_unresolvedthenable.unresolvedThenable);
       }
-      
+
       let content = resolvedRsc;
-      
-      
-      
+
       let navigationPromises = null;
       if (("TURBOPACK compile-time truthy", 1)) {
         const { createNestedLayoutNavigationPromises } =
@@ -615,7 +520,7 @@
         );
       }
       if (navigationPromises) {
-        content =  (0, _jsxruntime.jsx)(
+        content = (0, _jsxruntime.jsx)(
           _hooksclientcontextsharedruntime.NavigationPromisesContext.Provider,
           {
             value: navigationPromises,
@@ -623,7 +528,7 @@
           },
         );
       }
-      const subtree =  (0, _jsxruntime.jsx)(
+      const subtree = (0, _jsxruntime.jsx)(
         _approutercontextsharedruntime.LayoutRouterContext.Provider,
         {
           value: {
@@ -632,28 +537,18 @@
             parentSegmentPath: segmentPath,
             parentParams: params,
             debugNameContext: debugNameContext,
-            
+
             url: url,
             isActive: isActive,
           },
           children: content,
         },
       );
-      
+
       return subtree;
     }
-    
 
-
- function LoadingBoundary({ name, loading, children }) {
-      
-      
-      
-      
-      
-      
-      
-      
+    function LoadingBoundary({ name, loading, children }) {
       let loadingModuleData;
       if (
         typeof loading === "object" &&
@@ -669,15 +564,15 @@
         const loadingRsc = loadingModuleData[0];
         const loadingStyles = loadingModuleData[1];
         const loadingScripts = loadingModuleData[2];
-        return  (0, _jsxruntime.jsx)(_react.Suspense, {
+        return (0, _jsxruntime.jsx)(_react.Suspense, {
           name: name,
-          fallback:  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+          fallback: (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [loadingStyles, loadingScripts, loadingRsc],
           }),
           children: children,
         });
       }
-      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -717,43 +612,27 @@
         isActive,
         debugNameContext,
       } = context;
-      
-      
+
       const parentParallelRoutes = parentCacheNode.parallelRoutes;
       let segmentMap = parentParallelRoutes.get(parallelRouterKey);
-      
-      
+
       if (!segmentMap) {
         segmentMap = new Map();
         parentParallelRoutes.set(parallelRouterKey, segmentMap);
       }
       const parentTreeSegment = parentTree[0];
       const segmentPath =
-        parentSegmentPath === null 
+        parentSegmentPath === null
           ? [parallelRouterKey]
           : parentSegmentPath.concat([parentTreeSegment, parallelRouterKey]);
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       const activeTree = parentTree[1][parallelRouterKey];
       const activeSegment = activeTree[0];
       const activeStateKey = (0, _createroutercachekey.createRouterCacheKey)(
         activeSegment,
         true,
-      ); 
-      
-      
-      
-      
-      
-      
+      );
+
       let bfcacheEntry = (0, _bfcache.useRouterBFCache)(
         activeTree,
         activeStateKey,
@@ -766,11 +645,9 @@
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
           segment,
         );
-        
+
         let cacheNode = segmentMap.get(cacheKey);
         if (cacheNode === undefined) {
-          
-          
           const newLazyCacheNode = {
             lazyData: null,
             rsc: null,
@@ -781,20 +658,12 @@
             loading: null,
             navigatedAt: -1,
           };
-          
+
           cacheNode = newLazyCacheNode;
           segmentMap.set(cacheKey, newLazyCacheNode);
         }
-        
 
-
-
-
-
-
-
-
- let segmentBoundaryTriggerNode = null;
+        let segmentBoundaryTriggerNode = null;
         let segmentViewStateNode = null;
         if (("TURBOPACK compile-time truthy", 1)) {
           const { SegmentBoundaryTriggerNode, SegmentViewStateNode } =
@@ -802,28 +671,22 @@
               "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",
             );
           const pagePrefix = (0, _apppaths.normalizeAppPath)(url);
-          segmentViewStateNode =  (0, _jsxruntime.jsx)(
+          segmentViewStateNode = (0, _jsxruntime.jsx)(
             SegmentViewStateNode,
             {
               page: pagePrefix,
             },
             pagePrefix,
           );
-          segmentBoundaryTriggerNode =  (0, _jsxruntime.jsx)(
+          segmentBoundaryTriggerNode = (0, _jsxruntime.jsx)(
             _jsxruntime.Fragment,
             {
-              children:  (0, _jsxruntime.jsx)(
-                SegmentBoundaryTriggerNode,
-                {},
-              ),
+              children: (0, _jsxruntime.jsx)(SegmentBoundaryTriggerNode, {}),
             },
           );
         }
         let params = parentParams;
         if (Array.isArray(segment)) {
-          
-          
-          
           const paramName = segment[0];
           const paramCacheKey = segment[1];
           const paramType = segment[2];
@@ -839,79 +702,54 @@
           }
         }
         const debugName = getBoundaryDebugNameFromSegment(segment);
-        
-        
-        
+
         const childDebugNameContext = debugName ?? debugNameContext;
-        
-        
-        
-        
-        
-        
-        
-        
+
         const isVirtual = debugName === undefined;
         const debugNameToDisplay = isVirtual ? undefined : debugNameContext;
-        
-        
-        
-        
-        
-        
-        
-        
+
         const loadingModuleData = parentCacheNode.loading;
-        let child =  (0, _jsxruntime.jsxs)(
+        let child = (0, _jsxruntime.jsxs)(
           _approutercontextsharedruntime.TemplateContext.Provider,
           {
-            value:  (0, _jsxruntime.jsxs)(ScrollAndFocusHandler, {
+            value: (0, _jsxruntime.jsxs)(ScrollAndFocusHandler, {
               segmentPath: segmentPath,
               children: [
-                 (0, _jsxruntime.jsx)(
-                  _errorboundary.ErrorBoundary,
-                  {
-                    errorComponent: error,
-                    errorStyles: errorStyles,
-                    errorScripts: errorScripts,
-                    children:  (0, _jsxruntime.jsx)(
-                      LoadingBoundary,
+                (0, _jsxruntime.jsx)(_errorboundary.ErrorBoundary, {
+                  errorComponent: error,
+                  errorStyles: errorStyles,
+                  errorScripts: errorScripts,
+                  children: (0, _jsxruntime.jsx)(LoadingBoundary, {
+                    name: debugNameToDisplay,
+                    loading: loadingModuleData,
+                    children: (0, _jsxruntime.jsx)(
+                      _errorboundary1.HTTPAccessFallbackBoundary,
                       {
-                        name: debugNameToDisplay,
-                        loading: loadingModuleData,
-                        children:  (0, _jsxruntime.jsx)(
-                          _errorboundary1.HTTPAccessFallbackBoundary,
+                        notFound: notFound,
+                        forbidden: forbidden,
+                        unauthorized: unauthorized,
+                        children: (0, _jsxruntime.jsxs)(
+                          _redirectboundary.RedirectBoundary,
                           {
-                            notFound: notFound,
-                            forbidden: forbidden,
-                            unauthorized: unauthorized,
-                            children:  (0, _jsxruntime.jsxs)(
-                              _redirectboundary.RedirectBoundary,
-                              {
-                                children: [
-                                   (0, _jsxruntime.jsx)(
-                                    InnerLayoutRouter,
-                                    {
-                                      url: url,
-                                      tree: tree,
-                                      params: params,
-                                      cacheNode: cacheNode,
-                                      segmentPath: segmentPath,
-                                      debugNameContext: childDebugNameContext,
-                                      isActive:
-                                        isActive && stateKey === activeStateKey,
-                                    },
-                                  ),
-                                  segmentBoundaryTriggerNode,
-                                ],
-                              },
-                            ),
+                            children: [
+                              (0, _jsxruntime.jsx)(InnerLayoutRouter, {
+                                url: url,
+                                tree: tree,
+                                params: params,
+                                cacheNode: cacheNode,
+                                segmentPath: segmentPath,
+                                debugNameContext: childDebugNameContext,
+                                isActive:
+                                  isActive && stateKey === activeStateKey,
+                              }),
+                              segmentBoundaryTriggerNode,
+                            ],
                           },
                         ),
                       },
                     ),
-                  },
-                ),
+                  }),
+                }),
                 segmentViewStateNode,
               ],
             }),
@@ -923,7 +761,7 @@
           const { SegmentStateProvider } = __turbopack_context__.r(
             "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",
           );
-          child =  (0, _jsxruntime.jsxs)(
+          child = (0, _jsxruntime.jsxs)(
             SegmentStateProvider,
             {
               children: [child, segmentViewBoundaries],
@@ -931,8 +769,7 @@
             stateKey,
           );
         }
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
         children.push(child);
         bfcacheEntry = bfcacheEntry.next;
       } while (bfcacheEntry !== null);
@@ -940,7 +777,6 @@
     }
     function getBoundaryDebugNameFromSegment(segment) {
       if (segment === "/") {
-        
         return "/";
       }
       if (typeof segment === "string") {
@@ -954,11 +790,7 @@
       return paramCacheKey + "/";
     }
     function isVirtualLayout(segment) {
-      return (
-        
-        
-        segment === "(slot)"
-      );
+      return segment === "(slot)";
     }
     if (
       (typeof exports.default === "function" ||
@@ -970,7 +802,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -991,7 +823,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1003,7 +835,7 @@
       const children = (0, _react.useContext)(
         _approutercontextsharedruntime.TemplateContext,
       );
-      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -1017,7 +849,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/web/spec-extension/adapters/reflect.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1049,17 +881,12 @@
       static deleteProperty(target, prop) {
         return Reflect.deleteProperty(target, prop);
       }
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/reflect-utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-    
-    
-    
-    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -1105,22 +932,20 @@
       "toString",
       "valueOf",
       "toLocaleString",
-      
+
       "then",
       "catch",
       "finally",
-      
+
       "status",
-      
-      
-      
+
       "displayName",
       "_debugInfo",
-      
+
       "toJSON",
       "$$typeof",
       "__esModule",
-    ]); 
+    ]);
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/search-params.browser.dev.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1151,8 +976,6 @@
       const promise = Promise.resolve(underlyingSearchParams);
       Object.keys(underlyingSearchParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          
-          
         } else {
           proxiedProperties.add(prop);
         }
@@ -1162,8 +985,7 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || 
-                
+              (proxiedProperties.has(prop) ||
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -1183,8 +1005,7 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || 
-                
+              (proxiedProperties.has(prop) ||
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -1232,14 +1053,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/search-params.browser.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1268,7 +1089,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.dev.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1295,15 +1116,11 @@
       if (cachedParams) {
         return cachedParams;
       }
-      
-      
-      
+
       const promise = Promise.resolve(underlyingParams);
       const proxiedProperties = new Set();
       Object.keys(underlyingParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          
-          
         } else {
           proxiedProperties.add(prop);
         }
@@ -1360,14 +1177,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1395,14 +1212,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/create-deduped-by-callsite-server-error-logger.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1419,7 +1236,7 @@
         },
       },
     );
-    const _react =  _interop_require_wildcard(
+    const _react = _interop_require_wildcard(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1477,17 +1294,14 @@
     const errorRef = {
       current: null,
     };
-    
+
     const cache =
       typeof _react.cache === "function" ? _react.cache : (fn) => fn;
-    
-    
-    
+
     const logErrorOrWarn = ("TURBOPACK compile-time falsy", 0)
       ? "TURBOPACK unreachable"
       : console.warn;
-    
-    
+
     const flushCurrentErrorIfNew = cache((key) => {
       try {
         logErrorOrWarn(errorRef.current);
@@ -1505,19 +1319,13 @@
           if (callStackFrames === undefined || callStackFrames.length < 4) {
             logErrorOrWarn(message);
           } else {
-            
-            
-            
-            
-            
             const key = callStackFrames[4];
             errorRef.current = message;
             flushCurrentErrorIfNew(key);
           }
-        } 
-        else;
+        } else;
       };
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/after-task-async-storage-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1536,7 +1344,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
     );
     const afterTaskAsyncStorageInstance = (0,
-    _asynclocalstorage.createAsyncLocalStorage)(); 
+    _asynclocalstorage.createAsyncLocalStorage)();
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/after-task-async-storage.external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1553,7 +1361,7 @@
     });
     const _aftertaskasyncstorageinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/after-task-async-storage-instance.js [app-client] (ecmascript)",
-    ); 
+    );
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1632,14 +1440,14 @@
           ? void 0
           : afterTaskStore.rootTaskSpawnPhase) === "action"
       );
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/search-params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1801,8 +1609,6 @@
     }
     function createPrerenderSearchParamsForClientPage(workStore) {
       if (workStore.forceStatic) {
-        
-        
         return Promise.resolve({});
       }
       const workUnitStore =
@@ -1811,8 +1617,6 @@
         switch (workUnitStore.type) {
           case "prerender":
           case "prerender-client":
-            
-            
             return (0, _dynamicrenderingutils.makeHangingPromise)(
               workUnitStore.renderSignal,
               workStore.route,
@@ -1856,19 +1660,14 @@
     }
     function createStaticPrerenderSearchParams(workStore, prerenderStore) {
       if (workStore.forceStatic) {
-        
-        
         return Promise.resolve({});
       }
       switch (prerenderStore.type) {
         case "prerender":
         case "prerender-client":
-          
           return makeHangingSearchParams(workStore, prerenderStore);
         case "prerender-ppr":
         case "prerender-legacy":
-          
-          
           return makeErroringSearchParams(workStore, prerenderStore);
         default:
           return prerenderStore;
@@ -1889,21 +1688,15 @@
       requestStore,
     ) {
       if (workStore.forceStatic) {
-        
-        
         return Promise.resolve({});
       } else {
         if (("TURBOPACK compile-time truthy", 1)) {
-          
-          
-          
           return makeUntrackedSearchParamsWithDevWarnings(
             underlyingSearchParams,
             workStore,
             requestStore,
           );
-        } 
-        else;
+        } else;
       }
     }
     const CachedSearchParams = new WeakMap();
@@ -1921,9 +1714,6 @@
       const proxiedPromise = new Proxy(promise, {
         get(target, prop, receiver) {
           if (Object.hasOwn(promise, prop)) {
-            
-            
-            
             return _reflect.ReflectAdapter.get(target, prop, receiver);
           }
           switch (prop) {
@@ -1960,16 +1750,11 @@
         return cachedSearchParams;
       }
       const underlyingSearchParams = {};
-      
-      
-      
+
       const promise = Promise.resolve(underlyingSearchParams);
       const proxiedPromise = new Proxy(promise, {
         get(target, prop, receiver) {
           if (Object.hasOwn(promise, prop)) {
-            
-            
-            
             return _reflect.ReflectAdapter.get(target, prop, receiver);
           }
           if (typeof prop === "string" && prop === "then") {
@@ -1981,14 +1766,12 @@
                 expression,
               );
             } else if (prerenderStore.type === "prerender-ppr") {
-              
               (0, _dynamicrendering.postponeWithTracking)(
                 workStore.route,
                 expression,
                 prerenderStore.dynamicTracking,
               );
             } else {
-              
               (0, _dynamicrendering.throwToInterruptStaticGeneration)(
                 expression,
                 workStore,
@@ -2011,10 +1794,6 @@
       const proxiedPromise = new Proxy(promise, {
         get: function get(target, prop, receiver) {
           if (Object.hasOwn(promise, prop)) {
-            
-            
-            
-            
             return _reflect.ReflectAdapter.get(target, prop, receiver);
           }
           if (
@@ -2044,8 +1823,6 @@
       requestStore,
     ) {
       if (requestStore.asyncApiPromises) {
-        
-        
         return makeUntrackedSearchParamsWithDevWarningsImpl(
           underlyingSearchParams,
           workStore,
@@ -2082,9 +1859,6 @@
       );
       let promise;
       if (requestStore.asyncApiPromises) {
-        
-        
-        
         const sharedSearchParamsParent =
           requestStore.asyncApiPromises.sharedSearchParamsParent;
         promise = new Promise((resolve, reject) => {
@@ -2093,7 +1867,7 @@
             reject,
           );
         });
-        
+
         promise.displayName = "searchParams";
       } else {
         promise = (0, _dynamicrenderingutils.makeDevtoolsIOAwarePromise)(
@@ -2105,13 +1879,8 @@
       promise.then(
         () => {
           promiseInitialized.current = true;
-        }, 
-        
-        
-        
-        
-        
-        
+        },
+
         ignoreReject,
       );
       return instrumentSearchParamsPromiseWithDevWarnings(
@@ -2126,12 +1895,6 @@
       workStore,
       promiseInitialized,
     ) {
-      
-      
-      
-      
-      
-      
       return new Proxy(underlyingSearchParams, {
         get(target, prop, receiver) {
           if (typeof prop === "string" && promiseInitialized.current) {
@@ -2180,12 +1943,9 @@
       promise,
       workStore,
     ) {
-      
       const proxiedProperties = new Set();
       Object.keys(underlyingSearchParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          
-          
         } else {
           proxiedProperties.add(prop);
         }
@@ -2202,8 +1962,7 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || 
-                
+              (proxiedProperties.has(prop) ||
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -2223,8 +1982,7 @@
           if (typeof prop === "string") {
             if (
               !_reflectutils.wellKnownProperties.has(prop) &&
-              (proxiedProperties.has(prop) || 
-                
+              (proxiedProperties.has(prop) ||
                 Reflect.has(target, prop) === false)
             ) {
               const expression = (0,
@@ -2263,7 +2021,7 @@
           configurable: true,
         },
       );
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2282,7 +2040,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/async-local-storage.js [app-client] (ecmascript)",
     );
     const dynamicAccessAsyncStorageInstance = (0,
-    _asynclocalstorage.createAsyncLocalStorage)(); 
+    _asynclocalstorage.createAsyncLocalStorage)();
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2299,14 +2057,14 @@
     });
     const _dynamicaccessasyncstorageinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js [app-client] (ecmascript)",
-    ); 
+    );
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -2417,9 +2175,6 @@
             );
           case "request":
             if (("TURBOPACK compile-time truthy", 1)) {
-              
-              
-              
               const devFallbackParams = workUnitStore.devFallbackParams;
               return createRenderParamsInDev(
                 underlyingParams,
@@ -2427,8 +2182,7 @@
                 workStore,
                 workUnitStore,
               );
-            } 
-            else;
+            } else;
           default:
             workUnitStore;
         }
@@ -2471,9 +2225,6 @@
             );
           case "request":
             if (("TURBOPACK compile-time truthy", 1)) {
-              
-              
-              
               const devFallbackParams = workUnitStore.devFallbackParams;
               return createRenderParamsInDev(
                 underlyingParams,
@@ -2481,8 +2232,7 @@
                 workStore,
                 workUnitStore,
               );
-            } 
-            else;
+            } else;
           default:
             workUnitStore;
         }
@@ -2524,9 +2274,6 @@
             );
           case "request":
             if (("TURBOPACK compile-time truthy", 1)) {
-              
-              
-              
               const devFallbackParams = workUnitStore.devFallbackParams;
               return createRenderParamsInDev(
                 underlyingParams,
@@ -2534,8 +2281,7 @@
                 workStore,
                 workUnitStore,
               );
-            } 
-            else;
+            } else;
           default:
             workUnitStore;
         }
@@ -2567,10 +2313,6 @@
             if (fallbackParams) {
               for (let key in underlyingParams) {
                 if (fallbackParams.has(key)) {
-                  
-                  
-                  
-                  
                   return (0, _dynamicrenderingutils.makeHangingPromise)(
                     workUnitStore.renderSignal,
                     workStore.route,
@@ -2603,9 +2345,7 @@
             workUnitStore;
         }
       }
-      
-      
-      
+
       return Promise.resolve(underlyingParams);
     }
     function createStaticPrerenderParams(
@@ -2620,10 +2360,6 @@
           if (fallbackParams) {
             for (const key in underlyingParams) {
               if (fallbackParams.has(key)) {
-                
-                
-                
-                
                 return makeHangingParams(
                   underlyingParams,
                   workStore,
@@ -2755,36 +2491,25 @@
       const augmentedUnderlying = {
         ...underlyingParams,
       };
-      
-      
-      
+
       const promise = Promise.resolve(augmentedUnderlying);
       CachedParams.set(underlyingParams, promise);
       Object.keys(underlyingParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          
-          
         } else {
           if (fallbackParams.has(prop)) {
             Object.defineProperty(augmentedUnderlying, prop, {
               get() {
                 const expression = (0,
                 _reflectutils.describeStringPropertyAccess)("params", prop);
-                
-                
-                
-                
-                
-                
+
                 if (prerenderStore.type === "prerender-ppr") {
-                  
                   (0, _dynamicrendering.postponeWithTracking)(
                     workStore.route,
                     expression,
                     prerenderStore.dynamicTracking,
                   );
                 } else {
-                  
                   (0, _dynamicrendering.throwToInterruptStaticGeneration)(
                     expression,
                     workStore,
@@ -2815,17 +2540,12 @@
       requestStore,
     ) {
       if (requestStore.asyncApiPromises && hasFallbackParams) {
-        
-        
-        
-        
-        
         const sharedParamsParent =
           requestStore.asyncApiPromises.sharedParamsParent;
         const promise = new Promise((resolve, reject) => {
           sharedParamsParent.then(() => resolve(underlyingParams), reject);
         });
-        
+
         promise.displayName = "params";
         return instrumentParamsPromiseWithDevWarnings(
           underlyingParams,
@@ -2837,9 +2557,7 @@
       if (cachedParams) {
         return cachedParams;
       }
-      
-      
-      
+
       const promise = hasFallbackParams
         ? (0, _dynamicrenderingutils.makeDevtoolsIOAwarePromise)(
             underlyingParams,
@@ -2860,12 +2578,9 @@
       promise,
       workStore,
     ) {
-      
       const proxiedProperties = new Set();
       Object.keys(underlyingParams).forEach((prop) => {
         if (_reflectutils.wellKnownProperties.has(prop)) {
-          
-          
         } else {
           proxiedProperties.add(prop);
         }
@@ -2913,7 +2628,7 @@
           configurable: true,
         },
       );
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/client-page.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2953,18 +2668,12 @@
         searchParams = serverProvidedParams.searchParams;
         params = serverProvidedParams.params;
       } else {
-        
-        
         const layoutRouterContext = (0, _react.use)(
           _approutercontextsharedruntime.LayoutRouterContext,
         );
         params =
           layoutRouterContext !== null ? layoutRouterContext.parentParams : {};
-        
-        
-        
-        
-        
+
         searchParams = (0, _routeparams.urlSearchParamsToParsedUrlQuery)(
           (0, _react.use)(_hooksclientcontextsharedruntime.SearchParamsContext),
         );
@@ -2975,8 +2684,7 @@
         );
         let clientSearchParams;
         let clientParams;
-        
-        
+
         const store = workAsyncStorage.getStore();
         if (!store) {
           throw Object.defineProperty(
@@ -2999,7 +2707,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/params.js [app-client] (ecmascript)",
         );
         clientParams = createParamsFromClient(params, store);
-        return  (0, _jsxruntime.jsx)(Component, {
+        return (0, _jsxruntime.jsx)(Component, {
           params: clientParams,
           searchParams: clientSearchParams,
         });
@@ -3013,7 +2721,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.js [app-client] (ecmascript)",
         );
         const clientParams = createRenderParamsFromClient(params);
-        return  (0, _jsxruntime.jsx)(Component, {
+        return (0, _jsxruntime.jsx)(Component, {
           params: clientParams,
           searchParams: clientSearchParams,
         });
@@ -3029,7 +2737,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/client-segment.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3061,8 +2769,6 @@
       if (serverProvidedParams !== null) {
         params = serverProvidedParams.params;
       } else {
-        
-        
         const layoutRouterContext = (0, _react.use)(
           _approutercontextsharedruntime.LayoutRouterContext,
         );
@@ -3074,8 +2780,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-async-storage.external.js [app-client] (ecmascript)",
         );
         let clientParams;
-        
-        
+
         const store = workAsyncStorage.getStore();
         if (!store) {
           throw Object.defineProperty(
@@ -3094,7 +2799,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request/params.js [app-client] (ecmascript)",
         );
         clientParams = createParamsFromClient(params, store);
-        return  (0, _jsxruntime.jsx)(Component, {
+        return (0, _jsxruntime.jsx)(Component, {
           ...slots,
           params: clientParams,
         });
@@ -3103,7 +2808,7 @@
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/request/params.browser.js [app-client] (ecmascript)",
         );
         const clientParams = createRenderParamsFromClient(params);
-        return  (0, _jsxruntime.jsx)(Component, {
+        return (0, _jsxruntime.jsx)(Component, {
           ...slots,
           params: clientParams,
         });
@@ -3119,7 +2824,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/metadata/generate/icon-mark.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3141,11 +2846,9 @@
       if (typeof window !== "undefined") {
         return null;
       }
-      return  (0, _jsxruntime.jsx)("meta", {
+      return (0, _jsxruntime.jsx)("meta", {
         name: "\xabnxt-icon\xbb",
       });
-    }; 
+    };
   },
 ]);
-
-

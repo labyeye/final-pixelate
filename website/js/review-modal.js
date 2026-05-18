@@ -1,4 +1,3 @@
-
 (function () {
   "use strict";
 
@@ -15,7 +14,6 @@
 
   let selectedRating = 0;
 
-  
   if (footerStars) {
     footerStars.addEventListener("click", (e) => {
       if (e.target.classList.contains("star")) {
@@ -23,7 +21,6 @@
       }
     });
 
-    
     const footerStarElements = footerStars.querySelectorAll(".star");
     footerStarElements.forEach((star) => {
       star.addEventListener("mouseenter", function () {
@@ -41,7 +38,6 @@
     });
   }
 
-  
   if (modalStars.length) {
     modalStars.forEach((star) => {
       star.addEventListener("click", function () {
@@ -56,19 +52,17 @@
       });
     });
 
-    
     document.getElementById("modalStars").addEventListener("mouseleave", () => {
       updateModalStarDisplay();
     });
   }
 
-  
   function openModal() {
     if (reviewModal) {
       reviewModal.classList.add("active");
       reviewModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
-      
+
       const firstInput = reviewForm.querySelector("input");
       if (firstInput) firstInput.focus();
     }
@@ -120,7 +114,6 @@
     });
   }
 
-  
   if (closeModalBtn) {
     closeModalBtn.addEventListener("click", closeModal);
   }
@@ -129,7 +122,6 @@
     cancelReviewBtn.addEventListener("click", closeModal);
   }
 
-  
   if (reviewModal) {
     reviewModal.addEventListener("click", (e) => {
       if (e.target === reviewModal) {
@@ -138,14 +130,16 @@
     });
   }
 
-  
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && reviewModal && reviewModal.classList.contains("active")) {
+    if (
+      e.key === "Escape" &&
+      reviewModal &&
+      reviewModal.classList.contains("active")
+    ) {
       closeModal();
     }
   });
 
-  
   if (reviewForm) {
     reviewForm.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -166,7 +160,6 @@
       };
 
       try {
-        
         const API_BASE =
           window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
             ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
@@ -179,7 +172,10 @@
         });
 
         if (response.ok) {
-          showMessage("Thank you for your review! We appreciate your feedback.", "success");
+          showMessage(
+            "Thank you for your review! We appreciate your feedback.",
+            "success",
+          );
           reviewForm.reset();
           selectedRating = 0;
           updateModalStarDisplay();
@@ -188,9 +184,11 @@
           showMessage("Error submitting review. Please try again.", "error");
         }
       } catch (err) {
-        
         console.log("Review submitted (local):", formData);
-        showMessage("Thank you for your review! We appreciate your feedback.", "success");
+        showMessage(
+          "Thank you for your review! We appreciate your feedback.",
+          "success",
+        );
         reviewForm.reset();
         selectedRating = 0;
         updateModalStarDisplay();

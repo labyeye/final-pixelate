@@ -58,7 +58,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/set-attributes-from-props.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -96,28 +96,23 @@
       for (const [p, value] of Object.entries(props)) {
         if (!props.hasOwnProperty(p)) continue;
         if (ignoreProps.includes(p)) continue;
-        
+
         if (value === undefined) {
           continue;
         }
         const attr = DOMAttributeNames[p] || p.toLowerCase();
         if (el.tagName === "SCRIPT" && isBooleanScriptAttribute(attr)) {
-          
-          
           el[attr] = !!value;
         } else {
           el.setAttribute(attr, String(value));
         }
-        
-        
+
         if (
           value === false ||
           (el.tagName === "SCRIPT" &&
             isBooleanScriptAttribute(attr) &&
             (!value || value === "false"))
         ) {
-          
-          
           el.setAttribute(attr, "");
           el.removeAttribute(attr);
         }
@@ -133,19 +128,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-bootstrap.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -195,7 +185,6 @@
         }, Promise.resolve())
         .catch((err) => {
           console.error(err);
-          
         })
         .then(() => {
           hydrate();
@@ -204,12 +193,7 @@
     function appBootstrap(hydrate) {
       const assetPrefix = (0, _assetprefix.getAssetPrefix)();
       loadScriptsInSequence(self.__next_s, () => {
-        
-        
-        
-        
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
         hydrate(assetPrefix);
       });
     }
@@ -223,7 +207,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/react-client-callbacks/report-global-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -242,7 +226,6 @@
       typeof reportError === "function"
         ? reportError
         : (error) => {
-            
             globalThis.console.error(error);
           };
     if (
@@ -255,15 +238,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -296,7 +278,7 @@
     const _bailouttocsr = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/bailout-to-csr.js [app-client] (ecmascript)",
     );
-    const _iserror =  _interop_require_default._(
+    const _iserror = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
       ),
@@ -309,10 +291,9 @@
       return recoverableErrors.has(error);
     }
     const onRecoverableError = (error) => {
-      
       let cause =
         (0, _iserror.default)(error) && "cause" in error ? error.cause : error;
-      
+
       if ((0, _bailouttocsr.isBailoutToCSRError)(cause)) return;
       if (("TURBOPACK compile-time truthy", 1)) {
         const { decorateDevError } = __turbopack_context__.r(
@@ -334,7 +315,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -423,7 +404,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-status-code.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -438,7 +419,7 @@
         return RedirectStatusCode;
       },
     });
-    var RedirectStatusCode =  (function (RedirectStatusCode) {
+    var RedirectStatusCode = (function (RedirectStatusCode) {
       RedirectStatusCode[(RedirectStatusCode["SeeOther"] = 303)] = "SeeOther";
       RedirectStatusCode[(RedirectStatusCode["TemporaryRedirect"] = 307)] =
         "TemporaryRedirect";
@@ -456,7 +437,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -493,7 +474,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-status-code.js [app-client] (ecmascript)",
     );
     const REDIRECT_ERROR_CODE = "NEXT_REDIRECT";
-    var RedirectType =  (function (RedirectType) {
+    var RedirectType = (function (RedirectType) {
       RedirectType["push"] = "push";
       RedirectType["replace"] = "replace";
       return RedirectType;
@@ -530,7 +511,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/is-next-router-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -567,7 +548,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/lib/console.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -599,7 +580,7 @@
     const _interop_require_default = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)",
     );
-    const _iserror =  _interop_require_default._(
+    const _iserror = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)",
       ),
@@ -683,8 +664,6 @@
         const code = message[++i];
         switch (code) {
           case "c": {
-            
-            
             result = startQuote ? `${result}]` : `[${result}`;
             startQuote = !startQuote;
             idx++;
@@ -718,19 +697,6 @@
       return result;
     }
     function parseConsoleArgs(args) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       if (
         args.length > 3 &&
         typeof args[0] === "string" &&
@@ -761,15 +727,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-globals.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -779,7 +744,7 @@
     __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/polyfill-module.js [app-client] (ecmascript)",
     );
-    
+
     if (("TURBOPACK compile-time truthy", 1)) {
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-setup.js [app-client] (ecmascript)",
@@ -795,7 +760,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-headers.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -927,7 +892,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation-untracked.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -948,15 +913,9 @@
     const _hooksclientcontextsharedruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js [app-client] (ecmascript)",
     );
-    
 
-
-
-
-
- function hasFallbackRouteParams() {
+    function hasFallbackRouteParams() {
       if (typeof window === "undefined") {
-        
         const { workUnitAsyncStorage } = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js [app-client] (ecmascript)",
         );
@@ -983,16 +942,10 @@
       return false;
     }
     function useUntrackedPathname() {
-      
-      
-      
-      
       if (hasFallbackRouteParams()) {
         return null;
       }
-      
-      
-      
+
       return (0, _react.useContext)(
         _hooksclientcontextsharedruntime.PathnameContext,
       );
@@ -1007,7 +960,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-href-from-url.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1035,14 +988,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/nav-failure-handler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1095,8 +1048,7 @@
       return false;
     }
     function useNavFailureHandler() {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
     }
     if (
       (typeof exports.default === "function" ||
@@ -1108,7 +1060,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/handle-isr-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1151,14 +1103,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/error-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -1192,7 +1144,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_default._(
+    const _react = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1230,8 +1182,6 @@
       }
       static getDerivedStateFromError(error) {
         if ((0, _isnextroutererror.isNextRouterError)(error)) {
-          
-          
           throw error;
         }
         return {
@@ -1240,18 +1190,10 @@
       }
       static getDerivedStateFromProps(props, state) {
         const { error } = state;
-        
-        
-        
-        
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
-        
 
+        if (("TURBOPACK compile-time falsy", 0));
 
-
-
- if (props.pathname !== state.previousPathname && state.error) {
+        if (props.pathname !== state.previousPathname && state.error) {
           return {
             error: null,
             previousPathname: props.pathname,
@@ -1262,22 +1204,17 @@
           previousPathname: props.pathname,
         };
       }
-      
+
       render() {
-        
-        
         if (this.state.error && !isBotUserAgent) {
-          return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+          return (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [
-               (0, _jsxruntime.jsx)(
-                _handleisrerror.HandleISRError,
-                {
-                  error: this.state.error,
-                },
-              ),
+              (0, _jsxruntime.jsx)(_handleisrerror.HandleISRError, {
+                error: this.state.error,
+              }),
               this.props.errorStyles,
               this.props.errorScripts,
-               (0, _jsxruntime.jsx)(this.props.errorComponent, {
+              (0, _jsxruntime.jsx)(this.props.errorComponent, {
                 error: this.state.error,
                 reset: this.reset,
               }),
@@ -1293,13 +1230,9 @@
       errorScripts,
       children,
     }) {
-      
-      
-      
-      
       const pathname = (0, _navigationuntracked.useUntrackedPathname)();
       if (errorComponent) {
-        return  (0, _jsxruntime.jsx)(ErrorBoundaryHandler, {
+        return (0, _jsxruntime.jsx)(ErrorBoundaryHandler, {
           pathname: pathname,
           errorComponent: errorComponent,
           errorStyles: errorStyles,
@@ -1307,7 +1240,7 @@
           children: children,
         });
       }
-      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -1321,7 +1254,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1330,16 +1263,12 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    Object.defineProperty(
-      exports, 
-      "default",
-      {
-        enumerable: true,
-        get: function () {
-          return _default;
-        },
+    Object.defineProperty(exports, "default", {
+      enumerable: true,
+      get: function () {
+        return _default;
       },
-    );
+    });
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
@@ -1348,7 +1277,6 @@
     );
     const styles = {
       error: {
-        
         fontFamily:
           'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
         height: "100vh",
@@ -1367,23 +1295,20 @@
     };
     function DefaultGlobalError({ error }) {
       const digest = error?.digest;
-      return  (0, _jsxruntime.jsxs)("html", {
+      return (0, _jsxruntime.jsxs)("html", {
         id: "__next_error__",
         children: [
-           (0, _jsxruntime.jsx)("head", {}),
-           (0, _jsxruntime.jsxs)("body", {
+          (0, _jsxruntime.jsx)("head", {}),
+          (0, _jsxruntime.jsxs)("body", {
             children: [
-               (0, _jsxruntime.jsx)(
-                _handleisrerror.HandleISRError,
-                {
-                  error: error,
-                },
-              ),
-               (0, _jsxruntime.jsx)("div", {
+              (0, _jsxruntime.jsx)(_handleisrerror.HandleISRError, {
+                error: error,
+              }),
+              (0, _jsxruntime.jsx)("div", {
                 style: styles.error,
-                children:  (0, _jsxruntime.jsxs)("div", {
+                children: (0, _jsxruntime.jsxs)("div", {
                   children: [
-                     (0, _jsxruntime.jsxs)("h2", {
+                    (0, _jsxruntime.jsxs)("h2", {
                       style: styles.text,
                       children: [
                         "Application error: a ",
@@ -1397,7 +1322,7 @@
                       ],
                     }),
                     digest
-                      ?  (0, _jsxruntime.jsx)("p", {
+                      ? (0, _jsxruntime.jsx)("p", {
                           style: styles.text,
                           children: `Digest: ${digest}`,
                         })
@@ -1421,7 +1346,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/runtime-error-handler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1449,7 +1374,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/not-found.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1467,20 +1392,8 @@
     const _httpaccessfallback = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
     );
-    
 
-
-
-
-
-
-
-
-
-
-
-
- const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};404`;
+    const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};404`;
     function notFound() {
       const error = Object.defineProperty(
         new Error(DIGEST),
@@ -1504,15 +1417,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1554,7 +1466,7 @@
     const _errorboundary = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/error-boundary.js [app-client] (ecmascript)",
     );
-    const _globalerror =  _interop_require_default._(
+    const _globalerror = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
       ),
@@ -1579,7 +1491,7 @@
         (errorBoundaryComponent === _errorboundary.ErrorBoundaryHandler &&
           errorInfo.errorBoundary.props.errorComponent ===
             _globalerror.default);
-      
+
       if (("TURBOPACK compile-time truthy", 1)) {
         const { SEGMENT_EXPLORER_SIMULATED_ERROR_MESSAGE } =
           __turbopack_context__.r(
@@ -1593,12 +1505,9 @@
         }
       }
       if (isImplicitErrorBoundary) {
-        
-        
-        
         return onUncaughtError(thrownValue);
       }
-      
+
       if (
         (0, _bailouttocsr.isBailoutToCSRError)(thrownValue) ||
         (0, _isnextroutererror.isNextRouterError)(thrownValue)
@@ -1611,30 +1520,27 @@
           "Unknown";
         const componentThatErroredFrame =
           errorInfo?.componentStack?.split("\n")[1];
-        
-        const matches = 
-          
+
+        const matches =
           componentThatErroredFrame?.match(/\s+at (\w+)\s+|(\w+)@/) ?? [];
         const componentThatErroredName = matches[1] || matches[2] || "Unknown";
-        
+
         const errorBoundaryMessage = `It was handled by the <${errorBoundaryName}> error boundary.`;
         const componentErrorMessage = ("TURBOPACK compile-time truthy", 1)
           ? `The above error occurred in the <${componentThatErroredName}> component.`
           : "TURBOPACK unreachable";
         const errorLocation = `${componentErrorMessage} ${errorBoundaryMessage}`;
         const error = devToolErrorMod.decorateDevError(thrownValue);
-        
+
         devToolErrorMod.originConsoleError(
           "%o\n\n%s",
           thrownValue,
           errorLocation,
         );
         devToolErrorMod.handleClientError(error);
-      } 
-      else;
+      } else;
     }
     function onUncaughtError(thrownValue) {
-      
       if (
         (0, _bailouttocsr.isBailoutToCSRError)(thrownValue) ||
         (0, _isnextroutererror.isNextRouterError)(thrownValue)
@@ -1642,10 +1548,9 @@
         return;
       if (("TURBOPACK compile-time truthy", 1)) {
         const error = devToolErrorMod.decorateDevError(thrownValue);
-        
+
         (0, _reportglobalerror.reportGlobalError)(error);
-      } 
-      else;
+      } else;
     }
     if (
       (typeof exports.default === "function" ||
@@ -1657,7 +1562,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/router-reducer-types.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1712,7 +1617,7 @@
     const ACTION_SERVER_PATCH = "server-patch";
     const ACTION_HMR_REFRESH = "hmr-refresh";
     const ACTION_SERVER_ACTION = "server-action";
-    var PrefetchKind =  (function (PrefetchKind) {
+    var PrefetchKind = (function (PrefetchKind) {
       PrefetchKind["AUTO"] = "auto";
       PrefetchKind["FULL"] = "full";
       PrefetchKind["TEMPORARY"] = "temporary";
@@ -1728,14 +1633,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/use-action-queue.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1765,7 +1670,7 @@
     const _interop_require_wildcard = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -1773,9 +1678,7 @@
     const _isthenable = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-thenable.js [app-client] (ecmascript)",
     );
-    
-    
-    
+
     let dispatch = null;
     function dispatchAppRouterAction(action) {
       if (dispatch === null) {
@@ -1800,37 +1703,23 @@
       : "TURBOPACK unreachable";
     function useActionQueue(actionQueue) {
       const [state, setState] = _react.default.useState(actionQueue.state);
-      
-      
-      
-      
-      
-      
-      
+
       if (("TURBOPACK compile-time truthy", 1)) {
         const { useAppDevRenderingIndicator } = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/use-app-dev-rendering-indicator.js [app-client] (ecmascript)",
         );
-        
+
         const appDevRenderingIndicator = useAppDevRenderingIndicator();
         dispatch = (action) => {
           appDevRenderingIndicator(() => {
             actionQueue.dispatch(action, setState);
           });
         };
-      } 
-      else;
-      
-      
-      
-      
-      
+      } else;
+
       const stateWithDebugInfo = (0, _react.useMemo)(() => {
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
         if ((0, _isthenable.isThenable)(state)) {
-          
-          
           let promiseWithDebugInfo = promisesWithDebugInfo.get(state);
           if (promiseWithDebugInfo === undefined) {
             const debugInfo = [];
@@ -1861,7 +1750,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-call-server.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1908,14 +1797,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-find-source-map-url.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -1939,13 +1828,6 @@
             filename.startsWith(document.location.origin) &&
             filename.includes("/_next/static")
           ) {
-            
-            
-            
-            
-            
-            
-            
             return `${filename}.map`;
           }
           const url = new URL(pathname, document.location.origin);
@@ -1963,7 +1845,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/match-segments.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -1979,10 +1861,8 @@
       },
     });
     const matchSegment = (existingSegment, segment) => {
-      
       if (typeof existingSegment === "string") {
         if (typeof segment === "string") {
-          
           return existingSegment === segment;
         }
         return false;
@@ -2004,7 +1884,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/compute-changed-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2051,8 +1931,6 @@
     };
     const segmentToPathname = (segment) => {
       if (typeof segment === "string") {
-        
-        
         if (segment === "children") return "";
         return segment;
       }
@@ -2114,7 +1992,6 @@
         return "";
       }
       if (!(0, _matchsegments.matchSegment)(segmentA, segmentB)) {
-        
         return extractPathFromFlightRouterState(treeB) ?? "";
       }
       for (const parallelRouterKey in parallelRoutesA) {
@@ -2135,7 +2012,7 @@
       if (changedPath == null || changedPath === "/") {
         return changedPath;
       }
-      
+
       return normalizeSegments(changedPath.split("/"));
     }
     function getSelectedParams(currentTree, params = {}) {
@@ -2146,7 +2023,7 @@
         const segmentValue = isDynamicParameter ? segment[1] : segment;
         if (!segmentValue || segmentValue.startsWith(_segment.PAGE_SEGMENT_KEY))
           continue;
-        
+
         const isCatchAll =
           isDynamicParameter && (segment[2] === "c" || segment[2] === "oc");
         if (isCatchAll) {
@@ -2168,7 +2045,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/handle-mutable.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2190,28 +2067,22 @@
       return typeof value !== "undefined";
     }
     function handleMutable(state, mutable) {
-      
       const shouldScroll = mutable.shouldScroll ?? true;
       let previousNextUrl = state.previousNextUrl;
       let nextUrl = state.nextUrl;
       if (isNotUndefined(mutable.patchedTree)) {
-        
         const changedPath = (0, _computechangedpath.computeChangedPath)(
           state.tree,
           mutable.patchedTree,
         );
         if (changedPath) {
-          
           previousNextUrl = nextUrl;
           nextUrl = changedPath;
         } else if (!nextUrl) {
-          
           nextUrl = state.canonicalUrl;
         }
-        
       }
       return {
-        
         canonicalUrl: mutable.canonicalUrl ?? state.canonicalUrl,
         renderedSearch: mutable.renderedSearch ?? state.renderedSearch,
         pushRef: {
@@ -2227,7 +2098,7 @@
             ? mutable.preserveCustomHistoryState
             : state.pushRef.preserveCustomHistoryState,
         },
-        
+
         focusAndScrollRef: {
           apply: shouldScroll
             ? isNotUndefined(mutable?.scrollableSegments)
@@ -2245,9 +2116,9 @@
               state.focusAndScrollRef.segmentPaths)
             : [],
         },
-        
+
         cache: mutable.cache ? mutable.cache : state.cache,
-        
+
         tree: isNotUndefined(mutable.patchedTree)
           ? mutable.patchedTree
           : state.tree,
@@ -2266,14 +2137,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/route-params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -2334,23 +2205,16 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-headers.js [app-client] (ecmascript)",
     );
     function getRenderedSearch(response) {
-      
-      
-      
       const rewrittenQuery = response.headers.get(
         _approuterheaders.NEXT_REWRITTEN_QUERY_HEADER,
       );
       if (rewrittenQuery !== null) {
         return rewrittenQuery === "" ? "" : "?" + rewrittenQuery;
       }
-      
-      
+
       return urlToUrlWithoutFlightMarker(new URL(response.url)).search;
     }
     function getRenderedPathname(response) {
-      
-      
-      
       const rewrittenPath = response.headers.get(
         _approuterheaders.NEXT_REWRITTEN_PATH_HEADER,
       );
@@ -2360,17 +2224,13 @@
       );
     }
     function parseDynamicParamFromURLPart(paramType, pathnameParts, partIndex) {
-      
       switch (paramType) {
-        
         case "c": {
-          
-          
           return partIndex < pathnameParts.length
             ? pathnameParts.slice(partIndex).map((s) => encodeURIComponent(s))
             : [];
         }
-        
+
         case "ci(..)(..)":
         case "ci(.)":
         case "ci(..)":
@@ -2385,42 +2245,26 @@
               })
             : [];
         }
-        
+
         case "oc": {
-          
-          
           return partIndex < pathnameParts.length
             ? pathnameParts.slice(partIndex).map((s) => encodeURIComponent(s))
             : null;
         }
-        
+
         case "d": {
           if (partIndex >= pathnameParts.length) {
-            
-            
-            
-            
-            
-            
-            
             return "";
           }
           return encodeURIComponent(pathnameParts[partIndex]);
         }
-        
+
         case "di(..)(..)":
         case "di(.)":
         case "di(..)":
         case "di(...)": {
           const prefix = paramType.length - 2;
           if (partIndex >= pathnameParts.length) {
-            
-            
-            
-            
-            
-            
-            
             return "";
           }
           return encodeURIComponent(pathnameParts[partIndex].slice(prefix));
@@ -2431,38 +2275,20 @@
       }
     }
     function doesStaticSegmentAppearInURL(segment) {
-      
-      
-      
-      
-      
-      
-      
       if (
-        segment === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY || 
-        
-        
-        
-        
-        segment.startsWith(_segment.PAGE_SEGMENT_KEY) || 
+        segment === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY ||
+        segment.startsWith(_segment.PAGE_SEGMENT_KEY) ||
         (segment[0] === "(" && segment.endsWith(")")) ||
         segment === _segment.DEFAULT_SEGMENT_KEY ||
         segment === "/_not-found"
       ) {
         return false;
       } else {
-        
         return true;
       }
     }
     function getCacheKeyForDynamicParam(paramValue, renderedSearch) {
-      
-      
-      
       if (typeof paramValue === "string") {
-        
-        
-        
         const pageSegmentWithSearchParams = (0,
         _segment.addSearchParamsIfPageSegment)(
           paramValue,
@@ -2480,29 +2306,17 @@
       urlWithoutFlightParameters.searchParams.delete(
         _approuterheaders.NEXT_RSC_UNION_QUERY,
       );
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       return urlWithoutFlightParameters;
     }
     function getParamValueFromCacheKey(paramCacheKey, paramType) {
-      
-      
       const isCatchAll = paramType === "c" || paramType === "oc";
       if (isCatchAll) {
-        
-        
-        
-        
-        
-        
         return paramCacheKey.split("/");
       }
       return paramCacheKey;
     }
     function urlSearchParamsToParsedUrlQuery(searchParams) {
-      
-      
-      
       const result = {};
       for (const [key, value] of searchParams.entries()) {
         if (result[key] === undefined) {
@@ -2525,7 +2339,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/flight-data-helpers.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2576,21 +2390,16 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-href-from-url.js [app-client] (ecmascript)",
     );
     function getFlightDataPartsFromPath(flightDataPath) {
-      
       const flightDataPathLength = 4;
-      
+
       const [tree, seedData, head, isHeadPartial] =
         flightDataPath.slice(-flightDataPathLength);
-      
+
       const segmentPath = flightDataPath.slice(0, -flightDataPathLength);
       return {
-        
-        
-        
         pathToSegment: segmentPath.slice(0, -1),
         segmentPath,
-        
-        
+
         segment: segmentPath[segmentPath.length - 1] ?? "",
         tree,
         seedData,
@@ -2603,27 +2412,6 @@
       response,
       fallbackInitialRSCPayload,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const renderedPathname = (0, _routeparams.getRenderedPathname)(response);
       const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
       const canonicalUrl = (0, _createhreffromurl.createHrefFromUrl)(
@@ -2696,8 +2484,7 @@
         newSegment = [paramName, cacheKey, paramType];
         doesAppearInURL = true;
       }
-      
-      
+
       const childPathnamePartsIndex = doesAppearInURL
         ? pathnamePartsIndex + 1
         : pathnamePartsIndex;
@@ -2722,13 +2509,9 @@
       return newState;
     }
     function getNextFlightSegmentPath(flightSegmentPath) {
-      
-      
       return flightSegmentPath.slice(2);
     }
     function normalizeFlightData(flightData) {
-      
-      
       if (typeof flightData === "string") {
         return flightData;
       }
@@ -2740,7 +2523,6 @@
       flightRouterState,
       isHmrRefresh,
     ) {
-      
       if (isHmrRefresh) {
         return encodeURIComponent(JSON.stringify(flightRouterState));
       }
@@ -2750,10 +2532,8 @@
         ),
       );
     }
-    
 
-
- function stripClientOnlyDataFromFlightRouterState(flightRouterState) {
+    function stripClientOnlyDataFromFlightRouterState(flightRouterState) {
       const [
         segment,
         parallelRoutes,
@@ -2762,10 +2542,9 @@
         isRootLayout,
         hasLoadingBoundary,
       ] = flightRouterState;
-      
-      
+
       const cleanedSegment = stripSearchParamsFromPageSegment(segment);
-      
+
       const cleanedParallelRoutes = {};
       for (const [key, childState] of Object.entries(parallelRoutes)) {
         cleanedParallelRoutes[key] =
@@ -2777,7 +2556,7 @@
         null,
         shouldPreserveRefreshMarker(refreshMarker) ? refreshMarker : null,
       ];
-      
+
       if (isRootLayout !== undefined) {
         result[4] = isRootLayout;
       }
@@ -2786,10 +2565,8 @@
       }
       return result;
     }
-    
 
-
- function stripSearchParamsFromPageSegment(segment) {
+    function stripSearchParamsFromPageSegment(segment) {
       if (
         typeof segment === "string" &&
         segment.startsWith(_segment.PAGE_SEGMENT_KEY + "?")
@@ -2798,11 +2575,8 @@
       }
       return segment;
     }
-    
 
-
-
- function shouldPreserveRefreshMarker(refreshMarker) {
+    function shouldPreserveRefreshMarker(refreshMarker) {
       return Boolean(refreshMarker && refreshMarker !== "refresh");
     }
     if (
@@ -2815,24 +2589,12 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-build-id.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -2873,7 +2635,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/set-cache-busting-search-param.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -2919,22 +2681,11 @@
       setCacheBustingSearchParamWithHash(url, uniqueCacheKey);
     };
     const setCacheBustingSearchParamWithHash = (url, hash) => {
-      
-
-
-
-
-
-
-
-
-
- const existingSearch = url.search;
+      const existingSearch = url.search;
       const rawQuery = existingSearch.startsWith("?")
         ? existingSearch.slice(1)
         : existingSearch;
-      
-      
+
       const pairs = rawQuery
         .split("&")
         .filter(
@@ -2959,14 +2710,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fetch-server-response.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -3028,8 +2779,7 @@
     const createFromReadableStream = _client.createFromReadableStream;
     const createFromFetch = _client.createFromFetch;
     let createDebugChannel;
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     function doMpaNavigation(url) {
       return (0, _routeparams.urlToUrlWithoutFlightMarker)(
         new URL(url, location.origin),
@@ -3037,14 +2787,10 @@
     }
     let isPageUnloading = false;
     if (typeof window !== "undefined") {
-      
-      
-      
       window.addEventListener("pagehide", () => {
         isPageUnloading = true;
       });
-      
-      
+
       window.addEventListener("pageshow", () => {
         isPageUnloading = false;
       });
@@ -3052,21 +2798,16 @@
     async function fetchServerResponse(url, options) {
       const { flightRouterState, nextUrl, prefetchKind } = options;
       const headers = {
-        
         [_approuterheaders.RSC_HEADER]: "1",
-        
+
         [_approuterheaders.NEXT_ROUTER_STATE_TREE_HEADER]: (0,
         _flightdatahelpers.prepareFlightRouterStateForRequest)(
           flightRouterState,
           options.isHmrRefresh,
         ),
       };
-      
 
-
-
-
- if (prefetchKind === _routerreducertypes.PrefetchKind.AUTO) {
+      if (prefetchKind === _routerreducertypes.PrefetchKind.AUTO) {
         headers[_approuterheaders.NEXT_ROUTER_PREFETCH_HEADER] = "1";
       }
       if (
@@ -3078,24 +2819,16 @@
       if (nextUrl) {
         headers[_approuterheaders.NEXT_URL] = nextUrl;
       }
-      
-      
+
       const originalUrl = url;
       try {
-        
-        
-        
-        
         const fetchPriority = prefetchKind
           ? prefetchKind === _routerreducertypes.PrefetchKind.TEMPORARY
             ? "high"
             : "low"
           : "auto";
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
-        
-        
-        
+        if (("TURBOPACK compile-time falsy", 0));
+
         const isLegacyPPR =
           ("TURBOPACK compile-time value", false) &&
           !("TURBOPACK compile-time value", false);
@@ -3127,33 +2860,18 @@
         let isFlightResponse = contentType.startsWith(
           _approuterheaders.RSC_CONTENT_TYPE_HEADER,
         );
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
-        
-        
+        if (("TURBOPACK compile-time falsy", 0));
+
         if (!isFlightResponse || !res.ok || !res.body) {
-          
           if (url.hash) {
             responseUrl.hash = url.hash;
           }
           return doMpaNavigation(responseUrl.toString());
         }
-        
-        
-        
-        
-        
-        
-        
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+
+        if (("TURBOPACK compile-time falsy", 0));
         let flightResponsePromise = res.flightResponse;
         if (flightResponsePromise === null) {
-          
-          
-          
-          
-          
           const flightStream = postponed
             ? createUnclosingPrefetchStream(res.body)
             : res.body;
@@ -3188,9 +2906,7 @@
             err,
           );
         }
-        
-        
-        
+
         return originalUrl.toString();
       }
     }
@@ -3201,100 +2917,52 @@
       shouldImmediatelyDecode,
       signal,
     ) {
-      
-      
-      
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
+      if (("TURBOPACK compile-time falsy", 0));
       if (("TURBOPACK compile-time truthy", 1)) {
         if (self.__next_r) {
           headers[_approuterheaders.NEXT_HTML_REQUEST_ID_HEADER] =
             self.__next_r;
         }
-        
-        
-        
+
         headers[_approuterheaders.NEXT_REQUEST_ID_HEADER] = crypto
           .getRandomValues(new Uint32Array(1))[0]
           .toString(16);
       }
       const fetchOptions = {
-        
         credentials: "same-origin",
         headers,
         priority: fetchPriority || undefined,
         signal,
       };
-      
-      
-      
+
       let fetchUrl = new URL(url);
       (0, _setcachebustingsearchparam.setCacheBustingSearchParam)(
         fetchUrl,
         headers,
       );
       let fetchPromise = fetch(fetchUrl, fetchOptions);
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       let flightResponsePromise = shouldImmediatelyDecode
         ? createFromNextFetch(fetchPromise, headers)
         : null;
       let browserResponse = await fetchPromise;
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       let redirected = browserResponse.redirected;
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
-      
-      
+      if (("TURBOPACK compile-time falsy", 0));
+
       const responseUrl = new URL(browserResponse.url, fetchUrl);
       responseUrl.searchParams.delete(_approuterheaders.NEXT_RSC_UNION_QUERY);
       const rscResponse = {
         url: responseUrl.href,
-        
-        
-        
-        
+
         redirected,
-        
-        
-        
+
         ok: browserResponse.ok,
         headers: browserResponse.headers,
         body: browserResponse.body,
         status: browserResponse.status,
-        
-        
-        
+
         flightResponse: flightResponsePromise,
       };
       return rscResponse;
@@ -3314,30 +2982,16 @@
       });
     }
     function createUnclosingPrefetchStream(originalFlightStream) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const reader = originalFlightStream.getReader();
       return new ReadableStream({
         async pull(controller) {
           while (true) {
             const { done, value } = await reader.read();
             if (!done) {
-              
-              
               controller.enqueue(value);
               continue;
             }
-            
-            
+
             return;
           }
         },
@@ -3353,7 +3007,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-router-cache-key.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3372,13 +3026,10 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [app-client] (ecmascript)",
     );
     function createRouterCacheKey(segment, withoutSearchParameters = false) {
-      
-      
       if (Array.isArray(segment)) {
         return `${segment[0]}|${segment[1]}|${segment[2]}`;
       }
-      
-      
+
       if (
         withoutSearchParameters &&
         segment.startsWith(_segment.PAGE_SEGMENT_KEY)
@@ -3397,7 +3048,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/is-navigating-to-new-root-layout.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3413,15 +3064,10 @@
       },
     });
     function isNavigatingToNewRootLayout(currentTree, nextTree) {
-      
       const currentTreeSegment = currentTree[0];
       const nextTreeSegment = nextTree[0];
-      
-      
-      
+
       if (Array.isArray(currentTreeSegment) && Array.isArray(nextTreeSegment)) {
-        
-        
         if (
           currentTreeSegment[0] !== nextTreeSegment[0] ||
           currentTreeSegment[2] !== nextTreeSegment[2]
@@ -3431,18 +3077,15 @@
       } else if (currentTreeSegment !== nextTreeSegment) {
         return true;
       }
-      
+
       if (currentTree[4]) {
-        
         return !nextTree[4];
       }
-      
+
       if (nextTree[4]) {
         return true;
       }
-      
-      
-      
+
       const currentTreeChild = Object.values(currentTree[1])[0];
       const nextTreeChild = Object.values(nextTree[1])[0];
       if (!currentTreeChild || !nextTreeChild) return true;
@@ -3458,7 +3101,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/ppr-navigations.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -3561,58 +3204,25 @@
       segmentPath,
       scrollableSegmentsResult,
     ) {
-      
       const oldRouterStateChildren = oldRouterState[1];
       const newRouterStateChildren = newRouterState[1];
       const prefetchDataChildren =
         prefetchData !== null ? prefetchData[1] : null;
       if (!didFindRootLayout) {
-        
-        
-        
         const isRootLayout = newRouterState[4] === true;
         if (isRootLayout) {
-          
           didFindRootLayout = true;
         }
       }
       const oldParallelRoutes = oldCacheNode.parallelRoutes;
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       const prefetchParallelRoutes = new Map(oldParallelRoutes);
-      
-      
-      
-      
-      
+
       let patchedRouterStateChildren = {};
       let taskChildren = null;
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       let needsDynamicRequest = false;
-      
-      
-      
-      
-      
-      
-      
+
       let dynamicRequestTreeChildren = {};
       for (let parallelRouteKey in newRouterStateChildren) {
         const newRouterStateChild = newRouterStateChildren[parallelRouteKey];
@@ -3639,23 +3249,12 @@
             : undefined;
         let taskChild;
         if (newSegmentChild === _segment.DEFAULT_SEGMENT_KEY) {
-          
-          
-          
-          
-          
-          
-          
           if (oldRouterStateChild !== undefined) {
-            
-            
-            
             taskChild = reuseActiveSegmentInDefaultSlot(
               oldUrl,
               oldRouterStateChild,
             );
           } else {
-            
             taskChild = beginRenderingNewRouteTree(
               navigatedAt,
               oldRouterStateChild,
@@ -3670,32 +3269,9 @@
             );
           }
         } else if (
-          isSamePageNavigation && 
-          
-          
-          
-          
-          
+          isSamePageNavigation &&
           Object.keys(newRouterStateChild[1]).length === 0
         ) {
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           taskChild = beginRenderingNewRouteTree(
             navigatedAt,
             oldRouterStateChild,
@@ -3717,8 +3293,6 @@
             oldCacheNodeChild !== undefined &&
             oldRouterStateChild !== undefined
           ) {
-            
-            
             taskChild = updateCacheNodeOnNavigation(
               navigatedAt,
               oldUrl,
@@ -3734,8 +3308,6 @@
               scrollableSegmentsResult,
             );
           } else {
-            
-            
             taskChild = beginRenderingNewRouteTree(
               navigatedAt,
               oldRouterStateChild,
@@ -3750,7 +3322,6 @@
             );
           }
         } else {
-          
           taskChild = beginRenderingNewRouteTree(
             navigatedAt,
             oldRouterStateChild,
@@ -3765,10 +3336,7 @@
           );
         }
         if (taskChild !== null) {
-          
           if (taskChild.route === null) {
-            
-            
             return MPA_NAVIGATION_TASK;
           }
           if (taskChildren === null) {
@@ -3781,14 +3349,11 @@
             newSegmentMapChild.set(newSegmentKeyChild, newCacheNodeChild);
             prefetchParallelRoutes.set(parallelRouteKey, newSegmentMapChild);
           }
-          
-          
-          
+
           const taskChildRoute = taskChild.route;
           patchedRouterStateChildren[parallelRouteKey] = taskChildRoute;
           const dynamicRequestTreeChild = taskChild.dynamicRequestTree;
           if (dynamicRequestTreeChild !== null) {
-            
             needsDynamicRequest = true;
             dynamicRequestTreeChildren[parallelRouteKey] =
               dynamicRequestTreeChild;
@@ -3796,34 +3361,26 @@
             dynamicRequestTreeChildren[parallelRouteKey] = taskChildRoute;
           }
         } else {
-          
           patchedRouterStateChildren[parallelRouteKey] = newRouterStateChild;
           dynamicRequestTreeChildren[parallelRouteKey] = newRouterStateChild;
         }
       }
       if (taskChildren === null) {
-        
         return null;
       }
       const newCacheNode = {
         lazyData: null,
         rsc: oldCacheNode.rsc,
-        
-        
-        
-        
-        
-        
+
         prefetchRsc: oldCacheNode.prefetchRsc,
         head: oldCacheNode.head,
         prefetchHead: oldCacheNode.prefetchHead,
         loading: oldCacheNode.loading,
-        
+
         parallelRoutes: prefetchParallelRoutes,
         navigatedAt,
       };
       return {
-        
         route: patchRouterStateWithNewChildren(
           newRouterState,
           patchedRouterStateChildren,
@@ -3851,25 +3408,6 @@
       scrollableSegmentsResult,
     ) {
       if (!didFindRootLayout) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         if (
           oldRouterState === undefined ||
           (0, _isnavigatingtonewrootlayout.isNavigatingToNewRootLayout)(
@@ -3877,7 +3415,6 @@
             newRouterState,
           )
         ) {
-          
           return MPA_NAVIGATION_TASK;
         }
       }
@@ -3902,54 +3439,31 @@
       segmentPath,
       scrollableSegmentsResult,
     ) {
-      
-      
-      
-      
-      
       const routerStateChildren = routerState[1];
       const isLeafSegment = Object.keys(routerStateChildren).length === 0;
-      
-      
-      
-      
-      
+
       let rsc;
       let loading;
       let head;
       let cacheNodeNavigatedAt;
       if (
-        existingCacheNode !== undefined && 
-        
-        
+        existingCacheNode !== undefined &&
         existingCacheNode.navigatedAt + _navigatereducer.DYNAMIC_STALETIME_MS >
           navigatedAt
       ) {
-        
-        
         rsc = existingCacheNode.rsc;
         loading = existingCacheNode.loading;
         head = existingCacheNode.head;
-        
+
         cacheNodeNavigatedAt = existingCacheNode.navigatedAt;
       } else if (prefetchData !== null) {
-        
-        
-        
         rsc = prefetchData[0];
         loading = prefetchData[2];
         head = isLeafSegment ? possiblyPartialPrefetchHead : null;
-        
-        
-        
+
         cacheNodeNavigatedAt = navigatedAt;
         const isPrefetchRscPartial = prefetchData[3];
-        if (
-          isPrefetchRscPartial || 
-          (isPrefetchHeadPartial && isLeafSegment)
-        ) {
-          
-          
+        if (isPrefetchRscPartial || (isPrefetchHeadPartial && isLeafSegment)) {
           return spawnPendingTask(
             navigatedAt,
             routerState,
@@ -3960,14 +3474,8 @@
             scrollableSegmentsResult,
           );
         } else {
-          
-          
         }
       } else {
-        
-        
-        
-        
         return spawnPendingTask(
           navigatedAt,
           routerState,
@@ -3978,9 +3486,7 @@
           scrollableSegmentsResult,
         );
       }
-      
-      
-      
+
       const prefetchDataChildren =
         prefetchData !== null ? prefetchData[1] : null;
       const taskChildren = new Map();
@@ -3992,12 +3498,6 @@
       let dynamicRequestTreeChildren = {};
       let needsDynamicRequest = false;
       if (isLeafSegment) {
-        
-        
-        
-        
-        
-        
         scrollableSegmentsResult.push(segmentPath);
       } else {
         for (let parallelRouteKey in routerStateChildren) {
@@ -4034,7 +3534,6 @@
           taskChildren.set(parallelRouteKey, taskChild);
           const dynamicRequestTreeChild = taskChild.dynamicRequestTree;
           if (dynamicRequestTreeChild !== null) {
-            
             needsDynamicRequest = true;
             dynamicRequestTreeChildren[parallelRouteKey] =
               dynamicRequestTreeChild;
@@ -4050,15 +3549,10 @@
         }
       }
       return {
-        
-        
-        
-        
         route: routerState,
         node: {
           lazyData: null,
-          
-          
+
           rsc,
           prefetchRsc: null,
           head,
@@ -4078,9 +3572,7 @@
     }
     function patchRouterStateWithNewChildren(baseRouterState, newChildren) {
       const clone = [baseRouterState[0], newChildren];
-      
-      
-      
+
       if (2 in baseRouterState) {
         clone[2] = baseRouterState[2];
       }
@@ -4101,9 +3593,6 @@
       segmentPath,
       scrollableSegmentsResult,
     ) {
-      
-      
-      
       const dynamicRequestTree = patchRouterStateWithNewChildren(
         routerState,
         routerState[1],
@@ -4111,7 +3600,7 @@
       dynamicRequestTree[3] = "refetch";
       const newTask = {
         route: routerState,
-        
+
         node: createPendingCacheNode(
           navigatedAt,
           routerState,
@@ -4121,32 +3610,18 @@
           segmentPath,
           scrollableSegmentsResult,
         ),
-        
-        
+
         dynamicRequestTree,
         children: null,
       };
       return newTask;
     }
     function reuseActiveSegmentInDefaultSlot(oldUrl, oldRouterState) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
       let reusedRouterState;
       const oldRefreshMarker = oldRouterState[3];
       if (oldRefreshMarker === "refresh") {
-        
-        
         reusedRouterState = oldRouterState;
       } else {
-        
-        
         reusedRouterState = patchRouterStateWithNewChildren(
           oldRouterState,
           oldRouterState[1],
@@ -4167,9 +3642,6 @@
       responsePromise.then(
         (result) => {
           if (typeof result === "string") {
-            
-            
-            
             return;
           }
           const { flightData, debugInfo } = result;
@@ -4192,13 +3664,10 @@
               debugInfo,
             );
           }
-          
-          
-          
+
           abortTask(task, null, debugInfo);
         },
         (error) => {
-          
           abortTask(task, error, null);
         },
       );
@@ -4211,16 +3680,6 @@
       dynamicHead,
       debugInfo,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       let task = rootTask;
       for (let i = 0; i < segmentPath.length; i += 2) {
         const parallelRouteKey = segmentPath[i];
@@ -4231,16 +3690,12 @@
           if (taskChild !== undefined) {
             const taskSegment = taskChild.route[0];
             if ((0, _matchsegments.matchSegment)(segment, taskSegment)) {
-              
               task = taskChild;
               continue;
             }
           }
         }
-        
-        
-        
-        
+
         return;
       }
       finishTaskUsingDynamicDataPayload(
@@ -4259,17 +3714,12 @@
       debugInfo,
     ) {
       if (task.dynamicRequestTree === null) {
-        
         return;
       }
-      
-      
+
       const taskChildren = task.children;
       const taskNode = task.node;
       if (taskChildren === null) {
-        
-        
-        
         if (taskNode !== null) {
           finishPendingCacheNode(
             taskNode,
@@ -4279,13 +3729,12 @@
             dynamicHead,
             debugInfo,
           );
-          
+
           task.dynamicRequestTree = null;
         }
         return;
       }
-      
-      
+
       const serverChildren = serverRouterState[1];
       const dynamicDataChildren = dynamicData[1];
       for (const parallelRouteKey in serverRouterState) {
@@ -4302,7 +3751,6 @@
             dynamicDataChild !== null &&
             dynamicDataChild !== undefined
           ) {
-            
             return finishTaskUsingDynamicDataPayload(
               taskChild,
               serverRouterStateChild,
@@ -4312,10 +3760,6 @@
             );
           }
         }
-        
-        
-        
-        
       }
     }
     function createPendingCacheNode(
@@ -4358,16 +3802,9 @@
         newSegmentMapChild.set(segmentKeyChild, newCacheNodeChild);
         parallelRoutes.set(parallelRouteKey, newSegmentMapChild);
       }
-      
-      
+
       const isLeafSegment = parallelRoutes.size === 0;
       if (isLeafSegment) {
-        
-        
-        
-        
-        
-        
         scrollableSegmentsResult.push(segmentPath);
       }
       const maybePrefetchRsc = prefetchData !== null ? prefetchData[0] : null;
@@ -4376,13 +3813,10 @@
         parallelRoutes: parallelRoutes,
         prefetchRsc: maybePrefetchRsc !== undefined ? maybePrefetchRsc : null,
         prefetchHead: isLeafSegment ? prefetchHead : [null, null],
-        
-        
+
         rsc: createDeferredRsc(),
         head: isLeafSegment ? createDeferredRsc() : null,
-        
-        
-        
+
         loading:
           prefetchData !== null
             ? (prefetchData[2] ?? null)
@@ -4398,22 +3832,10 @@
       dynamicHead,
       debugInfo,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const taskStateChildren = taskState[1];
       const serverStateChildren = serverState[1];
       const dataChildren = dynamicData[1];
-      
-      
-      
+
       const parallelRoutes = cacheNode.parallelRoutes;
       for (let parallelRouteKey in taskStateChildren) {
         const taskStateChild = taskStateChildren[parallelRouteKey];
@@ -4436,7 +3858,6 @@
             )
           ) {
             if (dataChild !== undefined && dataChild !== null) {
-              
               finishPendingCacheNode(
                 cacheNodeChild,
                 taskStateChild,
@@ -4446,10 +3867,6 @@
                 debugInfo,
               );
             } else {
-              
-              
-              
-              
               abortPendingCacheNode(
                 taskStateChild,
                 cacheNodeChild,
@@ -4458,8 +3875,6 @@
               );
             }
           } else {
-            
-            
             abortPendingCacheNode(
               taskStateChild,
               cacheNodeChild,
@@ -4468,39 +3883,24 @@
             );
           }
         } else {
-          
-          
-          
-          
         }
       }
-      
-      
+
       const rsc = cacheNode.rsc;
       const dynamicSegmentData = dynamicData[0];
       if (rsc === null) {
-        
-        
         cacheNode.rsc = dynamicSegmentData;
       } else if (isDeferredRsc(rsc)) {
-        
-        
-        
         rsc.resolve(dynamicSegmentData, debugInfo);
       } else {
-        
-        
       }
-      
-      
+
       const loading = cacheNode.loading;
       if (isDeferredRsc(loading)) {
         const dynamicLoading = dynamicData[2];
         loading.resolve(dynamicLoading, debugInfo);
       }
-      
-      
-      
+
       const head = cacheNode.head;
       if (isDeferredRsc(head)) {
         head.resolve(dynamicHead, debugInfo);
@@ -4509,30 +3909,20 @@
     function abortTask(task, error, debugInfo) {
       const cacheNode = task.node;
       if (cacheNode === null) {
-        
         return;
       }
       const taskChildren = task.children;
       if (taskChildren === null) {
-        
-        
         abortPendingCacheNode(task.route, cacheNode, error, debugInfo);
       } else {
-        
-        
-        
         for (const taskChild of taskChildren.values()) {
           abortTask(taskChild, error, debugInfo);
         }
       }
-      
+
       task.dynamicRequestTree = null;
     }
     function abortPendingCacheNode(routerState, cacheNode, error, debugInfo) {
-      
-      
-      
-      
       const routerStateChildren = routerState[1];
       const parallelRoutes = cacheNode.parallelRoutes;
       for (let parallelRouteKey in routerStateChildren) {
@@ -4554,17 +3944,13 @@
             debugInfo,
           );
         } else {
-          
-          
         }
       }
       const rsc = cacheNode.rsc;
       if (isDeferredRsc(rsc)) {
         if (error === null) {
-          
           rsc.resolve(null, debugInfo);
         } else {
-          
           rsc.reject(error, debugInfo);
         }
       }
@@ -4572,25 +3958,13 @@
       if (isDeferredRsc(loading)) {
         loading.resolve(null, debugInfo);
       }
-      
-      
-      
-      
+
       const head = cacheNode.head;
       if (isDeferredRsc(head)) {
         head.resolve(null, debugInfo);
       }
     }
     function updateCacheNodeOnPopstateRestoration(oldCacheNode, routerState) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const routerStateChildren = routerState[1];
       const oldParallelRoutes = oldCacheNode.parallelRoutes;
       const newParallelRoutes = new Map(oldParallelRoutes);
@@ -4614,14 +3988,7 @@
           }
         }
       }
-      
-      
-      
-      
-      
-      
-      
-      
+
       const rsc = oldCacheNode.rsc;
       const shouldUsePrefetch = isDeferredRsc(rsc) && rsc.status === "pending";
       return {
@@ -4633,32 +4000,17 @@
           : [null, null],
         prefetchRsc: shouldUsePrefetch ? oldCacheNode.prefetchRsc : null,
         loading: oldCacheNode.loading,
-        
+
         parallelRoutes: newParallelRoutes,
         navigatedAt: oldCacheNode.navigatedAt,
       };
     }
     const DEFERRED = Symbol();
-    
-    
-    
-    
+
     function isDeferredRsc(value) {
       return value && typeof value === "object" && value.tag === DEFERRED;
     }
     function createDeferredRsc() {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const debugInfo = [];
       let resolve;
       let reject;
@@ -4673,7 +4025,6 @@
           fulfilledRsc.status = "fulfilled";
           fulfilledRsc.value = value;
           if (responseDebugInfo !== null) {
-            
             debugInfo.push.apply(debugInfo, responseDebugInfo);
           }
           resolve(value);
@@ -4685,7 +4036,6 @@
           rejectedRsc.status = "rejected";
           rejectedRsc.reason = error;
           if (responseDebugInfo !== null) {
-            
             debugInfo.push.apply(debugInfo, responseDebugInfo);
           }
           reject(error);
@@ -4705,15 +4055,13 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/types.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
- Object.defineProperty(exports, "__esModule", {
+    Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     0 &&
@@ -4740,33 +4088,22 @@
         return PrefetchPriority;
       },
     });
-    var NavigationResultTag =  (function (NavigationResultTag) {
+    var NavigationResultTag = (function (NavigationResultTag) {
       NavigationResultTag[(NavigationResultTag["MPA"] = 0)] = "MPA";
       NavigationResultTag[(NavigationResultTag["Success"] = 1)] = "Success";
       NavigationResultTag[(NavigationResultTag["NoOp"] = 2)] = "NoOp";
       NavigationResultTag[(NavigationResultTag["Async"] = 3)] = "Async";
       return NavigationResultTag;
     })({});
-    var PrefetchPriority =  (function (PrefetchPriority) {
-      
+    var PrefetchPriority = (function (PrefetchPriority) {
+      PrefetchPriority[(PrefetchPriority["Intent"] = 2)] = "Intent";
 
+      PrefetchPriority[(PrefetchPriority["Default"] = 1)] = "Default";
 
-
-
- PrefetchPriority[(PrefetchPriority["Intent"] = 2)] = "Intent";
-      
-
- PrefetchPriority[(PrefetchPriority["Default"] = 1)] = "Default";
-      
-
-
- PrefetchPriority[(PrefetchPriority["Background"] = 0)] = "Background";
+      PrefetchPriority[(PrefetchPriority["Background"] = 0)] = "Background";
       return PrefetchPriority;
     })({});
-    var FetchStrategy =  (function (FetchStrategy) {
-      
-      
-      
+    var FetchStrategy = (function (FetchStrategy) {
       FetchStrategy[(FetchStrategy["LoadingBoundary"] = 0)] = "LoadingBoundary";
       FetchStrategy[(FetchStrategy["PPR"] = 1)] = "PPR";
       FetchStrategy[(FetchStrategy["PPRRuntime"] = 2)] = "PPRRuntime";
@@ -4783,7 +4120,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/lru.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4822,39 +4159,30 @@
     let head = null;
     let didScheduleCleanup = false;
     let lruSize = 0;
-    
-    
-    
-    const maxLruSize = 50 * 1024 * 1024; 
+
+    const maxLruSize = 50 * 1024 * 1024;
     function lruPut(node) {
       if (head === node) {
-        
         return;
       }
       const prev = node.prev;
       const next = node.next;
       if (next === null || prev === null) {
-        
         lruSize += node.size;
-        
-        
-        
+
         ensureCleanupIsScheduled();
       } else {
-        
         prev.next = next;
         next.prev = prev;
       }
-      
+
       if (head === null) {
-        
         node.prev = node;
         node.next = node;
       } else {
-        
         const tail = head.prev;
         node.prev = tail;
-        
+
         if (tail !== null) {
           tail.next = node;
         }
@@ -4864,15 +4192,12 @@
       head = node;
     }
     function updateLruSize(node, newNodeSize) {
-      
-      
       const prevNodeSize = node.size;
       node.size = newNodeSize;
       if (node.next === null) {
-        
         return;
       }
-      
+
       lruSize = lruSize - prevNodeSize + newNodeSize;
       ensureCleanupIsScheduled();
     }
@@ -4883,11 +4208,9 @@
         lruSize -= deleted.size;
         deleted.next = null;
         deleted.prev = null;
-        
+
         if (head === deleted) {
-          
           if (next === head) {
-            
             head = null;
           } else {
             head = next;
@@ -4897,7 +4220,6 @@
           next.prev = prev;
         }
       } else {
-        
       }
     }
     function ensureCleanupIsScheduled() {
@@ -4909,16 +4231,12 @@
     }
     function cleanup() {
       didScheduleCleanup = false;
-      
-      
-      
+
       const ninetyPercentMax = maxLruSize * 0.9;
       while (lruSize > ninetyPercentMax && head !== null) {
         const tail = head.prev;
-        
+
         if (tail !== null) {
-          
-          
           (0, _cachemap.deleteFromCacheMap)(tail.value);
         }
       }
@@ -4937,7 +4255,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/cache-map.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -4990,8 +4308,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/lru.js [app-client] (ecmascript)",
     );
     const Fallback = {};
-    
-    
+
     const Revalidation = {};
     function createCacheMap() {
       const cacheMap = {
@@ -4999,7 +4316,7 @@
         key: null,
         value: null,
         map: null,
-        
+
         prev: null,
         next: null,
         size: 0,
@@ -5007,12 +4324,6 @@
       return cacheMap;
     }
     function getOrInitialize(cacheMap, keys, isRevalidation) {
-      
-      
-      
-      
-      
-      
       let entry = cacheMap;
       let remainingKeys = keys;
       let key = null;
@@ -5022,15 +4333,10 @@
           key = remainingKeys.value;
           remainingKeys = remainingKeys.parent;
         } else if (isRevalidation && previousKey !== Revalidation) {
-          
-          
-          
-          
-          
           if (entry.value === null) {
             return entry;
           }
-          
+
           key = Revalidation;
         } else {
           break;
@@ -5039,7 +4345,6 @@
         if (map !== null) {
           const existingEntry = map.get(key);
           if (existingEntry !== undefined) {
-            
             entry = existingEntry;
             continue;
           }
@@ -5047,13 +4352,13 @@
           map = new Map();
           entry.map = map;
         }
-        
+
         const newEntry = {
           parent: entry,
           key,
           value: null,
           map: null,
-          
+
           prev: null,
           next: null,
           size: 0,
@@ -5081,7 +4386,7 @@
       if (entry === null || entry.value === null) {
         return null;
       }
-      
+
       (0, _lru.lruPut)(entry);
       return entry.value;
     }
@@ -5089,20 +4394,15 @@
       return value.staleAt <= now || value.version < currentCacheVersion;
     }
     function lazilyEvictIfNeeded(now, currentCacheVersion, entry) {
-      
-      
       if (entry.value === null) {
-        
         return entry;
       }
       const value = entry.value;
       if (isValueExpired(now, currentCacheVersion, value)) {
-        
-        
         deleteMapEntry(entry);
         return null;
       }
-      
+
       return entry;
     }
     function getEntryWithFallbackImpl(
@@ -5113,36 +4413,21 @@
       isRevalidation,
       previousKey,
     ) {
-      
-      
-      
-      
-      
-      
       let key;
       let remainingKeys;
       if (keys !== null) {
         key = keys.value;
         remainingKeys = keys.parent;
       } else if (isRevalidation && previousKey !== Revalidation) {
-        
-        
         key = Revalidation;
         remainingKeys = null;
       } else {
-        
-        
-        
-        
-        
-        
         return lazilyEvictIfNeeded(now, currentCacheVersion, entry);
       }
       const map = entry.map;
       if (map !== null) {
         const existingEntry = map.get(key);
         if (existingEntry !== undefined) {
-          
           const result = getEntryWithFallbackImpl(
             now,
             currentCacheVersion,
@@ -5155,10 +4440,9 @@
             return result;
           }
         }
-        
+
         const fallbackEntry = map.get(Fallback);
         if (fallbackEntry !== undefined) {
-          
           return getEntryWithFallbackImpl(
             now,
             currentCacheVersion,
@@ -5172,22 +4456,16 @@
       return null;
     }
     function setInCacheMap(cacheMap, keys, value, isRevalidation) {
-      
-      
-      
       const entry = getOrInitialize(cacheMap, keys, isRevalidation);
       setMapEntryValue(entry, value);
-      
+
       (0, _lru.lruPut)(entry);
       (0, _lru.updateLruSize)(entry, value.size);
     }
     function setMapEntryValue(entry, value) {
       if (entry.value !== null) {
-        
-        
-        
         dropRef(entry.value);
-        
+
         const emptyEntry = entry;
         emptyEntry.value = null;
         fillEmptyReference(emptyEntry, value);
@@ -5196,51 +4474,33 @@
       }
     }
     function fillEmptyReference(entry, value) {
-      
-      
       const oldEntry = value.ref;
       const fullEntry = entry;
       fullEntry.value = value;
       value.ref = fullEntry;
       (0, _lru.updateLruSize)(fullEntry, value.size);
       if (oldEntry !== null && oldEntry !== entry && oldEntry.value === value) {
-        
-        
-        
-        
-        
-        
-        
         deleteMapEntry(oldEntry);
       }
     }
     function deleteFromCacheMap(value) {
       const entry = value.ref;
       if (entry === null) {
-        
         return;
       }
       dropRef(value);
       deleteMapEntry(entry);
     }
     function dropRef(value) {
-      
-      
-      
-      
       value.ref = null;
     }
     function deleteMapEntry(entry) {
-      
       const emptyEntry = entry;
       emptyEntry.value = null;
       (0, _lru.deleteFromLru)(entry);
-      
+
       const map = emptyEntry.map;
       if (map === null) {
-        
-        
-        
         let parent = emptyEntry.parent;
         let key = emptyEntry.key;
         while (parent !== null) {
@@ -5248,11 +4508,8 @@
           if (parentMap !== null) {
             parentMap.delete(key);
             if (parentMap.size === 0) {
-              
               parent.map = null;
               if (parent.value === null) {
-                
-                
                 key = parent.key;
                 parent = parent.parent;
                 continue;
@@ -5262,8 +4519,6 @@
           break;
         }
       } else {
-        
-        
         const revalidatingEntry = map.get(Revalidation);
         if (
           revalidatingEntry !== undefined &&
@@ -5276,12 +4531,9 @@
     function setSizeInCacheMap(value, size) {
       const entry = value.ref;
       if (entry === null) {
-        
         return;
       }
-      
-      
-      
+
       value.size = size;
       (0, _lru.updateLruSize)(entry, size);
     }
@@ -5295,7 +4547,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/vary-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -5358,7 +4610,6 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment-cache/segment-value-encoding.js [app-client] (ecmascript)",
     );
     function getRouteVaryPath(pathname, search, nextUrl) {
-      
       const varyPath = {
         value: pathname,
         parent: {
@@ -5377,9 +4628,6 @@
       nextUrl,
       couldBeIntercepted,
     ) {
-      
-      
-      
       const varyPath = {
         value: pathname,
         parent: {
@@ -5407,8 +4655,6 @@
       return layoutVaryPath;
     }
     function finalizePageVaryPath(requestKey, renderedSearch, varyPath) {
-      
-      
       const pageVaryPath = {
         value: requestKey,
         parent: {
@@ -5423,34 +4669,7 @@
       renderedSearch,
       varyPath,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const pageVaryPath = {
-        
-        
-        
         value: pageRequestKey + _segmentvalueencoding.HEAD_REQUEST_KEY,
         parent: {
           value: renderedSearch,
@@ -5460,45 +4679,13 @@
       return pageVaryPath;
     }
     function getSegmentVaryPathForRequest(fetchStrategy, tree) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const originalVaryPath = tree.varyPath;
-      
-      
-      
+
       if (tree.isPage) {
-        
-        
-        
         const doesVaryOnSearchParams =
           fetchStrategy === _types.FetchStrategy.Full ||
           fetchStrategy === _types.FetchStrategy.PPRRuntime;
         if (!doesVaryOnSearchParams) {
-          
-          
-          
-          
-          
-          
           const searchParamsVaryPath = originalVaryPath.parent;
           const pathParamsVaryPath = searchParamsVaryPath.parent;
           const patchedVaryPath = {
@@ -5511,12 +4698,10 @@
           return patchedVaryPath;
         }
       }
-      
+
       return originalVaryPath;
     }
     function clonePageVaryPathWithNewSearchParams(originalVaryPath, newSearch) {
-      
-      
       const searchParamsVaryPath = originalVaryPath.parent;
       const clonedVaryPath = {
         value: originalVaryPath.value,
@@ -5537,13 +4722,12 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/cache-key.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
@@ -5572,7 +4756,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/scheduler.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -5653,25 +4837,20 @@
     let inProgressRequests = 0;
     let sortIdCounter = 0;
     let didScheduleMicrotask = false;
-    
-    
-    
+
     let mostRecentlyHoveredLink = null;
-    
+
     const REVALIDATION_COOLDOWN_MS = 300;
-    
-    
+
     let revalidationCooldownTimeoutHandle = null;
     function startRevalidationCooldown() {
-      
-      
       if (revalidationCooldownTimeoutHandle !== null) {
         clearTimeout(revalidationCooldownTimeoutHandle);
       }
-      
+
       revalidationCooldownTimeoutHandle = setTimeout(() => {
         revalidationCooldownTimeoutHandle = null;
-        
+
         ensureWorkIsScheduled();
       }, REVALIDATION_COOLDOWN_MS);
     }
@@ -5682,7 +4861,6 @@
       priority,
       onInvalidate,
     ) {
-      
       const task = {
         key,
         treeAtTimeOfPrefetch,
@@ -5699,22 +4877,11 @@
       };
       trackMostRecentlyHoveredLink(task);
       heapPush(taskHeap, task);
-      
-      
-      
-      
-      
-      
-      
+
       ensureWorkIsScheduled();
       return task;
     }
     function cancelPrefetchTask(task) {
-      
-      
-      
-      
-      
       task.isCanceled = true;
       heapDelete(taskHeap, task);
     }
@@ -5724,19 +4891,11 @@
       fetchStrategy,
       priority,
     ) {
-      
-      
-      
-      
-      
-      
-      
       task.isCanceled = false;
       task.phase = 1;
-      
-      
+
       task.sortId = sortIdCounter++;
-      task.priority = 
+      task.priority =
         task === mostRecentlyHoveredLink
           ? _types.PrefetchPriority.Intent
           : priority;
@@ -5744,7 +4903,6 @@
       task.fetchStrategy = fetchStrategy;
       trackMostRecentlyHoveredLink(task);
       if (task._heapIndex !== -1) {
-        
         heapResift(taskHeap, task);
       } else {
         heapPush(taskHeap, task);
@@ -5752,11 +4910,6 @@
       ensureWorkIsScheduled();
     }
     function isPrefetchTaskDirty(task, nextUrl, tree) {
-      
-      
-      
-      
-      
       const currentCacheVersion = (0, _cache.getCurrentCacheVersion)();
       return (
         task.cacheVersion !== currentCacheVersion ||
@@ -5765,14 +4918,11 @@
       );
     }
     function trackMostRecentlyHoveredLink(task) {
-      
-      
       if (
         task.priority === _types.PrefetchPriority.Intent &&
         task !== mostRecentlyHoveredLink
       ) {
         if (mostRecentlyHoveredLink !== null) {
-          
           if (
             mostRecentlyHoveredLink.priority !==
             _types.PrefetchPriority.Background
@@ -5786,129 +4936,77 @@
     }
     function ensureWorkIsScheduled() {
       if (didScheduleMicrotask) {
-        
         return;
       }
       didScheduleMicrotask = true;
       scheduleMicrotask(processQueueInMicrotask);
     }
-    
 
-
-
-
-
-
-
- function hasNetworkBandwidth(task) {
-      
+    function hasNetworkBandwidth(task) {
       if (revalidationCooldownTimeoutHandle !== null) {
-        
-        
-        
         return false;
       }
-      
-      
-      
-      
-      
+
       if (task.priority === _types.PrefetchPriority.Intent) {
-        
-        
-        
-        
-        
-        
-        
-        
         return inProgressRequests < 12;
       }
-      
+
       return inProgressRequests < 4;
     }
     function spawnPrefetchSubtask(prefetchSubtask) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
       inProgressRequests++;
       return prefetchSubtask.then((result) => {
         if (result === null) {
-          
-          
           onPrefetchConnectionClosed();
           return null;
         }
-        
+
         result.closed.then(onPrefetchConnectionClosed);
         return result.value;
       });
     }
     function onPrefetchConnectionClosed() {
       inProgressRequests--;
-      
-      
+
       ensureWorkIsScheduled();
     }
     function pingPrefetchTask(task) {
-      
-      if (
-        task.isCanceled || 
-        task._heapIndex !== -1
-      ) {
+      if (task.isCanceled || task._heapIndex !== -1) {
         return;
       }
-      
+
       heapPush(taskHeap, task);
       ensureWorkIsScheduled();
     }
     function processQueueInMicrotask() {
       didScheduleMicrotask = false;
-      
-      
-      
+
       const now = Date.now();
-      
+
       let task = heapPeek(taskHeap);
       while (task !== null && hasNetworkBandwidth(task)) {
         task.cacheVersion = (0, _cache.getCurrentCacheVersion)();
         const exitStatus = pingRoute(now, task);
-        
-        
+
         const hasBackgroundWork = task.hasBackgroundWork;
         task.hasBackgroundWork = false;
         task.spawnedRuntimePrefetches = null;
         switch (exitStatus) {
           case 0:
-            
-            
             return;
           case 1:
-            
-            
             heapPop(taskHeap);
-            
+
             task = heapPeek(taskHeap);
             continue;
           case 2:
             if (task.phase === 1) {
-              
-              
               task.phase = 0;
               heapResift(taskHeap, task);
             } else if (hasBackgroundWork) {
-              
-              
               task.priority = _types.PrefetchPriority.Background;
               heapResift(taskHeap, task);
             } else {
-              
               heapPop(taskHeap);
             }
             task = heapPeek(taskHeap);
@@ -5918,16 +5016,8 @@
         }
       }
     }
-    
 
-
-
-
-
-
-
-
- function background(task) {
+    function background(task) {
       if (task.priority === _types.PrefetchPriority.Background) {
         return true;
       }
@@ -5939,17 +5029,6 @@
       const route = (0, _cache.readOrCreateRouteCacheEntry)(now, task, key);
       const exitStatus = pingRootRouteTree(now, task, route);
       if (exitStatus !== 0 && key.search !== "") {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         const url = new URL(key.pathname, location.origin);
         const keyWithoutSearch = (0, _cachekey.createCacheKey)(
           url.href,
@@ -5988,37 +5067,15 @@
     function pingRootRouteTree(now, task, route) {
       switch (route.status) {
         case _cache.EntryStatus.Empty: {
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           spawnPrefetchSubtask(
             (0, _cache.fetchRouteOnCacheMiss)(route, task, task.key),
           );
-          
-          
-          
-          
-          
-          
+
           route.staleAt = now + 60 * 1000;
-          
+
           route.status = _cache.EntryStatus.Pending;
-          
         }
         case _cache.EntryStatus.Pending: {
-          
-          
-          
           const blockedTasks = route.blockedTasks;
           if (blockedTasks === null) {
             route.blockedTasks = new Set([task]);
@@ -6028,24 +5085,18 @@
           return 1;
         }
         case _cache.EntryStatus.Rejected: {
-          
           return 2;
         }
         case _cache.EntryStatus.Fulfilled: {
           if (task.phase !== 0) {
-            
             return 2;
           }
-          
+
           if (!hasNetworkBandwidth(task)) {
-            
             return 0;
           }
           const tree = route.tree;
-          
-          
-          
-          
+
           const fetchStrategy =
             task.fetchStrategy === _types.FetchStrategy.PPR
               ? route.isPPREnabled
@@ -6054,13 +5105,6 @@
               : task.fetchStrategy;
           switch (fetchStrategy) {
             case _types.FetchStrategy.PPR: {
-              
-              
-              
-              
-              
-              
-              
               pingStaticHead(now, task, route);
               const exitStatus = pingSharedPartOfCacheComponentsTree(
                 now,
@@ -6070,13 +5114,10 @@
                 tree,
               );
               if (exitStatus === 0) {
-                
                 return 0;
               }
               const spawnedRuntimePrefetches = task.spawnedRuntimePrefetches;
               if (spawnedRuntimePrefetches !== null) {
-                
-                
                 const spawnedEntries = new Map();
                 pingRuntimeHead(
                   now,
@@ -6095,8 +5136,6 @@
                 );
                 let needsDynamicRequest = spawnedEntries.size > 0;
                 if (needsDynamicRequest) {
-                  
-                  
                   spawnPrefetchSubtask(
                     (0, _cache.fetchSegmentPrefetchesUsingDynamicRequest)(
                       task,
@@ -6113,13 +5152,6 @@
             case _types.FetchStrategy.Full:
             case _types.FetchStrategy.PPRRuntime:
             case _types.FetchStrategy.LoadingBoundary: {
-              
-              
-              
-              
-              
-              
-              
               const spawnedEntries = new Map();
               pingRuntimeHead(now, task, route, spawnedEntries, fetchStrategy);
               const dynamicRequestTree = diffRouteTreeAgainstCurrent(
@@ -6157,9 +5189,6 @@
       return 2;
     }
     function pingStaticHead(now, task, route) {
-      
-      
-      
       pingStaticSegmentData(
         now,
         task,
@@ -6181,13 +5210,13 @@
         route,
         route.metadata,
         false,
-        spawnedEntries, 
+        spawnedEntries,
         fetchStrategy === _types.FetchStrategy.LoadingBoundary
           ? _types.FetchStrategy.Full
           : fetchStrategy,
       );
     }
-    
+
     function pingSharedPartOfCacheComponentsTree(
       now,
       task,
@@ -6195,17 +5224,6 @@
       oldTree,
       newTree,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
         now,
         task.fetchStrategy,
@@ -6213,13 +5231,12 @@
         newTree,
       );
       pingStaticSegmentData(now, task, route, segment, task.key, newTree);
-      
+
       const oldTreeChildren = oldTree[1];
       const newTreeChildren = newTree.slots;
       if (newTreeChildren !== null) {
         for (const parallelRouteKey in newTreeChildren) {
           if (!hasNetworkBandwidth(task)) {
-            
             return 0;
           }
           const newTreeChild = newTreeChildren[parallelRouteKey];
@@ -6235,7 +5252,6 @@
               oldTreeChildSegment,
             )
           ) {
-            
             childExitStatus = pingSharedPartOfCacheComponentsTree(
               now,
               task,
@@ -6244,8 +5260,6 @@
               newTreeChild,
             );
           } else {
-            
-            
             childExitStatus = pingNewPartOfCacheComponentsTree(
               now,
               task,
@@ -6254,7 +5268,6 @@
             );
           }
           if (childExitStatus === 0) {
-            
             return 0;
           }
         }
@@ -6262,40 +5275,16 @@
       return 2;
     }
     function pingNewPartOfCacheComponentsTree(now, task, route, tree) {
-      
-      
-      
-      
-      
       if (tree.hasRuntimePrefetch) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         if (task.spawnedRuntimePrefetches === null) {
           task.spawnedRuntimePrefetches = new Set([tree.requestKey]);
         } else {
           task.spawnedRuntimePrefetches.add(tree.requestKey);
         }
-        
+
         return 2;
       }
-      
+
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
         now,
         task.fetchStrategy,
@@ -6305,10 +5294,9 @@
       pingStaticSegmentData(now, task, route, segment, task.key, tree);
       if (tree.slots !== null) {
         if (!hasNetworkBandwidth(task)) {
-          
           return 0;
         }
-        
+
         for (const parallelRouteKey in tree.slots) {
           const childTree = tree.slots[parallelRouteKey];
           const childExitStatus = pingNewPartOfCacheComponentsTree(
@@ -6318,12 +5306,11 @@
             childTree,
           );
           if (childExitStatus === 0) {
-            
             return 0;
           }
         }
       }
-      
+
       return 2;
     }
     function diffRouteTreeAgainstCurrent(
@@ -6335,15 +5322,6 @@
       spawnedEntries,
       fetchStrategy,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const oldTreeChildren = oldTree[1];
       const newTreeChildren = newTree.slots;
       let requestTreeChildren = {};
@@ -6361,7 +5339,6 @@
               oldTreeChildSegment,
             )
           ) {
-            
             const requestTreeChild = diffRouteTreeAgainstCurrent(
               now,
               task,
@@ -6373,23 +5350,8 @@
             );
             requestTreeChildren[parallelRouteKey] = requestTreeChild;
           } else {
-            
-            
-            
             switch (fetchStrategy) {
               case _types.FetchStrategy.LoadingBoundary: {
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 const subtreeHasLoadingBoundary =
                   newTreeChild.hasLoadingBoundary !==
                   _approutertypes.HasLoadingBoundary
@@ -6410,8 +5372,6 @@
                 break;
               }
               case _types.FetchStrategy.PPRRuntime: {
-                
-                
                 const requestTreeChild = pingRouteTreeAndIncludeDynamicData(
                   now,
                   task,
@@ -6425,23 +5385,6 @@
                 break;
               }
               case _types.FetchStrategy.Full: {
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 const requestTreeChild = pingRouteTreeAndIncludeDynamicData(
                   now,
                   task,
@@ -6477,16 +5420,6 @@
       refetchMarkerContext,
       spawnedEntries,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       let refetchMarker =
         refetchMarkerContext === null ? "inside-shared-layout" : null;
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
@@ -6497,39 +5430,25 @@
       );
       switch (segment.status) {
         case _cache.EntryStatus.Empty: {
-          
-          
-          
-          
-          
-          
-          
-          
           spawnedEntries.set(
             tree.requestKey,
             (0, _cache.upgradeToPendingSegment)(
-              segment, 
-              
+              segment,
+
               _types.FetchStrategy.LoadingBoundary,
             ),
           );
           if (refetchMarkerContext !== "refetch") {
             refetchMarker = refetchMarkerContext = "refetch";
           } else {
-            
-            
           }
           break;
         }
         case _cache.EntryStatus.Fulfilled: {
-          
           const segmentHasLoadingBoundary =
             tree.hasLoadingBoundary ===
             _approutertypes.HasLoadingBoundary.SegmentHasLoadingBoundary;
           if (segmentHasLoadingBoundary) {
-            
-            
-            
             return (0, _cache.convertRouteTreeToFlightRouterState)(tree);
           }
           break;
@@ -6576,19 +5495,9 @@
       spawnedEntries,
       fetchStrategy,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
       const segment = (0, _cache.readOrCreateSegmentCacheEntry)(
-        now, 
-        
-        
-        
+        now,
+
         fetchStrategy,
         route,
         tree,
@@ -6596,7 +5505,6 @@
       let spawnedSegment = null;
       switch (segment.status) {
         case _cache.EntryStatus.Empty: {
-          
           spawnedSegment = (0, _cache.upgradeToPendingSegment)(
             segment,
             fetchStrategy,
@@ -6604,7 +5512,6 @@
           break;
         }
         case _cache.EntryStatus.Fulfilled: {
-          
           if (
             segment.isPartial &&
             (0, _cache.canNewFetchStrategyProvideMoreContent)(
@@ -6612,11 +5519,6 @@
               fetchStrategy,
             )
           ) {
-            
-            
-            
-            
-            
             spawnedSegment = pingFullSegmentRevalidation(
               now,
               route,
@@ -6628,8 +5530,6 @@
         }
         case _cache.EntryStatus.Pending:
         case _cache.EntryStatus.Rejected: {
-          
-          
           if (
             (0, _cache.canNewFetchStrategyProvideMoreContent)(
               segment.fetchStrategy,
@@ -6665,10 +5565,9 @@
         }
       }
       if (spawnedSegment !== null) {
-        
         spawnedEntries.set(tree.requestKey, spawnedSegment);
       }
-      
+
       const refetchMarker =
         !isInsideRefetchingParent && spawnedSegment !== null ? "refetch" : null;
       const requestTree = [
@@ -6688,14 +5587,7 @@
       spawnedRuntimePrefetches,
       spawnedEntries,
     ) {
-      
-      
-      
-      
-      
-      
       if (spawnedRuntimePrefetches.has(tree.requestKey)) {
-        
         return pingRouteTreeAndIncludeDynamicData(
           now,
           task,
@@ -6721,14 +5613,13 @@
           );
         }
       }
-      
+
       const requestTree = [tree.segment, requestTreeChildren, null, null];
       return requestTree;
     }
     function pingStaticSegmentData(now, task, route, segment, routeKey, tree) {
       switch (segment.status) {
         case _cache.EntryStatus.Empty:
-          
           spawnPrefetchSubtask(
             (0, _cache.fetchSegmentOnCacheMiss)(
               route,
@@ -6742,22 +5633,13 @@
           );
           break;
         case _cache.EntryStatus.Pending: {
-          
-          
           switch (segment.fetchStrategy) {
             case _types.FetchStrategy.PPR:
             case _types.FetchStrategy.PPRRuntime:
             case _types.FetchStrategy.Full:
               break;
             case _types.FetchStrategy.LoadingBoundary:
-              
-              
-              
-              
-              
               if (background(task)) {
-                
-                
                 pingPPRSegmentRevalidation(now, route, routeKey, tree);
               }
               break;
@@ -6767,23 +5649,12 @@
           break;
         }
         case _cache.EntryStatus.Rejected: {
-          
-          
           switch (segment.fetchStrategy) {
             case _types.FetchStrategy.PPR:
             case _types.FetchStrategy.PPRRuntime:
             case _types.FetchStrategy.Full:
               break;
             case _types.FetchStrategy.LoadingBoundary:
-              
-              
-              
-              
-              
-              
-              
-              
-              
               pingPPRSegmentRevalidation(now, route, routeKey, tree);
               break;
             default:
@@ -6796,9 +5667,6 @@
         default:
           segment;
       }
-      
-      
-      
     }
     function pingPPRSegmentRevalidation(now, route, routeKey, tree) {
       const revalidatingSegment = (0,
@@ -6810,8 +5678,6 @@
       );
       switch (revalidatingSegment.status) {
         case _cache.EntryStatus.Empty:
-          
-          
           upsertSegmentOnCompletion(
             spawnPrefetchSubtask(
               (0, _cache.fetchSegmentOnCacheMiss)(
@@ -6848,11 +5714,6 @@
         tree,
       );
       if (revalidatingSegment.status === _cache.EntryStatus.Empty) {
-        
-        
-        
-        
-        
         const pendingSegment = (0, _cache.upgradeToPendingSegment)(
           revalidatingSegment,
           fetchStrategy,
@@ -6863,7 +5724,6 @@
         );
         return pendingSegment;
       } else {
-        
         const nonEmptyRevalidatingSegment = revalidatingSegment;
         if (
           (0, _cache.canNewFetchStrategyProvideMoreContent)(
@@ -6871,8 +5731,6 @@
             fetchStrategy,
           )
         ) {
-          
-          
           const emptySegment = (0,
           _cache.overwriteRevalidatingSegmentCacheEntry)(
             fetchStrategy,
@@ -6891,13 +5749,9 @@
         }
         switch (nonEmptyRevalidatingSegment.status) {
           case _cache.EntryStatus.Pending:
-            
             return null;
           case _cache.EntryStatus.Fulfilled:
           case _cache.EntryStatus.Rejected:
-            
-            
-            
             return null;
           default:
             nonEmptyRevalidatingSegment;
@@ -6907,10 +5761,8 @@
     }
     const noop = () => {};
     function upsertSegmentOnCompletion(promise, varyPath) {
-      
       promise.then((fulfilled) => {
         if (fulfilled !== null) {
-          
           (0, _cache.upsertSegmentEntry)(Date.now(), varyPath, fulfilled);
         }
       }, noop);
@@ -6921,16 +5773,6 @@
       cachedSegment,
     ) {
       if (cachedSegment === _segment.PAGE_SEGMENT_KEY) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         return (
           currentSegment ===
           (0, _segment.addSearchParamsIfPageSegment)(
@@ -6939,31 +5781,21 @@
           )
         );
       }
-      
+
       return (0, _matchsegments.matchSegment)(cachedSegment, currentSegment);
     }
-    
-    
-    
-    
-    
+
     function compareQueuePriority(a, b) {
-      
-      
-      
-      
       const priorityDiff = b.priority - a.priority;
       if (priorityDiff !== 0) {
         return priorityDiff;
       }
-      
-      
+
       const phaseDiff = b.phase - a.phase;
       if (phaseDiff !== 0) {
         return phaseDiff;
       }
-      
-      
+
       return b.sortId - a.sortId;
     }
     function heapPush(heap, node) {
@@ -7012,10 +5844,8 @@
           const parentIndex = (index - 1) >>> 1;
           const parent = heap[parentIndex];
           if (compareQueuePriority(parent, node) > 0) {
-            
             heapSiftUp(heap, node, index);
           } else {
-            
             heapSiftDown(heap, node, index);
           }
         }
@@ -7027,14 +5857,12 @@
         const parentIndex = (index - 1) >>> 1;
         const parent = heap[parentIndex];
         if (compareQueuePriority(parent, node) > 0) {
-          
           heap[parentIndex] = node;
           node._heapIndex = parentIndex;
           heap[index] = parent;
           parent._heapIndex = index;
           index = parentIndex;
         } else {
-          
           return;
         }
       }
@@ -7048,7 +5876,7 @@
         const left = heap[leftIndex];
         const rightIndex = leftIndex + 1;
         const right = heap[rightIndex];
-        
+
         if (compareQueuePriority(left, node) < 0) {
           if (rightIndex < length && compareQueuePriority(right, left) < 0) {
             heap[index] = right;
@@ -7073,7 +5901,6 @@
           node._heapIndex = rightIndex;
           index = rightIndex;
         } else {
-          
           return;
         }
       }
@@ -7088,14 +5915,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/normalize-trailing-slash.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7119,8 +5946,7 @@
         return path;
       }
       const { pathname, query, hash } = (0, _parsepath.parsePath)(path);
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       return `${(0, _removetrailingslash.removeTrailingSlash)(pathname)}${query}${hash}`;
     };
     if (
@@ -7133,14 +5959,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/add-base-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7177,14 +6003,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-utils.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7221,7 +6047,6 @@
       return url.origin !== window.location.origin;
     }
     function createPrefetchURL(href) {
-      
       if ((0, _isbot.isBot)(window.navigator.userAgent)) {
         return null;
       }
@@ -7232,8 +6057,6 @@
           window.location.href,
         );
       } catch (_) {
-        
-        
         throw Object.defineProperty(
           new Error(
             `Cannot prefetch '${href}' because it cannot be converted to a URL.`,
@@ -7246,11 +6069,10 @@
           },
         );
       }
-      
+
       if (("TURBOPACK compile-time truthy", 1)) {
         return null;
       }
-      
     }
     if (
       (typeof exports.default === "function" ||
@@ -7262,14 +6084,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/links.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7340,8 +6162,7 @@
     const _react = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
     );
-    
-    
+
     let linkForMostRecentNavigation = null;
     const PENDING_LINK_STATUS = {
       pending: true,
@@ -7361,16 +6182,12 @@
         linkForMostRecentNavigation = null;
       }
     }
-    
-    
+
     const prefetchable =
       typeof WeakMap === "function" ? new WeakMap() : new Map();
-    
-    
-    
-    
+
     const prefetchableAndVisible = new Set();
-    
+
     const observer =
       typeof IntersectionObserver === "function"
         ? new IntersectionObserver(handleIntersect, {
@@ -7380,12 +6197,9 @@
     function observeVisibility(element, instance) {
       const existingInstance = prefetchable.get(element);
       if (existingInstance !== undefined) {
-        
-        
-        
         unmountPrefetchableInstance(element);
       }
-      
+
       prefetchable.set(element, instance);
       if (observer !== null) {
         observer.observe(element);
@@ -7399,11 +6213,6 @@
         try {
           return createPrefetchURL(href);
         } catch {
-          
-          
-          
-          
-          
           const reportErrorFn =
             typeof reportError === "function" ? reportError : console.error;
           reportErrorFn(
@@ -7434,14 +6243,12 @@
             prefetchHref: prefetchURL.href,
             setOptimisticLinkStatus,
           };
-          
-          
+
           observeVisibility(element, instance);
           return instance;
         }
       }
-      
-      
+
       const instance = {
         router,
         fetchStrategy,
@@ -7455,10 +6262,6 @@
     function mountFormInstance(element, href, router, fetchStrategy) {
       const prefetchURL = coercePrefetchableUrl(href);
       if (prefetchURL === null) {
-        
-        
-        
-        
         return;
       }
       const instance = {
@@ -7487,21 +6290,15 @@
     }
     function handleIntersect(entries) {
       for (const entry of entries) {
-        
-        
-        
         const isVisible = entry.intersectionRatio > 0;
         onLinkVisibilityChanged(entry.target, isVisible);
       }
     }
     function onLinkVisibilityChanged(element, isVisible) {
       if (("TURBOPACK compile-time truthy", 1)) {
-        
-        
-        
         return;
       }
-      
+
       const instance = undefined;
     }
     function onNavigationIntent(element, unstable_upgradeToDynamicPrefetch) {
@@ -7509,27 +6306,20 @@
       if (instance === undefined) {
         return;
       }
-      
+
       if (instance !== undefined) {
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
         rescheduleLinkPrefetch(instance, _types.PrefetchPriority.Intent);
       }
     }
     function rescheduleLinkPrefetch(instance, priority) {
-      
       if (typeof window !== "undefined") {
         const existingPrefetchTask = instance.prefetchTask;
         if (!instance.isVisible) {
-          
-          
           if (existingPrefetchTask !== null) {
             (0, _scheduler.cancelPrefetchTask)(existingPrefetchTask);
           }
-          
-          
-          
-          
+
           return;
         }
         const { getCurrentAppRouterState } = __turbopack_context__.r(
@@ -7539,7 +6329,6 @@
         if (appRouterState !== null) {
           const treeAtTimeOfPrefetch = appRouterState.tree;
           if (existingPrefetchTask === null) {
-            
             const nextUrl = appRouterState.nextUrl;
             const cacheKey = (0, _cachekey.createCacheKey)(
               instance.prefetchHref,
@@ -7553,8 +6342,6 @@
               null,
             );
           } else {
-            
-            
             (0, _scheduler.reschedulePrefetchTask)(
               existingPrefetchTask,
               treeAtTimeOfPrefetch,
@@ -7566,13 +6353,6 @@
       }
     }
     function pingVisibleLinks(nextUrl, tree) {
-      
-      
-      
-      
-      
-      
-      
       for (const instance of prefetchableAndVisible) {
         const task = instance.prefetchTask;
         if (
@@ -7581,8 +6361,7 @@
         ) {
           continue;
         }
-        
-        
+
         if (task !== null) {
           (0, _scheduler.cancelPrefetchTask)(task);
         }
@@ -7609,14 +6388,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/cache.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -7776,7 +6555,7 @@
     function getStaleTimeMs(staleTimeSeconds) {
       return Math.max(staleTimeSeconds, 30) * 1000;
     }
-    var EntryStatus =  (function (EntryStatus) {
+    var EntryStatus = (function (EntryStatus) {
       EntryStatus[(EntryStatus["Empty"] = 0)] = "Empty";
       EntryStatus[(EntryStatus["Pending"] = 1)] = "Pending";
       EntryStatus[(EntryStatus["Fulfilled"] = 2)] = "Fulfilled";
@@ -7789,41 +6568,23 @@
     const MetadataOnlyRequestTree = ["", {}, null, "metadata-only"];
     let routeCacheMap = (0, _cachemap.createCacheMap)();
     let segmentCacheMap = (0, _cachemap.createCacheMap)();
-    
-    
-    
-    
-    
-    
+
     let invalidationListeners = null;
-    
+
     let currentCacheVersion = 0;
     function getCurrentCacheVersion() {
       return currentCacheVersion;
     }
     function revalidateEntireCache(nextUrl, tree) {
-      
-      
-      
-      
-      
-      
       currentCacheVersion++;
-      
+
       (0, _scheduler.startRevalidationCooldown)();
-      
+
       (0, _links.pingVisibleLinks)(nextUrl, tree);
-      
-      
-      
+
       pingInvalidationListeners(nextUrl, tree);
     }
     function attachInvalidationListener(task) {
-      
-      
-      
-      
-      
       if (task.onInvalidate !== null) {
         if (invalidationListeners === null) {
           invalidationListeners = new Set([task]);
@@ -7835,10 +6596,8 @@
     function notifyInvalidationListener(task) {
       const onInvalidate = task.onInvalidate;
       if (onInvalidate !== null) {
-        
-        
         task.onInvalidate = null;
-        
+
         try {
           onInvalidate();
         } catch (error) {
@@ -7851,10 +6610,6 @@
       }
     }
     function pingInvalidationListeners(nextUrl, tree) {
-      
-      
-      
-      
       if (invalidationListeners !== null) {
         const tasks = invalidationListeners;
         invalidationListeners = null;
@@ -7901,14 +6656,11 @@
       );
     }
     function waitForSegmentCacheEntry(pendingEntry) {
-      
-      
       let promiseWithResolvers = pendingEntry.promise;
       if (promiseWithResolvers === null) {
         promiseWithResolvers = pendingEntry.promise = (0,
         _promisewithresolvers.createPromiseWithResolvers)();
       } else {
-        
       }
       return promiseWithResolvers.promise;
     }
@@ -7918,25 +6670,22 @@
       if (existingEntry !== null) {
         return existingEntry;
       }
-      
+
       const pendingEntry = {
         canonicalUrl: null,
         status: 0,
         blockedTasks: null,
         tree: null,
         metadata: null,
-        
-        
-        
+
         couldBeIntercepted: true,
-        
+
         isPPREnabled: false,
         renderedSearch: null,
-        
+
         ref: null,
         size: 0,
-        
-        
+
         staleAt: Infinity,
         version: getCurrentCacheVersion(),
       };
@@ -7955,32 +6704,8 @@
       return pendingEntry;
     }
     function requestOptimisticRouteCacheEntry(now, requestedUrl, nextUrl) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const requestedSearch = requestedUrl.search;
       if (requestedSearch === "") {
-        
-        
         return null;
       }
       const urlWithoutSearchParams = new URL(requestedUrl);
@@ -7993,16 +6718,9 @@
         routeWithNoSearchParams === null ||
         routeWithNoSearchParams.status !== 2
       ) {
-        
-        
         return null;
       }
-      
-      
-      
-      
-      
-      
+
       const canonicalUrlForRouteWithNoSearchParams = new URL(
         routeWithNoSearchParams.canonicalUrl,
         requestedUrl.origin,
@@ -8011,11 +6729,7 @@
         canonicalUrlForRouteWithNoSearchParams.search !== ""
           ? canonicalUrlForRouteWithNoSearchParams.search
           : requestedSearch;
-      
-      
-      
-      
-      
+
       const optimisticRenderedSearch =
         routeWithNoSearchParams.renderedSearch !== ""
           ? routeWithNoSearchParams.renderedSearch
@@ -8036,32 +6750,28 @@
         routeWithNoSearchParams.metadata,
         optimisticRenderedSearch,
       );
-      
-      
+
       const optimisticEntry = {
         canonicalUrl: optimisticCanonicalUrl,
         status: 2,
-        
+
         blockedTasks: null,
         tree: optimisticRouteTree,
         metadata: optimisticMetadataTree,
         couldBeIntercepted: routeWithNoSearchParams.couldBeIntercepted,
         isPPREnabled: routeWithNoSearchParams.isPPREnabled,
-        
+
         renderedSearch: optimisticRenderedSearch,
-        
+
         ref: null,
         size: 0,
         staleAt: routeWithNoSearchParams.staleAt,
         version: routeWithNoSearchParams.version,
       };
-      
-      
+
       return optimisticEntry;
     }
     function createOptimisticRouteTree(tree, newRenderedSearch) {
-      
-      
       let clonedSlots = null;
       const originalSlots = tree.slots;
       if (originalSlots !== null) {
@@ -8074,7 +6784,7 @@
           );
         }
       }
-      
+
       if (tree.isPage) {
         return {
           requestKey: tree.requestKey,
@@ -8106,7 +6816,7 @@
       if (existingEntry !== null) {
         return existingEntry;
       }
-      
+
       const varyPathForRequest = (0, _varypath.getSegmentVaryPathForRequest)(
         fetchStrategy,
         tree,
@@ -8127,32 +6837,6 @@
       route,
       tree,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const existingEntry = readRevalidatingSegmentCacheEntry(
         now,
         tree.varyPath,
@@ -8160,7 +6844,7 @@
       if (existingEntry !== null) {
         return existingEntry;
       }
-      
+
       const varyPathForRequest = (0, _varypath.getSegmentVaryPathForRequest)(
         fetchStrategy,
         tree,
@@ -8180,9 +6864,6 @@
       route,
       tree,
     ) {
-      
-      
-      
       const varyPathForRequest = (0, _varypath.getSegmentVaryPathForRequest)(
         fetchStrategy,
         tree,
@@ -8198,12 +6879,6 @@
       return pendingEntry;
     }
     function upsertSegmentEntry(now, varyPath, candidateEntry) {
-      
-      
-      
-      
-      
-      
       if (
         (0, _cachemap.isValueExpired)(
           now,
@@ -8211,36 +6886,25 @@
           candidateEntry,
         )
       ) {
-        
         return null;
       }
       const existingEntry = readSegmentCacheEntry(now, varyPath);
       if (existingEntry !== null) {
-        
-        
-        
         if (
-          
           (candidateEntry.fetchStrategy !== existingEntry.fetchStrategy &&
             !canNewFetchStrategyProvideMoreContent(
               existingEntry.fetchStrategy,
               candidateEntry.fetchStrategy,
-            )) || 
-          
+            )) ||
           (!existingEntry.isPartial && candidateEntry.isPartial)
         ) {
-          
-          
-          
-          
-          
           const rejectedEntry = candidateEntry;
           rejectedEntry.status = 3;
           rejectedEntry.loading = null;
           rejectedEntry.rsc = null;
           return null;
         }
-        
+
         (0, _cachemap.deleteFromCacheMap)(existingEntry);
       }
       const isRevalidation = false;
@@ -8255,14 +6919,13 @@
     function createDetachedSegmentCacheEntry(staleAt) {
       const emptyEntry = {
         status: 0,
-        
-        
+
         fetchStrategy: _types.FetchStrategy.PPR,
         rsc: null,
         loading: null,
         isPartial: true,
         promise: null,
-        
+
         ref: null,
         size: 0,
         staleAt,
@@ -8274,11 +6937,7 @@
       const pendingEntry = emptyEntry;
       pendingEntry.status = 1;
       pendingEntry.fetchStrategy = fetchStrategy;
-      
-      
-      
-      
-      
+
       pendingEntry.version = getCurrentCacheVersion();
       return pendingEntry;
     }
@@ -8301,17 +6960,11 @@
       renderedSearch,
       isPPREnabled,
     ) {
-      
-      
-      
-      
       const metadata = {
         requestKey: _segmentvalueencoding.HEAD_REQUEST_KEY,
         segment: _segmentvalueencoding.HEAD_REQUEST_KEY,
         varyPath: metadataVaryPath,
-        
-        
-        
+
         isPage: true,
         slots: null,
         isRootLayout: false,
@@ -8344,10 +6997,10 @@
       fulfilledEntry.loading = loading;
       fulfilledEntry.staleAt = staleAt;
       fulfilledEntry.isPartial = isPartial;
-      
+
       if (segmentCacheEntry.promise !== null) {
         segmentCacheEntry.promise.resolve(fulfilledEntry);
-        
+
         fulfilledEntry.promise = null;
       }
       return fulfilledEntry;
@@ -8363,8 +7016,6 @@
       rejectedEntry.status = 3;
       rejectedEntry.staleAt = staleAt;
       if (entry.promise !== null) {
-        
-        
         entry.promise.resolve(null);
         entry.promise = null;
       }
@@ -8375,7 +7026,6 @@
       renderedSearch,
       acc,
     ) {
-      
       const pathnameParts = renderedPathname.split("/").filter((p) => p !== "");
       const index = 0;
       const rootSegment = _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY;
@@ -8400,11 +7050,6 @@
       renderedSearch,
       acc,
     ) {
-      
-      
-      
-      
-      
       let slots = null;
       let isPage;
       let varyPath;
@@ -8425,23 +7070,14 @@
           let childSegment;
           let childPartialVaryPath;
           if (childParamType !== null) {
-            
             const childParamValue = (0,
             _routeparams.parseDynamicParamFromURLPart)(
               childParamType,
               pathnameParts,
               pathnamePartsIndex,
             );
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            const childParamKey = 
+
+            const childParamKey =
               childServerSentParamKey !== null
                 ? childServerSentParamKey
                 : (0, _routeparams.getCacheKeyForDynamicParam)(
@@ -8455,15 +7091,12 @@
             childSegment = [childParamName, childParamKey, childParamType];
             childDoesAppearInURL = true;
           } else {
-            
-            
             childPartialVaryPath = partialVaryPath;
             childSegment = childParamName;
             childDoesAppearInURL = (0,
             _routeparams.doesStaticSegmentAppearInURL)(childParamName);
           }
-          
-          
+
           const childPathnamePartsIndex = childDoesAppearInURL
             ? pathnamePartsIndex + 1
             : pathnamePartsIndex;
@@ -8488,19 +7121,13 @@
         }
       } else {
         if (requestKey.endsWith(_segment.PAGE_SEGMENT_KEY)) {
-          
           isPage = true;
           varyPath = (0, _varypath.finalizePageVaryPath)(
             requestKey,
             renderedSearch,
             partialVaryPath,
           );
-          
-          
-          
-          
-          
-          
+
           if (acc.metadataVaryPath === null) {
             acc.metadataVaryPath = (0, _varypath.finalizeMetadataVaryPath)(
               requestKey,
@@ -8509,7 +7136,6 @@
             );
           }
         } else {
-          
           isPage = false;
           varyPath = (0, _varypath.finalizeLayoutVaryPath)(
             requestKey,
@@ -8521,17 +7147,11 @@
         requestKey,
         segment,
         varyPath,
-        
-        
-        
-        
-        
-        
+
         isPage: isPage,
         slots,
         isRootLayout: prefetch.isRootLayout,
-        
-        
+
         hasLoadingBoundary:
           _approutertypes.HasLoadingBoundary.SegmentHasLoadingBoundary,
         hasRuntimePrefetch: prefetch.hasRuntimePrefetch,
@@ -8575,33 +7195,17 @@
         );
         segment = originalSegment;
       } else {
-        
-        
         partialVaryPath = parentPartialVaryPath;
         if (requestKey.endsWith(_segment.PAGE_SEGMENT_KEY)) {
-          
           isPage = true;
-          
-          
-          
-          
-          
-          
-          
-          
-          
+
           segment = _segment.PAGE_SEGMENT_KEY;
           varyPath = (0, _varypath.finalizePageVaryPath)(
             requestKey,
             renderedSearch,
             partialVaryPath,
           );
-          
-          
-          
-          
-          
-          
+
           if (acc.metadataVaryPath === null) {
             acc.metadataVaryPath = (0, _varypath.finalizeMetadataVaryPath)(
               requestKey,
@@ -8610,7 +7214,6 @@
             );
           }
         } else {
-          
           isPage = false;
           segment = originalSegment;
           varyPath = (0, _varypath.finalizeLayoutVaryPath)(
@@ -8624,9 +7227,7 @@
       for (let parallelRouteKey in parallelRoutes) {
         const childRouterState = parallelRoutes[parallelRouteKey];
         const childSegment = childRouterState[0];
-        
-        
-        
+
         const childRequestKeyPart = (0,
         _segmentvalueencoding.createSegmentRequestKeyPart)(childSegment);
         const childRequestKey = (0,
@@ -8654,12 +7255,7 @@
         requestKey,
         segment,
         varyPath,
-        
-        
-        
-        
-        
-        
+
         isPage: isPage,
         slots,
         isRootLayout: flightRouterState[4] === true,
@@ -8667,8 +7263,7 @@
           flightRouterState[5] !== undefined
             ? flightRouterState[5]
             : _approutertypes.HasLoadingBoundary.SubtreeHasNoLoadingBoundary,
-        
-        
+
         hasRuntimePrefetch: false,
       };
     }
@@ -8692,10 +7287,6 @@
       return flightRouterState;
     }
     async function fetchRouteOnCacheMiss(entry, task, key) {
-      
-      
-      
-      
       const pathname = key.pathname;
       const search = key.search;
       const nextUrl = key.nextUrl;
@@ -8712,13 +7303,8 @@
         const url = new URL(pathname + search, location.origin);
         let response;
         let urlAfterRedirects;
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
         else {
-          
-          
-          
-          
           response = await fetchPrefetchResponse(url, headers);
           urlAfterRedirects =
             response !== null && response.redirected
@@ -8727,49 +7313,28 @@
         }
         if (
           !response ||
-          !response.ok || 
-          
-          
+          !response.ok ||
           response.status === 204 ||
           !response.body
         ) {
-          
-          
           rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
           return null;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         const canonicalUrl = (0, _createhreffromurl.createHrefFromUrl)(
           urlAfterRedirects,
         );
-        
+
         const varyHeader = response.headers.get("vary");
         const couldBeIntercepted =
           varyHeader !== null &&
           varyHeader.includes(_approuterheaders.NEXT_URL);
-        
+
         const closed = (0, _promisewithresolvers.createPromiseWithResolvers)();
-        
-        
-        
+
         const routeIsPPREnabled =
           response.headers.get(_approuterheaders.NEXT_DID_POSTPONE_HEADER) ===
-            "2" || 
-          
-          
-          isOutputExportMode;
+            "2" || isOutputExportMode;
         if (routeIsPPREnabled) {
           const prefetchStream = createPrefetchResponseStream(
             response.body,
@@ -8784,27 +7349,15 @@
             headers,
           );
           if (serverData.buildId !== (0, _appbuildid.getAppBuildId)()) {
-            
-            
-            
-            
-            
-            
             rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
             return null;
           }
-          
-          
-          
+
           const renderedPathname = (0, _routeparams.getRenderedPathname)(
             response,
           );
           const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
-          
-          
-          
-          
-          
+
           const acc = {
             metadataVaryPath: null,
           };
@@ -8831,11 +7384,6 @@
             routeIsPPREnabled,
           );
         } else {
-          
-          
-          
-          
-          
           const prefetchStream = createPrefetchResponseStream(
             response.body,
             closed.resolve,
@@ -8849,18 +7397,12 @@
             headers,
           );
           if (serverData.b !== (0, _appbuildid.getAppBuildId)()) {
-            
-            
-            
-            
-            
-            
             rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
             return null;
           }
           writeDynamicTreeResponseIntoCache(
             Date.now(),
-            task, 
+            task,
             _types.FetchStrategy.LoadingBoundary,
             response,
             serverData,
@@ -8871,16 +7413,6 @@
           );
         }
         if (!couldBeIntercepted) {
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           const fulfilledVaryPath = (0, _varypath.getFulfilledRouteVaryPath)(
             pathname,
             search,
@@ -8895,15 +7427,12 @@
             isRevalidation,
           );
         }
-        
-        
+
         return {
           value: null,
           closed: closed.promise,
         };
       } catch (error) {
-        
-        
         rejectRouteCacheEntry(entry, Date.now() + 10 * 1000);
         return null;
       }
@@ -8914,26 +7443,12 @@
       routeKey,
       tree,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const url = new URL(route.canonicalUrl, location.origin);
       const nextUrl = routeKey.nextUrl;
       const requestKey = tree.requestKey;
       const normalizedRequestKey =
-        requestKey === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY 
-          ? 
-            
-            
-            "/_index"
+        requestKey === _segmentvalueencoding.ROOT_SEGMENT_REQUEST_KEY
+          ? "/_index"
           : requestKey;
       const headers = {
         [_approuterheaders.RSC_HEADER]: "1",
@@ -8952,28 +7467,18 @@
         if (
           !response ||
           !response.ok ||
-          response.status === 204 || 
-          
-          
-          
-          
-          
+          response.status === 204 ||
           (response.headers.get(_approuterheaders.NEXT_DID_POSTPONE_HEADER) !==
-            "2" && 
-            
-            
+            "2" &&
             !isOutputExportMode) ||
           !response.body
         ) {
-          
-          
           rejectSegmentCacheEntry(segmentCacheEntry, Date.now() + 10 * 1000);
           return null;
         }
-        
+
         const closed = (0, _promisewithresolvers.createPromiseWithResolvers)();
-        
-        
+
         const prefetchStream = createPrefetchResponseStream(
           response.body,
           closed.resolve,
@@ -8987,11 +7492,6 @@
           headers,
         );
         if (serverData.buildId !== (0, _appbuildid.getAppBuildId)()) {
-          
-          
-          
-          
-          
           rejectSegmentCacheEntry(segmentCacheEntry, Date.now() + 10 * 1000);
           return null;
         }
@@ -8999,17 +7499,14 @@
           value: fulfillSegmentCacheEntry(
             segmentCacheEntry,
             serverData.rsc,
-            serverData.loading, 
+            serverData.loading,
             route.staleAt,
             serverData.isPartial,
           ),
-          
-          
+
           closed: closed.promise,
         };
       } catch (error) {
-        
-        
         rejectSegmentCacheEntry(segmentCacheEntry, Date.now() + 10 * 1000);
         return null;
       }
@@ -9028,8 +7525,6 @@
         spawnedEntries.size === 1 &&
         spawnedEntries.has(route.metadata.requestKey)
       ) {
-        
-        
         dynamicRequestTree = MetadataOnlyRequestTree;
       }
       const headers = {
@@ -9061,8 +7556,6 @@
       try {
         const response = await fetchPrefetchResponse(url, headers);
         if (!response || !response.ok || !response.body) {
-          
-          
           rejectSegmentEntriesIfStillPending(
             spawnedEntries,
             Date.now() + 10 * 1000,
@@ -9071,32 +7564,20 @@
         }
         const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
         if (renderedSearch !== route.renderedSearch) {
-          
-          
-          
-          
-          
-          
-          
           rejectSegmentEntriesIfStillPending(
             spawnedEntries,
             Date.now() + 10 * 1000,
           );
           return null;
         }
-        
+
         const closed = (0, _promisewithresolvers.createPromiseWithResolvers)();
         let fulfilledEntries = null;
         const prefetchStream = createPrefetchResponseStream(
           response.body,
           closed.resolve,
           function onResponseSizeUpdate(totalBytesReceivedSoFar) {
-            
-            
-            
             if (fulfilledEntries === null) {
-              
-              
               return;
             }
             const averageSize =
@@ -9115,9 +7596,7 @@
           fetchStrategy === _types.FetchStrategy.PPRRuntime
             ? serverData.rp?.[0] === true
             : false;
-        
-        
-        
+
         fulfilledEntries = writeDynamicRenderResponseIntoCache(
           Date.now(),
           task,
@@ -9128,8 +7607,7 @@
           route,
           spawnedEntries,
         );
-        
-        
+
         return {
           value: null,
           closed: closed.promise,
@@ -9153,13 +7631,10 @@
       canonicalUrl,
       routeIsPPREnabled,
     ) {
-      
-      
       const renderedSearch = (0, _routeparams.getRenderedSearch)(response);
       const normalizedFlightDataResult = (0,
       _flightdatahelpers.normalizeFlightData)(serverData.f);
       if (
-        
         typeof normalizedFlightDataResult === "string" ||
         normalizedFlightDataResult.length !== 1
       ) {
@@ -9168,13 +7643,11 @@
       }
       const flightData = normalizedFlightDataResult[0];
       if (!flightData.isRootRender) {
-        
         rejectRouteCacheEntry(entry, now + 10 * 1000);
         return;
       }
       const flightRouterState = flightData.tree;
-      
-      
+
       const staleTimeSeconds =
         typeof serverData.rp?.[1] === "number"
           ? serverData.rp[1]
@@ -9187,18 +7660,11 @@
       const staleTimeMs = !isNaN(staleTimeSeconds)
         ? getStaleTimeMs(staleTimeSeconds)
         : _navigatereducer.STATIC_STALETIME_MS;
-      
-      
-      
-      
+
       const isResponsePartial =
         response.headers.get(_approuterheaders.NEXT_DID_POSTPONE_HEADER) ===
         "1";
-      
-      
-      
-      
-      
+
       const acc = {
         metadataVaryPath: null,
       };
@@ -9222,15 +7688,7 @@
         renderedSearch,
         routeIsPPREnabled,
       );
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       writeDynamicRenderResponseIntoCache(
         now,
         task,
@@ -9264,11 +7722,6 @@
       spawnedEntries,
     ) {
       if (serverData.b !== (0, _appbuildid.getAppBuildId)()) {
-        
-        
-        
-        
-        
         if (spawnedEntries !== null) {
           rejectSegmentEntriesIfStillPending(spawnedEntries, now + 10 * 1000);
         }
@@ -9278,12 +7731,9 @@
         serverData.f,
       );
       if (typeof flightDatas === "string") {
-        
-        
         return null;
       }
-      
-      
+
       const staleTimeSeconds =
         typeof serverData.rp?.[1] === "number"
           ? serverData.rp[1]
@@ -9300,13 +7750,6 @@
       for (const flightData of flightDatas) {
         const seedData = flightData.seedData;
         if (seedData !== null) {
-          
-          
-          
-          
-          
-          
-          
           const segmentPath = flightData.segmentPath;
           let tree = route.tree;
           for (let i = 0; i < segmentPath.length; i += 2) {
@@ -9350,14 +7793,7 @@
           );
         }
       }
-      
-      
-      
-      
-      
-      
-      
-      
+
       if (spawnedEntries !== null) {
         const fulfilledEntries = rejectSegmentEntriesIfStillPending(
           spawnedEntries,
@@ -9378,8 +7814,6 @@
       isResponsePartial,
       entriesOwnedByCurrentTask,
     ) {
-      
-      
       const rsc = seedData[0];
       const loading = seedData[2];
       const isPartial = rsc === null || isResponsePartial;
@@ -9394,7 +7828,7 @@
         tree,
         entriesOwnedByCurrentTask,
       );
-      
+
       const slots = tree.slots;
       if (slots !== null) {
         const seedDataChildren = seedData[1];
@@ -9428,9 +7862,6 @@
       tree,
       entriesOwnedByCurrentTask,
     ) {
-      
-      
-      
       const ownedEntry =
         entriesOwnedByCurrentTask !== null
           ? entriesOwnedByCurrentTask.get(tree.requestKey)
@@ -9438,7 +7869,6 @@
       if (ownedEntry !== undefined) {
         fulfillSegmentCacheEntry(ownedEntry, rsc, loading, staleAt, isPartial);
       } else {
-        
         const possiblyNewEntry = readOrCreateSegmentCacheEntry(
           now,
           fetchStrategy,
@@ -9446,7 +7876,6 @@
           tree,
         );
         if (possiblyNewEntry.status === 0) {
-          
           const newEntry = possiblyNewEntry;
           fulfillSegmentCacheEntry(
             upgradeToPendingSegment(newEntry, fetchStrategy),
@@ -9456,8 +7885,6 @@
             isPartial,
           );
         } else {
-          
-          
           const newEntry = fulfillSegmentCacheEntry(
             upgradeToPendingSegment(
               createDetachedSegmentCacheEntry(staleAt),
@@ -9478,10 +7905,7 @@
     }
     async function fetchPrefetchResponse(url, headers) {
       const fetchPriority = "low";
-      
-      
-      
-      
+
       const shouldImmediatelyDecode = false;
       const response = await (0, _fetchserverresponse.createFetch)(
         url,
@@ -9492,12 +7916,8 @@
       if (!response.ok) {
         return null;
       }
-      
+
       if (("TURBOPACK compile-time falsy", 0)) {
-        
-        
-        
-        
       } else {
         const contentType = response.headers.get("content-type");
         const isFlightResponse =
@@ -9514,20 +7934,6 @@
       onStreamClose,
       onResponseSizeUpdate,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       let totalByteLength = 0;
       const reader = originalFlightStream.getReader();
       return new ReadableStream({
@@ -9535,19 +7941,13 @@
           while (true) {
             const { done, value } = await reader.read();
             if (!done) {
-              
-              
               controller.enqueue(value);
-              
-              
-              
-              
+
               totalByteLength += value.byteLength;
               onResponseSizeUpdate(totalByteLength);
               continue;
             }
-            
-            
+
             onStreamClose();
             return;
           }
@@ -9555,8 +7955,7 @@
       });
     }
     function addSegmentPathToUrlInOutputExportMode(url, segmentPath) {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       return url;
     }
     function canNewFetchStrategyProvideMoreContent(
@@ -9575,7 +7974,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/navigation.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -9622,45 +8021,18 @@
     ) {
       const now = Date.now();
       const href = url.href;
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      const isSamePageNavigation = 
-        
-        
-        
-        href === window.location.href;
+
+      const isSamePageNavigation = href === window.location.href;
       const cacheKey = (0, _cachekey.createCacheKey)(href, nextUrl);
       const route = (0, _cache.readRouteCacheEntry)(now, cacheKey);
       if (route !== null && route.status === _cache.EntryStatus.Fulfilled) {
-        
         const snapshot = readRenderSnapshotFromCache(now, route, route.tree);
         const prefetchFlightRouterState = snapshot.flightRouterState;
         const prefetchSeedData = snapshot.seedData;
         const headSnapshot = readHeadSnapshotFromCache(now, route);
         const prefetchHead = headSnapshot.rsc;
         const isPrefetchHeadPartial = headSnapshot.isPartial;
-        
-        
-        
-        
-        
-        
+
         const newCanonicalUrl = route.canonicalUrl + url.hash;
         const renderedSearch = route.renderedSearch;
         return navigateUsingPrefetchedRouteTree(
@@ -9681,15 +8053,7 @@
           url.hash,
         );
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       if (route === null || route.status !== _cache.EntryStatus.Rejected) {
         const optimisticRoute = (0, _cache.requestOptimisticRouteCacheEntry)(
           now,
@@ -9697,7 +8061,6 @@
           nextUrl,
         );
         if (optimisticRoute !== null) {
-          
           const snapshot = readRenderSnapshotFromCache(
             now,
             optimisticRoute,
@@ -9729,7 +8092,7 @@
           );
         }
       }
-      
+
       let collectedDebugInfo = accumulation.collectedDebugInfo ?? [];
       if (accumulation.collectedDebugInfo === undefined) {
         collectedDebugInfo = accumulation.collectedDebugInfo = [];
@@ -9767,12 +8130,6 @@
       shouldScroll,
       hash,
     ) {
-      
-      
-      
-      
-      
-      
       const scrollableSegments = [];
       const task = (0, _pprnavigations.startPPRNavigation)(
         now,
@@ -9802,8 +8159,6 @@
             promiseForDynamicServerResponse,
           );
         } else {
-          
-          
         }
         return navigationTaskToResult(
           task,
@@ -9815,8 +8170,7 @@
           hash,
         );
       }
-      
-      
+
       return {
         tag: _types.NavigationResultTag.NoOp,
         data: {
@@ -9836,8 +8190,6 @@
     ) {
       const flightRouterState = task.route;
       if (flightRouterState === null) {
-        
-        
         return {
           tag: _types.NavigationResultTag.MPA,
           data: canonicalUrl,
@@ -9883,16 +8235,12 @@
       if (segmentEntry !== null) {
         switch (segmentEntry.status) {
           case _cache.EntryStatus.Fulfilled: {
-            
             rsc = segmentEntry.rsc;
             loading = segmentEntry.loading;
             isPartial = segmentEntry.isPartial;
             break;
           }
           case _cache.EntryStatus.Pending: {
-            
-            
-            
             const promiseForFulfilledEntry = (0,
             _cache.waitForSegmentCacheEntry)(segmentEntry);
             rsc = promiseForFulfilledEntry.then((entry) =>
@@ -9901,9 +8249,7 @@
             loading = promiseForFulfilledEntry.then((entry) =>
               entry !== null ? entry.loading : null,
             );
-            
-            
-            
+
             isPartial = true;
             break;
           }
@@ -9914,21 +8260,12 @@
             segmentEntry;
         }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       const segment = (0, _segment.addSearchParamsIfPageSegment)(
         tree.segment,
         Object.fromEntries(new URLSearchParams(route.renderedSearch)),
       );
-      
+
       const hasRuntimePrefetch = false;
       return {
         flightRouterState: [
@@ -9942,7 +8279,6 @@
       };
     }
     function readHeadSnapshotFromCache(now, route) {
-      
       let rsc = null;
       let isPartial = true;
       const segmentEntry = (0, _cache.readSegmentCacheEntry)(
@@ -9989,17 +8325,6 @@
       hash,
       collectedDebugInfo,
     ) {
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       const promiseForDynamicServerResponse = (0,
       _fetchserverresponse.fetchServerResponse)(url, {
         flightRouterState: currentFlightRouterState,
@@ -10007,7 +8332,6 @@
       });
       const result = await promiseForDynamicServerResponse;
       if (typeof result === "string") {
-        
         const newUrl = result;
         return {
           tag: _types.NavigationResultTag.MPA,
@@ -10023,20 +8347,17 @@
       if (debugInfoFromResponse !== null) {
         collectedDebugInfo.push(...debugInfoFromResponse);
       }
-      
-      
-      
+
       const prefetchFlightRouterState =
         simulatePrefetchTreeUsingDynamicTreePatch(
           currentFlightRouterState,
           flightData,
         );
-      
-      
+
       const prefetchSeedData = null;
       const prefetchHead = null;
       const isPrefetchHeadPartial = true;
-      
+
       const scrollableSegments = [];
       const task = (0, _pprnavigations.startPPRNavigation)(
         now,
@@ -10051,14 +8372,6 @@
         scrollableSegments,
       );
       if (task !== null) {
-        
-        
-        
-        
-        
-        
-        
-        
         const hasDynamicHoles = task.dynamicRequestTree !== null;
         if (hasDynamicHoles) {
           (0, _pprnavigations.listenForDynamicRequest)(
@@ -10066,8 +8379,6 @@
             promiseForDynamicServerResponse,
           );
         } else {
-          
-          
         }
         return navigationTaskToResult(
           task,
@@ -10079,8 +8390,7 @@
           hash,
         );
       }
-      
-      
+
       return {
         tag: _types.NavigationResultTag.NoOp,
         data: {
@@ -10093,18 +8403,8 @@
       currentTree,
       flightData,
     ) {
-      
-      
-      
-      
-      
-      
-      
       let baseTree = currentTree;
       for (const { segmentPath, tree: treePatch } of flightData) {
-        
-        
-        
         const canMutateInPlace = baseTree !== currentTree;
         baseTree = simulatePrefetchTreeUsingDynamicTreePatchImpl(
           baseTree,
@@ -10124,22 +8424,11 @@
       index,
     ) {
       if (index === segmentPath.length) {
-        
         return patch;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       const updatedParallelRouteKey = segmentPath[index];
-      
+
       const baseChildren = baseRouterState[1];
       const newChildren = {};
       for (const parallelRouteKey in baseChildren) {
@@ -10150,25 +8439,18 @@
               childBaseRouterState,
               patch,
               segmentPath,
-              canMutateInPlace, 
+              canMutateInPlace,
               index + 2,
             );
         } else {
-          
           newChildren[parallelRouteKey] = baseChildren[parallelRouteKey];
         }
       }
       if (canMutateInPlace) {
-        
-        
         baseRouterState[1] = newChildren;
         return baseRouterState;
       }
-      
-      
-      
-      
-      
+
       const clone = [baseRouterState[0], newChildren];
       if (2 in baseRouterState) {
         clone[2] = baseRouterState[2];
@@ -10191,14 +8473,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/navigate-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -10274,7 +8556,6 @@
         parallelRoutes,
       )) {
         for (const childSegment of generateSegmentsFromPatch(parallelRoute)) {
-          
           if (segment === "") {
             segments.push([parallelRouteKey, ...childSegment]);
           } else {
@@ -10287,34 +8568,28 @@
     function handleNavigationResult(url, state, mutable, pendingPush, result) {
       switch (result.tag) {
         case _types.NavigationResultTag.MPA: {
-          
           const newUrl = result.data;
           return handleExternalUrl(state, mutable, newUrl, pendingPush);
         }
         case _types.NavigationResultTag.NoOp: {
-          
-          
           const newCanonicalUrl = result.data.canonicalUrl;
           mutable.canonicalUrl = newCanonicalUrl;
-          
+
           const oldUrl = new URL(state.canonicalUrl, url);
-          const onlyHashChange = 
+          const onlyHashChange =
             url.pathname === oldUrl.pathname &&
             url.search === oldUrl.search &&
             url.hash !== oldUrl.hash;
           if (onlyHashChange) {
-            
             mutable.onlyHashChange = true;
             mutable.shouldScroll = result.data.shouldScroll;
             mutable.hashFragment = url.hash;
-            
-            
+
             mutable.scrollableSegments = [];
           }
           return (0, _handlemutable.handleMutable)(state, mutable);
         }
         case _types.NavigationResultTag.Success: {
-          
           mutable.cache = result.data.cacheNode;
           mutable.patchedTree = result.data.flightRouterState;
           mutable.renderedSearch = result.data.renderedSearch;
@@ -10333,8 +8608,8 @@
                 mutable,
                 pendingPush,
                 asyncResult,
-              ), 
-            
+              ),
+
             () => {
               return state;
             },
@@ -10356,14 +8631,11 @@
       if (isExternalUrl) {
         return handleExternalUrl(state, mutable, url.toString(), pendingPush);
       }
-      
-      
+
       if (document.getElementById("__next-page-redirect")) {
         return handleExternalUrl(state, mutable, href, pendingPush);
       }
-      
-      
-      
+
       const currentUrl = new URL(state.canonicalUrl, location.origin);
       const result = (0, _navigation.navigate)(
         url,
@@ -10386,7 +8658,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fill-lazy-items-till-leaf-with-head.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10417,23 +8689,14 @@
         newCache.head = head;
         return;
       }
-      
+
       for (const key in routerState[1]) {
         const parallelRouteState = routerState[1][key];
         const segmentForParallelRoute = parallelRouteState[0];
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
           segmentForParallelRoute,
         );
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         const parallelSeedData =
           cacheNodeSeedData !== null && cacheNodeSeedData[1][key] !== undefined
             ? cacheNodeSeedData[1][key]
@@ -10448,17 +8711,12 @@
             const existingCacheNode = parallelRouteCacheNode.get(cacheKey);
             let newCacheNode;
             if (parallelSeedData !== null) {
-              
               const seedNode = parallelSeedData[0];
               const loading = parallelSeedData[2];
               newCacheNode = {
                 lazyData: null,
                 rsc: seedNode,
-                
-                
-                
-                
-                
+
                 prefetchRsc: null,
                 head: null,
                 prefetchHead: null,
@@ -10467,8 +8725,6 @@
                 navigatedAt,
               };
             } else {
-              
-              
               newCacheNode = {
                 lazyData: null,
                 rsc: null,
@@ -10480,9 +8736,9 @@
                 navigatedAt,
               };
             }
-            
+
             parallelRouteCacheNode.set(cacheKey, newCacheNode);
-            
+
             fillLazyItemsTillLeafWithHead(
               navigatedAt,
               newCacheNode,
@@ -10497,7 +8753,6 @@
         }
         let newCacheNode;
         if (parallelSeedData !== null) {
-          
           const seedNode = parallelSeedData[0];
           const loading = parallelSeedData[2];
           newCacheNode = {
@@ -10511,8 +8766,6 @@
             navigatedAt,
           };
         } else {
-          
-          
           newCacheNode = {
             lazyData: null,
             rsc: null,
@@ -10550,7 +8803,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/invalidate-cache-by-router-state.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10573,7 +8826,6 @@
       existingCache,
       routerState,
     ) {
-      
       for (const key in routerState[1]) {
         const segmentForParallelRoute = routerState[1][key][0];
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
@@ -10598,7 +8850,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fill-cache-with-new-subtree-data.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10639,9 +8891,8 @@
     const _segment = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [app-client] (ecmascript)",
     );
-    
 
- function fillCacheHelper(
+    function fillCacheHelper(
       navigatedAt,
       newCache,
       existingCache,
@@ -10659,8 +8910,7 @@
       for (let i = 0; i < segmentPath.length; i += 2) {
         const parallelRouteKey = segmentPath[i];
         const segment = segmentPath[i + 1];
-        
-        
+
         const isLastEntry = i === segmentPath.length - 2;
         const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(
           segment,
@@ -10688,8 +8938,7 @@
             const loading = cacheNodeSeedData[2];
             childCacheNode = {
               lazyData: null,
-              
-              
+
               rsc:
                 fillLazyItems || segment !== _segment.PAGE_SEGMENT_KEY
                   ? rsc
@@ -10740,7 +8989,7 @@
           };
           childSegmentMap.set(cacheKey, childCacheNode);
         }
-        
+
         newCacheNode = childCacheNode;
         existingCacheNode = existingChildCacheNode;
       }
@@ -10771,7 +9020,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/apply-flight-data.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10793,9 +9042,8 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/fill-cache-with-new-subtree-data.js [app-client] (ecmascript)",
     );
     function applyFlightData(navigatedAt, existingCache, cache, flightData) {
-      
       const { tree: treePatch, seedData, head, isRootRender } = flightData;
-      
+
       if (seedData === null) {
         return false;
       }
@@ -10804,11 +9052,7 @@
         const loading = seedData[2];
         cache.loading = loading;
         cache.rsc = rsc;
-        
-        
-        
-        
-        
+
         cache.prefetchRsc = null;
         (0, _filllazyitemstillleafwithhead.fillLazyItemsTillLeafWithHead)(
           navigatedAt,
@@ -10819,15 +9063,12 @@
           head,
         );
       } else {
-        
         cache.rsc = existingCache.rsc;
-        
-        
-        
+
         cache.prefetchRsc = existingCache.prefetchRsc;
         cache.parallelRoutes = new Map(existingCache.parallelRoutes);
         cache.loading = existingCache.loading;
-        
+
         (0, _fillcachewithnewsubtreedata.fillCacheWithNewSubTreeData)(
           navigatedAt,
           cache,
@@ -10847,7 +9088,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/refetch-inactive-parallel-segments.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -10908,18 +9149,14 @@
       if (
         refetchPath &&
         refetchPath !== canonicalUrl &&
-        refetchMarker === "refresh" && 
-        
+        refetchMarker === "refresh" &&
         !fetchedSegments.has(refetchPath)
       ) {
-        fetchedSegments.add(refetchPath); 
-        
-        
+        fetchedSegments.add(refetchPath);
+
         const fetchPromise = (0, _fetchserverresponse.fetchServerResponse)(
           new URL(refetchPath, location.origin),
           {
-            
-            
             flightRouterState: [
               rootTree[0],
               rootTree[1],
@@ -10932,9 +9169,6 @@
           if (typeof result !== "string") {
             const { flightData } = result;
             for (const flightDataPath of flightData) {
-              
-              
-              
               (0, _applyflightdata.applyFlightData)(
                 navigatedAt,
                 updatedCache,
@@ -10943,9 +9177,6 @@
               );
             }
           } else {
-            
-            
-            
           }
         });
         fetchPromises.push(fetchPromise);
@@ -10967,7 +9198,7 @@
     }
     function addRefreshMarkerToActiveParallelSegments(tree, path) {
       const [segment, parallelRoutes, , refetchMarker] = tree;
-      
+
       if (
         segment.includes(_segment.PAGE_SEGMENT_KEY) &&
         refetchMarker !== "refresh"
@@ -10989,7 +9220,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/apply-router-state-patch-to-tree.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11016,13 +9247,11 @@
     const _refetchinactiveparallelsegments = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/refetch-inactive-parallel-segments.js [app-client] (ecmascript)",
     );
-    
 
- function applyPatch(initialTree, patchTree) {
+    function applyPatch(initialTree, patchTree) {
       const [initialSegment, initialParallelRoutes] = initialTree;
       const [patchSegment, patchParallelRoutes] = patchTree;
-      
-      
+
       if (
         patchSegment === _segment.DEFAULT_SEGMENT_KEY &&
         initialSegment !== _segment.DEFAULT_SEGMENT_KEY
@@ -11050,7 +9279,7 @@
           newParallelRoutes[key] = patchParallelRoutes[key];
         }
         const tree = [initialSegment, newParallelRoutes];
-        
+
         if (initialTree[2]) {
           tree[2] = initialTree[2];
         }
@@ -11072,7 +9301,7 @@
     ) {
       const [segment, parallelRoutes, url, refetch, isRootLayout] =
         flightRouterState;
-      
+
       if (flightSegmentPath.length === 1) {
         const tree = applyPatch(flightRouterState, treePatch);
         (0,
@@ -11083,7 +9312,7 @@
         return tree;
       }
       const [currentSegment, parallelRouteKey] = flightSegmentPath;
-      
+
       if (!(0, _matchsegments.matchSegment)(currentSegment, segment)) {
         return null;
       }
@@ -11114,7 +9343,7 @@
         url,
         refetch,
       ];
-      
+
       if (isRootLayout) {
         tree[4] = true;
       }
@@ -11135,7 +9364,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-announcer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11171,7 +9400,7 @@
         announcer.role = "alert";
         announcer.style.cssText =
           "position:absolute;border:0;height:1px;margin:-1px;padding:0;width:1px;clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap;word-wrap:normal";
-        
+
         const shadow = container.attachShadow({
           mode: "open",
         });
@@ -11206,8 +9435,7 @@
             currentTitle = pageHeader.innerText || pageHeader.textContent || "";
           }
         }
-        
-        
+
         if (
           previousTitle.current !== undefined &&
           previousTitle.current !== currentTitle
@@ -11217,10 +9445,7 @@
         previousTitle.current = currentTitle;
       }, [tree]);
       return portalNode
-        ?  (0, _reactdom.createPortal)(
-            routeAnnouncement,
-            portalNode,
-          )
+        ? (0, _reactdom.createPortal)(routeAnnouncement, portalNode)
         : null;
     }
     if (
@@ -11233,17 +9458,13 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/readonly-url-search-params.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-  Object.defineProperty(exports, "__esModule", {
+    Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "ReadonlyURLSearchParams", {
@@ -11260,16 +9481,16 @@
       }
     }
     class ReadonlyURLSearchParams extends URLSearchParams {
-       append() {
+      append() {
         throw new ReadonlyURLSearchParamsError();
       }
-       delete() {
+      delete() {
         throw new ReadonlyURLSearchParamsError();
       }
-       set() {
+      set() {
         throw new ReadonlyURLSearchParamsError();
       }
-       sort() {
+      sort() {
         throw new ReadonlyURLSearchParamsError();
       }
     }
@@ -11283,7 +9504,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unrecognized-action-error.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11335,7 +9556,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11409,7 +9630,7 @@
       error.digest = `${_redirecterror.REDIRECT_ERROR_CODE};${type};${url};${statusCode};`;
       return error;
     }
-    function redirect( url, type) {
+    function redirect(url, type) {
       type ??= actionAsyncStorage?.getStore()?.isAction
         ? _redirecterror.RedirectType.push
         : _redirecterror.RedirectType.replace;
@@ -11420,7 +9641,7 @@
       );
     }
     function permanentRedirect(
-       url,
+      url,
       type = _redirecterror.RedirectType.replace,
     ) {
       throw getRedirectError(
@@ -11431,8 +9652,7 @@
     }
     function getURLFromRedirectError(error) {
       if (!(0, _redirecterror.isRedirectError)(error)) return null;
-      
-      
+
       return error.digest.split(";").slice(2, -2).join(";");
     }
     function getRedirectTypeFromError(error) {
@@ -11473,14 +9693,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/forbidden.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -11496,19 +9716,8 @@
     const _httpaccessfallback = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
     );
-    
-    
 
-
-
-
-
-
-
-
-
-
- const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};403`;
+    const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};403`;
     function forbidden() {
       if (("TURBOPACK compile-time truthy", 1)) {
         throw Object.defineProperty(
@@ -11545,14 +9754,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unauthorized.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -11568,20 +9777,8 @@
     const _httpaccessfallback = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-client] (ecmascript)",
     );
-    
-    
 
-
-
-
-
-
-
-
-
-
-
- const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};401`;
+    const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};401`;
     function unauthorized() {
       if (("TURBOPACK compile-time truthy", 1)) {
         throw Object.defineProperty(
@@ -11618,7 +9815,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.browser.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11660,7 +9857,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/hooks-server-context.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11718,7 +9915,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/static-generation-bailout.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11769,7 +9966,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.server.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11828,19 +10025,13 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
- Object.defineProperty(exports, "__esModule", {
+    Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "unstable_rethrow", {
@@ -11867,7 +10058,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation.react-server.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -11968,14 +10159,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12065,7 +10256,7 @@
     const _interop_require_wildcard = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -12108,20 +10299,16 @@
       const searchParams = (0, _react.useContext)(
         _hooksclientcontextsharedruntime.SearchParamsContext,
       );
-      
-      
-      
+
       const readonlySearchParams = (0, _react.useMemo)(() => {
         if (!searchParams) {
-          
-          
           return null;
         }
         return new _readonlyurlsearchparams.ReadonlyURLSearchParams(
           searchParams,
         );
       }, [searchParams]);
-      
+
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12137,12 +10324,11 @@
     }
     function usePathname() {
       useDynamicRouteParams?.("usePathname()");
-      
-      
+
       const pathname = (0, _react.useContext)(
         _hooksclientcontextsharedruntime.PathnameContext,
       );
-      
+
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12178,7 +10364,7 @@
       const params = (0, _react.useContext)(
         _hooksclientcontextsharedruntime.PathParamsContext,
       );
-      
+
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12197,9 +10383,9 @@
       const context = (0, _react.useContext)(
         _approutercontextsharedruntime.LayoutRouterContext,
       );
-      
+
       if (!context) return null;
-      
+
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         "use" in _react.default
@@ -12213,8 +10399,6 @@
               parallelRouteKey,
             );
           if (promise) {
-            
-            
             return (0, _react.use)(promise);
           }
         }
@@ -12231,7 +10415,7 @@
       );
       const selectedLayoutSegments =
         useSelectedLayoutSegments(parallelRouteKey);
-      
+
       if (
         ("TURBOPACK compile-time value", "development") !== "production" &&
         navigationPromises &&
@@ -12242,8 +10426,6 @@
             parallelRouteKey,
           );
         if (promise) {
-          
-          
           return (0, _react.use)(promise);
         }
       }
@@ -12262,7 +10444,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12297,7 +10479,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -12338,9 +10520,6 @@
           const url = (0, _redirect.getURLFromRedirectError)(error);
           const redirectType = (0, _redirect.getRedirectTypeFromError)(error);
           if ("handled" in error) {
-            
-            
-            
             return {
               redirect: null,
               redirectType: null,
@@ -12351,14 +10530,14 @@
             redirectType,
           };
         }
-        
+
         throw error;
       }
-      
+
       render() {
         const { redirect, redirectType } = this.state;
         if (redirect !== null && redirectType !== null) {
-          return  (0, _jsxruntime.jsx)(HandleRedirect, {
+          return (0, _jsxruntime.jsx)(HandleRedirect, {
             redirect: redirect,
             redirectType: redirectType,
             reset: () =>
@@ -12372,7 +10551,7 @@
     }
     function RedirectBoundary({ children }) {
       const router = (0, _navigation.useRouter)();
-      return  (0, _jsxruntime.jsx)(RedirectErrorBoundary, {
+      return (0, _jsxruntime.jsx)(RedirectErrorBoundary, {
         router: router,
         children: children,
       });
@@ -12387,7 +10566,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/find-head-in-cache.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12419,22 +10598,19 @@
     ) {
       const isLastItem = Object.keys(parallelRoutes).length === 0;
       if (isLastItem) {
-        
         return [cache, keyPrefix, keyPrefixWithoutSearchParams];
       }
-      
-      
+
       const parallelRoutesKeys = Object.keys(parallelRoutes).filter(
         (key) => key !== "children",
       );
-      
+
       if ("children" in parallelRoutes) {
         parallelRoutesKeys.unshift("children");
       }
       for (const key of parallelRoutesKeys) {
         const [segment, childParallelRoutes] = parallelRoutes[key];
-        
-        
+
         if (segment === _segment.DEFAULT_SEGMENT_KEY) {
           continue;
         }
@@ -12473,15 +10649,13 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unresolved-thenable.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
- Object.defineProperty(exports, "__esModule", {
+    Object.defineProperty(exports, "__esModule", {
       value: true,
     });
     Object.defineProperty(exports, "unresolvedThenable", {
@@ -12503,14 +10677,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/has-base-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12540,14 +10714,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/remove-base-path.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12565,9 +10739,8 @@
     );
     const basePath = ("TURBOPACK compile-time value", "") || "";
     function removeBasePath(path) {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
-      
+      if (("TURBOPACK compile-time falsy", 0));
+
       if (basePath.length === 0) return path;
       path = path.slice(basePath.length);
       if (!path.startsWith("/")) path = `/${path}`;
@@ -12583,7 +10756,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/graceful-degrade-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12634,7 +10807,7 @@
         };
         this.rootHtml = "";
         this.htmlAttributes = {};
-        this.htmlRef =  (0, _react.createRef)();
+        this.htmlRef = (0, _react.createRef)();
       }
       static getDerivedStateFromError(_) {
         return {
@@ -12644,7 +10817,6 @@
       componentDidMount() {
         const htmlNode = this.htmlRef.current;
         if (this.state.hasError && htmlNode) {
-          
           Object.entries(this.htmlAttributes).forEach(([key, value]) => {
             htmlNode.setAttribute(key, value);
           });
@@ -12652,14 +10824,13 @@
       }
       render() {
         const { hasError } = this.state;
-        
+
         if (typeof window !== "undefined" && !this.rootHtml) {
           this.rootHtml = document.documentElement.innerHTML;
           this.htmlAttributes = getDomNodeAttributes(document.documentElement);
         }
         if (hasError) {
-          
-          return  (0, _jsxruntime.jsx)("html", {
+          return (0, _jsxruntime.jsx)("html", {
             ref: this.htmlRef,
             suppressHydrationWarning: true,
             dangerouslySetInnerHTML: {
@@ -12681,7 +10852,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/root-error-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -12702,12 +10873,12 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_default._(
+    const _react = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
     );
-    const _gracefuldegradeboundary =  _interop_require_default._(
+    const _gracefuldegradeboundary = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/graceful-degrade-boundary.js [app-client] (ecmascript)",
       ),
@@ -12728,16 +10899,11 @@
       errorScripts,
     }) {
       if (isBotUserAgent) {
-        
-        
-        return  (0, _jsxruntime.jsx)(
-          _gracefuldegradeboundary.default,
-          {
-            children: children,
-          },
-        );
+        return (0, _jsxruntime.jsx)(_gracefuldegradeboundary.default, {
+          children: children,
+        });
       }
-      return  (0, _jsxruntime.jsx)(_errorboundary.ErrorBoundary, {
+      return (0, _jsxruntime.jsx)(_errorboundary.ErrorBoundary, {
         errorComponent: errorComponent,
         errorStyles: errorStyles,
         errorScripts: errorScripts,
@@ -12754,14 +10920,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation-devtools.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -12803,14 +10969,13 @@
     );
     const layoutSegmentPromisesCache = new WeakMap();
     function createLayoutSegmentPromises(tree) {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
-      
+      if (("TURBOPACK compile-time falsy", 0));
+
       const cached = layoutSegmentPromisesCache.get(tree);
       if (cached) {
         return cached;
       }
-      
+
       const segmentPromises = new Map();
       const segmentsPromises = new Map();
       const parallelRoutes = tree[1];
@@ -12819,7 +10984,7 @@
           tree,
           parallelRouteKey,
         );
-        
+
         const segment = (0, _segment.computeSelectedLayoutSegment)(
           segments,
           parallelRouteKey,
@@ -12845,7 +11010,7 @@
         selectedLayoutSegmentPromises: segmentPromises,
         selectedLayoutSegmentsPromises: segmentsPromises,
       };
-      
+
       layoutSegmentPromisesCache.set(tree, result);
       return result;
     }
@@ -12856,19 +11021,18 @@
       searchParams,
       pathParams,
     ) {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
-      
+      if (("TURBOPACK compile-time falsy", 0));
+
       const searchParamsString = searchParams.toString();
       const pathParamsString = JSON.stringify(pathParams);
       const cacheKey = `${pathname}:${searchParamsString}:${pathParamsString}`;
-      
+
       let treeCache = rootNavigationPromisesCache.get(tree);
       if (!treeCache) {
         treeCache = new Map();
         rootNavigationPromisesCache.set(tree, treeCache);
       }
-      
+
       const cached = treeCache.get(cacheKey);
       if (cached) {
         return cached;
@@ -12899,26 +11063,25 @@
     }
     const nestedLayoutPromisesCache = new WeakMap();
     function createNestedLayoutNavigationPromises(tree, parentNavPromises) {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       const parallelRoutes = tree[1];
       const parallelRouteKeys = Object.keys(parallelRoutes);
-      
+
       if (parallelRouteKeys.length === 0) {
         return null;
       }
-      
+
       let treeCache = nestedLayoutPromisesCache.get(tree);
       if (!treeCache) {
         treeCache = new Map();
         nestedLayoutPromisesCache.set(tree, treeCache);
       }
-      
+
       const cached = treeCache.get(parentNavPromises);
       if (cached) {
         return cached;
       }
-      
+
       const layoutSegmentPromises = createLayoutSegmentPromises(tree);
       const promises = {
         ...parentNavPromises,
@@ -12937,14 +11100,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use client");
@@ -12964,7 +11127,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -12993,7 +11156,7 @@
         if (
           ("TURBOPACK compile-time value", "development") === "development" &&
           this.props.missingSlots &&
-          this.props.missingSlots.size > 0 && 
+          this.props.missingSlots.size > 0 &&
           !this.props.missingSlots.has("children")
         ) {
           let warningMessage =
@@ -13015,16 +11178,11 @@
             triggeredStatus: httpStatus,
           };
         }
-        
+
         throw error;
       }
       static getDerivedStateFromProps(props, state) {
-        
-
-
-
-
- if (
+        if (
           props.pathname !== state.previousPathname &&
           state.triggeredStatus
         ) {
@@ -13058,19 +11216,19 @@
             triggeredStatus ===
               _httpaccessfallback.HTTPAccessErrorStatus.UNAUTHORIZED &&
             unauthorized;
-          
+
           if (!(isNotFound || isForbidden || isUnauthorized)) {
             return children;
           }
-          return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+          return (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [
-               (0, _jsxruntime.jsx)("meta", {
+              (0, _jsxruntime.jsx)("meta", {
                 name: "robots",
                 content: "noindex",
               }),
               ("TURBOPACK compile-time value", "development") ===
                 "development" &&
-                 (0, _jsxruntime.jsx)("meta", {
+                (0, _jsxruntime.jsx)("meta", {
                   name: "boundary-next-error",
                   content: (0,
                   _httpaccessfallback.getAccessFallbackErrorTypeByStatus)(
@@ -13090,29 +11248,22 @@
       unauthorized,
       children,
     }) {
-      
-      
-      
-      
       const pathname = (0, _navigationuntracked.useUntrackedPathname)();
       const missingSlots = (0, _react.useContext)(
         _approutercontextsharedruntime.MissingSlotContext,
       );
       const hasErrorFallback = !!(notFound || forbidden || unauthorized);
       if (hasErrorFallback) {
-        return  (0, _jsxruntime.jsx)(
-          HTTPAccessFallbackErrorBoundary,
-          {
-            pathname: pathname,
-            notFound: notFound,
-            forbidden: forbidden,
-            unauthorized: unauthorized,
-            missingSlots: missingSlots,
-            children: children,
-          },
-        );
+        return (0, _jsxruntime.jsx)(HTTPAccessFallbackErrorBoundary, {
+          pathname: pathname,
+          notFound: notFound,
+          forbidden: forbidden,
+          unauthorized: unauthorized,
+          missingSlots: missingSlots,
+          children: children,
+        });
       }
-      return  (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
+      return (0, _jsxruntime.jsx)(_jsxruntime.Fragment, {
         children: children,
       });
     }
@@ -13126,7 +11277,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13161,7 +11312,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_default._(
+    const _react = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -13185,16 +11336,10 @@
       return null;
     }
     function DevRootHTTPAccessFallbackBoundary({ children }) {
-      return  (0, _jsxruntime.jsx)(
-        _errorboundary.HTTPAccessFallbackBoundary,
-        {
-          notFound:  (0, _jsxruntime.jsx)(
-            NotAllowedRootHTTPFallbackError,
-            {},
-          ),
-          children: children,
-        },
-      );
+      return (0, _jsxruntime.jsx)(_errorboundary.HTTPAccessFallbackBoundary, {
+        notFound: (0, _jsxruntime.jsx)(NotAllowedRootHTTPFallbackError, {}),
+        children: children,
+      });
     }
     if (
       (typeof exports.default === "function" ||
@@ -13206,7 +11351,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/shared.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13266,7 +11411,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/get-socket-url.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13287,7 +11432,6 @@
     function getSocketProtocol(assetPrefix) {
       let protocol = window.location.protocol;
       try {
-        
         protocol = new URL(assetPrefix).protocol;
       } catch {}
       return protocol === "http:" ? "ws:" : "wss:";
@@ -13298,8 +11442,6 @@
       );
       const protocol = getSocketProtocol(assetPrefix || "");
       if (URL.canParse(prefix)) {
-        
-        
         return prefix.replace(/^http/, "ws");
       }
       const { hostname, port } = window.location;
@@ -13315,14 +11457,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -13421,7 +11563,6 @@
           window.console.log("[HMR] connected");
         }
         function handleMessage(event) {
-          
           if (reloading) {
             return;
           }
@@ -13430,7 +11571,7 @@
               event.data instanceof ArrayBuffer
                 ? parseBinaryMessage(event.data)
                 : JSON.parse(event.data);
-            
+
             if (
               message.type ===
               _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.TURBOPACK_CONNECTED
@@ -13439,21 +11580,18 @@
                 serverSessionId !== null &&
                 serverSessionId !== message.data.sessionId
               ) {
-                
-                
                 window.location.reload();
                 reloading = true;
                 return;
               }
               serverSessionId = message.data.sessionId;
             }
-            
+
             if (
               message.type ===
                 _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.SYNC &&
               "hash" in message
             ) {
-              
               if (
                 mostRecentCompilationHash !== null &&
                 mostRecentCompilationHash !== message.hash
@@ -13479,14 +11617,14 @@
           newWebSocket.onclose = null;
           newWebSocket.close();
           reconnections++;
-          
+
           if (reconnections > _constants.WEB_SOCKET_MAX_RECONNECTIONS) {
             reloading = true;
             window.location.reload();
             return;
           }
           clearTimeout(timer);
-          
+
           timer = setTimeout(init, reconnections > 5 ? 5000 : 1000);
         }
         newWebSocket.onopen = handleOnline;
@@ -13499,8 +11637,7 @@
       return init();
     }
     function createProcessTurbopackMessage(sendMessage) {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       let queue = [];
       let callback;
       const processTurbopackMessage = (msg) => {
@@ -13518,7 +11655,7 @@
           connect({
             addMessageListener(cb) {
               callback = cb;
-              
+
               for (const msg of queue) {
                 cb(msg);
               }
@@ -13549,13 +11686,11 @@
             },
           );
         }
-        
-        
+
         if (("TURBOPACK compile-time truthy", 1)) {
           return;
         }
-        
-        
+
         const interval = undefined;
       }, [tree, webSocket]);
     }
@@ -13623,7 +11758,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/report-hmr-latency.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13634,17 +11769,8 @@
     });
     Object.defineProperty(
       exports,
-      
 
-
-
-
-
-
-
-
-
- "default",
+      "default",
       {
         enumerable: true,
         get: function () {
@@ -13672,8 +11798,7 @@
           endTime: endMsSinceEpoch,
           page: window.location.pathname,
           updatedModules,
-          
-          
+
           isPageHidden: document.visibilityState === "hidden",
         }),
       );
@@ -13691,7 +11816,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/turbopack-hot-reloader-common.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13706,8 +11831,7 @@
         return TurbopackHmr;
       },
     });
-    
-    
+
     const TURBOPACK_HMR_START_DELAY_MS = 100;
     class TurbopackHmr {
       #updatedModules;
@@ -13719,14 +11843,7 @@
         this.#updatedModules = new Set();
         this.#reportedHmrStart = false;
       }
-      
-      
-      
-      
-      
-      
-      
-      
+
       #runDeferredReportHmrStart() {
         if (this.#deferredReportHmrStartId != null) {
           console.log("[Fast Refresh] rebuilding");
@@ -13742,7 +11859,7 @@
         this.#lastUpdateMsSinceEpoch = undefined;
         this.#cancelDeferredReportHmrStart();
         this.#startMsSinceEpoch = Date.now();
-        
+
         this.#deferredReportHmrStartId = setTimeout(
           () => this.#runDeferredReportHmrStart(),
           self.__NEXT_HMR_TURBOPACK_REPORT_NOISY_NOOP_EVENTS
@@ -13750,7 +11867,7 @@
             : TURBOPACK_HMR_START_DELAY_MS,
         );
       }
-       #onUpdate() {
+      #onUpdate() {
         this.#runDeferredReportHmrStart();
         this.#lastUpdateMsSinceEpoch = Date.now();
       }
@@ -13770,21 +11887,12 @@
       onPageAddRemove() {
         this.#onUpdate();
       }
-      
 
-
-
- onBuilt() {
-        
-        
-        
-        
-        
+      onBuilt() {
         const hasUpdates =
           this.#lastUpdateMsSinceEpoch != null &&
           this.#startMsSinceEpoch != null;
         if (!hasUpdates && !this.#reportedHmrStart) {
-          
           this.#cancelDeferredReportHmrStart();
           return null;
         }
@@ -13804,7 +11912,6 @@
       const updatedModules = new Set();
       const updates = Array.isArray(data) ? data : [data];
       for (const update of updates) {
-        
         if (
           update.type !== "partial" ||
           update.instruction.type !== "ChunkListUpdate" ||
@@ -13834,7 +11941,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/debug-channel.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -13932,15 +12039,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -13984,12 +12090,12 @@
     const _react = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
     );
-    const _stripansi =  _interop_require_default._(
+    const _stripansi = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/strip-ansi/index.js [app-client] (ecmascript)",
       ),
     );
-    const _formatwebpackmessages =  _interop_require_default._(
+    const _formatwebpackmessages = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/format-webpack-messages.js [app-client] (ecmascript)",
       ),
@@ -14021,7 +12127,7 @@
     const _navigationuntracked = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation-untracked.js [app-client] (ecmascript)",
     );
-    const _reporthmrlatency =  _interop_require_default._(
+    const _reporthmrlatency = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/report-hmr-latency.js [app-client] (ecmascript)",
       ),
@@ -14060,22 +12166,17 @@
     function waitForWebpackRuntimeHotUpdate() {
       return pendingHotUpdateWebpack;
     }
-    
+
     function handleAvailableHash(hash) {
-      
       mostRecentCompilationHash = hash;
     }
-    
 
-
-
- function isUpdateAvailable() {
+    function isUpdateAvailable() {
       if (("TURBOPACK compile-time truthy", 1)) {
         return true;
       }
-      
     }
-    
+
     function canApplyUpdates() {
       return module.hot.status() === "idle";
     }
@@ -14111,7 +12212,7 @@
       reloading = true;
       window.location.reload();
     }
-    
+
     function tryApplyUpdatesWebpack(sendMessage) {
       if (!isUpdateAvailable() || !canApplyUpdates()) {
         resolvePendingHotUpdateWebpack();
@@ -14140,7 +12241,6 @@
         }
         _nextdevtools.dispatcher.onBuildOk();
         if (isUpdateAvailable()) {
-          
           tryApplyUpdatesWebpack(sendMessage);
           return;
         }
@@ -14152,21 +12252,18 @@
           webpackStartMsSinceEpoch,
           Date.now(),
         );
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
       }
-      
+
       module.hot
-        .check( false)
+        .check(false)
         .then((updatedModules) => {
           if (updatedModules == null) {
             return null;
           }
-          
-          
-          
+
           _nextdevtools.dispatcher.onBeforeRefresh();
-          
+
           return module.hot.apply();
         })
         .then(
@@ -14185,21 +12282,18 @@
       staticIndicatorState,
     ) {
       function handleErrors(errors) {
-        
         const formatted = (0, _formatwebpackmessages.default)({
           errors: errors,
           warnings: [],
         });
-        
+
         _nextdevtools.dispatcher.onBuildError(formatted.errors[0]);
-        
+
         for (let i = 0; i < formatted.errors.length; i++) {
           console.error((0, _stripansi.default)(formatted.errors[i]));
         }
-        
-        
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+
+        if (("TURBOPACK compile-time falsy", 0));
       }
       function handleHotUpdate() {
         if (("TURBOPACK compile-time truthy", 1)) {
@@ -14214,17 +12308,13 @@
             );
           }
           _nextdevtools.dispatcher.onBuildOk();
-        } 
-        else;
+        } else;
       }
       switch (message.type) {
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.ISR_MANIFEST: {
           if (("TURBOPACK compile-time truthy", 1)) {
             staticIndicatorState.appIsrManifest = message.data;
-            
-            
-            
-            
+
             const isStatic = staticIndicatorState.pathname
               ? message.data[staticIndicatorState.pathname]
               : undefined;
@@ -14242,8 +12332,7 @@
           _nextdevtools.dispatcher.buildingIndicatorShow();
           if (("TURBOPACK compile-time truthy", 1)) {
             turbopackHmr.onBuilding();
-          } 
-          else;
+          } else;
           break;
         }
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.BUILT:
@@ -14253,7 +12342,7 @@
             handleAvailableHash(message.hash);
           }
           const { errors, warnings } = message;
-          
+
           if ("versionInfo" in message)
             _nextdevtools.dispatcher.onVersionInfo(message.versionInfo);
           if ("debug" in message && message.debug)
@@ -14263,7 +12352,7 @@
           if ("devToolsConfig" in message)
             _nextdevtools.dispatcher.onDevToolsConfig(message.devToolsConfig);
           const hasErrors = Boolean(errors && errors.length);
-          
+
           if (hasErrors) {
             sendMessage(
               JSON.stringify({
@@ -14284,7 +12373,7 @@
                 clientId: __nextDevClientId,
               }),
             );
-            
+
             const formattedMessages = (0, _formatwebpackmessages.default)({
               warnings: warnings,
               errors: [],
@@ -14301,7 +12390,6 @@
                 (0, _stripansi.default)(formattedMessages.warnings[i]),
               );
             }
-            
           }
           sendMessage(
             JSON.stringify({
@@ -14342,7 +12430,7 @@
           _nextdevtools.dispatcher.onRefresh();
           break;
         }
-        
+
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER
           .SERVER_COMPONENT_CHANGES: {
           turbopackHmr?.onServerComponentChanges();
@@ -14353,8 +12441,7 @@
               hash: message.hash,
             }),
           );
-          
-          
+
           document.cookie = `${_approuterheaders.NEXT_HMR_REFRESH_HASH_COOKIE}=${message.hash};path=/`;
           if (
             _runtimeerrorhandler.RuntimeErrorHandler.hadRuntimeError ||
@@ -14368,8 +12455,7 @@
             _approuterinstance.publicAppRouterInstance.hmrRefresh();
             _nextdevtools.dispatcher.onRefresh();
           });
-          if (("TURBOPACK compile-time falsy", 0)) 
-          ;
+          if (("TURBOPACK compile-time falsy", 0));
           return;
         }
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.RELOAD_PAGE: {
@@ -14387,7 +12473,7 @@
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.ADDED_PAGE:
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.REMOVED_PAGE: {
           turbopackHmr?.onPageAddRemove();
-          
+
           return _approuterinstance.publicAppRouterInstance.hmrRefresh();
         }
         case _hotreloadertypes.HMR_MESSAGE_SENT_TO_BROWSER.SERVER_ERROR: {
@@ -14423,11 +12509,6 @@
           if (chunk) {
             writer.ready.then(() => writer.write(chunk)).catch(console.error);
           } else {
-            
-            
-            
-            
-            
             writer.ready.then(() => writer.close()).catch(console.error);
           }
           return;
@@ -14484,13 +12565,9 @@
         _nextdevtools.dispatcher.onUnhandledRejection,
       );
       (0, _websocket.useWebSocketPing)(webSocket);
-      
-      
+
       const pathname = (0, _navigationuntracked.useUntrackedPathname)();
       if (("TURBOPACK compile-time truthy", 1)) {
-        
-        
-        
         (0, _react.useEffect)(() => {
           if (!staticIndicatorState) {
             throw Object.defineProperty(
@@ -14520,17 +12597,14 @@
           }
         }, [pathname, staticIndicatorState]);
       }
-      return  (0, _jsxruntime.jsxs)(
+      return (0, _jsxruntime.jsxs)(
         _appdevoverlayerrorboundary.AppDevOverlayErrorBoundary,
         {
           globalError: globalError,
           children: [
-             (0, _jsxruntime.jsx)(
-              _replayssronlyerrors.ReplaySsrOnlyErrors,
-              {
-                onBlockingError: _nextdevtools.dispatcher.openErrorOverlay,
-              },
-            ),
+            (0, _jsxruntime.jsx)(_replayssronlyerrors.ReplaySsrOnlyErrors, {
+              onBlockingError: _nextdevtools.dispatcher.openErrorOverlay,
+            }),
             children,
           ],
         },
@@ -14546,14 +12620,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -14589,7 +12663,7 @@
     const _jsxruntime = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
     );
-    const _react =  _interop_require_wildcard._(
+    const _react = _interop_require_wildcard._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -14645,12 +12719,12 @@
     const _links = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/links.js [app-client] (ecmascript)",
     );
-    const _rooterrorboundary =  _interop_require_default._(
+    const _rooterrorboundary = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/errors/root-error-boundary.js [app-client] (ecmascript)",
       ),
     );
-    const _globalerror =  _interop_require_default._(
+    const _globalerror = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)",
       ),
@@ -14661,8 +12735,7 @@
     const globalMutable = {};
     function HistoryUpdater({ appRouterState }) {
       (0, _react.useInsertionEffect)(() => {
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
         const { tree, pushRef, canonicalUrl, renderedSearch } = appRouterState;
         const appHistoryState = {
           tree,
@@ -14670,20 +12743,16 @@
         };
         const historyState = {
           ...(pushRef.preserveCustomHistoryState ? window.history.state : {}),
-          
-          
-          
+
           __NA: true,
           __PRIVATE_NEXTJS_INTERNALS_TREE: appHistoryState,
         };
         if (
-          pushRef.pendingPush && 
-          
+          pushRef.pendingPush &&
           (0, _createhreffromurl.createHrefFromUrl)(
             new URL(window.location.href),
           ) !== canonicalUrl
         ) {
-          
           pushRef.pendingPush = false;
           window.history.pushState(historyState, "", canonicalUrl);
         } else {
@@ -14691,10 +12760,6 @@
         }
       }, [appRouterState]);
       (0, _react.useEffect)(() => {
-        
-        
-        
-        
         (0, _links.pingVisibleLinks)(
           appRouterState.nextUrl,
           appRouterState.tree,
@@ -14729,22 +12794,16 @@
       return data;
     }
     function Head({ headCacheNode }) {
-      
-      
-      
       const head = headCacheNode !== null ? headCacheNode.head : null;
       const prefetchHead =
         headCacheNode !== null ? headCacheNode.prefetchHead : null;
-      
+
       const resolvedPrefetchRsc = prefetchHead !== null ? prefetchHead : head;
-      
-      
-      
+
       return (0, _react.useDeferredValue)(head, resolvedPrefetchRsc);
     }
-    
 
- function Router({
+    function Router({
       actionQueue,
       globalError,
       webSocket,
@@ -14752,14 +12811,13 @@
     }) {
       const state = (0, _useactionqueue.useActionQueue)(actionQueue);
       const { canonicalUrl } = state;
-      
+
       const { searchParams, pathname } = (0, _react.useMemo)(() => {
         const url = new URL(
           canonicalUrl,
           typeof window === "undefined" ? "http://n" : window.location.href,
         );
         return {
-          
           searchParams: url.searchParams,
           pathname: (0, _hasbasepath.hasBasePath)(url.pathname)
             ? (0, _removebasepath.removeBasePath)(url.pathname)
@@ -14768,12 +12826,8 @@
       }, [canonicalUrl]);
       if (("TURBOPACK compile-time truthy", 1)) {
         const { cache, tree } = state;
-        
-        
+
         (0, _react.useEffect)(() => {
-          
-          
-          
           window.nd = {
             router: _approuterinstance.publicAppRouterInstance,
             cache,
@@ -14782,10 +12836,6 @@
         }, [cache, tree]);
       }
       (0, _react.useEffect)(() => {
-        
-        
-        
-        
         function handlePageShow(event) {
           if (
             !event.persisted ||
@@ -14793,9 +12843,7 @@
           ) {
             return;
           }
-          
-          
-          
+
           globalMutable.pendingMpaPath = undefined;
           (0, _useactionqueue.dispatchAppRouterAction)({
             type: _routerreducertypes.ACTION_RESTORE,
@@ -14809,16 +12857,13 @@
         };
       }, []);
       (0, _react.useEffect)(() => {
-        
-        
         function handleUnhandledRedirect(event) {
           const error = "reason" in event ? event.reason : event.error;
           if ((0, _redirecterror.isRedirectError)(error)) {
             event.preventDefault();
             const url = (0, _redirect.getURLFromRedirectError)(error);
             const redirectType = (0, _redirect.getRedirectTypeFromError)(error);
-            
-            
+
             if (redirectType === _redirecterror.RedirectType.push) {
               _approuterinstance.publicAppRouterInstance.push(url, {});
             } else {
@@ -14836,19 +12881,9 @@
           );
         };
       }, []);
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       const { pushRef } = state;
       if (pushRef.mpaNavigation) {
-        
         if (globalMutable.pendingMpaPath !== canonicalUrl) {
           const location = window.location;
           if (pushRef.pendingPush) {
@@ -14858,12 +12893,7 @@
           }
           globalMutable.pendingMpaPath = canonicalUrl;
         }
-        
-        
-        
-        
-        
-        
+
         throw _unresolvedthenable.unresolvedThenable;
       }
       (0, _react.useEffect)(() => {
@@ -14871,7 +12901,7 @@
         const originalReplaceState = window.history.replaceState.bind(
           window.history,
         );
-        
+
         const applyUrlFromHistoryPushReplace = (url) => {
           const href = window.location.href;
           const appHistoryState =
@@ -14884,12 +12914,8 @@
             });
           });
         };
-        
 
-
-
- window.history.pushState = function pushState(data, _unused, url) {
-          
+        window.history.pushState = function pushState(data, _unused, url) {
           if (data?.__NA || data?._N) {
             return originalPushState(data, _unused, url);
           }
@@ -14899,16 +12925,12 @@
           }
           return originalPushState(data, _unused, url);
         };
-        
 
-
-
- window.history.replaceState = function replaceState(
+        window.history.replaceState = function replaceState(
           data,
           _unused,
           url,
         ) {
-          
           if (data?.__NA || data?._N) {
             return originalReplaceState(data, _unused, url);
           }
@@ -14918,22 +12940,17 @@
           }
           return originalReplaceState(data, _unused, url);
         };
-        
 
-
-
- const onPopState = (event) => {
+        const onPopState = (event) => {
           if (!event.state) {
-            
             return;
           }
-          
+
           if (!event.state.__NA) {
             window.location.reload();
             return;
           }
-          
-          
+
           (0, _react.startTransition)(() => {
             (0, _approuterinstance.dispatchTraverseAction)(
               window.location.href,
@@ -14941,7 +12958,7 @@
             );
           });
         };
-        
+
         window.addEventListener("popstate", onPopState);
         return () => {
           window.history.pushState = originalPushState;
@@ -14954,13 +12971,11 @@
       const matchingHead = (0, _react.useMemo)(() => {
         return (0, _findheadincache.findHeadInCache)(cache, tree[1]);
       }, [cache, tree]);
-      
+
       const pathParams = (0, _react.useMemo)(() => {
         return (0, _computechangedpath.getSelectedParams)(tree);
       }, [tree]);
-      
-      
-      
+
       let instrumentedNavigationPromises = null;
       if (("TURBOPACK compile-time truthy", 1)) {
         const { createRootNavigationPromises } = __turbopack_context__.r(
@@ -14979,13 +12994,11 @@
           parentCacheNode: cache,
           parentSegmentPath: null,
           parentParams: {},
-          
-          
+
           debugNameContext: "/",
-          
-          
+
           url: canonicalUrl,
-          
+
           isActive: true,
         };
       }, [tree, cache, canonicalUrl]);
@@ -14999,15 +13012,9 @@
       }, [tree, focusAndScrollRef, nextUrl, previousNextUrl]);
       let head;
       if (matchingHead !== null) {
-        
-        
-        
-        
-        
-        
         const [headCacheNode, headKey, headKeyWithoutSearchParams] =
           matchingHead;
-        head =  (0, _jsxruntime.jsx)(
+        head = (0, _jsxruntime.jsx)(
           Head,
           {
             headCacheNode: headCacheNode,
@@ -15017,90 +13024,71 @@
       } else {
         head = null;
       }
-      let content =  (0, _jsxruntime.jsxs)(
-        _redirectboundary.RedirectBoundary,
-        {
-          children: [
-            head,
-             (0, _jsxruntime.jsx)(
-              _boundarycomponents.RootLayoutBoundary,
-              {
-                children: cache.rsc,
-              },
-            ),
-             (0, _jsxruntime.jsx)(
-              _approuterannouncer.AppRouterAnnouncer,
-              {
-                tree: tree,
-              },
-            ),
-          ],
-        },
-      );
+      let content = (0, _jsxruntime.jsxs)(_redirectboundary.RedirectBoundary, {
+        children: [
+          head,
+          (0, _jsxruntime.jsx)(_boundarycomponents.RootLayoutBoundary, {
+            children: cache.rsc,
+          }),
+          (0, _jsxruntime.jsx)(_approuterannouncer.AppRouterAnnouncer, {
+            tree: tree,
+          }),
+        ],
+      });
       if (("TURBOPACK compile-time truthy", 1)) {
-        
-        
-        
-        
-        
-        
         if (typeof window !== "undefined") {
           const { DevRootHTTPAccessFallbackBoundary } = __turbopack_context__.r(
             "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js [app-client] (ecmascript)",
           );
-          content =  (0, _jsxruntime.jsx)(
-            DevRootHTTPAccessFallbackBoundary,
-            {
-              children: content,
-            },
-          );
+          content = (0, _jsxruntime.jsx)(DevRootHTTPAccessFallbackBoundary, {
+            children: content,
+          });
         }
         const HotReloader = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js [app-client] (ecmascript)",
         ).default;
-        content =  (0, _jsxruntime.jsx)(HotReloader, {
+        content = (0, _jsxruntime.jsx)(HotReloader, {
           globalError: globalError,
           webSocket: webSocket,
           staticIndicatorState: staticIndicatorState,
           children: content,
         });
-      } 
-      else;
-      return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+      } else;
+      return (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
         children: [
-           (0, _jsxruntime.jsx)(HistoryUpdater, {
+          (0, _jsxruntime.jsx)(HistoryUpdater, {
             appRouterState: state,
           }),
-           (0, _jsxruntime.jsx)(RuntimeStyles, {}),
-           (0, _jsxruntime.jsx)(
+          (0, _jsxruntime.jsx)(RuntimeStyles, {}),
+          (0, _jsxruntime.jsx)(
             _hooksclientcontextsharedruntime.NavigationPromisesContext.Provider,
             {
               value: instrumentedNavigationPromises,
-              children:  (0, _jsxruntime.jsx)(
+              children: (0, _jsxruntime.jsx)(
                 _hooksclientcontextsharedruntime.PathParamsContext.Provider,
                 {
                   value: pathParams,
-                  children:  (0, _jsxruntime.jsx)(
+                  children: (0, _jsxruntime.jsx)(
                     _hooksclientcontextsharedruntime.PathnameContext.Provider,
                     {
                       value: pathname,
-                      children:  (0, _jsxruntime.jsx)(
+                      children: (0, _jsxruntime.jsx)(
                         _hooksclientcontextsharedruntime.SearchParamsContext
                           .Provider,
                         {
                           value: searchParams,
-                          children:  (0, _jsxruntime.jsx)(
+                          children: (0, _jsxruntime.jsx)(
                             _approutercontextsharedruntime
                               .GlobalLayoutRouterContext.Provider,
                             {
                               value: globalLayoutRouterContext,
-                              children:  (0, _jsxruntime.jsx)(
+                              children: (0, _jsxruntime.jsx)(
                                 _approutercontextsharedruntime.AppRouterContext
                                   .Provider,
                                 {
                                   value:
                                     _approuterinstance.publicAppRouterInstance,
-                                  children:  (0, _jsxruntime.jsx)(
+                                  children: (0, _jsxruntime.jsx)(
                                     _approutercontextsharedruntime
                                       .LayoutRouterContext.Provider,
                                     {
@@ -15130,15 +13118,14 @@
       staticIndicatorState,
     }) {
       (0, _navfailurehandler.useNavFailureHandler)();
-      const router =  (0, _jsxruntime.jsx)(Router, {
+      const router = (0, _jsxruntime.jsx)(Router, {
         actionQueue: actionQueue,
         globalError: globalErrorState,
         webSocket: webSocket,
         staticIndicatorState: staticIndicatorState,
       });
-      
-      
-      return  (0, _jsxruntime.jsx)(_rooterrorboundary.default, {
+
+      return (0, _jsxruntime.jsx)(_rooterrorboundary.default, {
         errorComponent: _globalerror.default,
         children: router,
       });
@@ -15151,8 +13138,7 @@
       if (runtimeStyles.size !== len) {
         runtimeStyleChanged.forEach((cb) => cb());
       }
-      
-      
+
       return Promise.resolve();
     };
     function RuntimeStyles() {
@@ -15172,12 +13158,12 @@
         ? "TURBOPACK unreachable"
         : "";
       return [...runtimeStyles].map((href, i) =>
-         (0, _jsxruntime.jsx)(
+        (0, _jsxruntime.jsx)(
           "link",
           {
             rel: "stylesheet",
             href: `${href}${dplId}`,
-            
+
             precedence: "next",
           },
           i,
@@ -15194,7 +13180,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/server-patch-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15234,7 +13220,7 @@
       const { serverResponse, navigatedAt } = action;
       const mutable = {};
       mutable.preserveCustomHistoryState = false;
-      
+
       if (typeof serverResponse === "string") {
         return (0, _navigatereducer.handleExternalUrl)(
           state,
@@ -15256,11 +13242,7 @@
           treePatch,
           state.canonicalUrl,
         );
-        
-        
-        
-        
-        
+
         if (newTree === null) {
           return state;
         }
@@ -15305,14 +13287,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/restore-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15337,12 +13319,7 @@
     function restoreReducer(state, action) {
       const { url, historyState } = action;
       const href = (0, _createhreffromurl.createHrefFromUrl)(url);
-      
-      
-      
-      
-      
-      
+
       let treeToRestore;
       let renderedSearch;
       if (historyState) {
@@ -15353,23 +13330,21 @@
         renderedSearch = state.renderedSearch;
       }
       const oldCache = state.cache;
-      const newCache = ("TURBOPACK compile-time falsy", 0) 
-        ? 
-          "TURBOPACK unreachable"
+      const newCache = ("TURBOPACK compile-time falsy", 0)
+        ? "TURBOPACK unreachable"
         : oldCache;
       return {
-        
         canonicalUrl: href,
         renderedSearch,
         pushRef: {
           pendingPush: false,
           mpaNavigation: false,
-          
+
           preserveCustomHistoryState: true,
         },
         focusAndScrollRef: state.focusAndScrollRef,
         cache: newCache,
-        
+
         tree: treeToRestore,
         nextUrl:
           (0, _computechangedpath.extractPathFromFlightRouterState)(
@@ -15389,14 +13364,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/handle-segment-mismatch.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15439,7 +13414,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/has-interception-route-in-current-tree.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15458,7 +13433,6 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [app-client] (ecmascript)",
     );
     function hasInterceptionRouteInCurrentTree([segment, parallelRoutes]) {
-      
       if (
         Array.isArray(segment) &&
         (segment[2] === "di(..)(..)" ||
@@ -15472,14 +13446,14 @@
       ) {
         return true;
       }
-      
+
       if (
         typeof segment === "string" &&
         (0, _interceptionroutes.isInterceptionRouteAppPath)(segment)
       ) {
         return true;
       }
-      
+
       if (parallelRoutes) {
         for (const key in parallelRoutes) {
           if (hasInterceptionRouteInCurrentTree(parallelRoutes[key])) {
@@ -15499,7 +13473,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/refresh-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15557,14 +13531,12 @@
       let currentTree = state.tree;
       mutable.preserveCustomHistoryState = false;
       const cache = (0, _approuter.createEmptyCacheNode)();
-      
-      
+
       const includeNextUrl = (0,
       _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
         state.tree,
       );
-      
-      
+
       cache.lazyData = (0, _fetchserverresponse.fetchServerResponse)(
         new URL(href, origin),
         {
@@ -15580,7 +13552,6 @@
       const navigatedAt = Date.now();
       return cache.lazyData.then(
         async (result) => {
-          
           if (typeof result === "string") {
             return (0, _navigatereducer.handleExternalUrl)(
               state,
@@ -15590,7 +13561,7 @@
             );
           }
           const { flightData, canonicalUrl, renderedSearch } = result;
-          
+
           cache.lazyData = null;
           for (const normalizedFlightData of flightData) {
             const {
@@ -15600,7 +13571,6 @@
               isRootRender,
             } = normalizedFlightData;
             if (!isRootRender) {
-              
               console.log("REFRESH FAILED");
               return state;
             }
@@ -15634,7 +13604,7 @@
             mutable.canonicalUrl = (0, _createhreffromurl.createHrefFromUrl)(
               canonicalUrl,
             );
-            
+
             if (cacheNodeSeedData !== null) {
               const rsc = cacheNodeSeedData[0];
               const loading = cacheNodeSeedData[2];
@@ -15680,14 +13650,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/hmr-refresh-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15730,21 +13700,19 @@
     const _hasinterceptionrouteincurrenttree = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/has-interception-route-in-current-tree.js [app-client] (ecmascript)",
     );
-    
+
     function hmrRefreshReducerImpl(state, action) {
       const { origin } = action;
       const mutable = {};
       const href = state.canonicalUrl;
       mutable.preserveCustomHistoryState = false;
       const cache = (0, _approuter.createEmptyCacheNode)();
-      
-      
+
       const includeNextUrl = (0,
       _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
         state.tree,
       );
-      
-      
+
       const navigatedAt = Date.now();
       cache.lazyData = (0, _fetchserverresponse.fetchServerResponse)(
         new URL(href, origin),
@@ -15761,7 +13729,6 @@
       );
       return cache.lazyData.then(
         (result) => {
-          
           if (typeof result === "string") {
             return (0, _navigatereducer.handleExternalUrl)(
               state,
@@ -15771,14 +13738,13 @@
             );
           }
           const { flightData, canonicalUrl, renderedSearch } = result;
-          
+
           cache.lazyData = null;
           let currentTree = state.tree;
           let currentCache = state.cache;
           for (const normalizedFlightData of flightData) {
             const { tree: treePatch, isRootRender } = normalizedFlightData;
             if (!isRootRender) {
-              
               console.log("REFRESH FAILED");
               return state;
             }
@@ -15847,7 +13813,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/assign-location.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -15868,8 +13834,7 @@
     function assignLocation(location, url) {
       if (location.startsWith(".")) {
         const urlBase = url.origin + url.pathname;
-        return new URL( 
-          
+        return new URL(
           (urlBase.endsWith("/") ? urlBase : urlBase + "/") + location,
         );
       }
@@ -15885,14 +13850,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/server-action-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -15976,16 +13941,13 @@
     );
     const createFromFetch = _client.createFromFetch;
     let createDebugChannel;
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     async function fetchServerAction(state, nextUrl, { actionId, actionArgs }) {
       const temporaryReferences = (0, _client.createTemporaryReferenceSet)();
       const info = (0, _serverreferenceinfo.extractInfoFromServerReferenceId)(
         actionId,
       );
-      
-      
-      
+
       const usedArgs =
         info.type === "use-cache"
           ? (0, _serverreferenceinfo.omitUnusedArgs)(actionArgs, info)
@@ -15999,8 +13961,7 @@
         [_approuterheaders.NEXT_ROUTER_STATE_TREE_HEADER]: (0,
         _flightdatahelpers.prepareFlightRouterStateForRequest)(state.tree),
       };
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       if (nextUrl) {
         headers[_approuterheaders.NEXT_URL] = nextUrl;
       }
@@ -16009,9 +13970,7 @@
           headers[_approuterheaders.NEXT_HTML_REQUEST_ID_HEADER] =
             self.__next_r;
         }
-        
-        
-        
+
         headers[_approuterheaders.NEXT_REQUEST_ID_HEADER] = crypto
           .getRandomValues(new Uint32Array(1))[0]
           .toString(16);
@@ -16021,7 +13980,7 @@
         headers,
         body,
       });
-      
+
       const unrecognizedActionHeader = res.headers.get(
         _approuterheaders.NEXT_ACTION_NOT_FOUND_HEADER,
       );
@@ -16078,12 +14037,8 @@
         contentType &&
         contentType.startsWith(_approuterheaders.RSC_CONTENT_TYPE_HEADER)
       );
-      
-      
-      
+
       if (!isRscResponse && !redirectLocation) {
-        
-        
         const message =
           res.status >= 400 && contentType === "text/plain"
             ? await res.text()
@@ -16103,13 +14058,12 @@
           temporaryReferences,
           debugChannel: createDebugChannel && createDebugChannel(headers),
         });
-        
+
         actionResult = redirectLocation ? undefined : response.a;
         actionFlightData = (0, _flightdatahelpers.normalizeFlightData)(
           response.f,
         );
       } else {
-        
         actionResult = undefined;
         actionFlightData = undefined;
       }
@@ -16132,14 +14086,8 @@
       const mutable = {};
       let currentTree = state.tree;
       mutable.preserveCustomHistoryState = false;
-      
-      
-      
-      
-      const nextUrl = 
-        
-        
-        
+
+      const nextUrl =
         (state.previousNextUrl || state.nextUrl) &&
         (0,
         _hasinterceptionrouteincurrenttree.hasInterceptionRouteInCurrentTree)(
@@ -16157,7 +14105,7 @@
           revalidatedParts,
         }) => {
           let redirectHref;
-          
+
           if (redirectLocation) {
             if (redirectType === _redirecterror.RedirectType.replace) {
               state.pushRef.pendingPush = false;
@@ -16174,7 +14122,7 @@
           }
           if (!flightData) {
             resolve(actionResult);
-            
+
             if (redirectLocation) {
               return (0, _navigatereducer.handleExternalUrl)(
                 state,
@@ -16186,7 +14134,6 @@
             return state;
           }
           if (typeof flightData === "string") {
-            
             resolve(actionResult);
             return (0, _navigatereducer.handleExternalUrl)(
               state,
@@ -16199,10 +14146,7 @@
             revalidatedParts.paths.length > 0 ||
             revalidatedParts.tag ||
             revalidatedParts.cookie;
-          
-          
-          
-          
+
           if (actionRevalidated) {
             action.didRevalidate = true;
           }
@@ -16214,12 +14158,11 @@
               isRootRender,
             } = normalizedFlightData;
             if (!isRootRender) {
-              
               console.log("SERVER ACTION APPLY FAILED");
               resolve(actionResult);
               return state;
             }
-            
+
             const newTree = (0,
             _applyrouterstatepatchtotree.applyRouterStatePatchToTree)(
               [""],
@@ -16249,7 +14192,7 @@
                 state.pushRef.pendingPush,
               );
             }
-            
+
             if (cacheNodeSeedData !== null) {
               const rsc = cacheNodeSeedData[0];
               const cache = (0, _approuter.createEmptyCacheNode)();
@@ -16284,12 +14227,6 @@
             currentTree = newTree;
           }
           if (redirectLocation && redirectHref) {
-            
-            
-            
-            
-            
-            
             const redirectError = (0, _redirect.getRedirectError)(
               (0, _hasbasepath.hasBasePath)(redirectHref)
                 ? (0, _removebasepath.removeBasePath)(redirectHref)
@@ -16304,7 +14241,6 @@
           return (0, _handlemutable.handleMutable)(state, mutable);
         },
         (e) => {
-          
           reject(e);
           return state;
         },
@@ -16320,7 +14256,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/router-reducer.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -16356,9 +14292,8 @@
     const _serveractionreducer = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/reducers/server-action-reducer.js [app-client] (ecmascript)",
     );
-    
 
- function clientReducer(state, action) {
+    function clientReducer(state, action) {
       switch (action.type) {
         case _routerreducertypes.ACTION_NAVIGATE: {
           return (0, _navigatereducer.navigateReducer)(state, action);
@@ -16378,7 +14313,7 @@
         case _routerreducertypes.ACTION_SERVER_ACTION: {
           return (0, _serveractionreducer.serverActionReducer)(state, action);
         }
-        
+
         default:
           throw Object.defineProperty(
             new Error("Unknown action"),
@@ -16406,7 +14341,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/segment-cache/prefetch.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -16442,7 +14377,6 @@
     ) {
       const url = (0, _approuterutils.createPrefetchURL)(href);
       if (url === null) {
-        
         return;
       }
       const cacheKey = (0, _cachekey.createCacheKey)(url.href, nextUrl);
@@ -16464,14 +14398,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-instance.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -16551,9 +14485,6 @@
           });
         }
       } else {
-        
-        
-        
         if (actionQueue.needsRefresh) {
           actionQueue.needsRefresh = false;
           actionQueue.dispatch(
@@ -16572,19 +14503,14 @@
       const payload = action.payload;
       const actionResult = actionQueue.action(prevState, payload);
       function handleResult(nextState) {
-        
         if (action.discarded) {
-          
           if (
             action.payload.type === _routerreducertypes.ACTION_SERVER_ACTION &&
             action.payload.didRevalidate
           ) {
-            
-            
             actionQueue.needsRefresh = true;
           }
-          
-          
+
           runRemainingActions(actionQueue, setState);
           return;
         }
@@ -16592,7 +14518,7 @@
         runRemainingActions(actionQueue, setState);
         action.resolve(nextState);
       }
-      
+
       if ((0, _isthenable.isThenable)(actionResult)) {
         actionResult.then(handleResult, (err) => {
           runRemainingActions(actionQueue, setState);
@@ -16607,12 +14533,8 @@
         resolve: setState,
         reject: () => {},
       };
-      
-      
-      
-      
+
       if (payload.type !== _routerreducertypes.ACTION_RESTORE) {
-        
         const deferredPromise = new Promise((resolve, reject) => {
           resolvers = {
             resolve,
@@ -16620,8 +14542,6 @@
           };
         });
         (0, _react.startTransition)(() => {
-          
-          
           setState(deferredPromise);
         });
       }
@@ -16631,10 +14551,8 @@
         resolve: resolvers.resolve,
         reject: resolvers.reject,
       };
-      
+
       if (actionQueue.pending === null) {
-        
-        
         actionQueue.last = newAction;
         runAction({
           actionQueue,
@@ -16645,11 +14563,8 @@
         payload.type === _routerreducertypes.ACTION_NAVIGATE ||
         payload.type === _routerreducertypes.ACTION_RESTORE
       ) {
-        
-        
         actionQueue.pending.discarded = true;
-        
-        
+
         newAction.next = actionQueue.pending.next;
         runAction({
           actionQueue,
@@ -16657,8 +14572,6 @@
           setState,
         });
       } else {
-        
-        
         if (actionQueue.last !== null) {
           actionQueue.last.next = newAction;
         }
@@ -16684,9 +14597,6 @@
             : null,
       };
       if (typeof window !== "undefined") {
-        
-        
-        
         if (globalActionQueue !== null) {
           throw Object.defineProperty(
             new Error(
@@ -16736,11 +14646,8 @@
       shouldScroll,
       linkInstanceRef,
     ) {
-      
-      
       const url = new URL((0, _addbasepath.addBasePath)(href), location.href);
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       (0, _links.setLinkForCurrentNavigation)(linkInstanceRef);
       const onRouterTransitionStart = getProfilingHookForOnNavigationStart();
       if (onRouterTransitionStart !== null) {
@@ -16769,47 +14676,39 @@
     const publicAppRouterInstance = {
       back: () => window.history.back(),
       forward: () => window.history.forward(),
-      
-      prefetch:
-        
-        (href, options) => {
-          const actionQueue = getAppRouterActionQueue();
-          const prefetchKind =
-            options?.kind ?? _routerreducertypes.PrefetchKind.AUTO;
-          
-          
-          let fetchStrategy;
-          switch (prefetchKind) {
-            case _routerreducertypes.PrefetchKind.AUTO: {
-              
-              fetchStrategy = _types.FetchStrategy.PPR;
-              break;
-            }
-            case _routerreducertypes.PrefetchKind.FULL: {
-              fetchStrategy = _types.FetchStrategy.Full;
-              break;
-            }
-            case _routerreducertypes.PrefetchKind.TEMPORARY: {
-              
-              return;
-            }
-            default: {
-              prefetchKind;
-              
-              
-              
-              
-              fetchStrategy = _types.FetchStrategy.PPR;
-            }
+
+      prefetch: (href, options) => {
+        const actionQueue = getAppRouterActionQueue();
+        const prefetchKind =
+          options?.kind ?? _routerreducertypes.PrefetchKind.AUTO;
+
+        let fetchStrategy;
+        switch (prefetchKind) {
+          case _routerreducertypes.PrefetchKind.AUTO: {
+            fetchStrategy = _types.FetchStrategy.PPR;
+            break;
           }
-          (0, _prefetch.prefetch)(
-            href,
-            actionQueue.state.nextUrl,
-            actionQueue.state.tree,
-            fetchStrategy,
-            options?.onInvalidate ?? null,
-          );
-        },
+          case _routerreducertypes.PrefetchKind.FULL: {
+            fetchStrategy = _types.FetchStrategy.Full;
+            break;
+          }
+          case _routerreducertypes.PrefetchKind.TEMPORARY: {
+            return;
+          }
+          default: {
+            prefetchKind;
+
+            fetchStrategy = _types.FetchStrategy.PPR;
+          }
+        }
+        (0, _prefetch.prefetch)(
+          href,
+          actionQueue.state.nextUrl,
+          actionQueue.state.tree,
+          fetchStrategy,
+          options?.onInvalidate ?? null,
+        );
+      },
       replace: (href, options) => {
         (0, _react.startTransition)(() => {
           dispatchNavigateAction(
@@ -16834,8 +14733,7 @@
         });
       },
       hmrRefresh: () => {
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
+        if (("TURBOPACK compile-time falsy", 0));
         else {
           (0, _react.startTransition)(() => {
             (0, _useactionqueue.dispatchAppRouterAction)({
@@ -16846,7 +14744,7 @@
         }
       },
     };
-    
+
     if (typeof window !== "undefined" && window.next) {
       window.next.router = publicAppRouterInstance;
     }
@@ -16860,7 +14758,7 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/router-reducer/create-initial-router-state.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -16898,9 +14796,6 @@
       initialParallelRoutes,
       location,
     }) {
-      
-      
-      
       const initialCanonicalUrl = initialCanonicalUrlParts.join("/");
       const normalizedFlightData = (0,
       _flightdatahelpers.getFlightDataPartsFromPath)(initialFlightData[0]);
@@ -16909,8 +14804,7 @@
         seedData: initialSeedData,
         head: initialHead,
       } = normalizedFlightData;
-      
-      
+
       const rsc = initialSeedData?.[0];
       const loading = initialSeedData?.[2] ?? null;
       const cache = {
@@ -16919,21 +14813,20 @@
         prefetchRsc: null,
         head: null,
         prefetchHead: null,
-        
+
         parallelRoutes: initialParallelRoutes,
         loading,
         navigatedAt,
       };
-      const canonicalUrl = 
-        location
-          ? (0, _createhreffromurl.createHrefFromUrl)(location)
-          : initialCanonicalUrl;
+      const canonicalUrl = location
+        ? (0, _createhreffromurl.createHrefFromUrl)(location)
+        : initialCanonicalUrl;
       (0,
       _refetchinactiveparallelsegments.addRefreshMarkerToActiveParallelSegments)(
         initialTree,
         canonicalUrl,
       );
-      
+
       if (initialParallelRoutes === null || initialParallelRoutes.size === 0) {
         (0, _filllazyitemstillleafwithhead.fillLazyItemsTillLeafWithHead)(
           navigatedAt,
@@ -16950,8 +14843,7 @@
         pushRef: {
           pendingPush: false,
           mpaNavigation: false,
-          
-          
+
           preserveCustomHistoryState: true,
         },
         focusAndScrollRef: {
@@ -16983,14 +14875,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-link-gc.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -17004,7 +14896,6 @@
       },
     });
     function linkGc() {
-      
       if (("TURBOPACK compile-time truthy", 1)) {
         const callback = (mutationList) => {
           for (const mutation of mutationList) {
@@ -17022,8 +14913,7 @@
                           ...document.querySelectorAll(
                             'link[href^="' + resource + '"]',
                           ),
-                          
-                          
+
                           ...document.querySelectorAll(
                             'link[href^="' +
                               (resource.startsWith(currentOrigin)
@@ -17043,10 +14933,6 @@
                                 2,
                               );
                               if (!otherVersion || +otherVersion < +version) {
-                                
-                                
-                                
-                                
                                 setTimeout(() => {
                                   otherLink.remove();
                                 }, 5);
@@ -17068,7 +14954,7 @@
             }
           }
         };
-        
+
         const observer = new MutationObserver(callback);
         observer.observe(document.head, {
           childList: true,
@@ -17085,14 +14971,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -17114,12 +15000,12 @@
     __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-globals.js [app-client] (ecmascript)",
     );
-    const _client =  _interop_require_default._(
+    const _client = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/client.js [app-client] (ecmascript)",
       ),
     );
-    const _react =  _interop_require_default._(
+    const _react = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       ),
@@ -17145,7 +15031,7 @@
     const _approuterinstance = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router-instance.js [app-client] (ecmascript)",
     );
-    const _approuter =  _interop_require_default._(
+    const _approuter = _interop_require_default._(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/app-router.js [app-client] (ecmascript)",
       ),
@@ -17162,7 +15048,7 @@
     const _flightdatahelpers = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/flight-data-helpers.js [app-client] (ecmascript)",
     );
-    
+
     const createFromReadableStream = _client1.createFromReadableStream;
     const createFromFetch = _client1.createFromFetch;
     const appElement = document;
@@ -17204,7 +15090,7 @@
               configurable: true,
             },
           );
-        
+
         const binaryString = atob(seg[1]);
         const decodedChunk = new Uint8Array(binaryString.length);
         for (var i = 0; i < binaryString.length; i++) {
@@ -17218,17 +15104,9 @@
       }
     }
     function isStreamErrorOrUnfinished(ctr) {
-      
       return ctr.desiredSize === null || ctr.desiredSize < 0;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     function nextServerDataRegisterWriter(ctr) {
       if (initialServerDataBuffer) {
         initialServerDataBuffer.forEach((val) => {
@@ -17258,7 +15136,7 @@
       }
       initialServerDataWriter = ctr;
     }
-    
+
     const DOMContentLoaded = function () {
       if (initialServerDataWriter && !initialServerDataFlushed) {
         initialServerDataWriter.close();
@@ -17267,19 +15145,17 @@
       }
       initialServerDataLoaded = true;
     };
-    
+
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", DOMContentLoaded, false);
     } else {
-      
       setTimeout(DOMContentLoaded);
     }
     const nextServerDataLoadingGlobal = (self.__next_f = self.__next_f || []);
-    
-    
+
     nextServerDataLoadingGlobal.forEach(nextServerDataCallback);
     nextServerDataLoadingGlobal.length = 0;
-    
+
     nextServerDataLoadingGlobal.push = nextServerDataCallback;
     const readable = new ReadableStream({
       start(controller) {
@@ -17287,12 +15163,10 @@
       },
     });
     if (("TURBOPACK compile-time truthy", 1)) {
-      
       readable.name = "hydration";
     }
     let debugChannel;
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     const clientResumeFetch = window.__NEXT_CLIENT_RESUME;
     let initialServerResponse;
     if (clientResumeFetch) {
@@ -17313,7 +15187,7 @@
         callServer: _appcallserver.callServer,
         findSourceMapURL: _appfindsourcemapurl.findSourceMapURL,
         debugChannel,
-        
+
         startTime: 0,
       });
     }
@@ -17323,7 +15197,7 @@
       webSocket,
       staticIndicatorState,
     }) {
-      const router =  (0, _jsxruntime.jsx)(_approuter.default, {
+      const router = (0, _jsxruntime.jsx)(_approuter.default, {
         actionQueue: actionQueue,
         globalErrorState: initialRSCPayload.G,
         webSocket: webSocket,
@@ -17333,9 +15207,7 @@
         ("TURBOPACK compile-time value", "development") === "development" &&
         initialRSCPayload.m
       ) {
-        
-        
-        return  (0, _jsxruntime.jsx)(
+        return (0, _jsxruntime.jsx)(
           _approutercontextsharedruntime.MissingSlotContext,
           {
             value: initialRSCPayload.m,
@@ -17349,13 +15221,10 @@
       ? _react.default.StrictMode
       : "TURBOPACK unreachable";
     function Root({ children }) {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       return children;
     }
     function onDefaultTransitionIndicator() {
-      
-      
       return () => {};
     }
     const reactRootOptions = {
@@ -17378,8 +15247,7 @@
         webSocket = createWebSocket(assetPrefix, staticIndicatorState);
       }
       const initialRSCPayload = await initialServerResponse;
-      
-      
+
       (0, _appbuildid.setAppBuildId)(initialRSCPayload.b);
       const initialTimestamp = Date.now();
       const actionQueue = (0, _approuterinstance.createMutableActionQueue)(
@@ -17393,15 +15261,15 @@
         }),
         instrumentationHooks,
       );
-      const reactEl =  (0, _jsxruntime.jsx)(StrictModeIfEnabled, {
-        children:  (0, _jsxruntime.jsx)(
+      const reactEl = (0, _jsxruntime.jsx)(StrictModeIfEnabled, {
+        children: (0, _jsxruntime.jsx)(
           _headmanagercontextsharedruntime.HeadManagerContext.Provider,
           {
             value: {
               appDir: true,
             },
-            children:  (0, _jsxruntime.jsx)(Root, {
-              children:  (0, _jsxruntime.jsx)(ServerRoot, {
+            children: (0, _jsxruntime.jsx)(Root, {
+              children: (0, _jsxruntime.jsx)(ServerRoot, {
                 initialRSCPayload: initialRSCPayload,
                 actionQueue: actionQueue,
                 webSocket: webSocket,
@@ -17413,18 +15281,15 @@
       });
       if (document.documentElement.id === "__next_error__") {
         let element = reactEl;
-        
+
         if (("TURBOPACK compile-time truthy", 1)) {
           const { RootLevelDevOverlayElement } = __turbopack_context__.r(
             "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/client-entry.js [app-client] (ecmascript)",
           );
-          
-          element =  (0, _jsxruntime.jsx)(
-            RootLevelDevOverlayElement,
-            {
-              children: element,
-            },
-          );
+
+          element = (0, _jsxruntime.jsx)(RootLevelDevOverlayElement, {
+            children: element,
+          });
         }
         _client.default
           .createRoot(appElement, reactRootOptions)
@@ -17437,7 +15302,7 @@
           });
         });
       }
-      
+
       if (("TURBOPACK compile-time truthy", 1)) {
         const { linkGc } = __turbopack_context__.r(
           "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-link-gc.js [app-client] (ecmascript)",
@@ -17455,14 +15320,14 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-next-turbopack.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -17477,7 +15342,7 @@
     );
     window.next.turbopack = true;
     self.__webpack_hash__ = "";
-    
+
     const instrumentationHooks = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/require-instrumentation-client.js [app-client] (ecmascript)",
     );
@@ -17514,8 +15379,6 @@
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
 ]);
-
-

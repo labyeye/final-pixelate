@@ -4,7 +4,6 @@ import { ObjectId } from "mongodb";
 
 const COLLECTION = "whatsapp_templates";
 
-
 export async function GET(req: NextRequest) {
   try {
     const db = await getDb();
@@ -22,7 +21,6 @@ export async function GET(req: NextRequest) {
       .sort({ createdAt: -1 })
       .toArray();
 
-    
     const serialized = templates.map((t) => ({
       ...t,
       _id: t._id.toString(),
@@ -37,7 +35,6 @@ export async function GET(req: NextRequest) {
     );
   }
 }
-
 
 export async function POST(req: NextRequest) {
   try {
@@ -65,7 +62,6 @@ export async function POST(req: NextRequest) {
 
     const db = await getDb();
 
-    
     const existing = await db.collection(COLLECTION).findOne({ name });
     if (existing) {
       return NextResponse.json(
@@ -87,7 +83,7 @@ export async function POST(req: NextRequest) {
       variables: Array.isArray(variables) ? variables : [],
       exampleValues: Array.isArray(exampleValues) ? exampleValues : [],
       notes: notes ? String(notes) : null,
-      status: "LOCAL", 
+      status: "LOCAL",
       metaTemplateId: null,
       submittedAt: null,
       approvedAt: null,

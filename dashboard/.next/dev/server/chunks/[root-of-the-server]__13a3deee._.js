@@ -1322,5 +1322,3 @@ module.exports = [
     }
   },
 ];
-
-

@@ -9,7 +9,7 @@
       () => loadNotoSansForJsPDF,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)",
       );
     async function loadNotoSansForJsPDF(doc, fontName = "NotoSans") {
@@ -62,5 +62,3 @@
     }
   },
 ]);
-
-

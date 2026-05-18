@@ -14,10 +14,7 @@ const nextConfig: NextConfig = {
     "aws4",
     "snappy",
     "kerberos",
-    
-    
-    
-    
+
     "@react-pdf/renderer",
     "@react-pdf/reconciler",
     "@react-pdf/layout",

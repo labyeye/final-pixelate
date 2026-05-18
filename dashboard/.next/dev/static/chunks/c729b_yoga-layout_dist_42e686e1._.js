@@ -1729,12 +1729,6 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- 
     __turbopack_context__.s([
       "Align",
       () => Align,
@@ -1775,7 +1769,7 @@
       "default",
       () => __TURBOPACK__default__export__,
     ]);
-    let Align =  (function (Align) {
+    let Align = (function (Align) {
       Align[(Align["Auto"] = 0)] = "Auto";
       Align[(Align["FlexStart"] = 1)] = "FlexStart";
       Align[(Align["Center"] = 2)] = "Center";
@@ -1787,29 +1781,29 @@
       Align[(Align["SpaceEvenly"] = 8)] = "SpaceEvenly";
       return Align;
     })({});
-    let BoxSizing =  (function (BoxSizing) {
+    let BoxSizing = (function (BoxSizing) {
       BoxSizing[(BoxSizing["BorderBox"] = 0)] = "BorderBox";
       BoxSizing[(BoxSizing["ContentBox"] = 1)] = "ContentBox";
       return BoxSizing;
     })({});
-    let Dimension =  (function (Dimension) {
+    let Dimension = (function (Dimension) {
       Dimension[(Dimension["Width"] = 0)] = "Width";
       Dimension[(Dimension["Height"] = 1)] = "Height";
       return Dimension;
     })({});
-    let Direction =  (function (Direction) {
+    let Direction = (function (Direction) {
       Direction[(Direction["Inherit"] = 0)] = "Inherit";
       Direction[(Direction["LTR"] = 1)] = "LTR";
       Direction[(Direction["RTL"] = 2)] = "RTL";
       return Direction;
     })({});
-    let Display =  (function (Display) {
+    let Display = (function (Display) {
       Display[(Display["Flex"] = 0)] = "Flex";
       Display[(Display["None"] = 1)] = "None";
       Display[(Display["Contents"] = 2)] = "Contents";
       return Display;
     })({});
-    let Edge =  (function (Edge) {
+    let Edge = (function (Edge) {
       Edge[(Edge["Left"] = 0)] = "Left";
       Edge[(Edge["Top"] = 1)] = "Top";
       Edge[(Edge["Right"] = 2)] = "Right";
@@ -1821,7 +1815,7 @@
       Edge[(Edge["All"] = 8)] = "All";
       return Edge;
     })({});
-    let Errata =  (function (Errata) {
+    let Errata = (function (Errata) {
       Errata[(Errata["None"] = 0)] = "None";
       Errata[(Errata["StretchFlexBasis"] = 1)] = "StretchFlexBasis";
       Errata[(Errata["AbsolutePositionWithoutInsetsExcludesPadding"] = 2)] =
@@ -1832,25 +1826,25 @@
       Errata[(Errata["Classic"] = 2147483646)] = "Classic";
       return Errata;
     })({});
-    let ExperimentalFeature =  (function (ExperimentalFeature) {
+    let ExperimentalFeature = (function (ExperimentalFeature) {
       ExperimentalFeature[(ExperimentalFeature["WebFlexBasis"] = 0)] =
         "WebFlexBasis";
       return ExperimentalFeature;
     })({});
-    let FlexDirection =  (function (FlexDirection) {
+    let FlexDirection = (function (FlexDirection) {
       FlexDirection[(FlexDirection["Column"] = 0)] = "Column";
       FlexDirection[(FlexDirection["ColumnReverse"] = 1)] = "ColumnReverse";
       FlexDirection[(FlexDirection["Row"] = 2)] = "Row";
       FlexDirection[(FlexDirection["RowReverse"] = 3)] = "RowReverse";
       return FlexDirection;
     })({});
-    let Gutter =  (function (Gutter) {
+    let Gutter = (function (Gutter) {
       Gutter[(Gutter["Column"] = 0)] = "Column";
       Gutter[(Gutter["Row"] = 1)] = "Row";
       Gutter[(Gutter["All"] = 2)] = "All";
       return Gutter;
     })({});
-    let Justify =  (function (Justify) {
+    let Justify = (function (Justify) {
       Justify[(Justify["FlexStart"] = 0)] = "FlexStart";
       Justify[(Justify["Center"] = 1)] = "Center";
       Justify[(Justify["FlexEnd"] = 2)] = "FlexEnd";
@@ -1859,7 +1853,7 @@
       Justify[(Justify["SpaceEvenly"] = 5)] = "SpaceEvenly";
       return Justify;
     })({});
-    let LogLevel =  (function (LogLevel) {
+    let LogLevel = (function (LogLevel) {
       LogLevel[(LogLevel["Error"] = 0)] = "Error";
       LogLevel[(LogLevel["Warn"] = 1)] = "Warn";
       LogLevel[(LogLevel["Info"] = 2)] = "Info";
@@ -1868,37 +1862,37 @@
       LogLevel[(LogLevel["Fatal"] = 5)] = "Fatal";
       return LogLevel;
     })({});
-    let MeasureMode =  (function (MeasureMode) {
+    let MeasureMode = (function (MeasureMode) {
       MeasureMode[(MeasureMode["Undefined"] = 0)] = "Undefined";
       MeasureMode[(MeasureMode["Exactly"] = 1)] = "Exactly";
       MeasureMode[(MeasureMode["AtMost"] = 2)] = "AtMost";
       return MeasureMode;
     })({});
-    let NodeType =  (function (NodeType) {
+    let NodeType = (function (NodeType) {
       NodeType[(NodeType["Default"] = 0)] = "Default";
       NodeType[(NodeType["Text"] = 1)] = "Text";
       return NodeType;
     })({});
-    let Overflow =  (function (Overflow) {
+    let Overflow = (function (Overflow) {
       Overflow[(Overflow["Visible"] = 0)] = "Visible";
       Overflow[(Overflow["Hidden"] = 1)] = "Hidden";
       Overflow[(Overflow["Scroll"] = 2)] = "Scroll";
       return Overflow;
     })({});
-    let PositionType =  (function (PositionType) {
+    let PositionType = (function (PositionType) {
       PositionType[(PositionType["Static"] = 0)] = "Static";
       PositionType[(PositionType["Relative"] = 1)] = "Relative";
       PositionType[(PositionType["Absolute"] = 2)] = "Absolute";
       return PositionType;
     })({});
-    let Unit =  (function (Unit) {
+    let Unit = (function (Unit) {
       Unit[(Unit["Undefined"] = 0)] = "Undefined";
       Unit[(Unit["Point"] = 1)] = "Point";
       Unit[(Unit["Percent"] = 2)] = "Percent";
       Unit[(Unit["Auto"] = 3)] = "Auto";
       return Unit;
     })({});
-    let Wrap =  (function (Wrap) {
+    let Wrap = (function (Wrap) {
       Wrap[(Wrap["NoWrap"] = 0)] = "NoWrap";
       Wrap[(Wrap["Wrap"] = 1)] = "Wrap";
       Wrap[(Wrap["WrapReverse"] = 2)] = "WrapReverse";
@@ -1981,20 +1975,11 @@
       WRAP_WRAP_REVERSE: Wrap.WrapReverse,
     };
     const __TURBOPACK__default__export__ = constants;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/yoga-layout/dist/src/wrapAssembly.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
-
-
- 
     __turbopack_context__.s(["default", () => wrapAssembly]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2048,8 +2033,7 @@
           ) {
             args[_key2 - 1] = arguments[_key2];
           }
-          
-          
+
           const value = args.pop();
           let unit, asNumber;
           if (value === "auto") {
@@ -2105,8 +2089,6 @@
         lib.Node.prototype,
         "setMeasureFunc",
         function (original, measureFunc) {
-          
-          
           if (measureFunc) {
             return original.call(this, wrapMeasureFunction(measureFunc));
           } else {
@@ -2127,19 +2109,14 @@
         },
       );
       patch(lib.Config.prototype, "free", function () {
-        
-        
         lib.Config.destroy(this);
       });
       patch(lib.Node, "create", (_, config) => {
-        
         return config
           ? lib.Node.createWithConfig(config)
           : lib.Node.createDefault();
       });
       patch(lib.Node.prototype, "free", function () {
-        
-        
         lib.Node.destroy(this);
       });
       patch(lib.Node.prototype, "freeRecursive", function () {
@@ -2163,7 +2140,7 @@
             : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "Direction"
               ].LTR;
-        
+
         return original.call(this, width, height, direction);
       });
       return {
@@ -2173,20 +2150,12 @@
           "default"
         ],
       };
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/yoga-layout/dist/src/load.js [app-client] (ecmascript) <locals>",
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
-
-
- 
     __turbopack_context__.s(["loadYoga", () => loadYoga]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$binaries$2f$yoga$2d$wasm$2d$base64$2d$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2199,7 +2168,7 @@
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/yoga-layout/dist/src/generated/YGEnums.js [app-client] (ecmascript)",
-      ); 
+      );
     async function loadYoga() {
       return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$wrapAssembly$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -2213,5 +2182,3 @@
     }
   },
 ]);
-
-

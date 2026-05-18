@@ -1028,7 +1028,7 @@ module.exports = [
         (p) => String(p.id) === String(pageId),
       );
       if (page?.access_token) return page.access_token;
-      
+
       return userToken;
     }
     async function GET() {
@@ -1048,9 +1048,8 @@ module.exports = [
         );
       }
       try {
-        
         const pageToken = await getPageToken(TOKEN, PAGE_ID);
-        
+
         const formsRes = await fetch(
           `https://graph.facebook.com/v19.0/${PAGE_ID}/leadgen_forms?access_token=${pageToken}`,
         );
@@ -1087,9 +1086,9 @@ module.exports = [
             }
             const phone = f["phone_number"] || f["phone"] || "";
             const email = f["email"] || "";
-            
+
             if (!phone && !email) continue;
-            
+
             const existing = await col.findOne({
               $or: [
                 ...(phone
@@ -1146,5 +1145,3 @@ module.exports = [
     }
   },
 ];
-
-

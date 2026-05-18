@@ -1,16 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-
-
-
-
-
-
-
-
-
-
-
 export async function POST(req: NextRequest) {
   const accessToken = process.env.META_ACCESS_TOKEN;
   const appId = process.env.WHATSAPP_APP_ID;
@@ -23,7 +12,6 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  
   let formData: FormData;
   try {
     formData = await req.formData();
@@ -51,7 +39,6 @@ export async function POST(req: NextRequest) {
     `[upload-media] file="${fileName}" type="${fileType}" size=${fileLength}`,
   );
 
-  
   const sessionUrl =
     `https://graph.facebook.com/${apiVersion}/${appId}/uploads` +
     `?file_name=${encodeURIComponent(fileName)}` +
@@ -95,7 +82,6 @@ export async function POST(req: NextRequest) {
   }
   console.info(`[upload-media] session created: ${sessionId}`);
 
-  
   let uploadRes: Response;
   try {
     uploadRes = await fetch(
@@ -132,7 +118,6 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  
   const handle: string = (uploadJson as any)?.h;
   if (!handle) {
     return NextResponse.json(

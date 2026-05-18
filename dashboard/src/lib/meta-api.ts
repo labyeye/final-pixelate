@@ -87,8 +87,6 @@ export function parseFbPostId(postUrl: string): {
     const videoId = u.searchParams.get("v");
     if (videoId) return { postId: videoId, pageId: null };
 
-    
-    
     const pathMatch = pathname.match(
       /\/[^/]+\/(posts|videos|photos|notes)\/([^/?]+)/,
     );
@@ -96,8 +94,6 @@ export function parseFbPostId(postUrl: string): {
   } catch {}
   return { postId: null, pageId: null };
 }
-
-
 
 async function resolveShareUrl(url: string): Promise<string> {
   try {
@@ -107,14 +103,13 @@ async function resolveShareUrl(url: string): Promise<string> {
       headers: { "User-Agent": "facebookexternalhit/1.1" },
     });
     const resolved = res.url;
-    
+
     if (resolved && !resolved.includes("/share/") && resolved !== url) {
       return resolved;
     }
   } catch {}
   return url;
 }
-
 
 async function resolveUrlToObjectId(
   postUrl: string,
@@ -132,8 +127,6 @@ async function resolveUrlToObjectId(
   } catch {}
   return null;
 }
-
-
 
 async function resolveViaPagePosts(
   pageId: string,
@@ -163,7 +156,7 @@ async function resolveViaPagePosts(
 
         for (const post of data.data || []) {
           const permalink: string = post.permalink_url || "";
-          
+
           if (permalink.includes(pfbid)) return post.id;
         }
 
@@ -182,7 +175,6 @@ export async function fetchFbPostMetrics(
   pageId: string,
   pageAccessToken: string,
 ): Promise<MetaPostMetrics> {
-  
   const resolvedUrl = postUrl.includes("/share/")
     ? await resolveShareUrl(postUrl)
     : postUrl;
@@ -195,18 +187,14 @@ export async function fetchFbPostMetrics(
         `(e.g. facebook.com/YourPage/posts/123456789) instead of a share link.`,
     );
 
-  
   const isPfbid = postId.startsWith("pfbid") || !/^\d+$/.test(postId);
   if (isPfbid) {
-    
     const byUrl = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
     if (byUrl) {
       postId = byUrl;
     } else {
-      
       const byFeed = await resolveViaPagePosts(pageId, postId, pageAccessToken);
       if (byFeed) postId = byFeed;
-      
     }
   }
 
@@ -232,16 +220,15 @@ export async function fetchFbPostMetrics(
         console.warn(
           `FB engagement error for ${id}: ${data.error.message} (code ${code}, subcode ${subcode})`,
         );
-        
+
         if (code === 190) {
           throw new Error(
             `Facebook access token has expired. Go to the client's Social Tokens tab and click "Connect Facebook" to get a new token.`,
           );
         }
-        
-        
+
         if (code === 10 || code === 100) continue;
-        
+
         break;
       }
       if (res.ok) return data;
@@ -254,13 +241,11 @@ export async function fetchFbPostMetrics(
     `[FB metrics] postUrl=${postUrl} postId=${postId} graphId=${graphId}`,
   );
 
-  
   let eng: any =
     (await fetchEngagement(graphId, pageAccessToken)) ||
     (await fetchEngagement(postId, pageAccessToken));
 
   if (!eng) {
-    
     const urlResolved = await resolveUrlToObjectId(
       resolvedUrl,
       pageAccessToken,
@@ -285,7 +270,7 @@ export async function fetchFbPostMetrics(
     "post_video_views",
     "post_video_complete_views_organic",
   ];
-  
+
   const insightIds = [graphId, postId].filter((v, i, a) => a.indexOf(v) === i);
   outer: for (const insightId of insightIds) {
     for (const metric of fbViewMetrics) {
@@ -325,11 +310,6 @@ export async function fetchFbPostMetrics(
   };
 }
 
-/**
- * Publishes a post to Instagram.
- * 1. Create a media container (image/video).
- * 2. Publish the container.
- */
 export async function publishInstagramPost(
   igAccountId: string,
   accessToken: string,
@@ -337,7 +317,6 @@ export async function publishInstagramPost(
   mediaUrl: string,
   mediaType: "IMAGE" | "REELS" | "VIDEO" = "IMAGE",
 ): Promise<{ id: string; permalink: string }> {
-  // Step 1: Create Media Container
   const containerUrl = new URL(`${META_GRAPH_API}/${igAccountId}/media`);
   containerUrl.searchParams.set("caption", caption);
   containerUrl.searchParams.set("access_token", accessToken);
@@ -360,7 +339,6 @@ export async function publishInstagramPost(
 
   const containerId = containerData.id;
 
-  // Step 2: Wait for container to be ready (especially for Reels/Video)
   let ready = false;
   let attempts = 0;
   while (!ready && attempts < 10) {
@@ -379,12 +357,10 @@ export async function publishInstagramPost(
         `IG Media Processing Failed: ${statusData.error_message || "Unknown error"}`,
       );
     } else {
-      // Wait 5 seconds before next check
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   }
 
-  // Step 3: Publish Container
   const publishUrl = new URL(`${META_GRAPH_API}/${igAccountId}/media_publish`);
   publishUrl.searchParams.set("creation_id", containerId);
   publishUrl.searchParams.set("access_token", accessToken);
@@ -398,7 +374,6 @@ export async function publishInstagramPost(
     );
   }
 
-  // Fetch permalink
   const mediaDetailsUrl = new URL(`${META_GRAPH_API}/${publishData.id}`);
   mediaDetailsUrl.searchParams.set("fields", "permalink");
   mediaDetailsUrl.searchParams.set("access_token", accessToken);
@@ -411,16 +386,12 @@ export async function publishInstagramPost(
   };
 }
 
-/**
- * Publishes a post to Facebook.
- */
 export async function publishFacebookPost(
   pageId: string,
   pageToken: string,
   caption: string,
   mediaUrl?: string,
 ): Promise<{ id: string; permalink: string }> {
-  // Exchange user token for page token — page tokens never expire and avoid the deprecated publish_actions path
   let token = pageToken;
   try {
     const ptUrl = new URL(`${META_GRAPH_API}/${pageId}`);
@@ -438,7 +409,6 @@ export async function publishFacebookPost(
   };
 
   if (mediaUrl) {
-    // If there's media, use the photos or videos endpoint
     const isVideo =
       mediaUrl.toLowerCase().includes(".mp4") ||
       mediaUrl.toLowerCase().includes(".mov");
@@ -467,7 +437,6 @@ export async function publishFacebookPost(
     );
   }
 
-  // Fetch permalink
   const id = data.id || data.post_id;
   const detailsUrl = new URL(`${META_GRAPH_API}/${id}`);
   detailsUrl.searchParams.set("fields", "permalink_url");
@@ -490,7 +459,7 @@ async function resolveIgMediaId(
   const shortcodeMatch = permalink.match(
     /instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/,
   );
-  
+
   const shortcode = shortcodeMatch?.[1] || null;
   const shortcodeLower = shortcode?.toLowerCase() || null;
 
@@ -498,7 +467,6 @@ async function resolveIgMediaId(
     `[IG resolve] Looking for: "${normalised}" | shortcode: "${shortcode}" | igAccountId: ${igAccountId}`,
   );
 
-  
   let after: string | null = null;
   let totalScanned = 0;
   let apiError = "";
@@ -537,19 +505,18 @@ async function resolveIgMediaId(
     totalScanned += items.length;
 
     for (const item of items) {
-      
       const itemPermalink = (item.permalink || "")
         .replace(/\/$/, "")
         .toLowerCase()
         .trim();
-      
+
       const itemShortcodeMatch = itemPermalink.match(
         /instagram\.com\/(?:p|reel|tv)\/([a-z0-9_-]+)/,
       );
       const itemShortcode = itemShortcodeMatch?.[1] || null;
 
       const exactMatch = itemPermalink === normalised;
-      
+
       const shortcodeHit =
         shortcodeLower && itemShortcode && itemShortcode === shortcodeLower;
       if (exactMatch || shortcodeHit) {
@@ -746,7 +713,6 @@ export async function fetchIgMediaMetrics(
     } as any;
   }
 
-  
   const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
   mediaUrl.searchParams.set(
     "fields",
@@ -768,8 +734,6 @@ export async function fetchIgMediaMetrics(
   let followers_gained = 0;
   let insightError = "";
 
-  
-  
   const viewMetrics = isReel
     ? ["reach", "ig_reels_video_view_total_time"]
     : ["reach", "total_interactions"];
@@ -784,7 +748,7 @@ export async function fetchIgMediaMetrics(
       const data = await res.json();
       if (data.error) {
         const code = data.error.code;
-        
+
         if (code === 100) {
           console.log(
             `[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`,
@@ -804,7 +768,6 @@ export async function fetchIgMediaMetrics(
     }
   }
 
-  
   for (const metric of viewMetrics) {
     const val = await fetchInsight(metric);
     if (val > 0) {

@@ -7,15 +7,9 @@ const dbName = "crm_pixelate";
 const argv = process.argv.slice(2);
 const applyChanges = argv.includes("--yes") || argv.includes("-y");
 
-// Delete client-owned leads (clientId exists) whose resolved city
-// matches any name in TARGET_CITIES. The UI's getCity() helper
-// (src/app/(crm)/client/leads/page.tsx:606) falls back to metaFields
-// when lead.city is empty, scanning keys case-insensitively for:
-// city, location, town, district. We mirror that here.
 const CITY_KEYS = ["city", "location", "town", "district"];
 
 const TARGET_CITIES = [
-  // Previous batch
   "Aurangabad",
   "rohtak haryana",
   "Pune",
@@ -24,7 +18,7 @@ const TARGET_CITIES = [
   "Chiplun",
   "Palej",
   "Etawah",
-  // New batch
+
   "Odisha",
   "Nellore",
   "Ttcl",
@@ -44,7 +38,7 @@ const TARGET_CITIES = [
   "Govind Nagar",
   "Raipur",
   "Tonk",
-  // Third batch
+
   "Jaipur",
   "Thane",
   "Amravati",
@@ -52,7 +46,10 @@ const TARGET_CITIES = [
   "Gunjoti",
 ];
 
-const normalize = (v) => String(v ?? "").trim().toLowerCase();
+const normalize = (v) =>
+  String(v ?? "")
+    .trim()
+    .toLowerCase();
 const TARGET_SET = new Set(TARGET_CITIES.map(normalize));
 const isTargetCity = (v) => v != null && TARGET_SET.has(normalize(v));
 
@@ -60,7 +57,11 @@ function getCity(lead) {
   if (typeof lead.city === "string" && lead.city.trim()) return lead.city;
   if (lead.metaFields && typeof lead.metaFields === "object") {
     for (const [k, v] of Object.entries(lead.metaFields)) {
-      if (CITY_KEYS.includes(String(k).toLowerCase()) && typeof v === "string" && v.trim()) {
+      if (
+        CITY_KEYS.includes(String(k).toLowerCase()) &&
+        typeof v === "string" &&
+        v.trim()
+      ) {
         return v;
       }
     }
@@ -79,11 +80,18 @@ async function run() {
       `Total documents in leads collection: ${await col.estimatedDocumentCount()}\n`,
     );
 
-    // Scan every client-owned lead and apply the same city resolution
-    // the UI uses. We collect _ids of leads whose resolved city is Pune.
     const cursor = col.find(
       { clientId: { $exists: true } },
-      { projection: { _id: 1, name: 1, city: 1, metaFields: 1, clientId: 1, createdAt: 1 } },
+      {
+        projection: {
+          _id: 1,
+          name: 1,
+          city: 1,
+          metaFields: 1,
+          clientId: 1,
+          createdAt: 1,
+        },
+      },
     );
 
     const matches = [];
@@ -93,13 +101,16 @@ async function run() {
       const resolved = getCity(doc) || (doc.city ?? "");
       const key = resolved ? resolved.trim() : "<empty>";
       cityCounts.set(key, (cityCounts.get(key) || 0) + 1);
-      if (isTargetCity(resolved)) matches.push({ ...doc, _resolvedCity: resolved });
+      if (isTargetCity(resolved))
+        matches.push({ ...doc, _resolvedCity: resolved });
     }
 
     const topCities = [...cityCounts.entries()]
       .sort((a, b) => b[1] - a[1])
       .slice(0, 20);
-    console.log("Top 20 resolved cities (lead.city || metaFields[city|location|town|district]) — client-owned leads:");
+    console.log(
+      "Top 20 resolved cities (lead.city || metaFields[city|location|town|district]) — client-owned leads:",
+    );
     for (const [name, count] of topCities) {
       console.log(`  ${JSON.stringify(name)}: ${count}`);
     }

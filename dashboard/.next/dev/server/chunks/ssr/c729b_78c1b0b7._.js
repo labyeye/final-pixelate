@@ -3,23 +3,19 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       else {
         if (("TURBOPACK compile-time truthy", 1)) {
           if (("TURBOPACK compile-time truthy", 1)) {
             module.exports = __turbopack_context__.r(
               "[externals]/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-page-turbo.runtime.dev.js, cjs)",
             );
-          } 
-          else;
-        } 
-        else;
+          } else;
+        } else;
       }
-    } 
+    }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -27,7 +23,7 @@ module.exports = [
 
     module.exports = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)",
-    ).vendored["react-ssr"].ReactJsxDevRuntime; 
+    ).vendored["react-ssr"].ReactJsxDevRuntime;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -35,7 +31,7 @@ module.exports = [
 
     module.exports = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)",
-    ).vendored["react-ssr"].React; 
+    ).vendored["react-ssr"].React;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-dom.js [app-ssr] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -43,13 +39,12 @@ module.exports = [
 
     module.exports = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)",
-    ).vendored["react-ssr"].ReactDOM; 
+    ).vendored["react-ssr"].ReactDOM;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/primitive/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "canUseDOM",
       () => canUseDOM,
@@ -118,13 +113,11 @@ module.exports = [
     function isFrame(element) {
       return element.tagName === "IFRAME";
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "composeRefs",
       () => composeRefs,
@@ -171,7 +164,6 @@ module.exports = [
         "useCallback"
       ](composeRefs(...refs), refs);
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -179,13 +171,12 @@ module.exports = [
 
     module.exports = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)",
-    ).vendored["react-ssr"].ReactJsxRuntime; 
+    ).vendored["react-ssr"].ReactJsxRuntime;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-context/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "createContext",
       () => createContext2,
@@ -211,7 +202,7 @@ module.exports = [
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "useMemo"
           ](() => context, Object.values(context));
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(Context.Provider, {
@@ -249,7 +240,7 @@ module.exports = [
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "useMemo"
             ](() => context, Object.values(context));
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Context.Provider, {
@@ -332,13 +323,11 @@ module.exports = [
       createScope.scopeName = baseScope.scopeName;
       return createScope;
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "Root",
       () => Slot,
@@ -363,9 +352,9 @@ module.exports = [
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)",
       );
-    
+
     function createSlot(ownerName) {
-      const SlotClone =  createSlotClone(ownerName);
+      const SlotClone = createSlotClone(ownerName);
       const Slot2 =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "forwardRef"
@@ -397,7 +386,7 @@ module.exports = [
                 return child;
               }
             });
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SlotClone, {
@@ -413,7 +402,7 @@ module.exports = [
                   : null,
             });
           }
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(SlotClone, {
@@ -425,8 +414,8 @@ module.exports = [
       Slot2.displayName = `${ownerName}.Slot`;
       return Slot2;
     }
-    var Slot =  createSlot("Slot");
-    
+    var Slot = createSlot("Slot");
+
     function createSlotClone(ownerName) {
       const SlotClone =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -469,10 +458,10 @@ module.exports = [
       return SlotClone;
     }
     var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-    
+
     function createSlottable(ownerName) {
       const Slottable2 = ({ children }) => {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -488,7 +477,7 @@ module.exports = [
       Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
       return Slottable2;
     }
-    var Slottable =  createSlottable("Slottable");
+    var Slottable = createSlottable("Slottable");
     function isSlottable(child) {
       return (
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -547,7 +536,6 @@ module.exports = [
       }
       return element.props.ref || element.ref;
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
@@ -559,7 +547,7 @@ module.exports = [
       "unstable_createCollection",
       () => createCollection2,
     ]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
@@ -592,7 +580,7 @@ module.exports = [
           collectionRef: {
             current: null,
           },
-          itemMap:  new Map(),
+          itemMap: new Map(),
         });
       const CollectionProvider = (props) => {
         const { scope, children } = props;
@@ -603,8 +591,8 @@ module.exports = [
         const itemMap =
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
-          ].useRef( new Map()).current;
-        return  (0,
+          ].useRef(new Map()).current;
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionProviderImpl, {
@@ -630,7 +618,7 @@ module.exports = [
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "useComposedRefs"
           ])(forwardedRef, context.collectionRef);
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionSlotImpl, {
@@ -668,7 +656,7 @@ module.exports = [
             });
             return () => void context.itemMap.delete(ref);
           });
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionItemSlotImpl, {
@@ -714,8 +702,8 @@ module.exports = [
         createCollectionScope,
       ];
     }
-    
-    var __instanciated =  new WeakMap();
+
+    var __instanciated = new WeakMap();
     var OrderedDict = class _OrderedDict extends Map {
       #keys;
       constructor(entries) {
@@ -793,9 +781,8 @@ module.exports = [
         }
         return this.entryAt(index);
       }
-      
 
- setBefore(key, newKey, value) {
+      setBefore(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
           return this;
@@ -810,9 +797,8 @@ module.exports = [
         }
         return this.entryAt(index);
       }
-      
 
- setAfter(key, newKey, value) {
+      setAfter(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
           return this;
@@ -1056,14 +1042,14 @@ module.exports = [
         });
       const CollectionProvider = ({ state, ...props }) => {
         return state
-          ?  (0,
+          ? (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(CollectionProviderImpl, {
               ...props,
               state,
             })
-          :  (0,
+          : (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(CollectionInit, {
@@ -1073,7 +1059,7 @@ module.exports = [
       CollectionProvider.displayName = PROVIDER_NAME;
       const CollectionInit = (props) => {
         const state = useInitCollection();
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionProviderImpl, {
@@ -1110,7 +1096,7 @@ module.exports = [
             observer.disconnect();
           };
         }, [collectionElement]);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(CollectionContextProvider, {
@@ -1139,7 +1125,7 @@ module.exports = [
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "useComposedRefs"
           ])(forwardedRef, context.collectionRef);
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionSlotImpl, {
@@ -1213,7 +1199,7 @@ module.exports = [
               });
             };
           }, [element, memoizedItemData, setItemMap]);
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(CollectionItemSlotImpl, {
@@ -1287,13 +1273,11 @@ module.exports = [
       });
       return observer;
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "Root",
       () => Slot,
@@ -1318,9 +1302,9 @@ module.exports = [
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)",
       );
-    
+
     function createSlot(ownerName) {
-      const SlotClone =  createSlotClone(ownerName);
+      const SlotClone = createSlotClone(ownerName);
       const Slot2 =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "forwardRef"
@@ -1352,7 +1336,7 @@ module.exports = [
                 return child;
               }
             });
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SlotClone, {
@@ -1368,7 +1352,7 @@ module.exports = [
                   : null,
             });
           }
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(SlotClone, {
@@ -1380,8 +1364,8 @@ module.exports = [
       Slot2.displayName = `${ownerName}.Slot`;
       return Slot2;
     }
-    var Slot =  createSlot("Slot");
-    
+    var Slot = createSlot("Slot");
+
     function createSlotClone(ownerName) {
       const SlotClone =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -1424,10 +1408,10 @@ module.exports = [
       return SlotClone;
     }
     var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-    
+
     function createSlottable(ownerName) {
       const Slottable2 = ({ children }) => {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1443,7 +1427,7 @@ module.exports = [
       Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
       return Slottable2;
     }
-    var Slottable =  createSlottable("Slottable");
+    var Slottable = createSlottable("Slottable");
     function isSlottable(child) {
       return (
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -1502,13 +1486,11 @@ module.exports = [
       }
       return element.props.ref || element.ref;
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "Primitive",
       () => Primitive,
@@ -1563,9 +1545,8 @@ module.exports = [
         ]((props, forwardedRef) => {
           const { asChild, ...primitiveProps } = props;
           const Comp = asChild ? Slot : node;
-          if (("TURBOPACK compile-time falsy", 0)) 
-          ;
-          return  (0,
+          if (("TURBOPACK compile-time falsy", 0));
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Comp, {
@@ -1586,13 +1567,11 @@ module.exports = [
         ](() => target.dispatchEvent(event));
     }
     var Root = Primitive;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["useCallbackRef", () => useCallbackRef]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -1617,13 +1596,11 @@ module.exports = [
         [],
       );
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["useEscapeKeydown", () => useEscapeKeydown]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -1658,7 +1635,6 @@ module.exports = [
           });
       }, [onEscapeKeyDown, ownerDocument]);
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
@@ -1674,7 +1650,7 @@ module.exports = [
       "Root",
       () => Root,
     ]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
@@ -1713,9 +1689,9 @@ module.exports = [
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "createContext"
       ]({
-        layers:  new Set(),
-        layersWithOutsidePointerEventsDisabled:  new Set(),
-        branches:  new Set(),
+        layers: new Set(),
+        layersWithOutsidePointerEventsDisabled: new Set(),
+        branches: new Set(),
       });
     var DismissableLayer =
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -1832,7 +1808,7 @@ module.exports = [
           return () =>
             document.removeEventListener(CONTEXT_UPDATE, handleUpdate);
         }, []);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1897,7 +1873,7 @@ module.exports = [
             };
           }
         }, [context.branches]);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1975,7 +1951,6 @@ module.exports = [
         };
       }, [ownerDocument, handlePointerDownOutside]);
       return {
-        
         onPointerDownCapture: () =>
           (isPointerInsideReactTreeRef.current = true),
       };
@@ -2044,13 +2019,11 @@ module.exports = [
     }
     var Root = DismissableLayer;
     var Branch = DismissableLayerBranch;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["useLayoutEffect", () => useLayoutEffect2]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2061,14 +2034,13 @@ module.exports = [
           "useLayoutEffect"
         ]
       : () => {};
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-portal/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
     __turbopack_context__.s(["Portal", () => Portal, "Root", () => Root]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
@@ -2110,7 +2082,7 @@ module.exports = [
           ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].createPortal(
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -2128,14 +2100,13 @@ module.exports = [
       });
     Portal.displayName = PORTAL_NAME;
     var Root = Portal;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-presence/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
     __turbopack_context__.s(["Presence", () => Presence, "Root", () => Root]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
@@ -2157,7 +2128,7 @@ module.exports = [
         return nextState ?? state;
       }, initialState);
     }
-    
+
     var Presence = (props) => {
       const { present, children } = props;
       const presence = usePresence(present);
@@ -2322,13 +2293,11 @@ module.exports = [
       return element.props.ref || element.ref;
     }
     var Root = Presence;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-effect-event/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["useEffectEvent", () => useEffectEvent]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$use$2d$layout$2d$effect$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -2375,13 +2344,11 @@ module.exports = [
         [],
       );
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "useControllableState",
       () => useControllableState,
@@ -2572,13 +2539,11 @@ module.exports = [
       }, [controlledState, internalState.state, isControlled]);
       return [state, dispatch];
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-visually-hidden/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "Root",
       () => Root,
@@ -2600,7 +2565,6 @@ module.exports = [
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)",
       );
     var VISUALLY_HIDDEN_STYLES = Object.freeze({
-      
       position: "absolute",
       border: 0,
       width: 1,
@@ -2617,7 +2581,7 @@ module.exports = [
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ]((props, forwardedRef) => {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -2636,7 +2600,6 @@ module.exports = [
       });
     VisuallyHidden.displayName = NAME;
     var Root = VisuallyHidden;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-toast/dist/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
@@ -2674,7 +2637,7 @@ module.exports = [
       "createToastScope",
       () => createToastScope,
     ]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
@@ -2777,12 +2740,12 @@ module.exports = [
           `Invalid prop \`label\` supplied to \`${PROVIDER_NAME}\`. Expected non-empty \`string\`.`,
         );
       }
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(Collection.Provider, {
         scope: __scopeToast,
-        children:  (0,
+        children: (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastProviderProvider, {
@@ -2973,7 +2936,7 @@ module.exports = [
             return () => viewport.removeEventListener("keydown", handleKeyDown);
           }
         }, [getItems, getSortedTabbableCandidates]);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -2990,7 +2953,7 @@ module.exports = [
             },
             children: [
               hasToasts &&
-                 (0,
+                (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(FocusProxy, {
@@ -3002,12 +2965,12 @@ module.exports = [
                     focusFirst(tabbableCandidates);
                   },
                 }),
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(Collection.Slot, {
                 scope: __scopeToast,
-                children:  (0,
+                children: (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(
@@ -3022,7 +2985,7 @@ module.exports = [
                 ),
               }),
               hasToasts &&
-                 (0,
+                (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(FocusProxy, {
@@ -3047,7 +3010,7 @@ module.exports = [
         const { __scopeToast, onFocusFromOutsideViewport, ...proxyProps } =
           props;
         const context = useToastProviderContext(FOCUS_PROXY_NAME, __scopeToast);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3096,7 +3059,7 @@ module.exports = [
           onChange: onOpenChange,
           caller: TOAST_NAME,
         });
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3105,7 +3068,7 @@ module.exports = [
           ],
           {
             present: forceMount || open,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(ToastImpl, {
@@ -3256,8 +3219,7 @@ module.exports = [
             (duration2) => {
               if (!duration2 || duration2 === Infinity) return;
               window.clearTimeout(closeTimerRef.current);
-              closeTimerStartTimeRef.current =
-                 new Date().getTime();
+              closeTimerStartTimeRef.current = new Date().getTime();
               closeTimerRef.current = window.setTimeout(handleClose, duration2);
             },
             [handleClose],
@@ -3273,8 +3235,7 @@ module.exports = [
             };
             const handlePause = () => {
               const elapsedTime =
-                 new Date().getTime() -
-                closeTimerStartTimeRef.current;
+                new Date().getTime() - closeTimerStartTimeRef.current;
               closeTimerRemainingTimeRef.current =
                 closeTimerRemainingTimeRef.current - elapsedTime;
               window.clearTimeout(closeTimerRef.current);
@@ -3306,7 +3267,7 @@ module.exports = [
             return node ? getAnnounceTextContent(node) : null;
           }, [node]);
         if (!context.viewport) return null;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -3316,7 +3277,7 @@ module.exports = [
           {
             children: [
               announceTextContent &&
-                 (0,
+                (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(ToastAnnounce, {
@@ -3325,7 +3286,7 @@ module.exports = [
                   "aria-live": type === "foreground" ? "assertive" : "polite",
                   children: announceTextContent,
                 }),
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(ToastInteractiveProvider, {
@@ -3335,12 +3296,12 @@ module.exports = [
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "createPortal"
                   ](
-                     (0,
+                    (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsx"
                     ])(Collection.ItemSlot, {
                       scope: __scopeToast,
-                      children:  (0,
+                      children: (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsx"
                       ])(
@@ -3357,7 +3318,7 @@ module.exports = [
                               handleClose();
                             context.isFocusedToastEscapeKeyDownRef.current = false;
                           }),
-                          children:  (0,
+                          children: (0,
                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                             "jsx"
                           ])(
@@ -3552,7 +3513,7 @@ module.exports = [
       }, []);
       return isAnnounced
         ? null
-        :  (0,
+        : (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -3561,7 +3522,7 @@ module.exports = [
             ],
             {
               asChild: true,
-              children:  (0,
+              children: (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -3572,7 +3533,7 @@ module.exports = [
                   ...announceProps,
                   children:
                     renderAnnounceText &&
-                     (0,
+                    (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxs"
                     ])(
@@ -3594,7 +3555,7 @@ module.exports = [
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, ...titleProps } = props;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3614,7 +3575,7 @@ module.exports = [
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, ...descriptionProps } = props;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3640,13 +3601,13 @@ module.exports = [
           );
           return null;
         }
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastAnnounceExclude, {
           altText,
           asChild: true,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(ToastClose, {
@@ -3666,12 +3627,12 @@ module.exports = [
           CLOSE_NAME,
           __scopeToast,
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(ToastAnnounceExclude, {
           asChild: true,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -3696,7 +3657,7 @@ module.exports = [
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeToast, altText, ...announceExcludeProps } = props;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3821,7 +3782,6 @@ module.exports = [
     var Description = ToastDescription;
     var Action = ToastAction;
     var Close = ToastClose;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
@@ -3857,21 +3817,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
- __turbopack_context__.s(["cva", () => cva, "cx", () => cx]);
+    __turbopack_context__.s(["cva", () => cva, "cx", () => cx]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-ssr] (ecmascript)",
@@ -3958,12 +3904,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "mergeClasses",
       () => mergeClasses,
       "toKebabCase",
@@ -3982,18 +3923,12 @@ module.exports = [
         })
         .join(" ")
         .trim();
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/defaultAttributes.js [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s(["default", () => defaultAttributes]);
+    __turbopack_context__.s(["default", () => defaultAttributes]);
     var defaultAttributes = {
       xmlns: "http://www.w3.org/2000/svg",
       width: 24,
@@ -4005,18 +3940,12 @@ module.exports = [
       strokeLinecap: "round",
       strokeLinejoin: "round",
     };
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/Icon.js [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s(["default", () => Icon]);
+    __turbopack_context__.s(["default", () => Icon]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
@@ -4080,18 +4009,12 @@ module.exports = [
         );
       },
     );
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s(["default", () => createLucideIcon]);
+    __turbopack_context__.s(["default", () => createLucideIcon]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
@@ -4133,18 +4056,12 @@ module.exports = [
       Component.displayName = `${iconName}`;
       return Component;
     };
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -4174,7 +4091,6 @@ module.exports = [
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "default"
     ])("X", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-ssr] (ecmascript) <export default as X>",
   (__turbopack_context__) => {
@@ -4196,9 +4112,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "createTailwindMerge",
       () => createTailwindMerge,
       "extendTailwindMerge",
@@ -4217,7 +4131,6 @@ module.exports = [
       () => validators,
     ]);
     const concatArrays = (array1, array2) => {
-      
       const combinedArray = new Array(array1.length + array2.length);
       for (let i = 0; i < array1.length; i++) {
         combinedArray[i] = array1[i];
@@ -4227,12 +4140,12 @@ module.exports = [
       }
       return combinedArray;
     };
-    
+
     const createClassValidatorObject = (classGroupId, validator) => ({
       classGroupId,
       validator,
     });
-    
+
     const createClassPartObject = (
       nextPart = new Map(),
       validators = null,
@@ -4244,7 +4157,7 @@ module.exports = [
     });
     const CLASS_PART_SEPARATOR = "-";
     const EMPTY_CONFLICTS = [];
-    
+
     const ARBITRARY_PROPERTY_PREFIX = "arbitrary..";
     const createClassGroupUtils = (config) => {
       const classMap = createClassMap(config);
@@ -4254,7 +4167,7 @@ module.exports = [
           return getGroupIdForArbitraryProperty(className);
         }
         const classParts = className.split(CLASS_PART_SEPARATOR);
-        
+
         const startIndex =
           classParts[0] === "" && classParts.length > 1 ? 1 : 0;
         return getGroupRecursive(classParts, startIndex, classMap);
@@ -4269,13 +4182,12 @@ module.exports = [
           const baseConflicts = conflictingClassGroups[classGroupId];
           if (modifierConflicts) {
             if (baseConflicts) {
-              
               return concatArrays(baseConflicts, modifierConflicts);
             }
-            
+
             return modifierConflicts;
           }
-          
+
           return baseConflicts || EMPTY_CONFLICTS;
         }
         return conflictingClassGroups[classGroupId] || EMPTY_CONFLICTS;
@@ -4305,7 +4217,7 @@ module.exports = [
       if (validators === null) {
         return undefined;
       }
-      
+
       const classRest =
         startIndex === 0
           ? classParts.join(CLASS_PART_SEPARATOR)
@@ -4319,11 +4231,8 @@ module.exports = [
       }
       return undefined;
     };
-    
 
-
-
- const getGroupIdForArbitraryProperty = (className) =>
+    const getGroupIdForArbitraryProperty = (className) =>
       className.slice(1, -1).indexOf(":") === -1
         ? undefined
         : (() => {
@@ -4332,13 +4241,12 @@ module.exports = [
             const property = content.slice(0, colonIndex);
             return property ? ARBITRARY_PROPERTY_PREFIX + property : undefined;
           })();
-    
 
- const createClassMap = (config) => {
+    const createClassMap = (config) => {
       const { theme, classGroups } = config;
       return processClassGroups(classGroups, theme);
     };
-    
+
     const processClassGroups = (classGroups, theme) => {
       const classMap = createClassPartObject();
       for (const classGroupId in classGroups) {
@@ -4364,7 +4272,7 @@ module.exports = [
         );
       }
     };
-    
+
     const processClassDefinition = (
       classDefinition,
       classPartObject,
@@ -4457,10 +4365,10 @@ module.exports = [
       }
       return current;
     };
-    
+
     const isThemeGetter = (func) =>
       "isThemeGetter" in func && func.isThemeGetter === true;
-    
+
     const createLruCache = (maxCacheSize) => {
       if (maxCacheSize < 1) {
         return {
@@ -4503,7 +4411,7 @@ module.exports = [
     const IMPORTANT_MODIFIER = "!";
     const MODIFIER_SEPARATOR = ":";
     const EMPTY_MODIFIERS = [];
-    
+
     const createResultObject = (
       modifiers,
       hasImportantModifier,
@@ -4519,13 +4427,8 @@ module.exports = [
     });
     const createParseClassName = (config) => {
       const { prefix, experimentalParseClassName } = config;
-      
 
-
-
-
- let parseClassName = (className) => {
-        
+      let parseClassName = (className) => {
         const modifiers = [];
         let bracketDepth = 0;
         let parenDepth = 0;
@@ -4552,17 +4455,14 @@ module.exports = [
         }
         const baseClassNameWithImportantModifier =
           modifiers.length === 0 ? className : className.slice(modifierStart);
-        
+
         let baseClassName = baseClassNameWithImportantModifier;
         let hasImportantModifier = false;
         if (baseClassNameWithImportantModifier.endsWith(IMPORTANT_MODIFIER)) {
           baseClassName = baseClassNameWithImportantModifier.slice(0, -1);
           hasImportantModifier = true;
         } else if (
-          
-
-
- baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)
+          baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)
         ) {
           baseClassName = baseClassNameWithImportantModifier.slice(1);
           hasImportantModifier = true;
@@ -4602,28 +4502,23 @@ module.exports = [
       }
       return parseClassName;
     };
-    
 
-
-
- const createSortModifiers = (config) => {
-      
+    const createSortModifiers = (config) => {
       const modifierWeights = new Map();
-      
+
       config.orderSensitiveModifiers.forEach((mod, index) => {
-        modifierWeights.set(mod, 1000000 + index); 
+        modifierWeights.set(mod, 1000000 + index);
       });
       return (modifiers) => {
         const result = [];
         let currentSegment = [];
-        
+
         for (let i = 0; i < modifiers.length; i++) {
           const modifier = modifiers[i];
-          
+
           const isArbitrary = modifier[0] === "[";
           const isOrderSensitive = modifierWeights.has(modifier);
           if (isArbitrary || isOrderSensitive) {
-            
             if (currentSegment.length > 0) {
               currentSegment.sort();
               result.push(...currentSegment);
@@ -4631,11 +4526,10 @@ module.exports = [
             }
             result.push(modifier);
           } else {
-            
             currentSegment.push(modifier);
           }
         }
-        
+
         if (currentSegment.length > 0) {
           currentSegment.sort();
           result.push(...currentSegment);
@@ -4657,13 +4551,8 @@ module.exports = [
         getConflictingClassGroupIds,
         sortModifiers,
       } = configUtils;
-      
 
-
-
-
-
- const classGroupsInConflict = [];
+      const classGroupsInConflict = [];
       const classNames = classList.trim().split(SPLIT_CLASSES_REGEX);
       let result = "";
       for (let index = classNames.length - 1; index >= 0; index -= 1) {
@@ -4688,21 +4577,19 @@ module.exports = [
         );
         if (!classGroupId) {
           if (!hasPostfixModifier) {
-            
             result =
               originalClassName + (result.length > 0 ? " " + result : result);
             continue;
           }
           classGroupId = getClassGroupId(baseClassName);
           if (!classGroupId) {
-            
             result =
               originalClassName + (result.length > 0 ? " " + result : result);
             continue;
           }
           hasPostfixModifier = false;
         }
-        
+
         const variantModifier =
           modifiers.length === 0
             ? ""
@@ -4725,21 +4612,14 @@ module.exports = [
           const group = conflictGroups[i];
           classGroupsInConflict.push(modifierId + group);
         }
-        
+
         result =
           originalClassName + (result.length > 0 ? " " + result : result);
       }
       return result;
     };
-    
 
-
-
-
-
-
-
- const twJoin = (...classLists) => {
+    const twJoin = (...classLists) => {
       let index = 0;
       let argument;
       let resolvedValue;
@@ -4755,7 +4635,6 @@ module.exports = [
       return string;
     };
     const toValue = (mix) => {
-      
       if (typeof mix === "string") {
         return mix;
       }
@@ -4814,7 +4693,7 @@ module.exports = [
       /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/;
     const colorFunctionRegex =
       /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix)\(.+\)$/;
-    
+
     const shadowRegex =
       /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/;
     const imageRegex =
@@ -4826,11 +4705,7 @@ module.exports = [
       value.endsWith("%") && isNumber(value.slice(0, -1));
     const isTshirtSize = (value) => tshirtUnitRegex.test(value);
     const isAny = () => true;
-    const isLengthOnly = (
-      value, 
-    ) =>
-      
-      
+    const isLengthOnly = (value) =>
       lengthUnitRegex.test(value) && !colorFunctionRegex.test(value);
     const isNever = () => false;
     const isShadow = (value) => shadowRegex.test(value);
@@ -4863,7 +4738,7 @@ module.exports = [
       getIsArbitraryVariable(value, isLabelImage);
     const isArbitraryVariableShadow = (value) =>
       getIsArbitraryVariable(value, isLabelShadow, true);
-    
+
     const getIsArbitraryValue = (value, testLabel, testValue) => {
       const result = arbitraryValueRegex.exec(value);
       if (result) {
@@ -4888,7 +4763,7 @@ module.exports = [
       }
       return false;
     };
-    
+
     const isLabelPosition = (label) =>
       label === "position" || label === "percentage";
     const isLabelImage = (label) => label === "image" || label === "url";
@@ -4898,7 +4773,7 @@ module.exports = [
     const isLabelNumber = (label) => label === "number";
     const isLabelFamilyName = (label) => label === "family-name";
     const isLabelShadow = (label) => label === "shadow";
-    const validators =  Object.defineProperty(
+    const validators = Object.defineProperty(
       {
         __proto__: null,
         isAny,
@@ -4929,10 +4804,7 @@ module.exports = [
       },
     );
     const getDefaultConfig = () => {
-      
-
-
-  const themeColor = fromTheme("color");
+      const themeColor = fromTheme("color");
       const themeFont = fromTheme("font");
       const themeText = fromTheme("text");
       const themeFontWeight = fromTheme("font-weight");
@@ -4951,12 +4823,8 @@ module.exports = [
       const themeAspect = fromTheme("aspect");
       const themeEase = fromTheme("ease");
       const themeAnimate = fromTheme("animate");
-      
 
-
-
-
-  const scaleBreak = () => [
+      const scaleBreak = () => [
         "auto",
         "avoid",
         "all",
@@ -4973,16 +4841,16 @@ module.exports = [
         "left",
         "right",
         "top-left",
-        
+
         "left-top",
         "top-right",
-        
+
         "right-top",
         "bottom-right",
-        
+
         "right-bottom",
         "bottom-left",
-        
+
         "left-bottom",
       ];
       const scalePositionWithArbitrary = () => [
@@ -5110,7 +4978,6 @@ module.exports = [
         isArbitraryLength,
       ];
       const scaleRadius = () => [
-        
         "",
         "none",
         "full",
@@ -5150,7 +5017,6 @@ module.exports = [
         isArbitraryPosition,
       ];
       const scaleBlur = () => [
-        
         "",
         "none",
         themeBlur,
@@ -5216,13 +5082,7 @@ module.exports = [
           tracking: ["tighter", "tight", "normal", "wide", "wider", "widest"],
         },
         classGroups: {
-          
-          
-          
-          
-
-
- aspect: [
+          aspect: [
             {
               aspect: [
                 "auto",
@@ -5234,15 +5094,10 @@ module.exports = [
               ],
             },
           ],
-          
 
+          container: ["container"],
 
-
- container: ["container"],
-          
-
-
- columns: [
+          columns: [
             {
               columns: [
                 isNumber,
@@ -5252,50 +5107,38 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "break-after": [
+          "break-after": [
             {
               "break-after": scaleBreak(),
             },
           ],
-          
 
-
- "break-before": [
+          "break-before": [
             {
               "break-before": scaleBreak(),
             },
           ],
-          
 
-
- "break-inside": [
+          "break-inside": [
             {
               "break-inside": ["auto", "avoid", "avoid-page", "avoid-column"],
             },
           ],
-          
 
-
- "box-decoration": [
+          "box-decoration": [
             {
               "box-decoration": ["slice", "clone"],
             },
           ],
-          
 
-
- box: [
+          box: [
             {
               box: ["border", "content"],
             },
           ],
-          
 
-
- display: [
+          display: [
             "block",
             "inline-block",
             "inline",
@@ -5318,189 +5161,136 @@ module.exports = [
             "list-item",
             "hidden",
           ],
-          
 
+          sr: ["sr-only", "not-sr-only"],
 
- sr: ["sr-only", "not-sr-only"],
-          
-
-
- float: [
+          float: [
             {
               float: ["right", "left", "none", "start", "end"],
             },
           ],
-          
 
-
- clear: [
+          clear: [
             {
               clear: ["left", "right", "both", "none", "start", "end"],
             },
           ],
-          
 
+          isolation: ["isolate", "isolation-auto"],
 
- isolation: ["isolate", "isolation-auto"],
-          
-
-
- "object-fit": [
+          "object-fit": [
             {
               object: ["contain", "cover", "fill", "none", "scale-down"],
             },
           ],
-          
 
-
- "object-position": [
+          "object-position": [
             {
               object: scalePositionWithArbitrary(),
             },
           ],
-          
 
-
- overflow: [
+          overflow: [
             {
               overflow: scaleOverflow(),
             },
           ],
-          
 
-
- "overflow-x": [
+          "overflow-x": [
             {
               "overflow-x": scaleOverflow(),
             },
           ],
-          
 
-
- "overflow-y": [
+          "overflow-y": [
             {
               "overflow-y": scaleOverflow(),
             },
           ],
-          
 
-
- overscroll: [
+          overscroll: [
             {
               overscroll: scaleOverscroll(),
             },
           ],
-          
 
-
- "overscroll-x": [
+          "overscroll-x": [
             {
               "overscroll-x": scaleOverscroll(),
             },
           ],
-          
 
-
- "overscroll-y": [
+          "overscroll-y": [
             {
               "overscroll-y": scaleOverscroll(),
             },
           ],
-          
 
+          position: ["static", "fixed", "absolute", "relative", "sticky"],
 
- position: ["static", "fixed", "absolute", "relative", "sticky"],
-          
-
-
- inset: [
+          inset: [
             {
               inset: scaleInset(),
             },
           ],
-          
 
-
- "inset-x": [
+          "inset-x": [
             {
               "inset-x": scaleInset(),
             },
           ],
-          
 
-
- "inset-y": [
+          "inset-y": [
             {
               "inset-y": scaleInset(),
             },
           ],
-          
 
-
- start: [
+          start: [
             {
               start: scaleInset(),
             },
           ],
-          
 
-
- end: [
+          end: [
             {
               end: scaleInset(),
             },
           ],
-          
 
-
- top: [
+          top: [
             {
               top: scaleInset(),
             },
           ],
-          
 
-
- right: [
+          right: [
             {
               right: scaleInset(),
             },
           ],
-          
 
-
- bottom: [
+          bottom: [
             {
               bottom: scaleInset(),
             },
           ],
-          
 
-
- left: [
+          left: [
             {
               left: scaleInset(),
             },
           ],
-          
 
+          visibility: ["visible", "invisible", "collapse"],
 
- visibility: ["visible", "invisible", "collapse"],
-          
-
-
- z: [
+          z: [
             {
               z: [isInteger, "auto", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
-          
-          
-          
 
-
- basis: [
+          basis: [
             {
               basis: [
                 isFraction,
@@ -5511,26 +5301,20 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "flex-direction": [
+          "flex-direction": [
             {
               flex: ["row", "row-reverse", "col", "col-reverse"],
             },
           ],
-          
 
-
- "flex-wrap": [
+          "flex-wrap": [
             {
               flex: ["nowrap", "wrap", "wrap-reverse"],
             },
           ],
-          
 
-
- flex: [
+          flex: [
             {
               flex: [
                 isNumber,
@@ -5542,26 +5326,20 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- grow: [
+          grow: [
             {
               grow: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- shrink: [
+          shrink: [
             {
               shrink: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- order: [
+          order: [
             {
               order: [
                 isInteger,
@@ -5573,154 +5351,116 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "grid-cols": [
+          "grid-cols": [
             {
               "grid-cols": scaleGridTemplateColsRows(),
             },
           ],
-          
 
-
- "col-start-end": [
+          "col-start-end": [
             {
               col: scaleGridColRowStartAndEnd(),
             },
           ],
-          
 
-
- "col-start": [
+          "col-start": [
             {
               "col-start": scaleGridColRowStartOrEnd(),
             },
           ],
-          
 
-
- "col-end": [
+          "col-end": [
             {
               "col-end": scaleGridColRowStartOrEnd(),
             },
           ],
-          
 
-
- "grid-rows": [
+          "grid-rows": [
             {
               "grid-rows": scaleGridTemplateColsRows(),
             },
           ],
-          
 
-
- "row-start-end": [
+          "row-start-end": [
             {
               row: scaleGridColRowStartAndEnd(),
             },
           ],
-          
 
-
- "row-start": [
+          "row-start": [
             {
               "row-start": scaleGridColRowStartOrEnd(),
             },
           ],
-          
 
-
- "row-end": [
+          "row-end": [
             {
               "row-end": scaleGridColRowStartOrEnd(),
             },
           ],
-          
 
-
- "grid-flow": [
+          "grid-flow": [
             {
               "grid-flow": ["row", "col", "dense", "row-dense", "col-dense"],
             },
           ],
-          
 
-
- "auto-cols": [
+          "auto-cols": [
             {
               "auto-cols": scaleGridAutoColsRows(),
             },
           ],
-          
 
-
- "auto-rows": [
+          "auto-rows": [
             {
               "auto-rows": scaleGridAutoColsRows(),
             },
           ],
-          
 
-
- gap: [
+          gap: [
             {
               gap: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "gap-x": [
+          "gap-x": [
             {
               "gap-x": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "gap-y": [
+          "gap-y": [
             {
               "gap-y": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "justify-content": [
+          "justify-content": [
             {
               justify: [...scaleAlignPrimaryAxis(), "normal"],
             },
           ],
-          
 
-
- "justify-items": [
+          "justify-items": [
             {
               "justify-items": [...scaleAlignSecondaryAxis(), "normal"],
             },
           ],
-          
 
-
- "justify-self": [
+          "justify-self": [
             {
               "justify-self": ["auto", ...scaleAlignSecondaryAxis()],
             },
           ],
-          
 
-
- "align-content": [
+          "align-content": [
             {
               content: ["normal", ...scaleAlignPrimaryAxis()],
             },
           ],
-          
 
-
- "align-items": [
+          "align-items": [
             {
               items: [
                 ...scaleAlignSecondaryAxis(),
@@ -5730,10 +5470,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "align-self": [
+          "align-self": [
             {
               self: [
                 "auto",
@@ -5744,279 +5482,201 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "place-content": [
+          "place-content": [
             {
               "place-content": scaleAlignPrimaryAxis(),
             },
           ],
-          
 
-
- "place-items": [
+          "place-items": [
             {
               "place-items": [...scaleAlignSecondaryAxis(), "baseline"],
             },
           ],
-          
 
-
- "place-self": [
+          "place-self": [
             {
               "place-self": ["auto", ...scaleAlignSecondaryAxis()],
             },
           ],
-          
-          
 
-
- p: [
+          p: [
             {
               p: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- px: [
+          px: [
             {
               px: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- py: [
+          py: [
             {
               py: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- ps: [
+          ps: [
             {
               ps: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- pe: [
+          pe: [
             {
               pe: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- pt: [
+          pt: [
             {
               pt: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- pr: [
+          pr: [
             {
               pr: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- pb: [
+          pb: [
             {
               pb: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- pl: [
+          pl: [
             {
               pl: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- m: [
+          m: [
             {
               m: scaleMargin(),
             },
           ],
-          
 
-
- mx: [
+          mx: [
             {
               mx: scaleMargin(),
             },
           ],
-          
 
-
- my: [
+          my: [
             {
               my: scaleMargin(),
             },
           ],
-          
 
-
- ms: [
+          ms: [
             {
               ms: scaleMargin(),
             },
           ],
-          
 
-
- me: [
+          me: [
             {
               me: scaleMargin(),
             },
           ],
-          
 
-
- mt: [
+          mt: [
             {
               mt: scaleMargin(),
             },
           ],
-          
 
-
- mr: [
+          mr: [
             {
               mr: scaleMargin(),
             },
           ],
-          
 
-
- mb: [
+          mb: [
             {
               mb: scaleMargin(),
             },
           ],
-          
 
-
- ml: [
+          ml: [
             {
               ml: scaleMargin(),
             },
           ],
-          
 
-
- "space-x": [
+          "space-x": [
             {
               "space-x": scaleUnambiguousSpacing(),
             },
           ],
-          
 
+          "space-x-reverse": ["space-x-reverse"],
 
- "space-x-reverse": ["space-x-reverse"],
-          
-
-
- "space-y": [
+          "space-y": [
             {
               "space-y": scaleUnambiguousSpacing(),
             },
           ],
-          
 
+          "space-y-reverse": ["space-y-reverse"],
 
- "space-y-reverse": ["space-y-reverse"],
-          
-          
-          
-          
-
-
- size: [
+          size: [
             {
               size: scaleSizing(),
             },
           ],
-          
 
-
- w: [
+          w: [
             {
               w: [themeContainer, "screen", ...scaleSizing()],
             },
           ],
-          
 
-
- "min-w": [
+          "min-w": [
             {
-              "min-w": [
-                themeContainer,
-                "screen",
-                 "none",
-                ...scaleSizing(),
-              ],
+              "min-w": [themeContainer, "screen", "none", ...scaleSizing()],
             },
           ],
-          
 
-
- "max-w": [
+          "max-w": [
             {
               "max-w": [
                 themeContainer,
                 "screen",
                 "none",
-                 "prose",
-                 {
+                "prose",
+                {
                   screen: [themeBreakpoint],
                 },
                 ...scaleSizing(),
               ],
             },
           ],
-          
 
-
- h: [
+          h: [
             {
               h: ["screen", "lh", ...scaleSizing()],
             },
           ],
-          
 
-
- "min-h": [
+          "min-h": [
             {
               "min-h": ["screen", "lh", "none", ...scaleSizing()],
             },
           ],
-          
 
-
- "max-h": [
+          "max-h": [
             {
               "max-h": ["screen", "lh", ...scaleSizing()],
             },
           ],
-          
-          
-          
-          
 
-
- "font-size": [
+          "font-size": [
             {
               text: [
                 "base",
@@ -6026,26 +5686,18 @@ module.exports = [
               ],
             },
           ],
-          
 
+          "font-smoothing": ["antialiased", "subpixel-antialiased"],
 
- "font-smoothing": ["antialiased", "subpixel-antialiased"],
-          
+          "font-style": ["italic", "not-italic"],
 
-
- "font-style": ["italic", "not-italic"],
-          
-
-
- "font-weight": [
+          "font-weight": [
             {
               font: [themeFontWeight, isArbitraryVariable, isArbitraryNumber],
             },
           ],
-          
 
-
- "font-stretch": [
+          "font-stretch": [
             {
               "font-stretch": [
                 "ultra-condensed",
@@ -6062,10 +5714,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "font-family": [
+          "font-family": [
             {
               font: [
                 isArbitraryVariableFamilyName,
@@ -6074,42 +5724,26 @@ module.exports = [
               ],
             },
           ],
-          
 
+          "fvn-normal": ["normal-nums"],
 
- "fvn-normal": ["normal-nums"],
-          
+          "fvn-ordinal": ["ordinal"],
 
+          "fvn-slashed-zero": ["slashed-zero"],
 
- "fvn-ordinal": ["ordinal"],
-          
+          "fvn-figure": ["lining-nums", "oldstyle-nums"],
 
+          "fvn-spacing": ["proportional-nums", "tabular-nums"],
 
- "fvn-slashed-zero": ["slashed-zero"],
-          
+          "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
 
-
- "fvn-figure": ["lining-nums", "oldstyle-nums"],
-          
-
-
- "fvn-spacing": ["proportional-nums", "tabular-nums"],
-          
-
-
- "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
-          
-
-
- tracking: [
+          tracking: [
             {
               tracking: [themeTracking, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- "line-clamp": [
+          "line-clamp": [
             {
               "line-clamp": [
                 isNumber,
@@ -6119,37 +5753,26 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- leading: [
+          leading: [
             {
-              leading: [
-                 themeLeading,
-                ...scaleUnambiguousSpacing(),
-              ],
+              leading: [themeLeading, ...scaleUnambiguousSpacing()],
             },
           ],
-          
 
-
- "list-image": [
+          "list-image": [
             {
               "list-image": ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- "list-style-position": [
+          "list-style-position": [
             {
               list: ["inside", "outside"],
             },
           ],
-          
 
-
- "list-style-type": [
+          "list-style-type": [
             {
               list: [
                 "disc",
@@ -6160,52 +5783,39 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "text-alignment": [
+          "text-alignment": [
             {
               text: ["left", "center", "right", "justify", "start", "end"],
             },
           ],
-          
 
-
-
- "placeholder-color": [
+          "placeholder-color": [
             {
               placeholder: scaleColor(),
             },
           ],
-          
 
-
- "text-color": [
+          "text-color": [
             {
               text: scaleColor(),
             },
           ],
-          
 
-
- "text-decoration": [
+          "text-decoration": [
             "underline",
             "overline",
             "line-through",
             "no-underline",
           ],
-          
 
-
- "text-decoration-style": [
+          "text-decoration-style": [
             {
               decoration: [...scaleLineStyle(), "wavy"],
             },
           ],
-          
 
-
- "text-decoration-thickness": [
+          "text-decoration-thickness": [
             {
               decoration: [
                 isNumber,
@@ -6216,18 +5826,14 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "text-decoration-color": [
+          "text-decoration-color": [
             {
               decoration: scaleColor(),
             },
           ],
-          
 
-
- "underline-offset": [
+          "underline-offset": [
             {
               "underline-offset": [
                 isNumber,
@@ -6237,39 +5843,29 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "text-transform": [
+          "text-transform": [
             "uppercase",
             "lowercase",
             "capitalize",
             "normal-case",
           ],
-          
 
+          "text-overflow": ["truncate", "text-ellipsis", "text-clip"],
 
- "text-overflow": ["truncate", "text-ellipsis", "text-clip"],
-          
-
-
- "text-wrap": [
+          "text-wrap": [
             {
               text: ["wrap", "nowrap", "balance", "pretty"],
             },
           ],
-          
 
-
- indent: [
+          indent: [
             {
               indent: scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "vertical-align": [
+          "vertical-align": [
             {
               align: [
                 "baseline",
@@ -6285,10 +5881,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- whitespace: [
+          whitespace: [
             {
               whitespace: [
                 "normal",
@@ -6300,93 +5894,68 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- break: [
+          break: [
             {
               break: ["normal", "words", "all", "keep"],
             },
           ],
-          
 
-
- wrap: [
+          wrap: [
             {
               wrap: ["break-word", "anywhere", "normal"],
             },
           ],
-          
 
-
- hyphens: [
+          hyphens: [
             {
               hyphens: ["none", "manual", "auto"],
             },
           ],
-          
 
-
- content: [
+          content: [
             {
               content: ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
-          
-          
-          
 
-
- "bg-attachment": [
+          "bg-attachment": [
             {
               bg: ["fixed", "local", "scroll"],
             },
           ],
-          
 
-
- "bg-clip": [
+          "bg-clip": [
             {
               "bg-clip": ["border", "padding", "content", "text"],
             },
           ],
-          
 
-
- "bg-origin": [
+          "bg-origin": [
             {
               "bg-origin": ["border", "padding", "content"],
             },
           ],
-          
 
-
- "bg-position": [
+          "bg-position": [
             {
               bg: scaleBgPosition(),
             },
           ],
-          
 
-
- "bg-repeat": [
+          "bg-repeat": [
             {
               bg: scaleBgRepeat(),
             },
           ],
-          
 
-
- "bg-size": [
+          "bg-size": [
             {
               bg: scaleBgSize(),
             },
           ],
-          
 
-
- "bg-image": [
+          "bg-image": [
             {
               bg: [
                 "none",
@@ -6407,389 +5976,288 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "bg-color": [
+          "bg-color": [
             {
               bg: scaleColor(),
             },
           ],
-          
 
-
- "gradient-from-pos": [
+          "gradient-from-pos": [
             {
               from: scaleGradientStopPosition(),
             },
           ],
-          
 
-
- "gradient-via-pos": [
+          "gradient-via-pos": [
             {
               via: scaleGradientStopPosition(),
             },
           ],
-          
 
-
- "gradient-to-pos": [
+          "gradient-to-pos": [
             {
               to: scaleGradientStopPosition(),
             },
           ],
-          
 
-
- "gradient-from": [
+          "gradient-from": [
             {
               from: scaleColor(),
             },
           ],
-          
 
-
- "gradient-via": [
+          "gradient-via": [
             {
               via: scaleColor(),
             },
           ],
-          
 
-
- "gradient-to": [
+          "gradient-to": [
             {
               to: scaleColor(),
             },
           ],
-          
-          
-          
-          
 
-
- rounded: [
+          rounded: [
             {
               rounded: scaleRadius(),
             },
           ],
-          
 
-
- "rounded-s": [
+          "rounded-s": [
             {
               "rounded-s": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-e": [
+          "rounded-e": [
             {
               "rounded-e": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-t": [
+          "rounded-t": [
             {
               "rounded-t": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-r": [
+          "rounded-r": [
             {
               "rounded-r": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-b": [
+          "rounded-b": [
             {
               "rounded-b": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-l": [
+          "rounded-l": [
             {
               "rounded-l": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-ss": [
+          "rounded-ss": [
             {
               "rounded-ss": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-se": [
+          "rounded-se": [
             {
               "rounded-se": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-ee": [
+          "rounded-ee": [
             {
               "rounded-ee": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-es": [
+          "rounded-es": [
             {
               "rounded-es": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-tl": [
+          "rounded-tl": [
             {
               "rounded-tl": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-tr": [
+          "rounded-tr": [
             {
               "rounded-tr": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-br": [
+          "rounded-br": [
             {
               "rounded-br": scaleRadius(),
             },
           ],
-          
 
-
- "rounded-bl": [
+          "rounded-bl": [
             {
               "rounded-bl": scaleRadius(),
             },
           ],
-          
 
-
- "border-w": [
+          "border-w": [
             {
               border: scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-x": [
+          "border-w-x": [
             {
               "border-x": scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-y": [
+          "border-w-y": [
             {
               "border-y": scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-s": [
+          "border-w-s": [
             {
               "border-s": scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-e": [
+          "border-w-e": [
             {
               "border-e": scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-t": [
+          "border-w-t": [
             {
               "border-t": scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-r": [
+          "border-w-r": [
             {
               "border-r": scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-b": [
+          "border-w-b": [
             {
               "border-b": scaleBorderWidth(),
             },
           ],
-          
 
-
- "border-w-l": [
+          "border-w-l": [
             {
               "border-l": scaleBorderWidth(),
             },
           ],
-          
 
-
- "divide-x": [
+          "divide-x": [
             {
               "divide-x": scaleBorderWidth(),
             },
           ],
-          
 
+          "divide-x-reverse": ["divide-x-reverse"],
 
- "divide-x-reverse": ["divide-x-reverse"],
-          
-
-
- "divide-y": [
+          "divide-y": [
             {
               "divide-y": scaleBorderWidth(),
             },
           ],
-          
 
+          "divide-y-reverse": ["divide-y-reverse"],
 
- "divide-y-reverse": ["divide-y-reverse"],
-          
-
-
- "border-style": [
+          "border-style": [
             {
               border: [...scaleLineStyle(), "hidden", "none"],
             },
           ],
-          
 
-
- "divide-style": [
+          "divide-style": [
             {
               divide: [...scaleLineStyle(), "hidden", "none"],
             },
           ],
-          
 
-
- "border-color": [
+          "border-color": [
             {
               border: scaleColor(),
             },
           ],
-          
 
-
- "border-color-x": [
+          "border-color-x": [
             {
               "border-x": scaleColor(),
             },
           ],
-          
 
-
- "border-color-y": [
+          "border-color-y": [
             {
               "border-y": scaleColor(),
             },
           ],
-          
 
-
- "border-color-s": [
+          "border-color-s": [
             {
               "border-s": scaleColor(),
             },
           ],
-          
 
-
- "border-color-e": [
+          "border-color-e": [
             {
               "border-e": scaleColor(),
             },
           ],
-          
 
-
- "border-color-t": [
+          "border-color-t": [
             {
               "border-t": scaleColor(),
             },
           ],
-          
 
-
- "border-color-r": [
+          "border-color-r": [
             {
               "border-r": scaleColor(),
             },
           ],
-          
 
-
- "border-color-b": [
+          "border-color-b": [
             {
               "border-b": scaleColor(),
             },
           ],
-          
 
-
- "border-color-l": [
+          "border-color-l": [
             {
               "border-l": scaleColor(),
             },
           ],
-          
 
-
- "divide-color": [
+          "divide-color": [
             {
               divide: scaleColor(),
             },
           ],
-          
 
-
- "outline-style": [
+          "outline-style": [
             {
               outline: [...scaleLineStyle(), "none", "hidden"],
             },
           ],
-          
 
-
- "outline-offset": [
+          "outline-offset": [
             {
               "outline-offset": [
                 isNumber,
@@ -6798,10 +6266,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "outline-w": [
+          "outline-w": [
             {
               outline: [
                 "",
@@ -6811,24 +6277,16 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "outline-color": [
+          "outline-color": [
             {
               outline: scaleColor(),
             },
           ],
-          
-          
-          
-          
 
-
- shadow: [
+          shadow: [
             {
               shadow: [
-                
                 "",
                 "none",
                 themeShadow,
@@ -6837,18 +6295,14 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "shadow-color": [
+          "shadow-color": [
             {
               shadow: scaleColor(),
             },
           ],
-          
 
-
- "inset-shadow": [
+          "inset-shadow": [
             {
               "inset-shadow": [
                 "none",
@@ -6858,76 +6312,52 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "inset-shadow-color": [
+          "inset-shadow-color": [
             {
               "inset-shadow": scaleColor(),
             },
           ],
-          
 
-
- "ring-w": [
+          "ring-w": [
             {
               ring: scaleBorderWidth(),
             },
           ],
-          
 
+          "ring-w-inset": ["ring-inset"],
 
-
-
- "ring-w-inset": ["ring-inset"],
-          
-
-
- "ring-color": [
+          "ring-color": [
             {
               ring: scaleColor(),
             },
           ],
-          
 
-
-
-
- "ring-offset-w": [
+          "ring-offset-w": [
             {
               "ring-offset": [isNumber, isArbitraryLength],
             },
           ],
-          
 
-
-
-
- "ring-offset-color": [
+          "ring-offset-color": [
             {
               "ring-offset": scaleColor(),
             },
           ],
-          
 
-
- "inset-ring-w": [
+          "inset-ring-w": [
             {
               "inset-ring": scaleBorderWidth(),
             },
           ],
-          
 
-
- "inset-ring-color": [
+          "inset-ring-color": [
             {
               "inset-ring": scaleColor(),
             },
           ],
-          
 
-
- "text-shadow": [
+          "text-shadow": [
             {
               "text-shadow": [
                 "none",
@@ -6937,42 +6367,32 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "text-shadow-color": [
+          "text-shadow-color": [
             {
               "text-shadow": scaleColor(),
             },
           ],
-          
 
-
- opacity: [
+          opacity: [
             {
               opacity: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- "mix-blend": [
+          "mix-blend": [
             {
               "mix-blend": [...scaleBlendMode(), "plus-darker", "plus-lighter"],
             },
           ],
-          
 
-
- "bg-blend": [
+          "bg-blend": [
             {
               "bg-blend": scaleBlendMode(),
             },
           ],
-          
 
-
- "mask-clip": [
+          "mask-clip": [
             {
               "mask-clip": [
                 "border",
@@ -6985,18 +6405,14 @@ module.exports = [
             },
             "mask-no-clip",
           ],
-          
 
-
- "mask-composite": [
+          "mask-composite": [
             {
               mask: ["add", "subtract", "intersect", "exclude"],
             },
           ],
-          
 
-
- "mask-image-linear-pos": [
+          "mask-image-linear-pos": [
             {
               "mask-linear": [isNumber],
             },
@@ -7211,18 +6627,14 @@ module.exports = [
               "mask-conic-to": scaleColor(),
             },
           ],
-          
 
-
- "mask-mode": [
+          "mask-mode": [
             {
               mask: ["alpha", "luminance", "match"],
             },
           ],
-          
 
-
- "mask-origin": [
+          "mask-origin": [
             {
               "mask-origin": [
                 "border",
@@ -7234,94 +6646,64 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "mask-position": [
+          "mask-position": [
             {
               mask: scaleBgPosition(),
             },
           ],
-          
 
-
- "mask-repeat": [
+          "mask-repeat": [
             {
               mask: scaleBgRepeat(),
             },
           ],
-          
 
-
- "mask-size": [
+          "mask-size": [
             {
               mask: scaleBgSize(),
             },
           ],
-          
 
-
- "mask-type": [
+          "mask-type": [
             {
               "mask-type": ["alpha", "luminance"],
             },
           ],
-          
 
-
- "mask-image": [
+          "mask-image": [
             {
               mask: ["none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
-          
-          
-          
 
-
- filter: [
+          filter: [
             {
-              filter: [
-                
-                "",
-                "none",
-                isArbitraryVariable,
-                isArbitraryValue,
-              ],
+              filter: ["", "none", isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- blur: [
+          blur: [
             {
               blur: scaleBlur(),
             },
           ],
-          
 
-
- brightness: [
+          brightness: [
             {
               brightness: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- contrast: [
+          contrast: [
             {
               contrast: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- "drop-shadow": [
+          "drop-shadow": [
             {
               "drop-shadow": [
-                
                 "",
                 "none",
                 themeDropShadow,
@@ -7330,61 +6712,46 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "drop-shadow-color": [
+          "drop-shadow-color": [
             {
               "drop-shadow": scaleColor(),
             },
           ],
-          
 
-
- grayscale: [
+          grayscale: [
             {
               grayscale: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- "hue-rotate": [
+          "hue-rotate": [
             {
               "hue-rotate": [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- invert: [
+          invert: [
             {
               invert: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- saturate: [
+          saturate: [
             {
               saturate: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- sepia: [
+          sepia: [
             {
               sepia: ["", isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- "backdrop-filter": [
+          "backdrop-filter": [
             {
               "backdrop-filter": [
-                
                 "",
                 "none",
                 isArbitraryVariable,
@@ -7392,18 +6759,14 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-blur": [
+          "backdrop-blur": [
             {
               "backdrop-blur": scaleBlur(),
             },
           ],
-          
 
-
- "backdrop-brightness": [
+          "backdrop-brightness": [
             {
               "backdrop-brightness": [
                 isNumber,
@@ -7412,10 +6775,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-contrast": [
+          "backdrop-contrast": [
             {
               "backdrop-contrast": [
                 isNumber,
@@ -7424,10 +6785,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-grayscale": [
+          "backdrop-grayscale": [
             {
               "backdrop-grayscale": [
                 "",
@@ -7437,10 +6796,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-hue-rotate": [
+          "backdrop-hue-rotate": [
             {
               "backdrop-hue-rotate": [
                 isNumber,
@@ -7449,10 +6806,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-invert": [
+          "backdrop-invert": [
             {
               "backdrop-invert": [
                 "",
@@ -7462,10 +6817,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-opacity": [
+          "backdrop-opacity": [
             {
               "backdrop-opacity": [
                 isNumber,
@@ -7474,10 +6827,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-saturate": [
+          "backdrop-saturate": [
             {
               "backdrop-saturate": [
                 isNumber,
@@ -7486,10 +6837,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "backdrop-sepia": [
+          "backdrop-sepia": [
             {
               "backdrop-sepia": [
                 "",
@@ -7499,64 +6848,44 @@ module.exports = [
               ],
             },
           ],
-          
-          
-          
-          
 
-
- "border-collapse": [
+          "border-collapse": [
             {
               border: ["collapse", "separate"],
             },
           ],
-          
 
-
- "border-spacing": [
+          "border-spacing": [
             {
               "border-spacing": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "border-spacing-x": [
+          "border-spacing-x": [
             {
               "border-spacing-x": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "border-spacing-y": [
+          "border-spacing-y": [
             {
               "border-spacing-y": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "table-layout": [
+          "table-layout": [
             {
               table: ["auto", "fixed"],
             },
           ],
-          
 
-
- caption: [
+          caption: [
             {
               caption: ["top", "bottom"],
             },
           ],
-          
-          
-          
-          
 
-
- transition: [
+          transition: [
             {
               transition: [
                 "",
@@ -7571,18 +6900,14 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "transition-behavior": [
+          "transition-behavior": [
             {
               transition: ["normal", "discrete"],
             },
           ],
-          
 
-
- duration: [
+          duration: [
             {
               duration: [
                 isNumber,
@@ -7592,10 +6917,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- ease: [
+          ease: [
             {
               ease: [
                 "linear",
@@ -7606,18 +6929,14 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- delay: [
+          delay: [
             {
               delay: [isNumber, isArbitraryVariable, isArbitraryValue],
             },
           ],
-          
 
-
- animate: [
+          animate: [
             {
               animate: [
                 "none",
@@ -7627,21 +6946,14 @@ module.exports = [
               ],
             },
           ],
-          
-          
-          
-          
 
-
- backface: [
+          backface: [
             {
               backface: ["hidden", "visible"],
             },
           ],
-          
 
-
- perspective: [
+          perspective: [
             {
               perspective: [
                 themePerspective,
@@ -7650,110 +6962,82 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "perspective-origin": [
+          "perspective-origin": [
             {
               "perspective-origin": scalePositionWithArbitrary(),
             },
           ],
-          
 
-
- rotate: [
+          rotate: [
             {
               rotate: scaleRotate(),
             },
           ],
-          
 
-
- "rotate-x": [
+          "rotate-x": [
             {
               "rotate-x": scaleRotate(),
             },
           ],
-          
 
-
- "rotate-y": [
+          "rotate-y": [
             {
               "rotate-y": scaleRotate(),
             },
           ],
-          
 
-
- "rotate-z": [
+          "rotate-z": [
             {
               "rotate-z": scaleRotate(),
             },
           ],
-          
 
-
- scale: [
+          scale: [
             {
               scale: scaleScale(),
             },
           ],
-          
 
-
- "scale-x": [
+          "scale-x": [
             {
               "scale-x": scaleScale(),
             },
           ],
-          
 
-
- "scale-y": [
+          "scale-y": [
             {
               "scale-y": scaleScale(),
             },
           ],
-          
 
-
- "scale-z": [
+          "scale-z": [
             {
               "scale-z": scaleScale(),
             },
           ],
-          
 
+          "scale-3d": ["scale-3d"],
 
- "scale-3d": ["scale-3d"],
-          
-
-
- skew: [
+          skew: [
             {
               skew: scaleSkew(),
             },
           ],
-          
 
-
- "skew-x": [
+          "skew-x": [
             {
               "skew-x": scaleSkew(),
             },
           ],
-          
 
-
- "skew-y": [
+          "skew-y": [
             {
               "skew-y": scaleSkew(),
             },
           ],
-          
 
-
- transform: [
+          transform: [
             {
               transform: [
                 isArbitraryVariable,
@@ -7765,89 +7049,64 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "transform-origin": [
+          "transform-origin": [
             {
               origin: scalePositionWithArbitrary(),
             },
           ],
-          
 
-
- "transform-style": [
+          "transform-style": [
             {
               transform: ["3d", "flat"],
             },
           ],
-          
 
-
- translate: [
+          translate: [
             {
               translate: scaleTranslate(),
             },
           ],
-          
 
-
- "translate-x": [
+          "translate-x": [
             {
               "translate-x": scaleTranslate(),
             },
           ],
-          
 
-
- "translate-y": [
+          "translate-y": [
             {
               "translate-y": scaleTranslate(),
             },
           ],
-          
 
-
- "translate-z": [
+          "translate-z": [
             {
               "translate-z": scaleTranslate(),
             },
           ],
-          
 
+          "translate-none": ["translate-none"],
 
- "translate-none": ["translate-none"],
-          
-          
-          
-          
-
-
- accent: [
+          accent: [
             {
               accent: scaleColor(),
             },
           ],
-          
 
-
- appearance: [
+          appearance: [
             {
               appearance: ["none", "auto"],
             },
           ],
-          
 
-
- "caret-color": [
+          "caret-color": [
             {
               caret: scaleColor(),
             },
           ],
-          
 
-
- "color-scheme": [
+          "color-scheme": [
             {
               scheme: [
                 "normal",
@@ -7859,10 +7118,8 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- cursor: [
+          cursor: [
             {
               cursor: [
                 "auto",
@@ -7906,254 +7163,190 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- "field-sizing": [
+          "field-sizing": [
             {
               "field-sizing": ["fixed", "content"],
             },
           ],
-          
 
-
- "pointer-events": [
+          "pointer-events": [
             {
               "pointer-events": ["auto", "none"],
             },
           ],
-          
 
-
- resize: [
+          resize: [
             {
               resize: ["none", "", "y", "x"],
             },
           ],
-          
 
-
- "scroll-behavior": [
+          "scroll-behavior": [
             {
               scroll: ["auto", "smooth"],
             },
           ],
-          
 
-
- "scroll-m": [
+          "scroll-m": [
             {
               "scroll-m": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-mx": [
+          "scroll-mx": [
             {
               "scroll-mx": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-my": [
+          "scroll-my": [
             {
               "scroll-my": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-ms": [
+          "scroll-ms": [
             {
               "scroll-ms": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-me": [
+          "scroll-me": [
             {
               "scroll-me": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-mt": [
+          "scroll-mt": [
             {
               "scroll-mt": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-mr": [
+          "scroll-mr": [
             {
               "scroll-mr": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-mb": [
+          "scroll-mb": [
             {
               "scroll-mb": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-ml": [
+          "scroll-ml": [
             {
               "scroll-ml": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-p": [
+          "scroll-p": [
             {
               "scroll-p": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-px": [
+          "scroll-px": [
             {
               "scroll-px": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-py": [
+          "scroll-py": [
             {
               "scroll-py": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-ps": [
+          "scroll-ps": [
             {
               "scroll-ps": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-pe": [
+          "scroll-pe": [
             {
               "scroll-pe": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-pt": [
+          "scroll-pt": [
             {
               "scroll-pt": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-pr": [
+          "scroll-pr": [
             {
               "scroll-pr": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-pb": [
+          "scroll-pb": [
             {
               "scroll-pb": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "scroll-pl": [
+          "scroll-pl": [
             {
               "scroll-pl": scaleUnambiguousSpacing(),
             },
           ],
-          
 
-
- "snap-align": [
+          "snap-align": [
             {
               snap: ["start", "end", "center", "align-none"],
             },
           ],
-          
 
-
- "snap-stop": [
+          "snap-stop": [
             {
               snap: ["normal", "always"],
             },
           ],
-          
 
-
- "snap-type": [
+          "snap-type": [
             {
               snap: ["none", "x", "y", "both"],
             },
           ],
-          
 
-
- "snap-strictness": [
+          "snap-strictness": [
             {
               snap: ["mandatory", "proximity"],
             },
           ],
-          
 
-
- touch: [
+          touch: [
             {
               touch: ["auto", "none", "manipulation"],
             },
           ],
-          
 
-
- "touch-x": [
+          "touch-x": [
             {
               "touch-pan": ["x", "left", "right"],
             },
           ],
-          
 
-
- "touch-y": [
+          "touch-y": [
             {
               "touch-pan": ["y", "up", "down"],
             },
           ],
-          
 
+          "touch-pz": ["touch-pinch-zoom"],
 
- "touch-pz": ["touch-pinch-zoom"],
-          
-
-
- select: [
+          select: [
             {
               select: ["none", "text", "all", "auto"],
             },
           ],
-          
 
-
- "will-change": [
+          "will-change": [
             {
               "will-change": [
                 "auto",
@@ -8165,21 +7358,14 @@ module.exports = [
               ],
             },
           ],
-          
-          
-          
-          
 
-
- fill: [
+          fill: [
             {
               fill: ["none", ...scaleColor()],
             },
           ],
-          
 
-
- "stroke-w": [
+          "stroke-w": [
             {
               stroke: [
                 isNumber,
@@ -8189,21 +7375,14 @@ module.exports = [
               ],
             },
           ],
-          
 
-
- stroke: [
+          stroke: [
             {
               stroke: ["none", ...scaleColor()],
             },
           ],
-          
-          
-          
-          
 
-
- "forced-color-adjust": [
+          "forced-color-adjust": [
             {
               "forced-color-adjust": ["auto", "none"],
             },
@@ -8349,10 +7528,8 @@ module.exports = [
         ],
       };
     };
-    
 
-
- const mergeConfigs = (
+    const mergeConfigs = (
       baseConfig,
       {
         cacheSize,
@@ -8435,9 +7612,6 @@ module.exports = [
             () => mergeConfigs(getDefaultConfig(), configExtension),
             ...createConfig,
           );
-    const twMerge =  createTailwindMerge(getDefaultConfig);
-    
+    const twMerge = createTailwindMerge(getDefaultConfig);
   },
 ];
-
-

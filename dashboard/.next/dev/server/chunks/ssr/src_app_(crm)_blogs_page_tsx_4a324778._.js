@@ -255,7 +255,7 @@ module.exports = [
         setImportText("");
         alert("Import finished. Check public site or API to confirm.");
       }
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "jsxDEV"
       ])(
@@ -263,7 +263,7 @@ module.exports = [
         {
           className: "p-8",
           children: [
-             (0,
+            (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -281,7 +281,7 @@ module.exports = [
               },
               this,
             ),
-             (0,
+            (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -289,7 +289,7 @@ module.exports = [
               {
                 className: "grid grid-cols-1 md:grid-cols-3 gap-6",
                 children: [
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -297,14 +297,14 @@ module.exports = [
                     {
                       className: "md:col-span-2",
                       children: [
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
                           "div",
                           {
                             className: "mb-4",
-                            children:  (0,
+                            children: (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -336,7 +336,7 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -344,7 +344,7 @@ module.exports = [
                           {
                             className: "mb-4 grid grid-cols-2 gap-4",
                             children: [
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -366,7 +366,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -398,14 +398,14 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
                           "div",
                           {
                             className: "mb-4",
-                            children:  (0,
+                            children: (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -438,14 +438,14 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
                           "div",
                           {
                             className: "mb-4",
-                            children:  (0,
+                            children: (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -478,14 +478,14 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
                           "div",
                           {
                             className: "flex gap-3",
-                            children:  (0,
+                            children: (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -527,7 +527,7 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -535,7 +535,7 @@ module.exports = [
                     {
                       className: "p-4 bg-muted rounded-md",
                       children: [
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -554,7 +554,7 @@ module.exports = [
                           this,
                         ),
                         imagePreview
-                          ?  (0,
+                          ? (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -574,7 +574,7 @@ module.exports = [
                               },
                               this,
                             )
-                          :  (0,
+                          : (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -593,7 +593,7 @@ module.exports = [
                               },
                               this,
                             ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -611,7 +611,7 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -629,7 +629,7 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -669,7 +669,7 @@ module.exports = [
               },
               this,
             ),
-             (0,
+            (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -677,7 +677,7 @@ module.exports = [
               {
                 className: "mt-8",
                 children: [
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -695,7 +695,7 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -703,14 +703,14 @@ module.exports = [
                     {
                       className: "space-y-6",
                       children: [
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
                           "div",
                           {
                             children: [
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -729,14 +729,14 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
                                 "div",
                                 {
                                   className: "overflow-x-auto",
-                                  children:  (0,
+                                  children: (0,
                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                     "jsxDEV"
                                   ])(
@@ -744,20 +744,20 @@ module.exports = [
                                     {
                                       className: "w-full text-left",
                                       children: [
-                                         (0,
+                                        (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
                                           "thead",
                                           {
-                                            children:  (0,
+                                            children: (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
                                               "tr",
                                               {
                                                 children: [
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -776,7 +776,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -795,7 +795,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -814,7 +814,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -856,14 +856,14 @@ module.exports = [
                                           },
                                           this,
                                         ),
-                                         (0,
+                                        (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
                                           "tbody",
                                           {
                                             children: serverPosts.map((sp) =>
-                                               (0,
+                                              (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -871,7 +871,7 @@ module.exports = [
                                                 {
                                                   className: "border-t",
                                                   children: [
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -890,7 +890,7 @@ module.exports = [
                                                       },
                                                       this,
                                                     ),
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -910,7 +910,7 @@ module.exports = [
                                                       },
                                                       this,
                                                     ),
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -933,129 +933,128 @@ module.exports = [
                                                       },
                                                       this,
                                                     ),
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
                                                       "td",
                                                       {
                                                         className: "px-2 py-2",
-                                                        children:
-                                                           (0,
-                                                          __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                            "jsxDEV"
-                                                          ])(
-                                                            "div",
-                                                            {
-                                                              className:
-                                                                "flex gap-2",
-                                                              children: [
-                                                                 (0,
-                                                                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                  "jsxDEV"
-                                                                ])(
-                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                    "Button"
-                                                                  ],
-                                                                  {
-                                                                    onClick:
-                                                                      () => {
-                                                                        navigator.clipboard?.writeText(
-                                                                          JSON.stringify(
-                                                                            sp,
-                                                                          ),
-                                                                        );
-                                                                        toast({
-                                                                          title:
-                                                                            "Copied",
-                                                                          description:
-                                                                            "Post JSON copied to clipboard.",
-                                                                        });
-                                                                      },
-                                                                    children:
-                                                                      "Copy JSON",
-                                                                  },
-                                                                  void 0,
-                                                                  false,
-                                                                  {
-                                                                    fileName:
-                                                                      "[project]/src/app/(crm)/blogs/page.tsx",
-                                                                    lineNumber: 303,
-                                                                    columnNumber: 27,
-                                                                  },
-                                                                  this,
-                                                                ),
-                                                                isAdmin
-                                                                  ?  (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                        "Button"
-                                                                      ],
-                                                                      {
-                                                                        onClick:
-                                                                          () => {
-                                                                            if (
-                                                                              window.confirm(
-                                                                                "Delete server post?",
-                                                                              )
+                                                        children: (0,
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                          "jsxDEV"
+                                                        ])(
+                                                          "div",
+                                                          {
+                                                            className:
+                                                              "flex gap-2",
+                                                            children: [
+                                                              (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                  "Button"
+                                                                ],
+                                                                {
+                                                                  onClick:
+                                                                    () => {
+                                                                      navigator.clipboard?.writeText(
+                                                                        JSON.stringify(
+                                                                          sp,
+                                                                        ),
+                                                                      );
+                                                                      toast({
+                                                                        title:
+                                                                          "Copied",
+                                                                        description:
+                                                                          "Post JSON copied to clipboard.",
+                                                                      });
+                                                                    },
+                                                                  children:
+                                                                    "Copy JSON",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/src/app/(crm)/blogs/page.tsx",
+                                                                  lineNumber: 303,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              isAdmin
+                                                                ? (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                      "Button"
+                                                                    ],
+                                                                    {
+                                                                      onClick:
+                                                                        () => {
+                                                                          if (
+                                                                            window.confirm(
+                                                                              "Delete server post?",
                                                                             )
-                                                                              fetch(
-                                                                                "/api/blogs/" +
-                                                                                  (sp._id ||
-                                                                                    sp.id),
-                                                                                {
-                                                                                  method:
-                                                                                    "DELETE",
-                                                                                },
-                                                                              ).then(
-                                                                                (
-                                                                                  r,
-                                                                                ) =>
-                                                                                  r.ok &&
-                                                                                  setServerPosts(
-                                                                                    (
-                                                                                      s,
-                                                                                    ) =>
-                                                                                      s.filter(
-                                                                                        (
-                                                                                          x,
-                                                                                        ) =>
-                                                                                          (x._id ||
-                                                                                            x.id) !==
-                                                                                          (sp._id ||
-                                                                                            sp.id),
-                                                                                      ),
-                                                                                  ),
-                                                                              );
-                                                                          },
-                                                                        children:
-                                                                          "Delete",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/src/app/(crm)/blogs/page.tsx",
-                                                                        lineNumber: 317,
-                                                                        columnNumber: 29,
-                                                                      },
-                                                                      this,
-                                                                    )
-                                                                  : null,
-                                                              ],
-                                                            },
-                                                            void 0,
-                                                            true,
-                                                            {
-                                                              fileName:
-                                                                "[project]/src/app/(crm)/blogs/page.tsx",
-                                                              lineNumber: 302,
-                                                              columnNumber: 25,
-                                                            },
-                                                            this,
-                                                          ),
+                                                                          )
+                                                                            fetch(
+                                                                              "/api/blogs/" +
+                                                                                (sp._id ||
+                                                                                  sp.id),
+                                                                              {
+                                                                                method:
+                                                                                  "DELETE",
+                                                                              },
+                                                                            ).then(
+                                                                              (
+                                                                                r,
+                                                                              ) =>
+                                                                                r.ok &&
+                                                                                setServerPosts(
+                                                                                  (
+                                                                                    s,
+                                                                                  ) =>
+                                                                                    s.filter(
+                                                                                      (
+                                                                                        x,
+                                                                                      ) =>
+                                                                                        (x._id ||
+                                                                                          x.id) !==
+                                                                                        (sp._id ||
+                                                                                          sp.id),
+                                                                                    ),
+                                                                                ),
+                                                                            );
+                                                                        },
+                                                                      children:
+                                                                        "Delete",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/src/app/(crm)/blogs/page.tsx",
+                                                                      lineNumber: 317,
+                                                                      columnNumber: 29,
+                                                                    },
+                                                                    this,
+                                                                  )
+                                                                : null,
+                                                            ],
+                                                          },
+                                                          void 0,
+                                                          true,
+                                                          {
+                                                            fileName:
+                                                              "[project]/src/app/(crm)/blogs/page.tsx",
+                                                            lineNumber: 302,
+                                                            columnNumber: 25,
+                                                          },
+                                                          this,
+                                                        ),
                                                       },
                                                       void 0,
                                                       false,
@@ -1125,14 +1124,14 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
                           "div",
                           {
                             children: [
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1151,7 +1150,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1159,7 +1158,7 @@ module.exports = [
                                 {
                                   className: "space-y-2",
                                   children: posts.map((p) =>
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1168,7 +1167,7 @@ module.exports = [
                                         className:
                                           "p-3 bg-background rounded-md flex items-center justify-between",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1177,7 +1176,7 @@ module.exports = [
                                               className:
                                                 "flex items-center gap-3",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1199,14 +1198,14 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
                                                   "div",
                                                   {
                                                     children: [
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -1226,7 +1225,7 @@ module.exports = [
                                                         },
                                                         this,
                                                       ),
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -1276,7 +1275,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1284,7 +1283,7 @@ module.exports = [
                                             {
                                               className: "flex gap-2",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1313,7 +1312,7 @@ module.exports = [
                                                   this,
                                                 ),
                                                 isAdmin
-                                                  ?  (0,
+                                                  ? (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -1405,7 +1404,7 @@ module.exports = [
               },
               this,
             ),
-             (0,
+            (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -1413,7 +1412,7 @@ module.exports = [
               {
                 className: "mt-8",
                 children: [
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -1431,7 +1430,7 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -1439,7 +1438,7 @@ module.exports = [
                     {
                       className: "mb-4",
                       children: [
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1458,7 +1457,7 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1488,14 +1487,14 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
                     "div",
                     {
                       className: "mb-4",
-                      children:  (0,
+                      children: (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -1528,13 +1527,13 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
                     "div",
                     {
-                      children:  (0,
+                      children: (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -1587,5 +1586,3 @@ module.exports = [
     }
   },
 ];
-
-

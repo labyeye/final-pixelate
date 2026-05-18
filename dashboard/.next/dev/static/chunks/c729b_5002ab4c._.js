@@ -7,19 +7,18 @@
     var check = function (it) {
       return it && it.Math === Math && it;
     };
-    
-    module.exports = 
+
+    module.exports =
       check(typeof globalThis == "object" && globalThis) ||
-      check(typeof window == "object" && window) || 
+      check(typeof window == "object" && window) ||
       check(typeof self == "object" && self) ||
       check(
         ("TURBOPACK compile-time value", "object") == "object" &&
-           __turbopack_context__.g,
+          __turbopack_context__.g,
       ) ||
       check(
-        typeof ( __turbopack_context__.e) ==
-          "object" &&  __turbopack_context__.e,
-      ) || 
+        typeof __turbopack_context__.e == "object" && __turbopack_context__.e,
+      ) ||
       (function () {
         return this;
       })() ||
@@ -44,9 +43,8 @@
     var fails = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-client] (ecmascript)",
     );
-    
+
     module.exports = !fails(function () {
-      
       return (
         Object.defineProperty({}, 1, {
           get: function () {
@@ -64,9 +62,8 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-client] (ecmascript)",
     );
     module.exports = !fails(function () {
-      
       var test = function () {}.bind();
-      
+
       return typeof test != "function" || test.hasOwnProperty("prototype");
     });
   },
@@ -78,7 +75,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-bind-native.js [app-client] (ecmascript)",
     );
     var call = Function.prototype.call;
-    
+
     module.exports = NATIVE_BIND
       ? call.bind(call)
       : function () {
@@ -90,9 +87,9 @@
     "use strict";
 
     var $propertyIsEnumerable = {}.propertyIsEnumerable;
-    
+
     var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-    
+
     var NASHORN_BUG =
       getOwnPropertyDescriptor &&
       !$propertyIsEnumerable.call(
@@ -101,8 +98,7 @@
         },
         1,
       );
-    
-    
+
     exports.f = NASHORN_BUG
       ? function propertyIsEnumerable(V) {
           var descriptor = getOwnPropertyDescriptor(this, V);
@@ -132,7 +128,7 @@
     );
     var FunctionPrototype = Function.prototype;
     var call = FunctionPrototype.call;
-    
+
     var uncurryThisWithBind =
       NATIVE_BIND && FunctionPrototype.bind.bind(call, call);
     module.exports = NATIVE_BIND
@@ -171,10 +167,8 @@
     );
     var $Object = Object;
     var split = uncurryThis("".split);
-    
+
     module.exports = fails(function () {
-      
-      
       return !$Object("z").propertyIsEnumerable(0);
     })
       ? function (it) {
@@ -186,8 +180,6 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-    
     module.exports = function (it) {
       return it === null || it === undefined;
     };
@@ -200,8 +192,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-null-or-undefined.js [app-client] (ecmascript)",
     );
     var $TypeError = TypeError;
-    
-    
+
     module.exports = function (it) {
       if (isNullOrUndefined(it))
         throw new $TypeError("Can't call method on " + it);
@@ -212,7 +203,6 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     var IndexedObject = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/indexed-object.js [app-client] (ecmascript)",
     );
@@ -227,11 +217,8 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     var documentAll = typeof document == "object" && document.all;
-    
-    
-    
+
     module.exports =
       typeof documentAll == "undefined" && documentAll !== undefined
         ? function (argument) {
@@ -308,12 +295,10 @@
     var match, version;
     if (v8) {
       match = v8.split(".");
-      
-      
+
       version = match[0] > 0 && match[0] < 4 ? 1 : +(match[0] + match[1]);
     }
-    
-    
+
     if (!version && userAgent) {
       match = userAgent.match(/Edge\/(\d+)/);
       if (!match || match[1] >= 74) {
@@ -327,10 +312,9 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-     var V8_VERSION =
-      __turbopack_context__.r(
-        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-v8-version.js [app-client] (ecmascript)",
-      );
+    var V8_VERSION = __turbopack_context__.r(
+      "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-v8-version.js [app-client] (ecmascript)",
+    );
     var fails = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-client] (ecmascript)",
     );
@@ -338,18 +322,15 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-client] (ecmascript)",
     );
     var $String = globalThis.String;
-    
+
     module.exports =
       !!Object.getOwnPropertySymbols &&
       !fails(function () {
         var symbol = Symbol("symbol detection");
-        
-        
-        
-        
+
         return (
           !$String(symbol) ||
-          !(Object(symbol) instanceof Symbol) || 
+          !(Object(symbol) instanceof Symbol) ||
           (!Symbol.sham && V8_VERSION && V8_VERSION < 41)
         );
       });
@@ -358,10 +339,9 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-     var NATIVE_SYMBOL =
-      __turbopack_context__.r(
-        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/symbol-constructor-detection.js [app-client] (ecmascript)",
-      );
+    var NATIVE_SYMBOL = __turbopack_context__.r(
+      "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/symbol-constructor-detection.js [app-client] (ecmascript)",
+    );
     module.exports =
       NATIVE_SYMBOL && !Symbol.sham && typeof Symbol.iterator == "symbol";
   },
@@ -417,7 +397,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/try-to-string.js [app-client] (ecmascript)",
     );
     var $TypeError = TypeError;
-    
+
     module.exports = function (argument) {
       if (isCallable(argument)) return argument;
       throw new $TypeError(tryToString(argument) + " is not a function");
@@ -433,8 +413,7 @@
     var isNullOrUndefined = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-null-or-undefined.js [app-client] (ecmascript)",
     );
-    
-    
+
     module.exports = function (V, P) {
       var func = V[P];
       return isNullOrUndefined(func) ? undefined : aCallable(func);
@@ -454,8 +433,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-object.js [app-client] (ecmascript)",
     );
     var $TypeError = TypeError;
-    
-    
+
     module.exports = function (input, pref) {
       var fn, val;
       if (
@@ -491,7 +469,7 @@
     var globalThis = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-client] (ecmascript)",
     );
-    
+
     var defineProperty = Object.defineProperty;
     module.exports = function (key, value) {
       try {
@@ -550,8 +528,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/require-object-coercible.js [app-client] (ecmascript)",
     );
     var $Object = Object;
-    
-    
+
     module.exports = function (argument) {
       return $Object(requireObjectCoercible(argument));
     };
@@ -567,9 +544,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-object.js [app-client] (ecmascript)",
     );
     var hasOwnProperty = uncurryThis({}.hasOwnProperty);
-    
-    
-    
+
     module.exports =
       Object.hasOwn ||
       function hasOwn(it, key) {
@@ -656,8 +631,7 @@
     );
     var $TypeError = TypeError;
     var TO_PRIMITIVE = wellKnownSymbol("toPrimitive");
-    
-    
+
     module.exports = function (input, pref) {
       if (!isObject(input) || isSymbol(input)) return input;
       var exoticToPrim = getMethod(input, TO_PRIMITIVE);
@@ -682,8 +656,7 @@
     var isSymbol = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-symbol.js [app-client] (ecmascript)",
     );
-    
-    
+
     module.exports = function (argument) {
       var key = toPrimitive(argument, "string");
       return isSymbol(key) ? key : key + "";
@@ -700,7 +673,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-object.js [app-client] (ecmascript)",
     );
     var document = globalThis.document;
-    
+
     var EXISTS = isObject(document) && isObject(document.createElement);
     module.exports = function (it) {
       return EXISTS ? document.createElement(it) : {};
@@ -719,11 +692,10 @@
     var createElement = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/document-create-element.js [app-client] (ecmascript)",
     );
-    
+
     module.exports =
       !DESCRIPTORS &&
       !fails(function () {
-        
         return (
           Object.defineProperty(createElement("div"), "a", {
             get: function () {
@@ -761,10 +733,9 @@
     var IE8_DOM_DEFINE = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/ie8-dom-define.js [app-client] (ecmascript)",
     );
-    
+
     var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-    
-    
+
     exports.f = DESCRIPTORS
       ? $getOwnPropertyDescriptor
       : function getOwnPropertyDescriptor(O, P) {
@@ -791,12 +762,10 @@
     var fails = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-client] (ecmascript)",
     );
-    
-    
+
     module.exports =
       DESCRIPTORS &&
       fails(function () {
-        
         return (
           Object.defineProperty(function () {}, "prototype", {
             value: 42,
@@ -814,7 +783,7 @@
     );
     var $String = String;
     var $TypeError = TypeError;
-    
+
     module.exports = function (argument) {
       if (isObject(argument)) return argument;
       throw new $TypeError($String(argument) + " is not an object");
@@ -840,15 +809,14 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-property-key.js [app-client] (ecmascript)",
     );
     var $TypeError = TypeError;
-    
+
     var $defineProperty = Object.defineProperty;
-    
+
     var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
     var ENUMERABLE = "enumerable";
     var CONFIGURABLE = "configurable";
     var WRITABLE = "writable";
-    
-    
+
     exports.f = DESCRIPTORS
       ? V8_PROTOTYPE_DEFINE_BUG
         ? function defineProperty(O, P, Attributes) {
@@ -932,10 +900,10 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/has-own-property.js [app-client] (ecmascript)",
     );
     var FunctionPrototype = Function.prototype;
-    
+
     var getDescriptor = DESCRIPTORS && Object.getOwnPropertyDescriptor;
     var EXISTS = hasOwn(FunctionPrototype, "name");
-    
+
     var PROPER = EXISTS && function something() {}.name === "something";
     var CONFIGURABLE =
       EXISTS &&
@@ -961,7 +929,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/shared-store.js [app-client] (ecmascript)",
     );
     var functionToString = uncurryThis(Function.toString);
-    
+
     if (!isCallable(store.inspectSource)) {
       store.inspectSource = function (it) {
         return functionToString(it);
@@ -1049,17 +1017,15 @@
     };
     if (NATIVE_WEAK_MAP || shared.state) {
       var store = shared.state || (shared.state = new WeakMap());
-       store.get =
-        store.get;
+      store.get = store.get;
       store.has = store.has;
       store.set = store.set;
-       set =
-        function (it, metadata) {
-          if (store.has(it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
-          metadata.facade = it;
-          store.set(it, metadata);
-          return metadata;
-        };
+      set = function (it, metadata) {
+        if (store.has(it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
+        metadata.facade = it;
+        store.set(it, metadata);
+        return metadata;
+      };
       get = function (it) {
         return store.get(it) || {};
       };
@@ -1121,7 +1087,7 @@
     var enforceInternalState = InternalStateModule.enforce;
     var getInternalState = InternalStateModule.get;
     var $String = String;
-    
+
     var defineProperty = Object.defineProperty;
     var stringSlice = uncurryThis("".slice);
     var replace = uncurryThis("".replace);
@@ -1170,7 +1136,6 @@
             defineProperty(value, "prototype", {
               writable: false,
             });
-          
         } else if (value.prototype) value.prototype = undefined;
       } catch (error) {}
       var state = enforceInternalState(value);
@@ -1179,8 +1144,7 @@
       }
       return value;
     });
-    
-    
+
     Function.prototype.toString = makeBuiltIn(function toString() {
       return (
         (isCallable(this) && getInternalState(this).source) ||
@@ -1235,9 +1199,7 @@
 
     var ceil = Math.ceil;
     var floor = Math.floor;
-    
-    
-    
+
     module.exports =
       Math.trunc ||
       function trunc(x) {
@@ -1252,11 +1214,10 @@
     var trunc = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/math-trunc.js [app-client] (ecmascript)",
     );
-    
-    
+
     module.exports = function (argument) {
       var number = +argument;
-      
+
       return number !== number || number === 0 ? 0 : trunc(number);
     };
   },
@@ -1269,9 +1230,7 @@
     );
     var max = Math.max;
     var min = Math.min;
-    
-    
-    
+
     module.exports = function (index, length) {
       var integer = toIntegerOrInfinity(index);
       return integer < 0 ? max(integer + length, 0) : min(integer, length);
@@ -1285,11 +1244,10 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-integer-or-infinity.js [app-client] (ecmascript)",
     );
     var min = Math.min;
-    
-    
+
     module.exports = function (argument) {
       var len = toIntegerOrInfinity(argument);
-      return len > 0 ? min(len, 0x1fffffffffffff) : 0; 
+      return len > 0 ? min(len, 0x1fffffffffffff) : 0;
     };
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/length-of-array-like.js [app-client] (ecmascript)",
@@ -1299,8 +1257,7 @@
     var toLength = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-length.js [app-client] (ecmascript)",
     );
-    
-    
+
     module.exports = function (obj) {
       return toLength(obj.length);
     };
@@ -1318,7 +1275,7 @@
     var lengthOfArrayLike = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/length-of-array-like.js [app-client] (ecmascript)",
     );
-    
+
     var createMethod = function (IS_INCLUDES) {
       return function ($this, el, fromIndex) {
         var O = toIndexedObject($this);
@@ -1326,14 +1283,12 @@
         if (length === 0) return !IS_INCLUDES && -1;
         var index = toAbsoluteIndex(fromIndex, length);
         var value;
-        
-        
+
         if (IS_INCLUDES && el !== el)
           while (length > index) {
             value = O[index++];
-            
+
             if (value !== value) return true;
-            
           }
         else
           for (; length > index; index++) {
@@ -1344,11 +1299,8 @@
       };
     };
     module.exports = {
-      
-      
       includes: createMethod(true),
-      
-      
+
       indexOf: createMethod(false),
     };
   },
@@ -1379,7 +1331,7 @@
       var key;
       for (key in O)
         !hasOwn(hiddenKeys, key) && hasOwn(O, key) && push(result, key);
-      
+
       while (names.length > i)
         if (hasOwn(O, (key = names[i++]))) {
           ~indexOf(result, key) || push(result, key);
@@ -1391,7 +1343,6 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     module.exports = [
       "constructor",
       "hasOwnProperty",
@@ -1413,9 +1364,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/enum-bug-keys.js [app-client] (ecmascript)",
     );
     var hiddenKeys = enumBugKeys.concat("length", "prototype");
-    
-    
-    
+
     exports.f =
       Object.getOwnPropertyNames ||
       function getOwnPropertyNames(O) {
@@ -1426,7 +1375,6 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     exports.f = Object.getOwnPropertySymbols;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/own-keys.js [app-client] (ecmascript)",
@@ -1449,7 +1397,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-client] (ecmascript)",
     );
     var concat = uncurryThis([].concat);
-    
+
     module.exports =
       getBuiltIn("Reflect", "ownKeys") ||
       function ownKeys(it) {
@@ -1542,21 +1490,8 @@
     var isForced = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-forced.js [app-client] (ecmascript)",
     );
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = function (options, source) {
+    module.exports = function (options, source) {
       var TARGET = options.target;
       var GLOBAL = options.global;
       var STATIC = options.stat;
@@ -1579,12 +1514,12 @@
             GLOBAL ? key : TARGET + (STATIC ? "." : "#") + key,
             options.forced,
           );
-          
+
           if (!FORCED && targetProperty !== undefined) {
             if (typeof sourceProperty == typeof targetProperty) continue;
             copyConstructorProperties(sourceProperty, targetProperty);
           }
-          
+
           if (options.sham || (targetProperty && targetProperty.sham)) {
             createNonEnumerableProperty(sourceProperty, "sham", true);
           }
@@ -1596,10 +1531,9 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-     var globalThis =
-      __turbopack_context__.r(
-        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-client] (ecmascript)",
-      );
+    var globalThis = __turbopack_context__.r(
+      "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-client] (ecmascript)",
+    );
     var userAgent = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-user-agent.js [app-client] (ecmascript)",
     );
@@ -1651,7 +1585,6 @@
     );
     module.exports = function (object, key, method) {
       try {
-        
         return uncurryThis(
           aCallable(Object.getOwnPropertyDescriptor(object, key)[method]),
         );
@@ -1689,10 +1622,9 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-     var uncurryThisAccessor =
-      __turbopack_context__.r(
-        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this-accessor.js [app-client] (ecmascript)",
-      );
+    var uncurryThisAccessor = __turbopack_context__.r(
+      "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this-accessor.js [app-client] (ecmascript)",
+    );
     var isObject = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-object.js [app-client] (ecmascript)",
     );
@@ -1702,10 +1634,7 @@
     var aPossiblePrototype = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/a-possible-prototype.js [app-client] (ecmascript)",
     );
-    
-    
-    
-    
+
     module.exports =
       Object.setPrototypeOf ||
       ("__proto__" in {}
@@ -1830,7 +1759,7 @@
     );
     var TO_STRING_TAG = wellKnownSymbol("toStringTag");
     var test = {};
-    
+
     test[TO_STRING_TAG] = "z";
     module.exports = String(test) === "[object z]";
   },
@@ -1852,20 +1781,20 @@
     );
     var TO_STRING_TAG = wellKnownSymbol("toStringTag");
     var $Object = Object;
-    
+
     var CORRECT_ARGUMENTS =
       classofRaw(
         (function () {
           return arguments;
         })(),
       ) === "Arguments";
-    
+
     var tryGet = function (it, key) {
       try {
         return it[key];
       } catch (error) {}
     };
-    
+
     module.exports = TO_STRING_TAG_SUPPORT
       ? classofRaw
       : function (it) {
@@ -1930,9 +1859,6 @@
           return false;
       }
       try {
-        
-        
-        
         return (
           INCORRECT_TO_STRING ||
           !!exec(constructorRegExp, inspectSource(argument))
@@ -1942,8 +1868,7 @@
       }
     };
     isConstructorLegacy.sham = true;
-    
-    
+
     module.exports =
       !construct ||
       fails(function () {
@@ -1971,7 +1896,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/try-to-string.js [app-client] (ecmascript)",
     );
     var $TypeError = TypeError;
-    
+
     module.exports = function (argument) {
       if (isConstructor(argument)) return argument;
       throw new $TypeError(tryToString(argument) + " is not a constructor");
@@ -1994,8 +1919,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/well-known-symbol.js [app-client] (ecmascript)",
     );
     var SPECIES = wellKnownSymbol("species");
-    
-    
+
     module.exports = function (O, defaultConstructor) {
       var C = anObject(O).constructor;
       var S;
@@ -2014,7 +1938,7 @@
     var FunctionPrototype = Function.prototype;
     var apply = FunctionPrototype.apply;
     var call = FunctionPrototype.call;
-    
+
     module.exports =
       (typeof Reflect == "object" && Reflect.apply) ||
       (NATIVE_BIND
@@ -2034,9 +1958,6 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this.js [app-client] (ecmascript)",
     );
     module.exports = function (fn) {
-      
-      
-      
       if (classofRaw(fn) === "Function") return uncurryThis(fn);
     };
   },
@@ -2054,7 +1975,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-bind-native.js [app-client] (ecmascript)",
     );
     var bind = uncurryThis(uncurryThis.bind);
-    
+
     module.exports = function (fn, that) {
       aCallable(fn);
       return that === undefined
@@ -2101,7 +2022,7 @@
     var userAgent = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-user-agent.js [app-client] (ecmascript)",
     );
-    
+
     module.exports = /(?:ipad|iphone|ipod).*applewebkit/i.test(userAgent);
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/task.js [app-client] (ecmascript)",
@@ -2156,7 +2077,6 @@
     var ONREADYSTATECHANGE = "onreadystatechange";
     var $location, defer, channel, port;
     fails(function () {
-      
       $location = globalThis.location;
     });
     var run = function (id) {
@@ -2175,13 +2095,12 @@
       run(event.data);
     };
     var globalPostMessageDefer = function (id) {
-      
       globalThis.postMessage(
         String(id),
         $location.protocol + "//" + $location.host,
       );
     };
-    
+
     if (!set || !clear) {
       set = function setImmediate(handler) {
         validateArgumentsLength(arguments.length, 1);
@@ -2196,25 +2115,20 @@
       clear = function clearImmediate(id) {
         delete queue[id];
       };
-      
+
       if (IS_NODE) {
         defer = function (id) {
           process.nextTick(runner(id));
         };
-        
       } else if (Dispatch && Dispatch.now) {
         defer = function (id) {
           Dispatch.now(runner(id));
         };
-        
-        
       } else if (MessageChannel && !IS_IOS) {
         channel = new MessageChannel();
         port = channel.port2;
         channel.port1.onmessage = eventListener;
         defer = bind(port.postMessage, port);
-        
-        
       } else if (
         globalThis.addEventListener &&
         isCallable(globalThis.postMessage) &&
@@ -2225,7 +2139,6 @@
       ) {
         defer = globalPostMessageDefer;
         globalThis.addEventListener("message", eventListener, false);
-        
       } else if (ONREADYSTATECHANGE in createElement("script")) {
         defer = function (id) {
           html.appendChild(createElement("script"))[ONREADYSTATECHANGE] =
@@ -2234,7 +2147,6 @@
               run(id);
             };
         };
-        
       } else {
         defer = function (id) {
           setTimeout(runner(id), 0);
@@ -2256,9 +2168,9 @@
     var DESCRIPTORS = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/descriptors.js [app-client] (ecmascript)",
     );
-    
+
     var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-    
+
     module.exports = function (name) {
       if (!DESCRIPTORS) return globalThis[name];
       var descriptor = getOwnPropertyDescriptor(globalThis, name);
@@ -2352,7 +2264,7 @@
     var Promise = globalThis.Promise;
     var microtask = safeGetBuiltIn("queueMicrotask");
     var notify, toggle, node, promise, then;
-    
+
     if (!microtask) {
       var queue = new Queue();
       var flush = function () {
@@ -2367,8 +2279,7 @@
           }
         if (parent) parent.enter();
       };
-      
-      
+
       if (
         !IS_IOS &&
         !IS_NODE &&
@@ -2384,29 +2295,19 @@
         notify = function () {
           node.data = toggle = !toggle;
         };
-        
       } else if (!IS_IOS_PEBBLE && Promise && Promise.resolve) {
-        
         promise = Promise.resolve(undefined);
-        
+
         promise.constructor = Promise;
         then = bind(promise.then, promise);
         notify = function () {
           then(flush);
         };
-        
       } else if (IS_NODE) {
         notify = function () {
           process.nextTick(flush);
         };
-        
-        
-        
-        
-        
-        
       } else {
-        
         macrotask = bind(macrotask, globalThis);
         notify = function () {
           macrotask(flush);
@@ -2425,7 +2326,6 @@
 
     module.exports = function (a, b) {
       try {
-        
         arguments.length === 1 ? console.error(a) : console.error(a, b);
       } catch (error) {}
     };
@@ -2499,25 +2399,20 @@
       var PROMISE_CONSTRUCTOR_SOURCE = inspectSource(NativePromiseConstructor);
       var GLOBAL_CORE_JS_PROMISE =
         PROMISE_CONSTRUCTOR_SOURCE !== String(NativePromiseConstructor);
-      
-      
-      
+
       if (!GLOBAL_CORE_JS_PROMISE && V8_VERSION === 66) return true;
-      
+
       if (
         IS_PURE &&
         !(NativePromisePrototype["catch"] && NativePromisePrototype["finally"])
       )
         return true;
-      
-      
-      
+
       if (
         !V8_VERSION ||
         V8_VERSION < 51 ||
         !/native code/.test(PROMISE_CONSTRUCTOR_SOURCE)
       ) {
-        
         var promise = new NativePromiseConstructor(function (resolve) {
           resolve(1);
         });
@@ -2531,7 +2426,6 @@
         constructor[SPECIES] = FakePromise;
         SUBCLASSING = promise.then(function () {}) instanceof FakePromise;
         if (!SUBCLASSING) return true;
-        
       }
       return (
         !GLOBAL_CORE_JS_PROMISE &&
@@ -2564,8 +2458,7 @@
       this.resolve = aCallable(resolve);
       this.reject = aCallable(reject);
     };
-    
-    
+
     module.exports.f = function (C) {
       return new PromiseCapability(C);
     };
@@ -2675,7 +2568,7 @@
     var HANDLED = 1;
     var UNHANDLED = 2;
     var Internal, OwnPromiseCapability, PromiseWrapper, nativeThen;
-    
+
     var isThenable = function (it) {
       var then;
       return isObject(it) && isCallable((then = it.then)) ? then : false;
@@ -2697,7 +2590,7 @@
           if (handler === true) result = value;
           else {
             if (domain) domain.enter();
-            result = handler(value); 
+            result = handler(value);
             if (domain) {
               domain.exit();
               exited = true;
@@ -2760,7 +2653,7 @@
               process.emit("unhandledRejection", value, promise);
             } else dispatchEvent(UNHANDLED_REJECTION, promise, value);
           });
-          
+
           state.rejection = IS_NODE || isUnhandled(state) ? UNHANDLED : HANDLED;
           if (result.error) throw result.value;
         }
@@ -2829,9 +2722,8 @@
         );
       }
     };
-    
+
     if (FORCED_PROMISE_CONSTRUCTOR) {
-      
       PromiseConstructor = function Promise(executor) {
         anInstance(this, PromisePrototype);
         aCallable(executor);
@@ -2844,7 +2736,7 @@
         }
       };
       PromisePrototype = PromiseConstructor.prototype;
-      
+
       Internal = function Promise(executor) {
         setInternalState(this, {
           type: PROMISE,
@@ -2857,8 +2749,7 @@
           value: null,
         });
       };
-      
-      
+
       Internal.prototype = defineBuiltIn(
         PromisePrototype,
         "then",
@@ -2898,7 +2789,6 @@
       ) {
         nativeThen = NativePromisePrototype.then;
         if (!NATIVE_PROMISE_SUBCLASSING) {
-          
           defineBuiltIn(
             NativePromisePrototype,
             "then",
@@ -2907,25 +2797,23 @@
               return new PromiseConstructor(function (resolve, reject) {
                 call(nativeThen, that, resolve, reject);
               }).then(onFulfilled, onRejected);
-              
             },
             {
               unsafe: true,
             },
           );
         }
-        
+
         try {
           delete NativePromisePrototype.constructor;
         } catch (error) {}
-        
+
         if (setPrototypeOf) {
           setPrototypeOf(NativePromisePrototype, PromisePrototype);
         }
       }
     }
-    
-    
+
     $(
       {
         global: true,
@@ -2959,7 +2847,7 @@
     );
     var ITERATOR = wellKnownSymbol("iterator");
     var ArrayPrototype = Array.prototype;
-    
+
     module.exports = function (it) {
       return (
         it !== undefined &&
@@ -3126,7 +3014,7 @@
         iterFn = getIteratorMethod(iterable);
         if (!iterFn)
           throw new $TypeError(tryToString(iterable) + " is not iterable");
-        
+
         if (isArrayIteratorMethod(iterFn)) {
           for (
             index = 0, length = lengthOfArrayLike(iterable);
@@ -3178,11 +3066,11 @@
           SAFE_CLOSING = true;
         },
       };
-      
+
       iteratorWithReturn[ITERATOR] = function () {
         return this;
       };
-      
+
       Array.from(iteratorWithReturn, function () {
         throw 2;
       });
@@ -3192,11 +3080,11 @@
         if (!SKIP_CLOSING && !SAFE_CLOSING) return false;
       } catch (error) {
         return false;
-      } 
+      }
       var ITERATION_SUPPORT = false;
       try {
         var object = {};
-        
+
         object[ITERATOR] = function () {
           return {
             next: function () {
@@ -3255,8 +3143,7 @@
     var PROMISE_STATICS_INCORRECT_ITERATION = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/promise-statics-incorrect-iteration.js [app-client] (ecmascript)",
     );
-    
-    
+
     $(
       {
         target: "Promise",
@@ -3320,8 +3207,7 @@
     );
     var NativePromisePrototype =
       NativePromiseConstructor && NativePromiseConstructor.prototype;
-    
-    
+
     $(
       {
         target: "Promise",
@@ -3335,7 +3221,7 @@
         },
       },
     );
-    
+
     if (!IS_PURE && isCallable(NativePromiseConstructor)) {
       var method = getBuiltIn("Promise").prototype["catch"];
       if (NativePromisePrototype["catch"] !== method) {
@@ -3370,8 +3256,7 @@
     var PROMISE_STATICS_INCORRECT_ITERATION = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/promise-statics-incorrect-iteration.js [app-client] (ecmascript)",
     );
-    
-    
+
     $(
       {
         target: "Promise",
@@ -3411,8 +3296,7 @@
     var FORCED_PROMISE_CONSTRUCTOR = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/promise-constructor-detection.js [app-client] (ecmascript)",
     ).CONSTRUCTOR;
-    
-    
+
     $(
       {
         target: "Promise",
@@ -3475,8 +3359,7 @@
     );
     var PromiseConstructorWrapper = getBuiltIn("Promise");
     var CHECK_WRAPPER = IS_PURE && !FORCED_PROMISE_CONSTRUCTOR;
-    
-    
+
     $(
       {
         target: "Promise",
@@ -3499,7 +3382,6 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.promise.constructor.js [app-client] (ecmascript)",
     );
@@ -3571,8 +3453,7 @@
     var anObject = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-client] (ecmascript)",
     );
-    
-    
+
     module.exports = function () {
       var that = anObject(this);
       var result = "";
@@ -3597,15 +3478,14 @@
     var globalThis = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-client] (ecmascript)",
     );
-    
+
     var $RegExp = globalThis.RegExp;
     var UNSUPPORTED_Y = fails(function () {
       var re = $RegExp("a", "y");
       re.lastIndex = 2;
       return re.exec("abcd") !== null;
     });
-    
-    
+
     var MISSED_STICKY =
       UNSUPPORTED_Y ||
       fails(function () {
@@ -3614,7 +3494,6 @@
     var BROKEN_CARET =
       UNSUPPORTED_Y ||
       fails(function () {
-        
         var re = $RegExp("^r", "gy");
         re.lastIndex = 2;
         return re.exec("str") !== null;
@@ -3635,9 +3514,7 @@
     var enumBugKeys = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/enum-bug-keys.js [app-client] (ecmascript)",
     );
-    
-    
-    
+
     module.exports =
       Object.keys ||
       function keys(O) {
@@ -3666,9 +3543,7 @@
     var objectKeys = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-keys.js [app-client] (ecmascript)",
     );
-    
-    
-    
+
     exports.f =
       DESCRIPTORS && !V8_PROTOTYPE_DEFINE_BUG
         ? Object.defineProperties
@@ -3688,10 +3563,9 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-     var anObject =
-      __turbopack_context__.r(
-        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-client] (ecmascript)",
-      );
+    var anObject = __turbopack_context__.r(
+      "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-client] (ecmascript)",
+    );
     var definePropertiesModule = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-define-properties.js [app-client] (ecmascript)",
     );
@@ -3719,24 +3593,23 @@
     var scriptTag = function (content) {
       return LT + SCRIPT + GT + content + LT + "/" + SCRIPT + GT;
     };
-    
+
     var NullProtoObjectViaActiveX = function (activeXDocument) {
       activeXDocument.write(scriptTag(""));
       activeXDocument.close();
       var temp = activeXDocument.parentWindow.Object;
-      
+
       activeXDocument = null;
       return temp;
     };
-    
+
     var NullProtoObjectViaIFrame = function () {
-      
       var iframe = documentCreateElement("iframe");
       var JS = "java" + SCRIPT + ":";
       var iframeDocument;
       iframe.style.display = "none";
       html.appendChild(iframe);
-      
+
       iframe.src = String(JS);
       iframeDocument = iframe.contentWindow.document;
       iframeDocument.open();
@@ -3744,11 +3617,7 @@
       iframeDocument.close();
       return iframeDocument.F;
     };
-    
-    
-    
-    
-    
+
     var activeXDocument;
     var NullProtoObject = function () {
       try {
@@ -3757,17 +3626,15 @@
       NullProtoObject =
         typeof document != "undefined"
           ? document.domain && activeXDocument
-            ? NullProtoObjectViaActiveX(activeXDocument) 
+            ? NullProtoObjectViaActiveX(activeXDocument)
             : NullProtoObjectViaIFrame()
-          : NullProtoObjectViaActiveX(activeXDocument); 
+          : NullProtoObjectViaActiveX(activeXDocument);
       var length = enumBugKeys.length;
       while (length--) delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
       return NullProtoObject();
     };
     hiddenKeys[IE_PROTO] = true;
-    
-    
-    
+
     module.exports =
       Object.create ||
       function create(O, Properties) {
@@ -3776,7 +3643,7 @@
           EmptyConstructor[PROTOTYPE] = anObject(O);
           result = new EmptyConstructor();
           EmptyConstructor[PROTOTYPE] = null;
-          
+
           result[IE_PROTO] = O;
         } else result = NullProtoObject();
         return Properties === undefined
@@ -3794,7 +3661,7 @@
     var globalThis = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-client] (ecmascript)",
     );
-    
+
     var $RegExp = globalThis.RegExp;
     module.exports = fails(function () {
       var re = $RegExp(".", "s");
@@ -3811,7 +3678,7 @@
     var globalThis = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-client] (ecmascript)",
     );
-    
+
     var $RegExp = globalThis.RegExp;
     module.exports = fails(function () {
       var re = $RegExp("(?<a>b)", "g");
@@ -3822,10 +3689,9 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-      var call =
-      __turbopack_context__.r(
-        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-call.js [app-client] (ecmascript)",
-      );
+    var call = __turbopack_context__.r(
+      "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-call.js [app-client] (ecmascript)",
+    );
     var uncurryThis = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this.js [app-client] (ecmascript)",
     );
@@ -3871,7 +3737,7 @@
       return re1.lastIndex !== 0 || re2.lastIndex !== 0;
     })();
     var UNSUPPORTED_Y = stickyHelpers.BROKEN_CARET;
-    
+
     var NPCG_INCLUDED = /()??/.exec("")[1] !== undefined;
     var PATCH =
       UPDATES_LAST_INDEX_WRONG ||
@@ -3904,7 +3770,7 @@
             flags += "g";
           }
           strCopy = stringSlice(str, re.lastIndex);
-          
+
           if (
             re.lastIndex > 0 &&
             (!re.multiline ||
@@ -3914,8 +3780,7 @@
             strCopy = " " + strCopy;
             charsAdded++;
           }
-          
-          
+
           reCopy = new RegExp("^(?:" + source + ")", flags);
         }
         if (NPCG_INCLUDED) {
@@ -3934,8 +3799,6 @@
           re.lastIndex = re.global ? match.index + match[0].length : lastIndex;
         }
         if (NPCG_INCLUDED && match && match.length > 1) {
-          
-          
           call(nativeReplace, match[0], reCopy, function () {
             for (i = 1; i < arguments.length - 2; i++) {
               if (arguments[i] === undefined) match[i] = undefined;
@@ -3964,8 +3827,7 @@
     var exec = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-exec.js [app-client] (ecmascript)",
     );
-    
-    
+
     $(
       {
         target: "RegExp",
@@ -3981,7 +3843,6 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.regexp.exec.js [app-client] (ecmascript)",
     );
@@ -4008,9 +3869,8 @@
     module.exports = function (KEY, exec, FORCED, SHAM) {
       var SYMBOL = wellKnownSymbol(KEY);
       var DELEGATES_TO_SYMBOL = !fails(function () {
-        
         var O = {};
-        
+
         O[SYMBOL] = function () {
           return 7;
         };
@@ -4019,17 +3879,11 @@
       var DELEGATES_TO_EXEC =
         DELEGATES_TO_SYMBOL &&
         !fails(function () {
-          
           var execCalled = false;
           var re = /a/;
           if (KEY === "split") {
-            
-            
-            
-            
-            
             var constructor = {};
-            
+
             constructor[SPECIES] = function () {
               return re;
             };
@@ -4037,7 +3891,7 @@
               constructor: constructor,
               flags: "",
             };
-            
+
             re[SYMBOL] = /./[SYMBOL];
           }
           re.exec = function () {
@@ -4056,9 +3910,6 @@
             var $exec = regexp.exec;
             if ($exec === regexpExec || $exec === RegExpPrototype.exec) {
               if (DELEGATES_TO_SYMBOL && !forceStringMethod) {
-                
-                
-                
                 return {
                   done: true,
                   value: call(nativeRegExpMethod, regexp, str, arg2),
@@ -4123,11 +3974,8 @@
       };
     };
     module.exports = {
-      
-      
       codeAt: createMethod(false),
-      
-      
+
       charAt: createMethod(true),
     };
   },
@@ -4138,8 +3986,7 @@
     var charAt = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/string-multibyte.js [app-client] (ecmascript)",
     ).charAt;
-    
-    
+
     module.exports = function (S, index, unicode) {
       return index + (unicode ? charAt(S, index).length : 1);
     };
@@ -4154,7 +4001,7 @@
     var fails = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-client] (ecmascript)",
     );
-    
+
     var RegExp = globalThis.RegExp;
     var FLAGS_GETTER_IS_CORRECT = !fails(function () {
       var INDICES_SUPPORT = true;
@@ -4164,11 +4011,10 @@
         INDICES_SUPPORT = false;
       }
       var O = {};
-      
+
       var calls = "";
       var expected = INDICES_SUPPORT ? "dgimsy" : "gimsy";
       var addGetter = function (key, chr) {
-        
         Object.defineProperty(O, key, {
           get: function () {
             calls += chr;
@@ -4185,7 +4031,7 @@
       };
       if (INDICES_SUPPORT) pairs.hasIndices = "d";
       for (var key in pairs) addGetter(key, pairs[key]);
-      
+
       var result = Object.getOwnPropertyDescriptor(
         RegExp.prototype,
         "flags",
@@ -4248,8 +4094,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-exec.js [app-client] (ecmascript)",
     );
     var $TypeError = TypeError;
-    
-    
+
     module.exports = function (R, S) {
       var exec = R.exec;
       if (isCallable(exec)) {
@@ -4302,13 +4147,11 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-exec-abstract.js [app-client] (ecmascript)",
     );
     var stringIndexOf = uncurryThis("".indexOf);
-    
+
     fixRegExpWellKnownSymbolLogic(
       "match",
       function (MATCH, nativeMatch, maybeCallNative) {
         return [
-          
-          
           function match(regexp) {
             var O = requireObjectCoercible(this);
             var matcher = isObject(regexp)
@@ -4318,8 +4161,7 @@
               ? call(matcher, regexp, O)
               : new RegExp(regexp)[MATCH](toString(O));
           },
-          
-          
+
           function (string) {
             var rx = anObject(this);
             var S = toString(string);
@@ -4363,7 +4205,7 @@
     var charAt = uncurryThis("".charAt);
     var replace = uncurryThis("".replace);
     var stringSlice = uncurryThis("".slice);
-    
+
     var SUBSTITUTION_SYMBOLS = /\$([$&'`]|\d{1,2}|<[^>]*>)/g;
     var SUBSTITUTION_SYMBOLS_NO_NAMED = /\$([$&'`]|\d{1,2})/g;
     // `GetSubstitution` abstract operation
@@ -5715,7 +5557,7 @@
           // https://tc39.es/ecma262/#sec-regexp.prototype-@@split
           //
           // NOTE: This cannot be properly polyfilled in engines that don't support
-          
+
           function (string, limit) {
             var rx = anObject(this);
             var S = toString(string);
@@ -5736,8 +5578,7 @@
               (rx.multiline ? "m" : "") +
               (rx.unicode ? "u" : "") +
               (UNSUPPORTED_Y ? "g" : "y");
-            
-            
+
             var splitter = new C(
               UNSUPPORTED_Y ? "^(?:" + rx.source + ")" : rx,
               flags,
@@ -5785,9 +5626,8 @@
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/performance-now/lib/performance-now.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     (function () {
@@ -5845,17 +5685,14 @@
         };
         loadTime = new Date().getTime();
       }
-    }).call( __turbopack_context__.e); 
+    }).call(__turbopack_context__.e);
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/raf/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     var now = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/performance-now/lib/performance-now.js [app-client] (ecmascript)",
       ),
-      root =
-        typeof window === "undefined"
-          ?  __turbopack_context__.g
-          : window,
+      root = typeof window === "undefined" ? __turbopack_context__.g : window,
       vendors = ["moz", "webkit"],
       suffix = "AnimationFrame",
       raf = root["request" + suffix],
@@ -5866,7 +5703,7 @@
         root[vendors[i] + "Cancel" + suffix] ||
         root[vendors[i] + "CancelRequest" + suffix];
     }
-    
+
     if (!raf || !caf) {
       var last = 0,
         id = 0,
@@ -5879,9 +5716,7 @@
           last = next + _now;
           setTimeout(function () {
             var cp = queue.slice(0);
-            
-            
-            
+
             queue.length = 0;
             for (var i = 0; i < cp.length; i++) {
               if (!cp[i].cancelled) {
@@ -5912,9 +5747,6 @@
       };
     }
     module.exports = function (fn) {
-      
-      
-      
       return raf.call(root, fn);
     };
     module.exports.cancel = function () {
@@ -5932,7 +5764,6 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
     module.exports =
       "\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002" +
       "\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF";
@@ -5956,7 +5787,7 @@
     var replace = uncurryThis("".replace);
     var ltrim = RegExp("^[" + whitespaces + "]+");
     var rtrim = RegExp("(^|[^" + whitespaces + "])[" + whitespaces + "]+$");
-    
+
     var createMethod = function (TYPE) {
       return function ($this) {
         var string = toString(requireObjectCoercible($this));
@@ -5966,14 +5797,10 @@
       };
     };
     module.exports = {
-      
-      
       start: createMethod(1),
-      
-      
+
       end: createMethod(2),
-      
-      
+
       trim: createMethod(3),
     };
   },
@@ -5991,8 +5818,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/whitespaces.js [app-client] (ecmascript)",
     );
     var non = "\u200B\u0085\u180E";
-    
-    
+
     module.exports = function (METHOD_NAME) {
       return fails(function () {
         return (
@@ -6017,8 +5843,7 @@
     var forcedStringTrimMethod = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/string-trim-forced.js [app-client] (ecmascript)",
     );
-    
-    
+
     $(
       {
         target: "String",
@@ -6034,20 +5859,16 @@
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/rgbcolor/index.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    
-
-
- module.exports = function (color_string) {
+    module.exports = function (color_string) {
       this.ok = false;
       this.alpha = 1.0;
-      
+
       if (color_string.charAt(0) == "#") {
         color_string = color_string.substr(1, 6);
       }
       color_string = color_string.replace(/ /g, "");
       color_string = color_string.toLowerCase();
-      
-      
+
       var simple_colors = {
         aliceblue: "f0f8ff",
         antiquewhite: "faebd7",
@@ -6195,8 +6016,7 @@
         yellowgreen: "9acd32",
       };
       color_string = simple_colors[color_string] || color_string;
-      
-      
+
       var color_defs = [
         {
           re: /^rgba\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),\s*((?:\d?\.)?\d)\)$/,
@@ -6240,7 +6060,7 @@
           },
         },
       ];
-      
+
       for (var i = 0; i < color_defs.length; i++) {
         var re = color_defs[i].re;
         var processor = color_defs[i].process;
@@ -6256,7 +6076,7 @@
           this.ok = true;
         }
       }
-      
+
       this.r = this.r < 0 || isNaN(this.r) ? 0 : this.r > 255 ? 255 : this.r;
       this.g = this.g < 0 || isNaN(this.g) ? 0 : this.g > 255 ? 255 : this.g;
       this.b = this.b < 0 || isNaN(this.b) ? 0 : this.b > 255 ? 255 : this.b;
@@ -6266,7 +6086,7 @@
           : this.alpha > 1.0 || isNaN(this.alpha)
             ? 1.0
             : this.alpha;
-      
+
       this.toRGB = function () {
         return "rgb(" + this.r + ", " + this.g + ", " + this.b + ")";
       };
@@ -6292,17 +6112,17 @@
         if (b.length == 1) b = "0" + b;
         return "#" + r + g + b;
       };
-      
+
       this.getHelpXML = function () {
         var examples = new Array();
-        
+
         for (var i = 0; i < color_defs.length; i++) {
           var example = color_defs[i].example;
           for (var j = 0; j < example.length; j++) {
             examples[examples.length] = example[j];
           }
         }
-        
+
         for (var sc in simple_colors) {
           examples[examples.length] = sc;
         }
@@ -6343,10 +6163,9 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-     var $ =
-      __turbopack_context__.r(
-        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/export.js [app-client] (ecmascript)",
-      );
+    var $ = __turbopack_context__.r(
+      "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/export.js [app-client] (ecmascript)",
+    );
     var uncurryThis = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this-clause.js [app-client] (ecmascript)",
     );
@@ -6359,8 +6178,7 @@
     var nativeIndexOf = uncurryThis([].indexOf);
     var NEGATIVE_ZERO = !!nativeIndexOf && 1 / nativeIndexOf([1], 1, -0) < 0;
     var FORCED = NEGATIVE_ZERO || !arrayMethodIsStrict("indexOf");
-    
-    
+
     $(
       {
         target: "Array",
@@ -6368,7 +6186,7 @@
         forced: FORCED,
       },
       {
-        indexOf: function indexOf(searchElement ) {
+        indexOf: function indexOf(searchElement) {
           var fromIndex = arguments.length > 1 ? arguments[1] : undefined;
           return NEGATIVE_ZERO
             ? nativeIndexOf(this, searchElement, fromIndex) || 0
@@ -6400,8 +6218,7 @@
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/correct-is-regexp-logic.js [app-client] (ecmascript)",
     );
     var stringIndexOf = uncurryThis("".indexOf);
-    
-    
+
     $(
       {
         target: "String",
@@ -6409,7 +6226,7 @@
         forced: !correctIsRegExpLogic("includes"),
       },
       {
-        includes: function includes(searchString ) {
+        includes: function includes(searchString) {
           return !!~stringIndexOf(
             toString(requireObjectCoercible(this)),
             toString(notARegExp(searchString)),
@@ -6426,9 +6243,7 @@
     var classof = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/classof-raw.js [app-client] (ecmascript)",
     );
-    
-    
-    
+
     module.exports =
       Array.isArray ||
       function isArray(argument) {
@@ -6450,10 +6265,7 @@
     );
     var nativeReverse = uncurryThis([].reverse);
     var test = [1, 2];
-    
-    
-    
-    
+
     $(
       {
         target: "Array",
@@ -6462,7 +6274,6 @@
       },
       {
         reverse: function reverse() {
-          
           if (isArray(this)) this.length = this.length;
           return nativeReverse(this);
         },
@@ -6473,33 +6284,18 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
- __turbopack_context__.s(
-      [
-        "COMMAND_ARG_COUNTS",
-        () => N,
-        "SVGPathData",
-        () => _,
-        "SVGPathDataParser",
-        () => f,
-        "SVGPathDataTransformer",
-        () => u,
-        "encodeSVGPath",
-        () => e,
-      ],
-    );
+    __turbopack_context__.s([
+      "COMMAND_ARG_COUNTS",
+      () => N,
+      "SVGPathData",
+      () => _,
+      "SVGPathDataParser",
+      () => f,
+      "SVGPathDataTransformer",
+      () => u,
+      "encodeSVGPath",
+      () => e,
+    ]);
     var t = function (r, e) {
       return (t =
         Object.setPrototypeOf ||
@@ -7580,7 +7376,6 @@
         (O[_.SMOOTH_CURVE_TO] = 4),
         (O[_.ARC] = 7),
         O);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.regexp.to-string.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
@@ -7615,11 +7410,10 @@
         }) !== "/a/b"
       );
     });
-    
+
     var INCORRECT_NAME =
       PROPER_FUNCTION_NAME && nativeToString.name !== TO_STRING;
-    
-    
+
     if (NOT_GENERIC || INCORRECT_NAME) {
       defineBuiltIn(
         RegExpPrototype,
@@ -7677,46 +7471,8 @@
         throw new TypeError("Cannot call a class as a function");
       }
     }
-     
- 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- var mulTable = [
+    var mulTable = [
       512, 512, 456, 512, 328, 456, 335, 512, 405, 328, 271, 456, 388, 335, 292,
       512, 454, 405, 364, 328, 298, 271, 496, 456, 420, 388, 360, 335, 312, 292,
       273, 512, 482, 454, 428, 405, 383, 364, 345, 328, 312, 298, 284, 271, 259,
@@ -7752,15 +7508,8 @@
       24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
       24, 24,
     ];
-    
 
-
-
-
-
-
-
- function processImage(
+    function processImage(
       img,
       canvas,
       radius,
@@ -7781,7 +7530,7 @@
       }
       var dimensionType = useOffset ? "offset" : "natural";
       var w = img[dimensionType + "Width"];
-      var h = img[dimensionType + "Height"]; 
+      var h = img[dimensionType + "Height"];
       if (Object.prototype.toString.call(img).slice(8, -1) === "ImageBitmap") {
         w = img.width;
         h = img.height;
@@ -7820,15 +7569,8 @@
         processCanvasRGB(canvas, 0, 0, w, h, radius);
       }
     }
-    
 
-
-
-
-
-
-
- function getImageDataFromCanvas(canvas, topX, topY, width, height) {
+    function getImageDataFromCanvas(canvas, topX, topY, width, height) {
       if (typeof canvas === "string") {
         canvas = document.getElementById(canvas);
       }
@@ -7849,15 +7591,8 @@
         throw new Error("unable to access image data: " + e);
       }
     }
-    
 
-
-
-
-
-
-
- function processCanvasRGBA(canvas, topX, topY, width, height, radius) {
+    function processCanvasRGBA(canvas, topX, topY, width, height, radius) {
       if (isNaN(radius) || radius < 1) {
         return;
       }
@@ -7873,15 +7608,8 @@
       );
       canvas.getContext("2d").putImageData(imageData, topX, topY);
     }
-    
 
-
-
-
-
-
-
- function processImageDataRGBA(
+    function processImageDataRGBA(
       imageData,
       topX,
       topY,
@@ -7890,7 +7618,7 @@
       radius,
     ) {
       var pixels = imageData.data;
-      var div = 2 * radius + 1; 
+      var div = 2 * radius + 1;
       var widthMinus1 = width - 1;
       var heightMinus1 = height - 1;
       var radiusPlus1 = radius + 1;
@@ -8092,15 +7820,8 @@
       }
       return imageData;
     }
-    
 
-
-
-
-
-
-
- function processCanvasRGB(canvas, topX, topY, width, height, radius) {
+    function processCanvasRGB(canvas, topX, topY, width, height, radius) {
       if (isNaN(radius) || radius < 1) {
         return;
       }
@@ -8116,24 +7837,10 @@
       );
       canvas.getContext("2d").putImageData(imageData, topX, topY);
     }
-    
 
-
-
-
-
-
-
- function processImageDataRGB(
-      imageData,
-      topX,
-      topY,
-      width,
-      height,
-      radius,
-    ) {
+    function processImageDataRGB(imageData, topX, topY, width, height, radius) {
       var pixels = imageData.data;
-      var div = 2 * radius + 1; 
+      var div = 2 * radius + 1;
       var widthMinus1 = width - 1;
       var heightMinus1 = height - 1;
       var radiusPlus1 = radius + 1;
@@ -8286,11 +7993,8 @@
       }
       return imageData;
     }
-    
 
- var BlurStack = 
-
- function BlurStack() {
+    var BlurStack = function BlurStack() {
       _classCallCheck(this, BlurStack);
       this.r = 0;
       this.g = 0;
@@ -8478,7 +8182,7 @@
       () => vectorsRatio,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$core$2d$js$2f$modules$2f$es$2e$promise$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -8561,12 +8265,8 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/stackblur-canvas/dist/stackblur-es.js [app-client] (ecmascript)",
       );
-    
 
-
-
-
- function offscreen() {
+    function offscreen() {
       var { DOMParser: DOMParserFallback } =
         arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var preset = {
@@ -8597,14 +8297,8 @@
       }
       return preset;
     }
-    
 
-
-
-
-
-
- function node(_ref) {
+    function node(_ref) {
       var { DOMParser: DOMParser1, canvas, fetch: fetch1 } = _ref;
       return {
         window: null,
@@ -8616,63 +8310,41 @@
         createImage: canvas.loadImage,
       };
     }
-    var index =  Object.freeze({
+    var index = Object.freeze({
       __proto__: null,
       offscreen: offscreen,
       node: node,
     });
-    
 
-
-
- function compressSpaces(str) {
+    function compressSpaces(str) {
       return str.replace(/(?!\u3000)\s+/gm, " ");
     }
-    
 
-
-
- function trimLeft(str) {
+    function trimLeft(str) {
       return str.replace(/^[\n \t]+/, "");
     }
-    
 
-
-
- function trimRight(str) {
+    function trimRight(str) {
       return str.replace(/[\n \t]+$/, "");
     }
-    
 
-
-
- function toNumbers(str) {
+    function toNumbers(str) {
       var matches =
         (str || "").match(
           /-?(\d+(?:\.\d*(?:[eE][+-]?\d+)?)?|\.\d+)(?=\D|$)/gm,
         ) || [];
       return matches.map(parseFloat);
-    } 
+    }
     var allUppercase = /^[A-Z-]+$/;
-    
 
-
-
- function normalizeAttributeName(name) {
+    function normalizeAttributeName(name) {
       if (allUppercase.test(name)) {
         return name.toLowerCase();
       }
       return name;
     }
-    
 
-
-
- function parseExternalUrl(url) {
-      
-      
-      
-      
+    function parseExternalUrl(url) {
       var urlMatch = /url\(('([^']+)'|"([^"]+)"|([^'")]+))\)/.exec(url) || [];
       return urlMatch[2] || urlMatch[3] || urlMatch[4];
     }
@@ -9003,10 +8675,10 @@
         var def = this.getDefinition();
         if (!def) {
           return null;
-        } 
+        }
         if (typeof def.createGradient === "function") {
           return def.createGradient(this.document.ctx, element, opacity);
-        } 
+        }
         if (typeof def.createPattern === "function") {
           if (def.getHrefAttribute().hasValue()) {
             var patternTransform = def.getAttribute("patternTransform");
@@ -9030,7 +8702,7 @@
       addOpacity(opacity) {
         var value = this.getColor();
         var len = value.length;
-        var commas = 0; 
+        var commas = 0;
         for (var i = 0; i < len; i++) {
           if (value[i] === ",") {
             commas++;
@@ -9149,8 +8821,8 @@
         this.screen = screen;
         this.working = false;
         this.events = [];
-        this.eventElements = []; 
-        this.onClick = this.onClick.bind(this); 
+        this.eventElements = [];
+        this.onClick = this.onClick.bind(this);
         this.onMouseMove = this.onMouseMove.bind(this);
       }
       isWorking() {
@@ -9194,7 +8866,7 @@
             run(element);
             element = element.parent;
           }
-        }); 
+        });
         this.events = [];
         this.eventElements = [];
       }
@@ -9272,9 +8944,7 @@
     }
     var defaultWindow = typeof window !== "undefined" ? window : null;
     var defaultFetch$1 =
-      typeof fetch !== "undefined"
-        ? fetch.bind(undefined) 
-        : null;
+      typeof fetch !== "undefined" ? fetch.bind(undefined) : null;
     class Screen {
       constructor(ctx) {
         var {
@@ -9304,7 +8974,6 @@
         this.waits.push(checker);
       }
       ready() {
-        
         if (!this.readyPromise) {
           return Promise.resolve();
         }
@@ -9325,7 +8994,6 @@
         return isReadyLock;
       }
       setDefaults(ctx) {
-        
         ctx.strokeStyle = "rgba(0,0,0,0)";
         ctx.lineCap = "butt";
         ctx.lineJoin = "miter";
@@ -9348,15 +9016,15 @@
           clipX = 0,
           clipY = 0,
         } = _ref;
-        
+
         var cleanAspectRatio = compressSpaces(aspectRatio).replace(
           /^defer\s/,
           "",
-        ); 
+        );
         var [aspectRatioAlign, aspectRatioMeetOrSlice] =
           cleanAspectRatio.split(" ");
         var align = aspectRatioAlign || "xMidYMid";
-        var meetOrSlice = aspectRatioMeetOrSlice || "meet"; 
+        var meetOrSlice = aspectRatioMeetOrSlice || "meet";
         var scaleX = width / desiredWidth;
         var scaleY = height / desiredHeight;
         var scaleMin = Math.min(scaleX, scaleY);
@@ -9408,7 +9076,7 @@
           if (align.endsWith("YMax") && (isMeetMinX || isSliceMaxX)) {
             ctx.translate(0, height - finalDesiredHeight);
           }
-        } 
+        }
         switch (true) {
           case align === "none":
             ctx.scale(scaleX, scaleY);
@@ -9419,7 +9087,7 @@
           case meetOrSlice === "slice":
             ctx.scale(scaleMax, scaleMax);
             break;
-        } 
+        }
         ctx.translate(-minX, -minY);
       }
       start(element) {
@@ -9501,7 +9169,6 @@
         this.mouse.stop();
       }
       shouldUpdate(ignoreAnimation, forceRedraw) {
-        
         if (!ignoreAnimation) {
           var { frameDuration } = this;
           var shouldUpdate = this.animations.reduce(
@@ -9512,13 +9179,13 @@
           if (shouldUpdate) {
             return true;
           }
-        } 
+        }
         if (typeof forceRedraw === "function" && forceRedraw()) {
           return true;
         }
         if (!this.isReadyLock && this.isReady()) {
           return true;
-        } 
+        }
         if (this.mouse.hasEvents()) {
           return true;
         }
@@ -9549,7 +9216,6 @@
           (isFirstRender ||
             (typeof scaleWidth !== "number" && typeof scaleHeight !== "number"))
         ) {
-          
           if (widthStyle.hasValue()) {
             canvas.width = widthStyle.getPixels("x");
             if (canvas.style) {
@@ -9615,7 +9281,7 @@
               .concat(1.0 / xRatio, ", ")
               .concat(1.0 / yRatio, ")"),
           );
-        } 
+        }
         if (!ignoreClear) {
           ctx.clearRect(0, 0, cWidth, cHeight);
         }
@@ -9735,14 +9401,7 @@
       applyToPoint(point) {
         var { cx, cy, angle } = this;
         var rad = angle.getRadians();
-        point.applyTransform([
-          1,
-          0,
-          0,
-          1,
-          cx || 0.0,
-          cy || 0.0, 
-        ]);
+        point.applyTransform([1, 0, 0, 1, cx || 0.0, cy || 0.0]);
         point.applyTransform([
           Math.cos(rad),
           Math.sin(rad),
@@ -9751,14 +9410,7 @@
           0,
           0,
         ]);
-        point.applyTransform([
-          1,
-          0,
-          0,
-          1,
-          -cx || 0.0,
-          -cy || 0.0, 
-        ]);
+        point.applyTransform([1, 0, 0, 1, -cx || 0.0, -cy || 0.0]);
       }
     }
     class Scale {
@@ -9767,7 +9419,7 @@
         this.scale = null;
         this.originX = null;
         this.originY = null;
-        var scaleSize = Point.parseScale(scale); 
+        var scaleSize = Point.parseScale(scale);
         if (scaleSize.x === 0 || scaleSize.y === 0) {
           scaleSize.x = PSEUDO_ZERO;
           scaleSize.y = PSEUDO_ZERO;
@@ -9977,9 +9629,8 @@
         this.parent = null;
         this.children = [];
         if (!node || node.nodeType !== 1) {
-          
           return;
-        } 
+        }
         Array.from(node.attributes).forEach((attribute) => {
           var nodeName = normalizeAttributeName(attribute.nodeName);
           this.attributes[nodeName] = new Property(
@@ -9988,7 +9639,7 @@
             attribute.value,
           );
         });
-        this.addStylesFromStyleDefinition(); 
+        this.addStylesFromStyleDefinition();
         if (this.getAttribute("style").hasValue()) {
           var styles = this.getAttribute("style")
             .getString()
@@ -10003,7 +9654,7 @@
           });
         }
         var { definitions } = document1;
-        var id = this.getAttribute("id"); 
+        var id = this.getAttribute("id");
         if (id.hasValue()) {
           if (!definitions[id.getString()]) {
             definitions[id.getString()] = this;
@@ -10011,14 +9662,14 @@
         }
         Array.from(node.childNodes).forEach((childNode) => {
           if (childNode.nodeType === 1) {
-            this.addChild(childNode); 
+            this.addChild(childNode);
           } else if (
             captureTextNodes &&
             (childNode.nodeType === 3 || childNode.nodeType === 4)
           ) {
             var textNode = document1.createTextNode(childNode);
             if (textNode.getText().length > 0) {
-              this.addChild(textNode); 
+              this.addChild(textNode);
             }
           }
         });
@@ -10059,7 +9710,7 @@
         }
         var attr = this.getAttribute(name);
         if (attr !== null && attr !== void 0 && attr.hasValue()) {
-          this.styles[name] = attr; 
+          this.styles[name] = attr;
           return attr;
         }
         if (!skipAncestors) {
@@ -10083,8 +9734,6 @@
         return style || Property.empty(this.document);
       }
       render(ctx) {
-        
-        
         if (
           this.getStyle("display").getString() === "none" ||
           this.getStyle("visibility").getString() === "hidden"
@@ -10093,14 +9742,12 @@
         }
         ctx.save();
         if (this.getStyle("mask").hasValue()) {
-          
           var mask = this.getStyle("mask").getDefinition();
           if (mask) {
             this.applyEffects(ctx);
             mask.apply(ctx, this);
           }
         } else if (this.getStyle("filter").getValue("none") !== "none") {
-          
           var filter = this.getStyle("filter").getDefinition();
           if (filter) {
             this.applyEffects(ctx);
@@ -10115,11 +9762,10 @@
       }
       setContext(_) {}
       applyEffects(ctx) {
-        
         var transform = Transform.fromElement(this.document, this);
         if (transform) {
           transform.apply(ctx);
-        } 
+        }
         var clipPathStyleProp = this.getStyle("clip-path", false, true);
         if (clipPathStyleProp.hasValue()) {
           var clip = clipPathStyleProp.getDefinition();
@@ -10740,8 +10386,8 @@
           }
           var strokeLinecapStyleProp = this.getStyle("stroke-linecap");
           var strokeLinejoinStyleProp = this.getStyle("stroke-linejoin");
-          var strokeMiterlimitProp = this.getStyle("stroke-miterlimit"); 
-          
+          var strokeMiterlimitProp = this.getStyle("stroke-miterlimit");
+
           var strokeDasharrayStyleProp = this.getStyle("stroke-dasharray");
           var strokeDashoffsetProp = this.getStyle("stroke-dashoffset");
           if (strokeLinecapStyleProp.hasValue()) {
@@ -10752,11 +10398,8 @@
           }
           if (strokeMiterlimitProp.hasValue()) {
             ctx.miterLimit = strokeMiterlimitProp.getNumber();
-          } 
-          
-          
-          
-          
+          }
+
           if (
             strokeDasharrayStyleProp.hasValue() &&
             strokeDasharrayStyleProp.getString() !== "none"
@@ -10765,27 +10408,23 @@
             if (typeof ctx.setLineDash !== "undefined") {
               ctx.setLineDash(gaps);
             } else if (typeof ctx.webkitLineDash !== "undefined") {
-              
               ctx.webkitLineDash = gaps;
             } else if (
               typeof ctx.mozDash !== "undefined" &&
               !(gaps.length === 1 && gaps[0] === 0)
             ) {
-              
               ctx.mozDash = gaps;
             }
             var offset = strokeDashoffsetProp.getPixels();
             if (typeof ctx.lineDashOffset !== "undefined") {
               ctx.lineDashOffset = offset;
             } else if (typeof ctx.webkitLineDashOffset !== "undefined") {
-              
               ctx.webkitLineDashOffset = offset;
             } else if (typeof ctx.mozDashOffset !== "undefined") {
-              
               ctx.mozDashOffset = offset;
             }
           }
-        } 
+        }
         this.modifiedEmSizeStack = false;
         if (typeof ctx.font !== "undefined") {
           var fontStyleProp = this.getStyle("font");
@@ -10816,8 +10455,7 @@
           }
         }
         if (!fromMeasure) {
-          
-          this.applyEffects(ctx); 
+          this.applyEffects(ctx);
           ctx.globalAlpha = this.calculateOpacity();
         }
       }
@@ -11161,22 +10799,21 @@
         var { current, command } = pathParser;
         var { rX, rY, xRot, lArcFlag, sweepFlag } = command;
         var xAxisRotation = xRot * (Math.PI / 180.0);
-        var currentPoint = pathParser.getAsCurrentPoint(); 
-        
-        
+        var currentPoint = pathParser.getAsCurrentPoint();
+
         var currp = new Point(
           (Math.cos(xAxisRotation) * (current.x - currentPoint.x)) / 2.0 +
             (Math.sin(xAxisRotation) * (current.y - currentPoint.y)) / 2.0,
           (-Math.sin(xAxisRotation) * (current.x - currentPoint.x)) / 2.0 +
             (Math.cos(xAxisRotation) * (current.y - currentPoint.y)) / 2.0,
-        ); 
+        );
         var l =
           Math.pow(currp.x, 2) / Math.pow(rX, 2) +
           Math.pow(currp.y, 2) / Math.pow(rY, 2);
         if (l > 1) {
           rX *= Math.sqrt(l);
           rY *= Math.sqrt(l);
-        } 
+        }
         var s =
           (lArcFlag === sweepFlag ? -1 : 1) *
           Math.sqrt(
@@ -11189,7 +10826,7 @@
         if (isNaN(s)) {
           s = 0;
         }
-        var cpp = new Point((s * rX * currp.y) / rY, (s * -rY * currp.x) / rX); 
+        var cpp = new Point((s * rX * currp.y) / rY, (s * -rY * currp.x) / rX);
         var centp = new Point(
           (current.x + currentPoint.x) / 2.0 +
             Math.cos(xAxisRotation) * cpp.x -
@@ -11197,15 +10834,15 @@
           (current.y + currentPoint.y) / 2.0 +
             Math.sin(xAxisRotation) * cpp.x +
             Math.cos(xAxisRotation) * cpp.y,
-        ); 
+        );
         var a1 = vectorsAngle(
           [1, 0],
           [(currp.x - cpp.x) / rX, (currp.y - cpp.y) / rY],
-        ); 
-        
+        );
+
         var u = [(currp.x - cpp.x) / rX, (currp.y - cpp.y) / rY];
         var v = [(-currp.x - cpp.x) / rX, (-currp.y - cpp.y) / rY];
-        var ad = vectorsAngle(u, v); 
+        var ad = vectorsAngle(u, v);
         if (vectorsRatio(u, v) <= -1) {
           ad = Math.PI;
         }
@@ -11226,7 +10863,7 @@
       pathA(ctx, boundingBox) {
         var { pathParser } = this;
         var { currentPoint, rX, rY, sweepFlag, xAxisRotation, centp, a1, ad } =
-          PathElement.pathA(pathParser); 
+          PathElement.pathA(pathParser);
         var dir = 1 - sweepFlag ? 1.0 : -1.0;
         var ah = a1 + dir * (ad / 2.0);
         var halfWay = new Point(
@@ -11235,7 +10872,7 @@
         );
         pathParser.addMarkerAngle(halfWay, ah - (dir * Math.PI) / 2);
         pathParser.addMarkerAngle(currentPoint, ah - dir * Math.PI);
-        boundingBox.addPoint(currentPoint.x, currentPoint.y); 
+        boundingBox.addPoint(currentPoint.x, currentPoint.y);
         if (ctx && !isNaN(a1) && !isNaN(ad)) {
           var r = rX > rY ? rX : rY;
           var sx = rX > rY ? 1 : rX / rY;
@@ -11255,7 +10892,6 @@
       pathZ(ctx, boundingBox) {
         PathElement.pathZ(this.pathParser);
         if (ctx) {
-          
           if (
             boundingBox.x1 !== boundingBox.x2 &&
             boundingBox.y1 !== boundingBox.y2
@@ -11310,10 +10946,10 @@
       getBoundingBox(ctx) {
         if (this.type !== "text") {
           return this.getTElementBoundingBox(ctx);
-        } 
+        }
         this.initializeCoordinates();
         this.adjustChildCoordinatesRecursive(ctx);
-        var boundingBox = null; 
+        var boundingBox = null;
         this.children.forEach((_, i) => {
           var childBoundingBox = this.getChildBoundingBox(ctx, this, this, i);
           if (!boundingBox) {
@@ -11365,7 +11001,6 @@
             arabicForm = "initial";
           }
           if (typeof font.glyphs[char] !== "undefined") {
-            
             var maybeGlyph = font.glyphs[char];
             glyph =
               maybeGlyph instanceof GlyphElement
@@ -11388,10 +11023,7 @@
         var childNodes = Array.from(textNode.parentNode.childNodes);
         var index = childNodes.indexOf(textNode);
         var lastIndex = childNodes.length - 1;
-        var text = compressSpaces(
-          
-          textNode.textContent || "",
-        );
+        var text = compressSpaces(textNode.textContent || "");
         if (index === 0) {
           text = trimLeft(text);
         }
@@ -11404,13 +11036,13 @@
         if (this.type !== "text") {
           this.renderTElementChildren(ctx);
           return;
-        } 
+        }
         this.initializeCoordinates();
-        this.adjustChildCoordinatesRecursive(ctx); 
+        this.adjustChildCoordinatesRecursive(ctx);
         this.children.forEach((_, i) => {
           this.renderChild(ctx, this, this, i);
         });
-        var { mouse } = this.document.screen; 
+        var { mouse } = this.document.screen;
         if (mouse.isWorking()) {
           mouse.checkBoundingBox(this, this.getBoundingBox(ctx));
         }
@@ -11459,33 +11091,25 @@
           }
           return;
         }
-        var { x, y } = this; 
-        
-        
-        
-        
-        
-        
-        
-        
+        var { x, y } = this;
+
         if (ctx.fillStyle) {
           ctx.fillText(renderText, x, y);
         }
         if (ctx.strokeStyle) {
           ctx.strokeText(renderText, x, y);
-        } 
+        }
       }
       applyAnchoring() {
         if (this.textChunkStart >= this.leafTexts.length) {
           return;
-        } 
-        
-        
+        }
+
         var firstElement = this.leafTexts[this.textChunkStart];
         var textAnchor = firstElement
           .getStyle("text-anchor")
           .getString("start");
-        var isRTL = false; 
+        var isRTL = false;
         var shift = 0;
         if (
           (textAnchor === "start" && !isRTL) ||
@@ -11502,7 +11126,7 @@
         }
         for (var i = this.textChunkStart; i < this.leafTexts.length; i++) {
           this.leafTexts[i].x += shift;
-        } 
+        }
         this.minX = Number.POSITIVE_INFINITY;
         this.maxX = Number.NEGATIVE_INFINITY;
         this.textChunkStart = this.leafTexts.length;
@@ -11525,7 +11149,6 @@
             );
           });
         } else {
-          
           this.adjustChildCoordinates(ctx, textParent, parent, i);
         }
       }
@@ -11543,8 +11166,6 @@
         var customFont = child.getStyle("font-family").getDefinition();
         var isRTL = Boolean(customFont) && customFont.isRTL;
         if (i === 0) {
-          
-          
           if (!xAttr.hasValue()) {
             xAttr.setValue(child.getInheritedAttribute("x"));
           }
@@ -11563,7 +11184,6 @@
           textParent.x -= width;
         }
         if (xAttr.hasValue()) {
-          
           textParent.applyAnchoring();
           child.x = xAttr.getPixels("x");
           if (dxAttr.hasValue()) {
@@ -11590,7 +11210,7 @@
           }
           child.y = textParent.y;
         }
-        textParent.y = child.y; 
+        textParent.y = child.y;
         textParent.leafTexts.push(child);
         textParent.minX = Math.min(textParent.minX, child.x, child.x + width);
         textParent.maxX = Math.max(textParent.maxX, child.x, child.x + width);
@@ -11599,7 +11219,7 @@
         return child;
       }
       getChildBoundingBox(ctx, textParent, parent, i) {
-        var child = parent.children[i]; 
+        var child = parent.children[i];
         if (typeof child.getBoundingBox !== "function") {
           return null;
         }
@@ -11670,13 +11290,8 @@
         ctx.restore();
         return measure;
       }
-      
 
-
-
-
- getInheritedAttribute(name) {
-        
+      getInheritedAttribute(name) {
         var current = this;
         while (current instanceof TextElement && current.isFirstChild()) {
           var parentAttr = current.parent.getAttribute(name);
@@ -11695,7 +11310,7 @@
           node,
           new.target === TSpanElement ? true : captureTextNodes,
         );
-        this.type = "tspan"; 
+        this.type = "tspan";
         this.text = this.children.length > 0 ? "" : this.getTextFromNode();
       }
       getText() {
@@ -11736,7 +11351,7 @@
             document1.rootEmSize = fontSizeProp.getPixels("y");
             document1.emSize = document1.rootEmSize;
           }
-        } 
+        }
         if (!this.getAttribute("x").hasValue()) {
           this.getAttribute("x", true).setValue(0);
         }
@@ -11780,10 +11395,10 @@
             minY = 0;
           }
         }
-        screen.viewPort.setCurrent(width, height); 
-        
+        screen.viewPort.setCurrent(width, height);
+
         if (
-          this.node && 
+          this.node &&
           (!this.parent ||
             ((_this$node$parentNode = this.node.parentNode) === null ||
             _this$node$parentNode === void 0
@@ -11827,12 +11442,8 @@
         super.clearContext(ctx);
         this.document.screen.viewPort.removeCurrent();
       }
-      
 
-
-
-
- resize(width) {
+      resize(width) {
         var height =
           arguments.length > 1 && arguments[1] !== undefined
             ? arguments[1]
@@ -11910,7 +11521,7 @@
         ry = Math.min(ry, height / 2.0);
         if (ctx) {
           var KAPPA = 4 * ((Math.sqrt(2) - 1) / 3);
-          ctx.beginPath(); 
+          ctx.beginPath();
           if (height > 0 && width > 0) {
             ctx.moveTo(x + rx, y);
             ctx.lineTo(x + width - rx, y);
@@ -12132,7 +11743,7 @@
       }
       createPattern(ctx, _, parentOpacityProp) {
         var width = this.getStyle("width").getPixels("x", true);
-        var height = this.getStyle("height").getPixels("y", true); 
+        var height = this.getStyle("height").getPixels("y", true);
         var patternSvg = new SVGElement(this.document, null);
         patternSvg.attributes.viewBox = new Property(
           this.document,
@@ -12169,7 +11780,7 @@
           this.styles["fill-opacity"] = parentOpacityProp;
         } else {
           Reflect.deleteProperty(this.styles, "fill-opacity");
-        } 
+        }
         for (var x = -1; x <= 1; x++) {
           for (var y = -1; y <= 1; y++) {
             patternCtx.save();
@@ -12211,7 +11822,7 @@
         if (markerUnits === "strokeWidth") {
           ctx.scale(ctx.lineWidth, ctx.lineWidth);
         }
-        ctx.save(); 
+        ctx.save();
         var markerSvg = new SVGElement(this.document, null);
         markerSvg.type = this.type;
         markerSvg.attributes.viewBox = new Property(
@@ -12304,7 +11915,6 @@
         );
       }
       createGradient(ctx, element, parentOpacityProp) {
-        
         var stopsContainer = this;
         if (this.getHrefAttribute().hasValue()) {
           stopsContainer = this.getHrefAttribute().getDefinition();
@@ -12325,7 +11935,6 @@
           );
         });
         if (this.getAttribute("gradientTransform").hasValue()) {
-          
           var { document: document1 } = this;
           var { MAX_VIRTUAL_PIXELS, viewPort } = document1.screen;
           var [rootView] = viewPort.viewPorts;
@@ -12553,23 +12162,23 @@
       }
       calcValue() {
         var { initialUnits } = this;
-        var { progress, from, to } = this.getProgress(); 
+        var { progress, from, to } = this.getProgress();
         var newValue =
           from.getNumber() + (to.getNumber() - from.getNumber()) * progress;
         if (initialUnits === "%") {
-          newValue *= 100.0; 
+          newValue *= 100.0;
         }
         return "".concat(newValue).concat(initialUnits);
       }
       update(delta) {
         var { parent } = this;
-        var prop = this.getProperty(); 
+        var prop = this.getProperty();
         if (!this.initialValue) {
           this.initialValue = prop.getString();
           this.initialUnits = prop.getUnits();
-        } 
+        }
         if (this.duration > this.maxDuration) {
-          var fill = this.getAttribute("fill").getString("remove"); 
+          var fill = this.getAttribute("fill").getString("remove");
           if (
             this.getAttribute("repeatCount").getString() === "indefinite" ||
             this.getAttribute("repeatDur").getString() === "indefinite"
@@ -12590,13 +12199,12 @@
           }
           return false;
         }
-        this.duration += delta; 
+        this.duration += delta;
         var updated = false;
         if (this.begin < this.duration) {
-          var newValue = this.calcValue(); 
+          var newValue = this.calcValue();
           var typeAttr = this.getAttribute("type");
           if (typeAttr.hasValue()) {
-            
             var type = typeAttr.getString();
             newValue = "".concat(type, "(").concat(newValue, ")");
           }
@@ -12649,10 +12257,9 @@
             "default"
           ](to.getColor());
         if (colorFrom.ok && colorTo.ok) {
-          
           var r = colorFrom.r + (colorTo.r - colorFrom.r) * progress;
           var g = colorFrom.g + (colorTo.g - colorFrom.g) * progress;
-          var b = colorFrom.b + (colorTo.b - colorFrom.b) * progress; 
+          var b = colorFrom.b + (colorTo.b - colorFrom.b) * progress;
           return "rgb("
             .concat(Math.floor(r), ", ")
             .concat(Math.floor(g), ", ")
@@ -12667,7 +12274,7 @@
         this.type = "animateTransform";
       }
       calcValue() {
-        var { progress, from, to } = this.getProgress(); 
+        var { progress, from, to } = this.getProgress();
         var transformFrom = toNumbers(from.getString());
         var transformTo = toNumbers(to.getString());
         var newValue = transformFrom
@@ -12768,7 +12375,6 @@
       }
       renderChildren(ctx) {
         if (this.hasText) {
-          
           super.renderChildren(ctx);
           var { document: document1, x, y } = this;
           var { mouse } = document1.screen;
@@ -12776,7 +12382,7 @@
             document1,
             "fontSize",
             Font.parse(document1.ctx.font).fontSize,
-          ); 
+          );
           if (mouse.isWorking()) {
             mouse.checkBoundingBox(
               this,
@@ -12789,7 +12395,6 @@
             );
           }
         } else if (this.children.length > 0) {
-          
           var g = new GElement(this.document, null);
           g.children = this.children;
           g.parent = this;
@@ -12957,17 +12562,7 @@
               ctx.moveTo(p0.x, p0.y + fontSize / 8);
             }
             ctx.lineTo(p1.x, p1.y + fontSize / 5);
-          } 
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+          }
         });
         if (textDecoration === "underline") {
           ctx.lineWidth = fontSize / 20;
@@ -13054,8 +12649,7 @@
         measuresCache.set(targetText, measure);
         return measure;
       }
-      
-      
+
       setTextData(ctx) {
         if (this.glyphInfo) {
           return;
@@ -13081,7 +12675,7 @@
           ) {
             letterSpacing = thisSpacing.getPixels();
           }
-        } 
+        }
         var letterSpacingCache = [];
         var textLen = renderText.length;
         this.letterSpacingCache = letterSpacingCache;
@@ -13111,7 +12705,6 @@
         }
         offset += startOffset;
         chars.forEach((char, i) => {
-          
           var {
             offset: nextOffset,
             segment,
@@ -13130,24 +12723,9 @@
           offset = nextOffset;
           if (!segment.p0 || !segment.p1) {
             return;
-          } 
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+          }
+
           this.glyphInfo.push({
-            
-            
             text: chars[i],
             p0: segment.p0,
             p1: segment.p1,
@@ -13156,13 +12734,13 @@
         });
       }
       parsePathData(path) {
-        this.pathLength = -1; 
+        this.pathLength = -1;
         if (!path) {
           return [];
         }
         var pathCommands = [];
         var { pathParser } = path;
-        pathParser.reset(); 
+        pathParser.reset();
         while (!pathParser.isEnd()) {
           var { current } = pathParser;
           var startX = current ? current.x : 0;
@@ -13310,7 +12888,6 @@
           case PathParser.LINE_TO:
             return this.getLineLength(x, y, points[0], points[1]);
           case PathParser.CURVE_TO:
-            
             len = 0.0;
             p1 = this.getPointOnCubicBezier(
               0,
@@ -13340,7 +12917,6 @@
             }
             return len;
           case PathParser.QUAD_TO:
-            
             len = 0.0;
             p1 = this.getPointOnQuadraticBezier(
               0,
@@ -13366,15 +12942,14 @@
             }
             return len;
           case PathParser.ARC: {
-            
             len = 0.0;
-            var start = points[4]; 
-            var dTheta = points[5]; 
+            var start = points[4];
+            var dTheta = points[5];
             var end = points[4] + dTheta;
-            var inc = Math.PI / 180.0; 
+            var inc = Math.PI / 180.0;
             if (Math.abs(start - end) < inc) {
               inc = Math.abs(start - end);
-            } 
+            }
             p1 = this.getPointOnEllipticalArc(
               points[0],
               points[1],
@@ -13384,7 +12959,6 @@
               0,
             );
             if (dTheta < 0) {
-              
               for (t = start - inc; t > end; t -= inc) {
                 p2 = this.getPointOnEllipticalArc(
                   points[0],
@@ -13398,7 +12972,6 @@
                 p1 = p2;
               }
             } else {
-              
               for (t = start + inc; t < end; t += inc) {
                 p2 = this.getPointOnEllipticalArc(
                   points[0],
@@ -13443,7 +13016,6 @@
         var rise = m * run;
         var pt = null;
         if (p2x === p1x) {
-          
           pt = {
             x: fromX,
             y: fromY + rise,
@@ -13510,8 +13082,8 @@
               );
               break;
             case PathParser.ARC: {
-              var start = command.points[4]; 
-              var dTheta = command.points[5]; 
+              var start = command.points[4];
+              var dTheta = command.points[5];
               var end = command.points[4] + dTheta;
               currentT = start + (delta / command.pathLength) * dTheta;
               if (
@@ -13615,19 +13187,18 @@
       }
       buildEquidistantCache(inputStep, inputPrecision) {
         var fullLen = this.getPathLength();
-        var precision = inputPrecision || 0.25; 
+        var precision = inputPrecision || 0.25;
         var step = inputStep || fullLen / 100;
         if (
           !this.equidistantCache ||
           this.equidistantCache.step !== step ||
           this.equidistantCache.precision !== precision
         ) {
-          
           this.equidistantCache = {
             step,
             precision,
             points: [],
-          }; 
+          };
           var s = 0;
           for (var l = 0; l <= fullLen; l += precision) {
             var p0 = this.getPointOnPath(l);
@@ -13819,14 +13390,14 @@
         super(document1, node, captureTextNodes);
         this.type = "style";
         var css = compressSpaces(
-          Array.from(node.childNodes) 
+          Array.from(node.childNodes)
             .map((_) => _.textContent)
             .join("")
             .replace(
               /(\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+\/)|(^[\s]*\/\/.*)/gm,
               "",
-            ) 
-            .replace(/@import.*;/g, ""), 
+            )
+            .replace(/@import.*;/g, ""),
         );
         var cssDefs = css.split("}");
         cssDefs.forEach((_) => {
@@ -13857,7 +13428,6 @@
             document1.stylesSpecificity[cssClass] =
               getSelectorSpecificity(cssClass);
             if (cssClass === "@font-face") {
-              
               var fontFamily = props["font-family"]
                 .getString()
                 .replace(/"|'/g, "");

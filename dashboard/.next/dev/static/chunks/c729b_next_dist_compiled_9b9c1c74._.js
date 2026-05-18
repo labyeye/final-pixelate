@@ -193,42 +193,31 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
     if (("TURBOPACK compile-time truthy", 1)) {
       (function () {
         "use strict";
-        
+
         var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
         var REACT_MEMO_TYPE = Symbol.for("react.memo");
-        var PossiblyWeakMap = typeof WeakMap === "function" ? WeakMap : Map; 
-        
+        var PossiblyWeakMap = typeof WeakMap === "function" ? WeakMap : Map;
+
         var allFamiliesByID = new Map();
         var allFamiliesByType = new PossiblyWeakMap();
-        var allSignaturesByType = new PossiblyWeakMap(); 
-        
-        
-        var updatedFamiliesByType = new PossiblyWeakMap(); 
-        
-        var pendingUpdates = []; 
+        var allSignaturesByType = new PossiblyWeakMap();
+
+        var updatedFamiliesByType = new PossiblyWeakMap();
+
+        var pendingUpdates = [];
         var helpersByRendererID = new Map();
-        var helpersByRoot = new Map(); 
-        var mountedRoots = new Set(); 
-        var failedRoots = new Set(); 
-        
-        
-        
+        var helpersByRoot = new Map();
+        var mountedRoots = new Set();
+        var failedRoots = new Set();
+
         var rootElements = typeof WeakMap === "function" ? new WeakMap() : null;
         var isPerformingRefresh = false;
         function computeFullKey(signature) {
@@ -240,9 +229,6 @@
           try {
             hooks = signature.getCustomHooks();
           } catch (err) {
-            
-            
-            
             signature.forceReset = true;
             signature.fullKey = fullKey;
             return fullKey;
@@ -250,7 +236,6 @@
           for (var i = 0; i < hooks.length; i++) {
             var hook = hooks[i];
             if (typeof hook !== "function") {
-              
               signature.forceReset = true;
               signature.fullKey = fullKey;
               return fullKey;
@@ -298,9 +283,8 @@
           return false;
         }
         function resolveFamily(type) {
-          
           return updatedFamiliesByType.get(type);
-        } 
+        }
         function cloneMap(map) {
           var clone = new Map();
           map.forEach(function (value, key) {
@@ -314,12 +298,11 @@
             clone.add(value);
           });
           return clone;
-        } 
+        }
         function getProperty(object, property) {
           try {
             return object[property];
           } catch (err) {
-            
             return undefined;
           }
         }
@@ -339,33 +322,28 @@
             updates.forEach(function (_ref) {
               var family = _ref[0],
                 nextType = _ref[1];
-              
-              
+
               var prevType = family.current;
               updatedFamiliesByType.set(prevType, family);
               updatedFamiliesByType.set(nextType, family);
-              family.current = nextType; 
+              family.current = nextType;
               if (canPreserveStateBetween(prevType, nextType)) {
                 updatedFamilies.add(family);
               } else {
                 staleFamilies.add(family);
               }
-            }); 
+            });
             var update = {
               updatedFamilies: updatedFamilies,
-              
-              staleFamilies: staleFamilies, 
+
+              staleFamilies: staleFamilies,
             };
             helpersByRendererID.forEach(function (helpers) {
-              
-              
               helpers.setRefreshHandler(resolveFamily);
             });
             var didError = false;
-            var firstError = null; 
-            
-            
-            
+            var firstError = null;
+
             var failedRootsSnapshot = cloneSet(failedRoots);
             var mountedRootsSnapshot = cloneSet(mountedRoots);
             var helpersByRootSnapshot = cloneMap(helpersByRoot);
@@ -391,7 +369,7 @@
                 if (!didError) {
                   didError = true;
                   firstError = err;
-                } 
+                }
               }
             });
             mountedRootsSnapshot.forEach(function (root) {
@@ -409,7 +387,7 @@
                 if (!didError) {
                   didError = true;
                   firstError = err;
-                } 
+                }
               }
             });
             if (didError) {
@@ -427,14 +405,12 @@
             }
             if (typeof type !== "function" && typeof type !== "object") {
               return;
-            } 
-            
-            
+            }
+
             if (allFamiliesByType.has(type)) {
               return;
-            } 
-            
-            
+            }
+
             var family = allFamiliesByID.get(id);
             if (family === undefined) {
               family = {
@@ -444,7 +420,7 @@
             } else {
               pendingUpdates.push([family, type]);
             }
-            allFamiliesByType.set(type, family); 
+            allFamiliesByType.set(type, family);
             if (typeof type === "object" && type !== null) {
               switch (getProperty(type, "$$typeof")) {
                 case REACT_FORWARD_REF_TYPE:
@@ -475,7 +451,7 @@
                     return [];
                   },
               });
-            } 
+            }
             if (typeof type === "object" && type !== null) {
               switch (getProperty(type, "$$typeof")) {
                 case REACT_FORWARD_REF_TYPE:
@@ -487,8 +463,8 @@
               }
             }
           }
-        } 
-        
+        }
+
         function collectCustomHooksForSignature(type) {
           {
             var signature = allSignaturesByType.get(type);
@@ -530,15 +506,8 @@
         }
         function injectIntoGlobalHook(globalObject) {
           {
-            
-            
-            
-            
             var hook = globalObject.__REACT_DEVTOOLS_GLOBAL_HOOK__;
             if (hook === undefined) {
-              
-              
-              
               var nextID = 0;
               globalObject.__REACT_DEVTOOLS_GLOBAL_HOOK__ = hook = {
                 renderers: new Map(),
@@ -557,15 +526,12 @@
               };
             }
             if (hook.isDisabled) {
-              
-              
-              
               console["warn"](
                 "Something has shimmed the React DevTools global hook (__REACT_DEVTOOLS_GLOBAL_HOOK__). " +
                   "Fast Refresh is not compatible with this shim and will be disabled.",
               );
               return;
-            } 
+            }
             var oldInject = hook.inject;
             hook.inject = function (injected) {
               var id = oldInject.apply(this, arguments);
@@ -573,29 +539,24 @@
                 typeof injected.scheduleRefresh === "function" &&
                 typeof injected.setRefreshHandler === "function"
               ) {
-                
                 helpersByRendererID.set(id, injected);
               }
               return id;
-            }; 
-            
-            
+            };
+
             hook.renderers.forEach(function (injected, id) {
               if (
                 typeof injected.scheduleRefresh === "function" &&
                 typeof injected.setRefreshHandler === "function"
               ) {
-                
                 helpersByRendererID.set(id, injected);
               }
-            }); 
+            });
             var oldOnCommitFiberRoot = hook.onCommitFiberRoot;
             var oldOnScheduleFiberRoot =
               hook.onScheduleFiberRoot || function () {};
             hook.onScheduleFiberRoot = function (id, root, children) {
               if (!isPerformingRefresh) {
-                
-                
                 failedRoots.delete(root);
                 if (rootElements !== null) {
                   rootElements.set(root, children);
@@ -613,9 +574,8 @@
               if (helpers !== undefined) {
                 helpersByRoot.set(root, helpers);
                 var current = root.current;
-                var alternate = current.alternate; 
-                
-                
+                var alternate = current.alternate;
+
                 if (alternate !== null) {
                   var wasMounted =
                     alternate.memoizedState != null &&
@@ -625,64 +585,38 @@
                     current.memoizedState != null &&
                     current.memoizedState.element != null;
                   if (!wasMounted && isMounted) {
-                    
                     mountedRoots.add(root);
                     failedRoots.delete(root);
                   } else if (wasMounted && isMounted);
                   else if (wasMounted && !isMounted) {
-                    
                     mountedRoots.delete(root);
                     if (didError) {
-                      
                       failedRoots.add(root);
                     } else {
                       helpersByRoot.delete(root);
                     }
                   } else if (!wasMounted && !isMounted) {
                     if (didError) {
-                      
                       failedRoots.add(root);
                     }
                   }
                 } else {
-                  
                   mountedRoots.add(root);
                 }
-              } 
+              }
               return oldOnCommitFiberRoot.apply(this, arguments);
             };
           }
         }
         function hasUnrecoverableErrors() {
-          
           return false;
-        } 
+        }
         function _getMountedRootCount() {
           {
             return mountedRoots.size;
           }
-        } 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }
+
         function createSignatureFunctionForTransform() {
           {
             var savedType;
@@ -690,16 +624,11 @@
             var didCollectHooks = false;
             return function (type, key, forceReset, getCustomHooks) {
               if (typeof key === "string") {
-                
-                
-                
                 if (!savedType) {
-                  
                   savedType = type;
                   hasCustomHooks = typeof getCustomHooks === "function";
-                } 
-                
-                
+                }
+
                 if (
                   type != null &&
                   (typeof type === "function" || typeof type === "object")
@@ -708,9 +637,6 @@
                 }
                 return type;
               } else {
-                
-                
-                
                 if (!didCollectHooks && hasCustomHooks) {
                   didCollectHooks = true;
                   collectCustomHooksForSignature(savedType);
@@ -723,23 +649,18 @@
           {
             switch (typeof type) {
               case "function": {
-                
                 if (type.prototype != null) {
                   if (type.prototype.isReactComponent) {
-                    
                     return true;
                   }
                   var ownNames = Object.getOwnPropertyNames(type.prototype);
                   if (ownNames.length > 1 || ownNames[0] !== "constructor") {
-                    
                     return false;
-                  } 
+                  }
                   if (type.prototype.__proto__ !== Object.prototype) {
-                    
                     return false;
-                  } 
-                  
-                } 
+                  }
+                }
                 var name = type.name || type.displayName;
                 return typeof name === "string" && /^[A-Z]/.test(name);
               }
@@ -748,7 +669,6 @@
                   switch (getProperty(type, "$$typeof")) {
                     case REACT_FORWARD_REF_TYPE:
                     case REACT_MEMO_TYPE:
-                      
                       return true;
                     default:
                       return false;
@@ -783,12 +703,11 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-refresh/cjs/react-refresh-runtime.development.js [app-client] (ecmascript)",
@@ -799,32 +718,8 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- var __importDefault =
-       (__turbopack_context__.e &&
-         __turbopack_context__.e
-          .__importDefault) ||
+    var __importDefault =
+      (__turbopack_context__.e && __turbopack_context__.e.__importDefault) ||
       function (mod) {
         return mod && mod.__esModule
           ? mod
@@ -835,10 +730,7 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    
-    
-    
-    
+
     const runtime_1 = __importDefault(
       __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-refresh/runtime.js [app-client] (ecmascript)",
@@ -848,15 +740,13 @@
       return (
         key === "__esModule" ||
         key === "__N_SSG" ||
-        key === "__N_SSP" || 
+        key === "__N_SSP" ||
         key === "config"
       );
     }
     function registerExportsForReactRefresh(moduleExports, moduleID) {
       runtime_1.default.register(moduleExports, moduleID + " %exports%");
       if (moduleExports == null || typeof moduleExports !== "object") {
-        
-        
         return;
       }
       for (var key in moduleExports) {
@@ -876,8 +766,6 @@
       var signature = [];
       signature.push(runtime_1.default.getFamilyByType(moduleExports));
       if (moduleExports == null || typeof moduleExports !== "object") {
-        
-        
         return signature;
       }
       for (var key in moduleExports) {
@@ -899,7 +787,6 @@
         return true;
       }
       if (moduleExports == null || typeof moduleExports !== "object") {
-        
         return false;
       }
       var hasExports = false;
@@ -912,7 +799,6 @@
         try {
           var exportValue = moduleExports[key];
         } catch (_a) {
-          
           return false;
         }
         if (!runtime_1.default.isLikelyComponentType(exportValue)) {
@@ -936,7 +822,7 @@
       return false;
     }
     var isUpdateScheduled = false;
-    
+
     function scheduleUpdate() {
       if (isUpdateScheduled) {
         return;
@@ -957,7 +843,6 @@
         }
       }
       if (canApplyUpdate(module.hot.status())) {
-        
         Promise.resolve().then(() => {
           applyUpdate();
         });
@@ -969,10 +854,10 @@
           applyUpdate();
         }
       };
-      
+
       module.hot.addStatusHandler(statusHandler);
     }
-    
+
     exports.default = {
       registerExportsForReactRefresh: registerExportsForReactRefresh,
       isReactRefreshBoundary: isReactRefreshBoundary,
@@ -980,16 +865,14 @@
         shouldInvalidateReactRefreshBoundary,
       getRefreshBoundarySignature: getRefreshBoundarySignature,
       scheduleUpdate: scheduleUpdate,
-    }; 
+    };
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/runtime.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
     var __importDefault =
-       (__turbopack_context__.e &&
-         __turbopack_context__.e
-          .__importDefault) ||
+      (__turbopack_context__.e && __turbopack_context__.e.__importDefault) ||
       function (mod) {
         return mod && mod.__esModule
           ? mod
@@ -1010,11 +893,11 @@
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/internal/helpers.js [app-client] (ecmascript)",
       ),
     );
-    
+
     runtime_1.default.injectIntoGlobalHook(self);
-    
+
     self.$RefreshHelpers$ = helpers_1.default;
-    
+
     self.$RefreshInterceptModuleExecution$ = function (webpackModuleId) {
       var prevRefreshReg = self.$RefreshReg$;
       var prevRefreshSig = self.$RefreshSig$;
@@ -1022,28 +905,19 @@
         runtime_1.default.register(type, webpackModuleId + " " + id);
       };
       self.$RefreshSig$ = runtime_1.default.createSignatureFunctionForTransform;
-      
-      
+
       return function () {
         self.$RefreshReg$ = prevRefreshReg;
         self.$RefreshSig$ = prevRefreshSig;
       };
-    }; 
+    };
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-client] (ecmascript)",
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -2428,12 +2302,11 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-client] (ecmascript)",
@@ -2444,16 +2317,8 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -2825,12 +2690,11 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react-jsx-runtime.development.js [app-client] (ecmascript)",
@@ -3491,16 +3355,8 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -3866,12 +3722,11 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/scheduler/cjs/scheduler.development.js [app-client] (ecmascript)",
@@ -3925,5 +3780,3 @@
     })();
   },
 ]);
-
-

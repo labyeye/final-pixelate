@@ -4,16 +4,8 @@
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
@@ -61,8 +53,7 @@
             : [resolvedModuleData.id, resolvedModuleData.chunks, name];
         }
         function requireAsyncModule(id) {
-          var promise =
-             __turbopack_context__.r(id);
+          var promise = __turbopack_context__.r(id);
           if (
             "function" !== typeof promise.then ||
             "fulfilled" === promise.status
@@ -87,10 +78,7 @@
             i < chunks.length;
             i++
           ) {
-            var thenable =
-               __turbopack_context__.L(
-                chunks[i],
-              );
+            var thenable = __turbopack_context__.L(chunks[i]);
             loadedChunks.has(thenable) || promises.push(thenable);
             if (!instrumentedChunks.has(thenable)) {
               var resolve = loadedChunks.add.bind(loadedChunks, thenable);
@@ -109,10 +97,7 @@
               : null;
         }
         function requireModule(metadata) {
-          var moduleExports =
-             __turbopack_context__.r(
-              metadata[0],
-            );
+          var moduleExports = __turbopack_context__.r(metadata[0]);
           if (4 === metadata.length && "function" === typeof moduleExports.then)
             if ("fulfilled" === moduleExports.status)
               moduleExports = moduleExports.value;
@@ -5284,12 +5269,11 @@
     "use strict";
 
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     ("use strict");
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-server-dom-turbopack/cjs/react-server-dom-turbopack-client.browser.development.js [app-client] (ecmascript)",
@@ -5305,5 +5289,3 @@
     );
   },
 ]);
-
-

@@ -1,7 +1,4 @@
 module.exports = [
-"[project]/.next-internal/server/app/(crm)/dashboard/bulk-messaging/page/actions.js [app-rsc] (server actions loader, ecmascript)", ((__turbopack_context__, module, exports) => {
-
-}),
+  "[project]/.next-internal/server/app/(crm)/dashboard/bulk-messaging/page/actions.js [app-rsc] (server actions loader, ecmascript)",
+  (__turbopack_context__, module, exports) => {},
 ];
-
-//# sourceMappingURL=_next-internal_server_app_%28crm%29_dashboard_bulk-messaging_page_actions_c841a8a9.js.map

@@ -118,9 +118,7 @@ module.exports = [
           ] = __turbopack_async_dependencies__.then
             ? (await __turbopack_async_dependencies__)()
             : __turbopack_async_dependencies__;
-          
-          
-          
+
           const LOGO_PATH =
             __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__[
               "default"
@@ -152,7 +150,7 @@ module.exports = [
                 paddingLeft: 28,
                 paddingRight: 28,
               },
-              
+
               outerBorder: {
                 border: "2pt solid #1a6e47",
                 borderRadius: 2,
@@ -161,7 +159,7 @@ module.exports = [
                 border: "0.5pt solid #a8d5c2",
                 margin: 3,
               },
-              
+
               headerBand: {
                 backgroundColor: GREEN,
                 flexDirection: "row",
@@ -190,7 +188,7 @@ module.exports = [
                 letterSpacing: 1,
                 marginTop: 2,
               },
-              
+
               metaStrip: {
                 flexDirection: "row",
                 backgroundColor: LIGHT_GREEN,
@@ -215,14 +213,14 @@ module.exports = [
                 fontFamily: "Helvetica-Bold",
                 color: DARK,
               },
-              
+
               chequeBody: {
                 paddingHorizontal: 14,
                 paddingTop: 14,
                 paddingBottom: 10,
                 borderBottom: `1pt solid #c5e0d5`,
               },
-              
+
               receivedRow: {
                 flexDirection: "row",
                 alignItems: "flex-end",
@@ -244,7 +242,7 @@ module.exports = [
                 color: DARK,
                 letterSpacing: 0.3,
               },
-              
+
               amountSection: {
                 flexDirection: "row",
                 alignItems: "stretch",
@@ -294,7 +292,7 @@ module.exports = [
                 color: GREEN,
                 letterSpacing: 0.5,
               },
-              
+
               detailsRow: {
                 flexDirection: "row",
                 gap: 0,
@@ -326,7 +324,7 @@ module.exports = [
                 fontFamily: "Helvetica-Bold",
                 color: DARK,
               },
-              
+
               invoiceRefBar: {
                 backgroundColor: LIGHT_GREEN,
                 border: "0.75pt solid #a8d5c2",
@@ -359,7 +357,7 @@ module.exports = [
                 color: "#fff",
                 letterSpacing: 0.5,
               },
-              
+
               signatureSection: {
                 flexDirection: "row",
                 alignItems: "flex-end",
@@ -409,7 +407,7 @@ module.exports = [
                 color: GREY,
                 textAlign: "right",
               },
-              
+
               footer: {
                 flexDirection: "row",
                 alignItems: "center",
@@ -427,7 +425,7 @@ module.exports = [
                 fontFamily: "Helvetica-Bold",
                 color: GREEN,
               },
-              
+
               paidWatermark: {
                 position: "absolute",
                 top: 130,
@@ -439,14 +437,12 @@ module.exports = [
                 zIndex: -1,
               },
             });
-          
-           function toNum(
-            v,
-          ) {
+
+          function toNum(v) {
             if (v === null || v === undefined) return 0;
             if (typeof v === "number") return isFinite(v) ? v : 0;
             if (typeof v === "string") return parseFloat(v) || 0;
-            
+
             if (typeof v === "object") {
               const o = v;
               const raw =
@@ -455,23 +451,21 @@ module.exports = [
                 o.$numberInt ??
                 o.$numberDouble;
               if (raw !== undefined) return parseFloat(String(raw)) || 0;
-              
+
               const s = String(v);
               return parseFloat(s) || 0;
             }
             return 0;
           }
-           function toStr(
-            v,
-          ) {
+          function toStr(v) {
             if (v === null || v === undefined) return "";
             if (typeof v === "string") return v;
             if (typeof v === "number") return isFinite(v) ? String(v) : "";
             if (typeof v === "object") {
               const o = v;
-              
+
               if (o.$date) return String(o.$date);
-              
+
               const n = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt;
               if (n !== undefined) return String(n);
               return "";
@@ -594,7 +588,7 @@ module.exports = [
               data.balanceDue !== undefined
                 ? toNum(data.balanceDue)
                 : undefined;
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -602,7 +596,7 @@ module.exports = [
                 "Document"
               ],
               {
-                children:  (0,
+                children: (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                   "jsxDEV"
                 ])(
@@ -612,7 +606,7 @@ module.exports = [
                   {
                     size: "A4",
                     style: S.page,
-                    children:  (0,
+                    children: (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -621,7 +615,7 @@ module.exports = [
                       ],
                       {
                         style: S.outerBorder,
-                        children:  (0,
+                        children: (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -631,7 +625,7 @@ module.exports = [
                           {
                             style: S.innerBorder,
                             children: [
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -652,7 +646,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -662,7 +656,7 @@ module.exports = [
                                 {
                                   style: S.headerBand,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -683,7 +677,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -693,7 +687,7 @@ module.exports = [
                                       {
                                         style: S.headerRight,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -714,7 +708,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -760,7 +754,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -770,7 +764,7 @@ module.exports = [
                                 {
                                   style: S.metaStrip,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -780,7 +774,7 @@ module.exports = [
                                       {
                                         style: S.metaItem,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -801,7 +795,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -834,7 +828,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -844,7 +838,7 @@ module.exports = [
                                       {
                                         style: S.metaItem,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -865,7 +859,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -900,7 +894,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -910,7 +904,7 @@ module.exports = [
                                       {
                                         style: S.metaItem,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -931,7 +925,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -968,7 +962,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -983,7 +977,7 @@ module.exports = [
                                           },
                                         ],
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1004,7 +998,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1049,7 +1043,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1059,7 +1053,7 @@ module.exports = [
                                 {
                                   style: S.chequeBody,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1069,7 +1063,7 @@ module.exports = [
                                       {
                                         style: S.receivedRow,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1091,7 +1085,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1125,7 +1119,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1135,7 +1129,7 @@ module.exports = [
                                       {
                                         style: S.amountSection,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1145,7 +1139,7 @@ module.exports = [
                                             {
                                               style: S.amountWords,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1167,7 +1161,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1201,7 +1195,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1211,7 +1205,7 @@ module.exports = [
                                             {
                                               style: S.amountBox,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1232,7 +1226,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1278,7 +1272,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1288,7 +1282,7 @@ module.exports = [
                                       {
                                         style: S.detailsRow,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1298,7 +1292,7 @@ module.exports = [
                                             {
                                               style: S.detailBlock,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1319,7 +1313,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1354,7 +1348,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1364,7 +1358,7 @@ module.exports = [
                                             {
                                               style: S.detailBlock,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1386,7 +1380,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1422,7 +1416,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1432,7 +1426,7 @@ module.exports = [
                                             {
                                               style: S.detailBlockLast,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1453,7 +1447,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1500,7 +1494,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1510,7 +1504,7 @@ module.exports = [
                                       {
                                         style: S.invoiceRefBar,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1532,7 +1526,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1560,7 +1554,7 @@ module.exports = [
                                           ),
                                           balanceDue !== undefined &&
                                           balanceDue <= 0
-                                            ?  (0,
+                                            ? (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -1569,7 +1563,7 @@ module.exports = [
                                                 ],
                                                 {
                                                   style: S.invoiceStatusBadge,
-                                                  children:  (0,
+                                                  children: (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -1604,7 +1598,7 @@ module.exports = [
                                               )
                                             : balanceDue !== undefined &&
                                                 balanceDue > 0
-                                              ?  (0,
+                                              ? (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -1619,7 +1613,7 @@ module.exports = [
                                                           "#d97706",
                                                       },
                                                     ],
-                                                    children:  (0,
+                                                    children: (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -1668,7 +1662,7 @@ module.exports = [
                                       this,
                                     ),
                                     (data.clientAddress || data.clientPhone) &&
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -1682,7 +1676,7 @@ module.exports = [
                                             marginBottom: 4,
                                           },
                                           children: [
-                                             (0,
+                                            (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -1697,7 +1691,7 @@ module.exports = [
                                                   },
                                                 ],
                                                 children: [
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -1719,7 +1713,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -1744,7 +1738,7 @@ module.exports = [
                                                     this,
                                                   ),
                                                   data.clientPhone
-                                                    ?  (0,
+                                                    ? (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -1788,7 +1782,7 @@ module.exports = [
                                               },
                                               this,
                                             ),
-                                             (0,
+                                            (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -1804,7 +1798,7 @@ module.exports = [
                                                   },
                                                 ],
                                                 children: [
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -1826,7 +1820,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -1848,7 +1842,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -1913,7 +1907,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1923,7 +1917,7 @@ module.exports = [
                                 {
                                   style: S.signatureSection,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1948,7 +1942,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1958,7 +1952,7 @@ module.exports = [
                                       {
                                         style: S.signatureBlock,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1980,7 +1974,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2001,7 +1995,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2021,7 +2015,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2042,7 +2036,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2088,7 +2082,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2098,7 +2092,7 @@ module.exports = [
                                 {
                                   style: S.footer,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2120,7 +2114,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2304,7 +2298,7 @@ module.exports = [
             }
             const finalReceiptNo =
               receiptNo || generateReceiptNo(receiptIndex || receiptCounter++);
-            
+
             function coerceNum(v) {
               if (v === null || v === undefined) return 0;
               if (typeof v === "number") return isFinite(v) ? v : 0;
@@ -2360,12 +2354,11 @@ module.exports = [
                 : undefined,
             };
             try {
-              
               const pdfBuffer = await (0,
               __TURBOPACK__imported__module__$5b$externals$5d2f40$react$2d$pdf$2f$renderer__$5b$external$5d$__$2840$react$2d$pdf$2f$renderer$2c$__esm_import$29$__[
                 "renderToBuffer"
               ])(
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$payments$2f$payment$2d$receipt$2d$pdf$2e$tsx__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
@@ -2431,5 +2424,3 @@ module.exports = [
     );
   },
 ];
-
-

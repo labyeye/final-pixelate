@@ -2,10 +2,8 @@
   "use strict";
 
   function initializeContactButtons() {
-    
     if (document.querySelector(".quick-contact-stack")) return;
 
-    
     const styleEl = document.createElement("style");
     styleEl.textContent = `
       .quick-contact-stack {
@@ -66,7 +64,6 @@
     `;
     document.head.appendChild(styleEl);
 
-    
     const container = document.createElement("div");
     container.className = "quick-contact-stack";
     container.setAttribute("aria-label", "Quick Contact Buttons");
@@ -92,18 +89,14 @@
       
     `;
 
-    
     document.body.appendChild(container);
   }
 
-  
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initializeContactButtons);
   } else {
-    
     initializeContactButtons();
   }
 
-  
   setTimeout(initializeContactButtons, 500);
 })();

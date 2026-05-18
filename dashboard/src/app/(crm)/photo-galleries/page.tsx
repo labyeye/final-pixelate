@@ -21,7 +21,17 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Image, Grid3x3, Trash2, Eye, Plus, Edit2, Upload, Loader2, List as ListIcon } from "lucide-react";
+import {
+  Image,
+  Grid3x3,
+  Trash2,
+  Eye,
+  Plus,
+  Edit2,
+  Upload,
+  Loader2,
+  List as ListIcon,
+} from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -56,7 +66,9 @@ export default function PhotoGalleriesPage() {
     thumbnailBase64: "",
     showOn: [],
   });
-  const [pendingFiles, setPendingFiles] = useState<{ file: File; preview: string }[]>([]);
+  const [pendingFiles, setPendingFiles] = useState<
+    { file: File; preview: string }[]
+  >([]);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [showPreview, setShowPreview] = useState(false);
@@ -165,7 +177,8 @@ export default function PhotoGalleriesPage() {
       title: photo.title,
       description: photo.description || "",
       category: photo.category || "",
-      thumbnailBase64: photo.thumbnailBase64 || photo.thumbnail || photo.url || "",
+      thumbnailBase64:
+        photo.thumbnailBase64 || photo.thumbnail || photo.url || "",
       showOn: photo.showOn || [],
     });
     setIsDialogOpen(true);
@@ -198,7 +211,10 @@ export default function PhotoGalleriesPage() {
           if (processedCount === files.length) {
             setPendingFiles([...pendingFiles, ...newFiles]);
             if (!editingPhoto && !formData.title && files.length === 1) {
-              setFormData((prev) => ({ ...prev, title: file.name.split(".")[0] }));
+              setFormData((prev) => ({
+                ...prev,
+                title: file.name.split(".")[0],
+              }));
             }
           }
         };
@@ -224,9 +240,8 @@ export default function PhotoGalleriesPage() {
     try {
       setIsSaving(true);
       const token = localStorage.getItem("token");
-      
+
       if (editingPhoto) {
-        // Single update
         const response = await fetch(`/api/photos/${editingPhoto._id}`, {
           method: "PUT",
           headers: {
@@ -235,20 +250,25 @@ export default function PhotoGalleriesPage() {
           },
           body: JSON.stringify({
             ...formData,
-            thumbnailBase64: pendingFiles[0]?.preview || formData.thumbnailBase64
+            thumbnailBase64:
+              pendingFiles[0]?.preview || formData.thumbnailBase64,
           }),
         });
 
         if (!response.ok) throw new Error("Failed to update photo");
         const savedPhoto = await response.json();
-        setPhotos(photos.map((p) => (p._id === savedPhoto._id ? savedPhoto : p)));
+        setPhotos(
+          photos.map((p) => (p._id === savedPhoto._id ? savedPhoto : p)),
+        );
         toast({ title: "Success", description: "Photo updated successfully" });
       } else {
-        // Bulk or single add
         const uploadPromises = pendingFiles.map(async (pf) => {
           const photoData = {
             ...formData,
-            title: pendingFiles.length > 1 ? (pf.file.name.split('.')[0]) : (formData.title || pf.file.name.split('.')[0]),
+            title:
+              pendingFiles.length > 1
+                ? pf.file.name.split(".")[0]
+                : formData.title || pf.file.name.split(".")[0],
             thumbnailBase64: pf.preview,
           };
 
@@ -267,9 +287,9 @@ export default function PhotoGalleriesPage() {
 
         const savedPhotos = await Promise.all(uploadPromises);
         setPhotos([...savedPhotos, ...photos]);
-        toast({ 
-          title: "Success", 
-          description: `${savedPhotos.length} photo(s) added successfully` 
+        toast({
+          title: "Success",
+          description: `${savedPhotos.length} photo(s) added successfully`,
         });
       }
 
@@ -330,23 +350,23 @@ export default function PhotoGalleriesPage() {
   return (
     <div className="space-y-8">
       {}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold flex items-center gap-2">
-              <Image className="w-8 h-8" />
-              Photo Galleries
-            </h1>
-            <p className="text-muted-foreground">
-              Manage and organize your photography portfolio
-            </p>
-          </div>
-          {user?.role === "admin" && (
-            <Button onClick={handleOpenAddDialog} className="w-fit">
-              <Plus className="w-4 h-4 mr-2" />
-              Add Photo
-            </Button>
-          )}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl font-bold flex items-center gap-2">
+            <Image className="w-8 h-8" />
+            Photo Galleries
+          </h1>
+          <p className="text-muted-foreground">
+            Manage and organize your photography portfolio
+          </p>
         </div>
+        {user?.role === "admin" && (
+          <Button onClick={handleOpenAddDialog} className="w-fit">
+            <Plus className="w-4 h-4 mr-2" />
+            Add Photo
+          </Button>
+        )}
+      </div>
 
       {}
       <div className="grid gap-4 md:grid-cols-3">
@@ -558,7 +578,9 @@ export default function PhotoGalleriesPage() {
 
                         {}
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-sm">{photo.title}</h3>
+                          <h3 className="font-semibold text-sm">
+                            {photo.title}
+                          </h3>
                           {photo.description && (
                             <p className="text-sm text-muted-foreground line-clamp-1">
                               {photo.description}
@@ -618,9 +640,13 @@ export default function PhotoGalleriesPage() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>{editingPhoto ? "Edit Photo" : "Add New Photo"}</DialogTitle>
+            <DialogTitle>
+              {editingPhoto ? "Edit Photo" : "Add New Photo"}
+            </DialogTitle>
             <DialogDescription>
-              {editingPhoto ? "Update the details of your photo" : "Fill in the details to add a new photo to your gallery"}
+              {editingPhoto
+                ? "Update the details of your photo"
+                : "Fill in the details to add a new photo to your gallery"}
             </DialogDescription>
           </DialogHeader>
 
@@ -631,7 +657,9 @@ export default function PhotoGalleriesPage() {
                 id="title"
                 placeholder="Photo Title"
                 value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
               />
             </div>
 
@@ -641,7 +669,9 @@ export default function PhotoGalleriesPage() {
                 id="category"
                 placeholder="e.g. Products, Events, Portrait"
                 value={formData.category}
-                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, category: e.target.value })
+                }
               />
               <p className="text-xs text-muted-foreground">
                 Photos are grouped by this field on the website.
@@ -654,7 +684,9 @@ export default function PhotoGalleriesPage() {
                 id="description"
                 placeholder="Brief description of the photo..."
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
               />
             </div>
 
@@ -663,7 +695,10 @@ export default function PhotoGalleriesPage() {
               <div className="space-y-4">
                 <div className="grid grid-cols-4 gap-2">
                   {pendingFiles.map((pf, idx) => (
-                    <div key={idx} className="relative aspect-square rounded-lg overflow-hidden bg-muted border group">
+                    <div
+                      key={idx}
+                      className="relative aspect-square rounded-lg overflow-hidden bg-muted border group"
+                    >
                       <img
                         src={pf.preview}
                         alt="Preview"
@@ -722,7 +757,10 @@ export default function PhotoGalleriesPage() {
                 onCheckedChange={(checked) => {
                   const currentShowOn = formData.showOn || [];
                   if (checked) {
-                    setFormData({ ...formData, showOn: [...currentShowOn, "photography"] });
+                    setFormData({
+                      ...formData,
+                      showOn: [...currentShowOn, "photography"],
+                    });
                   } else {
                     setFormData({
                       ...formData,
@@ -731,7 +769,10 @@ export default function PhotoGalleriesPage() {
                   }
                 }}
               />
-              <Label htmlFor="featured" className="text-sm font-normal cursor-pointer">
+              <Label
+                htmlFor="featured"
+                className="text-sm font-normal cursor-pointer"
+              >
                 Show on Photography page
               </Label>
             </div>
@@ -749,7 +790,7 @@ export default function PhotoGalleriesPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Preview Dialog */}
+      {}
       <Dialog open={showPreview} onOpenChange={setShowPreview}>
         <DialogContent className="max-w-3xl">
           <DialogHeader>

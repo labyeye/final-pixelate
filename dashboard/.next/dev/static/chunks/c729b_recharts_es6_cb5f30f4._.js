@@ -322,7 +322,7 @@
       () => useYAxisWithFiniteDomainOrRandom,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -368,31 +368,31 @@
         _typeof(o)
       );
     }
-    var XAxisContext =  (0,
+    var XAxisContext = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var YAxisContext =  (0,
+    var YAxisContext = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var ViewBoxContext =  (0,
+    var ViewBoxContext = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var OffsetContext =  (0,
+    var OffsetContext = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])({});
-    var ClipPathIdContext =  (0,
+    var ClipPathIdContext = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(undefined);
-    var ChartHeightContext =  (0,
+    var ChartHeightContext = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(0);
-    var ChartWidthContext =  (0,
+    var ChartWidthContext = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "createContext"
     ])(0);
@@ -407,67 +407,55 @@
         children = props.children,
         width = props.width,
         height = props.height;
-      
 
- var viewBox = (0,
+      var viewBox = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$calculateViewBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "calculateViewBox"
       ])(offset);
-      
 
-
-
-
-
-
-
-
-
-
-
- return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         XAxisContext.Provider,
         {
           value: xAxisMap,
         },
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           YAxisContext.Provider,
           {
             value: yAxisMap,
           },
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             OffsetContext.Provider,
             {
               value: offset,
             },
-             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               ViewBoxContext.Provider,
               {
                 value: viewBox,
               },
-               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 ClipPathIdContext.Provider,
                 {
                   value: clipPathId,
                 },
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   ChartHeightContext.Provider,
                   {
                     value: height,
                   },
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     ChartWidthContext.Provider,
@@ -637,7 +625,7 @@
 
     __turbopack_context__.s(["shallowEqual", () => shallowEqual]);
     function shallowEqual(a, b) {
-       for (var key in a) {
+      for (var key in a) {
         if (
           {}.hasOwnProperty.call(a, key) &&
           (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])
@@ -699,20 +687,7 @@
         _typeof(o)
       );
     }
-    
 
-
-
-
-
-
-
-
-
-
- 
-    
-    
     var SVGContainerPropKeys = ["viewBox", "children"];
     var SVGElementPropKeys = [
       "aria-activedescendant",
@@ -772,12 +747,7 @@
       "min",
       "name",
       "style",
-      
 
-
-
-
- 
       "target",
       "width",
       "role",
@@ -1198,7 +1168,7 @@
       }
       var inputProps = props;
       if (
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(props)
@@ -1442,8 +1412,7 @@
       }
       return Comp.displayName || Comp.name || "Component";
     };
-    
-    
+
     var lastChildren = null;
     var lastResult = null;
     var toArray = function toArray(children) {
@@ -1469,7 +1438,6 @@
         ) {
           result = result.concat(toArray(child.props.children));
         } else {
-          
           result.push(child);
         }
       });
@@ -1654,11 +1622,8 @@
       svgElementType,
     ) {
       var _FilteredElementKeyMa;
-      
 
-
-
- var matchingElementTypeKeys =
+      var matchingElementTypeKeys =
         (_FilteredElementKeyMa =
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$types$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "FilteredElementKeyMap"
@@ -1707,7 +1672,7 @@
       }
       var inputProps = props;
       if (
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(props)
@@ -1723,13 +1688,8 @@
         return null;
       }
       var out = {};
-      
 
-
-
-
-
- Object.keys(inputProps).forEach(function (key) {
+      Object.keys(inputProps).forEach(function (key) {
         var _inputProps;
         if (
           isValidSpreadableProp(
@@ -1766,7 +1726,6 @@
         return true;
       }
       if (count === 1) {
-        
         return isSingleChildEqual(
           Array.isArray(nextChildren) ? nextChildren[0] : nextChildren,
           Array.isArray(prevChildren) ? prevChildren[0] : prevChildren,
@@ -1779,7 +1738,6 @@
           if (!isChildrenEqual(nextChild, prevChild)) {
             return false;
           }
-          
         } else if (!isSingleChildEqual(nextChild, prevChild)) {
           return false;
         }
@@ -1917,7 +1875,7 @@
       return target;
     }
     var Layer =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].forwardRef(function (props, ref) {
         var children = props.children,
@@ -1927,7 +1885,7 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ])("recharts-layer", className);
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "g",
@@ -2217,8 +2175,7 @@
           measurementSpan.setAttribute("aria-hidden", "true");
           document.body.appendChild(measurementSpan);
         }
-        
-        
+
         var measurementSpanStyle = _objectSpread(
           _objectSpread({}, SPAN_STYLE),
           copyStyle,
@@ -2414,7 +2371,7 @@
     function convertToPx(value, unit) {
       return value * CONVERSION_RATES[unit];
     }
-    var DecimalCSS =  (function () {
+    var DecimalCSS = (function () {
       function DecimalCSS(num, unit) {
         _classCallCheck(this, DecimalCSS);
         this.num = num;
@@ -2600,13 +2557,12 @@
       try {
         return evaluateExpression(expression);
       } catch (e) {
-         return STR_NAN;
+        return STR_NAN;
       }
     }
     function reduceCSSCalc(expression) {
       var result = safeEvaluateExpression(expression.slice(5, -1));
       if (result === STR_NAN) {
-        
         return "";
       }
       return result;
@@ -2840,11 +2796,9 @@
               scaleToFit ||
               currentLine.width + width + spaceWidth < Number(lineWidth))
           ) {
-            
             currentLine.words.push(word);
             currentLine.width += width + spaceWidth;
           } else {
-            
             var newLine = {
               words: [word],
               width: width,
@@ -2903,8 +2857,7 @@
         }
         iterations++;
       }
-      
-      
+
       return trimmedResult || originalResult;
     };
     var getWordsWithoutCalculate = function getWordsWithoutCalculate(children) {
@@ -2927,7 +2880,7 @@
         style = _ref4.style,
         breakAll = _ref4.breakAll,
         maxLines = _ref4.maxLines;
-      
+
       if (
         (width || scaleToFit) &&
         !__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$Global$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3096,7 +3049,7 @@
       if (transforms.length) {
         textProps.transform = transforms.join(" ");
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "text",
@@ -3119,20 +3072,16 @@
         ),
         wordsByLines.map(function (line, index) {
           var words = line.words.join(breakAll ? "" : " ");
-          return (
-             
-            
-            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-              "default"
-            ].createElement(
-              "tspan",
-              {
-                x: x,
-                dy: index === 0 ? startDy : lineHeight,
-                key: "".concat(words, "-").concat(index),
-              },
-              words,
-            )
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "default"
+          ].createElement(
+            "tspan",
+            {
+              x: x,
+              dy: index === 0 ? startDy : lineHeight,
+              key: "".concat(words, "-").concat(index),
+            },
+            words,
           );
         }),
       );
@@ -3144,12 +3093,11 @@
 
     __turbopack_context__.s(["ErrorBar", () => ErrorBar]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -3429,7 +3377,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var ErrorBar =  (function (_React$Component) {
+    var ErrorBar = (function (_React$Component) {
       function ErrorBar() {
         _classCallCheck(this, ErrorBar);
         return _callSuper(this, ErrorBar, arguments);
@@ -3483,28 +3431,27 @@
                 lowBound = highBound = errorVal;
               }
               if (layout === "vertical") {
-                
                 var scale = xAxis.scale;
                 var yMid = y + offset;
                 var yMin = yMid + width;
                 var yMax = yMid - width;
                 var xMin = scale(value - lowBound);
                 var xMax = scale(value + highBound);
-                
+
                 lineCoordinates.push({
                   x1: xMax,
                   y1: yMin,
                   x2: xMax,
                   y2: yMax,
                 });
-                
+
                 lineCoordinates.push({
                   x1: xMin,
                   y1: yMid,
                   x2: xMax,
                   y2: yMid,
                 });
-                
+
                 lineCoordinates.push({
                   x1: xMin,
                   y1: yMin,
@@ -3512,28 +3459,27 @@
                   y2: yMax,
                 });
               } else if (layout === "horizontal") {
-                
                 var _scale = yAxis.scale;
                 var xMid = x + offset;
                 var _xMin = xMid - width;
                 var _xMax = xMid + width;
                 var _yMin = _scale(value - lowBound);
                 var _yMax = _scale(value + highBound);
-                
+
                 lineCoordinates.push({
                   x1: _xMin,
                   y1: _yMax,
                   x2: _xMax,
                   y2: _yMax,
                 });
-                
+
                 lineCoordinates.push({
                   x1: xMid,
                   y1: _yMin,
                   x2: xMid,
                   y2: _yMax,
                 });
-                
+
                 lineCoordinates.push({
                   x1: _xMin,
                   y1: _yMin,
@@ -3541,7 +3487,7 @@
                   y2: _yMin,
                 });
               }
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3563,7 +3509,7 @@
                   svgProps,
                 ),
                 lineCoordinates.map(function (coordinates) {
-                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     "line",
@@ -3578,7 +3524,7 @@
                 }),
               );
             });
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -3610,9 +3556,9 @@
   (__turbopack_context__) => {
     "use strict";
 
-     __turbopack_context__.s(["warn", () => warn]);
+    __turbopack_context__.s(["warn", () => warn]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var isDev =
@@ -3654,9 +3600,8 @@
     "use strict";
 
     __turbopack_context__.s(["Surface", () => Surface]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -3731,7 +3676,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ])("recharts-surface", className);
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "svg",
@@ -3753,10 +3698,10 @@
               .concat(svgView.height),
           },
         ),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("title", null, title),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("desc", null, desc),
         children,
@@ -3768,9 +3713,8 @@
     "use strict";
 
     __turbopack_context__.s(["Symbols", () => Symbols]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -4035,10 +3979,8 @@
           sizeType: sizeType,
         },
       );
-      
 
-
- var getPath = function getPath() {
+      var getPath = function getPath() {
         var symbolFactory = getSymbolFactory(type);
         var symbol = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$symbol$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__symbol$3e$__[
@@ -4056,7 +3998,7 @@
         "filterProps"
       ])(props, true);
       if (cx === +cx && cy === +cy && size === +size) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "path",
@@ -4082,9 +4024,8 @@
       "DefaultLegendContent",
       () => DefaultLegendContent,
     ]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -4297,7 +4238,7 @@
       return ("string" === r ? String : Number)(t);
     }
     var SIZE = 32;
-    var DefaultLegendContent =  (function (_PureComponent) {
+    var DefaultLegendContent = (function (_PureComponent) {
       function DefaultLegendContent() {
         _classCallCheck(this, DefaultLegendContent);
         return _callSuper(this, DefaultLegendContent, arguments);
@@ -4306,18 +4247,14 @@
       return _createClass(DefaultLegendContent, [
         {
           key: "renderIcon",
-          value: 
-
-
-
- function renderIcon(data) {
+          value: function renderIcon(data) {
             var inactiveColor = this.props.inactiveColor;
             var halfSize = SIZE / 2;
             var sixthSize = SIZE / 6;
             var thirdSize = SIZE / 3;
             var color = data.inactive ? inactiveColor : data.color;
             if (data.type === "plainline") {
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("line", {
                 strokeWidth: 4,
@@ -4332,7 +4269,7 @@
               });
             }
             if (data.type === "line") {
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("path", {
                 strokeWidth: 4,
@@ -4356,7 +4293,7 @@
               });
             }
             if (data.type === "rect") {
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("path", {
                 stroke: "none",
@@ -4370,17 +4307,17 @@
               });
             }
             if (
-               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].isValidElement(data.legendIcon)
             ) {
               var iconProps = _objectSpread({}, data);
               delete iconProps.legendIcon;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].cloneElement(data.legendIcon, iconProps);
             }
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Symbols$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4443,7 +4380,7 @@
               if (entry.type === "none") {
                 return null;
               }
-              
+
               var entryValue = !(0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isFunction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
@@ -4458,10 +4395,10 @@
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isFunction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ])(entry.value),
-                'The name property is also required when using a function for the dataKey of a chart\'s cartesian components. Ex: <Bar name="Name of my Data"/>', 
+                'The name property is also required when using a function for the dataKey of a chart\'s cartesian components. Ex: <Bar name="Name of my Data"/>',
               );
               var color = entry.inactive ? inactiveColor : entry.color;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "li",
@@ -4476,7 +4413,7 @@
                     "adaptEventsOfChild"
                   ])(_this.props, entry, i),
                 ),
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Surface$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4490,7 +4427,7 @@
                   },
                   _this.renderIcon(entry),
                 ),
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "span",
@@ -4523,7 +4460,7 @@
               margin: 0,
               textAlign: layout === "horizontal" ? align : "left",
             };
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               "ul",
@@ -4589,9 +4526,8 @@
     "use strict";
 
     __turbopack_context__.s(["Legend", () => Legend]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -4818,22 +4754,22 @@
     }
     function renderContent(content, props) {
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(content)
       ) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].cloneElement(content, props);
       }
       if (typeof content === "function") {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(content, props);
       }
       var ref = props.ref,
         otherProps = _objectWithoutProperties(props, _excluded);
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$DefaultLegendContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -4843,7 +4779,7 @@
       );
     }
     var EPS = 1;
-    var Legend =  (function (_PureComponent) {
+    var Legend = (function (_PureComponent) {
       function Legend() {
         var _this;
         _classCallCheck(this, Legend);
@@ -5010,7 +4946,7 @@
                 ),
                 wrapperStyle,
               );
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "div",
@@ -5247,7 +5183,7 @@
               "getMainColorOfGraphicItem"
             ])(item),
             value: name || dataKey,
-            
+
             payload: itemProps,
           };
         });
@@ -5441,8 +5377,7 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/util/ReactUtils.js [app-client] (ecmascript)",
       );
-    
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$getLegendProps$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/util/getLegendProps.js [app-client] (ecmascript)",
@@ -5607,7 +5542,6 @@
         return getValueByDataKey(entry, key);
       });
       if (type === "number") {
-        
         var domain = flattenData.filter(function (entry) {
           return (
             (0,
@@ -5637,7 +5571,7 @@
             ])(entry);
           })
         : flattenData;
-      
+
       return validateData.map(function (entry) {
         return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -5662,7 +5596,7 @@
           null && _ticks$length !== void 0
           ? _ticks$length
           : 0;
-      
+
       if (len <= 1) {
         return 0;
       }
@@ -5672,7 +5606,7 @@
         Math.abs(Math.abs(axis.range[1] - axis.range[0]) - 360) <= 1e-6
       ) {
         var range = axis.range;
-        
+
         for (var i = 0; i < len; i++) {
           var before =
             i > 0
@@ -5739,7 +5673,6 @@
           }
         }
       } else {
-        
         for (var _i = 0; _i < len; _i++) {
           if (
             (_i === 0 &&
@@ -5765,7 +5698,7 @@
     var getMainColorOfGraphicItem = function getMainColorOfGraphicItem(item) {
       var _item$type;
       var _ref = item,
-        displayName = _ref.type.displayName; 
+        displayName = _ref.type.displayName;
       var defaultedProps =
         (_item$type = item.type) !== null &&
         _item$type !== void 0 &&
@@ -5867,11 +5800,11 @@
       ])(barGap, bandSize, 0, true);
       var result;
       var initialValue = [];
-      
+
       if (sizeList[0].barSize === +sizeList[0].barSize) {
         var useFull = false;
         var fullBarSize = bandSize / len;
-        
+
         var sum = sizeList.reduce(function (res, entry) {
           return res + entry.barSize || 0;
         }, 0);
@@ -5895,7 +5828,7 @@
             item: entry.item,
             position: {
               offset: prev.offset + prev.size + realBarGap,
-              
+
               size: useFull ? fullBarSize : entry.barSize,
             },
           };
@@ -6169,10 +6102,7 @@
         return getDomainOfDataByKey(data, dataKey, type, filterNil);
       });
       if (type === "number") {
-        
         return domains.reduce(
-          
-          
           function (result, entry) {
             return [
               Math.min(result[0], entry[0]),
@@ -6183,14 +6113,12 @@
         );
       }
       var tag = {};
-      
+
       return domains.reduce(function (result, entry) {
         for (var i = 0, len = entry.length; i < len; i++) {
-          
           if (!tag[entry[i]]) {
-            
             tag[entry[i]] = true;
-            
+
             result.push(entry[i]);
           }
         }
@@ -6256,15 +6184,13 @@
             2 *
             offset
           : offset;
-      
+
       if (isGrid && (axis.ticks || axis.niceTicks)) {
         var result = (axis.ticks || axis.niceTicks).map(function (entry) {
           var scaleContent = duplicateDomain
             ? duplicateDomain.indexOf(entry)
             : entry;
           return {
-            
-            
             coordinate: scale(scaleContent) + offset,
             value: entry,
             offset: offset,
@@ -6277,7 +6203,7 @@
           ])(row.coordinate);
         });
       }
-      
+
       if (axis.isCategorical && axis.categoricalDomain) {
         return axis.categoricalDomain.map(function (entry, index) {
           return {
@@ -6297,7 +6223,7 @@
           };
         });
       }
-      
+
       return scale.domain().map(function (entry, index) {
         return {
           coordinate: scale(entry) + offset,
@@ -6307,12 +6233,8 @@
         };
       });
     };
-    
 
-
-
-
- var handlerWeakMap = new WeakMap();
+    var handlerWeakMap = new WeakMap();
     var combineEventHandlers = function combineEventHandlers(
       defaultHandler,
       childHandler,
@@ -6511,9 +6433,7 @@
           ])(series[i][j][1])
             ? series[i][j][0]
             : series[i][j][1];
-           if (
-            value >= 0
-          ) {
+          if (value >= 0) {
             series[i][j][0] = positive;
             series[i][j][1] = positive + value;
             positive = series[i][j][1];
@@ -6522,7 +6442,6 @@
             series[i][j][1] = negative + value;
             negative = series[i][j][1];
           }
-          
         }
       }
     };
@@ -6540,9 +6459,7 @@
           ])(series[i][j][1])
             ? series[i][j][0]
             : series[i][j][1];
-           if (
-            value >= 0
-          ) {
+          if (value >= 0) {
             series[i][j][0] = positive;
             series[i][j][1] = positive + value;
             positive = series[i][j][1];
@@ -6550,40 +6467,27 @@
             series[i][j][0] = 0;
             series[i][j][1] = 0;
           }
-          
         }
       }
     };
-    
 
-
-
-
-
-
-
-
-
-
-
-
- var STACK_OFFSET_MAP = {
+    var STACK_OFFSET_MAP = {
       sign: offsetSign,
-      
+
       expand:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$expand$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetExpand$3e$__[
           "stackOffsetExpand"
         ],
-      
+
       none: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$none$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetNone$3e$__[
         "stackOffsetNone"
       ],
-      
+
       silhouette:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$silhouette$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetSilhouette$3e$__[
           "stackOffsetSilhouette"
         ],
-      
+
       wiggle:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$offset$2f$wiggle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOffsetWiggle$3e$__[
           "stackOffsetWiggle"
@@ -6598,7 +6502,7 @@
       var stack = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$stack$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stack$3e$__[
         "stack"
-      ])() 
+      ])()
         .keys(dataKeys)
         .value(function (d, key) {
           return +getValueByDataKey(d, key, 0);
@@ -6607,7 +6511,7 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$order$2f$none$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__stackOrderNone$3e$__[
             "stackOrderNone"
           ],
-        ) 
+        )
         .offset(offsetAccessor);
       return stack(data);
     };
@@ -6622,7 +6526,7 @@
       if (!data) {
         return null;
       }
-      
+
       var items = reverseStackOrder ? _items.reverse() : _items;
       var parentStackGroupsInitialValue = {};
       var stackGroups = items.reduce(function (result, item) {
@@ -6723,7 +6627,6 @@
         originalDomain &&
         (originalDomain[0] === "auto" || originalDomain[1] === "auto")
       ) {
-        
         var domain = scale.domain();
         if (!domain.length) {
           return null;
@@ -6766,8 +6669,6 @@
         index = _ref5.index,
         dataKey = _ref5.dataKey;
       if (axis.type === "category") {
-        
-        
         if (
           !axis.allowDuplicatedCategory &&
           axis.dataKey &&
@@ -6776,7 +6677,6 @@
             "default"
           ])(entry[axis.dataKey])
         ) {
-          
           var matchedTick = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "findEntryInArray"
@@ -6945,7 +6845,7 @@
         return dataDomain;
       }
       var domain = [];
-       if (
+      if (
         (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isNumber"
@@ -6989,12 +6889,10 @@
       } else {
         domain[1] = dataDomain[1];
       }
-       return domain;
+      return domain;
     };
     var getBandSizeOfAxis = function getBandSizeOfAxis(axis, ticks, isBar) {
-      
       if (axis && axis.scale && axis.scale.bandwidth) {
-        
         var bandWidth = axis.scale.bandwidth();
         if (!isBar || bandWidth > 0) {
           return bandWidth;
@@ -7532,12 +7430,10 @@
       return null;
     };
     var getTickClassName = function getTickClassName(tick) {
-      return !(
-         (0,
-        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-          "isValidElement"
-        ])(tick)
-      ) &&
+      return !(0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "isValidElement"
+      ])(tick) &&
         !(0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isFunction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
@@ -7824,7 +7720,7 @@
             "uniqueId"
           ])("recharts-radial-line-")
         : labelProps.id;
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "text",
@@ -7835,19 +7731,19 @@
             "default"
           ])("recharts-radial-bar-label", className),
         }),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "defs",
           null,
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement("path", {
             id: id,
             d: path,
           }),
         ),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "textPath",
@@ -7932,12 +7828,12 @@
         y = _ref3.y,
         width = _ref3.width,
         height = _ref3.height;
-      
+
       var verticalSign = height >= 0 ? 1 : -1;
       var verticalOffset = verticalSign * offset;
       var verticalEnd = verticalSign > 0 ? "end" : "start";
       var verticalStart = verticalSign > 0 ? "start" : "end";
-      
+
       var horizontalSign = width >= 0 ? 1 : -1;
       var horizontalOffset = horizontalSign * offset;
       var horizontalEnd = horizontalSign > 0 ? "end" : "start";
@@ -8199,12 +8095,10 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isNil$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ])(children) &&
-          !(
-             (0,
-            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-              "isValidElement"
-            ])(content)
-          ) &&
+          !(0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "isValidElement"
+          ])(content) &&
           !(0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isFunction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
@@ -8213,12 +8107,12 @@
         return null;
       }
       if (
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(content)
       ) {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(content, props);
@@ -8230,12 +8124,12 @@
           "default"
         ])(content)
       ) {
-        label =  (0,
+        label = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "createElement"
         ])(content, props);
         if (
-           (0,
+          (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "isValidElement"
           ])(label)
@@ -8261,7 +8155,7 @@
       var positionAttrs = isPolarLabel
         ? getAttrsOfPolarLabel(props)
         : getAttrsOfCartesianLabel(props);
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -8397,7 +8291,7 @@
         return null;
       }
       if (label === true) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8410,7 +8304,7 @@
           "isNumOrStr"
         ])(label)
       ) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8419,13 +8313,13 @@
         });
       }
       if (
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(label)
       ) {
         if (label.type === Label) {
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "cloneElement"
           ])(label, {
@@ -8433,7 +8327,7 @@
             viewBox: viewBox,
           });
         }
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8447,7 +8341,7 @@
           "default"
         ])(label)
       ) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Label, {
           key: "label-implicit",
@@ -8461,7 +8355,7 @@
           "default"
         ])(label)
       ) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           Label,
@@ -8495,12 +8389,12 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "findAllByType"
       ])(children, Label).map(function (child, index) {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(child, {
           viewBox: viewBox || parentViewBox,
-          
+
           key: "label-".concat(index),
         });
       });
@@ -8520,9 +8414,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
- __turbopack_context__.s(["Cell", () => Cell]);
+    __turbopack_context__.s(["Cell", () => Cell]);
     var Cell = function Cell(_props) {
       return null;
     };
@@ -8744,7 +8636,7 @@
       if (!data || !data.length) {
         return null;
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -8771,7 +8663,7 @@
             : {
                 id: "".concat(id, "-").concat(index),
               };
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Label$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -8806,7 +8698,7 @@
                           },
                         ),
                   ),
-                key: "label-".concat(index), 
+                key: "label-".concat(index),
                 index: index,
               },
             ),
@@ -8820,7 +8712,7 @@
         return null;
       }
       if (label === true) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(LabelList, {
           key: "labelList-implicit",
@@ -8828,7 +8720,7 @@
         });
       }
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(label) ||
         (0,
@@ -8836,7 +8728,7 @@
           "default"
         ])(label)
       ) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(LabelList, {
           key: "labelList-implicit",
@@ -8850,7 +8742,7 @@
           "default"
         ])(label)
       ) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           LabelList,
@@ -8883,12 +8775,12 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "findAllByType"
       ])(children, LabelList).map(function (child, index) {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(child, {
           data: data,
-          
+
           key: "labelList-".concat(index),
         });
       });
@@ -8910,9 +8802,8 @@
       "isInRectangle",
       () => isInRectangle,
     ]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -9208,9 +9099,7 @@
       y: 0,
       width: 0,
       height: 0,
-      
-      
-      
+
       radius: 0,
       isAnimationActive: false,
       isUpdateAnimationActive: false,
@@ -9246,9 +9135,7 @@
                 if (pathTotalLength) {
                   setTotalLength(pathTotalLength);
                 }
-              } catch (err) {
-                
-              }
+              } catch (err) {}
             }
           },
         }["Rectangle.useEffect"],
@@ -9280,7 +9167,7 @@
         "default"
       ])("recharts-rectangle", className);
       if (!isUpdateAnimationActive) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "path",
@@ -9297,7 +9184,7 @@
           ),
         );
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9326,7 +9213,7 @@
             currHeight = _ref.height,
             currX = _ref.x,
             currY = _ref.y;
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9342,7 +9229,7 @@
               isActive: isAnimationActive,
               easing: animationEasing,
             },
-             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               "path",
@@ -9375,9 +9262,8 @@
     "use strict";
 
     __turbopack_context__.s(["Trapezoid", () => Trapezoid]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -9610,9 +9496,7 @@
                 if (pathTotalLength) {
                   setTotalLength(pathTotalLength);
                 }
-              } catch (err) {
-                
-              }
+              } catch (err) {}
             }
           },
         }["Trapezoid.useEffect"],
@@ -9644,12 +9528,12 @@
         "default"
       ])("recharts-trapezoid", className);
       if (!isUpdateAnimationActive) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "g",
           null,
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "path",
@@ -9667,7 +9551,7 @@
           ),
         );
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9699,7 +9583,7 @@
             currHeight = _ref.height,
             currX = _ref.x,
             currY = _ref.y;
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -9714,7 +9598,7 @@
               duration: animationDuration,
               easing: animationEasing,
             },
-             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               "path",
@@ -9747,9 +9631,8 @@
     "use strict";
 
     __turbopack_context__.s(["Sector", () => Sector]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -9881,12 +9764,12 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "polarToCartesian"
       ])(cx, cy, centerRadius, centerAngle);
-      
+
       var circleTangency = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "polarToCartesian"
       ])(cx, cy, radius, centerAngle);
-      
+
       var lineTangencyAngle = cornerIsExternal ? angle - sign * theta : angle;
       var lineTangency = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -9918,7 +9801,7 @@
         startAngle = _ref2.startAngle,
         endAngle = _ref2.endAngle;
       var angle = getDeltaAngle(startAngle, endAngle);
-      
+
       var tempEndAngle = startAngle + angle;
       var outerStartPoint = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$PolarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10156,7 +10039,7 @@
           endAngle: endAngle,
         });
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "path",
@@ -10351,19 +10234,8 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    
 
-
-
-
-
-
-
-
-
-
-
- function defaultPropTransformer(option, props) {
+    function defaultPropTransformer(option, props) {
       return _objectSpread(_objectSpread({}, props), option);
     }
     function isSymbolsProps(shapeType, _elementProps) {
@@ -10374,7 +10246,7 @@
         elementProps = _ref.elementProps;
       switch (shapeType) {
         case "rectangle":
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Rectangle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10383,7 +10255,7 @@
             elementProps,
           );
         case "trapezoid":
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Trapezoid$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10392,7 +10264,7 @@
             elementProps,
           );
         case "sector":
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Sector$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10402,7 +10274,7 @@
           );
         case "symbols":
           if (isSymbolsProps(shapeType, elementProps)) {
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Symbols$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10418,7 +10290,7 @@
     }
     function getPropsFromShapeOption(option) {
       if (
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(option)
@@ -10444,12 +10316,12 @@
         props = _objectWithoutProperties(_ref2, _excluded);
       var shape;
       if (
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "isValidElement"
         ])(option)
       ) {
-        shape =  (0,
+        shape = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "cloneElement"
         ])(
@@ -10478,7 +10350,7 @@
       ) {
         var nextProps = propTransformer(option, props);
         shape =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(ShapeSelector, {
             shapeType: shapeType,
@@ -10487,7 +10359,7 @@
       } else {
         var elementProps = props;
         shape =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(ShapeSelector, {
             shapeType: shapeType,
@@ -10495,7 +10367,7 @@
           });
       }
       if (isActive) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10620,14 +10492,14 @@
             return comparison(shapeData, activeTooltipItem);
           },
         );
-        
+
         var indexOfMouseCoordinates = graphicalItem.props[shapeKey].indexOf(
           mouseCoordinateMatches[mouseCoordinateMatches.length - 1],
         );
         var coordinatesMatch = dataIndex === indexOfMouseCoordinates;
         return valuesMatch && coordinatesMatch;
       });
-      
+
       var activeIndex = itemData.indexOf(
         activeItemMatches[activeItemMatches.length - 1],
       );
@@ -10645,7 +10517,7 @@
       () => minPointSizeCallback,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -10776,11 +10648,7 @@
       }
       return target;
     }
-    
-    
-    
-    
-    
+
     function typeguardBarRectangleProps(_ref, props) {
       var xProp = _ref.x,
         yProp = _ref.y,
@@ -10819,7 +10687,7 @@
       );
     }
     function BarRectangle(props) {
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ActiveShapeUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -10875,9 +10743,8 @@
     "use strict";
 
     __turbopack_context__.s(["Bar", () => Bar]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -11150,7 +11017,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var Bar =  (function (_PureComponent) {
+    var Bar = (function (_PureComponent) {
       function Bar() {
         var _this;
         _classCallCheck(this, Bar);
@@ -11227,7 +11094,7 @@
                       onAnimationEnd: _this2.handleAnimationEnd,
                     },
                   );
-                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11242,8 +11109,6 @@
                         "adaptEventsOfChild"
                       ])(_this2.props, entry, i),
                       {
-                        
-                        
                         key: "rectangle-"
                           .concat(
                             entry === null || entry === void 0
@@ -11266,7 +11131,7 @@
                           .concat(i),
                       },
                     ),
-                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$BarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11292,7 +11157,7 @@
                 animationEasing = _this$props2.animationEasing,
                 animationId = _this$props2.animationId;
               var prevData = this.state.prevData;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -11373,7 +11238,7 @@
                       },
                     );
                   });
-                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11454,7 +11319,7 @@
                     className: "recharts-bar-background-rectangle",
                   },
                 );
-                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$BarUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11505,10 +11370,7 @@
                 dataPoint,
                 dataKey,
               ) {
-                
-
-
- var value = Array.isArray(dataPoint.value)
+                var value = Array.isArray(dataPoint.value)
                   ? dataPoint.value[1]
                   : dataPoint.value;
                 return {
@@ -11526,7 +11388,7 @@
                   ? "url(#clipPath-".concat(clipPathId, ")")
                   : null,
               };
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11534,7 +11396,7 @@
                 ],
                 errorBarProps,
                 errorBarItems.map(function (item) {
-                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].cloneElement(item, {
                     key: "error-bar-"
@@ -11584,7 +11446,7 @@
               ])(id)
                 ? this.id
                 : id;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11594,19 +11456,19 @@
                   className: layerClass,
                 },
                 needClipX || needClipY
-                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "defs",
                       null,
-                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "default"
                       ].createElement(
                         "clipPath",
                         {
                           id: "clipPath-".concat(clipPathId),
                         },
-                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "default"
                         ].createElement("rect", {
                           x: needClipX ? left : left - width / 2,
@@ -11617,7 +11479,7 @@
                       ),
                     )
                   : null,
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -11686,16 +11548,8 @@
       animationDuration: 400,
       animationEasing: "ease",
     });
-    
 
-
-
-
-
-
-
-
- _defineProperty(Bar, "getComposedData", function (_ref2) {
+    _defineProperty(Bar, "getComposedData", function (_ref2) {
       var props = _ref2.props,
         item = _ref2.item,
         barPosition = _ref2.barPosition,
@@ -12230,7 +12084,7 @@
         },
       );
     };
-    var ScaleHelper =  (function () {
+    var ScaleHelper = (function () {
       function ScaleHelper(scale) {
         _classCallCheck(this, ScaleHelper);
         this.scale = scale;
@@ -12376,12 +12230,11 @@
         height = _ref6.height;
       var angle =
         arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      
+
       var normalizedAngle = normalizeAngle(angle);
       var angleRadians = (normalizedAngle * Math.PI) / 180;
-      
- var angleThreshold =
-        Math.atan(height / width);
+
+      var angleThreshold = Math.atan(height / width);
       var angledWidth =
         angleRadians > angleThreshold && angleRadians < Math.PI - angleThreshold
           ? height / Math.sin(angleRadians)
@@ -12393,15 +12246,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "getEveryNthWithCondition",
       () => getEveryNthWithCondition,
     ]);
@@ -12473,8 +12318,7 @@
       };
     }
     function isVisible(sign, tickPosition, getSize, start, end) {
-      
- if (
+      if (
         sign * tickPosition < sign * start ||
         sign * tickPosition > sign * end
       ) {
@@ -12517,16 +12361,13 @@
       var initialStart = boundaries.start,
         end = boundaries.end;
       var index = 0;
-      
-      
+
       var stepsize = 1;
       var start = initialStart;
       var _loop = function _loop() {
-          
-          
           var entry =
             ticks === null || ticks === void 0 ? void 0 : ticks[index];
-          
+
           if (entry === undefined) {
             return {
               v: (0,
@@ -12535,7 +12376,7 @@
               ])(ticks, stepsize),
             };
           }
-          
+
           var i = index;
           var size;
           var getSize = function getSize() {
@@ -12545,7 +12386,7 @@
             return size;
           };
           var tickCoord = entry.coordinate;
-          
+
           var isShow =
             index === 0 ||
             (0,
@@ -12553,13 +12394,11 @@
               "isVisible"
             ])(sign, tickCoord, getSize, start, end);
           if (!isShow) {
-            
             index = 0;
             start = initialStart;
             stepsize += 1;
           }
           if (isShow) {
-            
             start = tickCoord + sign * (getSize() / 2 + minTickGap);
             index += stepsize;
           }
@@ -12745,7 +12584,6 @@
       var start = boundaries.start,
         end = boundaries.end;
       if (preserveEnd) {
-        
         var tail = ticks[len - 1];
         var tailSize = getTickSize(tail, len - 1);
         var tailGap = sign * (tail.coordinate + (sign * tailSize) / 2 - end);
@@ -12888,7 +12726,7 @@
         ])(tickFormatter)
           ? tickFormatter(content.value, index)
           : content.value;
-        
+
         return sizeKey === "width"
           ? (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$TickUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -12957,9 +12795,8 @@
     "use strict";
 
     __turbopack_context__.s(["CartesianAxis", () => CartesianAxis]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -13221,7 +13058,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var CartesianAxis =  (function (_Component) {
+    var CartesianAxis = (function (_Component) {
       function CartesianAxis(props) {
         var _this;
         _classCallCheck(this, CartesianAxis);
@@ -13241,8 +13078,7 @@
             value: function shouldComponentUpdate(_ref, nextState) {
               var viewBox = _ref.viewBox,
                 restProps = _objectWithoutProperties(_ref, _excluded);
-              
-              
+
               var _this$props = this.props,
                 viewBoxOld = _this$props.viewBox,
                 restPropsOld = _objectWithoutProperties(
@@ -13450,7 +13286,7 @@
                   },
                 );
               }
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "line",
@@ -13471,13 +13307,7 @@
           },
           {
             key: "renderTicks",
-            value: 
-
-
-
-
-
- function renderTicks(ticks, fontSize, letterSpacing) {
+            value: function renderTicks(ticks, fontSize, letterSpacing) {
               var _this2 = this;
               var _this$props6 = this.props,
                 tickLine = _this$props6.tickLine,
@@ -13551,7 +13381,7 @@
                     tickFormatter: tickFormatter,
                   },
                 );
-                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13571,7 +13401,7 @@
                     ])(_this2.props, entry, i),
                   ),
                   tickLine &&
-                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "line",
@@ -13605,7 +13435,7 @@
                     ),
                 );
               });
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "g",
@@ -13656,7 +13486,7 @@
               ) {
                 return null;
               }
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13694,12 +13524,12 @@
                 "default"
               ])(props.className, "recharts-cartesian-axis-tick-value");
               if (
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].isValidElement(option)
               ) {
                 tickItem =
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].cloneElement(
                     option,
@@ -13728,7 +13558,7 @@
                 );
               } else {
                 tickItem =
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13762,9 +13592,9 @@
         width: 0,
         height: 0,
       },
-      
+
       orientation: "bottom",
-      
+
       ticks: [],
       stroke: "#666",
       tickLine: true,
@@ -13772,7 +13602,7 @@
       tick: true,
       mirror: false,
       minTickGap: 5,
-      
+
       tickSize: 6,
       tickMargin: 2,
       interval: "preserveEnd",
@@ -13783,9 +13613,8 @@
     "use strict";
 
     __turbopack_context__.s(["XAxis", () => XAxis]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -13958,7 +13787,7 @@
         : "TURBOPACK unreachable";
       return _extends.apply(this, arguments);
     }
-     function XAxisImpl(_ref) {
+    function XAxisImpl(_ref) {
       var xAxisId = _ref.xAxisId;
       var width = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -13975,41 +13804,38 @@
       if (axisOptions == null) {
         return null;
       }
-      return (
-         
-        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-          "createElement"
-        ](
-          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$CartesianAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-            "CartesianAxis"
-          ],
-          _extends({}, axisOptions, {
-            className: (0,
-            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-              "default"
-            ])(
-              "recharts-"
-                .concat(axisOptions.axisType, " ")
-                .concat(axisOptions.axisType),
-              axisOptions.className,
-            ),
-            viewBox: {
-              x: 0,
-              y: 0,
-              width: width,
-              height: height,
-            },
-            ticksGenerator: function ticksGenerator(axis) {
-              return (0,
-              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
-                "getTicksOfAxis"
-              ])(axis, true);
-            },
-          }),
-        )
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "createElement"
+      ](
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$CartesianAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "CartesianAxis"
+        ],
+        _extends({}, axisOptions, {
+          className: (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "default"
+          ])(
+            "recharts-"
+              .concat(axisOptions.axisType, " ")
+              .concat(axisOptions.axisType),
+            axisOptions.className,
+          ),
+          viewBox: {
+            x: 0,
+            y: 0,
+            width: width,
+            height: height,
+          },
+          ticksGenerator: function ticksGenerator(axis) {
+            return (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
+              "getTicksOfAxis"
+            ])(axis, true);
+          },
+        }),
       );
     }
-    var XAxis =  (function (_React$Component) {
+    var XAxis = (function (_React$Component) {
       function XAxis() {
         _classCallCheck(this, XAxis);
         return _callSuper(this, XAxis, arguments);
@@ -14019,7 +13845,7 @@
         {
           key: "render",
           value: function render() {
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "createElement"
             ](XAxisImpl, this.props);
           },
@@ -14056,9 +13882,8 @@
     "use strict";
 
     __turbopack_context__.s(["YAxis", () => YAxis]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -14248,41 +14073,38 @@
       if (axisOptions == null) {
         return null;
       }
-      return (
-         
-        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-          "createElement"
-        ](
-          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$CartesianAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-            "CartesianAxis"
-          ],
-          _extends({}, axisOptions, {
-            className: (0,
-            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-              "default"
-            ])(
-              "recharts-"
-                .concat(axisOptions.axisType, " ")
-                .concat(axisOptions.axisType),
-              axisOptions.className,
-            ),
-            viewBox: {
-              x: 0,
-              y: 0,
-              width: width,
-              height: height,
-            },
-            ticksGenerator: function ticksGenerator(axis) {
-              return (0,
-              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
-                "getTicksOfAxis"
-              ])(axis, true);
-            },
-          }),
-        )
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "createElement"
+      ](
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$CartesianAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "CartesianAxis"
+        ],
+        _extends({}, axisOptions, {
+          className: (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "default"
+          ])(
+            "recharts-"
+              .concat(axisOptions.axisType, " ")
+              .concat(axisOptions.axisType),
+            axisOptions.className,
+          ),
+          viewBox: {
+            x: 0,
+            y: 0,
+            width: width,
+            height: height,
+          },
+          ticksGenerator: function ticksGenerator(axis) {
+            return (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
+              "getTicksOfAxis"
+            ])(axis, true);
+          },
+        }),
       );
     };
-    var YAxis =  (function (_React$Component) {
+    var YAxis = (function (_React$Component) {
       function YAxis() {
         _classCallCheck(this, YAxis);
         return _callSuper(this, YAxis, arguments);
@@ -14292,7 +14114,7 @@
         {
           key: "render",
           value: function render() {
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "createElement"
             ](YAxisImpl, this.props);
           },
@@ -14329,9 +14151,8 @@
     "use strict";
 
     __turbopack_context__.s(["CartesianGrid", () => CartesianGrid]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -14480,9 +14301,8 @@
       }
       return target;
     }
-    
 
- var Background = function Background(props) {
+    var Background = function Background(props) {
       var fill = props.fill;
       if (!fill || fill === "none") {
         return null;
@@ -14493,7 +14313,7 @@
         width = props.width,
         height = props.height,
         ry = props.ry;
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement("rect", {
         x: x,
@@ -14510,13 +14330,12 @@
     function renderLineItem(option, props) {
       var lineItem;
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
-        
         lineItem =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -14543,7 +14362,7 @@
             _excluded2,
           );
         lineItem =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "line",
@@ -14583,7 +14402,7 @@
         );
         return renderLineItem(horizontal, lineItemProps);
       });
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14617,7 +14436,7 @@
         );
         return renderLineItem(vertical, lineItemProps);
       });
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14640,7 +14459,7 @@
       if (!horizontal || !horizontalFill || !horizontalFill.length) {
         return null;
       }
-      
+
       var roundedSortedHorizontalPoints = horizontalPoints
         .map(function (e) {
           return Math.round(e + y - y);
@@ -14648,12 +14467,11 @@
         .sort(function (a, b) {
           return a - b;
         });
-      
+
       if (y !== roundedSortedHorizontalPoints[0]) {
         roundedSortedHorizontalPoints.unshift(0);
       }
       var items = roundedSortedHorizontalPoints.map(function (entry, i) {
-        
         var lastStripe = !roundedSortedHorizontalPoints[i + 1];
         var lineHeight = lastStripe
           ? y + height - entry
@@ -14662,10 +14480,10 @@
           return null;
         }
         var colorIndex = i % horizontalFill.length;
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("rect", {
-          key: "react-".concat(i), 
+          key: "react-".concat(i),
           y: entry,
           x: x,
           height: lineHeight,
@@ -14676,7 +14494,7 @@
           className: "recharts-cartesian-grid-bg",
         });
       });
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14718,10 +14536,10 @@
           return null;
         }
         var colorIndex = i % verticalFill.length;
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement("rect", {
-          key: "react-".concat(i), 
+          key: "react-".concat(i),
           x: entry,
           y: y,
           width: lineWidth,
@@ -14732,7 +14550,7 @@
           className: "recharts-cartesian-grid-bg",
         });
       });
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
@@ -14833,13 +14651,13 @@
     var defaultProps = {
       horizontal: true,
       vertical: true,
-      
+
       horizontalPoints: [],
-      
+
       verticalPoints: [],
       stroke: "#ccc",
       fill: "none",
-      
+
       verticalFill: [],
       horizontalFill: [],
     };
@@ -14927,12 +14745,12 @@
         syncWithTicks = propsIncludingDefaults.syncWithTicks,
         horizontalValues = propsIncludingDefaults.horizontalValues,
         verticalValues = propsIncludingDefaults.verticalValues;
-      
+
       var xAxis = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "useArbitraryXAxis"
       ])();
-      
+
       var yAxis = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "useYAxisWithFiniteDomainOrRandom"
@@ -14961,13 +14779,8 @@
       ) {
         return null;
       }
-      
 
-
-
-
-
- var verticalCoordinatesGenerator =
+      var verticalCoordinatesGenerator =
         propsIncludingDefaults.verticalCoordinatesGenerator ||
         defaultVerticalCoordinatesGenerator;
       var horizontalCoordinatesGenerator =
@@ -14975,7 +14788,7 @@
         defaultHorizontalCoordinatesGenerator;
       var horizontalPoints = propsIncludingDefaults.horizontalPoints,
         verticalPoints = propsIncludingDefaults.verticalPoints;
-      
+
       if (
         (!horizontalPoints || !horizontalPoints.length) &&
         (0,
@@ -15015,7 +14828,7 @@
           horizontalPoints = generatorResult;
         }
       }
-      
+
       if (
         (!verticalPoints || !verticalPoints.length) &&
         (0,
@@ -15055,14 +14868,14 @@
           verticalPoints = _generatorResult;
         }
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "g",
         {
           className: "recharts-cartesian-grid",
         },
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(Background, {
           fill: propsIncludingDefaults.fill,
@@ -15073,7 +14886,7 @@
           height: propsIncludingDefaults.height,
           ry: propsIncludingDefaults.ry,
         }),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           HorizontalGridLines,
@@ -15084,7 +14897,7 @@
             yAxis: yAxis,
           }),
         ),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           VerticalGridLines,
@@ -15095,7 +14908,7 @@
             yAxis: yAxis,
           }),
         ),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           HorizontalStripes,
@@ -15103,7 +14916,7 @@
             horizontalPoints: horizontalPoints,
           }),
         ),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           VerticalStripes,
@@ -15123,9 +14936,8 @@
       "DefaultTooltipContent",
       () => DefaultTooltipContent,
     ]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -15378,67 +15190,64 @@
                 finalValue = formatted;
               }
             }
-            return (
-               
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "default"
+            ].createElement(
+              "li",
+              {
+                className: "recharts-tooltip-item",
+                key: "tooltip-item-".concat(i),
+                style: finalItemStyle,
+              },
+              (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "isNumOrStr"
+              ])(finalName)
+                ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "default"
+                  ].createElement(
+                    "span",
+                    {
+                      className: "recharts-tooltip-item-name",
+                    },
+                    finalName,
+                  )
+                : null,
+              (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "isNumOrStr"
+              ])(finalName)
+                ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "default"
+                  ].createElement(
+                    "span",
+                    {
+                      className: "recharts-tooltip-item-separator",
+                    },
+                    separator,
+                  )
+                : null,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
-                "li",
+                "span",
                 {
-                  className: "recharts-tooltip-item",
-                  key: "tooltip-item-".concat(i),
-                  style: finalItemStyle,
+                  className: "recharts-tooltip-item-value",
                 },
-                (0,
-                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                  "isNumOrStr"
-                ])(finalName)
-                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                      "default"
-                    ].createElement(
-                      "span",
-                      {
-                        className: "recharts-tooltip-item-name",
-                      },
-                      finalName,
-                    )
-                  : null,
-                (0,
-                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                  "isNumOrStr"
-                ])(finalName)
-                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                      "default"
-                    ].createElement(
-                      "span",
-                      {
-                        className: "recharts-tooltip-item-separator",
-                      },
-                      separator,
-                    )
-                  : null,
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                  "default"
-                ].createElement(
-                  "span",
-                  {
-                    className: "recharts-tooltip-item-value",
-                  },
-                  finalValue,
-                ),
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                  "default"
-                ].createElement(
-                  "span",
-                  {
-                    className: "recharts-tooltip-item-unit",
-                  },
-                  entry.unit || "",
-                ),
-              )
+                finalValue,
+              ),
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "default"
+              ].createElement(
+                "span",
+                {
+                  className: "recharts-tooltip-item-unit",
+                },
+                entry.unit || "",
+              ),
             );
           });
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "ul",
@@ -15494,7 +15303,7 @@
             "aria-live": "assertive",
           }
         : {};
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "div",
@@ -15505,7 +15314,7 @@
           },
           accessibilityAttributes,
         ),
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           "p",
@@ -15513,7 +15322,7 @@
             className: labelCN,
             style: finalLabelStyle,
           },
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].isValidElement(finalLabel)
             ? finalLabel
@@ -15954,7 +15763,7 @@
       return ("string" === r ? String : Number)(t);
     }
     var EPSILON = 1;
-    var TooltipBoundingBox =  (function (_PureComponent) {
+    var TooltipBoundingBox = (function (_PureComponent) {
       function TooltipBoundingBox() {
         var _this;
         _classCallCheck(this, TooltipBoundingBox);
@@ -16141,23 +15950,19 @@
               },
               wrapperStyle,
             );
-            return (
-               
-              
-              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                "default"
-              ].createElement(
-                "div",
-                {
-                  tabIndex: -1,
-                  className: cssClasses,
-                  style: outerStyle,
-                  ref: function ref(node) {
-                    _this2.wrapperNode = node;
-                  },
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "default"
+            ].createElement(
+              "div",
+              {
+                tabIndex: -1,
+                className: cssClasses,
+                style: outerStyle,
+                ref: function ref(node) {
+                  _this2.wrapperNode = node;
                 },
-                children,
-              )
+              },
+              children,
             );
           },
         },
@@ -16173,9 +15978,8 @@
     "use strict";
 
     __turbopack_context__.s(["Tooltip", () => Tooltip]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -16378,20 +16182,20 @@
     }
     function renderContent(content, props) {
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(content)
       ) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].cloneElement(content, props);
       }
       if (typeof content === "function") {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(content, props);
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$DefaultTooltipContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -16400,7 +16204,7 @@
         props,
       );
     }
-    var Tooltip =  (function (_PureComponent) {
+    var Tooltip = (function (_PureComponent) {
       function Tooltip() {
         _classCallCheck(this, Tooltip);
         return _callSuper(this, Tooltip, arguments);
@@ -16446,7 +16250,7 @@
               );
             }
             var hasPayload = finalPayload.length > 0;
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$TooltipBoundingBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -16531,9 +16335,8 @@
     "use strict";
 
     __turbopack_context__.s(["ResponsiveContainer", () => ResponsiveContainer]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
       );
@@ -16709,7 +16512,7 @@
     function _arrayWithHoles(arr) {
       if (Array.isArray(arr)) return arr;
     }
-    var ResponsiveContainer =  (0,
+    var ResponsiveContainer = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "forwardRef"
     ])(function (_ref, ref) {
@@ -16756,7 +16559,6 @@
           "ResponsiveContainer.useImperativeHandle": function () {
             return Object.defineProperty(containerRef.current, "current", {
               get: function get() {
-                
                 console.warn(
                   "The usage of ref.current.current is deprecated and will no longer be supported.",
                 );
@@ -16903,15 +16705,12 @@
               ? containerHeight
               : height;
             if (aspect && aspect > 0) {
-              
               if (calculatedWidth) {
-                
                 calculatedHeight = calculatedWidth / aspect;
               } else if (calculatedHeight) {
-                
                 calculatedWidth = calculatedHeight * aspect;
               }
-              
+
               if (maxHeight && calculatedHeight > maxHeight) {
                 calculatedHeight = maxHeight;
               }
@@ -16943,11 +16742,11 @@
               {
                 "ResponsiveContainer.useMemo[chartContent]": function (child) {
                   if (
-                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].isValidElement(child)
                   ) {
-                    return  (0,
+                    return (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "cloneElement"
                     ])(
@@ -16990,7 +16789,7 @@
           width,
         ],
       );
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "div",
@@ -17022,9 +16821,8 @@
     "use strict";
 
     __turbopack_context__.s(["Dot", () => Dot]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -17056,7 +16854,7 @@
         "default"
       ])("recharts-dot", className);
       if (cx === +cx && cy === +cy && r === +r) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "createElement"
         ](
           "circle",
@@ -17189,9 +16987,8 @@
     "use strict";
 
     __turbopack_context__.s(["Brush", () => Brush]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -17462,7 +17259,7 @@
     var isTouch = function isTouch(e) {
       return e.changedTouches && !!e.changedTouches.length;
     };
-    var Brush =  (function (_PureComponent) {
+    var Brush = (function (_PureComponent) {
       function Brush(props) {
         var _this;
         _classCallCheck(this, Brush);
@@ -17733,12 +17530,12 @@
             key: "handleTravellerMoveKeyboard",
             value: function handleTravellerMoveKeyboard(direction, id) {
               var _this2 = this;
-              
+
               var _this$state3 = this.state,
                 scaleValues = _this$state3.scaleValues,
                 startX = _this$state3.startX,
                 endX = _this$state3.endX;
-              
+
               var currentScaleValue = this.state[id];
               var currentIndex = scaleValues.indexOf(currentScaleValue);
               if (currentIndex === -1) {
@@ -17749,7 +17546,7 @@
                 return;
               }
               var newScaleValue = scaleValues[newIndex];
-              
+
               if (
                 (id === "startX" && newScaleValue >= endX) ||
                 (id === "endX" && newScaleValue <= startX)
@@ -17779,7 +17576,7 @@
                 height = _this$props6.height,
                 fill = _this$props6.fill,
                 stroke = _this$props6.stroke;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("rect", {
                 stroke: stroke,
@@ -17809,7 +17606,7 @@
               if (!chartElement) {
                 return null;
               }
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].cloneElement(chartElement, {
                 x: x,
@@ -17870,7 +17667,7 @@
                       ? void 0
                       : _data$endIndex.name,
                   );
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -17925,7 +17722,7 @@
                 travellerWidth = _this$props9.travellerWidth;
               var x = Math.min(startX, endX) + travellerWidth;
               var width = Math.max(Math.abs(endX - startX) - travellerWidth, 0);
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement("rect", {
                 className: "recharts-brush-slide",
@@ -17964,7 +17761,7 @@
                 pointerEvents: "none",
                 fill: stroke,
               };
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -17973,7 +17770,7 @@
                 {
                   className: "recharts-brush-texts",
                 },
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -17990,7 +17787,7 @@
                   ),
                   this.getTextOfTick(startIndex),
                 ),
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18065,7 +17862,7 @@
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$CssPrefixUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "generatePrefixStyle"
               ])("userSelect", "none");
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18102,14 +17899,14 @@
                 height = props.height,
                 stroke = props.stroke;
               var lineY = Math.floor(y + height / 2) - 1;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].Fragment,
                 null,
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("rect", {
                   x: x,
@@ -18119,7 +17916,7 @@
                   fill: stroke,
                   stroke: "none",
                 }),
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("line", {
                   x1: x + 1,
@@ -18129,7 +17926,7 @@
                   fill: "none",
                   stroke: "#fff",
                 }),
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("line", {
                   x1: x + 1,
@@ -18147,12 +17944,12 @@
             value: function renderTraveller(option, props) {
               var rectangle;
               if (
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].isValidElement(option)
               ) {
                 rectangle =
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].cloneElement(option, props);
               } else if (
@@ -18291,9 +18088,8 @@
     "use strict";
 
     __turbopack_context__.s(["ReferenceDot", () => ReferenceDot]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -18553,7 +18349,7 @@
       }
       return result;
     };
-    var ReferenceDot =  (function (_React$Component) {
+    var ReferenceDot = (function (_React$Component) {
       function ReferenceDot() {
         _classCallCheck(this, ReferenceDot);
         return _callSuper(this, ReferenceDot, arguments);
@@ -18618,7 +18414,7 @@
                 cy: cy,
               },
             );
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18663,12 +18459,12 @@
     _defineProperty(ReferenceDot, "renderDot", function (option, props) {
       var dot;
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         dot =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -18680,7 +18476,7 @@
         dot = option(props);
       } else {
         dot =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Dot$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -18706,9 +18502,8 @@
       "getEndPoints",
       () => getEndPoints,
     ]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -19014,20 +18809,16 @@
         : "TURBOPACK unreachable";
       return _extends.apply(this, arguments);
     }
-    
 
-
-
-
- var renderLine = function renderLine(option, props) {
+    var renderLine = function renderLine(option, props) {
       var line;
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         line =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -19039,7 +18830,7 @@
         line = option(props);
       } else {
         line =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             "line",
@@ -19238,7 +19029,7 @@
           y2: y2,
         },
       );
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -19267,7 +19058,7 @@
         ),
       );
     }
-    var ReferenceLine =  (function (_React$Component) {
+    var ReferenceLine = (function (_React$Component) {
       function ReferenceLine() {
         _classCallCheck(this, ReferenceLine);
         return _callSuper(this, ReferenceLine, arguments);
@@ -19277,7 +19068,7 @@
         {
           key: "render",
           value: function render() {
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(ReferenceLineImpl, this.props);
           },
@@ -19306,9 +19097,8 @@
     "use strict";
 
     __turbopack_context__.s(["ReferenceArea", () => ReferenceArea]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -19589,7 +19379,7 @@
         "rectWithPoints"
       ])(p1, p2);
     };
-    var ReferenceArea =  (function (_React$Component) {
+    var ReferenceArea = (function (_React$Component) {
       function ReferenceArea() {
         _classCallCheck(this, ReferenceArea);
         return _callSuper(this, ReferenceArea, arguments);
@@ -19644,7 +19434,7 @@
             ])(this.props, "hidden")
               ? "url(#".concat(clipPathId, ")")
               : undefined;
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -19698,12 +19488,12 @@
     _defineProperty(ReferenceArea, "renderRect", function (option, props) {
       var rect;
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         rect =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -19715,7 +19505,7 @@
         rect = option(props);
       } else {
         rect =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Rectangle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -20007,7 +19797,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var AccessibilityManager =  (function () {
+    var AccessibilityManager = (function () {
       function AccessibilityManager() {
         _classCallCheck(this, AccessibilityManager);
         _defineProperty(this, "activeIndex", 0);
@@ -20050,7 +19840,7 @@
               mouseHandlerCallback !== null && mouseHandlerCallback !== void 0
                 ? mouseHandlerCallback
                 : this.mouseHandlerCallback;
-            
+
             this.activeIndex = Math.min(
               Math.max(this.activeIndex, 0),
               this.coordinateList.length - 1,
@@ -20066,9 +19856,6 @@
         {
           key: "keyboardEvent",
           value: function keyboardEvent(e) {
-            
-            
-            
             if (this.coordinateList.length === 0) {
               return;
             }
@@ -20111,8 +19898,7 @@
             if (this.layout !== "horizontal") {
               return;
             }
-            
-            
+
             if (this.coordinateList.length === 0) {
               return;
             }
@@ -20162,10 +19948,8 @@
           domain === null || domain === void 0 ? void 0 : domain[0];
         var domainEnd =
           domain === null || domain === void 0 ? void 0 : domain[1];
-        
 
-
- if (
+        if (
           !!domainStart &&
           !!domainEnd &&
           (0,
@@ -20188,9 +19972,8 @@
     "use strict";
 
     __turbopack_context__.s(["Curve", () => Curve, "getPath", () => getPath]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -20558,7 +20341,7 @@
         return null;
       }
       var realPath = points && points.length ? getPath(props) : path;
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "createElement"
       ](
         "path",
@@ -20589,9 +20372,8 @@
     "use strict";
 
     __turbopack_context__.s(["Cross", () => Cross]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -20782,7 +20564,7 @@
       ) {
         return null;
       }
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         "path",
@@ -21164,15 +20946,15 @@
           ])("recharts-tooltip-cursor", elementPropsCursor.className),
         },
       );
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "isValidElement"
       ])(elementPropsCursor)
-        ?  (0,
+        ? (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "cloneElement"
           ])(elementPropsCursor, cursorProps)
-        :  (0,
+        : (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "createElement"
           ])(cursorComp, cursorProps);
@@ -21191,7 +20973,7 @@
       () => getAxisMapByAxes,
     ]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
-       __turbopack_context__.i(
+      __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)",
       );
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
@@ -21226,7 +21008,7 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)",
       );
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$tiny$2d$invariant$2f$dist$2f$esm$2f$tiny$2d$invariant$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/tiny-invariant/dist/esm/tiny-invariant.js [app-client] (ecmascript)",
@@ -21650,18 +21432,8 @@
       x: 0,
       y: 0,
     };
-    
 
-
-
-
-
-
-
-
-
-
- function renderAsIs(element) {
+    function renderAsIs(element) {
       return element;
     }
     var calculateTooltipPos = function calculateTooltipPos(rangeObj, layout) {
@@ -21775,14 +21547,8 @@
     function getDefaultDomainByAxisType(axisType) {
       return axisType === "number" ? [0, "auto"] : undefined;
     }
-    
 
-
-
-
-
-
- var getTooltipContent = function getTooltipContent(
+    var getTooltipContent = function getTooltipContent(
       state,
       chartData,
       activeIndex,
@@ -21799,29 +21565,24 @@
       ) {
         return null;
       }
-      
+
       return graphicalItems.reduce(function (result, child) {
         var _child$props$data;
-        
 
-
-
- var data =
+        var data =
           (_child$props$data = child.props.data) !== null &&
           _child$props$data !== void 0
             ? _child$props$data
             : chartData;
         if (
           data &&
-          state.dataStartIndex + state.dataEndIndex !== 0 && 
-          
+          state.dataStartIndex + state.dataEndIndex !== 0 &&
           state.dataEndIndex - state.dataStartIndex >= activeIndex
         ) {
           data = data.slice(state.dataStartIndex, state.dataEndIndex + 1);
         }
         var payload;
         if (tooltipAxis.dataKey && !tooltipAxis.allowDuplicatedCategory) {
-          
           var entries = data === undefined ? displayedData : data;
           payload = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -21841,14 +21602,8 @@
         ]);
       }, []);
     };
-    
 
-
-
-
-
-
- var getTooltipData = function getTooltipData(
+    var getTooltipData = function getTooltipData(
       state,
       chartData,
       layout,
@@ -21905,7 +21660,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
         "isCategoricalAxis"
       ])(layout, axisType);
-      
+
       return axes.reduce(function (result, child) {
         var _childProps$domain2;
         var childProps =
@@ -21943,14 +21698,8 @@
         });
         var len = displayedData.length;
         var domain, duplicateDomain, categoricalDomain;
-        
 
-
-
-
-
-
- if (
+        if (
           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$isDomainSpecifiedByUser$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "isDomainSpecifiedByUser"
@@ -21960,19 +21709,17 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
             "parseSpecifiedDomain"
           ])(childProps.domain, null, allowDataOverflow);
-          
 
-
- if (isCategorical && (type === "number" || scale !== "auto")) {
+          if (isCategorical && (type === "number" || scale !== "auto")) {
             categoricalDomain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
               "getDomainOfDataByKey"
             ])(displayedData, dataKey, "category");
           }
         }
-        
+
         var defaultDomain = getDefaultDomainByAxisType(type);
-        
+
         if (!domain || domain.length === 0) {
           var _childProps$domain;
           var childDomain =
@@ -21981,26 +21728,23 @@
               ? _childProps$domain
               : defaultDomain;
           if (dataKey) {
-            
             domain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
               "getDomainOfDataByKey"
             ])(displayedData, dataKey, type);
             if (type === "category" && isCategorical) {
-              
               var duplicate = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DataUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "hasDuplicate"
               ])(domain);
               if (allowDuplicatedCategory && duplicate) {
                 duplicateDomain = domain;
-                
+
                 domain = (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$range$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ])(0, len);
               } else if (!allowDuplicatedCategory) {
-                
                 domain = (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
                   "parseDomainOfCategoryAxis"
@@ -22014,7 +21758,6 @@
                 }, []);
               }
             } else if (type === "category") {
-              
               if (!allowDuplicatedCategory) {
                 domain = (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -22033,7 +21776,6 @@
                     : [].concat(_toConsumableArray(finalDomain), [entry]);
                 }, []);
               } else {
-                
                 domain = domain.filter(function (entry) {
                   return (
                     entry !== "" &&
@@ -22045,7 +21787,6 @@
                 });
               }
             } else if (type === "number") {
-              
               var errorBarsDomain = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
                 "parseErrorBarsOfAxis"
@@ -22084,7 +21825,6 @@
               ])(displayedData, dataKey, "category");
             }
           } else if (isCategorical) {
-            
             domain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$range$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
@@ -22095,7 +21835,6 @@
             stackGroups[axisId].hasStack &&
             type === "number"
           ) {
-            
             domain =
               stackOffset === "expand"
                 ? [0, 1]
@@ -22130,7 +21869,6 @@
             );
           }
           if (type === "number") {
-            
             domain = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$DetectReferenceElementsDomain$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "detectReferenceElementsDomain"
@@ -22178,19 +21916,8 @@
         );
       }, {});
     };
-    
 
-
-
-
-
-
-
-
-
-
-
- var getAxisMapByItems = function getAxisMapByItems(props, _ref3) {
+    var getAxisMapByItems = function getAxisMapByItems(props, _ref3) {
       var graphicalItems = _ref3.graphicalItems,
         Axis = _ref3.Axis,
         axisType = _ref3.axisType,
@@ -22211,10 +21938,7 @@
         "isCategoricalAxis"
       ])(layout, axisType);
       var index = -1;
-      
-      
-      
-      
+
       return graphicalItems.reduce(function (result, child) {
         var childProps =
           child.type.defaultProps !== undefined
@@ -22321,17 +22045,8 @@
         return result;
       }, {});
     };
-    
 
-
-
-
-
-
-
-
-
- var getAxisMap = function getAxisMap(props, _ref4) {
+    var getAxisMap = function getAxisMap(props, _ref4) {
       var _ref4$axisType = _ref4.axisType,
         axisType = _ref4$axisType === void 0 ? "xAxis" : _ref4$axisType,
         AxisComp = _ref4.AxisComp,
@@ -22341,7 +22056,7 @@
         dataEndIndex = _ref4.dataEndIndex;
       var children = props.children;
       var axisIdKey = "".concat(axisType, "Id");
-      
+
       var axes = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "findAllByType"
@@ -22464,15 +22179,8 @@
         cateAxisName: "radiusAxis",
       };
     };
-    
 
-
-
-
-
-
-
- var calculateOffset = function calculateOffset(_ref5, prevLegendBBox) {
+    var calculateOffset = function calculateOffset(_ref5, prevLegendBBox) {
       var props = _ref5.props,
         graphicalItems = _ref5.graphicalItems,
         _ref5$xAxisMap = _ref5.xAxisMap,
@@ -22558,7 +22266,6 @@
           ].defaultProps.height;
       }
       if (legendItem && prevLegendBBox) {
-        
         offset = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ChartUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
           "appendOffsetOfLegend"
@@ -22575,13 +22282,12 @@
         ),
         {},
         {
-          
           width: Math.max(offsetWidth, 0),
           height: Math.max(offsetHeight, 0),
         },
       );
     };
-    
+
     var getCartesianAxisSize = function getCartesianAxisSize(
       axisObj,
       axisName,
@@ -22592,7 +22298,7 @@
       if (axisName === "yAxis") {
         return axisObj[axisName].height;
       }
-      
+
       return undefined;
     };
     var generateCategoricalChart = function generateCategoricalChart(_ref6) {
@@ -22640,22 +22346,19 @@
               : item.props;
           var dataKey = itemProps.dataKey,
             childMaxBarSize = itemProps.maxBarSize;
-          
+
           var numericAxisId = itemProps["".concat(numericAxisName, "Id")];
-          
+
           var cateAxisId = itemProps["".concat(cateAxisName, "Id")];
           var axisObjInitialValue = {};
           var axisObj = axisComponents.reduce(function (result, entry) {
             var _item$type$displayNam, _item$type;
-            
+
             var axisMap = currentState["".concat(entry.axisType, "Map")];
-            
+
             var id = itemProps["".concat(entry.axisType, "Id")];
-            
 
-
-
- !((axisMap && axisMap[id]) || entry.axisType === "zAxis")
+            !((axisMap && axisMap[id]) || entry.axisType === "zAxis")
               ? ("TURBOPACK compile-time truthy", 1)
                 ? (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$tiny$2d$invariant$2f$dist$2f$esm$2f$tiny$2d$invariant$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -22683,7 +22386,7 @@
                   )
                 : "TURBOPACK unreachable"
               : void 0;
-            
+
             var axis = axisMap[id];
             return _objectSpread(
               _objectSpread({}, result),
@@ -22730,7 +22433,7 @@
             });
           if (itemIsBar) {
             var _ref7, _getBandSizeOfAxis;
-            
+
             var maxBarSize = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isNil$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
@@ -22776,7 +22479,7 @@
               });
             }
           }
-          
+
           var composedFn = item && item.type && item.type.getComposedData;
           if (composedFn) {
             formattedItems.push({
@@ -22830,20 +22533,8 @@
         });
         return formattedItems;
       };
-      
 
-
-
-
-
-
-
-
-
-
-
-
- var updateStateOfAxisMapsOffsetAndStackGroups =
+      var updateStateOfAxisMapsOffsetAndStackGroups =
         function updateStateOfAxisMapsOffsetAndStackGroups(_ref8, prevState) {
           var props = _ref8.props,
             dataStartIndex = _ref8.dataStartIndex,
@@ -22959,7 +22650,7 @@
             axisObj,
           );
         };
-      var CategoricalChartWrapper =  (function (_Component) {
+      var CategoricalChartWrapper = (function (_Component) {
         function CategoricalChartWrapper(_props) {
           var _props$id, _props$throttleDelay;
           var _this;
@@ -23025,7 +22716,7 @@
           _defineProperty(_this, "handleBrushChange", function (_ref9) {
             var startIndex = _ref9.startIndex,
               endIndex = _ref9.endIndex;
-            
+
             if (
               startIndex !== _this.state.dataStartIndex ||
               endIndex !== _this.state.dataEndIndex
@@ -23054,11 +22745,8 @@
               });
             }
           });
-          
 
-
-
- _defineProperty(_this, "handleMouseEnter", function (e) {
+          _defineProperty(_this, "handleMouseEnter", function (e) {
             var mouse = _this.getMouseInfo(e);
             if (mouse) {
               var _nextState = _objectSpread(
@@ -23106,11 +22794,8 @@
               onMouseMove(nextState, e);
             }
           });
-          
 
-
-
- _defineProperty(_this, "handleItemMouseEnter", function (el) {
+          _defineProperty(_this, "handleItemMouseEnter", function (el) {
             _this.setState(function () {
               return {
                 isTooltipActive: true,
@@ -23123,29 +22808,21 @@
               };
             });
           });
-          
 
-
- _defineProperty(_this, "handleItemMouseLeave", function () {
+          _defineProperty(_this, "handleItemMouseLeave", function () {
             _this.setState(function () {
               return {
                 isTooltipActive: false,
               };
             });
           });
-          
 
-
-
- _defineProperty(_this, "handleMouseMove", function (e) {
+          _defineProperty(_this, "handleMouseMove", function (e) {
             e.persist();
             _this.throttleTriggeredAfterMouseMove(e);
           });
-          
 
-
-
- _defineProperty(_this, "handleMouseLeave", function (e) {
+          _defineProperty(_this, "handleMouseLeave", function (e) {
             _this.throttleTriggeredAfterMouseMove.cancel();
             var nextState = {
               isTooltipActive: false,
@@ -23330,12 +23007,9 @@
                 return;
               }
               if (typeof syncMethod === "function") {
-                
                 activeTooltipIndex = syncMethod(tooltipTicks, data);
               } else if (syncMethod === "value") {
-                
-                
-                activeTooltipIndex = -1; 
+                activeTooltipIndex = -1;
                 for (var i = 0; i < tooltipTicks.length; i++) {
                   if (tooltipTicks[i].value === data.activeLabel) {
                     activeTooltipIndex = i;
@@ -23351,8 +23025,7 @@
                   y: offset.top,
                 },
               );
-              
-              
+
               var validateChartX = Math.min(chartX, viewBox.x + viewBox.width);
               var validateChartY = Math.min(chartY, viewBox.y + viewBox.height);
               var activeLabel =
@@ -23401,7 +23074,7 @@
               activeTooltipIndex = _this$state3.activeTooltipIndex,
               tooltipAxisBandSize = _this$state3.tooltipAxisBandSize;
             var tooltipEventType = _this.getTooltipEventType();
-            
+
             var isActive =
               (_element$props$active = element.props.active) !== null &&
               _element$props$active !== void 0
@@ -23409,7 +23082,7 @@
                 : isTooltipActive;
             var layout = _this.props.layout;
             var key = element.key || "_recharts-cursor";
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Cursor$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -23452,7 +23125,7 @@
                   : element.props;
               var axisOption =
                 axisMap && axisMap[elementProps["".concat(axisType, "Id")]];
-              return  (0,
+              return (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(
@@ -23496,7 +23169,7 @@
               cy = angleAxis.cy,
               innerRadius = angleAxis.innerRadius,
               outerRadius = angleAxis.outerRadius;
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(element, {
@@ -23524,10 +23197,8 @@
               radialLines: radialLines,
             });
           });
-          
 
-
- _defineProperty(_this, "renderLegend", function () {
+          _defineProperty(_this, "renderLegend", function () {
             var formattedGraphicalItems = _this.state.formattedGraphicalItems;
             var _this$props2 = _this.props,
               children = _this$props2.children,
@@ -23549,7 +23220,7 @@
             }
             var item = props.item,
               otherProps = _objectWithoutProperties(props, _excluded);
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(
@@ -23566,10 +23237,8 @@
               ),
             );
           });
-          
 
-
- _defineProperty(_this, "renderTooltip", function () {
+          _defineProperty(_this, "renderTooltip", function () {
             var _tooltipItem$props$ac;
             var _this$props3 = _this.props,
               children = _this$props3.children,
@@ -23592,15 +23261,13 @@
               activePayload = _this$state5.activePayload,
               activeLabel = _this$state5.activeLabel,
               offset = _this$state5.offset;
-            
-            
-            
+
             var isActive =
               (_tooltipItem$props$ac = tooltipItem.props.active) !== null &&
               _tooltipItem$props$ac !== void 0
                 ? _tooltipItem$props$ac
                 : isTooltipActive;
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(tooltipItem, {
@@ -23628,8 +23295,8 @@
               dataStartIndex = _this$state6.dataStartIndex,
               dataEndIndex = _this$state6.dataEndIndex,
               updateId = _this$state6.updateId;
-            
-            return  (0,
+
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(element, {
@@ -23690,7 +23357,7 @@
                   _element$props2$yAxis === void 0
                     ? elementDefaultProps.yAxisId
                     : _element$props2$yAxis;
-              return  (0,
+              return (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(element, {
@@ -23714,7 +23381,7 @@
               childIndex = _ref10.childIndex,
               isRange = _ref10.isRange;
             var result = [];
-            
+
             var key = item.props.key;
             var itemItemProps =
               item.item.type.defaultProps !== undefined
@@ -23803,7 +23470,7 @@
                   "Tooltip"
                 ],
               );
-              
+
               var _item$props = item.props,
                 points = _item$props.points,
                 isRange = _item$props.isRange,
@@ -23849,7 +23516,7 @@
                   ])(_this.handleItemMouseEnter, element.props.onMouseEnter),
                 };
               }
-              var graphicalItem =  (0,
+              var graphicalItem = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(
@@ -23857,7 +23524,6 @@
                 _objectSpread(_objectSpread({}, item.props), itemEvents),
               );
               function findWithPayload(entry) {
-                
                 return typeof tooltipAxis.dataKey === "function"
                   ? tooltipAxis.dataKey(entry.payload)
                   : null;
@@ -23869,7 +23535,6 @@
                     tooltipAxis.dataKey &&
                     !tooltipAxis.allowDuplicatedCategory
                   ) {
-                    
                     var specifiedKey =
                       typeof tooltipAxis.dataKey === "function"
                         ? findWithPayload
@@ -23899,7 +23564,7 @@
                         ? element.props.activeIndex
                         : activeTooltipIndex;
                     return [
-                       (0,
+                      (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "cloneElement"
                       ])(
@@ -23939,13 +23604,8 @@
                   }
                 } else {
                   var _this$getItemByXY;
-                  
 
-
-
-
-
- var _ref11 =
+                  var _ref11 =
                       (_this$getItemByXY = _this.getItemByXY(
                         _this.state.activeCoordinate,
                       )) !== null && _this$getItemByXY !== void 0
@@ -23968,7 +23628,7 @@
                     },
                   );
                   return [
-                     (0,
+                    (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "cloneElement"
                     ])(xyItem, elementProps),
@@ -23987,7 +23647,7 @@
             _this,
             "renderCustomized",
             function (element, displayName, index) {
-              return  (0,
+              return (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(
@@ -24079,7 +23739,7 @@
                 ])("recharts"),
             "-clip",
           );
-          
+
           _this.throttleTriggeredAfterMouseMove = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$throttle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
@@ -24138,12 +23798,12 @@
                   "Tooltip"
                 ],
               );
-              
+
               if (!tooltipElem) {
                 return;
               }
               var defaultIndex = tooltipElem.props.defaultIndex;
-              
+
               if (
                 typeof defaultIndex !== "number" ||
                 defaultIndex < 0 ||
@@ -24173,9 +23833,7 @@
                     y: independentAxisCoord,
                     x: dependentAxisCoord,
                   };
-              
-              
-              
+
               var scatterPlotElement = this.state.formattedGraphicalItems.find(
                 function (_ref12) {
                   var item = _ref12.item;
@@ -24199,8 +23857,7 @@
               };
               this.setState(nextState);
               this.renderCursor(tooltipElem);
-              
-              
+
               this.accessibilityManager.setIndex(defaultIndex);
             },
           },
@@ -24237,14 +23894,13 @@
                   },
                 });
               }
-              
+
               return null;
             },
           },
           {
             key: "componentDidUpdate",
             value: function componentDidUpdate(prevProps) {
-              
               if (
                 !(0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24448,7 +24104,7 @@
                   };
                 }
               }
-              
+
               var outerEvents = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$types$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "adaptEventHandlers"
@@ -24520,19 +24176,19 @@
                 top = _this$state$offset.top,
                 height = _this$state$offset.height,
                 width = _this$state$offset.width;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 "defs",
                 null,
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "clipPath",
                   {
                     id: clipPathId,
                   },
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement("rect", {
                     x: left,
@@ -24619,7 +24275,7 @@
                   i++
                 ) {
                   var graphicalItem = formattedGraphicalItems[i];
-                  
+
                   var props = graphicalItem.props,
                     item = graphicalItem.item;
                   var itemProps =
@@ -24736,9 +24392,9 @@
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "filterProps"
               ])(others, false);
-              
+
               if (compact) {
-                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24750,7 +24406,7 @@
                     height: this.props.height,
                     clipPathId: this.clipPathId,
                   },
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Surface$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24772,13 +24428,13 @@
               }
               if (this.props.accessibilityLayer) {
                 var _this$props$tabIndex, _this$props$role;
-                
+
                 attrs.tabIndex =
                   (_this$props$tabIndex = this.props.tabIndex) !== null &&
                   _this$props$tabIndex !== void 0
                     ? _this$props$tabIndex
                     : 0;
-                
+
                 attrs.role =
                   (_this$props$role = this.props.role) !== null &&
                   _this$props$role !== void 0
@@ -24786,17 +24442,13 @@
                     : "application";
                 attrs.onKeyDown = function (e) {
                   _this3.accessibilityManager.keyboardEvent(e);
-                  
-                  
                 };
                 attrs.onFocus = function () {
                   _this3.accessibilityManager.focus();
-                  
-                  
                 };
               }
               var events = this.parseEventsOfWrapper();
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$context$2f$chartLayoutContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24808,7 +24460,7 @@
                   height: this.props.height,
                   clipPathId: this.clipPathId,
                 },
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   "div",
@@ -24835,7 +24487,7 @@
                       },
                     },
                   ),
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Surface$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -24867,7 +24519,7 @@
         ],
       );
       _defineProperty(CategoricalChartWrapper, "displayName", chartName);
-      
+
       _defineProperty(
         CategoricalChartWrapper,
         "defaultProps",
@@ -24954,14 +24606,11 @@
             ])(margin, prevState.prevMargin)
           ) {
             var _defaultState = createDefaultState(nextProps);
-            
+
             var keepFromPrevState = {
-              
-              
               chartX: prevState.chartX,
               chartY: prevState.chartY,
-              
-              
+
               isTooltipActive: prevState.isTooltipActive,
             };
             var updatesToState = _objectSpread(
@@ -25014,7 +24663,7 @@
               _brush$props,
               _brush$props$endIndex,
               _brush$props2;
-            
+
             var brush = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$util$2f$ReactUtils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "findChildByType"
@@ -25046,7 +24695,7 @@
               : dataEndIndex;
             var hasDifferentStartOrEndIndex =
               startIndex !== dataStartIndex || endIndex !== dataEndIndex;
-            
+
             var hasGlobalData = !(0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lodash$2f$isNil$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "default"
@@ -25095,12 +24744,12 @@
         function (option, props, key) {
           var dot;
           if (
-             (0,
+            (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "isValidElement"
             ])(option)
           ) {
-            dot =  (0,
+            dot = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "cloneElement"
             ])(option, props);
@@ -25113,7 +24762,7 @@
             dot = option(props);
           } else {
             dot =
-               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Dot$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25122,7 +24771,7 @@
                 props,
               );
           }
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25136,11 +24785,11 @@
           );
         },
       );
-      var CategoricalChart =  (0,
+      var CategoricalChart = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ])(function CategoricalChart(props, ref) {
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           CategoricalChartWrapper,
@@ -25158,9 +24807,8 @@
     "use strict";
 
     __turbopack_context__.s(["Area", () => Area]);
-    
 
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
       );
@@ -25445,7 +25093,7 @@
       }
       return ("string" === r ? String : Number)(t);
     }
-    var Area =  (function (_PureComponent) {
+    var Area = (function (_PureComponent) {
       function Area() {
         var _this;
         _classCallCheck(this, Area);
@@ -25554,7 +25202,7 @@
                       .concat(clipPathId, ")")
                   : null,
               };
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25619,7 +25267,7 @@
                   "isNumber"
                 ])(maxY)
               ) {
-                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("rect", {
                   x: startX < endX ? startX : startX - width,
@@ -25683,7 +25331,7 @@
                   "isNumber"
                 ])(maxX)
               ) {
-                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement("rect", {
                   x: 0,
@@ -25723,7 +25371,7 @@
                 isRange = _this$props4.isRange,
                 ref = _this$props4.ref,
                 others = _objectWithoutProperties(_this$props4, _excluded);
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25734,7 +25382,7 @@
                     ? "url(#clipPath-".concat(clipPathId, ")")
                     : null,
                 },
-                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Curve$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25758,7 +25406,7 @@
                   ),
                 ),
                 stroke !== "none" &&
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Curve$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25782,7 +25430,7 @@
                   ),
                 stroke !== "none" &&
                   isRange &&
-                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Curve$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -25822,8 +25470,8 @@
               var _this$state = this.state,
                 prevPoints = _this$state.prevPoints,
                 prevBaseLine = _this$state.prevBaseLine;
-              
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
@@ -25849,7 +25497,7 @@
                   if (prevPoints) {
                     var prevPointsDiffFactor =
                       prevPoints.length / points.length;
-                    
+
                     var stepPoints = points.map(function (entry, index) {
                       var prevPointIndex = Math.floor(
                         index * prevPointsDiffFactor,
@@ -25937,19 +25585,19 @@
                       clipPathId,
                     );
                   }
-                  return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "default"
                   ].createElement(
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "Layer"
                     ],
                     null,
-                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "defs",
                       null,
-                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "default"
                       ].createElement(
                         "clipPath",
@@ -25959,7 +25607,7 @@
                         _this2.renderClipRect(t),
                       ),
                     ),
-                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -26077,7 +25725,7 @@
                 _ref3$clipDot = _ref3.clipDot,
                 clipDot = _ref3$clipDot === void 0 ? true : _ref3$clipDot;
               var dotSize = r * 2 + strokeWidth;
-              return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "default"
               ].createElement(
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$container$2f$Layer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -26087,19 +25735,19 @@
                   className: layerClass,
                 },
                 needClipX || needClipY
-                  ?  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "default"
                     ].createElement(
                       "defs",
                       null,
-                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "default"
                       ].createElement(
                         "clipPath",
                         {
                           id: "clipPath-".concat(clipPathId),
                         },
-                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "default"
                         ].createElement("rect", {
                           x: needClipX ? left : left - width / 2,
@@ -26109,14 +25757,14 @@
                         }),
                       ),
                       !clipDot &&
-                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                           "default"
                         ].createElement(
                           "clipPath",
                           {
                             id: "clipPath-dots-".concat(clipPathId),
                           },
-                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                             "default"
                           ].createElement("rect", {
                             x: left - dotSize / 2,
@@ -26180,7 +25828,7 @@
       yAxisId: 0,
       legendType: "line",
       connectNulls: false,
-      
+
       points: [],
       dot: false,
       activeDot: true,
@@ -26197,8 +25845,7 @@
       var layout = props.layout,
         chartBaseValue = props.baseValue;
       var itemBaseValue = item.props.baseValue;
-      
-      
+
       var baseValue =
         itemBaseValue !== null && itemBaseValue !== void 0
           ? itemBaseValue
@@ -26341,12 +25988,12 @@
     _defineProperty(Area, "renderDotItem", function (option, props) {
       var dotItem;
       if (
-         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "default"
         ].isValidElement(option)
       ) {
         dotItem =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].cloneElement(option, props);
       } else if (
@@ -26367,7 +26014,7 @@
         var key = props.key,
           rest = _objectWithoutProperties(props, _excluded2);
         dotItem =
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$shape$2f$Dot$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -26386,9 +26033,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
- __turbopack_context__.s(["AreaChart", () => AreaChart]);
+    __turbopack_context__.s(["AreaChart", () => AreaChart]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$generateCategoricalChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/chart/generateCategoricalChart.js [app-client] (ecmascript)",
@@ -26444,9 +26089,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
- __turbopack_context__.s(["BarChart", () => BarChart]);
+    __turbopack_context__.s(["BarChart", () => BarChart]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$generateCategoricalChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/es6/chart/generateCategoricalChart.js [app-client] (ecmascript)",
@@ -26501,5 +26144,3 @@
     });
   },
 ]);
-
-

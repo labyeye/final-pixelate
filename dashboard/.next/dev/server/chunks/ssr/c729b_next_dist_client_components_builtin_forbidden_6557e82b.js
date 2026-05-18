@@ -19,13 +19,10 @@ module.exports = [
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-fallback.js [app-rsc] (ecmascript)",
     );
     function Forbidden() {
-      return  (0, _jsxruntime.jsx)(
-        _errorfallback.HTTPAccessErrorFallback,
-        {
-          status: 403,
-          message: "This page could not be accessed.",
-        },
-      );
+      return (0, _jsxruntime.jsx)(_errorfallback.HTTPAccessErrorFallback, {
+        status: 403,
+        message: "This page could not be accessed.",
+      });
     }
     if (
       (typeof exports.default === "function" ||
@@ -37,8 +34,6 @@ module.exports = [
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
 ];
-
-

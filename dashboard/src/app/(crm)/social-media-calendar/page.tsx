@@ -63,7 +63,6 @@ export default function SocialMediaCalendarPage() {
     loadPosts(selectedClientId);
   }, [selectedClientId]);
 
-  
   const parseDate = (dateStr: string): Date => {
     if (!dateStr) return new Date();
     if (dateStr.includes("T")) {
@@ -72,17 +71,14 @@ export default function SocialMediaCalendarPage() {
     return new Date(dateStr);
   };
 
-  
   const getDaysInMonth = (date: Date): number => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   };
 
-  
   const getFirstDayOfMonth = (date: Date): number => {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   };
 
-  
   const formatDateKey = (date: Date): string => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -90,7 +86,6 @@ export default function SocialMediaCalendarPage() {
     return `${year}-${month}-${day}`;
   };
 
-  
   const postsByDate = useMemo(() => {
     const map = new Map<string, SocialMediaPost[]>();
     posts.forEach((post) => {
@@ -102,7 +97,6 @@ export default function SocialMediaCalendarPage() {
       map.get(key)!.push(post);
     });
 
-    
     if (platformFilter) {
       const filtered = new Map<string, SocialMediaPost[]>();
       map.forEach((postsForDate, key) => {
@@ -119,7 +113,6 @@ export default function SocialMediaCalendarPage() {
     return map;
   }, [posts, platformFilter]);
 
-  
   const renderMonthCalendar = () => {
     const daysInMonth = getDaysInMonth(currentDate);
     const firstDay = getFirstDayOfMonth(currentDate);
@@ -230,7 +223,6 @@ export default function SocialMediaCalendarPage() {
     );
   };
 
-  
   const renderListView = () => {
     const sortedDates = Array.from(postsByDate.keys()).sort();
 

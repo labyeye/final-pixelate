@@ -15,8 +15,20 @@
   height: 800px;
   overflow: hidden;
   margin: 40px 0;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
 .portfolio-grid {
@@ -71,7 +83,9 @@
   width: 100%;
   text-decoration: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
   margin-bottom: 15px;
   break-inside: avoid;
 }
@@ -103,9 +117,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.95) 0,
-      rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0,
+    rgba(0, 0, 0, 0) 100%
+  );
   padding: 60px 30px 30px;
   color: #fff;
   transform: translateY(100%);

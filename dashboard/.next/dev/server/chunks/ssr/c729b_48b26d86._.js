@@ -3,12 +3,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -73,7 +68,6 @@ module.exports = [
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "default"
     ])("Building2", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/building-2.js [app-ssr] (ecmascript) <export default as Building2>",
   (__turbopack_context__) => {
@@ -95,12 +89,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -123,7 +112,6 @@ module.exports = [
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "default"
     ])("Facebook", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/facebook.js [app-ssr] (ecmascript) <export default as Facebook>",
   (__turbopack_context__) => {
@@ -145,12 +133,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -195,7 +178,6 @@ module.exports = [
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "default"
     ])("Instagram", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/instagram.js [app-ssr] (ecmascript) <export default as Instagram>",
   (__turbopack_context__) => {
@@ -217,12 +199,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -264,7 +241,6 @@ module.exports = [
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "default"
     ])("Linkedin", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/linkedin.js [app-ssr] (ecmascript) <export default as Linkedin>",
   (__turbopack_context__) => {
@@ -286,12 +262,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -314,7 +285,6 @@ module.exports = [
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "default"
     ])("Play", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/play.js [app-ssr] (ecmascript) <export default as Play>",
   (__turbopack_context__) => {
@@ -344,8 +314,7 @@ module.exports = [
       if (condition) {
         return;
       }
-      if (("TURBOPACK compile-time falsy", 0)) 
-      ;
+      if (("TURBOPACK compile-time falsy", 0));
       var provided = typeof message === "function" ? message() : message;
       var value = provided ? "".concat(prefix, ": ").concat(provided) : prefix;
       throw new Error(value);
@@ -355,21 +324,10 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
-
- if (("TURBOPACK compile-time truthy", 1)) {
+    if (("TURBOPACK compile-time truthy", 1)) {
       (function () {
         "use strict";
-        
-        
-        
-        
+
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -384,14 +342,13 @@ module.exports = [
         var REACT_MEMO_TYPE = Symbol.for("react.memo");
         var REACT_LAZY_TYPE = Symbol.for("react.lazy");
         var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
-        
-        var enableScopeAPI = false; 
+
+        var enableScopeAPI = false;
         var enableCacheElement = false;
-        var enableTransitionTracing = false; 
-        var enableLegacyHidden = false; 
-        
-        
-        var enableDebugTracing = false; 
+        var enableTransitionTracing = false;
+        var enableLegacyHidden = false;
+
+        var enableDebugTracing = false;
         var REACT_MODULE_REFERENCE;
         {
           REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
@@ -399,7 +356,7 @@ module.exports = [
         function isValidElementType(type) {
           if (typeof type === "string" || typeof type === "function") {
             return true;
-          } 
+          }
           if (
             type === REACT_FRAGMENT_TYPE ||
             type === REACT_PROFILER_TYPE ||
@@ -421,10 +378,7 @@ module.exports = [
               type.$$typeof === REACT_MEMO_TYPE ||
               type.$$typeof === REACT_PROVIDER_TYPE ||
               type.$$typeof === REACT_CONTEXT_TYPE ||
-              type.$$typeof === REACT_FORWARD_REF_TYPE || 
-              
-              
-              
+              type.$$typeof === REACT_FORWARD_REF_TYPE ||
               type.$$typeof === REACT_MODULE_REFERENCE ||
               type.getModuleId !== undefined
             ) {
@@ -479,11 +433,11 @@ module.exports = [
         var Suspense = REACT_SUSPENSE_TYPE;
         var SuspenseList = REACT_SUSPENSE_LIST_TYPE;
         var hasWarnedAboutDeprecatedIsAsyncMode = false;
-        var hasWarnedAboutDeprecatedIsConcurrentMode = false; 
+        var hasWarnedAboutDeprecatedIsConcurrentMode = false;
         function isAsyncMode(object) {
           {
             if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-              hasWarnedAboutDeprecatedIsAsyncMode = true; 
+              hasWarnedAboutDeprecatedIsAsyncMode = true;
               console["warn"](
                 "The ReactIs.isAsyncMode() alias has been deprecated, " +
                   "and will be removed in React 18+.",
@@ -495,7 +449,7 @@ module.exports = [
         function isConcurrentMode(object) {
           {
             if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
-              hasWarnedAboutDeprecatedIsConcurrentMode = true; 
+              hasWarnedAboutDeprecatedIsConcurrentMode = true;
               console["warn"](
                 "The ReactIs.isConcurrentMode() alias has been deprecated, " +
                   "and will be removed in React 18+.",
@@ -579,8 +533,7 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts/node_modules/react-is/cjs/react-is.development.js [app-ssr] (ecmascript)",
@@ -591,18 +544,10 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
-
-
- if (("TURBOPACK compile-time truthy", 1)) {
+    if (("TURBOPACK compile-time truthy", 1)) {
       (function () {
         "use strict";
-        
-        
+
         var hasSymbol = typeof Symbol === "function" && Symbol.for;
         var REACT_ELEMENT_TYPE = hasSymbol
           ? Symbol.for("react.element")
@@ -622,8 +567,8 @@ module.exports = [
           : 0xeacd;
         var REACT_CONTEXT_TYPE = hasSymbol
           ? Symbol.for("react.context")
-          : 0xeace; 
-        
+          : 0xeace;
+
         var REACT_ASYNC_MODE_TYPE = hasSymbol
           ? Symbol.for("react.async_mode")
           : 0xeacf;
@@ -652,7 +597,7 @@ module.exports = [
         function isValidElementType(type) {
           return (
             typeof type === "string" ||
-            typeof type === "function" || 
+            typeof type === "function" ||
             type === REACT_FRAGMENT_TYPE ||
             type === REACT_CONCURRENT_MODE_TYPE ||
             type === REACT_PROFILER_TYPE ||
@@ -704,7 +649,7 @@ module.exports = [
             }
           }
           return undefined;
-        } 
+        }
         var AsyncMode = REACT_ASYNC_MODE_TYPE;
         var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
         var ContextConsumer = REACT_CONTEXT_TYPE;
@@ -718,11 +663,11 @@ module.exports = [
         var Profiler = REACT_PROFILER_TYPE;
         var StrictMode = REACT_STRICT_MODE_TYPE;
         var Suspense = REACT_SUSPENSE_TYPE;
-        var hasWarnedAboutDeprecatedIsAsyncMode = false; 
+        var hasWarnedAboutDeprecatedIsAsyncMode = false;
         function isAsyncMode(object) {
           {
             if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-              hasWarnedAboutDeprecatedIsAsyncMode = true; 
+              hasWarnedAboutDeprecatedIsAsyncMode = true;
               console["warn"](
                 "The ReactIs.isAsyncMode() alias has been deprecated, " +
                   "and will be removed in React 17+. Update your code to use " +
@@ -809,8 +754,7 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    if (("TURBOPACK compile-time falsy", 0)) 
-    ;
+    if (("TURBOPACK compile-time falsy", 0));
     else {
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js [app-ssr] (ecmascript)",
@@ -821,20 +765,12 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-    
-    
-    
     __turbopack_context__.s([]);
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/victory-vendor/es/d3-scale.js [app-ssr] (ecmascript) <locals>",
   (__turbopack_context__) => {
     "use strict";
 
-    
-    
-    
-    
     __turbopack_context__.s([]);
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/victory-vendor/es/d3-scale.js [app-ssr] (ecmascript)",
@@ -1435,7 +1371,7 @@ module.exports = [
             "sqrt"
           ])(size) * 0.6824;
         const t = s / 2;
-        const u = (s * sqrt3) / 2; 
+        const u = (s * sqrt3) / 2;
         context.moveTo(0, -s);
         context.lineTo(u, t);
         context.lineTo(-u, t);
@@ -1840,9 +1776,7 @@ module.exports = [
     ]);
     var slice = Array.prototype.slice;
     function __TURBOPACK__default__export__(x) {
-      return typeof x === "object" && "length" in x
-        ? x 
-        : Array.from(x); 
+      return typeof x === "object" && "length" in x ? x : Array.from(x);
     }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/d3-shape/src/offset/none.js [app-ssr] (ecmascript)",
@@ -2208,7 +2142,7 @@ module.exports = [
               : this._context.moveTo(x, y);
             break;
           case 1:
-            this._point = 2; 
+            this._point = 2;
           default:
             this._context.lineTo(x, y);
             break;
@@ -2685,7 +2619,7 @@ module.exports = [
       lineEnd: function () {
         switch (this._point) {
           case 3:
-            point(this, this._x1, this._y1); 
+            point(this, this._x1, this._y1);
           case 2:
             this._context.lineTo(this._x1, this._y1);
             break;
@@ -2711,7 +2645,7 @@ module.exports = [
             this._context.lineTo(
               (5 * this._x0 + this._x1) / 6,
               (5 * this._y0 + this._y1) / 6,
-            ); 
+            );
           default:
             point(this, x, y);
             break;
@@ -2886,7 +2820,7 @@ module.exports = [
               : this._context.moveTo(x0, y0);
             break;
           case 3:
-            this._point = 4; 
+            this._point = 4;
           default:
             (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$shape$2f$src$2f$curve$2f$basis$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -2988,7 +2922,7 @@ module.exports = [
             break;
           }
           case 1:
-            this._point = 2; 
+            this._point = 2;
           default: {
             if (this._x)
               this._context.bezierCurveTo(
@@ -3173,10 +3107,7 @@ module.exports = [
     function sign(x) {
       return x < 0 ? -1 : 1;
     }
-    
-    
-    
-    
+
     function slope3(that, x2, y2) {
       var h0 = that._x1 - that._x0,
         h1 = x2 - that._x1,
@@ -3188,14 +3119,12 @@ module.exports = [
           Math.min(Math.abs(s0), Math.abs(s1), 0.5 * Math.abs(p)) || 0
       );
     }
-    
+
     function slope2(that, t) {
       var h = that._x1 - that._x0;
       return h ? ((3 * (that._y1 - that._y0)) / h - t) / 2 : t;
     }
-    
-    
-    
+
     function point(that, t0, t1) {
       var x0 = that._x0,
         y0 = that._y0,
@@ -3241,7 +3170,7 @@ module.exports = [
       point: function (x, y) {
         var t1 = NaN;
         ((x = +x), (y = +y));
-        if (x === this._x1 && y === this._y1) return; 
+        if (x === this._x1 && y === this._y1) return;
         switch (this._point) {
           case 0:
             this._point = 1;
@@ -3382,7 +3311,7 @@ module.exports = [
         this._y.push(+y);
       },
     };
-    
+
     function controlPoints(x) {
       var i,
         n = x.length - 1,
@@ -3467,7 +3396,7 @@ module.exports = [
               : this._context.moveTo(x, y);
             break;
           case 1:
-            this._point = 2; 
+            this._point = 2;
           default: {
             if (this._t <= 0) {
               this._context.lineTo(this._x, y);
@@ -3577,7 +3506,7 @@ module.exports = [
     }
     class Path {
       constructor(digits) {
-        this._x0 = this._y0 = this._x1 = this._y1 = null; 
+        this._x0 = this._y0 = this._x1 = this._y1 = null;
         this._ = "";
         this._append = digits == null ? append : appendRound(digits);
       }
@@ -3603,7 +3532,7 @@ module.exports = [
       }
       arcTo(x1, y1, x2, y2, r) {
         ((x1 = +x1), (y1 = +y1), (x2 = +x2), (y2 = +y2), (r = +r));
-        
+
         if (r < 0) throw new Error(`negative radius: ${r}`);
         let x0 = this._x1,
           y0 = this._y1,
@@ -3612,7 +3541,7 @@ module.exports = [
           x01 = x0 - x1,
           y01 = y0 - y1,
           l01_2 = x01 * x01 + y01 * y01;
-        
+
         if (this._x1 === null) {
           this._append`M${(this._x1 = x1)},${(this._y1 = y1)}`;
         } else if (!(l01_2 > epsilon));
@@ -3632,7 +3561,7 @@ module.exports = [
               ),
             t01 = l / l01,
             t21 = l / l21;
-          
+
           if (Math.abs(t01 - 1) > epsilon) {
             this._append`L${x1 + t01 * x01},${y1 + t01 * y01}`;
           }
@@ -3642,7 +3571,7 @@ module.exports = [
       }
       arc(x, y, r, a0, a1, ccw) {
         ((x = +x), (y = +y), (r = +r), (ccw = !!ccw));
-        
+
         if (r < 0) throw new Error(`negative radius: ${r}`);
         let dx = r * Math.cos(a0),
           dy = r * Math.sin(a0),
@@ -3650,7 +3579,7 @@ module.exports = [
           y0 = y + dy,
           cw = 1 ^ ccw,
           da = ccw ? a0 - a1 : a1 - a0;
-        
+
         if (this._x1 === null) {
           this._append`M${x0},${y0}`;
         } else if (
@@ -3659,11 +3588,11 @@ module.exports = [
         ) {
           this._append`L${x0},${y0}`;
         }
-        
+
         if (!r) return;
-        
+
         if (da < 0) da = (da % tau) + tau;
-        
+
         if (da > tauEpsilon) {
           this
             ._append`A${r},${r},0,1,${cw},${x - dx},${y - dy}A${r},${r},0,1,${cw},${(this._x1 = x0)},${(this._y1 = y0)}`;
@@ -3683,7 +3612,7 @@ module.exports = [
     function path() {
       return new Path();
     }
-    
+
     path.prototype = Path.prototype;
     function pathRound(digits = 3) {
       return new Path(+digits);
@@ -3693,12 +3622,7 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-  var getOwnPropertySymbols =
-      Object.getOwnPropertySymbols;
+    var getOwnPropertySymbols = Object.getOwnPropertySymbols;
     var hasOwnProperty = Object.prototype.hasOwnProperty;
     var propIsEnumerable = Object.prototype.propertyIsEnumerable;
     function toObject(val) {
@@ -3711,16 +3635,14 @@ module.exports = [
     }
     function shouldUseNative() {
       try {
-        if (("TURBOPACK compile-time falsy", 0)) 
-        ;
-        
-        
-        var test1 = new String("abc"); 
+        if (("TURBOPACK compile-time falsy", 0));
+
+        var test1 = new String("abc");
         test1[5] = "de";
         if (Object.getOwnPropertyNames(test1)[0] === "5") {
           return false;
         }
-        
+
         var test2 = {};
         for (var i = 0; i < 10; i++) {
           test2["_" + String.fromCharCode(i)] = i;
@@ -3731,7 +3653,7 @@ module.exports = [
         if (order2.join("") !== "0123456789") {
           return false;
         }
-        
+
         var test3 = {};
         "abcdefghijklmnopqrst".split("").forEach(function (letter) {
           test3[letter] = letter;
@@ -3744,7 +3666,6 @@ module.exports = [
         }
         return true;
       } catch (err) {
-        
         return false;
       }
     }
@@ -3777,13 +3698,7 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
- var ReactPropTypesSecret =
-      "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+    var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
     module.exports = ReactPropTypesSecret;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/prop-types/lib/has.js [app-ssr] (ecmascript)",
@@ -3794,12 +3709,7 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
- var printWarning = function () {};
+    var printWarning = function () {};
     if (("TURBOPACK compile-time truthy", 1)) {
       var ReactPropTypesSecret = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/prop-types/lib/ReactPropTypesSecret.js [app-ssr] (ecmascript)",
@@ -3814,24 +3724,12 @@ module.exports = [
           console.error(message);
         }
         try {
-          
-          
-          
           throw new Error(message);
         } catch (x) {}
       };
     }
-    
 
-
-
-
-
-
-
-
-
- function checkPropTypes(
+    function checkPropTypes(
       typeSpecs,
       values,
       location,
@@ -3842,12 +3740,8 @@ module.exports = [
         for (var typeSpecName in typeSpecs) {
           if (has(typeSpecs, typeSpecName)) {
             var error;
-            
-            
-            
+
             try {
-              
-              
               if (typeof typeSpecs[typeSpecName] !== "function") {
                 var err = Error(
                   (componentName || "React class") +
@@ -3895,8 +3789,6 @@ module.exports = [
               error instanceof Error &&
               !(error.message in loggedTypeFailures)
             ) {
-              
-              
               loggedTypeFailures[error.message] = true;
               var stack = getStack ? getStack() : "";
               printWarning(
@@ -3911,11 +3803,8 @@ module.exports = [
         }
       }
     }
-    
 
-
-
- checkPropTypes.resetWarningCache = function () {
+    checkPropTypes.resetWarningCache = function () {
       if (("TURBOPACK compile-time value", "development") !== "production") {
         loggedTypeFailures = {};
       }
@@ -3926,12 +3815,7 @@ module.exports = [
   (__turbopack_context__, module, exports) => {
     "use strict";
 
-    
-
-
-
-
- var ReactIs = __turbopack_context__.r(
+    var ReactIs = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/prop-types/node_modules/react-is/index.js [app-ssr] (ecmascript)",
     );
     var assign = __turbopack_context__.r(
@@ -3954,9 +3838,6 @@ module.exports = [
           console.error(message);
         }
         try {
-          
-          
-          
           throw new Error(message);
         } catch (x) {}
       };
@@ -3965,23 +3846,10 @@ module.exports = [
       return null;
     }
     module.exports = function (isValidElement, throwOnDirectAccess) {
-       var ITERATOR_SYMBOL =
-        typeof Symbol === "function" && Symbol.iterator;
-      var FAUX_ITERATOR_SYMBOL = "@@iterator"; 
-      
+      var ITERATOR_SYMBOL = typeof Symbol === "function" && Symbol.iterator;
+      var FAUX_ITERATOR_SYMBOL = "@@iterator";
 
-
-
-
-
-
-
-
-
-
-
-
- function getIteratorFn(maybeIterable) {
+      function getIteratorFn(maybeIterable) {
         var iteratorFn =
           maybeIterable &&
           ((ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL]) ||
@@ -3990,54 +3858,9 @@ module.exports = [
           return iteratorFn;
         }
       }
-      
 
+      var ANONYMOUS = "<<anonymous>>";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- var ANONYMOUS = "<<anonymous>>";
-      
-      
       var ReactPropTypes = {
         array: createPrimitiveTypeChecker("array"),
         bigint: createPrimitiveTypeChecker("bigint"),
@@ -4059,32 +3882,21 @@ module.exports = [
         shape: createShapeTypeChecker,
         exact: createStrictShapeTypeChecker,
       };
-      
 
-
-  function is(x, y) {
-        
+      function is(x, y) {
         if (x === y) {
-          
-          
           return x !== 0 || 1 / x === 1 / y;
         } else {
-          
           return x !== x && y !== y;
         }
       }
-       
 
-
-
-
-
- function PropTypeError(message, data) {
+      function PropTypeError(message, data) {
         this.message = message;
         this.data = data && typeof data === "object" ? data : {};
         this.stack = "";
       }
-      
+
       PropTypeError.prototype = Error.prototype;
       function createChainableTypeChecker(validate) {
         if (("TURBOPACK compile-time value", "development") !== "production") {
@@ -4104,7 +3916,6 @@ module.exports = [
           propFullName = propFullName || propName;
           if (secret !== ReactPropTypesSecret) {
             if (throwOnDirectAccess) {
-              
               var err = new Error(
                 "Calling PropTypes validators directly is not supported by the `prop-types` package. " +
                   "Use `PropTypes.checkPropTypes()` to call them. " +
@@ -4117,10 +3928,9 @@ module.exports = [
                 "production" &&
               typeof console !== "undefined"
             ) {
-              
               var cacheKey = componentName + ":" + propName;
               if (
-                !manualPropTypeCallCache[cacheKey] && 
+                !manualPropTypeCallCache[cacheKey] &&
                 manualPropTypeWarningCount < 3
               ) {
                 printWarning(
@@ -4188,9 +3998,6 @@ module.exports = [
           var propValue = props[propName];
           var propType = getPropType(propValue);
           if (propType !== expectedType) {
-            
-            
-            
             var preciseType = getPreciseType(propValue);
             return new PropTypeError(
               "Invalid " +
@@ -4638,7 +4445,7 @@ module.exports = [
                 ("supplied to `" + componentName + "`, expected `object`."),
             );
           }
-          
+
           var allKeys = assign({}, props[propName], shapeTypes);
           for (var key in allKeys) {
             var checker = shapeTypes[key];
@@ -4710,7 +4517,6 @@ module.exports = [
                   }
                 }
               } else {
-                
                 while (!(step = iterator.next()).done) {
                   var entry = step.value;
                   if (entry) {
@@ -4729,34 +4535,30 @@ module.exports = [
         }
       }
       function isSymbol(propType, propValue) {
-        
         if (propType === "symbol") {
           return true;
         }
-        
+
         if (!propValue) {
           return false;
         }
-        
+
         if (propValue["@@toStringTag"] === "Symbol") {
           return true;
         }
-        
+
         if (typeof Symbol === "function" && propValue instanceof Symbol) {
           return true;
         }
         return false;
       }
-      
+
       function getPropType(propValue) {
         var propType = typeof propValue;
         if (Array.isArray(propValue)) {
           return "array";
         }
         if (propValue instanceof RegExp) {
-          
-          
-          
           return "object";
         }
         if (isSymbol(propType, propValue)) {
@@ -4764,8 +4566,7 @@ module.exports = [
         }
         return propType;
       }
-      
-      
+
       function getPreciseType(propValue) {
         if (typeof propValue === "undefined" || propValue === null) {
           return "" + propValue;
@@ -4780,8 +4581,7 @@ module.exports = [
         }
         return propType;
       }
-      
-      
+
       function getPostfixForTypeWarning(value) {
         var type = getPreciseType(value);
         switch (type) {
@@ -4796,7 +4596,7 @@ module.exports = [
             return type;
         }
       }
-      
+
       function getClassName(propValue) {
         if (!propValue.constructor || !propValue.constructor.name) {
           return ANONYMOUS;
@@ -4811,23 +4611,16 @@ module.exports = [
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/prop-types/index.js [app-ssr] (ecmascript)",
   (__turbopack_context__, module, exports) => {
-    
-
-
-
-
- if (("TURBOPACK compile-time truthy", 1)) {
+    if (("TURBOPACK compile-time truthy", 1)) {
       var ReactIs = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/prop-types/node_modules/react-is/index.js [app-ssr] (ecmascript)",
       );
-      
-      
+
       var throwOnDirectAccess = true;
       module.exports = __turbopack_context__.r(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/prop-types/factoryWithTypeCheckers.js [app-ssr] (ecmascript)",
       )(ReactIs.isElement, throwOnDirectAccess);
-    } 
-    else;
+    } else;
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/fast-equals/dist/es/index.mjs [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
@@ -4856,20 +4649,16 @@ module.exports = [
       () => strictShallowEqual,
     ]);
     const { getOwnPropertyNames, getOwnPropertySymbols } = Object;
-    
-    const { hasOwnProperty } = Object.prototype;
-    
 
- function combineComparators(comparatorA, comparatorB) {
+    const { hasOwnProperty } = Object.prototype;
+
+    function combineComparators(comparatorA, comparatorB) {
       return function isEqual(a, b, state) {
         return comparatorA(a, b, state) && comparatorB(a, b, state);
       };
     }
-    
 
-
-
- function createIsCircular(areItemsEqual) {
+    function createIsCircular(areItemsEqual) {
       return function isCircular(a, b, state) {
         if (!a || !b || typeof a !== "object" || typeof b !== "object") {
           return areItemsEqual(a, b, state);
@@ -4888,42 +4677,35 @@ module.exports = [
         return result;
       };
     }
-    
 
- function getShortTag(value) {
+    function getShortTag(value) {
       return value != null ? value[Symbol.toStringTag] : undefined;
     }
-    
 
-
- function getStrictProperties(object) {
+    function getStrictProperties(object) {
       return getOwnPropertyNames(object).concat(getOwnPropertySymbols(object));
     }
-    
 
- const hasOwn = 
+    const hasOwn =
       Object.hasOwn ||
       ((object, property) => hasOwnProperty.call(object, property));
-    
 
- function sameValueZeroEqual(a, b) {
+    function sameValueZeroEqual(a, b) {
       return a === b || (!a && !b && a !== a && b !== b);
     }
     const PREACT_VNODE = "__v";
     const PREACT_OWNER = "__o";
     const REACT_OWNER = "_owner";
     const { getOwnPropertyDescriptor, keys } = Object;
-    
 
- function areArrayBuffersEqual(a, b) {
+    function areArrayBuffersEqual(a, b) {
       return (
         a.byteLength === b.byteLength &&
         areTypedArraysEqual(new Uint8Array(a), new Uint8Array(b))
       );
     }
-    
 
- function areArraysEqual(a, b, state) {
+    function areArraysEqual(a, b, state) {
       let index = a.length;
       if (b.length !== index) {
         return false;
@@ -4935,9 +4717,8 @@ module.exports = [
       }
       return true;
     }
-    
 
- function areDataViewsEqual(a, b) {
+    function areDataViewsEqual(a, b) {
       return (
         a.byteLength === b.byteLength &&
         areTypedArraysEqual(
@@ -4946,14 +4727,12 @@ module.exports = [
         )
       );
     }
-    
 
- function areDatesEqual(a, b) {
+    function areDatesEqual(a, b) {
       return sameValueZeroEqual(a.getTime(), b.getTime());
     }
-    
 
- function areErrorsEqual(a, b) {
+    function areErrorsEqual(a, b) {
       return (
         a.name === b.name &&
         a.message === b.message &&
@@ -4961,14 +4740,12 @@ module.exports = [
         a.stack === b.stack
       );
     }
-    
 
- function areFunctionsEqual(a, b) {
+    function areFunctionsEqual(a, b) {
       return a === b;
     }
-    
 
- function areMapsEqual(a, b, state) {
+    function areMapsEqual(a, b, state) {
       const size = a.size;
       if (size !== b.size) {
         return false;
@@ -4981,7 +4758,7 @@ module.exports = [
       let aResult;
       let bResult;
       let index = 0;
-      
+
       while ((aResult = aIterable.next())) {
         if (aResult.done) {
           break;
@@ -4989,7 +4766,7 @@ module.exports = [
         const bIterable = b.entries();
         let hasMatch = false;
         let matchIndex = 0;
-        
+
         while ((bResult = bIterable.next())) {
           if (bResult.done) {
             break;
@@ -5032,21 +4809,16 @@ module.exports = [
       }
       return true;
     }
-    
 
- const areNumbersEqual = sameValueZeroEqual;
-    
+    const areNumbersEqual = sameValueZeroEqual;
 
- function areObjectsEqual(a, b, state) {
+    function areObjectsEqual(a, b, state) {
       const properties = keys(a);
       let index = properties.length;
       if (keys(b).length !== index) {
         return false;
       }
-      
-      
-      
-      
+
       while (index-- > 0) {
         if (!isPropertyEqual(a, b, state, properties[index])) {
           return false;
@@ -5054,9 +4826,8 @@ module.exports = [
       }
       return true;
     }
-    
 
- function areObjectsEqualStrict(a, b, state) {
+    function areObjectsEqualStrict(a, b, state) {
       const properties = getStrictProperties(a);
       let index = properties.length;
       if (getStrictProperties(b).length !== index) {
@@ -5065,10 +4836,7 @@ module.exports = [
       let property;
       let descriptorA;
       let descriptorB;
-      
-      
-      
-      
+
       while (index-- > 0) {
         property = properties[index];
         if (!isPropertyEqual(a, b, state, property)) {
@@ -5089,19 +4857,16 @@ module.exports = [
       }
       return true;
     }
-    
 
- function arePrimitiveWrappersEqual(a, b) {
+    function arePrimitiveWrappersEqual(a, b) {
       return sameValueZeroEqual(a.valueOf(), b.valueOf());
     }
-    
 
- function areRegExpsEqual(a, b) {
+    function areRegExpsEqual(a, b) {
       return a.source === b.source && a.flags === b.flags;
     }
-    
 
- function areSetsEqual(a, b, state) {
+    function areSetsEqual(a, b, state) {
       const size = a.size;
       if (size !== b.size) {
         return false;
@@ -5113,7 +4878,7 @@ module.exports = [
       const aIterable = a.values();
       let aResult;
       let bResult;
-      
+
       while ((aResult = aIterable.next())) {
         if (aResult.done) {
           break;
@@ -5121,7 +4886,7 @@ module.exports = [
         const bIterable = b.values();
         let hasMatch = false;
         let matchIndex = 0;
-        
+
         while ((bResult = bIterable.next())) {
           if (bResult.done) {
             break;
@@ -5149,9 +4914,8 @@ module.exports = [
       }
       return true;
     }
-    
 
- function areTypedArraysEqual(a, b) {
+    function areTypedArraysEqual(a, b) {
       let index = a.byteLength;
       if (b.byteLength !== index || a.byteOffset !== b.byteOffset) {
         return false;
@@ -5163,9 +4927,8 @@ module.exports = [
       }
       return true;
     }
-    
 
- function areUrlsEqual(a, b) {
+    function areUrlsEqual(a, b) {
       return (
         a.hostname === b.hostname &&
         a.pathname === b.pathname &&
@@ -5217,11 +4980,10 @@ module.exports = [
       "[object BigUint64Array]": true,
     };
     const URL_TAG = "[object URL]";
-    
-    const toString = Object.prototype.toString;
-    
 
- function createEqualityComparator({
+    const toString = Object.prototype.toString;
+
+    function createEqualityComparator({
       areArrayBuffersEqual,
       areArraysEqual,
       areDataViewsEqual,
@@ -5238,15 +5000,11 @@ module.exports = [
       areUrlsEqual,
       unknownTagComparators,
     }) {
-      
-
- return function comparator(a, b, state) {
-        
+      return function comparator(a, b, state) {
         if (a === b) {
           return true;
         }
-        
-        
+
         if (a == null || b == null) {
           return false;
         }
@@ -5261,39 +5019,23 @@ module.exports = [
           if (type === "function") {
             return areFunctionsEqual(a, b, state);
           }
-          
+
           return false;
         }
         const constructor = a.constructor;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         if (constructor !== b.constructor) {
           return false;
         }
-        
-        
-        
+
         if (constructor === Object) {
           return areObjectsEqual(a, b, state);
         }
-        
-        
+
         if (Array.isArray(a)) {
           return areArraysEqual(a, b, state);
         }
-        
-        
-        
-        
-        
+
         if (constructor === Date) {
           return areDatesEqual(a, b, state);
         }
@@ -5306,14 +5048,12 @@ module.exports = [
         if (constructor === Set) {
           return areSetsEqual(a, b, state);
         }
-        
-        
+
         const tag = toString.call(a);
         if (tag === DATE_TAG) {
           return areDatesEqual(a, b, state);
         }
-        
-        
+
         if (tag === REG_EXP_TAG) {
           return areRegExpsEqual(a, b, state);
         }
@@ -5324,26 +5064,21 @@ module.exports = [
           return areSetsEqual(a, b, state);
         }
         if (tag === OBJECT_TAG) {
-          
-          
-          
           return (
             typeof a.then !== "function" &&
             typeof b.then !== "function" &&
             areObjectsEqual(a, b, state)
           );
         }
-        
-        
+
         if (tag === URL_TAG) {
           return areUrlsEqual(a, b, state);
         }
-        
-        
+
         if (tag === ERROR_TAG) {
           return areErrorsEqual(a, b, state);
         }
-        
+
         if (tag === ARGUMENTS_TAG) {
           return areObjectsEqual(a, b, state);
         }
@@ -5356,9 +5091,7 @@ module.exports = [
         if (tag === DATA_VIEW_TAG) {
           return areDataViewsEqual(a, b, state);
         }
-        
-        
-        
+
         if (tag === BOOLEAN_TAG || tag === NUMBER_TAG || tag === STRING_TAG) {
           return arePrimitiveWrappersEqual(a, b, state);
         }
@@ -5370,29 +5103,17 @@ module.exports = [
               unknownTagComparator = unknownTagComparators[shortTag];
             }
           }
-          
-          
+
           if (unknownTagComparator) {
             return unknownTagComparator(a, b, state);
           }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         return false;
       };
     }
-    
 
- function createEqualityComparatorConfig({
+    function createEqualityComparatorConfig({
       circular,
       createCustomConfig,
       strict,
@@ -5437,10 +5158,8 @@ module.exports = [
       }
       return config;
     }
-    
 
-
- function createInternalEqualityComparator(compare) {
+    function createInternalEqualityComparator(compare) {
       return function (
         a,
         b,
@@ -5453,9 +5172,8 @@ module.exports = [
         return compare(a, b, state);
       };
     }
-    
 
- function createIsEqual({
+    function createIsEqual({
       circular,
       comparator,
       createState,
@@ -5494,59 +5212,43 @@ module.exports = [
         return comparator(a, b, state);
       };
     }
-    
 
- const deepEqual = createCustomEqual();
-    
+    const deepEqual = createCustomEqual();
 
- const strictDeepEqual = createCustomEqual({
+    const strictDeepEqual = createCustomEqual({
       strict: true,
     });
-    
 
- const circularDeepEqual = createCustomEqual({
+    const circularDeepEqual = createCustomEqual({
       circular: true,
     });
-    
 
-
- const strictCircularDeepEqual = createCustomEqual({
+    const strictCircularDeepEqual = createCustomEqual({
       circular: true,
       strict: true,
     });
-    
 
- const shallowEqual = createCustomEqual({
+    const shallowEqual = createCustomEqual({
       createInternalComparator: () => sameValueZeroEqual,
     });
-    
 
- const strictShallowEqual = createCustomEqual({
+    const strictShallowEqual = createCustomEqual({
       strict: true,
       createInternalComparator: () => sameValueZeroEqual,
     });
-    
 
- const circularShallowEqual = createCustomEqual({
+    const circularShallowEqual = createCustomEqual({
       circular: true,
       createInternalComparator: () => sameValueZeroEqual,
     });
-    
 
-
- const strictCircularShallowEqual = createCustomEqual({
+    const strictCircularShallowEqual = createCustomEqual({
       circular: true,
       createInternalComparator: () => sameValueZeroEqual,
       strict: true,
     });
-    
 
-
-
-
-
-
- function createCustomEqual(options = {}) {
+    function createCustomEqual(options = {}) {
       const {
         circular = false,
         createInternalComparator: createCustomInternalComparator,
@@ -5566,7 +5268,6 @@ module.exports = [
         strict,
       });
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react-smooth/es6/setRafTimeout.js [app-ssr] (ecmascript)",
   (__turbopack_context__) => {
@@ -6437,10 +6138,8 @@ module.exports = [
         to = _ref.to;
       return from !== to;
     };
-    
 
-
- var calStepperVals = function calStepperVals(easing, preVals, steps) {
+    var calStepperVals = function calStepperVals(easing, preVals, steps) {
       var nextStepVals = (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$util$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "mapObject"
@@ -6531,7 +6230,7 @@ module.exports = [
       var shouldStopAnimation = function shouldStopAnimation() {
         return !Object.values(stepperStyle).filter(needContinue).length;
       };
-      
+
       var stepperUpdate = function stepperUpdate(now) {
         if (!preTime) {
           preTime = now;
@@ -6539,7 +6238,7 @@ module.exports = [
         var deltaTime = now - preTime;
         var steps = deltaTime / easing.dt;
         stepperStyle = calStepperVals(easing, stepperStyle, steps);
-        
+
         render(
           _objectSpread(
             _objectSpread(_objectSpread({}, from), to),
@@ -6551,7 +6250,7 @@ module.exports = [
           cafId = requestAnimationFrame(update);
         }
       };
-      
+
       var timingUpdate = function timingUpdate(now) {
         if (!beginTime) {
           beginTime = now;
@@ -6566,7 +6265,7 @@ module.exports = [
             _toConsumableArray(val).concat([easing(t)]),
           );
         }, timingStyle);
-        
+
         render(
           _objectSpread(_objectSpread(_objectSpread({}, from), to), currStyle),
         );
@@ -6591,10 +6290,10 @@ module.exports = [
         }
       };
       update = easing.isStepper ? stepperUpdate : timingUpdate;
-      
+
       return function () {
         requestAnimationFrame(update);
-        
+
         return function () {
           cancelAnimationFrame(cafId);
         };
@@ -6901,7 +6600,7 @@ module.exports = [
           };
       return _getPrototypeOf(o);
     }
-    var Animate =  (function (_PureComponent) {
+    var Animate = (function (_PureComponent) {
       _inherits(Animate, _PureComponent);
       var _super = _createSuper(Animate);
       function Animate(props, context) {
@@ -6926,7 +6625,7 @@ module.exports = [
           _this.state = {
             style: {},
           };
-          
+
           if (typeof children === "function") {
             _this.state = {
               style: to,
@@ -6996,7 +6695,6 @@ module.exports = [
                   (attributeName && style[attributeName] !== to) ||
                   (!attributeName && style !== to)
                 ) {
-                  
                   this.setState(newState);
                 }
               }
@@ -7031,7 +6729,6 @@ module.exports = [
                 (attributeName && style[attributeName] !== from) ||
                 (!attributeName && style !== from)
               ) {
-                
                 this.setState(_newState);
               }
             }
@@ -7266,7 +6963,7 @@ module.exports = [
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "Children"
               ].count(children);
-            
+
             var stateStyle = this.state.style;
             if (typeof children === "function") {
               return children(stateStyle);
@@ -7280,7 +6977,7 @@ module.exports = [
                 style =
                   _container$props$styl === void 0 ? {} : _container$props$styl,
                 className = _container$props.className;
-              var res =  (0,
+              var res = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "cloneElement"
               ])(
@@ -7303,7 +7000,7 @@ module.exports = [
                 ].only(children),
               );
             }
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               "div",
@@ -7362,7 +7059,7 @@ module.exports = [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
         ].string,
-      
+
       duration:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
@@ -7414,7 +7111,7 @@ module.exports = [
                   "default"
                 ].func,
               ]),
-            
+
             properties:
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "default"
@@ -7448,7 +7145,7 @@ module.exports = [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
         ].func,
-      
+
       shouldReAnimate:
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
@@ -7732,7 +7429,7 @@ module.exports = [
         }
         return 0;
       };
-    var AnimateGroupChild =  (function (_Component) {
+    var AnimateGroupChild = (function (_Component) {
       _inherits(AnimateGroupChild, _Component);
       var _super = _createSuper(AnimateGroupChild);
       function AnimateGroupChild() {
@@ -7809,7 +7506,7 @@ module.exports = [
               enterOptions = _this$props3.enterOptions,
               leaveOptions = _this$props3.leaveOptions,
               props = _objectWithoutProperties(_this$props3, _excluded);
-            return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].createElement(
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$Transition$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Transition$3e$__[
@@ -7821,7 +7518,7 @@ module.exports = [
                 timeout: this.parseTimeout(),
               }),
               function () {
-                return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "default"
                 ].createElement(
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$Animate$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -7890,7 +7587,7 @@ module.exports = [
         appear = props.appear,
         enter = props.enter,
         leave = props.leave;
-      return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "default"
       ].createElement(
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$TransitionGroup$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__TransitionGroup$3e$__[
@@ -7902,7 +7599,7 @@ module.exports = [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "Children"
         ].map(children, function (child, index) {
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$smooth$2f$es6$2f$AnimateGroupChild$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -7912,7 +7609,7 @@ module.exports = [
               appearOptions: appear,
               enterOptions: enter,
               leaveOptions: leave,
-              key: "child-".concat(index), 
+              key: "child-".concat(index),
             },
             child,
           );
@@ -8103,7 +7800,6 @@ module.exports = [
             return c;
           })
           .forEach(function (child) {
-            
             result[child.key] = mapper(child);
           });
       return result;
@@ -8113,8 +7809,8 @@ module.exports = [
       next = next || {};
       function getValueForKey(key) {
         return key in next ? next[key] : prev[key];
-      } 
-      
+      }
+
       var nextKeysPending = Object.create(null);
       var pendingKeys = [];
       for (var prevKey in prev) {
@@ -8138,7 +7834,7 @@ module.exports = [
           }
         }
         childMapping[nextKey] = getValueForKey(nextKey);
-      } 
+      }
       for (i = 0; i < pendingKeys.length; i++) {
         childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
       }
@@ -8180,9 +7876,8 @@ module.exports = [
           (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "isValidElement"
-          ])(prevChild) && !prevChild.props.in; 
+          ])(prevChild) && !prevChild.props.in;
         if (hasNext && (!hasPrev || isLeaving)) {
-          
           children[key] = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "cloneElement"
@@ -8193,8 +7888,6 @@ module.exports = [
             enter: getProp(child, "enter", nextProps),
           });
         } else if (!hasNext && hasPrev && !isLeaving) {
-          
-          
           children[key] = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "cloneElement"
@@ -8209,9 +7902,6 @@ module.exports = [
             "isValidElement"
           ])(prevChild)
         ) {
-          
-          
-          
           children[key] = (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "cloneElement"
@@ -8276,20 +7966,8 @@ module.exports = [
         return child;
       },
     };
-    
 
-
-
-
-
-
-
-
-
-
-
-
- var TransitionGroup =  (function (_React$Component) {
+    var TransitionGroup = (function (_React$Component) {
       (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$babel$2f$runtime$2f$helpers$2f$esm$2f$inheritsLoose$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "default"
@@ -8302,7 +7980,7 @@ module.exports = [
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$babel$2f$runtime$2f$helpers$2f$esm$2f$assertThisInitialized$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ])(_this),
-        ); 
+        );
         _this.state = {
           contextValue: {
             isMounting: true,
@@ -8341,7 +8019,7 @@ module.exports = [
                 ])(nextProps, prevChildMapping, handleExited),
             firstRender: false,
           };
-        }; 
+        };
       _proto.handleExited = function handleExited(child, node) {
         var currentChildMapping = (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$utils$2f$ChildMapping$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -8378,7 +8056,7 @@ module.exports = [
         delete props.enter;
         delete props.exit;
         if (Component === null) {
-          return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$TransitionGroupContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -8390,7 +8068,7 @@ module.exports = [
             children,
           );
         }
-        return  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
         ].createElement(
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$TransitionGroupContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -8399,7 +8077,7 @@ module.exports = [
           {
             value: contextValue,
           },
-           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ].createElement(Component, props, children),
         );
@@ -8412,65 +8090,31 @@ module.exports = [
     );
     TransitionGroup.propTypes = ("TURBOPACK compile-time truthy", 1)
       ? {
-          
-
-
-
-
-
- component:
+          component:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].any,
-          
 
-
-
-
-
-
-
-
-
-
-
- children:
+          children:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].node,
-          
 
-
-
- appear:
+          appear:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].bool,
-          
 
-
-
- enter:
+          enter:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].bool,
-          
 
-
-
- exit: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          exit: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ].bool,
-          
 
-
-
-
-
-
-
-
- childFactory:
+          childFactory:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
@@ -8662,97 +8306,8 @@ module.exports = [
     var ENTERING = "entering";
     var ENTERED = "entered";
     var EXITING = "exiting";
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- var Transition =  (function (_React$Component) {
+    var Transition = (function (_React$Component) {
       (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$babel$2f$runtime$2f$helpers$2f$esm$2f$inheritsLoose$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "default"
@@ -8760,7 +8315,7 @@ module.exports = [
       function Transition(props, context) {
         var _this;
         _this = _React$Component.call(this, props, context) || this;
-        var parentGroup = context; 
+        var parentGroup = context;
         var appear =
           parentGroup && !parentGroup.isMounting ? props.enter : props.appear;
         var initialStatus;
@@ -8796,7 +8351,7 @@ module.exports = [
           };
         }
         return null;
-      }; 
+      };
       var _proto = Transition.prototype;
       _proto.componentDidMount = function componentDidMount() {
         this.updateStatus(true, this.appearStatus);
@@ -8826,7 +8381,7 @@ module.exports = [
         exit = enter = appear = timeout;
         if (timeout != null && typeof timeout !== "number") {
           exit = timeout.exit;
-          enter = timeout.enter; 
+          enter = timeout.enter;
           appear = timeout.appear !== undefined ? timeout.appear : enter;
         }
         return {
@@ -8840,7 +8395,6 @@ module.exports = [
           mounting = false;
         }
         if (nextStatus !== null) {
-          
           this.cancelNextCallback();
           if (nextStatus === ENTERING) {
             if (this.props.unmountOnExit || this.props.mountOnEnter) {
@@ -8848,9 +8402,8 @@ module.exports = [
                 ? this.props.nodeRef.current
                 : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "default"
-                  ].findDOMNode(this); 
-              
-              
+                  ].findDOMNode(this);
+
               if (node)
                 (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$utils$2f$reflow$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -8882,8 +8435,8 @@ module.exports = [
           maybeNode = _ref2[0],
           maybeAppearing = _ref2[1];
         var timeouts = this.getTimeouts();
-        var enterTimeout = appearing ? timeouts.appear : timeouts.enter; 
-        
+        var enterTimeout = appearing ? timeouts.appear : timeouts.enter;
+
         if (
           (!mounting && !enter) ||
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$config$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -8928,7 +8481,7 @@ module.exports = [
           ? undefined
           : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
-            ].findDOMNode(this); 
+            ].findDOMNode(this);
         if (
           !exit ||
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$config$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -8972,9 +8525,6 @@ module.exports = [
         }
       };
       _proto.safeSetState = function safeSetState(nextState, callback) {
-        
-        
-        
         callback = this.setNextCallback(callback);
         this.setState(nextState, callback);
       };
@@ -9061,28 +8611,25 @@ module.exports = [
             "onExited",
             "nodeRef",
           ]);
-        return (
-           
-          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "default"
+        ].createElement(
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$TransitionGroupContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
-          ].createElement(
-            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$TransitionGroupContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-              "default"
-            ].Provider,
-            {
-              value: null,
-            },
-            typeof children === "function"
-              ? children(status, childProps)
-              : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          ].Provider,
+          {
+            value: null,
+          },
+          typeof children === "function"
+            ? children(status, childProps)
+            : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                "default"
+              ].cloneElement(
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "default"
-                ].cloneElement(
-                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                    "default"
-                  ].Children.only(children),
-                  childProps,
-                ),
-          )
+                ].Children.only(children),
+                childProps,
+              ),
         );
       };
       return Transition;
@@ -9097,17 +8644,7 @@ module.exports = [
       ];
     Transition.propTypes = ("TURBOPACK compile-time truthy", 1)
       ? {
-          
-
-
-
-
-
-
-
-
-
- nodeRef:
+          nodeRef:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].shape({
@@ -9141,20 +8678,8 @@ module.exports = [
                       );
                     },
             }),
-          
 
-
-
-
-
-
-
-
-
-
-
-
- children:
+          children:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].oneOfType([
@@ -9165,78 +8690,36 @@ module.exports = [
                 "default"
               ].element.isRequired,
             ]).isRequired,
-          
 
- in: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          in: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ].bool,
-          
 
-
-
-
- mountOnEnter:
+          mountOnEnter:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].bool,
-          
 
-
- unmountOnExit:
+          unmountOnExit:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].bool,
-          
 
-
-
-
-
-
-
-
-
- appear:
+          appear:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].bool,
-          
 
- enter:
+          enter:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].bool,
-          
 
- exit: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          exit: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ].bool,
-          
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- timeout: function timeout(props) {
+          timeout: function timeout(props) {
             var pt =
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$transition$2d$group$2f$esm$2f$utils$2f$PropTypes$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "timeoutsShape"
@@ -9253,88 +8736,43 @@ module.exports = [
             }
             return pt.apply(void 0, [props].concat(args));
           },
-          
 
-
-
-
-
-
-
-
-
-
-
-
- addEndListener:
+          addEndListener:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
-          
 
-
-
-
-
-
- onEnter:
+          onEnter:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
-          
 
-
-
-
-
-
- onEntering:
+          onEntering:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
-          
 
-
-
-
-
-
- onEntered:
+          onEntered:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
-          
 
-
-
-
-
- onExit:
+          onExit:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
-          
 
-
-
-
-
- onExiting:
+          onExiting:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
-          
 
-
-
-
-
- onExited:
+          onExited:
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$prop$2d$types$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ].func,
         }
-      : "TURBOPACK unreachable"; 
+      : "TURBOPACK unreachable";
     function noop() {}
     Transition.defaultProps = {
       in: false,
@@ -9549,11 +8987,7 @@ module.exports = [
       );
     function bisector(f) {
       let compare1, compare2, delta;
-      
-      
-      
-      
-      
+
       if (f.length !== 2) {
         compare1 =
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$array$2f$src$2f$ascending$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -10548,8 +9982,7 @@ module.exports = [
         return Math.max(a, Math.min(b, x));
       };
     }
-    
-    
+
     function bimap(domain, range, interpolate) {
       var d0 = domain[0],
         d1 = domain[1],
@@ -10566,7 +9999,7 @@ module.exports = [
         d = new Array(j),
         r = new Array(j),
         i = -1;
-      
+
       if (domain[j] < domain[0]) {
         domain = domain.slice().reverse();
         range = range.slice().reverse();
@@ -11096,7 +10529,7 @@ module.exports = [
           ])(specifier);
         }
         if (count === Infinity) return specifier;
-        const k = Math.max(1, (base * count) / scale.ticks().length); 
+        const k = Math.max(1, (base * count) / scale.ticks().length);
         return (d) => {
           let i = d / pows(Math.round(logs(d)));
           if (i * base < base - 0.5) i *= base;
@@ -12905,53 +12338,53 @@ module.exports = [
         ? ((l = m[1].length),
           (m = parseInt(m[1], 16)),
           l === 6
-            ? rgbn(m) 
+            ? rgbn(m)
             : l === 3
               ? new Rgb(
                   ((m >> 8) & 0xf) | ((m >> 4) & 0xf0),
                   ((m >> 4) & 0xf) | (m & 0xf0),
                   ((m & 0xf) << 4) | (m & 0xf),
                   1,
-                ) 
+                )
               : l === 8
                 ? rgba(
                     (m >> 24) & 0xff,
                     (m >> 16) & 0xff,
                     (m >> 8) & 0xff,
                     (m & 0xff) / 0xff,
-                  ) 
+                  )
                 : l === 4
                   ? rgba(
                       ((m >> 12) & 0xf) | ((m >> 8) & 0xf0),
                       ((m >> 8) & 0xf) | ((m >> 4) & 0xf0),
                       ((m >> 4) & 0xf) | (m & 0xf0),
                       (((m & 0xf) << 4) | (m & 0xf)) / 0xff,
-                    ) 
-                  : null) 
+                    )
+                  : null)
         : (m = reRgbInteger.exec(format))
-          ? new Rgb(m[1], m[2], m[3], 1) 
+          ? new Rgb(m[1], m[2], m[3], 1)
           : (m = reRgbPercent.exec(format))
             ? new Rgb(
                 (m[1] * 255) / 100,
                 (m[2] * 255) / 100,
                 (m[3] * 255) / 100,
                 1,
-              ) 
+              )
             : (m = reRgbaInteger.exec(format))
-              ? rgba(m[1], m[2], m[3], m[4]) 
+              ? rgba(m[1], m[2], m[3], m[4])
               : (m = reRgbaPercent.exec(format))
                 ? rgba(
                     (m[1] * 255) / 100,
                     (m[2] * 255) / 100,
                     (m[3] * 255) / 100,
                     m[4],
-                  ) 
+                  )
                 : (m = reHslPercent.exec(format))
-                  ? hsla(m[1], m[2] / 100, m[3] / 100, 1) 
+                  ? hsla(m[1], m[2] / 100, m[3] / 100, 1)
                   : (m = reHslaPercent.exec(format))
-                    ? hsla(m[1], m[2] / 100, m[3] / 100, m[4]) 
+                    ? hsla(m[1], m[2] / 100, m[3] / 100, m[4])
                     : named.hasOwnProperty(format)
-                      ? rgbn(named[format]) 
+                      ? rgbn(named[format])
                       : format === "transparent"
                         ? new Rgb(NaN, NaN, NaN, 0)
                         : null;
@@ -13151,7 +12584,7 @@ module.exports = [
     function clampt(value) {
       return Math.max(0, Math.min(1, value || 0));
     }
-     function hsl2rgb(h, m1, m2) {
+    function hsl2rgb(h, m1, m2) {
       return (
         (h < 60
           ? m1 + ((m2 - m1) * h) / 60
@@ -13569,20 +13002,18 @@ module.exports = [
         bs,
         i = -1,
         s = [],
-        q = []; 
-      
+        q = [];
+
       ((a = a + ""), (b = b + ""));
-      
+
       while ((am = reA.exec(a)) && (bm = reB.exec(b))) {
         if ((bs = bm.index) > bi) {
           bs = b.slice(bi, bs);
-          if (s[i])
-            s[i] += bs; 
+          if (s[i]) s[i] += bs;
           else s[++i] = bs;
         }
         if ((am = am[0]) === (bm = bm[0])) {
-          if (s[i])
-            s[i] += bm; 
+          if (s[i]) s[i] += bm;
           else s[++i] = bm;
         } else {
           s[++i] = null;
@@ -13596,15 +13027,13 @@ module.exports = [
         }
         bi = reB.lastIndex;
       }
-      
+
       if (bi < b.length) {
         bs = b.slice(bi);
-        if (s[i])
-          s[i] += bs; 
+        if (s[i]) s[i] += bs;
         else s[++i] = bs;
       }
-      
-      
+
       return s.length < 2
         ? q[0]
           ? one(q[0].x)
@@ -13841,11 +13270,10 @@ module.exports = [
           "e",
         )) < 0
       )
-        return null; 
+        return null;
       var i,
         coefficient = x.slice(0, i);
-      
-      
+
       return [
         coefficient.length > 1
           ? coefficient[0] + coefficient.slice(2)
@@ -13912,7 +13340,6 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "FormatSpecifier",
       () => FormatSpecifier,
@@ -13938,7 +13365,7 @@ module.exports = [
         type: match[10],
       });
     }
-    formatSpecifier.prototype = FormatSpecifier.prototype; 
+    formatSpecifier.prototype = FormatSpecifier.prototype;
     function FormatSpecifier(specifier) {
       this.fill = specifier.fill === undefined ? " " : specifier.fill + "";
       this.align = specifier.align === undefined ? ">" : specifier.align + "";
@@ -13973,7 +13400,6 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["default", () => __TURBOPACK__default__export__]);
     function __TURBOPACK__default__export__(s) {
       out: for (var n = s.length, i = 1, i0 = -1, i1; i < n; ++i) {
@@ -14034,7 +13460,7 @@ module.exports = [
               (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$format$2f$src$2f$formatDecimal$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "formatDecimalParts"
-              ])(x, Math.max(0, p + i - 1))[0]; 
+              ])(x, Math.max(0, p + i - 1))[0];
     }
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/d3-format/src/formatRounded.js [app-ssr] (ecmascript)",
@@ -14215,7 +13641,7 @@ module.exports = [
           precision = specifier.precision,
           trim = specifier.trim,
           type = specifier.type;
-        
+
         if (type === "n") ((comma = true), (type = "g"));
         else if (
           !__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$format$2f$src$2f$formatTypes$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -14225,11 +13651,10 @@ module.exports = [
           (precision === undefined && (precision = 12),
             (trim = true),
             (type = "g"));
-        
+
         if (zero || (fill === "0" && align === "="))
           ((zero = true), (fill = "0"), (align = "="));
-        
-        
+
         var prefix =
             symbol === "$"
               ? currencyPrefix
@@ -14238,18 +13663,13 @@ module.exports = [
                 : "",
           suffix =
             symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
-        
-        
-        
+
         var formatType =
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$format$2f$src$2f$formatTypes$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
             ][type],
           maybeSuffix = /[defgprs%]/.test(type);
-        
-        
-        
-        
+
         precision =
           precision === undefined
             ? 6
@@ -14267,20 +13687,20 @@ module.exports = [
             value = "";
           } else {
             value = +value;
-            
+
             var valueNegative = value < 0 || 1 / value < 0;
-            
+
             value = isNaN(value) ? nan : formatType(Math.abs(value), precision);
-            
+
             if (trim)
               value = (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$format$2f$src$2f$formatTrim$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "default"
               ])(value);
-            
+
             if (valueNegative && +value === 0 && sign !== "+")
               valueNegative = false;
-            
+
             valuePrefix =
               (valueNegative
                 ? sign === "("
@@ -14301,8 +13721,7 @@ module.exports = [
                 : "") +
               valueSuffix +
               (valueNegative && sign === "(" ? ")" : "");
-            
-            
+
             if (maybeSuffix) {
               ((i = -1), (n = value.length));
               while (++i < n) {
@@ -14316,20 +13735,20 @@ module.exports = [
               }
             }
           }
-          
+
           if (comma && !zero) value = group(value, Infinity);
-          
+
           var length = valuePrefix.length + value.length + valueSuffix.length,
             padding =
               length < width ? new Array(width - length + 1).join(fill) : "";
-          
+
           if (comma && zero)
             ((value = group(
               padding + value,
               padding.length ? width - valueSuffix.length : Infinity,
             )),
               (padding = ""));
-          
+
           switch (align) {
             case "<":
               value = valuePrefix + value + valueSuffix + padding;
@@ -14610,7 +14029,7 @@ module.exports = [
         const range = [];
         start = interval.ceil(start);
         step = step == null ? 1 : Math.floor(step);
-        if (!(start < stop) || !(step > 0)) return range; 
+        if (!(start < stop) || !(step > 0)) return range;
         let previous;
         do
           (range.push((previous = new Date(+start))),
@@ -14629,11 +14048,11 @@ module.exports = [
             if (date >= date) {
               if (step < 0)
                 while (++step <= 0) {
-                  while ((offseti(date, -1), !test(date))) {} 
+                  while ((offseti(date, -1), !test(date))) {}
                 }
               else
                 while (--step >= 0) {
-                  while ((offseti(date, +1), !test(date))) {} 
+                  while ((offseti(date, +1), !test(date))) {}
                 }
             }
           },
@@ -14697,7 +14116,7 @@ module.exports = [
         return date.getFullYear();
       },
     );
-    
+
     timeYear.every = (k) => {
       return !isFinite((k = Math.floor(k))) || !(k > 0)
         ? null
@@ -14734,7 +14153,7 @@ module.exports = [
         return date.getUTCFullYear();
       },
     );
-    
+
     utcYear.every = (k) => {
       return !isFinite((k = Math.floor(k))) || !(k > 0)
         ? null
@@ -15365,9 +14784,7 @@ module.exports = [
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$d3$2d$time$2f$src$2f$interval$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "timeInterval"
     ])(
-      () => {
-        
-      },
+      () => {},
       (date, step) => {
         date.setTime(+date + step);
       },
@@ -15375,7 +14792,7 @@ module.exports = [
         return end - start;
       },
     );
-    
+
     millisecond.every = (k) => {
       k = Math.floor(k);
       if (!isFinite(k) || !(k > 0)) return null;
@@ -15610,7 +15027,7 @@ module.exports = [
           count && typeof count.range === "function"
             ? count
             : tickInterval(start, stop, count);
-        const ticks = interval ? interval.range(start, +stop + 1) : []; 
+        const ticks = interval ? interval.range(start, +stop + 1) : [];
         return reverse ? ticks.reverse() : ticks;
       }
       function tickInterval(start, stop, count) {
@@ -15896,7 +15313,7 @@ module.exports = [
         Z: parseZone,
         "%": parseLiteralPercent,
       };
-      
+
       formats.x = newFormat(locale_date, formats);
       formats.X = newFormat(locale_time, formats);
       formats.c = newFormat(locale_dateTime, formats);
@@ -15935,16 +15352,16 @@ module.exports = [
             week,
             day;
           if (i != string.length) return null;
-          
+
           if ("Q" in d) return new Date(d.Q);
           if ("s" in d) return new Date(d.s * 1000 + ("L" in d ? d.L : 0));
-          
+
           if (Z && !("Z" in d)) d.Z = 0;
-          
+
           if ("p" in d) d.H = (d.H % 12) + d.p * 12;
-          
+
           if (d.m === undefined) d.m = "q" in d ? d.q : 0;
-          
+
           if ("V" in d) {
             if (d.V < 1 || d.V > 53) return null;
             if (!("w" in d)) d.w = 1;
@@ -15997,14 +15414,13 @@ module.exports = [
                 ? ((d.w + 6) % 7) + d.W * 7 - ((day + 5) % 7)
                 : d.w + d.U * 7 - ((day + 6) % 7);
           }
-          
-          
+
           if ("Z" in d) {
             d.H += (d.Z / 100) | 0;
             d.M += d.Z % 100;
             return utcDate(d);
           }
-          
+
           return localDate(d);
         };
       }
@@ -16616,55 +16032,24 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
-
- 
-    
-    
     __turbopack_context__.s([
       "Decimal",
       () => Decimal,
       "default",
       () => __TURBOPACK__default__export__,
     ]);
-    var MAX_DIGITS = 1e9, 
+    var MAX_DIGITS = 1e9,
       defaults = {
-        
-        
-        
-        
         precision: 20,
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         rounding: 4,
-        
-        
+
         toExpNeg: -7,
-        
-        
+
         toExpPos: 21,
-        
-        
+
         LN10: "2.302585092994045684017991454684364207601101488628772976033327900967572609677352480235997205089598298341967784042286",
-      }, 
+      },
       Decimal,
       external = true,
       decimalError = "[DecimalError] ",
@@ -16677,275 +16062,164 @@ module.exports = [
       BASE = 1e7,
       LOG_BASE = 7,
       MAX_SAFE_INTEGER = 9007199254740991,
-      MAX_E = mathfloor(MAX_SAFE_INTEGER / LOG_BASE), 
+      MAX_E = mathfloor(MAX_SAFE_INTEGER / LOG_BASE),
       P = {};
-    
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
- P.absoluteValue = P.abs = function () {
+    P.absoluteValue = P.abs = function () {
       var x = new this.constructor(this);
       if (x.s) x.s = 1;
       return x;
     };
-    
 
-
-
-
-
- P.comparedTo = P.cmp = function (y) {
+    P.comparedTo = P.cmp = function (y) {
       var i,
         j,
         xdL,
         ydL,
         x = this;
       y = new x.constructor(y);
-      
+
       if (x.s !== y.s) return x.s || -y.s;
-      
+
       if (x.e !== y.e) return (x.e > y.e) ^ (x.s < 0) ? 1 : -1;
       xdL = x.d.length;
       ydL = y.d.length;
-      
+
       for (i = 0, j = xdL < ydL ? xdL : ydL; i < j; ++i) {
         if (x.d[i] !== y.d[i]) return (x.d[i] > y.d[i]) ^ (x.s < 0) ? 1 : -1;
       }
-      
+
       return xdL === ydL ? 0 : (xdL > ydL) ^ (x.s < 0) ? 1 : -1;
     };
-    
 
-
- P.decimalPlaces = P.dp = function () {
+    P.decimalPlaces = P.dp = function () {
       var x = this,
         w = x.d.length - 1,
         dp = (w - x.e) * LOG_BASE;
-      
+
       w = x.d[w];
       if (w) for (; w % 10 == 0; w /= 10) dp--;
       return dp < 0 ? 0 : dp;
     };
-    
 
-
-
- P.dividedBy = P.div = function (y) {
+    P.dividedBy = P.div = function (y) {
       return divide(this, new this.constructor(y));
     };
-    
 
-
-
- P.dividedToIntegerBy = P.idiv = function (y) {
+    P.dividedToIntegerBy = P.idiv = function (y) {
       var x = this,
         Ctor = x.constructor;
       return round(divide(x, new Ctor(y), 0, 1), Ctor.precision);
     };
-    
 
-
- P.equals = P.eq = function (y) {
+    P.equals = P.eq = function (y) {
       return !this.cmp(y);
     };
-    
 
-
- P.exponent = function () {
+    P.exponent = function () {
       return getBase10Exponent(this);
     };
-    
 
-
-
- P.greaterThan = P.gt = function (y) {
+    P.greaterThan = P.gt = function (y) {
       return this.cmp(y) > 0;
     };
-    
 
-
-
- P.greaterThanOrEqualTo = P.gte = function (y) {
+    P.greaterThanOrEqualTo = P.gte = function (y) {
       return this.cmp(y) >= 0;
     };
-    
 
-
- P.isInteger = P.isint = function () {
+    P.isInteger = P.isint = function () {
       return this.e > this.d.length - 2;
     };
-    
 
-
- P.isNegative = P.isneg = function () {
+    P.isNegative = P.isneg = function () {
       return this.s < 0;
     };
-    
 
-
- P.isPositive = P.ispos = function () {
+    P.isPositive = P.ispos = function () {
       return this.s > 0;
     };
-    
 
-
- P.isZero = function () {
+    P.isZero = function () {
       return this.s === 0;
     };
-    
 
-
- P.lessThan = P.lt = function (y) {
+    P.lessThan = P.lt = function (y) {
       return this.cmp(y) < 0;
     };
-    
 
-
- P.lessThanOrEqualTo = P.lte = function (y) {
+    P.lessThanOrEqualTo = P.lte = function (y) {
       return this.cmp(y) < 1;
     };
-    
 
-
-
-
-
-
-
-
-
-
-
- P.logarithm = P.log = function (base) {
+    P.logarithm = P.log = function (base) {
       var r,
         x = this,
         Ctor = x.constructor,
         pr = Ctor.precision,
         wpr = pr + 5;
-      
+
       if (base === void 0) {
         base = new Ctor(10);
       } else {
         base = new Ctor(base);
-        
-        
-        
+
         if (base.s < 1 || base.eq(ONE)) throw Error(decimalError + "NaN");
       }
-      
-      
+
       if (x.s < 1) throw Error(decimalError + (x.s ? "NaN" : "-Infinity"));
-      
+
       if (x.eq(ONE)) return new Ctor(0);
       external = false;
       r = divide(ln(x, wpr), ln(base, wpr), wpr);
       external = true;
       return round(r, pr);
     };
-    
 
-
-
- P.minus = P.sub = function (y) {
+    P.minus = P.sub = function (y) {
       var x = this;
       y = new x.constructor(y);
       return x.s == y.s ? subtract(x, y) : add(x, ((y.s = -y.s), y));
     };
-    
 
-
-
- P.modulo = P.mod = function (y) {
+    P.modulo = P.mod = function (y) {
       var q,
         x = this,
         Ctor = x.constructor,
         pr = Ctor.precision;
       y = new Ctor(y);
-      
+
       if (!y.s) throw Error(decimalError + "NaN");
-      
+
       if (!x.s) return round(new Ctor(x), pr);
-      
+
       external = false;
       q = divide(x, y, 0, 1).times(y);
       external = true;
       return x.minus(q);
     };
-    
 
-
-
-
- P.naturalExponential = P.exp = function () {
+    P.naturalExponential = P.exp = function () {
       return exp(this);
     };
-    
 
-
-
- P.naturalLogarithm = P.ln = function () {
+    P.naturalLogarithm = P.ln = function () {
       return ln(this);
     };
-    
 
-
-
- P.negated = P.neg = function () {
+    P.negated = P.neg = function () {
       var x = new this.constructor(this);
       x.s = -x.s || 0;
       return x;
     };
-    
 
-
-
- P.plus = P.add = function (y) {
+    P.plus = P.add = function (y) {
       var x = this;
       y = new x.constructor(y);
       return x.s == y.s ? add(x, y) : subtract(x, ((y.s = -y.s), y));
     };
-    
 
-
-
-
- P.precision = P.sd = function (z) {
+    P.precision = P.sd = function (z) {
       var e,
         sd,
         w,
@@ -16956,20 +16230,16 @@ module.exports = [
       w = x.d.length - 1;
       sd = w * LOG_BASE + 1;
       w = x.d[w];
-      
+
       if (w) {
-        
         for (; w % 10 == 0; w /= 10) sd--;
-        
+
         for (w = x.d[0]; w >= 10; w /= 10) sd++;
       }
       return z && e > sd ? e : sd;
     };
-    
 
-
-
- P.squareRoot = P.sqrt = function () {
+    P.squareRoot = P.sqrt = function () {
       var e,
         n,
         pr,
@@ -16979,18 +16249,17 @@ module.exports = [
         wpr,
         x = this,
         Ctor = x.constructor;
-      
+
       if (x.s < 1) {
         if (!x.s) return new Ctor(0);
-        
+
         throw Error(decimalError + "NaN");
       }
       e = getBase10Exponent(x);
       external = false;
-      
+
       s = Math.sqrt(+x);
-      
-      
+
       if (s == 0 || s == 1 / 0) {
         n = digitsToString(x.d);
         if ((n.length + e) % 2 == 0) n += "0";
@@ -17008,7 +16277,7 @@ module.exports = [
       }
       pr = Ctor.precision;
       s = wpr = pr + 3;
-      
+
       for (;;) {
         t = r;
         r = t.plus(divide(x, t, wpr + 2)).times(0.5);
@@ -17017,11 +16286,8 @@ module.exports = [
           (n = digitsToString(r.d)).slice(0, wpr)
         ) {
           n = n.slice(wpr - 3, wpr + 1);
-          
-          
+
           if (s == wpr && n == "4999") {
-            
-            
             round(t, pr + 1, 0);
             if (t.times(t).eq(x)) {
               r = t;
@@ -17036,11 +16302,8 @@ module.exports = [
       external = true;
       return round(r, pr);
     };
-    
 
-
-
- P.times = P.mul = function (y) {
+    P.times = P.mul = function (y) {
       var carry,
         e,
         i,
@@ -17054,13 +16317,13 @@ module.exports = [
         Ctor = x.constructor,
         xd = x.d,
         yd = (y = new Ctor(y)).d;
-      
+
       if (!x.s || !y.s) return new Ctor(0);
       y.s *= x.s;
       e = x.e + y.e;
       xdL = xd.length;
       ydL = yd.length;
-      
+
       if (xdL < ydL) {
         r = xd;
         xd = yd;
@@ -17069,11 +16332,11 @@ module.exports = [
         xdL = ydL;
         ydL = rL;
       }
-      
+
       r = [];
       rL = xdL + ydL;
       for (i = rL; i--; ) r.push(0);
-      
+
       for (i = ydL; --i >= 0; ) {
         carry = 0;
         for (k = xdL + i; k > i; ) {
@@ -17083,7 +16346,7 @@ module.exports = [
         }
         r[k] = ((r[k] + carry) % BASE) | 0;
       }
-      
+
       for (; !r[--rL]; ) r.pop();
       if (carry) ++e;
       else r.shift();
@@ -17091,16 +16354,8 @@ module.exports = [
       y.e = e;
       return external ? round(y, Ctor.precision) : y;
     };
-    
 
-
-
-
-
-
-
-
- P.toDecimalPlaces = P.todp = function (dp, rm) {
+    P.toDecimalPlaces = P.todp = function (dp, rm) {
       var x = this,
         Ctor = x.constructor;
       x = new Ctor(x);
@@ -17110,14 +16365,8 @@ module.exports = [
       else checkInt32(rm, 0, 8);
       return round(x, dp + getBase10Exponent(x) + 1, rm);
     };
-    
 
-
-
-
-
-
- P.toExponential = function (dp, rm) {
+    P.toExponential = function (dp, rm) {
       var str,
         x = this,
         Ctor = x.constructor;
@@ -17132,22 +16381,8 @@ module.exports = [
       }
       return str;
     };
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- P.toFixed = function (dp, rm) {
+    P.toFixed = function (dp, rm) {
       var str,
         y,
         x = this,
@@ -17158,38 +16393,21 @@ module.exports = [
       else checkInt32(rm, 0, 8);
       y = round(new Ctor(x), dp + getBase10Exponent(x) + 1, rm);
       str = toString(y.abs(), false, dp + getBase10Exponent(y) + 1);
-      
-      
+
       return x.isneg() && !x.isZero() ? "-" + str : str;
     };
-    
 
-
-
- P.toInteger = P.toint = function () {
+    P.toInteger = P.toint = function () {
       var x = this,
         Ctor = x.constructor;
       return round(new Ctor(x), getBase10Exponent(x) + 1, Ctor.rounding);
     };
-    
 
-
- P.toNumber = function () {
+    P.toNumber = function () {
       return +this;
     };
-    
 
-
-
-
-
-
-
-
-
-
-
- P.toPower = P.pow = function (y) {
+    P.toPower = P.pow = function (y) {
       var e,
         k,
         pr,
@@ -17200,32 +16418,28 @@ module.exports = [
         Ctor = x.constructor,
         guard = 12,
         yn = +(y = new Ctor(y));
-      
+
       if (!y.s) return new Ctor(ONE);
       x = new Ctor(x);
-      
-      
+
       if (!x.s) {
         if (y.s < 1) throw Error(decimalError + "Infinity");
         return x;
       }
-      
+
       if (x.eq(ONE)) return x;
       pr = Ctor.precision;
-      
+
       if (y.eq(ONE)) return round(x, pr);
       e = y.e;
       k = y.d.length - 1;
       yIsInt = e >= k;
       sign = x.s;
       if (!yIsInt) {
-        
         if (sign < 0) throw Error(decimalError + "NaN");
-        
       } else if ((k = yn < 0 ? -yn : yn) <= MAX_SAFE_INTEGER) {
         r = new Ctor(ONE);
-        
-        
+
         e = Math.ceil(pr / LOG_BASE + 4);
         external = false;
         for (;;) {
@@ -17241,7 +16455,7 @@ module.exports = [
         external = true;
         return y.s < 0 ? new Ctor(ONE).div(r) : round(r, pr);
       }
-      
+
       sign = sign < 0 && y.d[Math.max(e, k)] & 1 ? -1 : 1;
       x.s = 1;
       external = false;
@@ -17251,17 +16465,8 @@ module.exports = [
       r.s = sign;
       return r;
     };
-    
 
-
-
-
-
-
-
-
-
- P.toPrecision = function (sd, rm) {
+    P.toPrecision = function (sd, rm) {
       var e,
         str,
         x = this,
@@ -17279,15 +16484,8 @@ module.exports = [
       }
       return str;
     };
-    
 
-
-
-
-
-
-
- P.toSignificantDigits = P.tosd = function (sd, rm) {
+    P.toSignificantDigits = P.tosd = function (sd, rm) {
       var x = this,
         Ctor = x.constructor;
       if (sd === void 0) {
@@ -17300,13 +16498,8 @@ module.exports = [
       }
       return round(new Ctor(x), sd, rm);
     };
-    
 
-
-
-
-
- P.toString =
+    P.toString =
       P.valueOf =
       P.val =
       P.toJSON =
@@ -17317,29 +16510,8 @@ module.exports = [
             Ctor = x.constructor;
           return toString(x, e <= Ctor.toExpNeg || e >= Ctor.toExpPos);
         };
-    
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- function add(x, y) {
+    function add(x, y) {
       var carry,
         d,
         e,
@@ -17350,21 +16522,19 @@ module.exports = [
         yd,
         Ctor = x.constructor,
         pr = Ctor.precision;
-      
+
       if (!x.s || !y.s) {
-        
-        
         if (!y.s) y = new Ctor(x);
         return external ? round(y, pr) : y;
       }
       xd = x.d;
       yd = y.d;
-      
+
       k = x.e;
       e = y.e;
       xd = xd.slice();
       i = k - e;
-      
+
       if (i) {
         if (i < 0) {
           d = xd;
@@ -17375,28 +16545,28 @@ module.exports = [
           e = k;
           len = xd.length;
         }
-        
+
         k = Math.ceil(pr / LOG_BASE);
         len = k > len ? k + 1 : len + 1;
         if (i > len) {
           i = len;
           d.length = 1;
         }
-        
+
         d.reverse();
         for (; i--; ) d.push(0);
         d.reverse();
       }
       len = xd.length;
       i = yd.length;
-      
+
       if (len - i < 0) {
         i = len;
         d = yd;
         yd = xd;
         xd = d;
       }
-      
+
       for (carry = 0; i; ) {
         carry = ((xd[--i] = xd[i] + yd[i] + carry) / BASE) | 0;
         xd[i] %= BASE;
@@ -17405,8 +16575,7 @@ module.exports = [
         xd.unshift(carry);
         ++e;
       }
-      
-      
+
       for (len = xd.length; xd[--len] == 0; ) xd.pop();
       y.d = xd;
       y.e = e;
@@ -17439,12 +16608,11 @@ module.exports = [
       } else if (w === 0) {
         return "0";
       }
-      
+
       for (; w % 10 === 0; ) w /= 10;
       return str + w;
     }
     var divide = (function () {
-      
       function multiplyInteger(x, k) {
         var temp,
           carry = 0,
@@ -17473,13 +16641,13 @@ module.exports = [
       }
       function subtract(a, b, aL) {
         var i = 0;
-        
+
         for (; aL--; ) {
           a[aL] -= i;
           i = a[aL] < b[aL] ? 1 : 0;
           a[aL] = i * BASE + a[aL] - b[aL];
         }
-        
+
         for (; !a[0] && a.length > 1; ) a.shift();
       }
       return function (x, y, pr, dp) {
@@ -17505,7 +16673,7 @@ module.exports = [
           sign = x.s == y.s ? 1 : -1,
           xd = x.d,
           yd = y.d;
-        
+
         if (!x.s) return new Ctor(x);
         if (!y.s) throw Error(decimalError + "Division by zero");
         e = x.e - y.e;
@@ -17513,7 +16681,7 @@ module.exports = [
         xL = xd.length;
         q = new Ctor(sign);
         qd = q.d = [];
-        
+
         for (i = 0; yd[i] == (xd[i] || 0); ) ++i;
         if (yd[i] > (xd[i] || 0)) --e;
         if (pr == null) {
@@ -17524,23 +16692,21 @@ module.exports = [
           sd = pr;
         }
         if (sd < 0) return new Ctor(0);
-        
+
         sd = (sd / LOG_BASE + 2) | 0;
         i = 0;
-        
+
         if (yL == 1) {
           k = 0;
           yd = yd[0];
           sd++;
-          
+
           for (; (i < xL || k) && sd--; i++) {
             t = k * BASE + (xd[i] || 0);
             qd[i] = (t / yd) | 0;
             k = (t % yd) | 0;
           }
-          
         } else {
-          
           k = (BASE / (yd[0] + 1)) | 0;
           if (k > 1) {
             yd = multiplyInteger(yd, k);
@@ -17551,7 +16717,7 @@ module.exports = [
           xi = yL;
           rem = xd.slice(0, yL);
           remL = rem.length;
-          
+
           for (; remL < yL; ) rem[remL++] = 0;
           yz = yd.slice();
           yz.unshift(0);
@@ -17559,56 +16725,46 @@ module.exports = [
           if (yd[1] >= BASE / 2) ++yd0;
           do {
             k = 0;
-            
+
             cmp = compare(yd, rem, yL, remL);
-            
+
             if (cmp < 0) {
-              
               rem0 = rem[0];
               if (yL != remL) rem0 = rem0 * BASE + (rem[1] || 0);
-              
+
               k = (rem0 / yd0) | 0;
-              
-              
-              
-              
-              
-              
-              
+
               if (k > 1) {
                 if (k >= BASE) k = BASE - 1;
-                
+
                 prod = multiplyInteger(yd, k);
                 prodL = prod.length;
                 remL = rem.length;
-                
+
                 cmp = compare(prod, rem, prodL, remL);
-                
+
                 if (cmp == 1) {
                   k--;
-                  
+
                   subtract(prod, yL < prodL ? yz : yd, prodL);
                 }
               } else {
-                
-                
-                
                 if (k == 0) cmp = k = 1;
                 prod = yd.slice();
               }
               prodL = prod.length;
               if (prodL < remL) prod.unshift(0);
-              
+
               subtract(rem, prod, remL);
-              
+
               if (cmp == -1) {
                 remL = rem.length;
-                
+
                 cmp = compare(yd, rem, yL, remL);
-                
+
                 if (cmp < 1) {
                   k++;
-                  
+
                   subtract(rem, yL < remL ? yz : yd, remL);
                 }
               }
@@ -17616,10 +16772,10 @@ module.exports = [
             } else if (cmp === 0) {
               k++;
               rem = [0];
-            } 
-            
+            }
+
             qd[i++] = k;
-            
+
             if (cmp && rem[0]) {
               rem[remL++] = xd[xi] || 0;
             } else {
@@ -17628,34 +16784,14 @@ module.exports = [
             }
           } while ((xi++ < xL || rem[0] !== void 0) && sd--);
         }
-        
+
         if (!qd[0]) qd.shift();
         q.e = e;
         return round(q, dp ? pr + getBase10Exponent(q) + 1 : pr);
       };
     })();
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- function exp(x, sd) {
+    function exp(x, sd) {
       var denominator,
         guard,
         pow,
@@ -17668,7 +16804,7 @@ module.exports = [
         pr = Ctor.precision;
       if (getBase10Exponent(x) > 16)
         throw Error(exponentOutOfRange + getBase10Exponent(x));
-      
+
       if (!x.s) return new Ctor(ONE);
       if (sd == null) {
         external = false;
@@ -17678,10 +16814,10 @@ module.exports = [
       }
       t = new Ctor(0.03125);
       while (x.abs().gte(0.1)) {
-        x = x.times(t); 
+        x = x.times(t);
         k += 5;
       }
-      
+
       guard = ((Math.log(mathpow(2, k)) / Math.LN10) * 2 + 5) | 0;
       wpr += guard;
       denominator = pow = sum = new Ctor(ONE);
@@ -17701,17 +16837,16 @@ module.exports = [
         sum = t;
       }
     }
-    
+
     function getBase10Exponent(x) {
       var e = x.e * LOG_BASE,
         w = x.d[0];
-      
+
       for (; w >= 10; w /= 10) e++;
       return e;
     }
     function getLn10(Ctor, sd, pr) {
       if (sd > Ctor.LN10.sd()) {
-        
         external = true;
         if (pr) Ctor.precision = pr;
         throw Error(decimalError + "LN10 precision limit exceeded");
@@ -17723,13 +16858,8 @@ module.exports = [
       for (; k--; ) zs += "0";
       return zs;
     }
-    
 
-
-
-
-
- function ln(y, sd) {
+    function ln(y, sd) {
       var c,
         c0,
         denominator,
@@ -17745,10 +16875,9 @@ module.exports = [
         xd = x.d,
         Ctor = x.constructor,
         pr = Ctor.precision;
-      
-      
+
       if (x.s < 1) throw Error(decimalError + (x.s ? "NaN" : "-Infinity"));
-      
+
       if (x.eq(ONE)) return new Ctor(0);
       if (sd == null) {
         external = false;
@@ -17766,16 +16895,6 @@ module.exports = [
       c0 = c.charAt(0);
       e = getBase10Exponent(x);
       if (Math.abs(e) < 1.5e15) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         while ((c0 < 7 && c0 != 1) || (c0 == 1 && c.charAt(1) > 3)) {
           x = x.times(y);
           c = digitsToString(x.d);
@@ -17790,18 +16909,12 @@ module.exports = [
           x = new Ctor(c0 + "." + c.slice(1));
         }
       } else {
-        
-        
-        
         t = getLn10(Ctor, wpr + 2, pr).times(e + "");
         x = ln(new Ctor(c0 + "." + c.slice(1)), wpr - guard).plus(t);
         Ctor.precision = pr;
         return sd == null ? ((external = true), round(x, pr)) : x;
       }
-      
-      
-      
-      
+
       sum = numerator = x = divide(x.minus(ONE), x.plus(ONE), wpr);
       x2 = round(x.times(x), wpr);
       denominator = 3;
@@ -17813,7 +16926,7 @@ module.exports = [
           digitsToString(sum.d).slice(0, wpr)
         ) {
           sum = sum.times(2);
-          
+
           if (e !== 0) sum = sum.plus(getLn10(Ctor, wpr + 2, pr).times(e + ""));
           sum = divide(sum, new Ctor(n), wpr);
           Ctor.precision = pr;
@@ -17823,25 +16936,22 @@ module.exports = [
         denominator += 2;
       }
     }
-    
 
- function parseDecimal(x, str) {
+    function parseDecimal(x, str) {
       var e, i, len;
-      
+
       if ((e = str.indexOf(".")) > -1) str = str.replace(".", "");
-      
+
       if ((i = str.search(/e/i)) > 0) {
-        
         if (e < 0) e = i;
         e += +str.slice(i + 1);
         str = str.substring(0, i);
       } else if (e < 0) {
-        
         e = str.length;
       }
-      
+
       for (i = 0; str.charCodeAt(i) === 48; ) ++i;
-      
+
       for (len = str.length; str.charCodeAt(len - 1) === 48; ) --len;
       str = str.slice(i, len);
       if (str) {
@@ -17849,9 +16959,7 @@ module.exports = [
         e = e - i - 1;
         x.e = mathfloor(e / LOG_BASE);
         x.d = [];
-        
-        
-        
+
         i = (e + 1) % LOG_BASE;
         if (e < 0) i += LOG_BASE;
         if (i < len) {
@@ -17868,16 +16976,14 @@ module.exports = [
         if (external && (x.e > MAX_E || x.e < -MAX_E))
           throw Error(exponentOutOfRange + e);
       } else {
-        
         x.s = 0;
         x.e = 0;
         x.d = [0];
       }
       return x;
     }
-    
 
- function round(x, sd, rm) {
+    function round(x, sd, rm) {
       var i,
         j,
         k,
@@ -17887,17 +16993,10 @@ module.exports = [
         w,
         xdi,
         xd = x.d;
-      
-      
-      
-      
-      
-      
-      
-      
+
       for (n = 1, k = xd[0]; k >= 10; k /= 10) n++;
       i = sd - n;
-      
+
       if (i < 0) {
         i += LOG_BASE;
         j = sd;
@@ -17907,23 +17006,20 @@ module.exports = [
         k = xd.length;
         if (xdi >= k) return x;
         w = k = xd[xdi];
-        
+
         for (n = 1; k >= 10; k /= 10) n++;
-        
+
         i %= LOG_BASE;
-        
-        
+
         j = i - LOG_BASE + n;
       }
       if (rm !== void 0) {
         k = mathpow(10, n - j - 1);
-        
+
         rd = ((w / k) % 10) | 0;
-        
+
         doRound = sd < 0 || xd[xdi + 1] !== void 0 || w % k;
-        
-        
-        
+
         doRound =
           rm < 4
             ? (rd || doRound) && (rm == 0 || rm == (x.s < 0 ? 3 : 2))
@@ -17931,7 +17027,7 @@ module.exports = [
               (rd == 5 &&
                 (rm == 4 ||
                   doRound ||
-                  (rm == 6 && 
+                  (rm == 6 &&
                     ((i > 0
                       ? j > 0
                         ? w / mathpow(10, n - j)
@@ -17945,19 +17041,19 @@ module.exports = [
         if (doRound) {
           k = getBase10Exponent(x);
           xd.length = 1;
-          
+
           sd = sd - k - 1;
-          
+
           xd[0] = mathpow(10, (LOG_BASE - (sd % LOG_BASE)) % LOG_BASE);
           x.e = mathfloor(-sd / LOG_BASE) || 0;
         } else {
           xd.length = 1;
-          
+
           xd[0] = x.e = x.s = 0;
         }
         return x;
       }
-      
+
       if (i == 0) {
         xd.length = xdi;
         k = 1;
@@ -17965,14 +17061,12 @@ module.exports = [
       } else {
         xd.length = xdi + 1;
         k = mathpow(10, LOG_BASE - i);
-        
-        
+
         xd[xdi] =
           j > 0 ? (((w / mathpow(10, n - j)) % mathpow(10, j)) | 0) * k : 0;
       }
       if (doRound) {
         for (;;) {
-          
           if (xdi == 0) {
             if ((xd[0] += k) == BASE) {
               xd[0] = 1;
@@ -17987,7 +17081,7 @@ module.exports = [
           }
         }
       }
-      
+
       for (i = xd.length; xd[--i] === 0; ) xd.pop();
       if (external && (x.e > MAX_E || x.e < -MAX_E)) {
         throw Error(exponentOutOfRange + getBase10Exponent(x));
@@ -18007,8 +17101,7 @@ module.exports = [
         yd,
         Ctor = x.constructor,
         pr = Ctor.precision;
-      
-      
+
       if (!x.s || !y.s) {
         if (y.s) y.s = -y.s;
         else y = new Ctor(x);
@@ -18016,12 +17109,12 @@ module.exports = [
       }
       xd = x.d;
       yd = y.d;
-      
+
       e = y.e;
       xe = x.e;
       xd = xd.slice();
       k = xe - e;
-      
+
       if (k) {
         xLTy = k < 0;
         if (xLTy) {
@@ -18033,21 +17126,17 @@ module.exports = [
           e = xe;
           len = xd.length;
         }
-        
-        
-        
+
         i = Math.max(Math.ceil(pr / LOG_BASE), len) + 2;
         if (k > i) {
           k = i;
           d.length = 1;
         }
-        
+
         d.reverse();
         for (i = k; i--; ) d.push(0);
         d.reverse();
-        
       } else {
-        
         i = xd.length;
         len = yd.length;
         xLTy = i < len;
@@ -18067,10 +17156,9 @@ module.exports = [
         y.s = -y.s;
       }
       len = xd.length;
-      
-      
+
       for (i = yd.length - len; i > 0; --i) xd[len++] = 0;
-      
+
       for (i = yd.length; i > k; ) {
         if (xd[--i] < yd[i]) {
           for (j = i; j && xd[--j] === 0; ) xd[j] = BASE - 1;
@@ -18079,15 +17167,15 @@ module.exports = [
         }
         xd[i] -= yd[i];
       }
-      
+
       for (; xd[--len] === 0; ) xd.pop();
-      
+
       for (; xd[0] === 0; xd.shift()) --e;
-      
+
       if (!xd[0]) return new Ctor(0);
       y.d = xd;
       y.e = e;
-      
+
       return external ? round(y, pr) : y;
     }
     function toString(x, isExp, sd) {
@@ -18117,37 +17205,24 @@ module.exports = [
       }
       return x.s < 0 ? "-" + str : str;
     }
-    
+
     function truncate(arr, len) {
       if (arr.length > len) {
         arr.length = len;
         return true;
       }
     }
-    
-    
 
-
- 
-
-
-
- function clone(obj) {
+    function clone(obj) {
       var i, p, ps;
-      
 
-
-
-
-
- function Decimal(value) {
+      function Decimal(value) {
         var x = this;
-        
+
         if (!(x instanceof Decimal)) return new Decimal(value);
-        
-        
+
         x.constructor = Decimal;
-        
+
         if (value instanceof Decimal) {
           x.s = value.s;
           x.e = value.e;
@@ -18155,7 +17230,6 @@ module.exports = [
           return;
         }
         if (typeof value === "number") {
-          
           if (value * 0 !== 0) {
             throw Error(invalidArgument + value);
           }
@@ -18170,7 +17244,7 @@ module.exports = [
             x.d = [0];
             return;
           }
-          
+
           if (value === ~~value && value < 1e7) {
             x.e = 0;
             x.d = [value];
@@ -18180,7 +17254,7 @@ module.exports = [
         } else if (typeof value !== "string") {
           throw Error(invalidArgument + value);
         }
-        
+
         if (value.charCodeAt(0) === 45) {
           value = value.slice(1);
           x.s = -1;
@@ -18211,19 +17285,8 @@ module.exports = [
       Decimal.config(obj);
       return Decimal;
     }
-    
 
-
-
-
-
-
-
-
-
-
-
- function config(obj) {
+    function config(obj) {
       if (!obj || typeof obj !== "object") {
         throw Error(decimalError + "Object expected");
       }
@@ -18258,7 +17321,7 @@ module.exports = [
       return this;
     }
     var Decimal = clone(defaults);
-    
+
     ONE = new Decimal(1);
     const __TURBOPACK__default__export__ = Decimal;
   },
@@ -18414,7 +17477,7 @@ module.exports = [
       if (!args.length) {
         return identity;
       }
-      var fns = args.reverse(); 
+      var fns = args.reverse();
       var firstFn = fns[0];
       var tailsFn = fns.slice(1);
       return function () {
@@ -18429,7 +17492,7 @@ module.exports = [
     var reverse = function reverse(arr) {
       if (Array.isArray(arr)) {
         return arr.reverse();
-      } 
+      }
       return arr.split("").reverse.join("");
     };
     var memoize = function memoize(fn) {
@@ -18461,14 +17524,7 @@ module.exports = [
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
- __turbopack_context__.s([
-      "default",
-      () => __TURBOPACK__default__export__,
-    ]);
+    __turbopack_context__.s(["default", () => __TURBOPACK__default__export__]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/decimal.js-light/decimal.mjs [app-ssr] (ecmascript)",
@@ -18477,15 +17533,8 @@ module.exports = [
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/recharts-scale/es6/util/utils.js [app-ssr] (ecmascript)",
       );
-    
 
-
-
-
-
-
-
- function getDigitCount(value) {
+    function getDigitCount(value) {
       var result;
       if (value === 0) {
         result = 1;
@@ -18502,21 +17551,14 @@ module.exports = [
       }
       return result;
     }
-    
 
-
-
-
-
-
-
- function rangeStep(start, end, step) {
+    function rangeStep(start, end, step) {
       var num =
         new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
         ](start);
       var i = 0;
-      var result = []; 
+      var result = [];
       while (num.lt(end) && i < 100000) {
         result.push(num.toNumber());
         num = num.add(step);
@@ -18524,14 +17566,8 @@ module.exports = [
       }
       return result;
     }
-    
 
-
-
-
-
-
- var interpolateNumber = (0,
+    var interpolateNumber = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2d$scale$2f$es6$2f$util$2f$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "curry"
     ])(function (a, b, t) {
@@ -18539,14 +17575,8 @@ module.exports = [
       var newB = +b;
       return newA + t * (newB - newA);
     });
-    
 
-
-
-
-
-
- var uninterpolateNumber = (0,
+    var uninterpolateNumber = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2d$scale$2f$es6$2f$util$2f$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "curry"
     ])(function (a, b, x) {
@@ -18554,15 +17584,8 @@ module.exports = [
       diff = diff || Infinity;
       return (x - a) / diff;
     });
-    
 
-
-
-
-
-
-
- var uninterpolateTruncation = (0,
+    var uninterpolateTruncation = (0,
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2d$scale$2f$es6$2f$util$2f$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
       "curry"
     ])(function (a, b, x) {
@@ -18590,11 +17613,8 @@ module.exports = [
       "getTickValuesFixedDomain",
       () => getTickValuesFixedDomain,
     ]);
-    
 
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/decimal.js-light/decimal.mjs [app-ssr] (ecmascript)",
       );
@@ -18689,33 +17709,21 @@ module.exports = [
     function _arrayWithHoles(arr) {
       if (Array.isArray(arr)) return arr;
     }
-    
 
-
-
-
-
- function getValidInterval(_ref) {
+    function getValidInterval(_ref) {
       var _ref2 = _slicedToArray(_ref, 2),
         min = _ref2[0],
         max = _ref2[1];
       var validMin = min,
-        validMax = max; 
+        validMax = max;
       if (min > max) {
         validMin = max;
         validMax = min;
       }
       return [validMin, validMax];
     }
-    
 
-
-
-
-
-
-
- function getFormatStep(roughStep, allowDecimals, correctionFactor) {
+    function getFormatStep(roughStep, allowDecimals, correctionFactor) {
       if (roughStep.lte(0)) {
         return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
@@ -18724,13 +17732,13 @@ module.exports = [
       var digitCount =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$recharts$2d$scale$2f$es6$2f$util$2f$arithmetic$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
-        ].getDigitCount(roughStep.toNumber()); 
-      
+        ].getDigitCount(roughStep.toNumber());
+
       var digitCountValue =
         new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
         ](10).pow(digitCount);
-      var stepRatio = roughStep.div(digitCountValue); 
+      var stepRatio = roughStep.div(digitCountValue);
       var stepRatioScale = digitCount !== 1 ? 0.05 : 0.1;
       var amendStepRatio =
         new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -18745,15 +17753,9 @@ module.exports = [
             "default"
           ](Math.ceil(formatStep));
     }
-    
 
-
-
-
-
-
- function getTickOfSingleValue(value, tickCount, allowDecimals) {
-      var step = 1; 
+    function getTickOfSingleValue(value, tickCount, allowDecimals) {
+      var step = 1;
       var middle =
         new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
@@ -18761,7 +17763,6 @@ module.exports = [
       if (!middle.isint() && allowDecimals) {
         var absVal = Math.abs(value);
         if (absVal < 1) {
-          
           step =
             new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
@@ -18775,7 +17776,6 @@ module.exports = [
               "default"
             ](Math.floor(middle.div(step).toNumber())).mul(step);
         } else if (absVal > 1) {
-          
           middle =
             new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "default"
@@ -18815,19 +17815,11 @@ module.exports = [
       );
       return fn(0, tickCount);
     }
-    
 
-
-
-
-
-
-
-
- function calculateStep(min, max, tickCount, allowDecimals) {
+    function calculateStep(min, max, tickCount, allowDecimals) {
       var correctionFactor =
         arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
-      
+
       if (!Number.isFinite((max - min) / (tickCount - 1))) {
         return {
           step: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
@@ -18842,7 +17834,7 @@ module.exports = [
               "default"
             ](0),
         };
-      } 
+      }
       var step = getFormatStep(
         new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "default"
@@ -18851,21 +17843,20 @@ module.exports = [
           .div(tickCount - 1),
         allowDecimals,
         correctionFactor,
-      ); 
-      var middle; 
+      );
+      var middle;
       if (min <= 0 && max >= 0) {
         middle =
           new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ](0);
       } else {
-        
         middle =
           new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
           ](min)
             .add(max)
-            .div(2); 
+            .div(2);
         middle = middle.sub(
           new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$decimal$2e$js$2d$light$2f$decimal$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
             "default"
@@ -18883,7 +17874,6 @@ module.exports = [
       );
       var scaleCount = belowCount + upCount + 1;
       if (scaleCount > tickCount) {
-        
         return calculateStep(
           min,
           max,
@@ -18893,7 +17883,6 @@ module.exports = [
         );
       }
       if (scaleCount < tickCount) {
-        
         upCount = max > 0 ? upCount + (tickCount - scaleCount) : upCount;
         belowCount =
           max > 0 ? belowCount : belowCount + (tickCount - scaleCount);
@@ -18912,14 +17901,8 @@ module.exports = [
         ),
       };
     }
-    
 
-
-
-
-
-
- function getNiceTickValuesFn(_ref3) {
+    function getNiceTickValuesFn(_ref3) {
       var _ref4 = _slicedToArray(_ref3, 2),
         min = _ref4[0],
         max = _ref4[1];
@@ -18929,7 +17912,7 @@ module.exports = [
         arguments.length > 2 && arguments[2] !== undefined
           ? arguments[2]
           : true;
-      
+
       var count = Math.max(tickCount, 2);
       var _getValidInterval = getValidInterval([min, max]),
         _getValidInterval2 = _slicedToArray(_getValidInterval, 2),
@@ -18968,7 +17951,7 @@ module.exports = [
       }
       if (cormin === cormax) {
         return getTickOfSingleValue(cormin, tickCount, allowDecimals);
-      } 
+      }
       var _calculateStep = calculateStep(cormin, cormax, count, allowDecimals),
         step = _calculateStep.step,
         tickMin = _calculateStep.tickMin,
@@ -18992,14 +17975,8 @@ module.exports = [
           ])(values)
         : values;
     }
-    
 
-
-
-
-
-
- function getTickValuesFn(_ref5) {
+    function getTickValuesFn(_ref5) {
       var _ref6 = _slicedToArray(_ref5, 2),
         min = _ref6[0],
         max = _ref6[1];
@@ -19009,7 +17986,7 @@ module.exports = [
         arguments.length > 2 && arguments[2] !== undefined
           ? arguments[2]
           : true;
-      
+
       var count = Math.max(tickCount, 2);
       var _getValidInterval3 = getValidInterval([min, max]),
         _getValidInterval4 = _slicedToArray(_getValidInterval3, 2),
@@ -19062,15 +18039,8 @@ module.exports = [
           ])(values)
         : values;
     }
-    
 
-
-
-
-
-
-
- function getTickValuesFixedDomainFn(_ref7, tickCount) {
+    function getTickValuesFixedDomainFn(_ref7, tickCount) {
       var _ref8 = _slicedToArray(_ref7, 2),
         min = _ref8[0],
         max = _ref8[1];
@@ -19078,7 +18048,7 @@ module.exports = [
         arguments.length > 2 && arguments[2] !== undefined
           ? arguments[2]
           : true;
-      
+
       var _getValidInterval5 = getValidInterval([min, max]),
         _getValidInterval6 = _slicedToArray(_getValidInterval5, 2),
         cormin = _getValidInterval6[0],
@@ -19155,52 +18125,22 @@ module.exports = [
 
     var has = Object.prototype.hasOwnProperty,
       prefix = "~";
-    
 
+    function Events() {}
 
-
-
-
- function Events() {}
-    
-    
-    
-    
-    
-    
-    
     if (Object.create) {
       Events.prototype = Object.create(null);
-      
-      
-      
-      
+
       if (!new Events().__proto__) prefix = false;
     }
-    
 
-
-
-
-
-
-
- function EE(fn, context, once) {
+    function EE(fn, context, once) {
       this.fn = fn;
       this.context = context;
       this.once = once || false;
     }
-    
 
-
-
-
-
-
-
-
-
- function addListener(emitter, event, fn, context, once) {
+    function addListener(emitter, event, fn, context, once) {
       if (typeof fn !== "function") {
         throw new TypeError("The listener must be a function");
       }
@@ -19212,33 +18152,18 @@ module.exports = [
       else emitter._events[evt] = [emitter._events[evt], listener];
       return emitter;
     }
-    
 
-
-
-
-
- function clearEvent(emitter, evt) {
+    function clearEvent(emitter, evt) {
       if (--emitter._eventsCount === 0) emitter._events = new Events();
       else delete emitter._events[evt];
     }
-    
 
-
-
-
-
- function EventEmitter() {
+    function EventEmitter() {
       this._events = new Events();
       this._eventsCount = 0;
     }
-    
 
-
-
-
-
- EventEmitter.prototype.eventNames = function eventNames() {
+    EventEmitter.prototype.eventNames = function eventNames() {
       var names = [],
         events,
         name;
@@ -19251,13 +18176,8 @@ module.exports = [
       }
       return names;
     };
-    
 
-
-
-
-
- EventEmitter.prototype.listeners = function listeners(event) {
+    EventEmitter.prototype.listeners = function listeners(event) {
       var evt = prefix ? prefix + event : event,
         handlers = this._events[evt];
       if (!handlers) return [];
@@ -19267,26 +18187,16 @@ module.exports = [
       }
       return ee;
     };
-    
 
-
-
-
-
- EventEmitter.prototype.listenerCount = function listenerCount(event) {
+    EventEmitter.prototype.listenerCount = function listenerCount(event) {
       var evt = prefix ? prefix + event : event,
         listeners = this._events[evt];
       if (!listeners) return 0;
       if (listeners.fn) return 1;
       return listeners.length;
     };
-    
 
-
-
-
-
- EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
+    EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
       var evt = prefix ? prefix + event : event;
       if (!this._events[evt]) return false;
       var listeners = this._events[evt],
@@ -19347,38 +18257,16 @@ module.exports = [
       }
       return true;
     };
-    
 
-
-
-
-
-
-
- EventEmitter.prototype.on = function on(event, fn, context) {
+    EventEmitter.prototype.on = function on(event, fn, context) {
       return addListener(this, event, fn, context, false);
     };
-    
 
-
-
-
-
-
-
- EventEmitter.prototype.once = function once(event, fn, context) {
+    EventEmitter.prototype.once = function once(event, fn, context) {
       return addListener(this, event, fn, context, true);
     };
-    
 
-
-
-
-
-
-
-
- EventEmitter.prototype.removeListener = function removeListener(
+    EventEmitter.prototype.removeListener = function removeListener(
       event,
       fn,
       context,
@@ -19413,22 +18301,15 @@ module.exports = [
             events.push(listeners[i]);
           }
         }
-        
-        
-        
+
         if (events.length)
           this._events[evt] = events.length === 1 ? events[0] : events;
         else clearEvent(this, evt);
       }
       return this;
     };
-    
 
-
-
-
-
- EventEmitter.prototype.removeAllListeners = function removeAllListeners(
+    EventEmitter.prototype.removeAllListeners = function removeAllListeners(
       event,
     ) {
       var evt;
@@ -19441,26 +18322,16 @@ module.exports = [
       }
       return this;
     };
-    
-    
-    
+
     EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
     EventEmitter.prototype.addListener = EventEmitter.prototype.on;
-    
-    
-    
+
     EventEmitter.prefixed = prefix;
-    
-    
-    
+
     EventEmitter.EventEmitter = EventEmitter;
-    
-    
-    
+
     if (("TURBOPACK compile-time truthy", 1)) {
       module.exports = EventEmitter;
     }
   },
 ];
-
-

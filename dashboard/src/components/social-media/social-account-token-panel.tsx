@@ -51,7 +51,6 @@ const REQUIRED_PERMISSIONS = [
   { key: "pages_manage_ads", desc: "Access ad-related page data" },
 ];
 
-
 function ClientTokenSetup({
   clientId,
   hasToken,
@@ -289,7 +288,6 @@ function ClientTokenSetup({
   );
 }
 
-
 function AccountRow({
   account,
   onSaved,
@@ -432,7 +430,6 @@ function AccountRow({
     </div>
   );
 }
-
 
 export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
   const [accounts, setAccounts] = useState<SocialAccount[]>([]);

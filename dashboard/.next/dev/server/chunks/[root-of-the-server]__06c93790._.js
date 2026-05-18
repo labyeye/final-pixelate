@@ -1109,5 +1109,3 @@ module.exports = [
     }
   },
 ];
-
-

@@ -4,14 +4,14 @@ import * as svc from "@/lib/services";
 import { getUserPages } from "@/lib/meta-api";
 import biharData from "@/lib/bihar-cities.json";
 
-// Geo filter — skip non-Bihar leads on insert for this specific client.
-// Mirrors the cleanup logic in scripts/delete-non-bihar-kalahanu-leads.js.
 const KALAHANU_CLIENT_ID = "68e6b754d5f58f82267a82ae";
 const CITY_KEYS = ["city", "location", "town", "district"];
-const normalizeCity = (v: unknown) => String(v ?? "").trim().toLowerCase();
+const normalizeCity = (v: unknown) =>
+  String(v ?? "")
+    .trim()
+    .toLowerCase();
 const BIHAR_SET = new Set((biharData.cities as string[]).map(normalizeCity));
-const isBiharCity = (v: string) =>
-  v != null && BIHAR_SET.has(normalizeCity(v));
+const isBiharCity = (v: string) => v != null && BIHAR_SET.has(normalizeCity(v));
 
 function extractCityFromFields(f: Record<string, string>): string {
   for (const [k, v] of Object.entries(f)) {
@@ -38,14 +38,11 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-
 async function getTokenPermissions(
   token: string,
 ): Promise<{ granted: string[]; declined: string[]; error?: any }> {
   try {
-    const res = await fetch(
-      `${GRAPH}/me/permissions?access_token=${token}`,
-    );
+    const res = await fetch(`${GRAPH}/me/permissions?access_token=${token}`);
     const data = await res.json();
     if (data.error) {
       console.warn(
@@ -70,7 +67,6 @@ async function getTokenPermissions(
   }
 }
 
-
 async function getAdAccounts(
   token: string,
 ): Promise<{ accounts: { id: string; name: string }[]; error?: any }> {
@@ -80,10 +76,7 @@ async function getAdAccounts(
     );
     const data = await res.json();
     if (data.error) {
-      console.warn(
-        "[LeadsSync] adaccounts error:",
-        JSON.stringify(data.error),
-      );
+      console.warn("[LeadsSync] adaccounts error:", JSON.stringify(data.error));
       return { accounts: [], error: data.error };
     }
     return { accounts: data.data || [] };
@@ -94,7 +87,6 @@ async function getAdAccounts(
     };
   }
 }
-
 
 async function fetchAdAccountLeads(
   adAccountId: string,
@@ -133,7 +125,6 @@ async function fetchAdAccountLeads(
   }
   return { leads, error: firstError, httpStatus: lastStatus };
 }
-
 
 async function fetchPageFormLeads(
   pageId: string,
@@ -246,10 +237,8 @@ export async function POST(request: Request) {
     let skipped = 0;
     let filteredNonBihar = 0;
 
-
     const allRawLeads: any[] = [];
     const seenMetaIds = new Set<string>();
-
 
     const fbAdsCol = await svc.getCollection("fbAdsConnections");
     const fbConn = await fbAdsCol.findOne({ clientId });
@@ -259,10 +248,6 @@ export async function POST(request: Request) {
       : "client.metaAccessToken";
     console.log(`[LeadsSync] Using token from: ${fbTokenSource}`);
 
-
-    // Check what the token can actually do. If ads_read / ads_management
-    // are missing, ad-account lead fetching will return nothing — surface
-    // that in the response so the operator knows to re-auth.
     const permInfo = await getTokenPermissions(fbToken);
     const hasAdsRead =
       permInfo.granted.includes("ads_read") ||
@@ -279,14 +264,12 @@ export async function POST(request: Request) {
     let adAccountDiscoveryError: any = undefined;
 
     if (fbConn?.adAccountId) {
-
       const storedId = fbConn.adAccountId.startsWith("act_")
         ? fbConn.adAccountId
         : `act_${fbConn.adAccountId}`;
       adAccounts.push({ id: storedId, name: storedId });
       console.log(`[LeadsSync] Using stored ad account: ${storedId}`);
     } else {
-
       const { accounts, error } = await getAdAccounts(fbToken);
       adAccounts.push(...accounts);
       if (error) adAccountDiscoveryError = error;
@@ -326,7 +309,6 @@ export async function POST(request: Request) {
       }
     }
 
-    
     let pages: any[] = [];
     try {
       pages = await getUserPages(fbToken);
@@ -350,14 +332,12 @@ export async function POST(request: Request) {
       `[LeadsSync] Total unique leads to process: ${allRawLeads.length}`,
     );
 
-    
     for (const ml of allRawLeads) {
       const f = parseFields(ml.field_data);
       const phone = extractPhone(f);
       const email = extractEmail(f);
       const name = extractName(f);
 
-      
       const existingById = await leadsCol.findOne({
         clientId,
         $or: [{ metaLeadId: ml.id }, { fbLeadId: ml.id }],
@@ -379,7 +359,6 @@ export async function POST(request: Request) {
         continue;
       }
 
-      
       if (phone || email) {
         const orClauses: any[] = [];
         if (phone) orClauses.push({ phone });
@@ -407,9 +386,6 @@ export async function POST(request: Request) {
         }
       }
 
-      // Bihar-only filter for the Kalahanu client. Anything outside
-      // the allowlist (including empty/missing city) is dropped before
-      // insert, so re-syncs don't keep adding leads we just cleaned up.
       if (clientId === KALAHANU_CLIENT_ID) {
         const cityValue = extractCityFromFields(f);
         if (!isBiharCity(cityValue)) {

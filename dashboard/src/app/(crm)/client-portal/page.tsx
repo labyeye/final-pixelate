@@ -12,7 +12,18 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Briefcase, FileText, LogOut, User, Instagram, Facebook, Check, X, Eye, Share2 } from "lucide-react";
+import {
+  Briefcase,
+  FileText,
+  LogOut,
+  User,
+  Instagram,
+  Facebook,
+  Check,
+  X,
+  Eye,
+  Share2,
+} from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 export default function ClientPortalPage() {
@@ -37,7 +48,9 @@ export default function ClientPortalPage() {
         const [projRes, invRes, socialRes] = await Promise.all([
           fetch("/api/projects", { headers }),
           fetch("/api/invoices", { headers }),
-          fetch(`/api/social-media-posts?clientId=${user.clientId}`, { headers }),
+          fetch(`/api/social-media-posts?clientId=${user.clientId}`, {
+            headers,
+          }),
         ]);
         const allProjects = projRes.ok ? await projRes.json() : [];
         const allInvoices = invRes.ok ? await invRes.json() : [];
@@ -78,8 +91,8 @@ export default function ClientPortalPage() {
 
       setSocialPosts((prev) =>
         prev.map((p) =>
-          (p._id || p.id) === postId ? { ...p, approvalStatus: status } : p
-        )
+          (p._id || p.id) === postId ? { ...p, approvalStatus: status } : p,
+        ),
       );
       toast({
         title: `Post ${status}`,
@@ -98,7 +111,7 @@ export default function ClientPortalPage() {
   };
 
   const pendingSocialPosts = socialPosts.filter(
-    (p) => p.approvalStatus === "Pending" || !p.approvalStatus
+    (p) => p.approvalStatus === "Pending" || !p.approvalStatus,
   );
 
   if (!user) return null;
@@ -206,7 +219,9 @@ export default function ClientPortalPage() {
                 <Share2 className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="text-3xl font-black">{pendingSocialPosts.length}</p>
+                <p className="text-3xl font-black">
+                  {pendingSocialPosts.length}
+                </p>
                 <p className="text-sm text-muted-foreground font-bold">
                   Posts to Approve
                 </p>
@@ -222,7 +237,9 @@ export default function ClientPortalPage() {
               <Instagram className="w-5 h-5" /> Social Media Approval
             </h3>
             {pendingSocialPosts.length > 0 && (
-              <Badge className="bg-amber-500 border-black animate-pulse">Action Required</Badge>
+              <Badge className="bg-amber-500 border-black animate-pulse">
+                Action Required
+              </Badge>
             )}
           </div>
           {loading ? (
@@ -262,7 +279,10 @@ export default function ClientPortalPage() {
                         <p className="font-black text-lg leading-tight">
                           {post.title}
                         </p>
-                        <Badge variant="outline" className="border-black text-[10px]">
+                        <Badge
+                          variant="outline"
+                          className="border-black text-[10px]"
+                        >
                           {post.contentType}
                         </Badge>
                       </div>
@@ -277,7 +297,9 @@ export default function ClientPortalPage() {
                       <Button
                         size="sm"
                         className="flex-1 bg-green-500 hover:bg-green-600 text-white border-2 border-black"
-                        onClick={() => handleUpdateApproval(post._id || post.id, "Approved")}
+                        onClick={() =>
+                          handleUpdateApproval(post._id || post.id, "Approved")
+                        }
                         disabled={processingPostId === (post._id || post.id)}
                       >
                         <Check className="w-4 h-4 mr-1" /> Approve
@@ -286,7 +308,9 @@ export default function ClientPortalPage() {
                         size="sm"
                         variant="destructive"
                         className="flex-1 border-2 border-black"
-                        onClick={() => handleUpdateApproval(post._id || post.id, "Rejected")}
+                        onClick={() =>
+                          handleUpdateApproval(post._id || post.id, "Rejected")
+                        }
                         disabled={processingPostId === (post._id || post.id)}
                       >
                         <X className="w-4 h-4 mr-1" /> Reject

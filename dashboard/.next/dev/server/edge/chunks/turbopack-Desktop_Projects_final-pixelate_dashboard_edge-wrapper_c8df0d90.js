@@ -19,24 +19,12 @@
   const CHUNK_SUFFIX_PATH = "";
   const RELATIVE_ROOT_PATH = "../../../../../..";
   const RUNTIME_PUBLIC_PATH = "";
-  
 
-
-
-
-  
   const REEXPORTED_OBJECTS = new WeakMap();
-  
 
- function Context(module, exports) {
+  function Context(module, exports) {
     this.m = module;
-    
-    
-    
-    
-    
-    
-    
+
     this.e = exports;
   }
   const contextPrototype = Context.prototype;
@@ -49,16 +37,13 @@
   function getOverwrittenModule(moduleCache, id) {
     let module = moduleCache[id];
     if (!module) {
-      
-      
       module = createModuleObject(id);
       moduleCache[id] = module;
     }
     return module;
   }
-  
 
- function createModuleObject(id) {
+  function createModuleObject(id) {
     return {
       exports: {},
       error: undefined,
@@ -67,9 +52,8 @@
     };
   }
   const BindingTag_Value = 0;
-  
 
- function esm(exports, bindings) {
+  function esm(exports, bindings) {
     defineProp(exports, "__esModule", {
       value: true,
     });
@@ -110,9 +94,8 @@
     }
     Object.seal(exports);
   }
-  
 
- function esmExport(bindings, id) {
+  function esmExport(bindings, id) {
     let module;
     let exports;
     if (id != null) {
@@ -158,9 +141,8 @@
     }
     return reexportedObjects;
   }
-  
 
- function dynamicExport(object, id) {
+  function dynamicExport(object, id) {
     let module;
     let exports;
     if (id != null) {
@@ -199,24 +181,18 @@
   function createGetter(obj, key) {
     return () => obj[key];
   }
-  
 
- const getProto = Object.getPrototypeOf
+  const getProto = Object.getPrototypeOf
     ? (obj) => Object.getPrototypeOf(obj)
     : (obj) => obj.__proto__;
-   const LEAF_PROTOTYPES = [
+  const LEAF_PROTOTYPES = [
     null,
     getProto({}),
     getProto([]),
     getProto(getProto),
   ];
-  
 
-
-
-
-
- function interopEsm(raw, ns, allowExportDefault) {
+  function interopEsm(raw, ns, allowExportDefault) {
     const bindings = [];
     let defaultLocation = -1;
     for (
@@ -232,12 +208,9 @@
         }
       }
     }
-    
-    
+
     if (!(allowExportDefault && defaultLocation >= 0)) {
-      
       if (defaultLocation >= 0) {
-        
         bindings.splice(defaultLocation, 1, BindingTag_Value, raw);
       } else {
         bindings.push("default", BindingTag_Value, raw);
@@ -257,9 +230,9 @@
   }
   function esmImport(id) {
     const module = getOrInstantiateModuleFromParent(id, this.m);
-    
+
     if (module.namespaceObject) return module.namespaceObject;
-    
+
     const raw = module.exports;
     return (module.namespaceObject = interopEsm(
       raw,
@@ -273,9 +246,8 @@
     return loader(esmImport.bind(this));
   }
   contextPrototype.A = asyncLoader;
-  
-  
-  const runtimeRequire = 
+
+  const runtimeRequire =
     typeof require === "function"
       ? require
       : function require1() {
@@ -286,9 +258,8 @@
     return getOrInstantiateModuleFromParent(id, this.m).exports;
   }
   contextPrototype.r = commonJsRequire;
-  
 
- function moduleContext(map) {
+  function moduleContext(map) {
     function moduleContext(id) {
       if (hasOwnProperty.call(map, id)) {
         return map[id].module();
@@ -314,9 +285,8 @@
     return moduleContext;
   }
   contextPrototype.f = moduleContext;
-  
 
- function getChunkPath(chunkData) {
+  function getChunkPath(chunkData) {
     return typeof chunkData === "string" ? chunkData : chunkData.path;
   }
   function isPromise(maybePromise) {
@@ -343,12 +313,7 @@
       reject: reject,
     };
   }
-  
-  
-  
-  
-  
-  
+
   function installCompressedModuleFactories(
     chunkModules,
     offset,
@@ -359,7 +324,7 @@
     while (i < chunkModules.length) {
       let moduleId = chunkModules[i];
       let end = i + 1;
-      
+
       while (
         end < chunkModules.length &&
         typeof chunkModules[end] !== "function"
@@ -369,8 +334,7 @@
       if (end === chunkModules.length) {
         throw new Error("malformed chunk format, expected a factory function");
       }
-      
-      
+
       if (!moduleFactories.has(moduleId)) {
         const moduleFactoryFn = chunkModules[end];
         applyModuleFactoryName(moduleFactoryFn);
@@ -380,11 +344,10 @@
           moduleFactories.set(moduleId, moduleFactoryFn);
         }
       }
-      i = end + 1; 
+      i = end + 1;
     }
   }
-  
-  
+
   const turbopackQueues = Symbol("turbopack queues");
   const turbopackExports = Symbol("turbopack exports");
   const turbopackError = Symbol("turbopack error");
@@ -448,7 +411,6 @@
         return promise;
       },
       set(v) {
-        
         if (v !== promise) {
           promise[turbopackExports] = v;
         }
@@ -493,16 +455,8 @@
     }
   }
   contextPrototype.a = asyncModule;
-  
 
-
-
-
-
-
-
-
- const relativeURL = function relativeURL(inputUrl) {
+  const relativeURL = function relativeURL(inputUrl) {
     const realUrl = new URL(inputUrl, "x:/");
     const values = {};
     for (const key in realUrl) values[key] = realUrl[key];
@@ -519,50 +473,30 @@
   };
   relativeURL.prototype = URL.prototype;
   contextPrototype.U = relativeURL;
-  
 
- function invariant(never, computeMessage) {
+  function invariant(never, computeMessage) {
     throw new Error(`Invariant: ${computeMessage(never)}`);
   }
-  
 
- function requireStub(_moduleId) {
+  function requireStub(_moduleId) {
     throw new Error("dynamic usage of require is not supported");
   }
   contextPrototype.z = requireStub;
-  
+
   contextPrototype.g = globalThis;
   function applyModuleFactoryName(factory) {
-    
     Object.defineProperty(factory, "name", {
       value: "module evaluation",
     });
   }
-  
 
-
-
-
-
-  
-  
-  
   const browserContextPrototype = Context.prototype;
-  var SourceType =  (function (SourceType) {
-    
+  var SourceType = (function (SourceType) {
+    SourceType[(SourceType["Runtime"] = 0)] = "Runtime";
 
+    SourceType[(SourceType["Parent"] = 1)] = "Parent";
 
-
- SourceType[(SourceType["Runtime"] = 0)] = "Runtime";
-    
-
-
- SourceType[(SourceType["Parent"] = 1)] = "Parent";
-    
-
-
-
- SourceType[(SourceType["Update"] = 2)] = "Update";
+    SourceType[(SourceType["Update"] = 2)] = "Update";
     return SourceType;
   })(SourceType || {});
   const moduleFactories = new Map();
@@ -606,23 +540,18 @@
       return availableModules.get(included);
     });
     if (modulesPromises.length > 0 && modulesPromises.every((p) => p)) {
-      
       await Promise.all(modulesPromises);
       return;
     }
     const includedModuleChunksList = chunkData.moduleChunks || [];
     const moduleChunksPromises = includedModuleChunksList
       .map((included) => {
-        
-        
         return availableModuleChunks.get(included);
       })
       .filter((p) => p);
     let promise;
     if (moduleChunksPromises.length > 0) {
-      
       if (moduleChunksPromises.length === includedModuleChunksList.length) {
-        
         await Promise.all(moduleChunksPromises);
         return;
       }
@@ -644,7 +573,7 @@
       promise = Promise.all(moduleChunksPromises);
     } else {
       promise = loadChunkPath(sourceType, sourceData, chunkData.path);
-      
+
       for (const includedModuleChunk of includedModuleChunksList) {
         if (!availableModuleChunks.has(includedModuleChunk)) {
           availableModuleChunks.set(includedModuleChunk, promise);
@@ -653,8 +582,6 @@
     }
     for (const included of includedList) {
       if (!availableModules.has(included)) {
-        
-        
         availableModules.set(included, promise);
       }
     }
@@ -662,12 +589,12 @@
   }
   const loadedChunk = Promise.resolve(undefined);
   const instrumentedBackendLoadChunks = new WeakMap();
-  
+
   function loadChunkByUrl(chunkUrl) {
     return loadChunkByUrlInternal(1, this.m.id, chunkUrl);
   }
   browserContextPrototype.L = loadChunkByUrl;
-  
+
   function loadChunkByUrlInternal(sourceType, sourceData, chunkUrl) {
     const thenable = BACKEND.loadChunkCached(sourceType, chunkUrl);
     let entry = instrumentedBackendLoadChunks.get(thenable);
@@ -708,31 +635,24 @@
     }
     return entry;
   }
-  
+
   function loadChunkPath(sourceType, sourceData, chunkPath) {
     const url = getChunkRelativeUrl(chunkPath);
     return loadChunkByUrlInternal(sourceType, sourceData, url);
   }
-  
 
- function resolvePathFromModule(moduleId) {
+  function resolvePathFromModule(moduleId) {
     const exported = this.r(moduleId);
     return exported?.default ?? exported;
   }
   browserContextPrototype.R = resolvePathFromModule;
-  
 
-
- function resolveAbsolutePath(modulePath) {
+  function resolveAbsolutePath(modulePath) {
     return `/ROOT/${modulePath ?? ""}`;
   }
   browserContextPrototype.P = resolveAbsolutePath;
-  
 
-
- function getWorkerBlobURL(chunks) {
-    
-    
+  function getWorkerBlobURL(chunks) {
     let bootstrap = `self.TURBOPACK_WORKER_LOCATION = ${JSON.stringify(location.origin)};
 self.TURBOPACK_NEXT_CHUNK_URLS = ${JSON.stringify(chunks.reverse().map(getChunkRelativeUrl), null, 2)};
 importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_LOCATION + c).reverse());`;
@@ -742,14 +662,12 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     return URL.createObjectURL(blob);
   }
   browserContextPrototype.b = getWorkerBlobURL;
-  
 
- function instantiateRuntimeModule(moduleId, chunkPath) {
+  function instantiateRuntimeModule(moduleId, chunkPath) {
     return instantiateModule(moduleId, 0, chunkPath);
   }
-  
 
- function getChunkRelativeUrl(chunkPath) {
+  function getChunkRelativeUrl(chunkPath) {
     return `${CHUNK_BASE_PATH}${chunkPath
       .split("/")
       .map((p) => encodeURIComponent(p))
@@ -770,15 +688,13 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     return path;
   }
   const regexJsUrl = /\.js(?:\?[^#]*)?(?:#.*)?$/;
-  
 
- function isJs(chunkUrlOrPath) {
+  function isJs(chunkUrlOrPath) {
     return regexJsUrl.test(chunkUrlOrPath);
   }
   const regexCssUrl = /\.css(?:\?[^#]*)?(?:#.*)?$/;
-  
 
- function isCss(chunkUrl) {
+  function isCss(chunkUrl) {
     return regexCssUrl.test(chunkUrl);
   }
   function loadWebAssembly(chunkPath, edgeModule, importsObj) {
@@ -795,18 +711,10 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     return BACKEND.loadWebAssemblyModule(1, this.m.id, chunkPath, edgeModule);
   }
   contextPrototype.u = loadWebAssemblyModule;
-  
-  
-  
+
   const devContextPrototype = Context.prototype;
-  
 
-
-
-
-
-  const devModuleCache =
-    Object.create(null);
+  const devModuleCache = Object.create(null);
   devContextPrototype.c = devModuleCache;
   class UpdateApplyError extends Error {
     name = "UpdateApplyError";
@@ -816,43 +724,25 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       this.dependencyChain = dependencyChain;
     }
   }
-  
 
- const runtimeModules = new Set();
-  
+  const runtimeModules = new Set();
 
+  const moduleChunksMap = new Map();
 
+  const chunkModulesMap = new Map();
 
+  const runtimeChunkLists = new Set();
 
+  const chunkListChunksMap = new Map();
 
- const moduleChunksMap = new Map();
-  
+  const chunkChunkListsMap = new Map();
 
- const chunkModulesMap = new Map();
-  
+  const moduleHotData = new Map();
 
+  const moduleHotState = new Map();
 
+  const queuedInvalidatedModules = new Set();
 
- const runtimeChunkLists = new Set();
-  
-
- const chunkListChunksMap = new Map();
-  
-
- const chunkChunkListsMap = new Map();
-  
-
-
- const moduleHotData = new Map();
-  
-
- const moduleHotState = new Map();
-  
-
- const queuedInvalidatedModules = new Set();
-  
-
- 
   function getOrInstantiateRuntimeModule(chunkPath, moduleId) {
     const module = devModuleCache[moduleId];
     if (module) {
@@ -861,12 +751,10 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       }
       return module;
     }
-    
+
     return instantiateModule(moduleId, SourceType.Runtime, chunkPath);
   }
-  
 
- 
   const getOrInstantiateModuleFromParent = (id, sourceModule) => {
     if (!sourceModule.hot.active) {
       console.warn(
@@ -894,13 +782,9 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
   }
   DevContext.prototype = Context.prototype;
   function instantiateModule(moduleId, sourceType, sourceData) {
-    
     let id = moduleId;
     const moduleFactory = moduleFactories.get(id);
     if (typeof moduleFactory !== "function") {
-      
-      
-      
       throw new Error(
         factoryNotAvailableMessage(id, sourceType, sourceData) +
           " It might have been deleted in an HMR update.",
@@ -915,8 +799,6 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         parents = [];
         break;
       case SourceType.Parent:
-        
-        
         parents = [sourceData];
         break;
       case SourceType.Update:
@@ -935,7 +817,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     module.hot = hot;
     devModuleCache[id] = module;
     moduleHotState.set(module, hotState);
-    
+
     try {
       runModuleExecutionHooks(module, (refresh) => {
         const context = new DevContext(module, exports, refresh);
@@ -946,7 +828,6 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       throw error;
     }
     if (module.namespaceObject && module.exports !== module.namespaceObject) {
-      
       interopEsm(module.exports, module.namespaceObject);
     }
     return module;
@@ -956,11 +837,8 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     signature: () => (_type) => {},
     registerExports: (_module, _helpers) => {},
   };
-  
 
-
-
- function runModuleExecutionHooks(module, executeModule) {
+  function runModuleExecutionHooks(module, executeModule) {
     if (typeof globalThis.$RefreshInterceptModuleExecution$ === "function") {
       const cleanupReactRefreshIntercept =
         globalThis.$RefreshInterceptModuleExecution$(module.id);
@@ -971,44 +849,26 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
           registerExports: registerExportsAndSetupBoundaryForReactRefresh,
         });
       } finally {
-        
         cleanupReactRefreshIntercept();
       }
     } else {
-      
-      
-      
       executeModule(DUMMY_REFRESH_CONTEXT);
     }
   }
-  
 
- function registerExportsAndSetupBoundaryForReactRefresh(module, helpers) {
+  function registerExportsAndSetupBoundaryForReactRefresh(module, helpers) {
     const currentExports = module.exports;
     const prevExports = module.hot.data.prevExports ?? null;
     helpers.registerExportsForReactRefresh(currentExports, module.id);
-    
-    
+
     if (helpers.isReactRefreshBoundary(currentExports)) {
-      
-      
       module.hot.dispose((data) => {
         data.prevExports = currentExports;
       });
-      
-      
+
       module.hot.accept();
-      
-      
-      
+
       if (prevExports !== null) {
-        
-        
-        
-        
-        
-        
-        
         if (
           helpers.shouldInvalidateReactRefreshBoundary(
             helpers.getRefreshBoundarySignature(prevExports),
@@ -1021,10 +881,6 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         }
       }
     } else {
-      
-      
-      
-      
       const isNoLongerABoundary = prevExports !== null;
       if (isNoLongerABoundary) {
         module.hot.invalidate();
@@ -1070,7 +926,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
             outdatedModules.add(outdatedModuleId);
           }
           break;
-        
+
         default:
           invariant(effect, (effect) => `Unknown effect type: ${effect?.type}`);
       }
@@ -1091,11 +947,8 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     }
     return outdatedSelfAcceptedModules;
   }
-  
 
-
-
- function updateChunksPhase(chunksAddedModules, chunksDeletedModules) {
+  function updateChunksPhase(chunksAddedModules, chunksDeletedModules) {
     for (const [chunkPath, addedModuleIds] of chunksAddedModules) {
       for (const moduleId of addedModuleIds) {
         addModuleToChunk(moduleId, chunkPath);
@@ -1120,52 +973,34 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     for (const moduleId of disposedModules) {
       disposeModule(moduleId, "clear");
     }
-    
-    
+
     const outdatedModuleParents = new Map();
     for (const moduleId of outdatedModules) {
       const oldModule = devModuleCache[moduleId];
       outdatedModuleParents.set(moduleId, oldModule?.parents);
       delete devModuleCache[moduleId];
     }
-    
-    
+
     return {
       outdatedModuleParents,
     };
   }
-  
 
-
-
-
-
-
-
-
-
-
-
- function disposeModule(moduleId, mode) {
+  function disposeModule(moduleId, mode) {
     const module = devModuleCache[moduleId];
     if (!module) {
       return;
     }
     const hotState = moduleHotState.get(module);
     const data = {};
-    
-    
+
     for (const disposeHandler of hotState.disposeHandlers) {
       disposeHandler(data);
     }
-    
-    
+
     module.hot.active = false;
     moduleHotState.delete(module);
-    
-    
-    
-    
+
     for (const childId of module.children) {
       const child = devModuleCache[childId];
       if (!child) {
@@ -1194,14 +1029,11 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     outdatedModuleParents,
     reportError,
   ) {
-    
     for (const [moduleId, factory] of newModuleFactories.entries()) {
       applyModuleFactoryName(factory);
       moduleFactories.set(moduleId, factory);
     }
-    
-    
-    
+
     for (const { moduleId, errorHandler } of outdatedSelfAcceptedModules) {
       try {
         instantiateModule(
@@ -1309,7 +1141,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       outdatedModules,
       disposedModules,
     );
-    
+
     let error;
     function reportError(err) {
       if (!error) error = err;
@@ -1344,7 +1176,6 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
           break;
         }
         case "deleted": {
-          
           const updateDeleted = new Set(chunkModulesMap.get(chunkPath));
           for (const moduleId of updateDeleted) {
             deleted.add(moduleId);
@@ -1373,9 +1204,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
           );
       }
     }
-    
-    
-    
+
     for (const moduleId of added.keys()) {
       if (deleted.has(moduleId)) {
         added.delete(moduleId);
@@ -1383,10 +1212,6 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       }
     }
     for (const [moduleId, entry] of Object.entries(entries)) {
-      
-      
-      
-      
       if (!added.has(moduleId)) {
         modified.set(moduleId, entry);
       }
@@ -1416,8 +1241,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         }
         outdatedModules.add(moduleId);
       }
-      
-      
+
       if (moduleId === undefined) {
         return {
           type: "unaccepted",
@@ -1426,12 +1250,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       }
       const module = devModuleCache[moduleId];
       const hotState = moduleHotState.get(module);
-      if (
-        
-        
-        !module ||
-        (hotState.selfAccepted && !hotState.selfInvalidated)
-      ) {
+      if (!module || (hotState.selfAccepted && !hotState.selfInvalidated)) {
         continue;
       }
       if (hotState.selfDeclined) {
@@ -1453,8 +1272,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         if (!parent) {
           continue;
         }
-        
-        
+
         queue.push({
           moduleId: parentId,
           dependencyChain: [...dependencyChain, moduleId],
@@ -1470,22 +1288,14 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
   function handleApply(chunkListPath, update) {
     switch (update.type) {
       case "partial": {
-        
         applyUpdate(update.instruction);
         break;
       }
       case "restart": {
-        
-        
-        
         DEV_BACKEND.restart();
         break;
       }
       case "notFound": {
-        
-        
-        
-        
         if (runtimeChunkLists.has(chunkListPath)) {
           DEV_BACKEND.restart();
         } else {
@@ -1505,12 +1315,9 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       disposeHandlers: [],
     };
     const hot = {
-      
-      
-      
       active: true,
       data: hotData ?? {},
-      
+
       accept: (modules, _callback, _errorHandler) => {
         if (modules === undefined) {
           hotState.selfAccepted = true;
@@ -1543,16 +1350,12 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         hotState.selfInvalidated = true;
         queuedInvalidatedModules.add(moduleId);
       },
-      
-      
-      
+
       status: () => "idle",
-      
+
       addStatusHandler: (_handler) => {},
       removeStatusHandler: (_handler) => {},
-      
-      
-      
+
       check: () => Promise.resolve(null),
     };
     return {
@@ -1560,10 +1363,8 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       hotState,
     };
   }
-  
 
-
- function removeModuleFromChunk(moduleId, chunkPath) {
+  function removeModuleFromChunk(moduleId, chunkPath) {
     const moduleChunks = moduleChunksMap.get(moduleId);
     moduleChunks.delete(chunkPath);
     const chunkModules = chunkModulesMap.get(chunkPath);
@@ -1578,9 +1379,8 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     }
     return noRemainingChunks;
   }
-  
 
- function disposeChunkList(chunkListPath) {
+  function disposeChunkList(chunkListPath) {
     const chunkPaths = chunkListChunksMap.get(chunkListPath);
     if (chunkPaths == null) {
       return false;
@@ -1594,20 +1394,15 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         disposeChunk(chunkPath);
       }
     }
-    
-    
+
     const chunkListUrl = getChunkRelativeUrl(chunkListPath);
     DEV_BACKEND.unloadChunk?.(chunkListUrl);
     return true;
   }
-  
 
-
-
- function disposeChunk(chunkPath) {
+  function disposeChunk(chunkPath) {
     const chunkUrl = getChunkRelativeUrl(chunkPath);
-    
-    
+
     DEV_BACKEND.unloadChunk?.(chunkUrl);
     const chunkModules = chunkModulesMap.get(chunkPath);
     if (chunkModules == null) {
@@ -1626,9 +1421,8 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     }
     return true;
   }
-  
 
- function addModuleToChunk(moduleId, chunkPath) {
+  function addModuleToChunk(moduleId, chunkPath) {
     let moduleChunks = moduleChunksMap.get(moduleId);
     if (!moduleChunks) {
       moduleChunks = new Set([chunkPath]);
@@ -1644,42 +1438,35 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       chunkModules.add(moduleId);
     }
   }
-  
 
-
-
- function markChunkListAsRuntime(chunkListPath) {
+  function markChunkListAsRuntime(chunkListPath) {
     runtimeChunkLists.add(chunkListPath);
   }
   function registerChunk(registration) {
     const chunkPath = getPathFromScript(registration[0]);
     let runtimeParams;
-    
+
     if (registration.length === 2) {
       runtimeParams = registration[1];
     } else {
       runtimeParams = undefined;
-      installCompressedModuleFactories(
-        registration,
-         1,
-        moduleFactories,
-        (id) => addModuleToChunk(id, chunkPath),
+      installCompressedModuleFactories(registration, 1, moduleFactories, (id) =>
+        addModuleToChunk(id, chunkPath),
       );
     }
     return BACKEND.registerChunk(chunkPath, runtimeParams);
   }
-  
 
- function registerChunkList(chunkList) {
+  function registerChunkList(chunkList) {
     const chunkListScript = chunkList.script;
     const chunkListPath = getPathFromScript(chunkListScript);
-    
+
     BACKEND.registerChunk(chunkListPath);
     globalThis.TURBOPACK_CHUNK_UPDATE_LISTENERS.push([
       chunkListPath,
       handleApply.bind(null, chunkListPath),
     ]);
-    
+
     const chunkPaths = new Set(chunkList.chunks.map(getChunkPath));
     chunkListChunksMap.set(chunkListPath, chunkPaths);
     for (const chunkPath of chunkPaths) {
@@ -1696,19 +1483,12 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     }
   }
   globalThis.TURBOPACK_CHUNK_UPDATE_LISTENERS ??= [];
-  
-  
-  
-  
+
   async function externalImport(id) {
     let raw;
     try {
       raw = await import(id);
     } catch (err) {
-      
-      
-      
-      
       throw new Error(`Failed to load external module ${id}: ${err}`);
     }
     if (raw && raw.__esModule && raw.default && "default" in raw.default) {
@@ -1722,10 +1502,6 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     try {
       raw = thunk();
     } catch (err) {
-      
-      
-      
-      
       throw new Error(`Failed to load external module ${id}: ${err}`);
     }
     if (!esm || raw.__esModule) {
@@ -1737,21 +1513,10 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     return require.resolve(id, options);
   };
   contextPrototype.x = externalRequire;
-  
 
-
-
-
-  
-  
-  
   let BACKEND;
   (() => {
     BACKEND = {
-      
-      
-      
-      
       registerChunk(chunkPath, params) {
         registeredChunks.add(chunkPath);
         instantiateDependentChunks(chunkPath);
@@ -1759,20 +1524,11 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
           return;
         }
         if (params.otherChunks.length === 0) {
-          
-          
           instantiateRuntimeModules(params.runtimeModuleIds, chunkPath);
         } else {
-          
-          
-          
           registerChunkRunner(
             chunkPath,
-            params.otherChunks.filter(
-              (
-                chunk, 
-              ) => isJs(getChunkPath(chunk)),
-            ),
+            params.otherChunks.filter((chunk) => isJs(getChunkPath(chunk))),
             params.runtimeModuleIds,
           );
         }
@@ -1801,10 +1557,8 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
     };
     const registeredChunks = new Set();
     const runners = new Map();
-    
 
-
- function registerChunkRunner(chunkPath, otherChunks, runtimeModuleIds) {
+    function registerChunkRunner(chunkPath, otherChunks, runtimeModuleIds) {
       const requiredChunks = new Set();
       const runner = {
         runtimeModuleIds,
@@ -1824,17 +1578,13 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         }
         runnersForChunk.add(runner);
       }
-      
+
       if (runner.requiredChunks.size === 0) {
         instantiateRuntimeModules(runner.runtimeModuleIds, runner.chunkPath);
       }
     }
-    
 
-
- function instantiateDependentChunks(chunkPath) {
-      
-      
+    function instantiateDependentChunks(chunkPath) {
       const runnersForChunk = runners.get(chunkPath);
       if (runnersForChunk != null) {
         for (const runner of runnersForChunk) {
@@ -1849,9 +1599,8 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         runners.delete(chunkPath);
       }
     }
-    
 
- function instantiateRuntimeModules(runtimeModuleIds, chunkPath) {
+    function instantiateRuntimeModules(runtimeModuleIds, chunkPath) {
       for (const moduleId of runtimeModuleIds) {
         getOrInstantiateRuntimeModule(chunkPath, moduleId);
       }
@@ -1869,12 +1618,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
       return module;
     }
   })();
-  
 
-
-
-
-  
   let DEV_BACKEND;
   (() => {
     DEV_BACKEND = {
@@ -1893,5 +1637,3 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
   globalThis.TURBOPACK_CHUNK_LISTS = { push: registerChunkList };
   chunkListsToRegister.forEach(registerChunkList);
 })();
-
-

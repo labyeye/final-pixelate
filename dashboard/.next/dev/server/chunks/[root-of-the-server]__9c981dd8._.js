@@ -1325,5 +1325,3 @@ module.exports = [
     }
   },
 ];
-
-

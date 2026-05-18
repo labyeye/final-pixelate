@@ -23,7 +23,6 @@ async function run() {
     });
     console.log(`Client-owned leads (clientId exists): ${clientOwnedTotal}\n`);
 
-    // 1. How populated is campaignName across client-owned leads?
     const campaignPopulated = await col.countDocuments({
       clientId: { $exists: true },
       campaignName: { $exists: true, $ne: "" },
@@ -71,7 +70,6 @@ async function run() {
     await topValues("adName", "adName");
     await topValues("pageName", "pageName");
 
-    // 2. Search for anything matching the terms in the relevant fields.
     const orClauses = [];
     for (const term of SEARCH_TERMS) {
       const re = { $regex: term, $options: "i" };

@@ -139,7 +139,6 @@ export function generateQuotationId(
 ): string {
   if (!lastId) return `${prefix}${String(startNumber).padStart(3, "0")}`;
 
-  // Try to extract the number from the end of the lastId
   const match = lastId.match(/(\d+)$/);
   if (match) {
     const lastNum = parseInt(match[0], 10);

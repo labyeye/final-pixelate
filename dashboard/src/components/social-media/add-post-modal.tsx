@@ -451,7 +451,8 @@ export function AddPostModal({
               </div>
               {(form.carouselMediaLinks || []).length === 0 && (
                 <p className="text-xs text-muted-foreground">
-                  Click "+ Add Slide" to add media links for each carousel slide.
+                  Click "+ Add Slide" to add media links for each carousel
+                  slide.
                 </p>
               )}
               <div className="space-y-2">
@@ -464,9 +465,7 @@ export function AddPostModal({
                       placeholder={`Slide ${idx + 1} media URL`}
                       value={link}
                       onChange={(e) => {
-                        const updated = [
-                          ...(form.carouselMediaLinks || []),
-                        ];
+                        const updated = [...(form.carouselMediaLinks || [])];
                         updated[idx] = e.target.value;
                         setForm((prev) => ({
                           ...prev,

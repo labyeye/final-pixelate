@@ -4,7 +4,6 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "DirectionProvider",
       () => DirectionProvider,
@@ -27,7 +26,7 @@
       ](void 0);
     var DirectionProvider = (props) => {
       const { dir, children } = props;
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(DirectionContext.Provider, {
@@ -43,7 +42,6 @@
       return localDir || globalDir || "ltr";
     }
     var Provider = DirectionProvider;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-roving-focus/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -61,7 +59,7 @@
       "createRovingFocusGroupScope",
       () => createRovingFocusGroupScope,
     ]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -127,17 +125,17 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ]((props, forwardedRef) => {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(Collection.Provider, {
           scope: props.__scopeRovingFocusGroup,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Collection.Slot, {
             scope: props.__scopeRovingFocusGroup,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(RovingFocusGroupImpl, {
@@ -219,7 +217,7 @@
           }["RovingFocusGroupImpl.useEffect"],
           [handleEntryFocus],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(RovingFocusProvider, {
@@ -278,7 +276,7 @@
               }["RovingFocusGroupImpl.useCallback"],
               [],
             ),
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -384,7 +382,7 @@
           }["RovingFocusGroupItem.useEffect"],
           [focusable, onFocusableItemAdd, onFocusableItemRemove],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(Collection.ItemSlot, {
@@ -392,7 +390,7 @@
           id,
           focusable,
           active,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -514,7 +512,6 @@
     }
     var Root = RovingFocusGroup;
     var Item = RovingFocusGroupItem;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-tabs/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -540,7 +537,7 @@
       "createTabsScope",
       () => createTabsScope,
     ]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -623,7 +620,7 @@
           defaultProp: defaultValue ?? "",
           caller: TABS_NAME,
         });
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(TabsProvider, {
@@ -637,7 +634,7 @@
           orientation,
           dir: direction,
           activationMode,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -662,7 +659,7 @@
         const { __scopeTabs, loop = true, ...listProps } = props;
         const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
         const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -675,7 +672,7 @@
             orientation: context.orientation,
             dir: context.dir,
             loop,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -704,7 +701,7 @@
         const triggerId = makeTriggerId(context.baseId, value);
         const contentId = makeContentId(context.baseId, value);
         const isSelected = value === context.value;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -716,7 +713,7 @@
             ...rovingFocusGroupScope,
             focusable: !disabled,
             active: isSelected,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -804,7 +801,7 @@
           }["TabsContent.useEffect"],
           [],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -814,7 +811,7 @@
           {
             present: forceMount || isSelected,
             children: ({ present }) =>
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -854,18 +851,12 @@
     var List = TabsList;
     var Trigger = TabsTrigger;
     var Content = TabsContent;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/arrow-left.js [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -895,7 +886,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ArrowLeft", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/arrow-left.js [app-client] (ecmascript) <export default as ArrowLeft>",
   (__turbopack_context__) => {
@@ -917,12 +907,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -945,7 +930,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Phone", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/phone.js [app-client] (ecmascript) <export default as Phone>",
   (__turbopack_context__) => {
@@ -967,12 +951,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1004,7 +983,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("MapPin", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-client] (ecmascript) <export default as MapPin>",
   (__turbopack_context__) => {
@@ -1026,12 +1004,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1061,7 +1034,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ShieldCheck", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/shield-check.js [app-client] (ecmascript) <export default as ShieldCheck>",
   (__turbopack_context__) => {
@@ -1083,12 +1055,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1125,7 +1092,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Save", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/save.js [app-client] (ecmascript) <export default as Save>",
   (__turbopack_context__) => {
@@ -1147,12 +1113,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1175,7 +1136,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Pen", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/pen.js [app-client] (ecmascript) <export default as Edit2>",
   (__turbopack_context__) => {
@@ -1197,12 +1157,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1225,7 +1180,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("LoaderCircle", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-client] (ecmascript) <export default as Loader2>",
   (__turbopack_context__) => {
@@ -1247,12 +1201,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1297,7 +1246,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("CircleAlert", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-client] (ecmascript) <export default as AlertCircle>",
   (__turbopack_context__) => {
@@ -1319,12 +1267,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1389,7 +1332,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Building2", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/building-2.js [app-client] (ecmascript) <export default as Building2>",
   (__turbopack_context__) => {
@@ -1411,12 +1353,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1439,7 +1376,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("FolderOpen", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/folder-open.js [app-client] (ecmascript) <export default as FolderOpen>",
   (__turbopack_context__) => {
@@ -1461,12 +1397,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1489,7 +1420,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ChevronRight", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-client] (ecmascript) <export default as ChevronRight>",
   (__turbopack_context__) => {
@@ -1511,12 +1441,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1564,7 +1489,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Calendar", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as Calendar>",
   (__turbopack_context__) => {
@@ -1586,12 +1510,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1614,7 +1533,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Facebook", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/facebook.js [app-client] (ecmascript) <export default as Facebook>",
   (__turbopack_context__) => {
@@ -1636,12 +1554,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1685,7 +1598,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("RefreshCw", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/refresh-cw.js [app-client] (ecmascript) <export default as RefreshCw>",
   (__turbopack_context__) => {
@@ -1707,12 +1619,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1742,7 +1649,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("CircleCheckBig", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-check-big.js [app-client] (ecmascript) <export default as CheckCircle>",
   (__turbopack_context__) => {
@@ -1764,12 +1670,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1792,7 +1693,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ChevronDown", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>",
   (__turbopack_context__) => {
@@ -1814,12 +1714,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1842,7 +1737,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("ChevronUp", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript) <export default as ChevronUp>",
   (__turbopack_context__) => {
@@ -1864,12 +1758,7 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
-
-
-
-
- __turbopack_context__.s([
+    __turbopack_context__.s([
       "__iconNode",
       () => __iconNode,
       "default",
@@ -1908,7 +1797,6 @@
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
       "default"
     ])("Info", __iconNode);
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/info.js [app-client] (ecmascript) <export default as Info>",
   (__turbopack_context__) => {
@@ -1927,5 +1815,3 @@
       );
   },
 ]);
-
-

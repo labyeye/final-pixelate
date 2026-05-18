@@ -102,7 +102,7 @@ function formatTs(iso?: string) {
 
 function wamidShort(wamid?: string) {
   if (!wamid) return "—";
-  
+
   return "…" + wamid.slice(-20);
 }
 
@@ -126,7 +126,6 @@ export default function WhatsAppWebhookPage() {
       setEntries(data);
       setLastRefreshed(new Date());
     } catch {
-      
     } finally {
       setLoading(false);
     }
@@ -142,7 +141,6 @@ export default function WhatsAppWebhookPage() {
     return () => clearInterval(id);
   }, [autoRefresh, fetchData]);
 
-  
   const counts = entries.reduce(
     (acc, e) => {
       const s = e.whatsapp_send_status ?? "sent";

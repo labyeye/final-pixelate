@@ -17,10 +17,10 @@ module.exports = [
         "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-ssr] (ecmascript)",
       );
     const Input =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, type, ...props }, ref) => {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -83,10 +83,10 @@ module.exports = [
       "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
     );
     const Label =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -185,10 +185,10 @@ module.exports = [
         "Value"
       ];
     const SelectTrigger =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, children, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -207,7 +207,7 @@ module.exports = [
             ...props,
             children: [
               children,
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -216,7 +216,7 @@ module.exports = [
                 ],
                 {
                   asChild: true,
-                  children:  (0,
+                  children: (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -265,10 +265,10 @@ module.exports = [
         "Trigger"
       ].displayName;
     const SelectScrollUpButton =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -285,7 +285,7 @@ module.exports = [
               className,
             ),
             ...props,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -322,10 +322,10 @@ module.exports = [
         "ScrollUpButton"
       ].displayName;
     const SelectScrollDownButton =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -342,7 +342,7 @@ module.exports = [
               className,
             ),
             ...props,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -379,10 +379,10 @@ module.exports = [
         "ScrollDownButton"
       ].displayName;
     const SelectContent =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, children, position = "popper", ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -390,7 +390,7 @@ module.exports = [
             "Portal"
           ],
           {
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -411,7 +411,7 @@ module.exports = [
                 position: position,
                 ...props,
                 children: [
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -427,7 +427,7 @@ module.exports = [
                     },
                     ("TURBOPACK compile-time value", void 0),
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -455,7 +455,7 @@ module.exports = [
                     },
                     ("TURBOPACK compile-time value", void 0),
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -500,10 +500,10 @@ module.exports = [
         "Content"
       ].displayName;
     const SelectLabel =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -534,10 +534,10 @@ module.exports = [
         "Label"
       ].displayName;
     const SelectItem =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, children, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -555,7 +555,7 @@ module.exports = [
             ),
             ...props,
             children: [
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -563,7 +563,7 @@ module.exports = [
                 {
                   className:
                     "absolute left-2 flex h-3.5 w-3.5 items-center justify-center",
-                  children:  (0,
+                  children: (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -571,7 +571,7 @@ module.exports = [
                       "ItemIndicator"
                     ],
                     {
-                      children:  (0,
+                      children: (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
@@ -613,7 +613,7 @@ module.exports = [
                 },
                 ("TURBOPACK compile-time value", void 0),
               ),
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
@@ -651,10 +651,10 @@ module.exports = [
         "Item"
       ].displayName;
     const SelectSeparator =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -716,10 +716,10 @@ module.exports = [
         "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-ssr] (ecmascript)",
       );
     const Card =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -745,10 +745,10 @@ module.exports = [
       );
     Card.displayName = "Card";
     const CardHeader =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -774,10 +774,10 @@ module.exports = [
       );
     CardHeader.displayName = "CardHeader";
     const CardTitle =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -803,10 +803,10 @@ module.exports = [
       );
     CardTitle.displayName = "CardTitle";
     const CardDescription =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -832,10 +832,10 @@ module.exports = [
       );
     CardDescription.displayName = "CardDescription";
     const CardContent =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -861,10 +861,10 @@ module.exports = [
       );
     CardContent.displayName = "CardContent";
     const CardFooter =
-       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ](({ className, ...props }, ref) =>
-         (0,
+        (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
           "jsxDEV"
         ])(
@@ -1002,8 +1002,7 @@ module.exports = [
           ] = __turbopack_async_dependencies__.then
             ? (await __turbopack_async_dependencies__)()
             : __turbopack_async_dependencies__;
-          
-          
+
           const LOGO_PATH =
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$assets$2f$images$2f$Logo_Color_Name_Large$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$assets$2f$images$2f$Logo_Color_Name_Large$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__[
               "default"
@@ -1031,7 +1030,7 @@ module.exports = [
                 paddingLeft: 28,
                 paddingRight: 28,
               },
-              
+
               outerBorder: {
                 border: "2pt solid #1e3a8a",
                 borderRadius: 2,
@@ -1040,7 +1039,7 @@ module.exports = [
                 border: "0.5pt solid #ffffff",
                 margin: 3,
               },
-              
+
               headerBand: {
                 backgroundColor: "#ffffff",
                 flexDirection: "row",
@@ -1069,7 +1068,7 @@ module.exports = [
                 letterSpacing: 1,
                 marginTop: 2,
               },
-              
+
               metaStrip: {
                 flexDirection: "row",
                 backgroundColor: "#ffffff",
@@ -1094,14 +1093,14 @@ module.exports = [
                 fontFamily: "Helvetica-Bold",
                 color: DARK,
               },
-              
+
               chequeBody: {
                 paddingHorizontal: 14,
                 paddingTop: 14,
                 paddingBottom: 10,
                 borderBottom: `1pt solid #ffffff`,
               },
-              
+
               receivedRow: {
                 flexDirection: "row",
                 alignItems: "flex-end",
@@ -1123,7 +1122,7 @@ module.exports = [
                 color: DARK,
                 letterSpacing: 0.3,
               },
-              
+
               amountSection: {
                 flexDirection: "row",
                 alignItems: "stretch",
@@ -1173,7 +1172,7 @@ module.exports = [
                 color: BLUE,
                 letterSpacing: 0.5,
               },
-              
+
               detailsRow: {
                 flexDirection: "row",
                 gap: 0,
@@ -1205,7 +1204,7 @@ module.exports = [
                 fontFamily: "Helvetica-Bold",
                 color: DARK,
               },
-              
+
               invoiceRefBar: {
                 backgroundColor: "#ffffff",
                 border: "0.75pt solid #a8d5c2",
@@ -1238,7 +1237,7 @@ module.exports = [
                 color: "#fff",
                 letterSpacing: 0.5,
               },
-              
+
               signatureSection: {
                 flexDirection: "row",
                 alignItems: "flex-end",
@@ -1288,7 +1287,7 @@ module.exports = [
                 color: GREY,
                 textAlign: "right",
               },
-              
+
               footer: {
                 flexDirection: "row",
                 alignItems: "center",
@@ -1305,7 +1304,7 @@ module.exports = [
                 fontFamily: "Helvetica-Bold",
                 color: BLUE,
               },
-              
+
               paidWatermark: {
                 position: "absolute",
                 top: 130,
@@ -1317,14 +1316,12 @@ module.exports = [
                 zIndex: -1,
               },
             });
-          
-           function toNum(
-            v,
-          ) {
+
+          function toNum(v) {
             if (v === null || v === undefined) return 0;
             if (typeof v === "number") return isFinite(v) ? v : 0;
             if (typeof v === "string") return parseFloat(v) || 0;
-            
+
             if (typeof v === "object") {
               const o = v;
               const raw =
@@ -1333,23 +1330,21 @@ module.exports = [
                 o.$numberInt ??
                 o.$numberDouble;
               if (raw !== undefined) return parseFloat(String(raw)) || 0;
-              
+
               const s = String(v);
               return parseFloat(s) || 0;
             }
             return 0;
           }
-           function toStr(
-            v,
-          ) {
+          function toStr(v) {
             if (v === null || v === undefined) return "";
             if (typeof v === "string") return v;
             if (typeof v === "number") return isFinite(v) ? String(v) : "";
             if (typeof v === "object") {
               const o = v;
-              
+
               if (o.$date) return String(o.$date);
-              
+
               const n = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt;
               if (n !== undefined) return String(n);
               return "";
@@ -1472,7 +1467,7 @@ module.exports = [
               data.balanceDue !== undefined
                 ? toNum(data.balanceDue)
                 : undefined;
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -1480,7 +1475,7 @@ module.exports = [
                 "Document"
               ],
               {
-                children:  (0,
+                children: (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                   "jsxDEV"
                 ])(
@@ -1490,7 +1485,7 @@ module.exports = [
                   {
                     size: "A4",
                     style: S.page,
-                    children:  (0,
+                    children: (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -1499,7 +1494,7 @@ module.exports = [
                       ],
                       {
                         style: S.outerBorder,
-                        children:  (0,
+                        children: (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -1509,7 +1504,7 @@ module.exports = [
                           {
                             style: S.innerBorder,
                             children: [
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1530,7 +1525,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1540,7 +1535,7 @@ module.exports = [
                                 {
                                   style: S.headerBand,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1561,7 +1556,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1571,7 +1566,7 @@ module.exports = [
                                       {
                                         style: S.headerRight,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1592,7 +1587,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1638,7 +1633,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1648,7 +1643,7 @@ module.exports = [
                                 {
                                   style: S.metaStrip,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1658,7 +1653,7 @@ module.exports = [
                                       {
                                         style: S.metaItem,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1679,7 +1674,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1712,7 +1707,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1722,7 +1717,7 @@ module.exports = [
                                       {
                                         style: S.metaItem,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1743,7 +1738,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1778,7 +1773,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1788,7 +1783,7 @@ module.exports = [
                                       {
                                         style: S.metaItem,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1809,7 +1804,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1846,7 +1841,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1861,7 +1856,7 @@ module.exports = [
                                           },
                                         ],
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1882,7 +1877,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1927,7 +1922,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -1937,7 +1932,7 @@ module.exports = [
                                 {
                                   style: S.chequeBody,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -1947,7 +1942,7 @@ module.exports = [
                                       {
                                         style: S.receivedRow,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -1969,7 +1964,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2003,7 +1998,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2013,7 +2008,7 @@ module.exports = [
                                       {
                                         style: S.amountSection,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2023,7 +2018,7 @@ module.exports = [
                                             {
                                               style: S.amountWords,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2045,7 +2040,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2079,7 +2074,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2089,7 +2084,7 @@ module.exports = [
                                             {
                                               style: S.amountBox,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2110,7 +2105,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2156,7 +2151,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2166,7 +2161,7 @@ module.exports = [
                                       {
                                         style: S.detailsRow,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2176,7 +2171,7 @@ module.exports = [
                                             {
                                               style: S.detailBlock,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2197,7 +2192,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2232,7 +2227,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2242,7 +2237,7 @@ module.exports = [
                                             {
                                               style: S.detailBlock,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2264,7 +2259,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2300,7 +2295,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2310,7 +2305,7 @@ module.exports = [
                                             {
                                               style: S.detailBlockLast,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2331,7 +2326,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2378,7 +2373,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2388,7 +2383,7 @@ module.exports = [
                                       {
                                         style: S.invoiceRefBar,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2410,7 +2405,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2438,7 +2433,7 @@ module.exports = [
                                           ),
                                           balanceDue !== undefined &&
                                           balanceDue <= 0
-                                            ?  (0,
+                                            ? (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -2447,7 +2442,7 @@ module.exports = [
                                                 ],
                                                 {
                                                   style: S.invoiceStatusBadge,
-                                                  children:  (0,
+                                                  children: (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -2482,7 +2477,7 @@ module.exports = [
                                               )
                                             : balanceDue !== undefined &&
                                                 balanceDue > 0
-                                              ?  (0,
+                                              ? (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -2497,7 +2492,7 @@ module.exports = [
                                                           "#d97706",
                                                       },
                                                     ],
-                                                    children:  (0,
+                                                    children: (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -2546,7 +2541,7 @@ module.exports = [
                                       this,
                                     ),
                                     (data.clientAddress || data.clientPhone) &&
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -2560,7 +2555,7 @@ module.exports = [
                                             marginBottom: 4,
                                           },
                                           children: [
-                                             (0,
+                                            (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -2575,7 +2570,7 @@ module.exports = [
                                                   },
                                                 ],
                                                 children: [
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -2597,7 +2592,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -2622,7 +2617,7 @@ module.exports = [
                                                     this,
                                                   ),
                                                   data.clientPhone
-                                                    ?  (0,
+                                                    ? (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -2666,7 +2661,7 @@ module.exports = [
                                               },
                                               this,
                                             ),
-                                             (0,
+                                            (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -2682,7 +2677,7 @@ module.exports = [
                                                   },
                                                 ],
                                                 children: [
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -2704,7 +2699,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -2726,7 +2721,7 @@ module.exports = [
                                                     },
                                                     this,
                                                   ),
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -2791,7 +2786,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2801,7 +2796,7 @@ module.exports = [
                                 {
                                   style: S.signatureSection,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2826,7 +2821,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2836,7 +2831,7 @@ module.exports = [
                                       {
                                         style: S.signatureBlock,
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2858,7 +2853,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2879,7 +2874,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2899,7 +2894,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2920,7 +2915,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -2966,7 +2961,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -2976,7 +2971,7 @@ module.exports = [
                                 {
                                   style: S.footer,
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -2998,7 +2993,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -3212,7 +3207,7 @@ module.exports = [
             ? (await __turbopack_async_dependencies__)()
             : __turbopack_async_dependencies__;
           ("use client");
-          
+
           function getFinancialYear() {
             const now = new Date();
             const year = now.getFullYear();
@@ -3221,7 +3216,7 @@ module.exports = [
             return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
           }
           function WhatsAppIcon({ className = "w-4 h-4" }) {
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -3231,7 +3226,7 @@ module.exports = [
                 className: className,
                 fill: "none",
                 children: [
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3252,7 +3247,7 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3271,7 +3266,7 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3407,7 +3402,7 @@ module.exports = [
               },
             );
             const outstanding = clientSummary.billed - clientSummary.received;
-            
+
             const allPayments = (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "useMemo"
@@ -3649,7 +3644,7 @@ module.exports = [
                 });
               }
             };
-            
+
             const handleDownloadReceipt = async (payment) => {
               const key = `${payment.invoiceId}-${payment.paymentIndex}`;
               setDownloadingReceipt(key);
@@ -3658,7 +3653,7 @@ module.exports = [
                 __TURBOPACK__imported__module__$5b$externals$5d2f40$react$2d$pdf$2f$renderer__$5b$external$5d$__$2840$react$2d$pdf$2f$renderer$2c$__esm_import$29$__[
                   "pdf"
                 ])(
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3715,7 +3710,7 @@ module.exports = [
                 setDownloadingReceipt(null);
               }
             };
-            
+
             const handleWhatsAppReceipt = async (payment) => {
               const phone = payment.clientPhone?.replace(/\D/g, "") || "";
               if (!phone) {
@@ -3729,12 +3724,11 @@ module.exports = [
               const key = `${payment.invoiceId}-${payment.paymentIndex}`;
               setSendingWhatsApp(key);
               try {
-                
                 const pdfBlob = await (0,
                 __TURBOPACK__imported__module__$5b$externals$5d2f40$react$2d$pdf$2f$renderer__$5b$external$5d$__$2840$react$2d$pdf$2f$renderer$2c$__esm_import$29$__[
                   "pdf"
                 ])(
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3770,7 +3764,7 @@ module.exports = [
                   ),
                 ).toBlob();
                 const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
-                
+
                 const formData = new FormData();
                 formData.append(
                   "file",
@@ -3786,7 +3780,7 @@ module.exports = [
                   throw new Error("Failed to upload receipt to WhatsApp");
                 }
                 const { mediaId } = await uploadRes.json();
-                
+
                 const digits = phone.length === 10 ? "91" + phone : phone;
                 const amountFormatted = new Intl.NumberFormat("en-IN", {
                   style: "currency",
@@ -3832,14 +3826,14 @@ module.exports = [
                 currency: "INR",
               }).format(amount);
             if (user?.role !== "admin" && user?.role !== "client") {
-              return  (0,
+              return (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                 "jsxDEV"
               ])(
                 "div",
                 {
                   className: "flex h-[50vh] items-center justify-center",
-                  children:  (0,
+                  children: (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -3847,7 +3841,7 @@ module.exports = [
                     {
                       className: "text-center",
                       children: [
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -3866,7 +3860,7 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -3909,7 +3903,7 @@ module.exports = [
                 this,
               );
             }
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
               "jsxDEV"
             ])(
@@ -3917,21 +3911,21 @@ module.exports = [
               {
                 className: "p-6 space-y-6",
                 children: [
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
                     "div",
                     {
                       className: "flex justify-between items-end border-b pb-6",
-                      children:  (0,
+                      children: (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                         "jsxDEV"
                       ])(
                         "div",
                         {
                           children: [
-                             (0,
+                            (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -3953,7 +3947,7 @@ module.exports = [
                               },
                               this,
                             ),
-                             (0,
+                            (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                               "jsxDEV"
                             ])(
@@ -3997,7 +3991,7 @@ module.exports = [
                     },
                     this,
                   ),
-                   (0,
+                  (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                     "jsxDEV"
                   ])(
@@ -4005,7 +3999,7 @@ module.exports = [
                     {
                       className: "grid grid-cols-1 lg:grid-cols-4 gap-6",
                       children: [
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -4014,7 +4008,7 @@ module.exports = [
                             className: "lg:col-span-1 space-y-6",
                             children: [
                               !isClient &&
-                                 (0,
+                                (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -4025,7 +4019,7 @@ module.exports = [
                                     className:
                                       "border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
                                     children: [
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -4035,7 +4029,7 @@ module.exports = [
                                         {
                                           className:
                                             "bg-neutral-50 border-b-2 border-black",
-                                          children:  (0,
+                                          children: (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -4046,7 +4040,7 @@ module.exports = [
                                               className:
                                                 "text-xs font-black uppercase tracking-widest text-neutral-500 flex items-center gap-2",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -4090,7 +4084,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -4099,7 +4093,7 @@ module.exports = [
                                         ],
                                         {
                                           className: "pt-6",
-                                          children:  (0,
+                                          children: (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -4110,7 +4104,7 @@ module.exports = [
                                               value: selectedClient,
                                               onValueChange: setSelectedClient,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -4120,7 +4114,7 @@ module.exports = [
                                                   {
                                                     className:
                                                       "w-full border-2 border-black font-black h-12 bg-white",
-                                                    children:  (0,
+                                                    children: (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4152,7 +4146,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -4163,7 +4157,7 @@ module.exports = [
                                                     className:
                                                       "border-2 border-black font-bold",
                                                     children: clients.map((c) =>
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -4232,14 +4226,14 @@ module.exports = [
                                   this,
                                 ),
                               selectedClient &&
-                                 (0,
+                                (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
                                   "div",
                                   {
                                     className: "space-y-4",
-                                    children:  (0,
+                                    children: (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -4249,7 +4243,7 @@ module.exports = [
                                       {
                                         className:
                                           "border-2 border-neutral-200 shadow-sm bg-neutral-50/50 overflow-hidden",
-                                        children:  (0,
+                                        children: (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -4257,7 +4251,7 @@ module.exports = [
                                           {
                                             className: "p-4 space-y-4",
                                             children: [
-                                               (0,
+                                              (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -4265,7 +4259,7 @@ module.exports = [
                                                 {
                                                   className: "space-y-1",
                                                   children: [
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4286,7 +4280,7 @@ module.exports = [
                                                       },
                                                       this,
                                                     ),
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4321,7 +4315,7 @@ module.exports = [
                                                 },
                                                 this,
                                               ),
-                                               (0,
+                                              (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -4329,7 +4323,7 @@ module.exports = [
                                                 {
                                                   className: "space-y-1",
                                                   children: [
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4350,7 +4344,7 @@ module.exports = [
                                                       },
                                                       this,
                                                     ),
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4385,7 +4379,7 @@ module.exports = [
                                                 },
                                                 this,
                                               ),
-                                               (0,
+                                              (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -4394,7 +4388,7 @@ module.exports = [
                                                   className:
                                                     "pt-2 border-t border-neutral-300",
                                                   children: [
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4415,7 +4409,7 @@ module.exports = [
                                                       },
                                                       this,
                                                     ),
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4450,7 +4444,7 @@ module.exports = [
                                                 },
                                                 this,
                                               ),
-                                               (0,
+                                              (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -4459,7 +4453,7 @@ module.exports = [
                                                   className:
                                                     "pt-1 border-t border-neutral-200",
                                                   children: [
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4480,7 +4474,7 @@ module.exports = [
                                                       },
                                                       this,
                                                     ),
-                                                     (0,
+                                                    (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -4565,7 +4559,7 @@ module.exports = [
                           },
                           this,
                         ),
-                         (0,
+                        (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -4573,7 +4567,7 @@ module.exports = [
                           {
                             className: "lg:col-span-3 space-y-6",
                             children: !selectedClient
-                              ?  (0,
+                              ? (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -4582,7 +4576,7 @@ module.exports = [
                                     className:
                                       "flex flex-col items-center justify-center p-12 border-2 border-dashed border-neutral-300 rounded-xl bg-neutral-50/50 opacity-60",
                                     children: [
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -4603,7 +4597,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -4623,7 +4617,7 @@ module.exports = [
                                         },
                                         this,
                                       ),
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -4656,7 +4650,7 @@ module.exports = [
                                   },
                                   this,
                                 )
-                              :  (0,
+                              : (0,
                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                   "jsxDEV"
                                 ])(
@@ -4665,7 +4659,7 @@ module.exports = [
                                     className: "space-y-6",
                                     children: [
                                       allPayments.length > 0 &&
-                                         (0,
+                                        (0,
                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                           "jsxDEV"
                                         ])(
@@ -4674,7 +4668,7 @@ module.exports = [
                                             className:
                                               "bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden",
                                             children: [
-                                               (0,
+                                              (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -4682,7 +4676,7 @@ module.exports = [
                                                 {
                                                   className:
                                                     "flex items-center justify-between p-4 border-b-2 border-black bg-green-50",
-                                                  children:  (0,
+                                                  children: (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -4691,7 +4685,7 @@ module.exports = [
                                                       className:
                                                         "flex items-center gap-3",
                                                       children: [
-                                                         (0,
+                                                        (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
@@ -4699,28 +4693,27 @@ module.exports = [
                                                           {
                                                             className:
                                                               "w-8 h-8 bg-green-600 rounded flex items-center justify-center",
-                                                            children:
-                                                               (0,
-                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                "jsxDEV"
-                                                              ])(
-                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2d$up$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDownUp$3e$__[
-                                                                  "ArrowDownUp"
-                                                                ],
-                                                                {
-                                                                  className:
-                                                                    "w-4 h-4 text-white",
-                                                                },
-                                                                void 0,
-                                                                false,
-                                                                {
-                                                                  fileName:
-                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                  lineNumber: 599,
-                                                                  columnNumber: 25,
-                                                                },
-                                                                this,
-                                                              ),
+                                                            children: (0,
+                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                              "jsxDEV"
+                                                            ])(
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2d$up$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDownUp$3e$__[
+                                                                "ArrowDownUp"
+                                                              ],
+                                                              {
+                                                                className:
+                                                                  "w-4 h-4 text-white",
+                                                              },
+                                                              void 0,
+                                                              false,
+                                                              {
+                                                                fileName:
+                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                lineNumber: 599,
+                                                                columnNumber: 25,
+                                                              },
+                                                              this,
+                                                            ),
                                                           },
                                                           void 0,
                                                           false,
@@ -4732,14 +4725,14 @@ module.exports = [
                                                           },
                                                           this,
                                                         ),
-                                                         (0,
+                                                        (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
                                                           "div",
                                                           {
                                                             children: [
-                                                               (0,
+                                                              (0,
                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                 "jsxDEV"
                                                               ])(
@@ -4760,7 +4753,7 @@ module.exports = [
                                                                 },
                                                                 this,
                                                               ),
-                                                               (0,
+                                                              (0,
                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                 "jsxDEV"
                                                               ])(
@@ -4818,14 +4811,14 @@ module.exports = [
                                                 },
                                                 this,
                                               ),
-                                               (0,
+                                              (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
                                                 "div",
                                                 {
                                                   className: "overflow-x-auto",
-                                                  children:  (0,
+                                                  children: (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -4833,181 +4826,180 @@ module.exports = [
                                                     {
                                                       className: "w-full",
                                                       children: [
-                                                         (0,
+                                                        (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
                                                           "thead",
                                                           {
-                                                            children:
-                                                               (0,
-                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                "jsxDEV"
-                                                              ])(
-                                                                "tr",
-                                                                {
-                                                                  className:
-                                                                    "border-b-2 border-black bg-neutral-50",
-                                                                  children: [
-                                                                     (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      "th",
-                                                                      {
-                                                                        className:
-                                                                          "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                        children:
-                                                                          "Date",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 616,
-                                                                        columnNumber: 27,
-                                                                      },
-                                                                      this,
-                                                                    ),
-                                                                     (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      "th",
-                                                                      {
-                                                                        className:
-                                                                          "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                        children:
-                                                                          "Receipt No.",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 619,
-                                                                        columnNumber: 27,
-                                                                      },
-                                                                      this,
-                                                                    ),
-                                                                     (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      "th",
-                                                                      {
-                                                                        className:
-                                                                          "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                        children:
-                                                                          "Invoice",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 622,
-                                                                        columnNumber: 27,
-                                                                      },
-                                                                      this,
-                                                                    ),
-                                                                     (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      "th",
-                                                                      {
-                                                                        className:
-                                                                          "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500 hidden md:table-cell",
-                                                                        children:
-                                                                          "Project",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 625,
-                                                                        columnNumber: 27,
-                                                                      },
-                                                                      this,
-                                                                    ),
-                                                                     (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      "th",
-                                                                      {
-                                                                        className:
-                                                                          "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                        children:
-                                                                          "Mode",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 628,
-                                                                        columnNumber: 27,
-                                                                      },
-                                                                      this,
-                                                                    ),
-                                                                     (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      "th",
-                                                                      {
-                                                                        className:
-                                                                          "text-right px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                        children:
-                                                                          "Amount",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 631,
-                                                                        columnNumber: 27,
-                                                                      },
-                                                                      this,
-                                                                    ),
-                                                                     (0,
-                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                      "jsxDEV"
-                                                                    ])(
-                                                                      "th",
-                                                                      {
-                                                                        className:
-                                                                          "text-center px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                        children:
-                                                                          "Actions",
-                                                                      },
-                                                                      void 0,
-                                                                      false,
-                                                                      {
-                                                                        fileName:
-                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 634,
-                                                                        columnNumber: 27,
-                                                                      },
-                                                                      this,
-                                                                    ),
-                                                                  ],
-                                                                },
-                                                                void 0,
-                                                                true,
-                                                                {
-                                                                  fileName:
-                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                  lineNumber: 615,
-                                                                  columnNumber: 25,
-                                                                },
-                                                                this,
-                                                              ),
+                                                            children: (0,
+                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                              "jsxDEV"
+                                                            ])(
+                                                              "tr",
+                                                              {
+                                                                className:
+                                                                  "border-b-2 border-black bg-neutral-50",
+                                                                children: [
+                                                                  (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    "th",
+                                                                    {
+                                                                      className:
+                                                                        "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                      children:
+                                                                        "Date",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                      lineNumber: 616,
+                                                                      columnNumber: 27,
+                                                                    },
+                                                                    this,
+                                                                  ),
+                                                                  (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    "th",
+                                                                    {
+                                                                      className:
+                                                                        "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                      children:
+                                                                        "Receipt No.",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                      lineNumber: 619,
+                                                                      columnNumber: 27,
+                                                                    },
+                                                                    this,
+                                                                  ),
+                                                                  (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    "th",
+                                                                    {
+                                                                      className:
+                                                                        "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                      children:
+                                                                        "Invoice",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                      lineNumber: 622,
+                                                                      columnNumber: 27,
+                                                                    },
+                                                                    this,
+                                                                  ),
+                                                                  (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    "th",
+                                                                    {
+                                                                      className:
+                                                                        "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500 hidden md:table-cell",
+                                                                      children:
+                                                                        "Project",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                      lineNumber: 625,
+                                                                      columnNumber: 27,
+                                                                    },
+                                                                    this,
+                                                                  ),
+                                                                  (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    "th",
+                                                                    {
+                                                                      className:
+                                                                        "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                      children:
+                                                                        "Mode",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                      lineNumber: 628,
+                                                                      columnNumber: 27,
+                                                                    },
+                                                                    this,
+                                                                  ),
+                                                                  (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    "th",
+                                                                    {
+                                                                      className:
+                                                                        "text-right px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                      children:
+                                                                        "Amount",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                      lineNumber: 631,
+                                                                      columnNumber: 27,
+                                                                    },
+                                                                    this,
+                                                                  ),
+                                                                  (0,
+                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                    "jsxDEV"
+                                                                  ])(
+                                                                    "th",
+                                                                    {
+                                                                      className:
+                                                                        "text-center px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                      children:
+                                                                        "Actions",
+                                                                    },
+                                                                    void 0,
+                                                                    false,
+                                                                    {
+                                                                      fileName:
+                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                      lineNumber: 634,
+                                                                      columnNumber: 27,
+                                                                    },
+                                                                    this,
+                                                                  ),
+                                                                ],
+                                                              },
+                                                              void 0,
+                                                              true,
+                                                              {
+                                                                fileName:
+                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                lineNumber: 615,
+                                                                columnNumber: 25,
+                                                              },
+                                                              this,
+                                                            ),
                                                           },
                                                           void 0,
                                                           false,
@@ -5019,7 +5011,7 @@ module.exports = [
                                                           },
                                                           this,
                                                         ),
-                                                         (0,
+                                                        (0,
                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                           "jsxDEV"
                                                         ])(
@@ -5038,7 +5030,7 @@ module.exports = [
                                                                   const isSendingWA =
                                                                     sendingWhatsApp ===
                                                                     key;
-                                                                  return  (0,
+                                                                  return (0,
                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                     "jsxDEV"
                                                                   ])(
@@ -5058,7 +5050,7 @@ module.exports = [
                                                                         ),
                                                                       children:
                                                                         [
-                                                                           (0,
+                                                                          (0,
                                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                             "jsxDEV"
                                                                           ])(
@@ -5067,7 +5059,7 @@ module.exports = [
                                                                               className:
                                                                                 "px-4 py-3",
                                                                               children:
-                                                                                 (0,
+                                                                                (0,
                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                   "jsxDEV"
                                                                                 ])(
@@ -5107,7 +5099,7 @@ module.exports = [
                                                                             },
                                                                             this,
                                                                           ),
-                                                                           (0,
+                                                                          (0,
                                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                             "jsxDEV"
                                                                           ])(
@@ -5116,7 +5108,7 @@ module.exports = [
                                                                               className:
                                                                                 "px-4 py-3",
                                                                               children:
-                                                                                 (0,
+                                                                                (0,
                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                   "jsxDEV"
                                                                                 ])(
@@ -5148,7 +5140,7 @@ module.exports = [
                                                                             },
                                                                             this,
                                                                           ),
-                                                                           (0,
+                                                                          (0,
                                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                             "jsxDEV"
                                                                           ])(
@@ -5158,7 +5150,7 @@ module.exports = [
                                                                                 "px-4 py-3",
                                                                               children:
                                                                                 [
-                                                                                   (0,
+                                                                                  (0,
                                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                     "jsxDEV"
                                                                                   ])(
@@ -5179,7 +5171,7 @@ module.exports = [
                                                                                     },
                                                                                     this,
                                                                                   ),
-                                                                                   (0,
+                                                                                  (0,
                                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                     "jsxDEV"
                                                                                   ])(
@@ -5212,7 +5204,7 @@ module.exports = [
                                                                             },
                                                                             this,
                                                                           ),
-                                                                           (0,
+                                                                          (0,
                                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                             "jsxDEV"
                                                                           ])(
@@ -5222,7 +5214,7 @@ module.exports = [
                                                                                 "px-4 py-3 hidden md:table-cell",
                                                                               children:
                                                                                 [
-                                                                                   (0,
+                                                                                  (0,
                                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                     "jsxDEV"
                                                                                   ])(
@@ -5244,7 +5236,7 @@ module.exports = [
                                                                                     this,
                                                                                   ),
                                                                                   payment.remarks &&
-                                                                                     (0,
+                                                                                    (0,
                                                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                       "jsxDEV"
                                                                                     ])(
@@ -5277,7 +5269,7 @@ module.exports = [
                                                                             },
                                                                             this,
                                                                           ),
-                                                                           (0,
+                                                                          (0,
                                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                             "jsxDEV"
                                                                           ])(
@@ -5286,7 +5278,7 @@ module.exports = [
                                                                               className:
                                                                                 "px-4 py-3",
                                                                               children:
-                                                                                 (0,
+                                                                                (0,
                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                   "jsxDEV"
                                                                                 ])(
@@ -5318,7 +5310,7 @@ module.exports = [
                                                                             },
                                                                             this,
                                                                           ),
-                                                                           (0,
+                                                                          (0,
                                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                             "jsxDEV"
                                                                           ])(
@@ -5327,7 +5319,7 @@ module.exports = [
                                                                               className:
                                                                                 "px-4 py-3 text-right",
                                                                               children:
-                                                                                 (0,
+                                                                                (0,
                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                   "jsxDEV"
                                                                                 ])(
@@ -5361,7 +5353,7 @@ module.exports = [
                                                                             },
                                                                             this,
                                                                           ),
-                                                                           (0,
+                                                                          (0,
                                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                             "jsxDEV"
                                                                           ])(
@@ -5370,7 +5362,7 @@ module.exports = [
                                                                               className:
                                                                                 "px-4 py-3",
                                                                               children:
-                                                                                 (0,
+                                                                                (0,
                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                   "jsxDEV"
                                                                                 ])(
@@ -5380,7 +5372,7 @@ module.exports = [
                                                                                       "flex items-center justify-center gap-2",
                                                                                     children:
                                                                                       [
-                                                                                         (0,
+                                                                                        (0,
                                                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                           "jsxDEV"
                                                                                         ])(
@@ -5400,7 +5392,7 @@ module.exports = [
                                                                                             children:
                                                                                               [
                                                                                                 isDownloading
-                                                                                                  ?  (0,
+                                                                                                  ? (0,
                                                                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                       "jsxDEV"
                                                                                                     ])(
@@ -5421,7 +5413,7 @@ module.exports = [
                                                                                                       },
                                                                                                       this,
                                                                                                     )
-                                                                                                  :  (0,
+                                                                                                  : (0,
                                                                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                       "jsxDEV"
                                                                                                     ])(
@@ -5442,7 +5434,7 @@ module.exports = [
                                                                                                       },
                                                                                                       this,
                                                                                                     ),
-                                                                                                 (0,
+                                                                                                (0,
                                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                   "jsxDEV"
                                                                                                 ])(
@@ -5473,7 +5465,7 @@ module.exports = [
                                                                                           },
                                                                                           this,
                                                                                         ),
-                                                                                         (0,
+                                                                                        (0,
                                                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                           "jsxDEV"
                                                                                         ])(
@@ -5495,7 +5487,7 @@ module.exports = [
                                                                                               "flex items-center gap-1 px-2.5 py-1.5 bg-[#25D366] text-white text-[10px] font-black uppercase rounded hover:bg-[#1ebe5a] transition-colors disabled:opacity-40 disabled:cursor-not-allowed",
                                                                                             children:
                                                                                               isSendingWA
-                                                                                                ?  (0,
+                                                                                                ? (0,
                                                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                     "jsxDEV"
                                                                                                   ])(
@@ -5516,7 +5508,7 @@ module.exports = [
                                                                                                     },
                                                                                                     this,
                                                                                                   )
-                                                                                                :  (0,
+                                                                                                : (0,
                                                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                     "jsxDEV"
                                                                                                   ])(
@@ -5629,7 +5621,7 @@ module.exports = [
                                           },
                                           this,
                                         ),
-                                       (0,
+                                      (0,
                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                         "jsxDEV"
                                       ])(
@@ -5638,7 +5630,7 @@ module.exports = [
                                           className:
                                             "flex justify-between items-center bg-white p-5 border-2 border-black rounded-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]",
                                           children: [
-                                             (0,
+                                            (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -5647,7 +5639,7 @@ module.exports = [
                                                 className:
                                                   "text-2xl font-black flex items-center gap-3 italic",
                                                 children: [
-                                                   (0,
+                                                  (0,
                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                     "jsxDEV"
                                                   ])(
@@ -5680,7 +5672,7 @@ module.exports = [
                                               },
                                               this,
                                             ),
-                                             (0,
+                                            (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -5716,7 +5708,7 @@ module.exports = [
                                         this,
                                       ),
                                       loading
-                                        ?  (0,
+                                        ? (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -5724,7 +5716,7 @@ module.exports = [
                                             {
                                               className:
                                                 "flex justify-center p-12",
-                                              children:  (0,
+                                              children: (0,
                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                 "jsxDEV"
                                               ])(
@@ -5757,7 +5749,7 @@ module.exports = [
                                             this,
                                           )
                                         : invoices.length === 0
-                                          ?  (0,
+                                          ? (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -5765,7 +5757,7 @@ module.exports = [
                                               {
                                                 className:
                                                   "p-12 text-center border-2 border-dashed border-neutral-300 rounded-xl",
-                                                children:  (0,
+                                                children: (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -5797,7 +5789,7 @@ module.exports = [
                                               },
                                               this,
                                             )
-                                          :  (0,
+                                          : (0,
                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                               "jsxDEV"
                                             ])(
@@ -5829,7 +5821,7 @@ module.exports = [
                                                       expandedInvoices[
                                                         inv._id || inv.id
                                                       ];
-                                                    return  (0,
+                                                    return (0,
                                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                       "jsxDEV"
                                                     ])(
@@ -5845,7 +5837,7 @@ module.exports = [
                                                             : "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
                                                         ),
                                                         children: [
-                                                           (0,
+                                                          (0,
                                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                             "jsxDEV"
                                                           ])(
@@ -5854,7 +5846,7 @@ module.exports = [
                                                               className:
                                                                 "p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6",
                                                               children: [
-                                                                 (0,
+                                                                (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -5863,7 +5855,7 @@ module.exports = [
                                                                     className:
                                                                       "space-y-2 flex-grow",
                                                                     children: [
-                                                                       (0,
+                                                                      (0,
                                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                         "jsxDEV"
                                                                       ])(
@@ -5873,7 +5865,7 @@ module.exports = [
                                                                             "flex items-center gap-3",
                                                                           children:
                                                                             [
-                                                                               (0,
+                                                                              (0,
                                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                 "jsxDEV"
                                                                               ])(
@@ -5894,7 +5886,7 @@ module.exports = [
                                                                                 },
                                                                                 this,
                                                                               ),
-                                                                               (0,
+                                                                              (0,
                                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                 "jsxDEV"
                                                                               ])(
@@ -5935,7 +5927,7 @@ module.exports = [
                                                                         },
                                                                         this,
                                                                       ),
-                                                                       (0,
+                                                                      (0,
                                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                         "jsxDEV"
                                                                       ])(
@@ -5958,7 +5950,7 @@ module.exports = [
                                                                         },
                                                                         this,
                                                                       ),
-                                                                       (0,
+                                                                      (0,
                                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                         "jsxDEV"
                                                                       ])(
@@ -5968,7 +5960,7 @@ module.exports = [
                                                                             "flex items-center gap-6 text-[11px] text-neutral-400 font-bold uppercase tracking-wider pt-1",
                                                                           children:
                                                                             [
-                                                                               (0,
+                                                                              (0,
                                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                 "jsxDEV"
                                                                               ])(
@@ -5978,7 +5970,7 @@ module.exports = [
                                                                                     "flex items-center gap-1.5",
                                                                                   children:
                                                                                     [
-                                                                                       (0,
+                                                                                      (0,
                                                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                         "jsxDEV"
                                                                                       ])(
@@ -6023,7 +6015,7 @@ module.exports = [
                                                                                 this,
                                                                               ),
                                                                               inv.dueDate &&
-                                                                                 (0,
+                                                                                (0,
                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                   "jsxDEV"
                                                                                 ])(
@@ -6045,7 +6037,7 @@ module.exports = [
                                                                                       ),
                                                                                     children:
                                                                                       [
-                                                                                         (0,
+                                                                                        (0,
                                                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                           "jsxDEV"
                                                                                         ])(
@@ -6113,7 +6105,7 @@ module.exports = [
                                                                   },
                                                                   this,
                                                                 ),
-                                                                 (0,
+                                                                (0,
                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                   "jsxDEV"
                                                                 ])(
@@ -6122,7 +6114,7 @@ module.exports = [
                                                                     className:
                                                                       "flex items-center gap-10 md:text-right w-full md:w-auto",
                                                                     children: [
-                                                                       (0,
+                                                                      (0,
                                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                         "jsxDEV"
                                                                       ])(
@@ -6132,7 +6124,7 @@ module.exports = [
                                                                             "space-y-1",
                                                                           children:
                                                                             [
-                                                                               (0,
+                                                                              (0,
                                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                 "jsxDEV"
                                                                               ])(
@@ -6153,7 +6145,7 @@ module.exports = [
                                                                                 },
                                                                                 this,
                                                                               ),
-                                                                               (0,
+                                                                              (0,
                                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                 "jsxDEV"
                                                                               ])(
@@ -6185,7 +6177,7 @@ module.exports = [
                                                                                 },
                                                                                 this,
                                                                               ),
-                                                                               (0,
+                                                                              (0,
                                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                 "jsxDEV"
                                                                               ])(
@@ -6223,7 +6215,7 @@ module.exports = [
                                                                         },
                                                                         this,
                                                                       ),
-                                                                       (0,
+                                                                      (0,
                                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                         "jsxDEV"
                                                                       ])(
@@ -6235,7 +6227,7 @@ module.exports = [
                                                                             [
                                                                               !isPaid &&
                                                                                 !isClient &&
-                                                                                 (0,
+                                                                                (0,
                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                   "jsxDEV"
                                                                                 ])(
@@ -6264,7 +6256,7 @@ module.exports = [
                                                                                   },
                                                                                   this,
                                                                                 ),
-                                                                               (0,
+                                                                              (0,
                                                                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                 "jsxDEV"
                                                                               ])(
@@ -6280,7 +6272,7 @@ module.exports = [
                                                                                     "text-[10px] font-black uppercase tracking-widest text-neutral-500 hover:text-black flex items-center justify-center gap-1",
                                                                                   children:
                                                                                     isExpanded
-                                                                                      ?  (0,
+                                                                                      ? (0,
                                                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                           "jsxDEV"
                                                                                         ])(
@@ -6290,7 +6282,7 @@ module.exports = [
                                                                                           {
                                                                                             children:
                                                                                               [
-                                                                                                 (0,
+                                                                                                (0,
                                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                   "jsxDEV"
                                                                                                 ])(
@@ -6317,7 +6309,7 @@ module.exports = [
                                                                                           void 0,
                                                                                           true,
                                                                                         )
-                                                                                      :  (0,
+                                                                                      : (0,
                                                                                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                           "jsxDEV"
                                                                                         ])(
@@ -6327,7 +6319,7 @@ module.exports = [
                                                                                           {
                                                                                             children:
                                                                                               [
-                                                                                                 (0,
+                                                                                                (0,
                                                                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                   "jsxDEV"
                                                                                                 ])(
@@ -6402,7 +6394,7 @@ module.exports = [
                                                             this,
                                                           ),
                                                           isExpanded &&
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -6410,700 +6402,698 @@ module.exports = [
                                                               {
                                                                 className:
                                                                   "border-t-2 border-black bg-neutral-50/80 p-6 animate-in slide-in-from-top-2",
-                                                                children:
-                                                                   (0,
-                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                    "jsxDEV"
-                                                                  ])(
-                                                                    "div",
-                                                                    {
-                                                                      className:
-                                                                        "grid grid-cols-1 md:grid-cols-2 gap-10",
-                                                                      children:
-                                                                        [
-                                                                           (0,
-                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                            "jsxDEV"
-                                                                          ])(
-                                                                            "div",
-                                                                            {
-                                                                              className:
-                                                                                "space-y-4",
-                                                                              children:
-                                                                                [
-                                                                                   (0,
-                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                    "jsxDEV"
-                                                                                  ])(
-                                                                                    "h4",
-                                                                                    {
-                                                                                      className:
-                                                                                        "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2",
-                                                                                      children:
-                                                                                        "Business Details",
-                                                                                    },
-                                                                                    void 0,
-                                                                                    false,
-                                                                                    {
-                                                                                      fileName:
-                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                      lineNumber: 862,
-                                                                                      columnNumber: 33,
-                                                                                    },
-                                                                                    this,
-                                                                                  ),
-                                                                                   (0,
-                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                    "jsxDEV"
-                                                                                  ])(
-                                                                                    "div",
-                                                                                    {
-                                                                                      className:
-                                                                                        "space-y-3 text-sm",
-                                                                                      children:
-                                                                                        [
-                                                                                           (0,
-                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                            "jsxDEV"
-                                                                                          ])(
-                                                                                            "div",
-                                                                                            {
-                                                                                              className:
-                                                                                                "grid grid-cols-3",
-                                                                                              children:
-                                                                                                [
-                                                                                                   (0,
-                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                    "jsxDEV"
-                                                                                                  ])(
-                                                                                                    "span",
-                                                                                                    {
-                                                                                                      className:
-                                                                                                        "font-black text-neutral-400 uppercase text-[10px]",
-                                                                                                      children:
-                                                                                                        "Client",
-                                                                                                    },
-                                                                                                    void 0,
-                                                                                                    false,
-                                                                                                    {
-                                                                                                      fileName:
-                                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                      lineNumber: 867,
-                                                                                                      columnNumber: 37,
-                                                                                                    },
-                                                                                                    this,
-                                                                                                  ),
-                                                                                                   (0,
-                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                    "jsxDEV"
-                                                                                                  ])(
-                                                                                                    "span",
-                                                                                                    {
-                                                                                                      className:
-                                                                                                        "col-span-2 font-bold",
-                                                                                                      children:
-                                                                                                        inv.clientName,
-                                                                                                    },
-                                                                                                    void 0,
-                                                                                                    false,
-                                                                                                    {
-                                                                                                      fileName:
-                                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                      lineNumber: 868,
-                                                                                                      columnNumber: 37,
-                                                                                                    },
-                                                                                                    this,
-                                                                                                  ),
-                                                                                                ],
-                                                                                            },
-                                                                                            void 0,
-                                                                                            true,
-                                                                                            {
-                                                                                              fileName:
-                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                              lineNumber: 866,
-                                                                                              columnNumber: 35,
-                                                                                            },
-                                                                                            this,
-                                                                                          ),
-                                                                                           (0,
-                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                            "jsxDEV"
-                                                                                          ])(
-                                                                                            "div",
-                                                                                            {
-                                                                                              className:
-                                                                                                "grid grid-cols-3",
-                                                                                              children:
-                                                                                                [
-                                                                                                   (0,
-                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                    "jsxDEV"
-                                                                                                  ])(
-                                                                                                    "span",
-                                                                                                    {
-                                                                                                      className:
-                                                                                                        "font-black text-neutral-400 uppercase text-[10px]",
-                                                                                                      children:
-                                                                                                        "Project",
-                                                                                                    },
-                                                                                                    void 0,
-                                                                                                    false,
-                                                                                                    {
-                                                                                                      fileName:
-                                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                      lineNumber: 871,
-                                                                                                      columnNumber: 37,
-                                                                                                    },
-                                                                                                    this,
-                                                                                                  ),
-                                                                                                   (0,
-                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                    "jsxDEV"
-                                                                                                  ])(
-                                                                                                    "span",
-                                                                                                    {
-                                                                                                      className:
-                                                                                                        "col-span-2 font-bold",
-                                                                                                      children:
-                                                                                                        inv.projectTitle ||
-                                                                                                        "-",
-                                                                                                    },
-                                                                                                    void 0,
-                                                                                                    false,
-                                                                                                    {
-                                                                                                      fileName:
-                                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                      lineNumber: 872,
-                                                                                                      columnNumber: 37,
-                                                                                                    },
-                                                                                                    this,
-                                                                                                  ),
-                                                                                                ],
-                                                                                            },
-                                                                                            void 0,
-                                                                                            true,
-                                                                                            {
-                                                                                              fileName:
-                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                              lineNumber: 870,
-                                                                                              columnNumber: 35,
-                                                                                            },
-                                                                                            this,
-                                                                                          ),
-                                                                                          inv.description &&
-                                                                                             (0,
+                                                                children: (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "div",
+                                                                  {
+                                                                    className:
+                                                                      "grid grid-cols-1 md:grid-cols-2 gap-10",
+                                                                    children: [
+                                                                      (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "div",
+                                                                        {
+                                                                          className:
+                                                                            "space-y-4",
+                                                                          children:
+                                                                            [
+                                                                              (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "h4",
+                                                                                {
+                                                                                  className:
+                                                                                    "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2",
+                                                                                  children:
+                                                                                    "Business Details",
+                                                                                },
+                                                                                void 0,
+                                                                                false,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 862,
+                                                                                  columnNumber: 33,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                              (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "div",
+                                                                                {
+                                                                                  className:
+                                                                                    "space-y-3 text-sm",
+                                                                                  children:
+                                                                                    [
+                                                                                      (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "div",
+                                                                                        {
+                                                                                          className:
+                                                                                            "grid grid-cols-3",
+                                                                                          children:
+                                                                                            [
+                                                                                              (0,
+                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                "jsxDEV"
+                                                                                              ])(
+                                                                                                "span",
+                                                                                                {
+                                                                                                  className:
+                                                                                                    "font-black text-neutral-400 uppercase text-[10px]",
+                                                                                                  children:
+                                                                                                    "Client",
+                                                                                                },
+                                                                                                void 0,
+                                                                                                false,
+                                                                                                {
+                                                                                                  fileName:
+                                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                  lineNumber: 867,
+                                                                                                  columnNumber: 37,
+                                                                                                },
+                                                                                                this,
+                                                                                              ),
+                                                                                              (0,
+                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                "jsxDEV"
+                                                                                              ])(
+                                                                                                "span",
+                                                                                                {
+                                                                                                  className:
+                                                                                                    "col-span-2 font-bold",
+                                                                                                  children:
+                                                                                                    inv.clientName,
+                                                                                                },
+                                                                                                void 0,
+                                                                                                false,
+                                                                                                {
+                                                                                                  fileName:
+                                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                  lineNumber: 868,
+                                                                                                  columnNumber: 37,
+                                                                                                },
+                                                                                                this,
+                                                                                              ),
+                                                                                            ],
+                                                                                        },
+                                                                                        void 0,
+                                                                                        true,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 866,
+                                                                                          columnNumber: 35,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                      (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "div",
+                                                                                        {
+                                                                                          className:
+                                                                                            "grid grid-cols-3",
+                                                                                          children:
+                                                                                            [
+                                                                                              (0,
+                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                "jsxDEV"
+                                                                                              ])(
+                                                                                                "span",
+                                                                                                {
+                                                                                                  className:
+                                                                                                    "font-black text-neutral-400 uppercase text-[10px]",
+                                                                                                  children:
+                                                                                                    "Project",
+                                                                                                },
+                                                                                                void 0,
+                                                                                                false,
+                                                                                                {
+                                                                                                  fileName:
+                                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                  lineNumber: 871,
+                                                                                                  columnNumber: 37,
+                                                                                                },
+                                                                                                this,
+                                                                                              ),
+                                                                                              (0,
+                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                "jsxDEV"
+                                                                                              ])(
+                                                                                                "span",
+                                                                                                {
+                                                                                                  className:
+                                                                                                    "col-span-2 font-bold",
+                                                                                                  children:
+                                                                                                    inv.projectTitle ||
+                                                                                                    "-",
+                                                                                                },
+                                                                                                void 0,
+                                                                                                false,
+                                                                                                {
+                                                                                                  fileName:
+                                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                  lineNumber: 872,
+                                                                                                  columnNumber: 37,
+                                                                                                },
+                                                                                                this,
+                                                                                              ),
+                                                                                            ],
+                                                                                        },
+                                                                                        void 0,
+                                                                                        true,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 870,
+                                                                                          columnNumber: 35,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                      inv.description &&
+                                                                                        (0,
+                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                          "jsxDEV"
+                                                                                        ])(
+                                                                                          "div",
+                                                                                          {
+                                                                                            className:
+                                                                                              "pt-2 italic text-neutral-500 text-xs border-t border-dashed border-neutral-300",
+                                                                                            children:
+                                                                                              [
+                                                                                                '"',
+                                                                                                inv.description,
+                                                                                                '"',
+                                                                                              ],
+                                                                                          },
+                                                                                          void 0,
+                                                                                          true,
+                                                                                          {
+                                                                                            fileName:
+                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                            lineNumber: 875,
+                                                                                            columnNumber: 37,
+                                                                                          },
+                                                                                          this,
+                                                                                        ),
+                                                                                    ],
+                                                                                },
+                                                                                void 0,
+                                                                                true,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 865,
+                                                                                  columnNumber: 33,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                            ],
+                                                                        },
+                                                                        void 0,
+                                                                        true,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 861,
+                                                                          columnNumber: 31,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                      (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "div",
+                                                                        {
+                                                                          className:
+                                                                            "space-y-4",
+                                                                          children:
+                                                                            [
+                                                                              (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "h4",
+                                                                                {
+                                                                                  className:
+                                                                                    "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2 flex items-center justify-between",
+                                                                                  children:
+                                                                                    [
+                                                                                      (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "span",
+                                                                                        {
+                                                                                          children:
+                                                                                            "Payment History",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 883,
+                                                                                          columnNumber: 35,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                      (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__[
+                                                                                          "History"
+                                                                                        ],
+                                                                                        {
+                                                                                          className:
+                                                                                            "w-3 h-3",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 884,
+                                                                                          columnNumber: 35,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                    ],
+                                                                                },
+                                                                                void 0,
+                                                                                true,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 882,
+                                                                                  columnNumber: 33,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                              (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "div",
+                                                                                {
+                                                                                  className:
+                                                                                    "space-y-3",
+                                                                                  children:
+                                                                                    inv.paymentHistory &&
+                                                                                    inv
+                                                                                      .paymentHistory
+                                                                                      .length >
+                                                                                      0
+                                                                                      ? inv.paymentHistory.map(
+                                                                                          (
+                                                                                            h,
+                                                                                            idx,
+                                                                                          ) =>
+                                                                                            (0,
                                                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                               "jsxDEV"
                                                                                             ])(
                                                                                               "div",
                                                                                               {
                                                                                                 className:
-                                                                                                  "pt-2 italic text-neutral-500 text-xs border-t border-dashed border-neutral-300",
+                                                                                                  "flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors",
                                                                                                 children:
                                                                                                   [
-                                                                                                    '"',
-                                                                                                    inv.description,
-                                                                                                    '"',
-                                                                                                  ],
-                                                                                              },
-                                                                                              void 0,
-                                                                                              true,
-                                                                                              {
-                                                                                                fileName:
-                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                lineNumber: 875,
-                                                                                                columnNumber: 37,
-                                                                                              },
-                                                                                              this,
-                                                                                            ),
-                                                                                        ],
-                                                                                    },
-                                                                                    void 0,
-                                                                                    true,
-                                                                                    {
-                                                                                      fileName:
-                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                      lineNumber: 865,
-                                                                                      columnNumber: 33,
-                                                                                    },
-                                                                                    this,
-                                                                                  ),
-                                                                                ],
-                                                                            },
-                                                                            void 0,
-                                                                            true,
-                                                                            {
-                                                                              fileName:
-                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                              lineNumber: 861,
-                                                                              columnNumber: 31,
-                                                                            },
-                                                                            this,
-                                                                          ),
-                                                                           (0,
-                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                            "jsxDEV"
-                                                                          ])(
-                                                                            "div",
-                                                                            {
-                                                                              className:
-                                                                                "space-y-4",
-                                                                              children:
-                                                                                [
-                                                                                   (0,
-                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                    "jsxDEV"
-                                                                                  ])(
-                                                                                    "h4",
-                                                                                    {
-                                                                                      className:
-                                                                                        "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2 flex items-center justify-between",
-                                                                                      children:
-                                                                                        [
-                                                                                           (0,
-                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                            "jsxDEV"
-                                                                                          ])(
-                                                                                            "span",
-                                                                                            {
-                                                                                              children:
-                                                                                                "Payment History",
-                                                                                            },
-                                                                                            void 0,
-                                                                                            false,
-                                                                                            {
-                                                                                              fileName:
-                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                              lineNumber: 883,
-                                                                                              columnNumber: 35,
-                                                                                            },
-                                                                                            this,
-                                                                                          ),
-                                                                                           (0,
-                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                            "jsxDEV"
-                                                                                          ])(
-                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__[
-                                                                                              "History"
-                                                                                            ],
-                                                                                            {
-                                                                                              className:
-                                                                                                "w-3 h-3",
-                                                                                            },
-                                                                                            void 0,
-                                                                                            false,
-                                                                                            {
-                                                                                              fileName:
-                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                              lineNumber: 884,
-                                                                                              columnNumber: 35,
-                                                                                            },
-                                                                                            this,
-                                                                                          ),
-                                                                                        ],
-                                                                                    },
-                                                                                    void 0,
-                                                                                    true,
-                                                                                    {
-                                                                                      fileName:
-                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                      lineNumber: 882,
-                                                                                      columnNumber: 33,
-                                                                                    },
-                                                                                    this,
-                                                                                  ),
-                                                                                   (0,
-                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                    "jsxDEV"
-                                                                                  ])(
-                                                                                    "div",
-                                                                                    {
-                                                                                      className:
-                                                                                        "space-y-3",
-                                                                                      children:
-                                                                                        inv.paymentHistory &&
-                                                                                        inv
-                                                                                          .paymentHistory
-                                                                                          .length >
-                                                                                          0
-                                                                                          ? inv.paymentHistory.map(
-                                                                                              (
-                                                                                                h,
-                                                                                                idx,
-                                                                                              ) =>
-                                                                                                 (0,
-                                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                  "jsxDEV"
-                                                                                                ])(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    className:
-                                                                                                      "flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors",
-                                                                                                    children:
-                                                                                                      [
-                                                                                                         (0,
-                                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                          "jsxDEV"
-                                                                                                        ])(
-                                                                                                          "div",
-                                                                                                          {
-                                                                                                            className:
-                                                                                                              "space-y-0.5 flex-1",
-                                                                                                            children:
-                                                                                                              [
-                                                                                                                 (0,
-                                                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                  "jsxDEV"
-                                                                                                                ])(
-                                                                                                                  "div",
-                                                                                                                  {
-                                                                                                                    className:
-                                                                                                                      "flex items-center gap-2",
-                                                                                                                    children:
-                                                                                                                      [
-                                                                                                                         (0,
-                                                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                          "jsxDEV"
-                                                                                                                        ])(
-                                                                                                                          "p",
-                                                                                                                          {
-                                                                                                                            className:
-                                                                                                                              "font-black text-sm text-green-700",
-                                                                                                                            children:
-                                                                                                                              formatCurrency(
-                                                                                                                                h.amount,
-                                                                                                                              ),
-                                                                                                                          },
-                                                                                                                          void 0,
-                                                                                                                          false,
-                                                                                                                          {
-                                                                                                                            fileName:
-                                                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                            lineNumber: 895,
-                                                                                                                            columnNumber: 45,
-                                                                                                                          },
-                                                                                                                          this,
-                                                                                                                        ),
-                                                                                                                         (0,
-                                                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                          "jsxDEV"
-                                                                                                                        ])(
-                                                                                                                          "span",
-                                                                                                                          {
-                                                                                                                            className:
-                                                                                                                              "text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded",
-                                                                                                                            children:
-                                                                                                                              h.mode,
-                                                                                                                          },
-                                                                                                                          void 0,
-                                                                                                                          false,
-                                                                                                                          {
-                                                                                                                            fileName:
-                                                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                            lineNumber: 898,
-                                                                                                                            columnNumber: 45,
-                                                                                                                          },
-                                                                                                                          this,
-                                                                                                                        ),
-                                                                                                                      ],
-                                                                                                                  },
-                                                                                                                  void 0,
-                                                                                                                  true,
-                                                                                                                  {
-                                                                                                                    fileName:
-                                                                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                    lineNumber: 894,
-                                                                                                                    columnNumber: 43,
-                                                                                                                  },
-                                                                                                                  this,
-                                                                                                                ),
-                                                                                                                 (0,
-                                                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                  "jsxDEV"
-                                                                                                                ])(
-                                                                                                                  "p",
-                                                                                                                  {
-                                                                                                                    className:
-                                                                                                                      "text-[10px] text-neutral-400 font-bold uppercase",
-                                                                                                                    children:
-                                                                                                                      (0,
-                                                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
-                                                                                                                        "format"
-                                                                                                                      ])(
-                                                                                                                        new Date(
-                                                                                                                          h.date,
-                                                                                                                        ),
-                                                                                                                        "dd MMM yyyy",
-                                                                                                                      ),
-                                                                                                                  },
-                                                                                                                  void 0,
-                                                                                                                  false,
-                                                                                                                  {
-                                                                                                                    fileName:
-                                                                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                    lineNumber: 902,
-                                                                                                                    columnNumber: 43,
-                                                                                                                  },
-                                                                                                                  this,
-                                                                                                                ),
-                                                                                                                h.remarks &&
-                                                                                                                   (0,
+                                                                                                    (0,
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                      "jsxDEV"
+                                                                                                    ])(
+                                                                                                      "div",
+                                                                                                      {
+                                                                                                        className:
+                                                                                                          "space-y-0.5 flex-1",
+                                                                                                        children:
+                                                                                                          [
+                                                                                                            (0,
+                                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                              "jsxDEV"
+                                                                                                            ])(
+                                                                                                              "div",
+                                                                                                              {
+                                                                                                                className:
+                                                                                                                  "flex items-center gap-2",
+                                                                                                                children:
+                                                                                                                  [
+                                                                                                                    (0,
+                                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                                      "jsxDEV"
+                                                                                                                    ])(
+                                                                                                                      "p",
+                                                                                                                      {
+                                                                                                                        className:
+                                                                                                                          "font-black text-sm text-green-700",
+                                                                                                                        children:
+                                                                                                                          formatCurrency(
+                                                                                                                            h.amount,
+                                                                                                                          ),
+                                                                                                                      },
+                                                                                                                      void 0,
+                                                                                                                      false,
+                                                                                                                      {
+                                                                                                                        fileName:
+                                                                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                        lineNumber: 895,
+                                                                                                                        columnNumber: 45,
+                                                                                                                      },
+                                                                                                                      this,
+                                                                                                                    ),
+                                                                                                                    (0,
+                                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                                      "jsxDEV"
+                                                                                                                    ])(
+                                                                                                                      "span",
+                                                                                                                      {
+                                                                                                                        className:
+                                                                                                                          "text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded",
+                                                                                                                        children:
+                                                                                                                          h.mode,
+                                                                                                                      },
+                                                                                                                      void 0,
+                                                                                                                      false,
+                                                                                                                      {
+                                                                                                                        fileName:
+                                                                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                        lineNumber: 898,
+                                                                                                                        columnNumber: 45,
+                                                                                                                      },
+                                                                                                                      this,
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                              },
+                                                                                                              void 0,
+                                                                                                              true,
+                                                                                                              {
+                                                                                                                fileName:
+                                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                lineNumber: 894,
+                                                                                                                columnNumber: 43,
+                                                                                                              },
+                                                                                                              this,
+                                                                                                            ),
+                                                                                                            (0,
+                                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                              "jsxDEV"
+                                                                                                            ])(
+                                                                                                              "p",
+                                                                                                              {
+                                                                                                                className:
+                                                                                                                  "text-[10px] text-neutral-400 font-bold uppercase",
+                                                                                                                children:
+                                                                                                                  (0,
+                                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
+                                                                                                                    "format"
+                                                                                                                  ])(
+                                                                                                                    new Date(
+                                                                                                                      h.date,
+                                                                                                                    ),
+                                                                                                                    "dd MMM yyyy",
+                                                                                                                  ),
+                                                                                                              },
+                                                                                                              void 0,
+                                                                                                              false,
+                                                                                                              {
+                                                                                                                fileName:
+                                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                lineNumber: 902,
+                                                                                                                columnNumber: 43,
+                                                                                                              },
+                                                                                                              this,
+                                                                                                            ),
+                                                                                                            h.remarks &&
+                                                                                                              (0,
+                                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                                "jsxDEV"
+                                                                                                              ])(
+                                                                                                                "p",
+                                                                                                                {
+                                                                                                                  className:
+                                                                                                                    "text-[10px] font-medium text-neutral-400 italic",
+                                                                                                                  children:
+                                                                                                                    h.remarks,
+                                                                                                                },
+                                                                                                                void 0,
+                                                                                                                false,
+                                                                                                                {
+                                                                                                                  fileName:
+                                                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                  lineNumber: 906,
+                                                                                                                  columnNumber: 45,
+                                                                                                                },
+                                                                                                                this,
+                                                                                                              ),
+                                                                                                          ],
+                                                                                                      },
+                                                                                                      void 0,
+                                                                                                      true,
+                                                                                                      {
+                                                                                                        fileName:
+                                                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                        lineNumber: 893,
+                                                                                                        columnNumber: 41,
+                                                                                                      },
+                                                                                                      this,
+                                                                                                    ),
+                                                                                                    (0,
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                      "jsxDEV"
+                                                                                                    ])(
+                                                                                                      "div",
+                                                                                                      {
+                                                                                                        className:
+                                                                                                          "flex items-center gap-1 ml-2",
+                                                                                                        children:
+                                                                                                          !isClient &&
+                                                                                                          (0,
+                                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                            "jsxDEV"
+                                                                                                          ])(
+                                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                              "Fragment"
+                                                                                                            ],
+                                                                                                            {
+                                                                                                              children:
+                                                                                                                [
+                                                                                                                  (0,
                                                                                                                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                                                                                     "jsxDEV"
                                                                                                                   ])(
-                                                                                                                    "p",
+                                                                                                                    "button",
                                                                                                                     {
+                                                                                                                      onClick:
+                                                                                                                        () =>
+                                                                                                                          handleEditPayment(
+                                                                                                                            inv,
+                                                                                                                            idx,
+                                                                                                                          ),
                                                                                                                       className:
-                                                                                                                        "text-[10px] font-medium text-neutral-400 italic",
+                                                                                                                        "p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors",
+                                                                                                                      title:
+                                                                                                                        "Edit payment",
                                                                                                                       children:
-                                                                                                                        h.remarks,
+                                                                                                                        (0,
+                                                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                                          "jsxDEV"
+                                                                                                                        ])(
+                                                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__[
+                                                                                                                            "Edit"
+                                                                                                                          ],
+                                                                                                                          {
+                                                                                                                            className:
+                                                                                                                              "w-3.5 h-3.5 text-blue-600",
+                                                                                                                          },
+                                                                                                                          void 0,
+                                                                                                                          false,
+                                                                                                                          {
+                                                                                                                            fileName:
+                                                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                            lineNumber: 919,
+                                                                                                                            columnNumber: 49,
+                                                                                                                          },
+                                                                                                                          this,
+                                                                                                                        ),
                                                                                                                     },
                                                                                                                     void 0,
                                                                                                                     false,
                                                                                                                     {
                                                                                                                       fileName:
                                                                                                                         "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                      lineNumber: 906,
-                                                                                                                      columnNumber: 45,
+                                                                                                                      lineNumber: 914,
+                                                                                                                      columnNumber: 47,
                                                                                                                     },
                                                                                                                     this,
                                                                                                                   ),
-                                                                                                              ],
-                                                                                                          },
-                                                                                                          void 0,
-                                                                                                          true,
-                                                                                                          {
-                                                                                                            fileName:
-                                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                            lineNumber: 893,
-                                                                                                            columnNumber: 41,
-                                                                                                          },
-                                                                                                          this,
-                                                                                                        ),
-                                                                                                         (0,
-                                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                          "jsxDEV"
-                                                                                                        ])(
-                                                                                                          "div",
-                                                                                                          {
-                                                                                                            className:
-                                                                                                              "flex items-center gap-1 ml-2",
-                                                                                                            children:
-                                                                                                              !isClient &&
-                                                                                                               (0,
-                                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                "jsxDEV"
-                                                                                                              ])(
-                                                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                  "Fragment"
+                                                                                                                  (0,
+                                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                                    "jsxDEV"
+                                                                                                                  ])(
+                                                                                                                    "button",
+                                                                                                                    {
+                                                                                                                      onClick:
+                                                                                                                        () =>
+                                                                                                                          handleDeletePayment(
+                                                                                                                            inv,
+                                                                                                                            idx,
+                                                                                                                          ),
+                                                                                                                      className:
+                                                                                                                        "p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors",
+                                                                                                                      title:
+                                                                                                                        "Delete payment",
+                                                                                                                      children:
+                                                                                                                        (0,
+                                                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                                          "jsxDEV"
+                                                                                                                        ])(
+                                                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__[
+                                                                                                                            "Trash2"
+                                                                                                                          ],
+                                                                                                                          {
+                                                                                                                            className:
+                                                                                                                              "w-3.5 h-3.5 text-red-600",
+                                                                                                                          },
+                                                                                                                          void 0,
+                                                                                                                          false,
+                                                                                                                          {
+                                                                                                                            fileName:
+                                                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                            lineNumber: 926,
+                                                                                                                            columnNumber: 49,
+                                                                                                                          },
+                                                                                                                          this,
+                                                                                                                        ),
+                                                                                                                    },
+                                                                                                                    void 0,
+                                                                                                                    false,
+                                                                                                                    {
+                                                                                                                      fileName:
+                                                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                      lineNumber: 921,
+                                                                                                                      columnNumber: 47,
+                                                                                                                    },
+                                                                                                                    this,
+                                                                                                                  ),
                                                                                                                 ],
-                                                                                                                {
-                                                                                                                  children:
-                                                                                                                    [
-                                                                                                                       (0,
-                                                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                        "jsxDEV"
-                                                                                                                      ])(
-                                                                                                                        "button",
-                                                                                                                        {
-                                                                                                                          onClick:
-                                                                                                                            () =>
-                                                                                                                              handleEditPayment(
-                                                                                                                                inv,
-                                                                                                                                idx,
-                                                                                                                              ),
-                                                                                                                          className:
-                                                                                                                            "p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors",
-                                                                                                                          title:
-                                                                                                                            "Edit payment",
-                                                                                                                          children:
-                                                                                                                             (0,
-                                                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                              "jsxDEV"
-                                                                                                                            ])(
-                                                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__[
-                                                                                                                                "Edit"
-                                                                                                                              ],
-                                                                                                                              {
-                                                                                                                                className:
-                                                                                                                                  "w-3.5 h-3.5 text-blue-600",
-                                                                                                                              },
-                                                                                                                              void 0,
-                                                                                                                              false,
-                                                                                                                              {
-                                                                                                                                fileName:
-                                                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                                lineNumber: 919,
-                                                                                                                                columnNumber: 49,
-                                                                                                                              },
-                                                                                                                              this,
-                                                                                                                            ),
-                                                                                                                        },
-                                                                                                                        void 0,
-                                                                                                                        false,
-                                                                                                                        {
-                                                                                                                          fileName:
-                                                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                          lineNumber: 914,
-                                                                                                                          columnNumber: 47,
-                                                                                                                        },
-                                                                                                                        this,
-                                                                                                                      ),
-                                                                                                                       (0,
-                                                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                        "jsxDEV"
-                                                                                                                      ])(
-                                                                                                                        "button",
-                                                                                                                        {
-                                                                                                                          onClick:
-                                                                                                                            () =>
-                                                                                                                              handleDeletePayment(
-                                                                                                                                inv,
-                                                                                                                                idx,
-                                                                                                                              ),
-                                                                                                                          className:
-                                                                                                                            "p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors",
-                                                                                                                          title:
-                                                                                                                            "Delete payment",
-                                                                                                                          children:
-                                                                                                                             (0,
-                                                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                                              "jsxDEV"
-                                                                                                                            ])(
-                                                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__[
-                                                                                                                                "Trash2"
-                                                                                                                              ],
-                                                                                                                              {
-                                                                                                                                className:
-                                                                                                                                  "w-3.5 h-3.5 text-red-600",
-                                                                                                                              },
-                                                                                                                              void 0,
-                                                                                                                              false,
-                                                                                                                              {
-                                                                                                                                fileName:
-                                                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                                lineNumber: 926,
-                                                                                                                                columnNumber: 49,
-                                                                                                                              },
-                                                                                                                              this,
-                                                                                                                            ),
-                                                                                                                        },
-                                                                                                                        void 0,
-                                                                                                                        false,
-                                                                                                                        {
-                                                                                                                          fileName:
-                                                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                                          lineNumber: 921,
-                                                                                                                          columnNumber: 47,
-                                                                                                                        },
-                                                                                                                        this,
-                                                                                                                      ),
-                                                                                                                    ],
-                                                                                                                },
-                                                                                                                void 0,
-                                                                                                                true,
-                                                                                                              ),
-                                                                                                          },
-                                                                                                          void 0,
-                                                                                                          false,
-                                                                                                          {
-                                                                                                            fileName:
-                                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                            lineNumber: 911,
-                                                                                                            columnNumber: 41,
-                                                                                                          },
-                                                                                                          this,
-                                                                                                        ),
-                                                                                                      ],
-                                                                                                  },
-                                                                                                  idx,
-                                                                                                  true,
-                                                                                                  {
-                                                                                                    fileName:
-                                                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                    lineNumber: 889,
-                                                                                                    columnNumber: 39,
-                                                                                                  },
-                                                                                                  this,
-                                                                                                ),
-                                                                                            )
-                                                                                          :  (0,
-                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                              "jsxDEV"
-                                                                                            ])(
-                                                                                              "div",
-                                                                                              {
-                                                                                                className:
-                                                                                                  "py-6 text-center border-2 border-dashed border-neutral-200 rounded-lg bg-white/50",
-                                                                                                children:
-                                                                                                   (0,
-                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                                                    "jsxDEV"
-                                                                                                  ])(
-                                                                                                    "p",
-                                                                                                    {
-                                                                                                      className:
-                                                                                                        "text-[10px] text-neutral-400 font-bold uppercase tracking-widest italic",
-                                                                                                      children:
-                                                                                                        "No payments detected",
-                                                                                                    },
-                                                                                                    void 0,
-                                                                                                    false,
-                                                                                                    {
-                                                                                                      fileName:
-                                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                      lineNumber: 935,
-                                                                                                      columnNumber: 39,
-                                                                                                    },
-                                                                                                    this,
-                                                                                                  ),
+                                                                                                            },
+                                                                                                            void 0,
+                                                                                                            true,
+                                                                                                          ),
+                                                                                                      },
+                                                                                                      void 0,
+                                                                                                      false,
+                                                                                                      {
+                                                                                                        fileName:
+                                                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                        lineNumber: 911,
+                                                                                                        columnNumber: 41,
+                                                                                                      },
+                                                                                                      this,
+                                                                                                    ),
+                                                                                                  ],
                                                                                               },
-                                                                                              void 0,
-                                                                                              false,
+                                                                                              idx,
+                                                                                              true,
                                                                                               {
                                                                                                 fileName:
                                                                                                   "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                lineNumber: 934,
-                                                                                                columnNumber: 37,
+                                                                                                lineNumber: 889,
+                                                                                                columnNumber: 39,
                                                                                               },
                                                                                               this,
                                                                                             ),
-                                                                                    },
-                                                                                    void 0,
-                                                                                    false,
-                                                                                    {
-                                                                                      fileName:
-                                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                      lineNumber: 886,
-                                                                                      columnNumber: 33,
-                                                                                    },
-                                                                                    this,
-                                                                                  ),
-                                                                                ],
-                                                                            },
-                                                                            void 0,
-                                                                            true,
-                                                                            {
-                                                                              fileName:
-                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                              lineNumber: 881,
-                                                                              columnNumber: 31,
-                                                                            },
-                                                                            this,
-                                                                          ),
-                                                                        ],
-                                                                    },
-                                                                    void 0,
-                                                                    true,
-                                                                    {
-                                                                      fileName:
-                                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                      lineNumber: 860,
-                                                                      columnNumber: 29,
-                                                                    },
-                                                                    this,
-                                                                  ),
+                                                                                        )
+                                                                                      : (0,
+                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                          "jsxDEV"
+                                                                                        ])(
+                                                                                          "div",
+                                                                                          {
+                                                                                            className:
+                                                                                              "py-6 text-center border-2 border-dashed border-neutral-200 rounded-lg bg-white/50",
+                                                                                            children:
+                                                                                              (0,
+                                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                                                                "jsxDEV"
+                                                                                              ])(
+                                                                                                "p",
+                                                                                                {
+                                                                                                  className:
+                                                                                                    "text-[10px] text-neutral-400 font-bold uppercase tracking-widest italic",
+                                                                                                  children:
+                                                                                                    "No payments detected",
+                                                                                                },
+                                                                                                void 0,
+                                                                                                false,
+                                                                                                {
+                                                                                                  fileName:
+                                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                  lineNumber: 935,
+                                                                                                  columnNumber: 39,
+                                                                                                },
+                                                                                                this,
+                                                                                              ),
+                                                                                          },
+                                                                                          void 0,
+                                                                                          false,
+                                                                                          {
+                                                                                            fileName:
+                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                            lineNumber: 934,
+                                                                                            columnNumber: 37,
+                                                                                          },
+                                                                                          this,
+                                                                                        ),
+                                                                                },
+                                                                                void 0,
+                                                                                false,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 886,
+                                                                                  columnNumber: 33,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                            ],
+                                                                        },
+                                                                        void 0,
+                                                                        true,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 881,
+                                                                          columnNumber: 31,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                    ],
+                                                                  },
+                                                                  void 0,
+                                                                  true,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 860,
+                                                                    columnNumber: 29,
+                                                                  },
+                                                                  this,
+                                                                ),
                                                               },
                                                               void 0,
                                                               false,
@@ -7176,7 +7166,7 @@ module.exports = [
                     this,
                   ),
                   activeInvoice &&
-                     (0,
+                    (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -7184,7 +7174,7 @@ module.exports = [
                       {
                         className:
                           "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4",
-                        children:  (0,
+                        children: (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -7195,7 +7185,7 @@ module.exports = [
                             className:
                               "max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300",
                             children: [
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -7206,7 +7196,7 @@ module.exports = [
                                   className:
                                     "bg-neutral-50 border-b-2 border-black pb-4 relative",
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -7228,7 +7218,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -7265,7 +7255,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -7275,7 +7265,7 @@ module.exports = [
                                 {
                                   className: "space-y-5 pt-6 pb-8 px-8",
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -7283,7 +7273,7 @@ module.exports = [
                                       {
                                         className: "space-y-2",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -7306,7 +7296,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -7314,7 +7304,7 @@ module.exports = [
                                             {
                                               className: "relative",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7335,7 +7325,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7374,7 +7364,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -7383,7 +7373,7 @@ module.exports = [
                                               className:
                                                 "bg-blue-50 p-3 border-2 border-blue-200 rounded space-y-1",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7392,7 +7382,7 @@ module.exports = [
                                                     className:
                                                       "flex justify-between items-center text-xs font-black",
                                                     children: [
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7413,7 +7403,7 @@ module.exports = [
                                                         },
                                                         this,
                                                       ),
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7451,7 +7441,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7460,7 +7450,7 @@ module.exports = [
                                                     className:
                                                       "flex justify-between items-center text-xs font-black",
                                                     children: [
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7481,7 +7471,7 @@ module.exports = [
                                                         },
                                                         this,
                                                       ),
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7520,7 +7510,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7529,7 +7519,7 @@ module.exports = [
                                                     className:
                                                       "flex justify-between items-center text-xs font-black border-t border-blue-200 pt-1 mt-1",
                                                     children: [
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7550,7 +7540,7 @@ module.exports = [
                                                         },
                                                         this,
                                                       ),
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7613,7 +7603,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -7621,7 +7611,7 @@ module.exports = [
                                       {
                                         className: "grid grid-cols-2 gap-4",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -7629,7 +7619,7 @@ module.exports = [
                                             {
                                               className: "space-y-2",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7651,7 +7641,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7690,7 +7680,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -7698,7 +7688,7 @@ module.exports = [
                                             {
                                               className: "space-y-2",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7720,7 +7710,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -7732,7 +7722,7 @@ module.exports = [
                                                     onValueChange:
                                                       setPaymentMode,
                                                     children: [
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7742,25 +7732,24 @@ module.exports = [
                                                         {
                                                           className:
                                                             "border-2 border-black font-bold h-12 bg-white",
-                                                          children:
-                                                             (0,
-                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                              "jsxDEV"
-                                                            ])(
-                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                "SelectValue"
-                                                              ],
-                                                              {},
-                                                              void 0,
-                                                              false,
-                                                              {
-                                                                fileName:
-                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 1021,
-                                                                columnNumber: 23,
-                                                              },
-                                                              this,
-                                                            ),
+                                                          children: (0,
+                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                            "jsxDEV"
+                                                          ])(
+                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                              "SelectValue"
+                                                            ],
+                                                            {},
+                                                            void 0,
+                                                            false,
+                                                            {
+                                                              fileName:
+                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                              lineNumber: 1021,
+                                                              columnNumber: 23,
+                                                            },
+                                                            this,
+                                                          ),
                                                         },
                                                         void 0,
                                                         false,
@@ -7772,7 +7761,7 @@ module.exports = [
                                                         },
                                                         this,
                                                       ),
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -7783,7 +7772,7 @@ module.exports = [
                                                           className:
                                                             "border-2 border-black font-bold",
                                                           children: [
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -7806,7 +7795,7 @@ module.exports = [
                                                               },
                                                               this,
                                                             ),
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -7828,7 +7817,7 @@ module.exports = [
                                                               },
                                                               this,
                                                             ),
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -7850,7 +7839,7 @@ module.exports = [
                                                               },
                                                               this,
                                                             ),
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -7920,7 +7909,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -7928,7 +7917,7 @@ module.exports = [
                                       {
                                         className: "space-y-2",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -7951,7 +7940,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -7991,7 +7980,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -7999,7 +7988,7 @@ module.exports = [
                                       {
                                         className: "pt-4 flex flex-col gap-3",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8011,7 +8000,7 @@ module.exports = [
                                                 "w-full bg-black hover:bg-neutral-800 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]",
                                               onClick: submitPayment,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -8044,7 +8033,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8114,7 +8103,7 @@ module.exports = [
                       this,
                     ),
                   editingPayment &&
-                     (0,
+                    (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                       "jsxDEV"
                     ])(
@@ -8122,7 +8111,7 @@ module.exports = [
                       {
                         className:
                           "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4",
-                        children:  (0,
+                        children: (0,
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                           "jsxDEV"
                         ])(
@@ -8133,7 +8122,7 @@ module.exports = [
                             className:
                               "max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300",
                             children: [
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -8144,7 +8133,7 @@ module.exports = [
                                   className:
                                     "bg-blue-50 border-b-2 border-black pb-4 relative",
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -8166,7 +8155,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -8203,7 +8192,7 @@ module.exports = [
                                 },
                                 this,
                               ),
-                               (0,
+                              (0,
                               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                 "jsxDEV"
                               ])(
@@ -8213,7 +8202,7 @@ module.exports = [
                                 {
                                   className: "space-y-5 pt-6 pb-8 px-8",
                                   children: [
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -8221,7 +8210,7 @@ module.exports = [
                                       {
                                         className: "space-y-2",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8243,7 +8232,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8281,7 +8270,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -8289,7 +8278,7 @@ module.exports = [
                                       {
                                         className: "grid grid-cols-2 gap-4",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8297,7 +8286,7 @@ module.exports = [
                                             {
                                               className: "space-y-2",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -8319,7 +8308,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -8358,7 +8347,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8366,7 +8355,7 @@ module.exports = [
                                             {
                                               className: "space-y-2",
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -8388,7 +8377,7 @@ module.exports = [
                                                   },
                                                   this,
                                                 ),
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -8399,7 +8388,7 @@ module.exports = [
                                                     value: editMode,
                                                     onValueChange: setEditMode,
                                                     children: [
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -8409,25 +8398,24 @@ module.exports = [
                                                         {
                                                           className:
                                                             "border-2 border-black font-bold h-12 bg-white",
-                                                          children:
-                                                             (0,
-                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                              "jsxDEV"
-                                                            ])(
-                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
-                                                                "SelectValue"
-                                                              ],
-                                                              {},
-                                                              void 0,
-                                                              false,
-                                                              {
-                                                                fileName:
-                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 1109,
-                                                                columnNumber: 23,
-                                                              },
-                                                              this,
-                                                            ),
+                                                          children: (0,
+                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                            "jsxDEV"
+                                                          ])(
+                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                              "SelectValue"
+                                                            ],
+                                                            {},
+                                                            void 0,
+                                                            false,
+                                                            {
+                                                              fileName:
+                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                              lineNumber: 1109,
+                                                              columnNumber: 23,
+                                                            },
+                                                            this,
+                                                          ),
                                                         },
                                                         void 0,
                                                         false,
@@ -8439,7 +8427,7 @@ module.exports = [
                                                         },
                                                         this,
                                                       ),
-                                                       (0,
+                                                      (0,
                                                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                         "jsxDEV"
                                                       ])(
@@ -8450,7 +8438,7 @@ module.exports = [
                                                           className:
                                                             "border-2 border-black font-bold",
                                                           children: [
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -8473,7 +8461,7 @@ module.exports = [
                                                               },
                                                               this,
                                                             ),
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -8495,7 +8483,7 @@ module.exports = [
                                                               },
                                                               this,
                                                             ),
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -8517,7 +8505,7 @@ module.exports = [
                                                               },
                                                               this,
                                                             ),
-                                                             (0,
+                                                            (0,
                                                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                               "jsxDEV"
                                                             ])(
@@ -8587,7 +8575,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -8595,7 +8583,7 @@ module.exports = [
                                       {
                                         className: "space-y-2",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8618,7 +8606,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8656,7 +8644,7 @@ module.exports = [
                                       },
                                       this,
                                     ),
-                                     (0,
+                                    (0,
                                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                       "jsxDEV"
                                     ])(
@@ -8664,7 +8652,7 @@ module.exports = [
                                       {
                                         className: "pt-4 flex flex-col gap-3",
                                         children: [
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8676,7 +8664,7 @@ module.exports = [
                                                 "w-full bg-blue-600 hover:bg-blue-700 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95",
                                               onClick: submitEditPayment,
                                               children: [
-                                                 (0,
+                                                (0,
                                                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                                   "jsxDEV"
                                                 ])(
@@ -8709,7 +8697,7 @@ module.exports = [
                                             },
                                             this,
                                           ),
-                                           (0,
+                                          (0,
                                           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
                                             "jsxDEV"
                                           ])(
@@ -8800,5 +8788,3 @@ module.exports = [
     );
   },
 ];
-
-

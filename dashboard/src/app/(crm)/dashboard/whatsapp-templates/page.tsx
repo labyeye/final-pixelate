@@ -33,8 +33,6 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
-
-
 interface WaButton {
   type: "QUICK_REPLY" | "URL" | "PHONE_NUMBER";
   text: string;
@@ -130,7 +128,6 @@ const LANGUAGES = [
   { code: "bn", label: "Bengali" },
 ];
 
-
 function renderBodyPreview(text: string) {
   const parts = text.split(/({{[^}]+}})/g);
   return parts.map((part, i) => {
@@ -148,7 +145,6 @@ function renderBodyPreview(text: string) {
   });
 }
 
-
 interface FormState {
   name: string;
   category: WaTemplate["category"];
@@ -161,7 +157,7 @@ interface FormState {
   footer: string;
   buttons: WaButton[];
   variables: string[];
-  exampleValues: string[]; 
+  exampleValues: string[];
   notes: string;
 }
 
@@ -180,8 +176,6 @@ const blankForm = (): FormState => ({
   exampleValues: [],
   notes: "",
 });
-
-
 
 export default function WhatsAppTemplatesPage() {
   const { toast } = useToast();
@@ -210,7 +204,6 @@ export default function WhatsAppTemplatesPage() {
   const [newVariableLabel, setNewVariableLabel] = useState("");
   const [uploadingMedia, setUploadingMedia] = useState(false);
 
-  
   const fetchTemplates = async () => {
     setLoading(true);
     try {
@@ -232,7 +225,6 @@ export default function WhatsAppTemplatesPage() {
     fetchTemplates();
   }, []);
 
-  
   const handleSync = async () => {
     setSyncing(true);
     try {
@@ -255,7 +247,6 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  
   const filtered = useMemo(() => {
     return templates.filter((t) => {
       const q = search.toLowerCase();
@@ -271,7 +262,6 @@ export default function WhatsAppTemplatesPage() {
     });
   }, [templates, search, filterCategory, filterStatus]);
 
-  
   const stats = useMemo(() => {
     return {
       total: templates.length,
@@ -281,7 +271,6 @@ export default function WhatsAppTemplatesPage() {
     };
   }, [templates]);
 
-  
   const openCreate = () => {
     setEditTarget(null);
     setForm(blankForm());
@@ -308,7 +297,6 @@ export default function WhatsAppTemplatesPage() {
     setShowForm(true);
   };
 
-  
   const handleMediaUpload = async (file: File) => {
     setUploadingMedia(true);
     try {
@@ -340,7 +328,6 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  
   const handleSubmitToMeta = async (t: WaTemplate) => {
     if (
       !window.confirm(
@@ -382,7 +369,6 @@ export default function WhatsAppTemplatesPage() {
     setNewVariableLabel("");
   };
 
-  
   const handleSave = async () => {
     if (!form.name.trim() || !form.body.trim()) {
       toast({
@@ -440,7 +426,6 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  
   const handleDelete = async (t: WaTemplate) => {
     if (!window.confirm(`Delete template "${t.name}"? This cannot be undone.`))
       return;
@@ -463,19 +448,15 @@ export default function WhatsAppTemplatesPage() {
     }
   };
 
-  
   const copyName = (name: string) => {
-    navigator.clipboard
-      .writeText(name)
-      .then(() =>
-        toast({
-          title: "Copied",
-          description: `Template name "${name}" copied.`,
-        }),
-      );
+    navigator.clipboard.writeText(name).then(() =>
+      toast({
+        title: "Copied",
+        description: `Template name "${name}" copied.`,
+      }),
+    );
   };
 
-  
   const addButton = () => {
     if (!newButtonText.trim()) return;
     setForm((f) => ({
@@ -492,7 +473,6 @@ export default function WhatsAppTemplatesPage() {
     setForm((f) => ({ ...f, buttons: f.buttons.filter((_, i) => i !== idx) }));
   };
 
-  
   const addVariable = () => {
     if (!newVariableLabel.trim()) return;
     setForm((f) => ({
@@ -507,13 +487,11 @@ export default function WhatsAppTemplatesPage() {
     setForm((f) => ({ ...f, body: f.body + `{{${n}}}` }));
   };
 
-  
   const detectedVars = useMemo(() => {
     const matches = form.body.match(/{{[^}]+}}/g) ?? [];
     return [...new Set(matches)];
   }, [form.body]);
 
-  
   return (
     <div className="p-6 space-y-6">
       {}

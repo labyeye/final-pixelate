@@ -19,13 +19,10 @@ module.exports = [
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-fallback.js [app-rsc] (ecmascript)",
     );
     function Unauthorized() {
-      return  (0, _jsxruntime.jsx)(
-        _errorfallback.HTTPAccessErrorFallback,
-        {
-          status: 401,
-          message: "You're not authorized to access this page.",
-        },
-      );
+      return (0, _jsxruntime.jsx)(_errorfallback.HTTPAccessErrorFallback, {
+        status: 401,
+        message: "You're not authorized to access this page.",
+      });
     }
     if (
       (typeof exports.default === "function" ||
@@ -37,8 +34,6 @@ module.exports = [
       });
       Object.assign(exports.default, exports);
       module.exports = exports.default;
-    } 
+    }
   },
 ];
-
-

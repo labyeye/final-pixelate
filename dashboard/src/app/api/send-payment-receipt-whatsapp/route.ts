@@ -38,9 +38,6 @@ export async function POST(req: NextRequest) {
 
   const digits = sanitisePhone(phone);
 
-  
-  
-  
   const payload = {
     messaging_product: "whatsapp",
     to: digits,

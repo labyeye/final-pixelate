@@ -486,7 +486,8 @@ export default function LeadsPage() {
         const items = await fetchLeads();
         setLeads(items);
         const parts = [`${data.synced} new leads imported`];
-        if (data.backfilled) parts.push(`${data.backfilled} existing updated with campaign info`);
+        if (data.backfilled)
+          parts.push(`${data.backfilled} existing updated with campaign info`);
         toast({
           title: "Meta Ads Sync Complete",
           description: parts.join(" · "),
@@ -956,7 +957,9 @@ export default function LeadsPage() {
                             {lead.campaignName}
                           </span>
                         ) : (
-                          <span className="text-xs text-muted-foreground">—</span>
+                          <span className="text-xs text-muted-foreground">
+                            —
+                          </span>
                         )}
                       </TableCell>
                       <TableCell className="text-sm">

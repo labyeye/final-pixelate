@@ -1,7 +1,6 @@
 module.exports = [
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (client reference proxy) <module evaluation>",
   (__turbopack_context__, module, exports) => {
-    
     const { createClientModuleProxy } = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)",
     );
@@ -13,7 +12,6 @@ module.exports = [
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (client reference proxy)",
   (__turbopack_context__, module, exports) => {
-    
     const { createClientModuleProxy } = __turbopack_context__.r(
       "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)",
     );
@@ -40,5 +38,3 @@ module.exports = [
     );
   },
 ];
-
-

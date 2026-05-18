@@ -4,7 +4,6 @@
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "Primitive",
       () => Primitive,
@@ -62,7 +61,7 @@
           if (typeof window !== "undefined") {
             window[Symbol.for("radix-ui")] = true;
           }
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Comp, {
@@ -83,14 +82,13 @@
         ](() => target.dispatchEvent(event));
     }
     var Root = Primitive;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-label/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
     __turbopack_context__.s(["Label", () => Label, "Root", () => Root]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -109,7 +107,7 @@
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "forwardRef"
       ]((props, forwardedRef) => {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -131,24 +129,20 @@
       });
     Label.displayName = NAME;
     var Root = Label;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/number/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["clamp", () => clamp]);
     function clamp(value, [min, max]) {
       return Math.min(max, Math.max(min, value));
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-direction/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "DirectionProvider",
       () => DirectionProvider,
@@ -171,7 +165,7 @@
       ](void 0);
     var DirectionProvider = (props) => {
       const { dir, children } = props;
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(DirectionContext.Provider, {
@@ -187,13 +181,11 @@
       return localDir || globalDir || "ltr";
     }
     var Provider = DirectionProvider;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-arrow/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["Arrow", () => Arrow, "Root", () => Root]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -213,7 +205,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { children, width = 10, height = 5, ...arrowProps } = props;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -229,7 +221,7 @@
             preserveAspectRatio: "none",
             children: props.asChild
               ? children
-              :  (0,
+              : (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])("polygon", {
@@ -240,13 +232,11 @@
       });
     Arrow.displayName = NAME;
     var Root = Arrow;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-size/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["useSize", () => useSize]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -318,7 +308,6 @@
       );
       return size;
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-popper/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -348,7 +337,7 @@
       "createPopperScope",
       () => createPopperScope,
     ]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -408,7 +397,7 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "useState"
         ](null);
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(PopperProvider, {
@@ -453,7 +442,7 @@
         );
         return virtualRef
           ? null
-          :  (0,
+          : (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -533,7 +522,7 @@
         const detectOverflowOptions = {
           padding: collisionPadding,
           boundary: boundary.filter(isNotNull),
-          
+
           altBoundary: hasExplicitBoundaries,
         };
         const {
@@ -546,7 +535,6 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$react$2d$dom$2f$dist$2f$floating$2d$ui$2e$react$2d$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
           "useFloating"
         ])({
-          
           strategy: "fixed",
           placement: desiredPlacement,
           whileElementsMounted: {
@@ -688,7 +676,7 @@
           }["PopperContent.useLayoutEffect"],
           [content],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])("div", {
@@ -699,23 +687,21 @@
             transform: isPositioned
               ? floatingStyles.transform
               : "translate(0, -200%)",
-            
+
             minWidth: "max-content",
             zIndex: contentZIndex,
             ["--radix-popper-transform-origin"]: [
               middlewareData.transformOrigin?.x,
               middlewareData.transformOrigin?.y,
             ].join(" "),
-            
-            
-            
+
             ...(middlewareData.hide?.referenceHidden && {
               visibility: "hidden",
               pointerEvents: "none",
             }),
           },
           dir: props.dir,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(PopperContentProvider, {
@@ -725,7 +711,7 @@
             arrowX,
             arrowY,
             shouldHideArrow: cannotCenterArrow,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -739,8 +725,7 @@
                 ref: composedRefs,
                 style: {
                   ...contentProps.style,
-                  
-                  
+
                   animation: !isPositioned ? "none" : void 0,
                 },
               },
@@ -763,53 +748,48 @@
         const { __scopePopper, ...arrowProps } = props;
         const contentContext = useContentContext(ARROW_NAME, __scopePopper);
         const baseSide = OPPOSITE_SIDE[contentContext.placedSide];
-        return (
-          
-          
-          
-           (0,
+        return (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "jsx"
+        ])("span", {
+          ref: contentContext.onArrowChange,
+          style: {
+            position: "absolute",
+            left: contentContext.arrowX,
+            top: contentContext.arrowY,
+            [baseSide]: 0,
+            transformOrigin: {
+              top: "",
+              right: "0 0",
+              bottom: "center 0",
+              left: "100% 0",
+            }[contentContext.placedSide],
+            transform: {
+              top: "translateY(100%)",
+              right: "translateY(50%) rotate(90deg) translateX(-50%)",
+              bottom: `rotate(180deg)`,
+              left: "translateY(50%) rotate(-90deg) translateX(50%)",
+            }[contentContext.placedSide],
+            visibility: contentContext.shouldHideArrow ? "hidden" : void 0,
+          },
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
-          ])("span", {
-            ref: contentContext.onArrowChange,
-            style: {
-              position: "absolute",
-              left: contentContext.arrowX,
-              top: contentContext.arrowY,
-              [baseSide]: 0,
-              transformOrigin: {
-                top: "",
-                right: "0 0",
-                bottom: "center 0",
-                left: "100% 0",
-              }[contentContext.placedSide],
-              transform: {
-                top: "translateY(100%)",
-                right: "translateY(50%) rotate(90deg) translateX(-50%)",
-                bottom: `rotate(180deg)`,
-                left: "translateY(50%) rotate(-90deg) translateX(50%)",
-              }[contentContext.placedSide],
-              visibility: contentContext.shouldHideArrow ? "hidden" : void 0,
-            },
-            children:  (0,
-            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-              "jsx"
-            ])(
-              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$arrow$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
-                "Root"
-              ],
-              {
-                ...arrowProps,
-                ref: forwardedRef,
-                style: {
-                  ...arrowProps.style,
-                  
-                  display: "block",
-                },
+          ])(
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$arrow$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "Root"
+            ],
+            {
+              ...arrowProps,
+              ref: forwardedRef,
+              style: {
+                ...arrowProps.style,
+
+                display: "block",
               },
-            ),
-          })
-        );
+            },
+          ),
+        });
       });
     PopperArrow.displayName = ARROW_NAME;
     function isNotNull(value) {
@@ -864,13 +844,11 @@
     var Anchor = PopperAnchor;
     var Content = PopperContent;
     var Arrow = PopperArrow;
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s([
       "Root",
       () => Slot,
@@ -895,9 +873,9 @@
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)",
       );
-    
+
     function createSlot(ownerName) {
-      const SlotClone =  createSlotClone(ownerName);
+      const SlotClone = createSlotClone(ownerName);
       const Slot2 =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "forwardRef"
@@ -929,7 +907,7 @@
                 return child;
               }
             });
-            return  (0,
+            return (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SlotClone, {
@@ -945,7 +923,7 @@
                   : null,
             });
           }
-          return  (0,
+          return (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(SlotClone, {
@@ -957,8 +935,8 @@
       Slot2.displayName = `${ownerName}.Slot`;
       return Slot2;
     }
-    var Slot =  createSlot("Slot");
-    
+    var Slot = createSlot("Slot");
+
     function createSlotClone(ownerName) {
       const SlotClone =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1001,10 +979,10 @@
       return SlotClone;
     }
     var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-    
+
     function createSlottable(ownerName) {
       const Slottable2 = ({ children }) => {
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1020,7 +998,7 @@
       Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
       return Slottable2;
     }
-    var Slottable =  createSlottable("Slottable");
+    var Slottable = createSlottable("Slottable");
     function isSlottable(child) {
       return (
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
@@ -1079,13 +1057,11 @@
       }
       return element.props.ref || element.ref;
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-previous/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
     "use strict";
 
-    
     __turbopack_context__.s(["usePrevious", () => usePrevious]);
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
@@ -1114,7 +1090,6 @@
         [value],
       );
     }
-    
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-select/dist/index.mjs [app-client] (ecmascript)",
   (__turbopack_context__) => {
@@ -1188,7 +1163,7 @@
       "createSelectScope",
       () => createSelectScope,
     ]);
-    
+
     var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
       __turbopack_context__.i(
         "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
@@ -1369,11 +1344,11 @@
       const [nativeOptionsSet, setNativeOptionsSet] =
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "useState"
-        ]( new Set());
+        ](new Set());
       const nativeSelectKey = Array.from(nativeOptionsSet)
         .map((option) => option.props.value)
         .join(";");
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(
@@ -1382,7 +1357,7 @@
         ],
         {
           ...popperScope,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsxs"
           ])(SelectProvider, {
@@ -1406,12 +1381,12 @@
             triggerPointerDownPosRef,
             disabled,
             children: [
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(Collection.Provider, {
                 scope: __scopeSelect,
-                children:  (0,
+                children: (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(SelectNativeOptionsProvider, {
@@ -1455,7 +1430,7 @@
                 }),
               }),
               isFormControl
-                ?  (0,
+                ? (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsxs"
                   ])(
@@ -1472,7 +1447,7 @@
                       form,
                       children: [
                         value === void 0
-                          ?  (0,
+                          ? (0,
                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                               "jsx"
                             ])("option", {
@@ -1548,7 +1523,7 @@
             };
           }
         };
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1558,7 +1533,7 @@
           {
             asChild: true,
             ...popperScope,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -1660,7 +1635,7 @@
           }["SelectValue.useLayoutEffect"],
           [onValueNodeHasChildrenChange, hasChildren],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1674,7 +1649,7 @@
               pointerEvents: "none",
             },
             children: shouldShowPlaceholder(context.value)
-              ?  (0,
+              ? (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(
@@ -1696,7 +1671,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeSelect, children, ...iconProps } = props;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -1714,7 +1689,7 @@
     SelectIcon.displayName = ICON_NAME;
     var PORTAL_NAME = "SelectPortal";
     var SelectPortal = (props) => {
-      return  (0,
+      return (0,
       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
         "jsx"
       ])(
@@ -1755,17 +1730,17 @@
             ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "createPortal"
               ](
-                 (0,
+                (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(SelectContentProvider, {
                   scope: props.__scopeSelect,
-                  children:  (0,
+                  children: (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsx"
                   ])(Collection.Slot, {
                     scope: props.__scopeSelect,
-                    children:  (0,
+                    children: (0,
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                       "jsx"
                     ])("div", {
@@ -1777,7 +1752,7 @@
               )
             : null;
         }
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(SelectContentImpl, {
@@ -1803,8 +1778,8 @@
           position = "item-aligned",
           onCloseAutoFocus,
           onEscapeKeyDown,
-          onPointerDownOutside, 
-          
+          onPointerDownOutside,
+
           side,
           sideOffset,
           align,
@@ -1814,7 +1789,7 @@
           collisionPadding,
           sticky,
           hideWhenDetached,
-          avoidCollisions, 
+          avoidCollisions,
           ...contentProps
         } = props;
         const context = useSelectContext(CONTENT_NAME, __scopeSelect);
@@ -2107,7 +2082,7 @@
                 avoidCollisions,
               }
             : {};
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(SelectContentProvider, {
@@ -2124,7 +2099,7 @@
           position,
           isPositioned,
           searchRef,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -2134,7 +2109,7 @@
             {
               as: Slot,
               allowPinchZoom: true,
-              children:  (0,
+              children: (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -2156,7 +2131,7 @@
                     });
                     event.preventDefault();
                   }),
-                  children:  (0,
+                  children: (0,
                   __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                     "jsx"
                   ])(
@@ -2170,7 +2145,7 @@
                       onPointerDownOutside,
                       onFocusOutside: (event) => event.preventDefault(),
                       onDismiss: () => context.onOpenChange(false),
-                      children:  (0,
+                      children: (0,
                       __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                         "jsx"
                       ])(SelectPosition, {
@@ -2184,10 +2159,9 @@
                         onPlaced: () => setIsPositioned(true),
                         ref: composedRefs,
                         style: {
-                          
                           display: "flex",
                           flexDirection: "column",
-                          
+
                           outline: "none",
                           ...contentProps.style,
                         },
@@ -2311,11 +2285,7 @@
                       "clamp"
                     ])(left, [
                       CONTENT_MARGIN,
-                      
-                      
-                      
-                      
-                      
+
                       Math.max(CONTENT_MARGIN, rightEdge - contentWidth),
                     ]);
                     contentWrapper.style.minWidth = minContentWidth + "px";
@@ -2409,7 +2379,7 @@
                       viewport.offsetHeight;
                     const clampedTriggerMiddleToBottomEdge = Math.max(
                       triggerMiddleToBottomEdge,
-                      selectedItemHalfHeight + 
+                      selectedItemHalfHeight +
                         (isLastItem ? viewportPaddingBottom : 0) +
                         viewportOffsetBottom +
                         contentBorderBottomWidth,
@@ -2424,7 +2394,7 @@
                     const clampedTopEdgeToTriggerMiddle = Math.max(
                       topEdgeToTriggerMiddle,
                       contentBorderTopWidth +
-                        viewport.offsetTop + 
+                        viewport.offsetTop +
                         (isFirstItem ? viewportPaddingTop : 0) +
                         selectedItemHalfHeight,
                     );
@@ -2505,7 +2475,7 @@
             ],
             [position, focusSelectedItem],
           );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(SelectViewportProvider, {
@@ -2513,7 +2483,7 @@
           contentWrapper,
           shouldExpandOnScrollRef,
           onScrollButtonChange: handleScrollButtonChange,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])("div", {
@@ -2524,7 +2494,7 @@
               position: "fixed",
               zIndex: contentZIndex,
             },
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -2535,10 +2505,8 @@
                 ...popperProps,
                 ref: composedRefs,
                 style: {
-                  
-                  
                   boxSizing: "border-box",
-                  
+
                   maxHeight: "100%",
                   ...popperProps.style,
                 },
@@ -2560,7 +2528,7 @@
           ...popperProps
         } = props;
         const popperScope = usePopperScope(__scopeSelect);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -2574,10 +2542,9 @@
             align,
             collisionPadding,
             style: {
-              
               boxSizing: "border-box",
               ...popperProps.style,
-              
+
               ...{
                 "--radix-select-content-transform-origin":
                   "var(--radix-popper-transform-origin)",
@@ -2619,7 +2586,7 @@
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "useRef"
           ](0);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -2628,7 +2595,7 @@
           ],
           {
             children: [
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])("style", {
@@ -2637,12 +2604,12 @@
                 },
                 nonce,
               }),
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(Collection.Slot, {
                 scope: __scopeSelect,
-                children:  (0,
+                children: (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(
@@ -2655,15 +2622,9 @@
                     ...viewportProps,
                     ref: composedRefs,
                     style: {
-                      
-                      
-                      
                       position: "relative",
                       flex: 1,
-                      
-                      
-                      
-                      
+
                       overflow: "hidden auto",
                       ...viewportProps.style,
                     },
@@ -2727,13 +2688,13 @@
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$id$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "useId"
         ])();
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(SelectGroupContextProvider, {
           scope: __scopeSelect,
           id: groupId,
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(
@@ -2757,7 +2718,7 @@
       ]((props, forwardedRef) => {
         const { __scopeSelect, ...labelProps } = props;
         const groupContext = useSelectGroupContext(LABEL_NAME, __scopeSelect);
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -2829,7 +2790,7 @@
             "A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.",
           );
         }
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(SelectItemContextProvider, {
@@ -2854,7 +2815,7 @@
               }["SelectItem.useCallback"],
               [],
             ),
-          children:  (0,
+          children: (0,
           __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
             "jsx"
           ])(Collection.ItemSlot, {
@@ -2862,7 +2823,7 @@
             value,
             disabled,
             textValue,
-            children:  (0,
+            children: (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -2989,7 +2950,7 @@
           ](
             {
               "SelectItemText.useMemo[nativeOption]": () =>
-                 (0,
+                (0,
                 __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                   "jsx"
                 ])(
@@ -3021,7 +2982,7 @@
           }["SelectItemText.useLayoutEffect"],
           [onNativeOptionAdd, onNativeOptionRemove, nativeOption],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsxs"
         ])(
@@ -3030,7 +2991,7 @@
           ],
           {
             children: [
-               (0,
+              (0,
               __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
                 "jsx"
               ])(
@@ -3066,7 +3027,7 @@
           __scopeSelect,
         );
         return itemContext.isSelected
-          ?  (0,
+          ? (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -3131,7 +3092,7 @@
           [contentContext.viewport, contentContext.isPositioned],
         );
         return canScrollUp
-          ?  (0,
+          ? (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SelectScrollButtonImpl, {
@@ -3200,7 +3161,7 @@
           [contentContext.viewport, contentContext.isPositioned],
         );
         return canScrollDown
-          ?  (0,
+          ? (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(SelectScrollButtonImpl, {
@@ -3278,7 +3239,7 @@
           }["SelectScrollButtonImpl.useLayoutEffect"],
           [getItems],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3331,7 +3292,7 @@
         "forwardRef"
       ]((props, forwardedRef) => {
         const { __scopeSelect, ...separatorProps } = props;
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3359,7 +3320,7 @@
           __scopeSelect,
         );
         return context.open && contentContext.position === "popper"
-          ?  (0,
+          ? (0,
             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
               "jsx"
             ])(
@@ -3416,7 +3377,7 @@
           }["SelectBubbleInput.useEffect"],
           [prevValue, value],
         );
-        return  (0,
+        return (0,
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
           "jsx"
         ])(
@@ -3542,8 +3503,5 @@
     var ScrollDownButton = SelectScrollDownButton;
     var Separator = SelectSeparator;
     var Arrow2 = SelectArrow;
-    
   },
 ]);
-
-

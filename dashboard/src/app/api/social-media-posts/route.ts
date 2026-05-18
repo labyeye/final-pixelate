@@ -290,7 +290,6 @@ export async function PUT(request: Request) {
       };
     }
     if (body.postedLinks && typeof body.postedLinks === "object") {
-      
       updateData.postedLinks = {
         ...(postBefore?.postedLinks || {}),
         ...body.postedLinks,

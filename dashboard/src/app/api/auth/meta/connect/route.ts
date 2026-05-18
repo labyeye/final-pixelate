@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
-  
   const clientId = searchParams.get("clientId");
   const accountId = searchParams.get("accountId");
 
@@ -26,7 +25,6 @@ export async function GET(request: NextRequest) {
 
   const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 
-  
   const state = clientId
     ? JSON.stringify({ clientId })
     : JSON.stringify({ accountId });

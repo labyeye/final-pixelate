@@ -12,11 +12,9 @@ function toObjectId(id: string) {
   }
 }
 
-
 function buildComponents(template: any): any[] {
   const components: any[] = [];
 
-  
   if (template.headerType && template.headerType !== "NONE") {
     if (template.headerType === "TEXT" && template.headerText) {
       const hasVar = /{{[^}]+}}/.test(template.headerText);
@@ -32,7 +30,6 @@ function buildComponents(template: any): any[] {
       }
       components.push(comp);
     } else {
-      
       if (template.headerMediaHandle) {
         components.push({
           type: "HEADER",
@@ -40,23 +37,19 @@ function buildComponents(template: any): any[] {
           example: { header_handle: [template.headerMediaHandle] },
         });
       } else {
-        
         components.push({ type: "HEADER", format: template.headerType });
       }
     }
   }
 
-  
   if (template.body) {
-    
     const cleanBody = (template.body as string)
       .split("\n")
       .map((line: string) => line.trimEnd())
       .join("\n")
       .trim();
     const bodyComp: any = { type: "BODY", text: cleanBody };
-    
-    
+
     const rawMatches = template.body.match(/\{\{(\d+)\}\}/g) ?? [];
     const varNums: number[] = [
       ...new Set<number>(
@@ -65,7 +58,7 @@ function buildComponents(template: any): any[] {
     ].sort((a, b) => a - b);
     if (varNums.length > 0) {
       const examples: string[] = varNums.map((n) => {
-        const i = n - 1; 
+        const i = n - 1;
         const val = template.exampleValues?.[i] ?? template.variables?.[i];
         return val && String(val).trim() ? String(val).trim() : `sample_${n}`;
       });
@@ -74,12 +67,10 @@ function buildComponents(template: any): any[] {
     components.push(bodyComp);
   }
 
-  
   if (template.footer) {
     components.push({ type: "FOOTER", text: template.footer });
   }
 
-  
   if (Array.isArray(template.buttons) && template.buttons.length > 0) {
     const buttons = template.buttons.map((btn: any) => {
       if (btn.type === "QUICK_REPLY")
@@ -110,14 +101,11 @@ export async function POST(
 ) {
   const { id } = await params;
 
-  
   let nameOverride: string | undefined;
   try {
     const body = await req.json().catch(() => ({}));
     nameOverride = body?.name;
-  } catch {
-    
-  }
+  } catch {}
 
   const oid = toObjectId(id);
 
@@ -145,10 +133,6 @@ export async function POST(
     );
   }
 
-  
-  
-  
-  
   let template: any = null;
   try {
     if (nameOverride) {
@@ -168,7 +152,6 @@ export async function POST(
       );
     }
     if (!template) {
-      
       const all = await db.collection(COLLECTION).find({}).toArray();
       console.info(
         `[submit] full scan, ${all.length} docs, looking for id="${id}"`,
@@ -244,25 +227,21 @@ export async function POST(
     const metaDetails = errDetail.error_data?.details ?? "";
     const subcode = errDetail.error_subcode ?? "";
 
-    
     if (
       subcode === 2388023 ||
       String(subcode) === "2388023" ||
       metaMessage.toLowerCase().includes("already exists")
     ) {
-      
-      await db
-        .collection(COLLECTION)
-        .updateOne(
-          { _id: template._id },
-          {
-            $set: {
-              status: "SUBMITTED",
-              submittedAt: new Date().toISOString(),
-              updatedAt: new Date(),
-            },
+      await db.collection(COLLECTION).updateOne(
+        { _id: template._id },
+        {
+          $set: {
+            status: "SUBMITTED",
+            submittedAt: new Date().toISOString(),
+            updatedAt: new Date(),
           },
-        );
+        },
+      );
       return NextResponse.json({
         success: true,
         metaTemplateId: template.metaTemplateId ?? null,
@@ -292,7 +271,6 @@ export async function POST(
   const metaTemplateId = (metaJson as any)?.id ?? null;
   const metaStatus = (metaJson as any)?.status ?? "PENDING";
 
-  
   await db.collection(COLLECTION).updateOne(
     { _id: template._id },
     {

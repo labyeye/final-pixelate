@@ -108,7 +108,8 @@ export function AddInvoiceDialog({
   );
   const discountAmt =
     discountType === "percent"
-      ? (subtotal * Math.max(0, Math.min(100, Number(discountInput || 0)))) / 100
+      ? (subtotal * Math.max(0, Math.min(100, Number(discountInput || 0)))) /
+        100
       : Math.max(0, Number(discountInput || 0));
   const taxable = Math.max(0, subtotal - discountAmt);
   const tax = (taxable * 18) / 100;
@@ -463,7 +464,10 @@ export function AddInvoiceDialog({
                 <div className="flex gap-8">
                   <span className="text-muted-foreground">Subtotal</span>
                   <span className="w-28 text-right font-medium">
-                    ₹{subtotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                    ₹
+                    {subtotal.toLocaleString("en-IN", {
+                      minimumFractionDigits: 2,
+                    })}
                   </span>
                 </div>
                 <div className="flex gap-8 items-center">
@@ -474,12 +478,16 @@ export function AddInvoiceDialog({
                         type="button"
                         className={`px-1.5 py-0.5 font-medium ${discountType === "flat" ? "bg-primary text-primary-foreground" : "bg-muted"}`}
                         onClick={() => setDiscountType("flat")}
-                      >₹</button>
+                      >
+                        ₹
+                      </button>
                       <button
                         type="button"
                         className={`px-1.5 py-0.5 font-medium ${discountType === "percent" ? "bg-primary text-primary-foreground" : "bg-muted"}`}
                         onClick={() => setDiscountType("percent")}
-                      >%</button>
+                      >
+                        %
+                      </button>
                     </div>
                     <Input
                       type="number"
@@ -505,7 +513,10 @@ export function AddInvoiceDialog({
                 <div className="flex gap-8 text-base font-semibold border-t pt-1 mt-1">
                   <span>Total</span>
                   <span className="w-28 text-right">
-                    ₹{total.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                    ₹
+                    {total.toLocaleString("en-IN", {
+                      minimumFractionDigits: 2,
+                    })}
                   </span>
                 </div>
               </div>

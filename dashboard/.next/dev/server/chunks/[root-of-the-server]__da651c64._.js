@@ -1055,5 +1055,3 @@ module.exports = [
     }
   },
 ];
-
-
