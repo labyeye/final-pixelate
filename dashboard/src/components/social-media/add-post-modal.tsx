@@ -8,6 +8,7 @@ import {
   CONTENT_TYPES,
   POST_STATUSES,
   SOCIAL_PLATFORMS,
+  type SocialAccount,
   type SocialMediaPost,
 } from "@/lib/social-media-planner";
 import { MultiAccountSelector } from "./multi-account-selector";
@@ -71,6 +72,11 @@ export function AddPostModal({
   const [action, setAction] = useState<"draft" | "schedule">("draft");
   const [isMultipleMode, setIsMultipleMode] = useState(true);
   const [singleModeAccounts, setSingleModeAccounts] = useState<any[]>([]);
+  const [isAlreadyPosted, setIsAlreadyPosted] = useState(false);
+  const [postedLinksByAccount, setPostedLinksByAccount] = useState<
+    Record<string, string>
+  >({});
+  const [postedAccounts, setPostedAccounts] = useState<SocialAccount[]>([]);
   const isEditing = !!editingPost;
 
   useEffect(() => {
@@ -86,8 +92,64 @@ export function AddPostModal({
         setForm({ ...initialForm, clientId });
         setIsMultipleMode(true);
       }
+      setIsAlreadyPosted(false);
+      setPostedLinksByAccount({});
+      setPostedAccounts([]);
     }
   }, [isOpen, clientId, editingPost]);
+
+  useEffect(() => {
+    if (!isAlreadyPosted) {
+      setPostedAccounts([]);
+      return;
+    }
+
+    const accIds = isMultipleMode
+      ? form.socialAccountIds || []
+      : form.socialAccountId
+        ? [form.socialAccountId]
+        : [];
+
+    if (accIds.length === 0) {
+      setPostedAccounts([]);
+      return;
+    }
+
+    let cancelled = false;
+    const fetchAccounts = async () => {
+      try {
+        const promises = accIds.map((id) => {
+          const url = new URL(
+            "/api/social-media-accounts",
+            window.location.origin,
+          );
+          url.searchParams.set("id", id);
+          return fetch(url.toString(), { cache: "no-store" }).then((res) =>
+            res.ok ? res.json() : null,
+          );
+        });
+        const results = await Promise.all(promises);
+        if (cancelled) return;
+        const loaded = results
+          .map((d) => (Array.isArray(d) ? d[0] : d))
+          .filter(Boolean) as SocialAccount[];
+        setPostedAccounts(loaded);
+      } catch (e) {
+        console.error("Failed to fetch accounts for posted links:", e);
+        if (!cancelled) setPostedAccounts([]);
+      }
+    };
+
+    fetchAccounts();
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    isAlreadyPosted,
+    isMultipleMode,
+    form.socialAccountId,
+    form.socialAccountIds,
+  ]);
 
   useEffect(() => {
     if (!isMultipleMode || !clientId || !form.platform) return;
@@ -143,14 +205,18 @@ export function AddPostModal({
     }));
   };
 
-  const handleSave = async (saveAction: "draft" | "schedule") => {
+  const handleSave = async (saveAction: "draft" | "schedule" | "posted") => {
     if (
       !form.title ||
       !form.platform ||
       !form.scheduledDate ||
       !form.scheduledTime
     ) {
-      alert("Please fill title, platform, scheduled date and time.");
+      alert(
+        isAlreadyPosted
+          ? "Please fill title, platform, posted date and time."
+          : "Please fill title, platform, scheduled date and time.",
+      );
       return;
     }
 
@@ -168,18 +234,63 @@ export function AddPostModal({
       return;
     }
 
+    let postedAtIso: string | undefined;
+    let firstPostedLink = "";
+    let nonEmptyPostedLinks: Record<string, string> = {};
+
+    if (saveAction === "posted") {
+      const accIds = isMultipleMode
+        ? form.socialAccountIds || []
+        : form.socialAccountId
+          ? [form.socialAccountId]
+          : [];
+
+      nonEmptyPostedLinks = Object.fromEntries(
+        accIds
+          .map((id) => [id, (postedLinksByAccount[id] || "").trim()])
+          .filter(([, v]) => (v as string).length > 0),
+      );
+
+      if (Object.keys(nonEmptyPostedLinks).length === 0) {
+        alert("Please enter the posted link.");
+        return;
+      }
+
+      firstPostedLink = (Object.values(nonEmptyPostedLinks)[0] as string) || "";
+
+      const dt = new Date(
+        `${form.scheduledDate}T${form.scheduledTime}:00+05:30`,
+      );
+      if (Number.isNaN(dt.getTime())) {
+        alert("Invalid posted date or time.");
+        return;
+      }
+      postedAtIso = dt.toISOString();
+    }
+
     setSaving(true);
     try {
       const status =
-        saveAction === "schedule" ? ("Scheduled" as const) : ("Draft" as const);
-      const payload = {
+        saveAction === "posted"
+          ? ("Posted" as const)
+          : saveAction === "schedule"
+            ? ("Scheduled" as const)
+            : ("Draft" as const);
+      const payload: SocialMediaPost = {
         ...form,
         clientId,
         status,
         createdBy: createdBy || "",
       };
+      if (saveAction === "posted") {
+        payload.postedAt = postedAtIso;
+        payload.postedLink = firstPostedLink;
+        payload.postedLinks = nonEmptyPostedLinks;
+      }
       await onSave(payload);
       setForm(initialForm);
+      setPostedLinksByAccount({});
+      setIsAlreadyPosted(false);
       onClose();
     } catch (e: any) {
       console.error("Save error:", e);
@@ -328,10 +439,45 @@ export function AddPostModal({
           </div>
 
           {}
+          {!isEditing && (
+            <div
+              className={`flex items-center justify-between gap-3 rounded-md border-2 px-3 py-2 ${
+                isAlreadyPosted
+                  ? "border-green-500 bg-green-50"
+                  : "border-gray-200 bg-gray-50"
+              }`}
+            >
+              <div>
+                <label className="block text-sm font-semibold">
+                  Already Posted?
+                </label>
+                <p className="text-xs text-gray-600">
+                  Toggle on if this post has already gone live. We'll save the
+                  posted link, date and time.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsAlreadyPosted((v) => !v)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors shrink-0 ${
+                  isAlreadyPosted ? "bg-green-600" : "bg-gray-300"
+                }`}
+                aria-pressed={isAlreadyPosted}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    isAlreadyPosted ? "translate-x-6" : "translate-x-1"
+                  }`}
+                />
+              </button>
+            </div>
+          )}
+
+          {}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div>
               <label className="block text-sm font-semibold mb-1">
-                Schedule Date *
+                {isAlreadyPosted ? "Posted Date *" : "Schedule Date *"}
               </label>
               <Input
                 type="date"
@@ -341,7 +487,7 @@ export function AddPostModal({
             </div>
             <div>
               <label className="block text-sm font-semibold mb-1">
-                Schedule Time *
+                {isAlreadyPosted ? "Posted Time *" : "Schedule Time *"}
               </label>
               <Input
                 type="time"
@@ -367,6 +513,99 @@ export function AddPostModal({
               </select>
             </div>
           </div>
+
+          {}
+          {isAlreadyPosted &&
+            (() => {
+              const accIds = isMultipleMode
+                ? form.socialAccountIds || []
+                : form.socialAccountId
+                  ? [form.socialAccountId]
+                  : [];
+
+              if (accIds.length === 0) {
+                return (
+                  <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-xs text-amber-800">
+                    Select at least one social account above to enter its
+                    posted link.
+                  </div>
+                );
+              }
+
+              if (accIds.length === 1) {
+                const id = accIds[0];
+                const acc = postedAccounts.find(
+                  (a) => (a._id || a.id) === id,
+                );
+                return (
+                  <div>
+                    <label className="block text-sm font-semibold mb-1">
+                      Posted Link *
+                      {acc && (
+                        <span className="ml-2 text-xs font-normal text-gray-500">
+                          (@{acc.handle})
+                        </span>
+                      )}
+                    </label>
+                    <Input
+                      type="url"
+                      placeholder="https://instagram.com/p/..."
+                      value={postedLinksByAccount[id] || ""}
+                      onChange={(e) =>
+                        setPostedLinksByAccount((prev) => ({
+                          ...prev,
+                          [id]: e.target.value,
+                        }))
+                      }
+                    />
+                  </div>
+                );
+              }
+
+              return (
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold">
+                    Posted Links *
+                    <span className="ml-2 text-xs font-normal text-gray-500">
+                      (one per account)
+                    </span>
+                  </label>
+                  {accIds.map((id) => {
+                    const acc = postedAccounts.find(
+                      (a) => (a._id || a.id) === id,
+                    );
+                    const label = acc
+                      ? `@${acc.handle}${
+                          acc.displayName && acc.displayName !== acc.handle
+                            ? ` (${acc.displayName})`
+                            : ""
+                        }`
+                      : id;
+                    return (
+                      <div
+                        key={id}
+                        className="flex items-center gap-2 border rounded-md p-2"
+                      >
+                        <span className="text-xs font-semibold text-gray-700 w-44 truncate shrink-0">
+                          {label}
+                        </span>
+                        <Input
+                          type="url"
+                          placeholder="https://example.com/post/123"
+                          value={postedLinksByAccount[id] || ""}
+                          onChange={(e) =>
+                            setPostedLinksByAccount((prev) => ({
+                              ...prev,
+                              [id]: e.target.value,
+                            }))
+                          }
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
 
           {}
           <div className="grid grid-cols-1 gap-3">
@@ -624,6 +863,14 @@ export function AddPostModal({
           {isEditing ? (
             <Button onClick={() => handleSave("schedule")} disabled={saving}>
               {saving ? "Saving..." : "Save Changes"}
+            </Button>
+          ) : isAlreadyPosted ? (
+            <Button
+              onClick={() => handleSave("posted")}
+              disabled={saving}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              {saving ? "Saving..." : "Save as Posted"}
             </Button>
           ) : (
             <>

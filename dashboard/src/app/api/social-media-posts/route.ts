@@ -94,7 +94,7 @@ export async function POST(request: Request) {
 
     const col = await svc.getCollection("socialMediaPosts");
 
-    const toInsert = {
+    const toInsert: any = {
       clientId: body?.clientId || "",
       socialAccountId: body?.socialAccountId || "",
       socialAccountIds: body?.socialAccountIds || [],
@@ -114,6 +114,7 @@ export async function POST(request: Request) {
       approvalStatus: body?.approvalStatus || "Pending",
       notes: body?.notes || "",
       postedLink: body?.postedLink || "",
+      postedLinks: body?.postedLinks || {},
       createdBy: body?.createdBy || "",
       views: body?.views || 0,
       likes: body?.likes || 0,
@@ -123,6 +124,12 @@ export async function POST(request: Request) {
       createdAt: new Date(),
       updatedAt: new Date(),
     };
+
+    if (toInsert.status === "Posted") {
+      const postedAtRaw = body?.postedAt;
+      const parsed = postedAtRaw ? new Date(postedAtRaw) : new Date();
+      toInsert.postedAt = Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+    }
 
     const res = await col.insertOne(toInsert);
 
