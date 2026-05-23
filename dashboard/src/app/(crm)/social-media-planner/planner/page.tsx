@@ -39,6 +39,7 @@ import { SocialAccountsTable } from "@/components/social-media/social-accounts-t
 import { ViewPlanModal } from "@/components/social-media/view-plan-modal";
 import { PlatformIcon } from "@/components/social-media/platform-icon";
 import { PostLinksModal } from "@/components/social-media/post-links-modal";
+import { DuplicatePostModal } from "@/components/social-media/duplicate-post-modal";
 
 const statusBadge: Record<string, string> = {
   Draft: "bg-gray-100 text-gray-700",
@@ -85,6 +86,9 @@ export default function SocialMediaPlannerPage() {
   const [postForLinks, setPostForLinks] = useState<SocialMediaPost | null>(
     null,
   );
+  const [isDuplicateModalOpen, setIsDuplicateModalOpen] = useState(false);
+  const [duplicatingPost, setDuplicatingPost] =
+    useState<SocialMediaPost | null>(null);
   const [dropdownInfo, setDropdownInfo] = useState<{
     id: string;
     x: number;
@@ -255,12 +259,23 @@ export default function SocialMediaPlannerPage() {
     await loadPosts(selectedClientId);
   };
 
-  const duplicatePost = async (item: SocialMediaPost) => {
+  const openDuplicateModal = (item: SocialMediaPost) => {
+    setDuplicatingPost(item);
+    setIsDuplicateModalOpen(true);
+  };
+
+  const handleDuplicate = async (platform: string, accountIds: string[]) => {
+    if (!duplicatingPost) return;
     const payload = {
-      ...item,
-      title: `${item.title} (Copy)`,
-      status: "Draft" as const,
+      ...duplicatingPost,
+      title: duplicatingPost.title,
+      platform,
+      socialAccountIds: accountIds,
+      socialAccountId: accountIds[0] || "",
+      status: "Scheduled" as const,
       postedLink: "",
+      postedLinks: {},
+      postedAt: undefined,
     };
     delete (payload as any)._id;
     delete (payload as any).id;
@@ -270,10 +285,10 @@ export default function SocialMediaPlannerPage() {
       body: JSON.stringify(payload),
     });
     if (!res.ok) {
-      alert("Failed to duplicate post");
-      return;
+      throw new Error("Failed to duplicate post");
     }
     await loadPosts(selectedClientId);
+    setDuplicatingPost(null);
   };
 
   const updateStatus = async (
@@ -893,6 +908,17 @@ export default function SocialMediaPlannerPage() {
         onSave={handleSavePostedLinks}
       />
 
+      <DuplicatePostModal
+        isOpen={isDuplicateModalOpen}
+        post={duplicatingPost}
+        clientId={selectedClientId}
+        onClose={() => {
+          setIsDuplicateModalOpen(false);
+          setDuplicatingPost(null);
+        }}
+        onDuplicate={handleDuplicate}
+      />
+
       {}
       {dropdownInfo &&
         (() => {
@@ -945,7 +971,7 @@ export default function SocialMediaPlannerPage() {
                 </button>
                 <button
                   onClick={() => {
-                    duplicatePost(dp);
+                    openDuplicateModal(dp);
                     setDropdownInfo(null);
                   }}
                   className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700"

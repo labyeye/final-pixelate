@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import { SocialPlatform } from "@/lib/social-media-planner";
-import { PlatformLogo } from "./platform-logo";
+import { PlatformIcon } from "./platform-icon";
 
 interface SocialAccount {
   _id?: string;
@@ -92,8 +91,8 @@ export function MultiAccountSelector({
               key={acc._id || acc.id}
               className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm flex items-center gap-2"
             >
-              <PlatformLogo
-                platform={acc.platform as SocialPlatform}
+              <PlatformIcon
+                platform={acc.platform}
                 size="sm"
               />
               <span>{acc.displayName || acc.handle}</span>
@@ -130,8 +129,8 @@ export function MultiAccountSelector({
                 onClick={() => handleSelectAccount(acc)}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 border-b last:border-b-0 flex items-center gap-2"
               >
-                <PlatformLogo
-                  platform={acc.platform as SocialPlatform}
+                <PlatformIcon
+                  platform={acc.platform}
                   size="sm"
                 />
                 <div>
