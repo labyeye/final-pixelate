@@ -70,7 +70,11 @@ export function parseFbPostId(postUrl: string): {
   pageId: string | null;
 } {
   try {
-    const u = new URL(postUrl);
+    const normalizedUrl =
+      postUrl.startsWith("http://") || postUrl.startsWith("https://")
+        ? postUrl
+        : `https://${postUrl}`;
+    const u = new URL(normalizedUrl);
     const pathname = u.pathname;
 
     const reelMatch = pathname.match(/\/reel\/(\d+)/);
@@ -457,7 +461,7 @@ async function resolveIgMediaId(
 ): Promise<{ id: string | null; failReason: string }> {
   const normalised = permalink.replace(/\/$/, "").toLowerCase().trim();
   const shortcodeMatch = permalink.match(
-    /instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/,
+    /instagram\.com\/(?:p|reels?|tv)\/([A-Za-z0-9_-]+)/,
   );
 
   const shortcode = shortcodeMatch?.[1] || null;
@@ -511,7 +515,7 @@ async function resolveIgMediaId(
         .trim();
 
       const itemShortcodeMatch = itemPermalink.match(
-        /instagram\.com\/(?:p|reel|tv)\/([a-z0-9_-]+)/,
+        /instagram\.com\/(?:p|reels?|tv)\/([a-z0-9_-]+)/,
       );
       const itemShortcode = itemShortcodeMatch?.[1] || null;
 
