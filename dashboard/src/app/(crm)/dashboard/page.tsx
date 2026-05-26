@@ -168,6 +168,21 @@ export default function DashboardPage() {
           0,
         );
 
+        const leadsCount = (Array.isArray(leadsData) ? leadsData : []).length;
+        const newLeadsCount = (Array.isArray(leadsData) ? leadsData : []).filter(
+          (l: any) => l.status === "NEW" || l.status === "new",
+        ).length;
+        const activeProjectsCount = (projectsData || []).filter(
+          (p: any) => p.status === "IN PROGRESS",
+        ).length;
+        const openQuotationsCount = (quotationsData || []).filter(
+          (q: any) => q.status === "PENDING" || q.status === "SENT",
+        ).length;
+        const paidInvoicesCount = (invoicesData || []).filter(
+          (inv: any) => inv.status === "PAID",
+        ).length;
+        const netProfit = totalRevenue - totalExpense;
+
         setStats([
           {
             name: "clients",
@@ -192,6 +207,30 @@ export default function DashboardPage() {
             value: totalExpense,
             change: "-0.8%",
             changeType: "negative",
+          },
+          {
+            name: "leads",
+            value: leadsCount,
+            change: `${newLeadsCount} new`,
+            changeType: "positive",
+          },
+          {
+            name: "active projects",
+            value: activeProjectsCount,
+            change: "in progress",
+            changeType: "positive",
+          },
+          {
+            name: "net profit",
+            value: netProfit,
+            change: netProfit >= 0 ? "surplus" : "deficit",
+            changeType: netProfit >= 0 ? "positive" : "negative",
+          },
+          {
+            name: "open quotes",
+            value: openQuotationsCount,
+            change: `${paidInvoicesCount} paid invoices`,
+            changeType: "positive",
           },
         ]);
       } catch (e) {
@@ -496,38 +535,39 @@ export default function DashboardPage() {
           ) : (
             <>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {stats.map((stat) => (
-                  <Card key={stat.name} className="border-2 border-black">
-                    <CardHeader>
-                      <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
-                        {stat.name.toUpperCase()}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-5xl font-black text-primary tracking-tighter">
-                        {stat.name === "revenue" || stat.name === "expense" ? (
-                          <AnimatedNumber
-                            value={Number(stat.value || 0)}
-                            duration={1000}
-                            currency
-                          />
-                        ) : stat.name === "clients" ? (
-                          <AnimatedNumber
-                            value={Number(stat.value || 0)}
-                            duration={900}
-                          />
-                        ) : stat.name === "projects" ? (
-                          <AnimatedNumber
-                            value={Number(stat.value || 0)}
-                            duration={900}
-                          />
-                        ) : (
-                          stat.value
+                {stats.map((stat) => {
+                  const isCurrency = ["revenue", "expense", "net profit"].includes(stat.name);
+                  return (
+                    <Card key={stat.name} className="border-2 border-black">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
+                          {stat.name.toUpperCase()}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className={cn("text-4xl font-black tracking-tighter", stat.name === "net profit" && stat.changeType === "negative" ? "text-destructive" : "text-primary")}>
+                          {isCurrency ? (
+                            <AnimatedNumber
+                              value={Number(stat.value || 0)}
+                              duration={1000}
+                              currency
+                            />
+                          ) : (
+                            <AnimatedNumber
+                              value={Number(stat.value || 0)}
+                              duration={900}
+                            />
+                          )}
+                        </p>
+                        {stat.change && (
+                          <p className={cn("text-xs font-semibold mt-1", stat.changeType === "positive" ? "text-green-600" : "text-destructive")}>
+                            {stat.change}
+                          </p>
                         )}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
 
               {}

@@ -3365,7 +3365,7 @@ video {
   backdrop-filter: blur(10px);
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  min-width: 380px;
+  min-width: 760px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -3373,6 +3373,9 @@ video {
   z-index: 10000;
   padding: 8px 0;
   margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
 }
 .nav-item.has-dropdown:hover .dropdown-menu {
   opacity: 1;
@@ -3402,6 +3405,22 @@ video {
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
+}
+.dropdown-item-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: var(--primary);
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0;
+  text-align: center;
 }
 .dropdown-item-name {
   font-weight: 500;
@@ -3481,6 +3500,8 @@ video {
       max-height 0.3s ease,
       padding 0.3s ease;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
   }
   .nav-item.has-dropdown.active .dropdown-menu {
     max-height: 1000px;
