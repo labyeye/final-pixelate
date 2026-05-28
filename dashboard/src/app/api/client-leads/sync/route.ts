@@ -1,3 +1,5 @@
+export const maxDuration = 300;
+
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import * as svc from "@/lib/services";
@@ -108,9 +110,9 @@ async function fetchAdAccountLeads(
 
   while (nextUrl) {
     try {
-      const res = await fetch(nextUrl);
+      const res: Response = await fetch(nextUrl);
       lastStatus = res.status;
-      const data = await res.json();
+      const data: any = await res.json();
       if (data.error) {
         console.warn(
           `[LeadsSync] Ad account leads error [${adAccountId}] http=${res.status}:`,
@@ -152,8 +154,8 @@ async function fetchPageFormLeads(
         `${GRAPH}/${form.id}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&filtering=[{"field":"time_created","operator":"IN_RANGE","value":[${since},${until}]}]&limit=100&access_token=${pageToken}`;
       while (nextUrl) {
         try {
-          const res = await fetch(nextUrl);
-          const data = await res.json();
+          const res: Response = await fetch(nextUrl);
+          const data: any = await res.json();
           if (data.error) break;
           for (const lead of data.data || []) {
             leads.push({ ...lead, _formName: form.name });
@@ -341,58 +343,66 @@ export async function POST(request: Request) {
       `[LeadsSync] Total unique leads to process: ${allRawLeads.length}`,
     );
 
-    for (const ml of allRawLeads) {
+    // Bulk-fetch all existing leads for this client in one query to avoid
+    // N sequential findOne calls that cause 504 timeouts on large datasets.
+    const incomingMetaIds = allRawLeads.map((ml) => ml.id).filter(Boolean);
+    const incomingParsed = allRawLeads.map((ml) => {
       const f = parseFields(ml.field_data);
-      const phone = extractPhone(f);
-      const email = extractEmail(f);
-      const name = extractName(f);
+      return { ml, f, phone: extractPhone(f), email: extractEmail(f), name: extractName(f) };
+    });
+    const incomingPhones = incomingParsed.map((p) => p.phone).filter(Boolean);
+    const incomingEmails = incomingParsed.map((p) => p.email).filter(Boolean);
 
-      const existingById = await leadsCol.findOne({
-        clientId,
-        $or: [{ metaLeadId: ml.id }, { fbLeadId: ml.id }],
-      });
+    const orClauses: any[] = [];
+    if (incomingMetaIds.length) orClauses.push({ metaLeadId: { $in: incomingMetaIds } }, { fbLeadId: { $in: incomingMetaIds } });
+    if (incomingPhones.length) orClauses.push({ phone: { $in: incomingPhones } });
+    if (incomingEmails.length) orClauses.push({ email: { $in: incomingEmails } });
+
+    const existingLeads = orClauses.length
+      ? await leadsCol.find({ clientId, $or: orClauses }).toArray()
+      : [];
+
+    // Build in-memory lookup maps
+    const byMetaId = new Map<string, any>();
+    const byFbId = new Map<string, any>();
+    const byPhone = new Map<string, any>();
+    const byEmail = new Map<string, any>();
+    for (const doc of existingLeads) {
+      if (doc.metaLeadId) byMetaId.set(doc.metaLeadId, doc);
+      if (doc.fbLeadId) byFbId.set(doc.fbLeadId, doc);
+      if (doc.phone) byPhone.set(doc.phone, doc);
+      if (doc.email) byEmail.set(doc.email, doc);
+    }
+
+    const toInsert: any[] = [];
+    const bulkUpdates: any[] = [];
+
+    for (const { ml, f, phone, email, name } of incomingParsed) {
+      const existingById = byMetaId.get(ml.id) || byFbId.get(ml.id);
       if (existingById) {
         const patch: Record<string, any> = {};
         if (!existingById.metaLeadId) patch.metaLeadId = ml.id;
-        if (!existingById.campaignName && ml.campaign_name)
-          patch.campaignName = ml.campaign_name;
-        if (!existingById.campaignId && ml.campaign_id)
-          patch.campaignId = ml.campaign_id;
-        if (!existingById.adSetName && ml.adset_name)
-          patch.adSetName = ml.adset_name;
+        if (!existingById.campaignName && ml.campaign_name) patch.campaignName = ml.campaign_name;
+        if (!existingById.campaignId && ml.campaign_id) patch.campaignId = ml.campaign_id;
+        if (!existingById.adSetName && ml.adset_name) patch.adSetName = ml.adset_name;
         if (!existingById.adName && ml.ad_name) patch.adName = ml.ad_name;
         if (Object.keys(patch).length) {
-          await leadsCol.updateOne({ _id: existingById._id }, { $set: patch });
+          bulkUpdates.push({ updateOne: { filter: { _id: existingById._id }, update: { $set: patch } } });
         }
         skipped++;
         continue;
       }
 
-      if (phone || email) {
-        const orClauses: any[] = [];
-        if (phone) orClauses.push({ phone });
-        if (email) orClauses.push({ email });
-        const existingByContact = await leadsCol.findOne({
-          clientId,
-          $or: orClauses,
-        });
-        if (existingByContact) {
-          const patch: Record<string, any> = { metaLeadId: ml.id };
-          if (!existingByContact.campaignName && ml.campaign_name)
-            patch.campaignName = ml.campaign_name;
-          if (!existingByContact.campaignId && ml.campaign_id)
-            patch.campaignId = ml.campaign_id;
-          if (!existingByContact.adSetName && ml.adset_name)
-            patch.adSetName = ml.adset_name;
-          if (!existingByContact.adName && ml.ad_name)
-            patch.adName = ml.ad_name;
-          await leadsCol.updateOne(
-            { _id: existingByContact._id },
-            { $set: patch },
-          );
-          skipped++;
-          continue;
-        }
+      const existingByContact = (phone && byPhone.get(phone)) || (email && byEmail.get(email));
+      if (existingByContact) {
+        const patch: Record<string, any> = { metaLeadId: ml.id };
+        if (!existingByContact.campaignName && ml.campaign_name) patch.campaignName = ml.campaign_name;
+        if (!existingByContact.campaignId && ml.campaign_id) patch.campaignId = ml.campaign_id;
+        if (!existingByContact.adSetName && ml.adset_name) patch.adSetName = ml.adset_name;
+        if (!existingByContact.adName && ml.ad_name) patch.adName = ml.ad_name;
+        bulkUpdates.push({ updateOne: { filter: { _id: existingByContact._id }, update: { $set: patch } } });
+        skipped++;
+        continue;
       }
 
       if (clientId === KALAHANU_CLIENT_ID) {
@@ -403,7 +413,7 @@ export async function POST(request: Request) {
         }
       }
 
-      await leadsCol.insertOne({
+      toInsert.push({
         clientId,
         metaLeadId: ml.id,
         name,
@@ -422,8 +432,14 @@ export async function POST(request: Request) {
         createdAt: new Date(ml.created_time),
         syncedAt: new Date(),
       });
+      // Track in-memory so duplicate contacts within the same batch don't get double-inserted
+      if (phone) byPhone.set(phone, { phone });
+      if (email) byEmail.set(email, { email });
       synced++;
     }
+
+    if (bulkUpdates.length) await leadsCol.bulkWrite(bulkUpdates, { ordered: false });
+    if (toInsert.length) await leadsCol.insertMany(toInsert, { ordered: false });
 
     return NextResponse.json(
       {
