@@ -5,13 +5,8 @@
   "devFiles": [],
   "polyfillFiles": [],
   "lowPriorityFiles": [
-<<<<<<< HEAD
-    "static/t3bySP-GVive6BK3EDj-T/_ssgManifest.js",
-    "static/t3bySP-GVive6BK3EDj-T/_buildManifest.js"
-=======
-    "static/igxDL4ttGZLHd98VEblp5/_ssgManifest.js",
-    "static/igxDL4ttGZLHd98VEblp5/_buildManifest.js"
->>>>>>> e5cd8b99f (D)
+    "static/YIkFktKidPqLBBlg684vA/_ssgManifest.js",
+    "static/YIkFktKidPqLBBlg684vA/_buildManifest.js"
   ],
   "rootMainFiles": []
 }

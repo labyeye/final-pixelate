@@ -406,27 +406,26 @@ export async function publishFacebookPost(
     if (ptData.access_token) token = ptData.access_token;
   } catch {}
 
-  let endpoint = `${META_GRAPH_API}/${pageId}/feed`;
-  const params: Record<string, string> = {
-    message: caption,
-    access_token: token,
-  };
+  const isVideo =
+    mediaUrl != null &&
+    /\.(mp4|mov|avi|mkv|webm|m4v)(\?|$)/i.test(mediaUrl);
 
-  if (mediaUrl) {
-    const isVideo =
-      mediaUrl.toLowerCase().includes(".mp4") ||
-      mediaUrl.toLowerCase().includes(".mov");
-    endpoint = isVideo
-      ? `${META_GRAPH_API}/${pageId}/videos`
-      : `${META_GRAPH_API}/${pageId}/photos`;
+  let endpoint: string;
+  const params: Record<string, string> = { access_token: token };
 
-    if (isVideo) {
-      params.file_url = mediaUrl;
-      params.description = caption;
-    } else {
-      params.url = mediaUrl;
-      params.caption = caption;
-    }
+  if (!mediaUrl) {
+    endpoint = `${META_GRAPH_API}/${pageId}/feed`;
+    params.message = caption;
+  } else if (isVideo) {
+    // /videos endpoint uses 'description', not 'message'
+    endpoint = `${META_GRAPH_API}/${pageId}/videos`;
+    params.file_url = mediaUrl;
+    params.description = caption;
+  } else {
+    // /photos endpoint uses 'caption', not 'message'
+    endpoint = `${META_GRAPH_API}/${pageId}/photos`;
+    params.url = mediaUrl;
+    params.caption = caption;
   }
 
   const url = new URL(endpoint);
@@ -436,9 +435,9 @@ export async function publishFacebookPost(
   const data = await res.json();
 
   if (!res.ok || data.error) {
-    throw new Error(
-      `FB Publishing Failed: ${data.error?.message || res.statusText}`,
-    );
+    const errMsg = data.error?.message || res.statusText;
+    const errDetail = data.error?.code ? ` [code ${data.error.code}${data.error.error_subcode ? `/${data.error.error_subcode}` : ""}]` : "";
+    throw new Error(`FB Publishing Failed: ${errMsg}${errDetail}`);
   }
 
   const id = data.id || data.post_id;
@@ -736,12 +735,10 @@ export async function fetchIgMediaMetrics(
   let views = 0;
   let shares = 0;
   let followers_gained = 0;
-  let insightError = "";
 
   const viewMetrics = isReel
     ? ["ig_reels_video_view_total_count", "reach", "plays"]
     : ["reach", "total_interactions"];
-  const extraMetrics = ["shares", "saved"];
 
   async function fetchInsight(metric: string): Promise<number> {
     try {
@@ -758,7 +755,6 @@ export async function fetchIgMediaMetrics(
             `[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`,
           );
         } else {
-          insightError = data.error.message;
           console.warn(
             `[IG insights] error for "${metric}" on ${mediaId}: ${data.error.message}`,
           );
