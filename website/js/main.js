@@ -754,3 +754,20 @@ function gtag() {
       ? document.addEventListener("DOMContentLoaded", e)
       : e();
   })());
+
+(function () {
+  var rows = document.querySelectorAll(".pn-prod-row");
+  if (!rows.length) return;
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("pn-anim-done");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  rows.forEach(function (row) { obs.observe(row); });
+})();
