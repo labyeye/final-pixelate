@@ -88,13 +88,21 @@ async function getAdAccounts(
   }
 }
 
+function todayUnixRange(): { since: number; until: number } {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+  const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+  return { since: Math.floor(start.getTime() / 1000), until: Math.floor(end.getTime() / 1000) };
+}
+
 async function fetchAdAccountLeads(
   adAccountId: string,
   token: string,
 ): Promise<{ leads: any[]; error?: any; httpStatus?: number }> {
+  const { since, until } = todayUnixRange();
   const leads: any[] = [];
   let nextUrl: string | null =
-    `${GRAPH}/${adAccountId}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&limit=100&access_token=${token}`;
+    `${GRAPH}/${adAccountId}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&filtering=[{"field":"time_created","operator":"IN_RANGE","value":[${since},${until}]}]&limit=100&access_token=${token}`;
   let firstError: any = undefined;
   let lastStatus: number | undefined = undefined;
 
@@ -130,6 +138,7 @@ async function fetchPageFormLeads(
   pageId: string,
   pageToken: string,
 ): Promise<any[]> {
+  const { since, until } = todayUnixRange();
   const leads: any[] = [];
   try {
     const formsRes = await fetch(
@@ -140,7 +149,7 @@ async function fetchPageFormLeads(
 
     for (const form of formsData.data || []) {
       let nextUrl: string | null =
-        `${GRAPH}/${form.id}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&limit=100&access_token=${pageToken}`;
+        `${GRAPH}/${form.id}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&filtering=[{"field":"time_created","operator":"IN_RANGE","value":[${since},${until}]}]&limit=100&access_token=${pageToken}`;
       while (nextUrl) {
         try {
           const res = await fetch(nextUrl);
