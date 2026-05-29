@@ -739,7 +739,7 @@ export async function fetchIgMediaMetrics(
   let insightError = "";
 
   const viewMetrics = isReel
-    ? ["reach", "ig_reels_video_view_total_time"]
+    ? ["ig_reels_video_view_total_count", "reach", "plays"]
     : ["reach", "total_interactions"];
   const extraMetrics = ["shares", "saved"];
 
