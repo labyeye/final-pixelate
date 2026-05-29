@@ -90,7 +90,7 @@ export function DuplicatePostModal({
             </label>
             <MultiAccountSelector
               clientId={clientId}
-              platform={platform}
+              platforms={[platform]}
               value={accountIds}
               onChange={(ids) => setAccountIds(ids)}
             />

@@ -58,6 +58,7 @@ export type SocialMediaPost = {
   clientId?: string;
   socialAccountId?: string;
   socialAccountIds?: string[];
+  platforms?: string[];
   title: string;
   platform: SocialPlatform;
   contentType: ContentType;

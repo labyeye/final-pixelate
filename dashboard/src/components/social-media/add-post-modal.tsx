@@ -6,14 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
   CONTENT_TYPES,
-  POST_STATUSES,
   SOCIAL_PLATFORMS,
   type SocialAccount,
   type SocialMediaPost,
 } from "@/lib/social-media-planner";
 import { MultiAccountSelector } from "./multi-account-selector";
 import { PlatformIcon } from "./platform-icon";
-import { PlatformSelector } from "./platform-selector";
 
 interface AddPostModalProps {
   isOpen: boolean;
@@ -41,6 +39,7 @@ const initialForm: SocialMediaPost = {
   socialAccountIds: [],
   title: "",
   platform: "Instagram",
+  platforms: [],
   contentType: "Image Post",
   caption: "",
   hashtags: "",
@@ -69,9 +68,6 @@ export function AddPostModal({
 }: AddPostModalProps) {
   const [form, setForm] = useState<SocialMediaPost>(initialForm);
   const [saving, setSaving] = useState(false);
-  const [action, setAction] = useState<"draft" | "schedule">("draft");
-  const [isMultipleMode, setIsMultipleMode] = useState(true);
-  const [singleModeAccounts, setSingleModeAccounts] = useState<any[]>([]);
   const [isAlreadyPosted, setIsAlreadyPosted] = useState(false);
   const [postedLinksByAccount, setPostedLinksByAccount] = useState<
     Record<string, string>
@@ -82,15 +78,15 @@ export function AddPostModal({
   useEffect(() => {
     if (isOpen) {
       if (editingPost) {
-        setForm(editingPost);
-
-        setIsMultipleMode(
-          (editingPost.socialAccountIds?.length ?? 0) > 1 ||
-            (editingPost.socialAccountIds?.length ?? 0) === 0,
-        );
+        const platforms =
+          editingPost.platforms && editingPost.platforms.length > 0
+            ? editingPost.platforms
+            : editingPost.platform
+              ? [editingPost.platform]
+              : [];
+        setForm({ ...editingPost, platforms });
       } else {
         setForm({ ...initialForm, clientId });
-        setIsMultipleMode(true);
       }
       setIsAlreadyPosted(false);
       setPostedLinksByAccount({});
@@ -104,11 +100,7 @@ export function AddPostModal({
       return;
     }
 
-    const accIds = isMultipleMode
-      ? form.socialAccountIds || []
-      : form.socialAccountId
-        ? [form.socialAccountId]
-        : [];
+    const accIds = form.socialAccountIds || [];
 
     if (accIds.length === 0) {
       setPostedAccounts([]);
@@ -144,39 +136,20 @@ export function AddPostModal({
     return () => {
       cancelled = true;
     };
-  }, [
-    isAlreadyPosted,
-    isMultipleMode,
-    form.socialAccountId,
-    form.socialAccountIds,
-  ]);
-
-  useEffect(() => {
-    if (!isMultipleMode || !clientId || !form.platform) return;
-
-    const loadAccounts = async () => {
-      try {
-        const url = new URL(
-          "/api/social-media-accounts",
-          window.location.origin,
-        );
-        url.searchParams.set("clientId", clientId);
-        url.searchParams.set("platform", form.platform);
-        const res = await fetch(url.toString(), { cache: "no-store" });
-        if (res.ok) {
-          const data = await res.json();
-          setSingleModeAccounts(Array.isArray(data) ? data : []);
-        }
-      } catch (e) {
-        console.error("Failed to load accounts:", e);
-      }
-    };
-
-    loadAccounts();
-  }, [isMultipleMode, clientId, form.platform]);
+  }, [isAlreadyPosted, form.socialAccountIds]);
 
   const handleChange = (key: keyof SocialMediaPost, value: string) => {
     setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handlePlatformsChange = (selectedPlatforms: string[]) => {
+    setForm((prev) => ({
+      ...prev,
+      platforms: selectedPlatforms,
+      platform: (selectedPlatforms[0] as any) || prev.platform,
+      socialAccountId: "",
+      socialAccountIds: [],
+    }));
   };
 
   const handleAccountsChange = (accountIds: string[]) => {
@@ -187,42 +160,26 @@ export function AddPostModal({
     }));
   };
 
-  const handleSingleAccountChange = (accountId: string) => {
-    setForm((prev) => ({
-      ...prev,
-      socialAccountId: accountId,
-      socialAccountIds: accountId ? [accountId] : [],
-    }));
-  };
-
-  const toggleMode = () => {
-    setIsMultipleMode(!isMultipleMode);
-
-    setForm((prev) => ({
-      ...prev,
-      socialAccountId: "",
-      socialAccountIds: [],
-    }));
-  };
-
   const handleSave = async (saveAction: "draft" | "schedule" | "posted") => {
     if (
       !form.title ||
-      !form.platform ||
       !form.scheduledDate ||
       !form.scheduledTime
     ) {
       alert(
         isAlreadyPosted
-          ? "Please fill title, platform, posted date and time."
-          : "Please fill title, platform, scheduled date and time.",
+          ? "Please fill title, posted date and time."
+          : "Please fill title, scheduled date and time.",
       );
       return;
     }
 
-    const hasAccount = isMultipleMode
-      ? form.socialAccountIds && form.socialAccountIds.length > 0
-      : form.socialAccountId;
+    if (!form.platforms || form.platforms.length === 0) {
+      alert("Please select at least one platform.");
+      return;
+    }
+
+    const hasAccount = form.socialAccountIds && form.socialAccountIds.length > 0;
 
     if (!hasAccount) {
       alert("Please select at least one social account.");
@@ -239,11 +196,7 @@ export function AddPostModal({
     let nonEmptyPostedLinks: Record<string, string> = {};
 
     if (saveAction === "posted") {
-      const accIds = isMultipleMode
-        ? form.socialAccountIds || []
-        : form.socialAccountId
-          ? [form.socialAccountId]
-          : [];
+      const accIds = form.socialAccountIds || [];
 
       nonEmptyPostedLinks = Object.fromEntries(
         accIds
@@ -333,7 +286,7 @@ export function AddPostModal({
         {}
         <div className="p-6 space-y-4">
           {}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-semibold mb-1">
                 Post Title *
@@ -344,11 +297,6 @@ export function AddPostModal({
                 onChange={(e) => handleChange("title", e.target.value)}
               />
             </div>
-            <PlatformSelector
-              value={form.platform}
-              onChange={(val) => handleChange("platform", val)}
-              label="Platform"
-            />
             <div>
               <label className="block text-sm font-semibold mb-1">
                 Content Type *
@@ -369,6 +317,52 @@ export function AddPostModal({
 
           {}
           <div>
+            <label className="block text-sm font-semibold mb-2">
+              Platforms *{" "}
+              <span className="text-xs font-normal text-gray-400">
+                (select one or more)
+              </span>
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {SOCIAL_PLATFORMS.map((p) => {
+                const selected = (form.platforms || []).includes(p);
+                return (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => {
+                      const current = form.platforms || [];
+                      const next = selected
+                        ? current.filter((x) => x !== p)
+                        : [...current, p];
+                      handlePlatformsChange(next);
+                    }}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm font-medium transition-colors ${
+                      selected
+                        ? "border-blue-600 bg-blue-50 text-blue-700"
+                        : "border-gray-300 bg-white text-gray-600 hover:border-gray-400"
+                    }`}
+                  >
+                    <PlatformIcon platform={p} size="sm" />
+                    {p}
+                    {selected && (
+                      <span className="text-blue-500 font-bold leading-none">
+                        ✓
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+            {(form.platforms || []).length === 0 && (
+              <p className="text-xs text-amber-600 mt-1">
+                Please select at least one platform.
+              </p>
+            )}
+          </div>
+
+          {}
+          <div>
             <label className="block text-sm font-semibold mb-1">
               Campaign / Project
             </label>
@@ -381,61 +375,15 @@ export function AddPostModal({
 
           {}
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-semibold">
-                Social Accounts *
-              </label>
-              <div className="flex items-center gap-2">
-                <span
-                  className={`text-xs font-medium ${isMultipleMode ? "text-gray-400" : "text-gray-700"}`}
-                >
-                  Single
-                </span>
-                <button
-                  onClick={toggleMode}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    isMultipleMode ? "bg-blue-600" : "bg-gray-300"
-                  }`}
-                  type="button"
-                >
-                  <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                      isMultipleMode ? "translate-x-6" : "translate-x-1"
-                    }`}
-                  />
-                </button>
-                <span
-                  className={`text-xs font-medium ${isMultipleMode ? "text-gray-700" : "text-gray-400"}`}
-                >
-                  Multiple
-                </span>
-              </div>
-            </div>
-
-            {isMultipleMode ? (
-              <MultiAccountSelector
-                clientId={clientId}
-                platform={form.platform}
-                value={form.socialAccountIds || []}
-                onChange={(accountIds) => handleAccountsChange(accountIds)}
-              />
-            ) : (
-              <select
-                value={form.socialAccountId || ""}
-                onChange={(e) => handleSingleAccountChange(e.target.value)}
-                className="border rounded-md p-2 w-full bg-white"
-              >
-                <option value="">Select an account...</option>
-                {singleModeAccounts.map((account) => (
-                  <option
-                    key={account._id || account.id}
-                    value={account._id || account.id}
-                  >
-                    {account.displayName || account.handle}
-                  </option>
-                ))}
-              </select>
-            )}
+            <label className="block text-sm font-semibold mb-2">
+              Social Accounts *
+            </label>
+            <MultiAccountSelector
+              clientId={clientId}
+              platforms={form.platforms || []}
+              value={form.socialAccountIds || []}
+              onChange={(accountIds) => handleAccountsChange(accountIds)}
+            />
           </div>
 
           {}
@@ -517,11 +465,7 @@ export function AddPostModal({
           {}
           {isAlreadyPosted &&
             (() => {
-              const accIds = isMultipleMode
-                ? form.socialAccountIds || []
-                : form.socialAccountId
-                  ? [form.socialAccountId]
-                  : [];
+              const accIds = form.socialAccountIds || [];
 
               if (accIds.length === 0) {
                 return (
