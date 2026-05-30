@@ -395,6 +395,7 @@ export async function publishFacebookPost(
   pageToken: string,
   caption: string,
   mediaUrl?: string,
+  mediaType: "IMAGE" | "VIDEO" | "REEL" = "IMAGE",
 ): Promise<{ id: string; permalink: string }> {
   let token = pageToken;
   try {
@@ -408,7 +409,9 @@ export async function publishFacebookPost(
 
   const isVideo =
     mediaUrl != null &&
-    /\.(mp4|mov|avi|mkv|webm|m4v)(\?|$)/i.test(mediaUrl);
+    (mediaType === "VIDEO" ||
+      mediaType === "REEL" ||
+      /\.(mp4|mov|avi|mkv|webm|m4v)(\?|$)/i.test(mediaUrl));
 
   let endpoint: string;
   const params: Record<string, string> = { access_token: token };

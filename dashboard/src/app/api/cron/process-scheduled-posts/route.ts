@@ -123,7 +123,11 @@ export async function GET(request: NextRequest) {
           } else if (platform === "Facebook") {
             const fbId = account?.platformAccountId;
             if (!fbId) throw new Error(`Facebook Page ID (platformAccountId) missing for account ${accountId}`);
-            publishRes = await publishFacebookPost(fbId, effectiveToken, caption, mediaUrl);
+            const isFbVideo =
+              post.contentType === "Reel" ||
+              post.contentType === "Video" ||
+              /\.(mp4|mov|avi|mkv|webm|m4v)(\?|$)/i.test(mediaUrl || "");
+            publishRes = await publishFacebookPost(fbId, effectiveToken, caption, mediaUrl, isFbVideo ? "VIDEO" : "IMAGE");
           } else {
             accountResults.push({ accountId, status: "Skipped", error: `Platform "${platform}" auto-posting not supported` });
             continue;
