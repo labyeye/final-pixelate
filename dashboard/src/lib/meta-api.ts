@@ -384,16 +384,33 @@ export async function publishInstagramPost(
     );
   }
 
-  const mediaDetailsUrl = new URL(`${META_GRAPH_API}/${publishData.id}`);
-  mediaDetailsUrl.searchParams.set("fields", "permalink");
-  mediaDetailsUrl.searchParams.set("access_token", accessToken);
-  const mediaDetailsRes = await fetch(mediaDetailsUrl.toString());
-  const mediaDetailsData = await mediaDetailsRes.json();
+  // Instagram sometimes needs a moment before the permalink is available
+  const permalink = await fetchIgPermalink(publishData.id, accessToken);
 
-  return {
-    id: publishData.id,
-    permalink: mediaDetailsData.permalink || "",
-  };
+  return { id: publishData.id, permalink };
+}
+
+async function fetchIgPermalink(
+  mediaId: string,
+  accessToken: string,
+): Promise<string> {
+  for (let attempt = 0; attempt < 4; attempt++) {
+    if (attempt > 0) await new Promise((r) => setTimeout(r, 3000));
+    try {
+      const url = new URL(`${META_GRAPH_API}/${mediaId}`);
+      url.searchParams.set("fields", "permalink,shortcode,media_type");
+      url.searchParams.set("access_token", accessToken);
+      const res = await fetch(url.toString());
+      const data = await res.json();
+      if (data.permalink) return data.permalink;
+      // Fallback: construct from shortcode
+      if (data.shortcode) {
+        const type = data.media_type === "VIDEO" ? "reel" : "p";
+        return `https://www.instagram.com/${type}/${data.shortcode}/`;
+      }
+    } catch {}
+  }
+  return "";
 }
 
 export async function publishFacebookPost(
@@ -449,17 +466,49 @@ export async function publishFacebookPost(
     throw new Error(`FB Publishing Failed: ${errMsg}${errDetail}`);
   }
 
-  const id = data.id || data.post_id;
-  const detailsUrl = new URL(`${META_GRAPH_API}/${id}`);
-  detailsUrl.searchParams.set("fields", "permalink_url");
-  detailsUrl.searchParams.set("access_token", token);
-  const detailsRes = await fetch(detailsUrl.toString());
-  const detailsData = await detailsRes.json();
+  // For photo posts: data.post_id is the timeline post ID (has permalink_url).
+  // data.id is the raw photo node ID whose URL is just a photo page, not the post.
+  // For video/feed posts: data.id is already the correct node.
+  const nodeId = data.post_id || data.id;
+  const permalink = await fetchFbPermalink(nodeId, pageId, isVideo, token);
 
-  return {
-    id,
-    permalink: detailsData.permalink_url || "",
-  };
+  return { id: nodeId, permalink };
+}
+
+async function fetchFbPermalink(
+  nodeId: string,
+  pageId: string,
+  isVideo: boolean,
+  token: string,
+): Promise<string> {
+  // Try Graph API permalink_url first
+  try {
+    const url = new URL(`${META_GRAPH_API}/${nodeId}`);
+    url.searchParams.set("fields", "permalink_url");
+    url.searchParams.set("access_token", token);
+    const res = await fetch(url.toString());
+    const data = await res.json();
+    if (data.permalink_url) return data.permalink_url;
+  } catch {}
+
+  // Fallback: try as a page-scoped post node ({page_id}_{post_id})
+  if (!nodeId.includes("_")) {
+    try {
+      const compositeId = `${pageId}_${nodeId}`;
+      const url = new URL(`${META_GRAPH_API}/${compositeId}`);
+      url.searchParams.set("fields", "permalink_url");
+      url.searchParams.set("access_token", token);
+      const res = await fetch(url.toString());
+      const data = await res.json();
+      if (data.permalink_url) return data.permalink_url;
+    } catch {}
+  }
+
+  // Last-resort: construct URL from known Facebook patterns
+  if (isVideo) return `https://www.facebook.com/video/${nodeId}`;
+  // For photos/feed the composite ID contains the post part after underscore
+  const postPart = nodeId.includes("_") ? nodeId.split("_")[1] : nodeId;
+  return `https://www.facebook.com/permalink.php?story_fbid=${postPart}&id=${pageId}`;
 }
 
 async function resolveIgMediaId(
