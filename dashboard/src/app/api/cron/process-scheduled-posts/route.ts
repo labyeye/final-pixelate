@@ -5,6 +5,7 @@ import { toDateTime } from "@/lib/social-media-planner";
 import { ObjectId } from "mongodb";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 300;
 
 export async function GET(request: NextRequest) {
   const secret =

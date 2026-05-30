@@ -3,6 +3,9 @@
   "functions": {
     "/api/client-leads/sync": {
       "maxDuration": 300
+    },
+    "/api/cron/process-scheduled-posts": {
+      "maxDuration": 300
     }
   }
 }

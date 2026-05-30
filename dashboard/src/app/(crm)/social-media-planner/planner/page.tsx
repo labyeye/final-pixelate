@@ -344,21 +344,26 @@ export default function SocialMediaPlannerPage() {
     const postId = String(postForLinks._id || postForLinks.id || "");
     if (!postId) return;
 
-    const nonEmptyLinks = Object.fromEntries(
-      Object.entries(links).filter(
-        ([, link]) => String(link || "").trim().length > 0,
-      ),
-    );
-    const firstLink = Object.values(nonEmptyLinks)[0] || "";
+    let body: Record<string, any>;
+
+    if ("__direct__" in links) {
+      // Fallback mode: old post with no account record — save to postedLink only
+      const link = String(links.__direct__ || "").trim();
+      body = { status: "Posted", postedLink: link };
+    } else {
+      const nonEmptyLinks = Object.fromEntries(
+        Object.entries(links).filter(
+          ([, link]) => String(link || "").trim().length > 0,
+        ),
+      );
+      const firstLink = Object.values(nonEmptyLinks)[0] || "";
+      body = { status: "Posted", postedLink: firstLink, postedLinks: nonEmptyLinks };
+    }
 
     const res = await fetch(`/api/social-media-posts/${postId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        status: "Posted",
-        postedLink: firstLink,
-        postedLinks: nonEmptyLinks,
-      }),
+      body: JSON.stringify(body),
     });
 
     if (!res.ok) {

@@ -345,10 +345,10 @@ export async function publishInstagramPost(
 
   let ready = false;
   let attempts = 0;
-  while (!ready && attempts < 10) {
+  while (!ready && attempts < 24) {
     attempts++;
     const statusUrl = new URL(`${META_GRAPH_API}/${containerId}`);
-    statusUrl.searchParams.set("fields", "status_code");
+    statusUrl.searchParams.set("fields", "status_code,status");
     statusUrl.searchParams.set("access_token", accessToken);
 
     const statusRes = await fetch(statusUrl.toString());
@@ -358,11 +358,17 @@ export async function publishInstagramPost(
       ready = true;
     } else if (statusData.status_code === "ERROR") {
       throw new Error(
-        `IG Media Processing Failed: ${statusData.error_message || "Unknown error"}`,
+        `IG Media Processing Failed: ${statusData.status || statusData.error_message || "Unknown error"}`,
       );
     } else {
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
+  }
+
+  if (!ready) {
+    throw new Error(
+      `IG Media Processing Timeout: Video (container ${containerId}) still processing after 2 minutes. Instagram pe bada ya unoptimized video hai — compress karke dobara try karein.`,
+    );
   }
 
   const publishUrl = new URL(`${META_GRAPH_API}/${igAccountId}/media_publish`);
