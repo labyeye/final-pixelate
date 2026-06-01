@@ -17,7 +17,11 @@
       "Bash(wc -l /Users/labh/Desktop/Projects/final-pixelate/website/*.html /Users/labh/Desktop/Projects/final-pixelate/website/pages/*.html)",
       "WebFetch(domain:www.pixelatenest.com)",
       "Skill(schedule)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks/\\\\[id\\\\] && mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/\\\\\\(crm\\\\\\)/social-media-manager)"
+    ],
+    "additionalDirectories": [
+      "/Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks"
     ]
   }
 }

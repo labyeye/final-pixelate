@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import * as XLSX from "xlsx";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
@@ -20,10 +21,9 @@ import {
   faCopy,
   faCalendarDays,
   faCheck,
-  faTriangleExclamation as faMissed,
   faTrash,
   faComment,
-  faCheckCircle,
+  faUpload,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -67,9 +67,35 @@ const approvalIconColor: Record<string, string> = {
   Rejected: "text-red-600",
 };
 
+// Isolated so it can be wrapped in <Suspense> — useSearchParams() requires it
+function MetaBannerSync({
+  setMetaBanner,
+}: {
+  setMetaBanner: React.Dispatch<
+    React.SetStateAction<{ type: "success" | "error"; message: string } | null>
+  >;
+}) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const connected = searchParams?.get("meta_connected");
+    const metaError = searchParams?.get("meta_error");
+    if (connected) {
+      setMetaBanner({
+        type: "success",
+        message: `Successfully connected ${connected} account(s) to Meta. You can now sync metrics from the Analytics page.`,
+      });
+    } else if (metaError) {
+      setMetaBanner({
+        type: "error",
+        message: `Meta connection failed: ${decodeURIComponent(metaError)}`,
+      });
+    }
+  }, [searchParams, setMetaBanner]);
+  return null;
+}
+
 export default function SocialMediaPlannerPage() {
   const { user } = useAuth();
-  const searchParams = useSearchParams();
   const [metaBanner, setMetaBanner] = useState<{
     type: "success" | "error";
     message: string;
@@ -127,21 +153,87 @@ export default function SocialMediaPlannerPage() {
     }
   };
 
-  useEffect(() => {
-    const connected = searchParams?.get("meta_connected");
-    const metaError = searchParams?.get("meta_error");
-    if (connected) {
-      setMetaBanner({
-        type: "success",
-        message: `Successfully connected ${connected} account(s) to Meta. You can now sync metrics from the Analytics page.`,
-      });
-    } else if (metaError) {
-      setMetaBanner({
-        type: "error",
-        message: `Meta connection failed: ${decodeURIComponent(metaError)}`,
-      });
+  const importFileRef = useRef<HTMLInputElement>(null);
+  const [importing, setImporting] = useState(false);
+
+  const handleExcelImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !selectedClientId) return;
+    setImporting(true);
+    try {
+      const buffer = await file.arrayBuffer();
+      const wb = XLSX.read(new Uint8Array(buffer), { type: "array" });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows: any[] = XLSX.utils.sheet_to_json(ws, { defval: "" });
+
+      let created = 0;
+      let skipped = 0;
+      for (const row of rows) {
+        const title = String(row["Title"] || row["title"] || "").trim();
+        const scheduledDate = String(
+          row["Scheduled Date"] || row["scheduled_date"] || "",
+        ).trim();
+        const scheduledTime = String(
+          row["Scheduled Time"] || row["scheduled_time"] || "",
+        ).trim();
+        if (!title || !scheduledDate || !scheduledTime) {
+          skipped++;
+          continue;
+        }
+
+        const platform = String(
+          row["Platform"] || row["platform"] || "Instagram",
+        ).trim();
+        const contentType = String(
+          row["Content Type"] || row["content_type"] || "Image Post",
+        ).trim();
+
+        const post: any = {
+          clientId: selectedClientId,
+          title,
+          platform,
+          platforms: [platform],
+          socialAccountId: "",
+          socialAccountIds: [],
+          contentType,
+          caption: String(row["Caption"] || row["caption"] || "").trim(),
+          hashtags: String(row["Hashtags"] || row["hashtags"] || "").trim(),
+          mediaFile: String(row["Media URL"] || row["media_url"] || "").trim(),
+          reelLink: String(
+            row["Reel Video Link"] || row["reel_link"] || "",
+          ).trim(),
+          scheduledDate,
+          scheduledTime,
+          assignedTo: String(
+            row["Assigned To"] || row["assigned_to"] || "",
+          ).trim(),
+          campaign: String(row["Campaign"] || row["campaign"] || "").trim(),
+          notes: String(row["Notes"] || row["notes"] || "").trim(),
+          status: "Scheduled",
+          approvalStatus: String(
+            row["Approval Status"] || row["approval_status"] || "Pending",
+          ).trim(),
+        };
+
+        await fetch("/api/social-media-posts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(post),
+        });
+        created++;
+      }
+
+      alert(
+        `Import done: ${created} posts created, ${skipped} rows skipped (missing Title/Date/Time).`,
+      );
+      await loadPosts(selectedClientId);
+    } catch (err: any) {
+      alert(`Import failed: ${err.message}`);
+    } finally {
+      setImporting(false);
+      if (importFileRef.current) importFileRef.current.value = "";
     }
-  }, [searchParams]);
+  };
 
   useEffect(() => {
     (async () => {
@@ -357,7 +449,11 @@ export default function SocialMediaPlannerPage() {
         ),
       );
       const firstLink = Object.values(nonEmptyLinks)[0] || "";
-      body = { status: "Posted", postedLink: firstLink, postedLinks: nonEmptyLinks };
+      body = {
+        status: "Posted",
+        postedLink: firstLink,
+        postedLinks: nonEmptyLinks,
+      };
     }
 
     const res = await fetch(`/api/social-media-posts/${postId}`, {
@@ -416,6 +512,11 @@ export default function SocialMediaPlannerPage() {
 
   return (
     <div className="space-y-6 font-headline">
+      {/* searchParams reader — must live inside Suspense */}
+      <Suspense fallback={null}>
+        <MetaBannerSync setMetaBanner={setMetaBanner} />
+      </Suspense>
+
       {}
       {metaBanner && (
         <div
@@ -597,14 +698,35 @@ export default function SocialMediaPlannerPage() {
               )}
             </div>
           </div>
-          <Button
-            onClick={() => setIsModalOpen(true)}
-            size="sm"
-            className="gap-2 flex-shrink-0"
-          >
-            <FontAwesomeIcon icon={faPlus} className="w-3 h-3" />
-            Add Plan
-          </Button>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {/* hidden file input for Excel import */}
+            <input
+              ref={importFileRef}
+              type="file"
+              accept=".xlsx,.xls"
+              className="hidden"
+              onChange={handleExcelImport}
+            />
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2 border-2 border-black"
+              disabled={importing || !selectedClientId}
+              onClick={() => importFileRef.current?.click()}
+              title="Import posts from Excel (.xlsx)"
+            >
+              <FontAwesomeIcon icon={faUpload} className="w-3 h-3" />
+              {importing ? "Importing…" : "Import Excel"}
+            </Button>
+            <Button
+              onClick={() => setIsModalOpen(true)}
+              size="sm"
+              className="gap-2"
+            >
+              <FontAwesomeIcon icon={faPlus} className="w-3 h-3" />
+              Add Plan
+            </Button>
+          </div>
         </section>
       )}
       {selectedClientId && (

@@ -1325,6 +1325,24 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/social-media-tasks/[id]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/social-media-tasks/[id]">> = Specific
+  const handler = {} as typeof import("../../src/app/api/social-media-tasks/[id]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/social-media-tasks/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/social-media-tasks">> = Specific
+  const handler = {} as typeof import("../../src/app/api/social-media-tasks/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/support-tickets/[id]/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/support-tickets/[id]">> = Specific

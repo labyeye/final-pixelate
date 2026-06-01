@@ -776,6 +776,7 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+<<<<<<< HEAD
 // Validate ../../../src/app/api/content-plans/[id]/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/content-plans/[id]">> = Specific
@@ -803,6 +804,8 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+=======
+>>>>>>> 33d44498e (D)
 // Validate ../../../src/app/api/cron/process-scheduled-posts/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/cron/process-scheduled-posts">> = Specific
@@ -1325,6 +1328,27 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+<<<<<<< HEAD
+=======
+// Validate ../../../src/app/api/social-media-tasks/[id]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/social-media-tasks/[id]">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/social-media-tasks/[id]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/social-media-tasks/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/social-media-tasks">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/social-media-tasks/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+>>>>>>> 33d44498e (D)
 // Validate ../../../src/app/api/support-tickets/[id]/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/support-tickets/[id]">> = Specific

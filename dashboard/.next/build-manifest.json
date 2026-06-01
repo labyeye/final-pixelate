@@ -7,8 +7,13 @@
     "static/chunks/a6dad97d9634a72d.js"
   ],
   "lowPriorityFiles": [
+<<<<<<< HEAD
     "static/bc021NYXpOKjWfzTHp4fP/_ssgManifest.js",
     "static/bc021NYXpOKjWfzTHp4fP/_buildManifest.js"
+=======
+    "static/8djioRV0hQdr3NVVDL3uA/_ssgManifest.js",
+    "static/8djioRV0hQdr3NVVDL3uA/_buildManifest.js"
+>>>>>>> 33d44498e (D)
   ],
   "rootMainFiles": [
     "static/chunks/37165cf9a090a87a.js",

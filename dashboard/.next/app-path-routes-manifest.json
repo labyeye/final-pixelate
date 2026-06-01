@@ -141,6 +141,8 @@
   "/api/social-media-metrics/sync/route": "/api/social-media-metrics/sync",
   "/api/social-media-posts/[id]/route": "/api/social-media-posts/[id]",
   "/api/social-media-posts/route": "/api/social-media-posts",
+  "/api/social-media-tasks/[id]/route": "/api/social-media-tasks/[id]",
+  "/api/social-media-tasks/route": "/api/social-media-tasks",
   "/api/support-tickets/[id]/route": "/api/support-tickets/[id]",
   "/api/support-tickets/route": "/api/support-tickets",
   "/api/tasks/[id]/route": "/api/tasks/[id]",

@@ -213,6 +213,14 @@
       "namedRegex": "^/api/social\\-media\\-posts/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/social-media-tasks/[id]",
+      "regex": "^/api/social\\-media\\-tasks/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/social\\-media\\-tasks/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/support-tickets/[id]",
       "regex": "^/api/support\\-tickets/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -685,6 +693,12 @@
       "regex": "^/api/social\\-media\\-posts(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/social\\-media\\-posts(?:/)?$"
+    },
+    {
+      "page": "/api/social-media-tasks",
+      "regex": "^/api/social\\-media\\-tasks(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/social\\-media\\-tasks(?:/)?$"
     },
     {
       "page": "/api/support-tickets",
