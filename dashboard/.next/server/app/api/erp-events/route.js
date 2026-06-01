@@ -1,6 +1,6 @@
 var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/erp-events/route.js")
-R.c("server/chunks/[root-of-the-server]__b261bed5._.js")
-R.c("server/chunks/[root-of-the-server]__5dee5797._.js")
-R.c("server/chunks/_next-internal_server_app_api_erp-events_route_actions_4d838086.js")
-R.m(28828)
-module.exports=R.m(28828).exports
+R.c("server/chunks/[root-of-the-server]__148bb8cb._.js")
+R.c("server/chunks/[root-of-the-server]__9e21ee04._.js")
+R.c("server/chunks/09130_dashboard__next-internal_server_app_api_erp-events_route_actions_63ca2558.js")
+R.m(718684)
+module.exports=R.m(718684).exports

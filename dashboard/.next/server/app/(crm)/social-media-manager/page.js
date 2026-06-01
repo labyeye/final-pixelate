@@ -1,21 +1,4 @@
 var R=require("../../../chunks/ssr/[turbopack]_runtime.js")("server/app/(crm)/social-media-manager/page.js")
-<<<<<<< HEAD
-R.c("server/chunks/ssr/[root-of-the-server]__d49fbb82._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_cc88faaa._.js")
-R.c("server/chunks/ssr/_9b40ed00._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__f04e1e07._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_174ae28d._.js")
-R.c("server/chunks/ssr/node_modules_5363a9de._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js")
-R.c("server/chunks/ssr/src_ce5be59b._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js")
-R.c("server/chunks/ssr/src_60439d86._.js")
-R.c("server/chunks/ssr/_next-internal_server_app_(crm)_social-media-manager_page_actions_c225e8c9.js")
-R.m(871169)
-module.exports=R.m(871169).exports
-=======
 R.c("server/chunks/ssr/[root-of-the-server]__0e0da571._.js")
 R.c("server/chunks/ssr/c729b_next_dist_33596478._.js")
 R.c("server/chunks/ssr/Desktop_Projects_final-pixelate_dashboard_3f4febf1._.js")
@@ -31,4 +14,3 @@ R.c("server/chunks/ssr/Desktop_Projects_final-pixelate_dashboard_src_62ad7ddf._.
 R.c("server/chunks/ssr/333bf__next-internal_server_app_(crm)_social-media-manager_page_actions_1acce4ed.js")
 R.m(323245)
 module.exports=R.m(323245).exports
->>>>>>> 33d44498e (D)
