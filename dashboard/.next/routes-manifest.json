@@ -69,6 +69,14 @@
       "namedRegex": "^/api/clients/(?<nxtPid>[^/]+?)/meta\\-token(?:/)?$"
     },
     {
+      "page": "/api/content-plans/[id]",
+      "regex": "^/api/content\\-plans/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/content\\-plans/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/emi/[id]",
       "regex": "^/api/emi/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -419,6 +427,18 @@
       "regex": "^/api/clients(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/clients(?:/)?$"
+    },
+    {
+      "page": "/api/content-plans",
+      "regex": "^/api/content\\-plans(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/content\\-plans(?:/)?$"
+    },
+    {
+      "page": "/api/content-plans/import",
+      "regex": "^/api/content\\-plans/import(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/content\\-plans/import(?:/)?$"
     },
     {
       "page": "/api/cron/process-scheduled-posts",
@@ -1031,6 +1051,12 @@
       "regex": "^/social\\-media\\-calendar(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/social\\-media\\-calendar(?:/)?$"
+    },
+    {
+      "page": "/social-media-manager",
+      "regex": "^/social\\-media\\-manager(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/social\\-media\\-manager(?:/)?$"
     },
     {
       "page": "/social-media-planner",

@@ -497,6 +497,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/social-media-manager/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/social-media-manager">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/social-media-manager/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/social-media-planner/analytics/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/social-media-planner/analytics">> = Specific
@@ -762,6 +771,33 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/clients">> = Specific
   const handler = {} as typeof import("../../src/app/api/clients/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/content-plans/[id]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/content-plans/[id]">> = Specific
+  const handler = {} as typeof import("../../src/app/api/content-plans/[id]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/content-plans/import/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/content-plans/import">> = Specific
+  const handler = {} as typeof import("../../src/app/api/content-plans/import/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/content-plans/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/content-plans">> = Specific
+  const handler = {} as typeof import("../../src/app/api/content-plans/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

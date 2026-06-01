@@ -36,6 +36,7 @@ export const defaultStaffAllowed = [
   "/leads",
   "/blogs",
   "/work-gallery",
+  "/social-media-manager",
   "/social-media-planner",
   "/social-media-calendar",
   "/dashboard/bulk-messaging",
@@ -147,6 +148,12 @@ export const navGroups = [
         label: "Reels",
         adminOnly: true,
         icon: PlayCircle,
+      },
+      {
+        href: "/social-media-manager",
+        label: "Social Media Manager",
+        adminOnly: false,
+        icon: CalendarDays,
       },
       {
         href: "/social-media-planner",
