@@ -507,8 +507,6 @@ export function InvoicePDFDocument({
                 Description of Services / Goods
               </Text>
               <Text style={[S.thText, S.colHsn]}>HSN/SAC</Text>
-              <Text style={[S.thText, S.colQty]}>Qty</Text>
-              <Text style={[S.thText, S.colUnit]}>Unit</Text>
               <Text style={[S.thText, S.colRate]}>Rate (Rs.)</Text>
               <Text style={[S.thText, S.colDis]}>Disc.</Text>
               <Text style={[S.thText, S.colAmt]}>Amount (Rs.)</Text>
@@ -542,8 +540,6 @@ export function InvoicePDFDocument({
                     ) : null}
                   </View>
                   <Text style={[S.tdText, S.colHsn]}>{hsn}</Text>
-                  <Text style={[S.tdText, S.colQty]}>{qty}</Text>
-                  <Text style={[S.tdText, S.colUnit]}>{unit}</Text>
                   <Text style={[S.tdText, S.colRate]}>{fmt(rate)}</Text>
                   <Text style={[S.tdText, S.colDis]}>
                     {itemDisc > 0 ? fmt(itemDisc) : "—"}
