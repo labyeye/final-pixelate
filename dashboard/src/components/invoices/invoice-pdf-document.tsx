@@ -496,14 +496,6 @@ export function InvoicePDFDocument({
                 </Text>
               ) : null}
             </View>
-
-            <View style={S.partyBlockRight}>
-              <Text style={S.partyLabel}>Ship To / Deliver To</Text>
-              <Text style={S.partyName}>{clientName}</Text>
-              {fullAddress ? (
-                <Text style={S.partyLine}>{fullAddress}</Text>
-              ) : null}
-            </View>
           </View>
 
           {}
