@@ -466,49 +466,92 @@ export async function publishFacebookPost(
     throw new Error(`FB Publishing Failed: ${errMsg}${errDetail}`);
   }
 
-  // For photo posts: data.post_id is the timeline post ID (has permalink_url).
-  // data.id is the raw photo node ID whose URL is just a photo page, not the post.
-  // For video/feed posts: data.id is already the correct node.
-  const nodeId = data.post_id || data.id;
-  const permalink = await fetchFbPermalink(nodeId, pageId, isVideo, token);
+  console.log(`[FB publish] endpoint=${endpoint} response:`, JSON.stringify({ id: data.id, post_id: data.post_id }));
 
-  return { id: nodeId, permalink };
+  // /photos returns data.id = photo node ID (NOT the post ID).
+  // post_id is not in the default response — fetch it via a follow-up GET.
+  // /videos returns data.id = video ID.
+  // /feed returns data.id = {page_id}_{post_id} composite.
+  const rawId: string = String(data.id || "");
+  const permalink = await fetchFbPermalink(rawId, pageId, isVideo, token);
+
+  return { id: rawId, permalink };
 }
 
 async function fetchFbPermalink(
-  nodeId: string,
+  rawId: string,
   pageId: string,
   isVideo: boolean,
   token: string,
 ): Promise<string> {
-  // Try Graph API permalink_url first
-  try {
-    const url = new URL(`${META_GRAPH_API}/${nodeId}`);
-    url.searchParams.set("fields", "permalink_url");
-    url.searchParams.set("access_token", token);
-    const res = await fetch(url.toString());
-    const data = await res.json();
-    if (data.permalink_url) return data.permalink_url;
-  } catch {}
-
-  // Fallback: try as a page-scoped post node ({page_id}_{post_id})
-  if (!nodeId.includes("_")) {
-    try {
-      const compositeId = `${pageId}_${nodeId}`;
-      const url = new URL(`${META_GRAPH_API}/${compositeId}`);
-      url.searchParams.set("fields", "permalink_url");
-      url.searchParams.set("access_token", token);
-      const res = await fetch(url.toString());
-      const data = await res.json();
-      if (data.permalink_url) return data.permalink_url;
-    } catch {}
+  if (!rawId) {
+    console.warn("[FB permalink] rawId is empty, using fallback");
+    return `https://www.facebook.com/${pageId}`;
   }
 
-  // Last-resort: construct URL from known Facebook patterns
-  if (isVideo) return `https://www.facebook.com/video/${nodeId}`;
-  // For photos/feed the composite ID contains the post part after underscore
-  const postPart = nodeId.includes("_") ? nodeId.split("_")[1] : nodeId;
-  return `https://www.facebook.com/permalink.php?story_fbid=${postPart}&id=${pageId}`;
+  // Step 1: for photos (rawId has no underscore → it's a photo node ID, not a post ID).
+  // Fetch post_id + permalink_url via a GET call first.
+  if (!rawId.includes("_")) {
+    try {
+      const lookupUrl = new URL(`${META_GRAPH_API}/${rawId}`);
+      lookupUrl.searchParams.set("fields", "post_id,permalink_url,link");
+      lookupUrl.searchParams.set("access_token", token);
+      const r = await fetch(lookupUrl.toString());
+      const d = await r.json();
+      console.log(`[FB permalink] lookup /${rawId}:`, JSON.stringify({ post_id: d.post_id, permalink_url: d.permalink_url, link: d.link }));
+
+      if (d.permalink_url) return d.permalink_url;
+
+      // post_id is the actual timeline post in {page_id}_{post_id} format
+      if (d.post_id) {
+        const postLookup = new URL(`${META_GRAPH_API}/${d.post_id}`);
+        postLookup.searchParams.set("fields", "permalink_url");
+        postLookup.searchParams.set("access_token", token);
+        const pr = await fetch(postLookup.toString());
+        const pd = await pr.json();
+        console.log(`[FB permalink] post_id lookup /${d.post_id}:`, JSON.stringify({ permalink_url: pd.permalink_url }));
+        if (pd.permalink_url) return pd.permalink_url;
+        // Construct from post_id which is "{page_id}_{suffix}"
+        const suffix = String(d.post_id).includes("_")
+          ? String(d.post_id).split("_")[1]
+          : d.post_id;
+        return `https://www.facebook.com/permalink.php?story_fbid=${suffix}&id=${pageId}`;
+      }
+
+      // Try composite with pageId
+      const compositeId = `${pageId}_${rawId}`;
+      const compUrl = new URL(`${META_GRAPH_API}/${compositeId}`);
+      compUrl.searchParams.set("fields", "permalink_url");
+      compUrl.searchParams.set("access_token", token);
+      const cr = await fetch(compUrl.toString());
+      const cd = await cr.json();
+      console.log(`[FB permalink] composite lookup /${compositeId}:`, JSON.stringify({ permalink_url: cd.permalink_url }));
+      if (cd.permalink_url) return cd.permalink_url;
+    } catch (e: any) {
+      console.warn("[FB permalink] lookup threw:", e?.message);
+    }
+
+    // Fallback for photo: use permalink.php with the raw photo ID
+    if (isVideo) return `https://www.facebook.com/video/${rawId}`;
+    return `https://www.facebook.com/permalink.php?story_fbid=${rawId}&id=${pageId}`;
+  }
+
+  // Step 2: rawId already contains underscore → it's a composite post ID like "{page_id}_{post_id}"
+  try {
+    const postUrl = new URL(`${META_GRAPH_API}/${rawId}`);
+    postUrl.searchParams.set("fields", "permalink_url");
+    postUrl.searchParams.set("access_token", token);
+    const r = await fetch(postUrl.toString());
+    const d = await r.json();
+    console.log(`[FB permalink] composite /${rawId}:`, JSON.stringify({ permalink_url: d.permalink_url }));
+    if (d.permalink_url) return d.permalink_url;
+  } catch (e: any) {
+    console.warn("[FB permalink] composite threw:", e?.message);
+  }
+
+  // Fallback from composite ID: extract the numeric suffix
+  const suffix = rawId.split("_").pop() || rawId;
+  return `https://www.facebook.com/permalink.php?story_fbid=${suffix}&id=${pageId}`;
 }
 
 async function resolveIgMediaId(
