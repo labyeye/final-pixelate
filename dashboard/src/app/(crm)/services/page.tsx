@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -52,7 +53,7 @@ export default function ServicesPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/services");
+        const res = await apiFetch("/api/services");
         if (!res.ok) throw new Error(`Failed to fetch services: ${res.status}`);
         const items = await res.json();
         if (mounted) setServices(items as Service[]);
@@ -91,7 +92,7 @@ export default function ServicesPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const res = await fetch("/api/services", {
+      const res = await apiFetch("/api/services", {
         method: "POST",
         body: JSON.stringify({ name: values.name }),
         headers: { "Content-Type": "application/json" },

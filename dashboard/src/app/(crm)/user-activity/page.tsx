@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import {
   Card,
@@ -79,7 +80,7 @@ export default function UserActivityPage() {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("/api/user-activity");
+      const res = await apiFetch("/api/user-activity");
       const json = await res.json();
       if (Array.isArray(json)) {
         setData(json);

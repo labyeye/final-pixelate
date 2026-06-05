@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import {
@@ -46,7 +47,7 @@ export default function ReelsPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/reels");
+        const res = await apiFetch("/api/reels");
         if (!res.ok) throw new Error("Failed to fetch reels");
         const json = await res.json();
         if (mounted) setItems(json || []);
@@ -119,7 +120,7 @@ export default function ReelsPage() {
         reset();
         showSuccess("Reel updated!");
       } else {
-        const res = await fetch("/api/reels", {
+        const res = await apiFetch("/api/reels", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(v),

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -126,11 +127,11 @@ export default function SupportPage() {
   useEffect(() => {
     fetchTickets();
     if (!isClient) {
-      fetch("/api/clients")
+      apiFetch("/api/clients")
         .then((r) => r.json())
         .then(setClients)
         .catch(console.error);
-      fetch("/api/users")
+      apiFetch("/api/users")
         .then((r) => r.json())
         .then(setUsers)
         .catch(console.error);
@@ -162,7 +163,7 @@ export default function SupportPage() {
           },
         ],
       };
-      const res = await fetch("/api/support-tickets", {
+      const res = await apiFetch("/api/support-tickets", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

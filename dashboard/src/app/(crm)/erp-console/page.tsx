@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import {
   Card,
@@ -31,7 +32,7 @@ export default function ErpConsolePage() {
 
   async function fetchEvents() {
     try {
-      const res = await fetch("/api/erp-events");
+      const res = await apiFetch("/api/erp-events");
       const json = await res.json();
       if (Array.isArray(json)) setEvents(json);
     } catch (e) {

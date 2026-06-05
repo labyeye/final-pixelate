@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import {
@@ -63,7 +64,7 @@ function StaffPermissions() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/api/settings/sidebar");
+        const res = await apiFetch("/api/settings/sidebar");
         if (!res.ok) throw new Error("Failed to fetch staff");
         const data = await res.json();
         setStaffUsers(
@@ -130,7 +131,7 @@ function StaffPermissions() {
 
       const adminName = currentUser?.name || currentUser?.email || "Admin";
 
-      const res = await fetch("/api/settings/sidebar", {
+      const res = await apiFetch("/api/settings/sidebar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -414,7 +415,7 @@ function ClientPermissions() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/api/settings/client-sidebar");
+        const res = await apiFetch("/api/settings/client-sidebar");
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
         setAllowedPages(data.allowedClientPages ?? defaultClientAllowed);
@@ -439,7 +440,7 @@ function ClientPermissions() {
   const save = async () => {
     setSaving(true);
     try {
-      const res = await fetch("/api/settings/client-sidebar", {
+      const res = await apiFetch("/api/settings/client-sidebar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ allowedClientPages: allowedPages }),
@@ -546,7 +547,7 @@ function DocumentSettings() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/api/settings");
+        const res = await apiFetch("/api/settings");
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
         setSettings({
@@ -572,7 +573,7 @@ function DocumentSettings() {
   const save = async () => {
     setSaving(true);
     try {
-      const res = await fetch("/api/settings", {
+      const res = await apiFetch("/api/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(settings),

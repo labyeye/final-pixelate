@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function POST(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const body = await req.json();
     const { invoiceId, amount, date, mode, remarks } = body;
-
-    console.log("PAYMENT_DEBUG: Incoming request", { invoiceId, amount });
 
     if (!invoiceId || !amount) {
       return NextResponse.json(
@@ -18,7 +19,6 @@ export async function POST(req: NextRequest) {
     const invoice = await svc.findById("invoices", invoiceId);
 
     if (!invoice) {
-      console.warn("PAYMENT_DEBUG: Invoice not found in DB for ID:", invoiceId);
       return NextResponse.json(
         {
           error: "Invoice not found in database",
@@ -60,10 +60,9 @@ export async function POST(req: NextRequest) {
       },
     );
 
-    console.log("PAYMENT_DEBUG: Success", { invoiceId, newStatus, newPaid });
     return NextResponse.json({ success: true, newStatus, newPaid });
   } catch (error: any) {
-    console.error("PAYMENT_DEBUG: Error", error);
+    console.error("Payment error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to process payment" },
       { status: 500 },

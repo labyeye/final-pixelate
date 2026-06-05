@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import type { Lead } from "@/lib/data";
@@ -252,7 +253,7 @@ export default function LeadsPage() {
 
   async function fetchLeads(): Promise<Lead[]> {
     try {
-      const res = await fetch("/api/leads", { headers: authH() });
+      const res = await apiFetch("/api/leads", { headers: authH() });
       if (!res.ok) return [];
       const data = await res.json();
       return Array.isArray(data) ? data : [];
@@ -267,7 +268,7 @@ export default function LeadsPage() {
       try {
         const [items, tm] = await Promise.all([
           fetchLeads(),
-          fetch("/api/team-members")
+          apiFetch("/api/team-members")
             .then((r) => r.json())
             .catch(() => []),
         ]);
@@ -480,7 +481,7 @@ export default function LeadsPage() {
     if (!window.confirm("Sync leads from Meta Ads?")) return;
     setIsSyncing(true);
     try {
-      const res = await fetch("/api/meta-leads");
+      const res = await apiFetch("/api/meta-leads");
       const data = await res.json();
       if (res.ok) {
         const items = await fetchLeads();
@@ -510,7 +511,7 @@ export default function LeadsPage() {
     if (!window.confirm("Sync all leads from IndiaMART?")) return;
     setIsSyncing(true);
     try {
-      const res = await fetch("/api/indiamart-webhook?action=sync_now");
+      const res = await apiFetch("/api/indiamart-webhook?action=sync_now");
       const data = await res.json();
       if (res.ok) {
         const items = await fetchLeads();

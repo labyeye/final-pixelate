@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -76,7 +77,7 @@ export default function AboutUsTeamPage() {
   const fetchMembers = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/about-team");
+      const res = await apiFetch("/api/about-team");
       if (!res.ok) throw new Error("Failed to fetch team members");
       const data = await res.json();
       setMembers(data);
@@ -101,7 +102,7 @@ export default function AboutUsTeamPage() {
         ? { ...formData, _id: editingMember._id }
         : formData;
 
-      const res = await fetch("/api/about-team", {
+      const res = await apiFetch("/api/about-team", {
         method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -289,7 +290,7 @@ export default function AboutUsTeamPage() {
 
                         try {
                           setUploading(true);
-                          const res = await fetch("/api/upload", {
+                          const res = await apiFetch("/api/upload", {
                             method: "POST",
                             body: formDataUpload,
                           });

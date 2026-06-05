@@ -4,8 +4,11 @@ import { generateQuotationId } from "@/lib/quotation-models";
 import { getDb } from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 import { createQuotationJourneyEvent } from "@/lib/journey-helpers";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const col = await svc.getCollection("quotations");
     const { searchParams } = new URL(request.url);
@@ -37,6 +40,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const quotationData = await request.json();
     const col = await svc.getCollection("quotations");

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -53,7 +54,7 @@ export default function CareersPage() {
 
   const fetchJobs = async () => {
     try {
-      const response = await fetch("/api/careers");
+      const response = await apiFetch("/api/careers");
       const data = await response.json();
       setJobs(data);
     } catch (error) {

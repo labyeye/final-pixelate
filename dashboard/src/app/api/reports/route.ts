@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { searchParams } = new URL(request.url);
     const clientId = searchParams.get("clientId");

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,7 +60,7 @@ export function SocialAccountsManager({
 
     try {
       setSaving(true);
-      const res = await fetch("/api/social-media-accounts", {
+      const res = await apiFetch("/api/social-media-accounts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -108,7 +109,7 @@ export function SocialAccountsManager({
   const handleUpdateDisplayName = async (id: string) => {
     try {
       setSaving(true);
-      const res = await fetch("/api/social-media-accounts", {
+      const res = await apiFetch("/api/social-media-accounts", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

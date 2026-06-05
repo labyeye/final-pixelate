@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React, { useState } from "react";
 import {
   Dialog,
@@ -166,7 +167,7 @@ export function AddInvoiceDialog({
       if (values.includeVenueAddress)
         invoice.venueAddress = values.venueAddress || "";
 
-      const res = await fetch("/api/invoices", {
+      const res = await apiFetch("/api/invoices", {
         method: "POST",
         body: JSON.stringify(invoice),
         headers: { "Content-Type": "application/json" },
@@ -176,7 +177,7 @@ export function AddInvoiceDialog({
 
       if (waOptIn && values.clientId) {
         try {
-          await fetch("/api/whatsapp-optin", {
+          await apiFetch("/api/whatsapp-optin", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

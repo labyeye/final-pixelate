@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -316,7 +317,7 @@ function AccountRow({
     }
     setSaving(true);
     try {
-      const res = await fetch("/api/social-media-accounts", {
+      const res = await apiFetch("/api/social-media-accounts", {
         method: "PUT",
         headers: authH(),
         body: JSON.stringify({

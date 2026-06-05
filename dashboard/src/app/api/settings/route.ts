@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { generateQuotationId } from "@/lib/quotation-models";
+import { requireAuth } from "@/lib/require-auth";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const col = await svc.getCollection("agencySettings");
     const settings = await col.findOne({});
@@ -56,6 +59,8 @@ export async function GET() {
 }
 
 export async function PUT(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const body = await request.json();
     const col = await svc.getCollection("agencySettings");

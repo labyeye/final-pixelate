@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState, useMemo } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/hooks/use-toast";
@@ -175,7 +176,7 @@ export default function TrashPage() {
   const fetchTrash = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/trash");
+      const res = await apiFetch("/api/trash");
       if (!res.ok) throw new Error("Failed to load trash");
       setItems(await res.json());
     } catch (e: any) {

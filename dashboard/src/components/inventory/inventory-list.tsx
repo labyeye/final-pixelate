@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React, { useEffect, useState } from "react";
 import {
   Table,
@@ -23,7 +24,7 @@ export default function InventoryList() {
 
   const load = async () => {
     try {
-      const res = await fetch("/api/inventory");
+      const res = await apiFetch("/api/inventory");
       const data = await res.json();
       setItems(Array.isArray(data) ? data : []);
     } catch (e) {

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -54,7 +55,7 @@ export function WhatsAppInbox() {
 
   const fetchConversations = async () => {
     try {
-      const response = await fetch("/api/whatsapp/messages");
+      const response = await apiFetch("/api/whatsapp/messages");
       if (!response.ok) throw new Error("Failed to fetch conversations");
 
       const data = await response.json();
@@ -71,7 +72,7 @@ export function WhatsAppInbox() {
     setSyncing(true);
     setSyncMessage("");
     try {
-      const response = await fetch("/api/whatsapp/webhook-sync", {
+      const response = await apiFetch("/api/whatsapp/webhook-sync", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),

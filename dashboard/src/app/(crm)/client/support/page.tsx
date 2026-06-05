@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/hooks/use-toast";
@@ -36,7 +37,7 @@ export default function ClientSupportPage() {
         };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        const res = await fetch("/api/support-tickets", { headers });
+        const res = await apiFetch("/api/support-tickets", { headers });
         if (!res.ok) throw new Error("Failed to fetch tickets");
 
         const data = await res.json();
@@ -84,7 +85,7 @@ export default function ClientSupportPage() {
       };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const res = await fetch("/api/support-tickets", {
+      const res = await apiFetch("/api/support-tickets", {
         method: "POST",
         headers,
         body: JSON.stringify({

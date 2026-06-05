@@ -1,5 +1,5 @@
 "use client";
-
+import { apiFetch } from "@/lib/api-fetch";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { useAuth, AuthProvider } from "@/hooks/use-auth";
 import Image from "next/image";
 import logo from "@/assets/images/logo-transparent.png";
+import companyimg from "@/assets/images/company_day.png";
 function LoginContent() {
   const router = useRouter();
   const { login } = useAuth();
@@ -25,7 +26,7 @@ function LoginContent() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await apiFetch("/api/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
@@ -52,7 +53,18 @@ function LoginContent() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4 font-headline">
+    <div
+      className="flex min-h-screen items-center justify-end bg-background p-4 font-headline"
+      style={{
+        backgroundImage: `
+      
+      url(${companyimg.src})
+    `,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <Card className="w-full max-w-md border-4 border-black">
         <CardHeader className="text-center">
           <Image

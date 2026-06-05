@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -93,7 +94,7 @@ export default function NewsletterPage() {
       formData.append("message", message.trim());
       if (banner) formData.append("banner", banner);
 
-      const res = await fetch("/api/newsletter", {
+      const res = await apiFetch("/api/newsletter", {
         method: "POST",
         body: formData,
       });

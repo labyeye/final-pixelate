@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const item = await svc.findById("emi", id);
@@ -23,6 +26,8 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const body = await request.json();
@@ -40,9 +45,11 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const ok = await svc.deleteById("emi", id);

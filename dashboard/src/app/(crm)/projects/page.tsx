@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import AddProjectForm from "@/components/projects/add-project-form";
@@ -42,9 +43,9 @@ export default function ProjectsPage() {
     (async () => {
       try {
         const [cRes, sRes, tRes] = await Promise.all([
-          fetch("/api/clients"),
-          fetch("/api/services"),
-          fetch("/api/team-members"),
+          apiFetch("/api/clients"),
+          apiFetch("/api/services"),
+          apiFetch("/api/team-members"),
         ]);
         const [cJson, sJson, tJson] = await Promise.all([
           cRes.json(),
@@ -76,7 +77,7 @@ export default function ProjectsPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/projects");
+        const res = await apiFetch("/api/projects");
         if (!res.ok) throw new Error(`Failed to fetch projects: ${res.status}`);
         const items = await res.json();
         if (mounted) setProjects(items as Project[]);
@@ -337,7 +338,7 @@ export default function ProjectsPage() {
                               showSuccess("Project completed!");
                               try {
                                 const invoicesRes =
-                                  await fetch("/api/invoices");
+                                  await apiFetch("/api/invoices");
                                 const invoicesData = invoicesRes.ok
                                   ? await invoicesRes.json()
                                   : [];

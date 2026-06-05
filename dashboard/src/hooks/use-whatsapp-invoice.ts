@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useCallback } from "react";
 import { pdf } from "@react-pdf/renderer";
 import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
@@ -149,7 +150,7 @@ export function useWhatsAppInvoice(): WhatsAppInvoiceResult {
           // from the client. The secret header is only checked on routes that
           // are called server-to-server, and this is a client-side call.
           // Remove the secret from the client entirely.
-          const uploadRes = await fetch("/api/upload-whatsapp-media", {
+          const uploadRes = await apiFetch("/api/upload-whatsapp-media", {
             method: "POST",
             body: form,
           });
@@ -176,7 +177,7 @@ export function useWhatsAppInvoice(): WhatsAppInvoiceResult {
         const amount = `₹${total.toLocaleString("en-IN")}`;
 
         // [FIX-7] Same as above — no NEXT_PUBLIC_ secret from client.
-        const sendRes = await fetch("/api/send-invoice-whatsapp", {
+        const sendRes = await apiFetch("/api/send-invoice-whatsapp", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { verifyPassword, signToken } from "@/lib/auth";
 import { getDb } from "@/lib/mongodb";
+import { checkLoginRateLimit, clearLoginRateLimit } from "@/lib/login-rate-limiter";
 
 export async function POST(request: Request) {
   try {
@@ -11,6 +12,16 @@ export async function POST(request: Request) {
         { error: "email+password required" },
         { status: 400 },
       );
+
+    const { allowed, retryAfterSecs } = checkLoginRateLimit(email);
+    if (!allowed) {
+      const mins = Math.ceil((retryAfterSecs ?? 900) / 60);
+      return NextResponse.json(
+        { error: `Too many failed attempts. Try again in ${mins} minute${mins !== 1 ? "s" : ""}.` },
+        { status: 429, headers: { "Retry-After": String(retryAfterSecs) } },
+      );
+    }
+
     const users = await svc.getUsers();
     const u = (users || []).find((x: any) => x.email === email);
     if (!u)
@@ -23,6 +34,8 @@ export async function POST(request: Request) {
         { error: "invalid credentials" },
         { status: 401 },
       );
+
+    clearLoginRateLimit(email);
     const token = signToken({
       id: u._id,
       email: u.email,

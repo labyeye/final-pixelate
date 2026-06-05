@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/services";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function DELETE(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const { searchParams } = new URL(req.url);
     const invoiceId = searchParams.get("invoiceId");
@@ -89,6 +92,8 @@ export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const { invoiceId, index, amount, date, mode, remarks } = await req.json();
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,8 +28,8 @@ export default function ClientCalendarPage() {
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
         const [plannerRes, tasksRes] = await Promise.all([
-          fetch("/api/social-media-planner", { headers }),
-          fetch("/api/tasks", { headers }),
+          apiFetch("/api/social-media-planner", { headers }),
+          apiFetch("/api/tasks", { headers }),
         ]);
 
         let allEvents: any[] = [];

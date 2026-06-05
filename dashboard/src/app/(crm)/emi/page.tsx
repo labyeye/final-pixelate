@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState, useMemo, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -204,7 +205,7 @@ function AddEmiDialog({ onCreated }: { onCreated: () => void }) {
   const onSubmit = async (values: EmiForm) => {
     try {
       setSaving(true);
-      const res = await fetch("/api/emi", {
+      const res = await apiFetch("/api/emi", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -848,7 +849,7 @@ export default function EmiPage() {
   const load = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/emi");
+      const res = await apiFetch("/api/emi");
       if (!res.ok) throw new Error();
       setEmis(await res.json());
     } catch {

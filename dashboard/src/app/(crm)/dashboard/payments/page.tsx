@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect, useMemo } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { format } from "date-fns";
@@ -201,12 +202,12 @@ export default function PaymentsPage() {
       if (myClientId) setSelectedClient(String(myClientId));
       return;
     }
-    fetch("/api/clients")
+    apiFetch("/api/clients")
       .then((res) => res.json())
       .then((data) => setClients(data))
       .catch(console.error);
 
-    fetch("/api/settings")
+    apiFetch("/api/settings")
       .then((res) => res.json())
       .then((data) => setSettings(data))
       .catch(console.error);
@@ -239,7 +240,7 @@ export default function PaymentsPage() {
   const submitPayment = async () => {
     if (!activeInvoice || !paymentAmount) return;
     try {
-      const res = await fetch("/api/payments", {
+      const res = await apiFetch("/api/payments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -448,7 +449,7 @@ export default function PaymentsPage() {
         new File([pdfBlob], safeFilename, { type: "application/pdf" }),
       );
 
-      const uploadRes = await fetch("/api/upload-whatsapp-media", {
+      const uploadRes = await apiFetch("/api/upload-whatsapp-media", {
         method: "POST",
         body: formData,
       });
@@ -465,7 +466,7 @@ export default function PaymentsPage() {
         currency: "INR",
       }).format(payment.amount);
 
-      const sendRes = await fetch("/api/send-payment-receipt-whatsapp", {
+      const sendRes = await apiFetch("/api/send-payment-receipt-whatsapp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

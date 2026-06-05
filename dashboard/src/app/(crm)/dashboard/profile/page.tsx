@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React, { useState, useEffect } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
@@ -121,7 +122,7 @@ export default function ProfilePage() {
       formData.append("userId", String(user?.id || user?._id));
       formData.append("fileName", `profile-${user?.id || user?._id}`);
 
-      const uploadRes = await fetch("/api/upload", {
+      const uploadRes = await apiFetch("/api/upload", {
         method: "POST",
         body: formData,
       });

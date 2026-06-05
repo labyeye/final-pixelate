@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function PUT(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const body = await req.json();
@@ -61,6 +64,8 @@ export async function DELETE(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const { softDeleteById } = await import("@/lib/services");

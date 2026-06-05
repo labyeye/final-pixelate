@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { SocialAccount, SocialPlatform } from "@/lib/social-media-planner";
@@ -93,7 +94,7 @@ export function AccountSelector({
   const handleSelectAccount = async (account: SocialAccount | any) => {
     if (account.handle === "NEW" || account._id === "NEW") {
       try {
-        const res = await fetch("/api/social-media-accounts", {
+        const res = await apiFetch("/api/social-media-accounts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import {
@@ -46,8 +47,8 @@ export default function ClientPortalPage() {
     (async () => {
       try {
         const [projRes, invRes, socialRes] = await Promise.all([
-          fetch("/api/projects", { headers }),
-          fetch("/api/invoices", { headers }),
+          apiFetch("/api/projects", { headers }),
+          apiFetch("/api/invoices", { headers }),
           fetch(`/api/social-media-posts?clientId=${user.clientId}`, {
             headers,
           }),
@@ -78,7 +79,7 @@ export default function ClientPortalPage() {
     setProcessingPostId(postId);
     try {
       const token = localStorage.getItem("auth_token");
-      const res = await fetch("/api/social-media-posts", {
+      const res = await apiFetch("/api/social-media-posts", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

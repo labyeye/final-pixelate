@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 const CORS = { "Access-Control-Allow-Origin": "*" };
 
 export async function POST(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const body = await req.json();
     const db = await getDb();
@@ -31,7 +34,9 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const db = await getDb();
     const events = await db

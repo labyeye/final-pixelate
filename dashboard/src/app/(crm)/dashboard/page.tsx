@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { apiFetch } from "@/lib/api-fetch";
 import { useRef } from "react";
 import {
   Card,
@@ -107,7 +108,6 @@ export default function DashboardPage() {
 
     async function load() {
       try {
-        const token = localStorage.getItem("auth_token") || "";
         const [
           projectsRes,
           invoicesRes,
@@ -117,15 +117,13 @@ export default function DashboardPage() {
           expensesRes,
           teamMembersRes,
         ] = await Promise.all([
-          fetch("/api/projects"),
-          fetch("/api/invoices"),
-          fetch("/api/leads", {
-            headers: token ? { Authorization: "Bearer " + token } : {},
-          }),
-          fetch("/api/quotations"),
-          fetch("/api/services"),
-          fetch("/api/expenses"),
-          fetch("/api/users"),
+          apiFetch("/api/projects"),
+          apiFetch("/api/invoices"),
+          apiFetch("/api/leads"),
+          apiFetch("/api/quotations"),
+          apiFetch("/api/services"),
+          apiFetch("/api/expenses"),
+          apiFetch("/api/users"),
         ]);
         const [
           projectsData,
@@ -145,16 +143,15 @@ export default function DashboardPage() {
           teamMembersRes.json(),
         ]);
         if (!mounted) return;
-        setProjects(projectsData || []);
-        setInvoices(invoicesData || []);
-        setExpenses(expensesData || []);
-
+        setProjects(Array.isArray(projectsData) ? projectsData : []);
+        setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
+        setExpenses(Array.isArray(expensesData) ? expensesData : []);
         setLeads(Array.isArray(leadsData) ? leadsData : []);
-        setQuotations(quotationsData || []);
-        setServices(servicesData || []);
+        setQuotations(Array.isArray(quotationsData) ? quotationsData : []);
+        setServices(Array.isArray(servicesData) ? servicesData : []);
         setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
 
-        const clientsList = await (await fetch("/api/clients")).json();
+        const clientsList = await (await apiFetch("/api/clients")).json();
         setClients(clientsList || []);
         const clientsCount = (clientsList || []).length || 0;
         const projectsCount = (projectsData || []).length || 0;
@@ -246,22 +243,22 @@ export default function DashboardPage() {
         try {
           if (custom?.detail?.invoices) {
             setInvoices(custom.detail.invoices || []);
-            const projectsRes = await fetch("/api/projects");
+            const projectsRes = await apiFetch("/api/projects");
             const projectsData = await projectsRes.json();
             if (!mounted) return;
-            setProjects(projectsData || []);
+            setProjects(Array.isArray(projectsData) ? projectsData : []);
           } else {
             const [projectsRes, invoicesRes] = await Promise.all([
-              fetch("/api/projects"),
-              fetch("/api/invoices"),
+              apiFetch("/api/projects"),
+              apiFetch("/api/invoices"),
             ]);
             const [projectsData, invoicesData] = await Promise.all([
               projectsRes.json(),
               invoicesRes.json(),
             ]);
             if (!mounted) return;
-            setProjects(projectsData || []);
-            setInvoices(invoicesData || []);
+            setProjects(Array.isArray(projectsData) ? projectsData : []);
+            setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
           }
         } catch (e) {
           console.error("Failed to refresh dashboard data", e);

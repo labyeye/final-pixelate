@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -84,7 +85,7 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch("/api/social-media-accounts", {
+      const res = await apiFetch("/api/social-media-accounts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import { Button } from "@/components/ui/button";
@@ -198,7 +199,7 @@ export function BulkWhatsAppMessenger() {
     setResults([]);
 
     try {
-      const response = await fetch("/api/whatsapp/bulk-send", {
+      const response = await apiFetch("/api/whatsapp/bulk-send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

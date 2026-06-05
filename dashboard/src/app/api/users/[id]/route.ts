@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -14,6 +15,8 @@ async function getRouteId(context: RouteContext) {
 }
 
 export async function GET(request: Request, context: RouteContext) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const id = await getRouteId(context);
     if (!id) {
@@ -32,6 +35,8 @@ export async function GET(request: Request, context: RouteContext) {
 }
 
 export async function PUT(request: Request, context: RouteContext) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const id = await getRouteId(context);
     if (!id) {
@@ -49,6 +54,8 @@ export async function PUT(request: Request, context: RouteContext) {
 }
 
 export async function DELETE(request: Request, context: RouteContext) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const id = await getRouteId(context);
     if (!id) {

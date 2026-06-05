@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
-export async function GET() {
+export async function GET(request: Request) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const col = await svc.getCollection("_trash");
     const items = await col.find({}).sort({ deletedAt: -1 }).toArray();

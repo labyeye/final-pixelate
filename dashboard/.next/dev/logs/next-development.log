@@ -1,0 +1,150 @@
+[00:00:01.719] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.804] Server  LOG      ✓ Ready in 1565ms
+[00:01:16.379] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:40.122] Server  LOG      ✓ Compiled in 62ms
+[00:04:02.677] Server  LOG      ✓ Compiled in 38ms
+[00:04:15.400] Server  LOG      ✓ Compiled in 26ms
+[00:04:17.996] Server  LOG      ✓ Compiled in 28ms
+[00:04:19.821] Server  LOG      ✓ Compiled in 35ms
+[00:04:26.846] Server  LOG      ✓ Compiled in 44ms
+[00:04:30.153] Server  LOG      ✓ Compiled in 33ms
+[00:04:32.301] Server  LOG      ✓ Compiled in 32ms
+[00:04:35.962] Server  LOG      ✓ Compiled in 30ms
+[00:04:39.241] Server  LOG      ✓ Compiled in 36ms
+[00:04:58.617] Server  LOG      ✓ Compiled in 37ms
+[00:05:02.641] Server  LOG      ✓ Compiled in 32ms
+[00:05:07.486] Server  LOG      ✓ Compiled in 28ms
+[00:05:11.931] Server  LOG      ✓ Compiled in 22ms
+[00:05:18.149] Server  LOG      ✓ Compiled in 30ms
+[00:05:18.232] Browser ERROR   %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing backgroundPositionX backgroundPosition
+[00:05:47.981] Server  LOG      ✓ Compiled in 25ms
+[00:05:50.834] Server  LOG      ✓ Compiled in 38ms
+[00:05:52.446] Server  LOG      ✓ Compiled in 37ms
+[00:05:53.916] Server  LOG      ✓ Compiled in 34ms
+[00:06:06.366] Server  LOG      ✓ Compiled in 30ms
+[00:06:11.448] Server  LOG      ✓ Compiled in 22ms
+[00:06:19.967] Server  LOG      ✓ Compiled in 28ms
+[00:06:23.340] Server  LOG      ✓ Compiled in 36ms
+[00:06:28.686] Server  LOG      ✓ Compiled in 30ms
+[00:06:33.035] Server  LOG      ✓ Compiled in 27ms
+[00:06:35.788] Server  LOG      ✓ Compiled in 37ms
+[00:06:43.169] Server  LOG      ✓ Compiled in 26ms
+[00:06:58.006] Server  LOG      ✓ Compiled in 34ms
+[00:07:03.075] Server  LOG      ✓ Compiled in 25ms
+[00:07:53.120] Server  LOG      ✓ Compiled in 57ms
+[00:07:53.541] Browser ERROR   ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx:62:37
+Parsing ecmascript source code failed
+  60 |         backgroundSize: "cover",
+  61 |         backgroundRepeat: "no-repeat",
+> 62 |         background: rgba(0,0,0,0.35);
+     |                                     ^
+  63 |       }}
+  64 |     >
+  65 |       <Card className="w-full max-w-md border-4 border-black">
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Client Component Browser]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Client Component SSR]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Server Component]
+[00:07:55.028] Browser ERROR   ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx:62:37
+Parsing ecmascript source code failed
+  60 |         backgroundSize: "cover",
+  61 |         backgroundRepeat: "no-repeat",
+> 62 |         background: rgba(0,0,0,0.35);
+     |                                     ^
+  63 |       }}
+  64 |     >
+  65 |       <Card className="w-full max-w-md border-4 border-black">
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Client Component Browser]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Client Component SSR]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Server Component]
+[00:07:59.859] Browser ERROR   ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx:62:37
+Parsing ecmascript source code failed
+  60 |         backgroundSize: "cover",
+  61 |         backgroundRepeat: "no-repeat",
+> 62 |         background: rgba(0,0,0,0.35);
+     |                                     ^
+  63 |       }}
+  64 |     >
+  65 |       <Card className="w-full max-w-md border-4 border-black">
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Client Component Browser]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Client Component SSR]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/login/page.tsx [Server Component]
+[00:08:09.752] Server  LOG      ✓ Compiled in 38ms
+[00:08:13.060] Server  LOG      ✓ Compiled in 37ms
+[00:08:33.026] Server  LOG      ✓ Compiled in 44ms
+[00:08:44.757] Server  LOG      ✓ Compiled in 28ms
+[00:08:44.815] Browser ERROR   %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Updating backgroundImage background
+[00:08:47.657] Server  LOG      ✓ Compiled in 52ms
+[00:08:47.704] Browser ERROR   %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing background backgroundImage
+[00:08:47.704] Browser ERROR   %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing background backgroundPosition
+[00:08:47.704] Browser ERROR   %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing background backgroundRepeat
+[00:08:47.704] Browser ERROR   %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing background backgroundSize
+[00:08:55.114] Server  LOG      ✓ Compiled in 23ms
+[00:09:00.992] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:01.640] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:02.683] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:03.230] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:16.208] Server  LOG      ✓ Compiled in 37ms
+[00:09:17.761] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:19.173] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:22.390] Server  LOG      ✓ Compiled in 33ms
+[00:10:03.804] Server  LOG      ✓ Compiled in 44ms
+[00:10:14.699] Server  LOG      ✓ Compiled in 23ms
+[00:10:48.558] Browser ERROR   Could not access users or session storage. {}
+[00:10:48.665] Browser ERROR   Could not access users or session storage. {}
+[00:12:09.260] Browser ERROR   Could not access users or session storage. {}
+[00:12:09.260] Browser ERROR   Could not access users or session storage. {}
+[00:17:49.578] Browser ERROR   Could not access users or session storage. {}
+[00:17:49.578] Browser ERROR   Could not access users or session storage. {}
+[00:18:39.202] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:18:39.204] Server  LOG      ✓ Compiled in 63ms
+[00:18:39.581] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:47.396] Server  LOG      ✓ Compiled in 9ms
+[00:19:17.768] Browser ERROR   uncaughtError: TypeError: projects.reduce is not a function
+[00:19:17.768] Browser ERROR   Failed to load dashboard data {}
+[00:20:31.186] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:20:31.202] Server  LOG      ✓ Compiled in 131ms
+[00:20:31.663] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:34.539] Browser ERROR   uncaughtError: TypeError: projects.reduce is not a function
+[00:20:34.539] Browser ERROR   Failed to load dashboard data {}
+[00:20:38.130] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:20:38.206] Server  LOG      ✓ Compiled in 151ms
+[00:20:38.404] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:42.812] Server  LOG      ✓ Compiled in 51ms
+[00:20:46.529] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:54.329] Server  LOG      ✓ Compiled in 29ms
+[00:20:57.768] Server  LOG      ✓ Compiled in 30ms
+[00:29:46.845] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:29:46.861] Server  LOG      ✓ Compiled in 215ms
+[00:29:47.434] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:47.565] Browser ERROR   Could not access users or session storage. {}
+[00:29:47.705] Browser ERROR   Could not access users or session storage. {}
+[00:29:47.705] Browser ERROR   Could not access users or session storage. {}
+[00:30:15.359] Server  LOG      ✓ Compiled in 149ms
+[00:30:15.379] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:30:15.537] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:40.741] Server  LOG      ✓ Compiled in 194ms
+[03:10:01.732] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

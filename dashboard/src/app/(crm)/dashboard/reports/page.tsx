@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { format } from "date-fns";
@@ -65,14 +66,14 @@ export default function ReportsPage() {
   }, [isClient, myClientId]);
 
   useEffect(() => {
-    fetch("/api/clients")
+    apiFetch("/api/clients")
       .then((res) => res.json())
       .then((data) => setClients(data))
       .catch(console.error);
   }, []);
 
   useEffect(() => {
-    fetch("/api/team-members")
+    apiFetch("/api/team-members")
       .then((res) => res.json())
       .then((data) => setTeamMembers(Array.isArray(data) ? data : []))
       .catch(console.error);

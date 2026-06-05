@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -28,7 +29,7 @@ export function MobileHeader() {
     useState<string[]>(defaultClientAllowed);
 
   useEffect(() => {
-    fetch("/api/settings/client-sidebar")
+    apiFetch("/api/settings/client-sidebar")
       .then((r) => r.json())
       .then((data) => {
         if (Array.isArray(data.allowedClientPages)) {

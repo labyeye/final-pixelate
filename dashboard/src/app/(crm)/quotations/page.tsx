@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import jsPDF from "jspdf";
@@ -72,7 +73,7 @@ export default function QuotationsPage() {
     if (!isClient) {
       (async () => {
         try {
-          const res = await fetch("/api/clients");
+          const res = await apiFetch("/api/clients");
           if (!res.ok) return;
           const list = await res.json();
           const map: Record<string, any> = {};
@@ -136,7 +137,7 @@ export default function QuotationsPage() {
   const deleteQuotation = async (id: string) => {
     const token = localStorage.getItem("auth_token") || "";
     try {
-      const res = await fetch("/api/quotations/" + id, {
+      const res = await apiFetch("/api/quotations/" + id, {
         method: "DELETE",
         headers: token ? { Authorization: "Bearer " + token } : {},
       });

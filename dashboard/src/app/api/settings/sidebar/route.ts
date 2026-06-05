@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const users = await svc.getUsers();
 
@@ -34,6 +37,8 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const body = await request.json();
     const { userId, allowedPages, pagePermissions } = body;

@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/services";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function PATCH(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const col = await getCollection("content_plans");
     const body = await req.json();
@@ -49,6 +52,8 @@ export async function DELETE(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const col = await getCollection("content_plans");
     await col.deleteOne({ _id: new ObjectId(params.id) });

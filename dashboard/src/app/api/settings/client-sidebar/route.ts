@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { defaultClientAllowed } from "@/lib/nav-config";
+import { requireAuth } from "@/lib/require-auth";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const col = await svc.getCollection("agencySettings");
     const doc = await col.findOne({});
@@ -19,6 +22,8 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { allowedClientPages } = await request.json();
 

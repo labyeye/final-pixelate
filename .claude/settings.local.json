@@ -18,7 +18,8 @@
       "WebFetch(domain:www.pixelatenest.com)",
       "Skill(schedule)",
       "Bash(npx tsc *)",
-      "Bash(mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks/\\\\[id\\\\] && mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/\\\\\\(crm\\\\\\)/social-media-manager)"
+      "Bash(mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks/\\\\[id\\\\] && mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/\\\\\\(crm\\\\\\)/social-media-manager)",
+      "Bash(python3 -c ' *)"
     ],
     "additionalDirectories": [
       "/Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks"

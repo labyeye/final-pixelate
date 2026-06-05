@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React from "react";
 import {
   Dialog,
@@ -148,11 +149,11 @@ export function AddExpenseDialog({
     if (open) {
       form.reset(buildDefaults(editData));
 
-      fetch("/api/team-members")
+      apiFetch("/api/team-members")
         .then((r) => r.json())
         .then((d) => setTeamMembers(Array.isArray(d) ? d : []))
         .catch(() => {});
-      fetch("/api/projects")
+      apiFetch("/api/projects")
         .then((r) => r.json())
         .then((d) => setProjects(Array.isArray(d) ? d : []))
         .catch(() => {});

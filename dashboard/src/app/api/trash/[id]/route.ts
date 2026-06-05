@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -12,7 +13,9 @@ async function getRouteId(context: RouteContext) {
   return normalized;
 }
 
-export async function PATCH(_request: Request, context: RouteContext) {
+export async function PATCH(request: Request, context: RouteContext) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const id = await getRouteId(context);
     if (!id) {
@@ -37,7 +40,9 @@ export async function PATCH(_request: Request, context: RouteContext) {
   }
 }
 
-export async function DELETE(_request: Request, context: RouteContext) {
+export async function DELETE(request: Request, context: RouteContext) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const id = await getRouteId(context);
     if (!id) {

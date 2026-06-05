@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import {
   DragDropContext,
@@ -83,8 +84,8 @@ export default function TimelinePage() {
     (async () => {
       try {
         const [projectsRes, membersRes] = await Promise.all([
-          fetch("/api/projects"),
-          fetch("/api/team-members"),
+          apiFetch("/api/projects"),
+          apiFetch("/api/team-members"),
         ]);
         const projects = (await projectsRes.json()) as Project[];
         const members = (await membersRes.json()) as TeamMember[];

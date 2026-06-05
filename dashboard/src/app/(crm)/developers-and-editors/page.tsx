@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import {
   Table,
@@ -45,7 +46,7 @@ export default function DevelopersAndEditorsPage() {
     setError(null);
     (async () => {
       try {
-        const res = await fetch("/api/users");
+        const res = await apiFetch("/api/users");
         if (!res.ok) {
           const txt = await res.text();
           throw new Error(`Failed to fetch users: ${res.status} ${txt}`);
@@ -68,7 +69,7 @@ export default function DevelopersAndEditorsPage() {
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch("/api/users");
+      const res = await apiFetch("/api/users");
       if (!res.ok) {
         const txt = await res.text();
         throw new Error(`users fetch failed: ${res.status} ${txt}`);
@@ -109,7 +110,7 @@ export default function DevelopersAndEditorsPage() {
         jobRole: newMemberData.role,
         role: newMemberData.loginRole ?? "staff",
       };
-      const res = await fetch("/api/users", {
+      const res = await apiFetch("/api/users", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: { "Content-Type": "application/json" },

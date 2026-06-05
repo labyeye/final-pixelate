@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -80,7 +81,7 @@ export default function PhotoGalleriesPage() {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
-        const response = await fetch("/api/photos", {
+        const response = await apiFetch("/api/photos", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -272,7 +273,7 @@ export default function PhotoGalleriesPage() {
             thumbnailBase64: pf.preview,
           };
 
-          const response = await fetch("/api/photos", {
+          const response = await apiFetch("/api/photos", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

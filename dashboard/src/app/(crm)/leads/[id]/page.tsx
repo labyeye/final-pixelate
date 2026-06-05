@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import type { Lead, LeadActivity } from "@/lib/data";
@@ -228,7 +229,7 @@ export default function LeadDetailPage() {
         status: "active",
         convertedFromLeadId: leadId,
       };
-      const res = await fetch("/api/clients", {
+      const res = await apiFetch("/api/clients", {
         method: "POST",
         headers: authHeaders(),
         body: JSON.stringify(clientData),

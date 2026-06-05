@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import getDb from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id: campaignId } = await params;
     const db = await getDb();
@@ -51,6 +54,8 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id: campaignId } = await params;
     const db = await getDb();

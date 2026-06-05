@@ -112,7 +112,9 @@ export async function POST(request: Request) {
       scheduledTime: body?.scheduledTime || "",
       assignedTo: body?.assignedTo || "",
       status: body?.status || "Draft",
-      approvalStatus: body?.approvalStatus || "Pending",
+      approvalStatus:
+        body?.approvalStatus ||
+        (body?.status === "Scheduled" ? "Approved" : "Pending"),
       notes: body?.notes || "",
       postedLink: body?.postedLink || "",
       postedLinks: body?.postedLinks || {},
@@ -264,6 +266,10 @@ export async function PUT(request: Request) {
       updateData.status = body.status;
       changedFields.push("status");
       changeDetails.status = { before: postBefore?.status, after: body.status };
+      // Auto-approve when admin schedules a post
+      if (body.status === "Scheduled" && postBefore?.approvalStatus !== "Approved") {
+        updateData.approvalStatus = "Approved";
+      }
     }
     if (
       body.scheduledDate !== undefined &&

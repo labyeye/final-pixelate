@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,7 +32,7 @@ export default function ClientDevelopmentPage() {
         };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        const res = await fetch("/api/tasks", { headers });
+        const res = await apiFetch("/api/tasks", { headers });
         if (!res.ok) throw new Error("Failed to fetch tasks");
 
         const data = await res.json();

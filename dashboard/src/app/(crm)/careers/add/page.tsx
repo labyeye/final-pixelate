@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -51,7 +52,7 @@ export default function AddJobPage() {
         tags: formData.tags.filter((t) => t.trim() !== ""),
       };
 
-      const response = await fetch("/api/careers", {
+      const response = await apiFetch("/api/careers", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cleanedData),

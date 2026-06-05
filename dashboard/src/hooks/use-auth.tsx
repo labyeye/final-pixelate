@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React, {
   createContext,
   useContext,
@@ -34,11 +35,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     (async () => {
       try {
         const storedUserId = sessionStorage.getItem("userId");
+        const token = localStorage.getItem("auth_token");
 
-        const res = await fetch("/api/users");
+        if (!storedUserId || !token) {
+          setUser(null);
+          return;
+        }
+
+        const res = await apiFetch("/api/users", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) {
+          setUser(null);
+          return;
+        }
         const allUsers = (await res.json()) as User[];
         if (!mounted) return;
-        if (storedUserId) {
+        if (Array.isArray(allUsers)) {
           const foundUser = allUsers.find(
             (u) =>
               (u.id ?? (u._id as any)) ===
@@ -89,11 +102,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     (async () => {
       try {
-        const res = await fetch("/api/users");
+        const token = localStorage.getItem("auth_token");
+        if (!token) return;
+        const res = await apiFetch("/api/users", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) return;
         const allUsers = (await res.json()) as User[];
+        if (!Array.isArray(allUsers)) return;
         const normalized = allUsers.find((u) => {
           const candidate = u.id ?? (u._id as any);
-
           return String(candidate) === String(userId);
         });
         if (normalized) setUser(normalized);
@@ -107,7 +125,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (user) {
         (async () => {
           try {
-            await fetch("/api/erp-events", {
+            await apiFetch("/api/erp-events", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({

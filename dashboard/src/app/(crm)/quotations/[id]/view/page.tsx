@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,7 @@ export default function QuotationViewPage() {
           if (cRes.ok) setClient(await cRes.json());
         }
 
-        const sRes = await fetch("/api/settings");
+        const sRes = await apiFetch("/api/settings");
         if (sRes.ok) setSettings(await sRes.json());
       } catch (error) {
         console.error("Error loading quotation:", error);

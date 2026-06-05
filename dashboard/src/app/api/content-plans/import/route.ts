@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/services";
 import * as XLSX from "xlsx";
+import { requireAuth } from "@/lib/require-auth";
 
 // Picks the first truthy value from a list of possible keys on the row object
 function pick(row: Record<string, any>, ...keys: string[]): string {
@@ -27,6 +28,8 @@ function parseWeekTheme(raw: string): string {
 }
 
 export async function POST(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const formData = await req.formData();
     const file = formData.get("file") as File | null;

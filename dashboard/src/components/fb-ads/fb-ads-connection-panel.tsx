@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -123,7 +124,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     }
     setSaving(true);
     try {
-      const res = await fetch("/api/fb-ads-connection", {
+      const res = await apiFetch("/api/fb-ads-connection", {
         method: "POST",
         headers: authH(),
         body: JSON.stringify({
@@ -205,7 +206,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
   async function saveForms() {
     setSavingForms(true);
     try {
-      const res = await fetch("/api/fb-ads-connection", {
+      const res = await apiFetch("/api/fb-ads-connection", {
         method: "PATCH",
         headers: authH(),
         body: JSON.stringify({
@@ -233,7 +234,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
   async function syncNow(fullSync = false) {
     setSyncing(true);
     try {
-      const res = await fetch("/api/fb-ads-connection/sync", {
+      const res = await apiFetch("/api/fb-ads-connection/sync", {
         method: "POST",
         headers: authH(),
         body: JSON.stringify({ clientId, fullSync }),

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState, useMemo, useCallback } from "react";
 import {
   Card,
@@ -120,7 +121,7 @@ export default function ExpensesPage() {
   const load = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/expenses");
+      const res = await apiFetch("/api/expenses");
       if (!res.ok) throw new Error("Failed to fetch expenses");
       const json = await res.json();
       setExpenses(json || []);

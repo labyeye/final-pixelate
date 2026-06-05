@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React, { useState, useEffect } from "react";
 import { pdf } from "@react-pdf/renderer";
 import { OnboardingPDF } from "@/components/onboarding/onboarding-pdf";
@@ -189,7 +190,7 @@ export default function OnboardingPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/clients");
+        const res = await apiFetch("/api/clients");
         if (!res.ok) throw new Error("Failed to load clients");
         const items = await res.json();
         if (!mounted) return;

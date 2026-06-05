@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function POST(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   let body: { clientId?: string; invoiceNo?: string; source?: string };
   try {
     body = await req.json();
@@ -41,6 +44,8 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   let body: { clientId?: string; reason?: string };
   try {
     body = await req.json();

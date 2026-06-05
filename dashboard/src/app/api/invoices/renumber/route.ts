@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function POST(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const body = await request.json().catch(() => ({}));
     const fy = body?.financialYear;

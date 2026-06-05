@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import {
   Table,
@@ -70,7 +71,7 @@ export default function EnquiriesPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/enquiries");
+        const res = await apiFetch("/api/enquiries");
         const json = await res.json();
         if (!mounted) return;
         setItems(json || []);

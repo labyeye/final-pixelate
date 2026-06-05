@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -26,7 +27,7 @@ export default function ProfilePage() {
       setLoading(true);
       try {
         const token = localStorage.getItem("auth_token") || "";
-        const res = await fetch("/api/me", {
+        const res = await apiFetch("/api/me", {
           headers: token ? { Authorization: "Bearer " + token } : {},
         });
         if (res.ok) {
@@ -45,7 +46,7 @@ export default function ProfilePage() {
     setSaving(true);
     try {
       const token = localStorage.getItem("auth_token") || "";
-      const res = await fetch("/api/me", {
+      const res = await apiFetch("/api/me", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +97,7 @@ export default function ProfilePage() {
     setPwSaving(true);
     try {
       const token = localStorage.getItem("auth_token") || "";
-      const res = await fetch("/api/me", {
+      const res = await apiFetch("/api/me", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

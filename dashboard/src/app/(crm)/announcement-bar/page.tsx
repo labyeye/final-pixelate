@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import {
   Card,
@@ -35,7 +36,7 @@ export default function AnnouncementBarPage() {
   const loadAnnouncement = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/announcement");
+      const res = await apiFetch("/api/announcement");
       if (res.ok) {
         const data = await res.json();
         setText(data.text || "");
@@ -73,7 +74,7 @@ export default function AnnouncementBarPage() {
 
     try {
       setSaving(true);
-      const res = await fetch("/api/announcement", {
+      const res = await apiFetch("/api/announcement", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, enabled }),

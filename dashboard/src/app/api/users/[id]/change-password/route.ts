@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import bcryptjs from "bcryptjs";
+import { requireAuth } from "@/lib/require-auth";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -14,6 +15,8 @@ async function getRouteId(context: RouteContext) {
 }
 
 export async function POST(request: NextRequest, context: RouteContext) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const id = await getRouteId(context);
     if (!id) {

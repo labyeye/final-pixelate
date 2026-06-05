@@ -1,8 +1,11 @@
 (async () => {})();
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
-export async function GET() {
+export async function GET(request: Request) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const items = await svc.getTeamMembers();
     return NextResponse.json(items);
@@ -15,6 +18,8 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const body = await request.json();
 

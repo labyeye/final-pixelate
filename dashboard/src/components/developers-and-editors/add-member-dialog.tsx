@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -184,7 +185,7 @@ export function AddMemberDialog({
             "Posting consolidated userBody to /api/users",
             userBody,
           );
-          const res = await fetch("/api/users", {
+          const res = await apiFetch("/api/users", {
             method: "POST",
             body: JSON.stringify(userBody),
             headers: { "Content-Type": "application/json" },

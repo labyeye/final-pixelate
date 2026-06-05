@@ -3,6 +3,7 @@ import { renderToBuffer } from "@react-pdf/renderer";
 import React from "react";
 import { PaymentReceiptPDFDocument } from "@/components/payments/payment-receipt-pdf";
 import { getCollection } from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 function getFinancialYear(): string {
   const now = new Date();
@@ -55,6 +56,8 @@ async function generateReceiptNo(index?: number): Promise<string> {
 }
 
 export async function POST(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   let body: any;
   try {
     body = await req.json();

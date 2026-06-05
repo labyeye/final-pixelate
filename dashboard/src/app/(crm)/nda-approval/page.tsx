@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
 import { renderToString } from "react-dom/server";
@@ -84,7 +85,7 @@ export default function NdaApprovalPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/clients");
+        const res = await apiFetch("/api/clients");
         if (!res.ok) throw new Error("Failed to fetch clients");
         const items = await res.json();
         if (!mounted) return;
@@ -174,7 +175,7 @@ export default function NdaApprovalPage() {
         ...form,
         clientId: selectedClientId || myClientId || undefined,
       };
-      const res = await fetch("/api/nda-approvals", {
+      const res = await apiFetch("/api/nda-approvals", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

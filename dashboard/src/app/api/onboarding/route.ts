@@ -4,8 +4,11 @@ import { createOnboarding } from "@/lib/services";
 import { ObjectId } from "mongodb";
 import { getDb } from "@/lib/mongodb";
 import { createOnboardingJourneyEvent } from "@/lib/journey-helpers";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { searchParams } = new URL(request.url);
     const clientIdParam = searchParams.get("clientId");
@@ -37,6 +40,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const body = await request.json();
     const created = await createOnboarding(body);

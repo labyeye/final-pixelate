@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -173,7 +174,7 @@ export default function AnalyticsPage() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/api/clients", { cache: "no-store" });
+        const res = await apiFetch("/api/clients", { cache: "no-store" });
         if (!res.ok) return;
         const data = await res.json();
         setClients(Array.isArray(data) ? data : []);
@@ -360,7 +361,7 @@ export default function AnalyticsPage() {
         prev ? { ...prev, current: i + 1, currentTitle: post.title } : prev,
       );
       try {
-        const res = await fetch("/api/social-media-metrics/sync", {
+        const res = await apiFetch("/api/social-media-metrics/sync", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ postId, accountId }),
@@ -411,7 +412,7 @@ export default function AnalyticsPage() {
     setSyncingKey({ postId, accountId });
     setSyncError(null);
     try {
-      const res = await fetch("/api/social-media-metrics/sync", {
+      const res = await apiFetch("/api/social-media-metrics/sync", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ postId, accountId }),
@@ -437,7 +438,7 @@ export default function AnalyticsPage() {
       const body: any = { id: inlineEditingKey.postId, ...inlineMetrics };
       if (inlineEditingKey.accountId !== NO_ACCOUNT)
         body.accountId = inlineEditingKey.accountId;
-      const res = await fetch("/api/social-media-posts", {
+      const res = await apiFetch("/api/social-media-posts", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

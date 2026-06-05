@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import React, { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -36,7 +37,7 @@ export default function BlogsAdminPage() {
 
     (async () => {
       try {
-        const res = await fetch("/api/blogs");
+        const res = await apiFetch("/api/blogs");
         if (res.ok) {
           const data = await res.json();
           setServerPosts(Array.isArray(data) ? data : []);

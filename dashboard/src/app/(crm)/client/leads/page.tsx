@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState, useMemo } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Input } from "@/components/ui/input";
@@ -481,7 +482,7 @@ export default function ClientLeadsPage() {
   const fetchLeads = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/leads", { headers: getAuthHeaders() });
+      const res = await apiFetch("/api/leads", { headers: getAuthHeaders() });
       if (!res.ok) throw new Error("Failed");
       const data = await res.json();
       setLeads(Array.isArray(data) ? data : []);
@@ -503,7 +504,7 @@ export default function ClientLeadsPage() {
     setSyncError(null);
     setSyncResult(null);
     try {
-      const res = await fetch("/api/client-leads/sync", {
+      const res = await apiFetch("/api/client-leads/sync", {
         method: "POST",
         headers: getAuthHeaders(),
         body: JSON.stringify({ clientId: user.clientId }),

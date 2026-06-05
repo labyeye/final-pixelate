@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -98,7 +99,7 @@ export default function ClientsPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/clients");
+        const res = await apiFetch("/api/clients");
         if (!res.ok) throw new Error(`Failed: ${res.status}`);
         const items = await res.json();
         if (mounted) setClients(items as Client[]);
@@ -146,7 +147,7 @@ export default function ClientsPage() {
 
   const handleAddClient = async (newClientData: Omit<Client, "id" | "_id">) => {
     try {
-      const res = await fetch("/api/clients", {
+      const res = await apiFetch("/api/clients", {
         method: "POST",
         body: JSON.stringify(newClientData),
         headers: { "Content-Type": "application/json" },

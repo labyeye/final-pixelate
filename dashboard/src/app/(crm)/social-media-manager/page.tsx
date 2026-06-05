@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 import { Button } from "@/components/ui/button";
@@ -355,7 +356,7 @@ export default function SocialMediaManagerPage() {
         body: JSON.stringify(data),
       });
     } else {
-      await fetch("/api/social-media-tasks", {
+      await apiFetch("/api/social-media-tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -401,7 +402,7 @@ export default function SocialMediaManagerPage() {
 
       if (docs.length === 0) { alert("No valid rows found (Title column required)."); return; }
 
-      const res = await fetch("/api/social-media-tasks", {
+      const res = await apiFetch("/api/social-media-tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(docs),

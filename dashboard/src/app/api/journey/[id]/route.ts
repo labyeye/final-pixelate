@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const body = await request.json();
@@ -34,9 +37,11 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const { softDeleteById } = await import("@/lib/services");

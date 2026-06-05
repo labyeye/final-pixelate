@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function GET(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const { searchParams } = new URL(req.url);
     const status = searchParams.get("status");

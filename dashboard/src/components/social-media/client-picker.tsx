@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -30,7 +31,7 @@ export function ClientPicker({
     const loadClients = async () => {
       try {
         setLoading(true);
-        const res = await fetch("/api/clients", { cache: "no-store" });
+        const res = await apiFetch("/api/clients", { cache: "no-store" });
         if (!res.ok) throw new Error("Failed to fetch clients");
         const data = await res.json();
         const clientList = Array.isArray(data) ? data : [];

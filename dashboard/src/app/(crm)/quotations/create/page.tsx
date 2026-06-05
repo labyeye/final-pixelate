@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -143,7 +144,7 @@ export default function CreateQuotationPage() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("/api/clients");
+      const res = await apiFetch("/api/clients");
       if (res.ok) {
         const data = await res.json();
         setClients(data);
@@ -260,7 +261,7 @@ export default function CreateQuotationPage() {
         });
         router.push(`/quotations/${updated._id || updated.id || editId}/view`);
       } else {
-        const res = await fetch("/api/quotations", {
+        const res = await apiFetch("/api/quotations", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

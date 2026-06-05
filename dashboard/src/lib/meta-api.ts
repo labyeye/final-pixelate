@@ -468,12 +468,13 @@ export async function publishFacebookPost(
 
   console.log(`[FB publish] endpoint=${endpoint} response:`, JSON.stringify({ id: data.id, post_id: data.post_id }));
 
-  // /photos returns data.id = photo node ID (NOT the post ID).
-  // post_id is not in the default response — fetch it via a follow-up GET.
+  // /photos returns data.id = photo node ID AND data.post_id = actual feed post ID.
   // /videos returns data.id = video ID.
   // /feed returns data.id = {page_id}_{post_id} composite.
+  // Prefer post_id (the actual timeline post) over id (the asset node).
   const rawId: string = String(data.id || "");
-  const permalink = await fetchFbPermalink(rawId, pageId, isVideo, token);
+  const postId: string = String(data.post_id || data.id || "");
+  const permalink = await fetchFbPermalink(postId, pageId, isVideo, token);
 
   return { id: rawId, permalink };
 }
@@ -489,8 +490,8 @@ async function fetchFbPermalink(
     return `https://www.facebook.com/${pageId}`;
   }
 
-  // Step 1: for photos (rawId has no underscore → it's a photo node ID, not a post ID).
-  // Fetch post_id + permalink_url via a GET call first.
+  // If rawId already has underscore (composite page_id_post_id), jump straight to Step 2.
+  // Step 1: for photos/videos (rawId has no underscore → it's an asset node ID, not a post ID).
   if (!rawId.includes("_")) {
     try {
       const lookupUrl = new URL(`${META_GRAPH_API}/${rawId}`);
@@ -531,9 +532,9 @@ async function fetchFbPermalink(
       console.warn("[FB permalink] lookup threw:", e?.message);
     }
 
-    // Fallback for photo: use permalink.php with the raw photo ID
-    if (isVideo) return `https://www.facebook.com/video/${rawId}`;
-    return `https://www.facebook.com/permalink.php?story_fbid=${rawId}&id=${pageId}`;
+    // Fallback: best-effort URLs per content type
+    if (isVideo) return `https://www.facebook.com/${pageId}/videos/${rawId}/`;
+    return `https://www.facebook.com/photo/?fbid=${rawId}&set=a.${rawId}`;
   }
 
   // Step 2: rawId already contains underscore → it's a composite post ID like "{page_id}_{post_id}"
@@ -549,9 +550,11 @@ async function fetchFbPermalink(
     console.warn("[FB permalink] composite threw:", e?.message);
   }
 
-  // Fallback from composite ID: extract the numeric suffix
-  const suffix = rawId.split("_").pop() || rawId;
-  return `https://www.facebook.com/permalink.php?story_fbid=${suffix}&id=${pageId}`;
+  // Fallback from composite ID: extract the numeric suffix for permalink.php
+  const parts = rawId.split("_");
+  const suffix = parts.length >= 2 ? parts.slice(1).join("_") : rawId;
+  const pid = parts[0] || pageId;
+  return `https://www.facebook.com/permalink.php?story_fbid=${suffix}&id=${pid}`;
 }
 
 async function resolveIgMediaId(

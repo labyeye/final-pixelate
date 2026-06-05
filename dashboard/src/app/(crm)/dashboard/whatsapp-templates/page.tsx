@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect, useMemo } from "react";
 import {
   Plus,
@@ -207,7 +208,7 @@ export default function WhatsAppTemplatesPage() {
   const fetchTemplates = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/whatsapp-templates");
+      const res = await apiFetch("/api/whatsapp-templates");
       const data = await res.json();
       setTemplates(Array.isArray(data) ? data : []);
     } catch {
@@ -228,7 +229,7 @@ export default function WhatsAppTemplatesPage() {
   const handleSync = async () => {
     setSyncing(true);
     try {
-      const res = await fetch("/api/whatsapp-templates/sync");
+      const res = await apiFetch("/api/whatsapp-templates/sync");
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Sync failed");
       toast({
@@ -302,7 +303,7 @@ export default function WhatsAppTemplatesPage() {
     try {
       const fd = new FormData();
       fd.append("file", file);
-      const res = await fetch("/api/whatsapp-templates/upload-media", {
+      const res = await apiFetch("/api/whatsapp-templates/upload-media", {
         method: "POST",
         body: fd,
       });

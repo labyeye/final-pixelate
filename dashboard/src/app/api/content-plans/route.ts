@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/services";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function GET(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const col = await getCollection("content_plans");
     const { searchParams } = new URL(req.url);
@@ -21,6 +24,8 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  const auth = requireAuth(req);
+  if (auth.error) return auth.error;
   try {
     const body = await req.json();
     const col = await getCollection("content_plans");

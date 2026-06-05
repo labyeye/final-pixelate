@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     const pendingPosts = await postsCol
       .find({
         status: "Scheduled",
-        approvalStatus: "Approved",
+        approvalStatus: { $nin: ["Rejected"] },
       })
       .toArray();
 

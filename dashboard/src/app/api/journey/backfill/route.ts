@@ -5,8 +5,11 @@ import {
   createProjectJourneyEvent,
   createQuotationJourneyEvent,
 } from "@/lib/journey-helpers";
+import { requireAuth } from "@/lib/require-auth";
 
-export async function POST() {
+export async function POST(request: Request) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const db = await getDb();
 

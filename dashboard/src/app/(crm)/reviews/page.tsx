@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
 import {
   Table,
@@ -70,7 +71,7 @@ export default function ReviewsPage() {
   const loadReviews = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch("/api/reviews?limit=100");
+      const res = await apiFetch("/api/reviews?limit=100");
       if (!res.ok) throw new Error(`Failed to fetch reviews: ${res.status}`);
       const items = await res.json();
       setReviews(items as Review[]);

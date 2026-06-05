@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -61,7 +62,7 @@ export function CampaignInsights() {
 
   const fetchCampaigns = async () => {
     try {
-      const response = await fetch("/api/campaigns");
+      const response = await apiFetch("/api/campaigns");
       if (!response.ok) throw new Error("Failed to fetch campaigns");
 
       const data = await response.json();

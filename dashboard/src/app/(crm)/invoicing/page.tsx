@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import {
   Table,
   TableBody,
@@ -114,9 +115,9 @@ export default function InvoicingPage() {
     (async () => {
       try {
         const [cRes, sRes, pRes] = await Promise.all([
-          fetch("/api/clients"),
-          fetch("/api/services"),
-          fetch("/api/projects"),
+          apiFetch("/api/clients"),
+          apiFetch("/api/services"),
+          apiFetch("/api/projects"),
         ]);
         const [cJson, sJson, pJson] = await Promise.all([
           cRes.json(),
@@ -154,7 +155,7 @@ export default function InvoicingPage() {
 
   const refreshClients = async () => {
     try {
-      const res = await fetch("/api/clients");
+      const res = await apiFetch("/api/clients");
       if (!res.ok) return;
       const data = await res.json();
       setClients(data || []);
@@ -574,7 +575,7 @@ export default function InvoicingPage() {
         .slice(0, 80);
       const fileName = `Invoice-${sanitized}-${id}.pdf`;
 
-      const res = await fetch("/api/send-invoice-email", {
+      const res = await apiFetch("/api/send-invoice-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import * as svc from "@/lib/services";
+import { requireAuth } from "@/lib/require-auth";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -13,6 +14,8 @@ export async function OPTIONS() {
 }
 
 export async function POST(request: Request) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const formData = await request.formData();
 

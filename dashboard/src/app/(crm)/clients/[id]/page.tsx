@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import type { Client, Lead } from "@/lib/data";
@@ -78,13 +79,13 @@ export default function ClientDetailPage() {
       fetch(`/api/clients/${clientId}`, { headers: authHeaders() }).then((r) =>
         r.json(),
       ),
-      fetch("/api/leads", { headers: authHeaders() })
+      apiFetch("/api/leads", { headers: authHeaders() })
         .then((r) => (r.ok ? r.json() : []))
         .catch(() => []),
-      fetch("/api/projects", { headers: authHeaders() })
+      apiFetch("/api/projects", { headers: authHeaders() })
         .then((r) => (r.ok ? r.json() : []))
         .catch(() => []),
-      fetch("/api/invoices", { headers: authHeaders() })
+      apiFetch("/api/invoices", { headers: authHeaders() })
         .then((r) => (r.ok ? r.json() : []))
         .catch(() => []),
     ])

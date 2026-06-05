@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import {
   Table,
@@ -38,7 +39,7 @@ export default function UsersPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/users");
+        const res = await apiFetch("/api/users");
         if (!res.ok) throw new Error(`Failed to fetch users: ${res.status}`);
         const items = await res.json();
         if (mounted) setUsers(items as User[]);

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useMemo, useState } from "react";
 import { useRef } from "react";
 import {
@@ -60,12 +61,12 @@ export default function AnalyticsPage() {
     (async () => {
       try {
         const [pRes, iRes, cRes, tRes, sRes, eRes] = await Promise.all([
-          fetch("/api/projects"),
-          fetch("/api/invoices"),
-          fetch("/api/clients"),
-          fetch("/api/team-members"),
-          fetch("/api/services"),
-          fetch("/api/expenses"),
+          apiFetch("/api/projects"),
+          apiFetch("/api/invoices"),
+          apiFetch("/api/clients"),
+          apiFetch("/api/team-members"),
+          apiFetch("/api/services"),
+          apiFetch("/api/expenses"),
         ]);
         const [pJson, iJson, cJson, tJson, sJson, eJson] = await Promise.all([
           pRes.json(),

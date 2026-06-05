@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import getDb from "@/lib/mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 interface Campaign {
   _id?: string;
@@ -21,6 +22,8 @@ interface Campaign {
 }
 
 export async function GET(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const db = await getDb();
 
@@ -188,6 +191,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const db = await getDb();
     const body = await request.json();

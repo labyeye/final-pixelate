@@ -5,11 +5,14 @@ import {
   createProjectJourneyEvent,
   parseJourneyOccurredAt,
 } from "@/lib/journey-helpers";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const item = await svc.findById("projects", id);
@@ -28,6 +31,8 @@ export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const body = await request.json();
@@ -157,6 +162,8 @@ export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const ok = await svc.softDeleteById("projects", id);

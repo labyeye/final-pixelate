@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -215,7 +216,7 @@ export default function SocialMediaPlannerPage() {
           ).trim(),
         };
 
-        await fetch("/api/social-media-posts", {
+        await apiFetch("/api/social-media-posts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(post),
@@ -238,7 +239,7 @@ export default function SocialMediaPlannerPage() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/api/team-members", { cache: "no-store" });
+        const res = await apiFetch("/api/team-members", { cache: "no-store" });
         if (!res.ok) return;
         const data = await res.json();
         setTeam(Array.isArray(data) ? data : []);
@@ -371,7 +372,7 @@ export default function SocialMediaPlannerPage() {
     };
     delete (payload as any)._id;
     delete (payload as any).id;
-    const res = await fetch("/api/social-media-posts", {
+    const res = await apiFetch("/api/social-media-posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

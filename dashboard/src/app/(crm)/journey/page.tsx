@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -265,7 +266,7 @@ function AddEventDialog({
           : new Date().toISOString(),
       };
 
-      const res = await fetch("/api/journey", {
+      const res = await apiFetch("/api/journey", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -663,7 +664,7 @@ export default function JourneyPage() {
   const feedEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    fetch("/api/clients")
+    apiFetch("/api/clients")
       .then((r) => r.json())
       .then((data: any[]) => {
         setClients(
