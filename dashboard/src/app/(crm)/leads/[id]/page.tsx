@@ -124,10 +124,10 @@ export default function LeadDetailPage() {
     if (!leadId) return;
     setLoading(true);
     Promise.all([
-      fetch(`/api/leads/${leadId}`, { headers: authHeaders() }).then((r) =>
+      apiFetch(`/api/leads/${leadId}`, { headers: authHeaders() }).then((r) =>
         r.json(),
       ),
-      fetch(`/api/leads/${leadId}/activity`, { headers: authHeaders() }).then(
+      apiFetch(`/api/leads/${leadId}/activity`, { headers: authHeaders() }).then(
         (r) => r.json(),
       ),
     ])
@@ -147,7 +147,7 @@ export default function LeadDetailPage() {
     if (!lead) return;
     setSaving(true);
     try {
-      const res = await fetch(`/api/leads/${leadId}`, {
+      const res = await apiFetch(`/api/leads/${leadId}`, {
         method: "PATCH",
         headers: authHeaders(),
         body: JSON.stringify(editForm),
@@ -168,7 +168,7 @@ export default function LeadDetailPage() {
     if (!newActivity.content.trim()) return;
     setPostingActivity(true);
     try {
-      const res = await fetch(`/api/leads/${leadId}/activity`, {
+      const res = await apiFetch(`/api/leads/${leadId}/activity`, {
         method: "POST",
         headers: authHeaders(),
         body: JSON.stringify(newActivity),
@@ -187,14 +187,14 @@ export default function LeadDetailPage() {
 
   async function updateStatus(newStatus: string) {
     try {
-      await fetch(`/api/leads/${leadId}`, {
+      await apiFetch(`/api/leads/${leadId}`, {
         method: "PATCH",
         headers: authHeaders(),
         body: JSON.stringify({ status: newStatus, updatedAt: new Date() }),
       });
       setLead((prev) => (prev ? { ...prev, status: newStatus as any } : prev));
 
-      const res = await fetch(`/api/leads/${leadId}/activity`, {
+      const res = await apiFetch(`/api/leads/${leadId}/activity`, {
         method: "POST",
         headers: authHeaders(),
         body: JSON.stringify({
@@ -238,7 +238,7 @@ export default function LeadDetailPage() {
       const newClient = await res.json();
       const clientId = String(newClient._id || newClient.id);
 
-      await fetch(`/api/leads/${leadId}`, {
+      await apiFetch(`/api/leads/${leadId}`, {
         method: "PATCH",
         headers: authHeaders(),
         body: JSON.stringify({
@@ -252,7 +252,7 @@ export default function LeadDetailPage() {
           : prev,
       );
 
-      const actRes = await fetch(`/api/leads/${leadId}/activity`, {
+      const actRes = await apiFetch(`/api/leads/${leadId}/activity`, {
         method: "POST",
         headers: authHeaders(),
         body: JSON.stringify({

@@ -79,7 +79,7 @@ export default function BlogsAdminPage() {
         ? "https://backend.pixelatenest.com"
         : "";
     try {
-      const res = await fetch(API_BASE + "/api/blogs", {
+      const res = await apiFetch(API_BASE + "/api/blogs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
@@ -119,7 +119,7 @@ export default function BlogsAdminPage() {
           ? "https://backend.pixelatenest.com"
           : "";
       try {
-        const res = await fetch(`${API_BASE}/api/blogs/${id}`, {
+        const res = await apiFetch(`${API_BASE}/api/blogs/${id}`, {
           method: "DELETE",
         });
         if (res.ok) {
@@ -155,7 +155,7 @@ export default function BlogsAdminPage() {
     const published: BlogPost[] = [...posts];
     for (const post of local) {
       try {
-        const res = await fetch(API_BASE + "/api/blogs", {
+        const res = await apiFetch(API_BASE + "/api/blogs", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(post),
@@ -192,7 +192,7 @@ export default function BlogsAdminPage() {
     const published: BlogPost[] = [...posts];
     for (const post of arr) {
       try {
-        const res = await fetch(API_BASE + "/api/blogs", {
+        const res = await apiFetch(API_BASE + "/api/blogs", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(post),

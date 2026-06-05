@@ -325,7 +325,7 @@ export default function LeadsPage() {
       ),
     );
     try {
-      const res = await fetch(`/api/leads/${leadId}`, {
+      const res = await apiFetch(`/api/leads/${leadId}`, {
         method: "PATCH",
         headers: authH(),
         body: JSON.stringify({ status: newStatus, updatedAt: new Date() }),
@@ -343,7 +343,7 @@ export default function LeadsPage() {
   async function deleteLead(leadId: string) {
     if (!window.confirm("Delete this lead?")) return;
     try {
-      const res = await fetch(`/api/leads/${leadId}`, {
+      const res = await apiFetch(`/api/leads/${leadId}`, {
         method: "DELETE",
         headers: authH(),
       });
@@ -372,7 +372,7 @@ export default function LeadsPage() {
     let deleted = 0;
     for (const id of Array.from(selected)) {
       try {
-        const res = await fetch(`/api/leads/${id}`, {
+        const res = await apiFetch(`/api/leads/${id}`, {
           method: "DELETE",
           headers: authH(),
         });
@@ -393,7 +393,7 @@ export default function LeadsPage() {
     const name = staffMember?.name || "";
     for (const id of Array.from(selected)) {
       try {
-        await fetch(`/api/leads/${id}`, {
+        await apiFetch(`/api/leads/${id}`, {
           method: "PATCH",
           headers: authH(),
           body: JSON.stringify({ assignedTo: staffId, assignedToName: name }),
@@ -415,7 +415,7 @@ export default function LeadsPage() {
     if (!selected.size || !status) return;
     for (const id of Array.from(selected)) {
       try {
-        await fetch(`/api/leads/${id}`, {
+        await apiFetch(`/api/leads/${id}`, {
           method: "PATCH",
           headers: authH(),
           body: JSON.stringify({ status }),

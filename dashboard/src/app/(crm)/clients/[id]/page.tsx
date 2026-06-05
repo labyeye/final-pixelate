@@ -76,7 +76,7 @@ export default function ClientDetailPage() {
     if (!clientId) return;
     setLoading(true);
     Promise.all([
-      fetch(`/api/clients/${clientId}`, { headers: authHeaders() }).then((r) =>
+      apiFetch(`/api/clients/${clientId}`, { headers: authHeaders() }).then((r) =>
         r.json(),
       ),
       apiFetch("/api/leads", { headers: authHeaders() })
@@ -134,7 +134,7 @@ export default function ClientDetailPage() {
   async function saveClient() {
     setSaving(true);
     try {
-      const res = await fetch(`/api/clients/${clientId}`, {
+      const res = await apiFetch(`/api/clients/${clientId}`, {
         method: "PUT",
         headers: authHeaders(),
         body: JSON.stringify(editForm),

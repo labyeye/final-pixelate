@@ -339,7 +339,7 @@ export default function WhatsAppTemplatesPage() {
 
     setSubmittingId(t._id);
     try {
-      const res = await fetch(`/api/whatsapp-templates/${t._id}/submit`, {
+      const res = await apiFetch(`/api/whatsapp-templates/${t._id}/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: t.name }),
@@ -402,7 +402,7 @@ export default function WhatsAppTemplatesPage() {
         : "/api/whatsapp-templates";
       const method = editTarget ? "PATCH" : "POST";
 
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -432,7 +432,7 @@ export default function WhatsAppTemplatesPage() {
       return;
     setDeletingId(t._id);
     try {
-      const res = await fetch(`/api/whatsapp-templates/${t._id}`, {
+      const res = await apiFetch(`/api/whatsapp-templates/${t._id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error((await res.json()).error || "Delete failed");

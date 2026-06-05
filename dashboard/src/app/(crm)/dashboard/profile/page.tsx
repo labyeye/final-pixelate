@@ -134,7 +134,7 @@ export default function ProfilePage() {
       const uploadData = await uploadRes.json();
       const imageUrl = uploadData.url || uploadData.path || uploadData.filename;
 
-      const updateRes = await fetch(`/api/users/${user?.id || user?._id}`, {
+      const updateRes = await apiFetch(`/api/users/${user?.id || user?._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

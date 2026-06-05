@@ -144,7 +144,7 @@ export default function SocialMediaPlannerPage() {
         url.searchParams.set("assignedTo", user.name);
       }
 
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await apiFetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch social posts");
       const data = await res.json();
       setPosts(Array.isArray(data) ? data : []);
@@ -252,7 +252,7 @@ export default function SocialMediaPlannerPage() {
   useEffect(() => {
     loadPosts(selectedClientId);
     if (selectedClientId) {
-      fetch(`/api/social-media-accounts?clientId=${selectedClientId}`, {
+      apiFetch(`/api/social-media-accounts?clientId=${selectedClientId}`, {
         cache: "no-store",
       })
         .then((r) => r.json())
@@ -318,7 +318,7 @@ export default function SocialMediaPlannerPage() {
         ? `/api/social-media-posts/${post._id || post.id}`
         : "/api/social-media-posts";
 
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
@@ -342,7 +342,7 @@ export default function SocialMediaPlannerPage() {
 
   const deletePost = async (id: string) => {
     if (!window.confirm("Delete this post plan?")) return;
-    const res = await fetch(`/api/social-media-posts/${id}`, {
+    const res = await apiFetch(`/api/social-media-posts/${id}`, {
       method: "DELETE",
     });
     if (!res.ok) {
@@ -405,7 +405,7 @@ export default function SocialMediaPlannerPage() {
         const accountId = accountIds[0];
         const link = window.prompt("Paste posted link (optional):", "") || "";
         const postedLinks = link && accountId ? { [accountId]: link } : {};
-        const res = await fetch(`/api/social-media-posts/${id}`, {
+        const res = await apiFetch(`/api/social-media-posts/${id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ status, postedLink: link, postedLinks }),
@@ -420,7 +420,7 @@ export default function SocialMediaPlannerPage() {
     }
 
     const body: any = { status };
-    const res = await fetch(`/api/social-media-posts/${id}`, {
+    const res = await apiFetch(`/api/social-media-posts/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -457,7 +457,7 @@ export default function SocialMediaPlannerPage() {
       };
     }
 
-    const res = await fetch(`/api/social-media-posts/${postId}`, {
+    const res = await apiFetch(`/api/social-media-posts/${postId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -485,7 +485,7 @@ export default function SocialMediaPlannerPage() {
     );
     if (!nextTime) return;
 
-    const res = await fetch(`/api/social-media-posts/${item._id || item.id}`, {
+    const res = await apiFetch(`/api/social-media-posts/${item._id || item.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

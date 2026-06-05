@@ -81,7 +81,7 @@ function ClientTokenSetup({
     setTestResult(null);
     try {
       const url = `https://graph.facebook.com/v19.0/me?fields=id,name&access_token=${token.trim()}`;
-      const res = await fetch(url);
+      const res = await apiFetch(url);
       const data = await res.json();
       if (data.error) setTestResult({ ok: false, msg: data.error.message });
       else
@@ -103,7 +103,7 @@ function ClientTokenSetup({
     }
     setSaving(true);
     try {
-      const res = await fetch(`/api/clients/${clientId}/meta-token`, {
+      const res = await apiFetch(`/api/clients/${clientId}/meta-token`, {
         method: "PUT",
         headers: authH(),
         body: JSON.stringify({ metaAccessToken: token.trim() }),
@@ -121,7 +121,7 @@ function ClientTokenSetup({
   }
 
   async function handleRemove() {
-    await fetch(`/api/clients/${clientId}/meta-token`, {
+    await apiFetch(`/api/clients/${clientId}/meta-token`, {
       method: "PUT",
       headers: authH(),
       body: JSON.stringify({ metaAccessToken: null }),
@@ -441,10 +441,10 @@ export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
     setLoading(true);
     try {
       const [accRes, tokenRes] = await Promise.all([
-        fetch(`/api/social-media-accounts?clientId=${clientId}`, {
+        apiFetch(`/api/social-media-accounts?clientId=${clientId}`, {
           headers: authH(),
         }),
-        fetch(`/api/clients/${clientId}/meta-token`, { headers: authH() }),
+        apiFetch(`/api/clients/${clientId}/meta-token`, { headers: authH() }),
       ]);
       const accData = await accRes.json();
       const tokenData = await tokenRes.json();

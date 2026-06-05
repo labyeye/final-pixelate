@@ -560,7 +560,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
       const newStatus =
         newPaidCount >= emi.totalMonths ? "completed" : "active";
 
-      await fetch(`/api/emi/${emi._id}`, {
+      await apiFetch(`/api/emi/${emi._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -590,7 +590,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
         (s) => s.status === "paid",
       ).length;
 
-      await fetch(`/api/emi/${emi._id}`, {
+      await apiFetch(`/api/emi/${emi._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -609,7 +609,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
 
   const handleDelete = async () => {
     try {
-      await fetch(`/api/emi/${emi._id}`, { method: "DELETE" });
+      await apiFetch(`/api/emi/${emi._id}`, { method: "DELETE" });
       await onRefresh();
     } catch (e) {
       alert("Failed to delete");

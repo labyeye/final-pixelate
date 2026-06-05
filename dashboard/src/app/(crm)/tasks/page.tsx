@@ -35,7 +35,7 @@ export default function TasksPage() {
       const url = currentUserId
         ? `/api/tasks?userId=${encodeURIComponent(currentUserId)}`
         : "/api/tasks";
-      const res = await fetch(url);
+      const res = await apiFetch(url);
       if (res.ok) {
         const data = await res.json();
         setTasks(data);
@@ -65,7 +65,7 @@ export default function TasksPage() {
       const url = userId
         ? `/api/tasks/${taskId}?userId=${encodeURIComponent(userId)}`
         : `/api/tasks/${taskId}`;
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),

@@ -60,7 +60,7 @@ export default function QuotationsPage() {
           isClient && myClientId
             ? `/api/quotations?clientId=${myClientId}`
             : "/api/quotations";
-        const res = await fetch(url);
+        const res = await apiFetch(url);
         if (!res.ok)
           throw new Error(`Failed to fetch quotations: ${res.status}`);
         const items = await res.json();
@@ -96,7 +96,7 @@ export default function QuotationsPage() {
     try {
       const id = (quote as any).id || (quote as any)._id;
       if (!id) throw new Error("No id to update");
-      const res = await fetch(`/api/quotations/${id}`, {
+      const res = await apiFetch(`/api/quotations/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -178,7 +178,7 @@ export default function QuotationsPage() {
       try {
         let client = undefined;
         if (quote.clientId) {
-          const res = await fetch(`/api/clients/${quote.clientId}`);
+          const res = await apiFetch(`/api/clients/${quote.clientId}`);
           if (res.ok) client = await res.json();
         }
 

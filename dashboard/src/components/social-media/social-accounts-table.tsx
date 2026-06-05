@@ -118,7 +118,7 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
     if (!window.confirm("Delete this account?")) return;
 
     try {
-      const res = await fetch(`/api/social-media-accounts?id=${accountId}`, {
+      const res = await apiFetch(`/api/social-media-accounts?id=${accountId}`, {
         method: "DELETE",
       });
 

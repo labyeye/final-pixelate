@@ -53,7 +53,7 @@ export function PostLinksModal({
             window.location.origin,
           );
           url.searchParams.set("id", id);
-          return fetch(url.toString(), { cache: "no-store" }).then((res) =>
+          return apiFetch(url.toString(), { cache: "no-store" }).then((res) =>
             res.ok ? res.json() : null,
           );
         });

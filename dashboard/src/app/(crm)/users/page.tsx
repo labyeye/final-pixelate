@@ -74,7 +74,7 @@ export default function UsersPage() {
   const handleDelete = async (u: User) => {
     try {
       const id = u._id ?? (u as any).id;
-      const res = await fetch(`/api/users/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/users/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error(`Failed to delete user: ${res.status}`);
       setUsers((prev) => prev.filter((x) => (x._id ?? (x as any).id) !== id));
       showSuccess("User deleted!");
@@ -85,7 +85,7 @@ export default function UsersPage() {
 
   const handleSave = async (id: string, update: Partial<User>) => {
     try {
-      const res = await fetch(`/api/users/${id}`, {
+      const res = await apiFetch(`/api/users/${id}`, {
         method: "PUT",
         body: JSON.stringify(update),
         headers: { "Content-Type": "application/json" },

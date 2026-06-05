@@ -143,7 +143,7 @@ export default function AboutUsTeamPage() {
 
     try {
       setLoading(true);
-      const res = await fetch(`/api/about-team?id=${id}`, {
+      const res = await apiFetch(`/api/about-team?id=${id}`, {
         method: "DELETE",
       });
 

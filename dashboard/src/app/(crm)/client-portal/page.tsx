@@ -49,7 +49,7 @@ export default function ClientPortalPage() {
         const [projRes, invRes, socialRes] = await Promise.all([
           apiFetch("/api/projects", { headers }),
           apiFetch("/api/invoices", { headers }),
-          fetch(`/api/social-media-posts?clientId=${user.clientId}`, {
+          apiFetch(`/api/social-media-posts?clientId=${user.clientId}`, {
             headers,
           }),
         ]);

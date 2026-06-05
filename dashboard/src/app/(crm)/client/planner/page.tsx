@@ -921,7 +921,7 @@ export default function ClientPlannerPage() {
 
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", user?.clientId || "");
-      const res = await fetch(url.toString(), { headers });
+      const res = await apiFetch(url.toString(), { headers });
       if (!res.ok) throw new Error("Failed to fetch posts");
 
       const data: any[] = await res.json();
@@ -964,7 +964,7 @@ export default function ClientPlannerPage() {
     if (actionType === "Reject") body.rejectionReason = remarks;
     if (remarks.trim()) body.clientRemarks = remarks;
 
-    const res = await fetch(`/api/social-media-posts/${postId}`, {
+    const res = await apiFetch(`/api/social-media-posts/${postId}`, {
       method: "PATCH",
       headers,
       body: JSON.stringify(body),

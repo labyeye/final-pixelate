@@ -223,7 +223,7 @@ export default function PaymentsPage() {
     setSelectedClientObj(found || null);
 
     setLoading(true);
-    fetch(`/api/invoices?clientId=${selectedClient}`)
+    apiFetch(`/api/invoices?clientId=${selectedClient}`)
       .then((res) => res.json())
       .then((data) => setInvoices(data))
       .catch(console.error)
@@ -294,7 +294,7 @@ export default function PaymentsPage() {
   const submitEditPayment = async () => {
     if (!editingPayment || !editAmount) return;
     try {
-      const res = await fetch(`/api/payments/${editingPayment.index}`, {
+      const res = await apiFetch(`/api/payments/${editingPayment.index}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

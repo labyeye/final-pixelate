@@ -138,7 +138,7 @@ export default function ExpensesPage() {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`/api/expenses/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/expenses/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed to delete");
       await load();
     } catch (e) {

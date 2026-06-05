@@ -36,7 +36,7 @@ export function SocialAccountsManager({
       setLoading(true);
       const url = new URL("/api/social-media-accounts", window.location.origin);
       url.searchParams.set("clientId", clientId);
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await apiFetch(url.toString(), { cache: "no-store" });
       if (res.ok) {
         const data = await res.json();
         setAccounts(Array.isArray(data) ? data : []);
@@ -91,7 +91,7 @@ export function SocialAccountsManager({
     if (!window.confirm("Delete this account?")) return;
 
     try {
-      const res = await fetch(`/api/social-media-accounts?id=${id}`, {
+      const res = await apiFetch(`/api/social-media-accounts?id=${id}`, {
         method: "DELETE",
       });
 

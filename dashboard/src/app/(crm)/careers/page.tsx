@@ -76,7 +76,7 @@ export default function CareersPage() {
       };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const response = await fetch(`/api/careers/${id}`, {
+      const response = await apiFetch(`/api/careers/${id}`, {
         method: "DELETE",
         headers,
       });

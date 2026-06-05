@@ -322,7 +322,7 @@ export default function ProjectsPage() {
                           onClick={async () => {
                             try {
                               const id = project._id ?? project.id;
-                              const res = await fetch(`/api/projects/${id}`, {
+                              const res = await apiFetch(`/api/projects/${id}`, {
                                 method: "PUT",
                                 body: JSON.stringify({ status: "COMPLETED" }),
                                 headers: { "Content-Type": "application/json" },
@@ -370,7 +370,7 @@ export default function ProjectsPage() {
                           if (!window.confirm("Delete this project?")) return;
                           try {
                             const id = project._id ?? project.id;
-                            const res = await fetch(`/api/projects/${id}`, {
+                            const res = await apiFetch(`/api/projects/${id}`, {
                               method: "DELETE",
                             });
                             if (!res.ok) throw new Error("Delete failed");

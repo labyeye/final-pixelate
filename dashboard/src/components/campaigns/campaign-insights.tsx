@@ -82,7 +82,7 @@ export function CampaignInsights() {
 
     try {
       console.log("Deleting campaign with ID:", campaignId);
-      const response = await fetch(`/api/campaigns/${campaignId}`, {
+      const response = await apiFetch(`/api/campaigns/${campaignId}`, {
         method: "DELETE",
       });
 

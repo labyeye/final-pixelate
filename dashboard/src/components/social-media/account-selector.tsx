@@ -43,7 +43,7 @@ export function AccountSelector({
         );
         url.searchParams.set("clientId", clientId);
         url.searchParams.set("platform", platform);
-        const res = await fetch(url.toString(), { cache: "no-store" });
+        const res = await apiFetch(url.toString(), { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
           setAccounts(Array.isArray(data) ? data : []);

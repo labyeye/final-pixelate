@@ -528,7 +528,7 @@ export default function ClientLeadsPage() {
     updates: Partial<Lead>,
   ): Promise<{ ok: boolean; error?: string }> => {
     try {
-      const res = await fetch(`/api/leads/${id}`, {
+      const res = await apiFetch(`/api/leads/${id}`, {
         method: "PATCH",
         headers: getAuthHeaders(),
         body: JSON.stringify(updates),

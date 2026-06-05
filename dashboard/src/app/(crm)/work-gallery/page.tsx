@@ -113,7 +113,7 @@ export default function WorkGalleryPage() {
 
       console.debug("work-gallery: submitting payload", payload);
       if (editingId) {
-        const res = await fetch(`/api/work-gallery/${editingId}`, {
+        const res = await apiFetch(`/api/work-gallery/${editingId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -165,7 +165,7 @@ export default function WorkGalleryPage() {
         typeof window !== "undefined" ? localStorage.getItem("auth_token") : "";
       const headers: Record<string, string> = {};
       if (token) headers["Authorization"] = `Bearer ${token}`;
-      const res = await fetch(`/api/work-gallery/${id}`, {
+      const res = await apiFetch(`/api/work-gallery/${id}`, {
         method: "DELETE",
         headers,
       });

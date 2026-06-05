@@ -70,7 +70,7 @@ export default function NdaApprovalPage() {
         isClient && myClientId
           ? `/api/nda-approvals?clientId=${myClientId}`
           : "/api/nda-approvals";
-      const res = await fetch(url);
+      const res = await apiFetch(url);
       if (res.ok) {
         const data = await res.json();
 

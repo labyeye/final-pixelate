@@ -29,7 +29,7 @@ export default function EnquiriesPage() {
 
   const updateItem = async (id: string, patch: any) => {
     try {
-      const res = await fetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
+      const res = await apiFetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(patch),
@@ -53,7 +53,7 @@ export default function EnquiriesPage() {
         )
       )
         return;
-      const res = await fetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
+      const res = await apiFetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("delete failed");

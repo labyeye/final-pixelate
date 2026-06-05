@@ -101,7 +101,7 @@ export default function ClientAnalyticsPage() {
         setLoading(true);
         const url = new URL("/api/social-media-posts", window.location.origin);
         url.searchParams.set("clientId", user.clientId || "");
-        const res = await fetch(url.toString(), { headers: getAuthHeaders() });
+        const res = await apiFetch(url.toString(), { headers: getAuthHeaders() });
         if (!res.ok) throw new Error("Failed to fetch posts");
         const data = await res.json();
         setPosts(Array.isArray(data) ? data : []);

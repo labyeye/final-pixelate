@@ -47,7 +47,7 @@ export default function EditJobPage() {
 
   const fetchJob = async () => {
     try {
-      const response = await fetch(`/api/careers/${jobId}`);
+      const response = await apiFetch(`/api/careers/${jobId}`);
       const data = await response.json();
       setFormData({
         ...data,
@@ -77,7 +77,7 @@ export default function EditJobPage() {
         tags: formData.tags.filter((t) => t.trim() !== ""),
       };
 
-      const response = await fetch(`/api/careers/${jobId}`, {
+      const response = await apiFetch(`/api/careers/${jobId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cleanedData),

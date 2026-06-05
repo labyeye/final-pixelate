@@ -125,7 +125,7 @@ export default function ServicesPage() {
   const saveEdit = async () => {
     if (!editingServiceId) return;
     try {
-      const res = await fetch(`/api/services/${editingServiceId}`, {
+      const res = await apiFetch(`/api/services/${editingServiceId}`, {
         method: "PUT",
         body: JSON.stringify({ name: editingValue }),
         headers: { "Content-Type": "application/json" },
@@ -147,7 +147,7 @@ export default function ServicesPage() {
   const deleteService = async (s: Service) => {
     try {
       const id = s._id ?? s.id;
-      const res = await fetch(`/api/services/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/services/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error(`Failed to delete service: ${res.status}`);
       setServices((prev) => prev.filter((x) => (x._id ?? x.id) !== id));
       showSuccess("Service deleted!");

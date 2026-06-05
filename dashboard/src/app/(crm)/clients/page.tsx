@@ -166,7 +166,7 @@ export default function ClientsPage() {
     if (!window.confirm(`Delete "${client.name}"?`)) return;
     try {
       const id = client._id ?? client.id;
-      const res = await fetch(`/api/clients/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/clients/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error(`Failed: ${res.status}`);
       setClients((prev) => prev.filter((c) => (c._id ?? c.id) !== id));
     } catch (err) {
@@ -179,7 +179,7 @@ export default function ClientsPage() {
     update: Partial<Client>,
   ) => {
     try {
-      const res = await fetch(`/api/clients/${id}`, {
+      const res = await apiFetch(`/api/clients/${id}`, {
         method: "PUT",
         body: JSON.stringify(update),
         headers: { "Content-Type": "application/json" },

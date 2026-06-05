@@ -135,7 +135,7 @@ export default function PhotoGalleriesPage() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`/api/photos/${photoId}`, {
+      const response = await apiFetch(`/api/photos/${photoId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -243,7 +243,7 @@ export default function PhotoGalleriesPage() {
       const token = localStorage.getItem("token");
 
       if (editingPhoto) {
-        const response = await fetch(`/api/photos/${editingPhoto._id}`, {
+        const response = await apiFetch(`/api/photos/${editingPhoto._id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

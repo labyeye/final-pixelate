@@ -59,8 +59,8 @@ export default function ApplicationsPage() {
   const fetchJobAndApplications = async () => {
     try {
       const [jobRes, appsRes] = await Promise.all([
-        fetch(`/api/careers/${jobId}`),
-        fetch(`/api/applications?jobId=${jobId}`),
+        apiFetch(`/api/careers/${jobId}`),
+        apiFetch(`/api/applications?jobId=${jobId}`),
       ]);
 
       const jobData = await jobRes.json();
@@ -77,7 +77,7 @@ export default function ApplicationsPage() {
 
   const updateApplicationStatus = async (appId: string, status: string) => {
     try {
-      await fetch(`/api/applications/${appId}`, {
+      await apiFetch(`/api/applications/${appId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),

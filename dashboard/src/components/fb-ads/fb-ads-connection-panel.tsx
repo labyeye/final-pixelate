@@ -92,7 +92,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
   async function loadConnection() {
     setLoadingConn(true);
     try {
-      const res = await fetch(`/api/fb-ads-connection?clientId=${clientId}`, {
+      const res = await apiFetch(`/api/fb-ads-connection?clientId=${clientId}`, {
         headers: authH(),
       });
       if (res.ok) {
@@ -153,7 +153,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
   async function disconnect() {
     if (!confirm("Remove FB Ads connection for this client?")) return;
     try {
-      await fetch(`/api/fb-ads-connection?clientId=${clientId}`, {
+      await apiFetch(`/api/fb-ads-connection?clientId=${clientId}`, {
         method: "DELETE",
         headers: authH(),
       });

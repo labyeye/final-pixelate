@@ -22,13 +22,13 @@ export default function QuotationViewPage() {
 
     (async () => {
       try {
-        const qRes = await fetch(`/api/quotations/${id}`);
+        const qRes = await apiFetch(`/api/quotations/${id}`);
         if (!qRes.ok) throw new Error("Failed to fetch quotation");
         const qData = await qRes.json();
         setQuotation(qData);
 
         if (qData.clientId) {
-          const cRes = await fetch(`/api/clients/${qData.clientId}`);
+          const cRes = await apiFetch(`/api/clients/${qData.clientId}`);
           if (cRes.ok) setClient(await cRes.json());
         }
 

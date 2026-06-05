@@ -97,7 +97,7 @@ export default function ReportsPage() {
         clientId: clientId,
         staffMemberId: staffMemberId,
       });
-      const res = await fetch(`/api/reports?${query}`);
+      const res = await apiFetch(`/api/reports?${query}`);
       if (!res.ok) throw new Error("Failed to fetch report");
       const data = await res.json();
       setReportData(data);

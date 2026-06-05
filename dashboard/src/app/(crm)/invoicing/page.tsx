@@ -104,7 +104,7 @@ export default function InvoicingPage() {
           isClient && myClientId
             ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
             : "/api/invoices";
-        const res = await fetch(url);
+        const res = await apiFetch(url);
         if (!res.ok) throw new Error(`Failed to fetch invoices: ${res.status}`);
         const list = await res.json();
         if (mounted) setInvoices(list as Invoice[]);
@@ -144,7 +144,7 @@ export default function InvoicingPage() {
         isClient && myClientId
           ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
           : "/api/invoices";
-      const res = await fetch(url, { cache: "no-store" });
+      const res = await apiFetch(url);
       if (!res.ok) throw new Error("Failed to fetch invoices");
       const list = await res.json();
       setInvoices(list as Invoice[]);
@@ -170,7 +170,7 @@ export default function InvoicingPage() {
 
     setDeletingInvoices((prev) => new Set(prev).add(invoiceId));
     try {
-      const res = await fetch(`/api/invoices/${invoiceId}`, {
+      const res = await apiFetch(`/api/invoices/${invoiceId}`, {
         method: "DELETE",
       });
       if (!res.ok) {

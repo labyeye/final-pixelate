@@ -104,7 +104,7 @@ export default function ReelsPage() {
   const onSubmit = async (v: FormValues) => {
     try {
       if (editingId) {
-        const res = await fetch(`/api/reels/${editingId}`, {
+        const res = await apiFetch(`/api/reels/${editingId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(v),
@@ -148,7 +148,7 @@ export default function ReelsPage() {
   const deleteItem = async (id: string) => {
     if (!window.confirm("Delete this reel?")) return;
     try {
-      const res = await fetch(`/api/reels/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/reels/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Delete failed");
       setItems((prev) =>
         prev.filter((x) => String(x._id ?? x.id) !== String(id)),

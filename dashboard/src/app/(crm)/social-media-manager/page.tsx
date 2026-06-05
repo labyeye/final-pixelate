@@ -290,7 +290,7 @@ export default function SocialMediaManagerPage() {
       if (!isAdmin && user.name) {
         url.searchParams.set("assignedTo", user.name);
       }
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await apiFetch(url.toString(), { cache: "no-store" });
       const data = await res.json();
       setTasks(Array.isArray(data) ? data : []);
     } catch (e) {
@@ -332,7 +332,7 @@ export default function SocialMediaManagerPage() {
   // Status update
   const updateStatus = async (task: Task, status: TaskStatus) => {
     const id = task._id || task.id;
-    await fetch(`/api/social-media-tasks/${id}`, {
+    await apiFetch(`/api/social-media-tasks/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status }),
@@ -343,14 +343,14 @@ export default function SocialMediaManagerPage() {
   const deleteTask = async (task: Task) => {
     if (!confirm(`Delete "${task.title}"?`)) return;
     const id = task._id || task.id;
-    await fetch(`/api/social-media-tasks/${id}`, { method: "DELETE" });
+    await apiFetch(`/api/social-media-tasks/${id}`, { method: "DELETE" });
     setTasks((prev) => prev.filter((t) => (t._id || t.id) !== id));
   };
 
   const saveTask = async (data: Partial<Task>) => {
     if (editTask && editTask !== "new" && (editTask._id || editTask.id)) {
       const id = editTask._id || editTask.id;
-      await fetch(`/api/social-media-tasks/${id}`, {
+      await apiFetch(`/api/social-media-tasks/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

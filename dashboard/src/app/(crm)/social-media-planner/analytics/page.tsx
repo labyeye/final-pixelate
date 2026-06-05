@@ -161,7 +161,7 @@ export default function AnalyticsPage() {
         url.searchParams.set("assignedTo", user.name);
       if (dateFrom) url.searchParams.set("fromDate", dateFrom);
       if (dateTo) url.searchParams.set("toDate", dateTo);
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await apiFetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch analytics data");
       const data = await res.json();
       setPosts(Array.isArray(data) ? data : []);

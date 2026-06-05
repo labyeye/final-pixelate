@@ -34,7 +34,7 @@ export default function SocialMediaPlannerDashboardPage() {
       let mounted = true;
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await apiFetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to load social media posts");
       const data = await res.json();
       if (mounted) setPosts(Array.isArray(data) ? data : []);

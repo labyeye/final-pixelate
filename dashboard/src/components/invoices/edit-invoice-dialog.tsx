@@ -203,7 +203,7 @@ export function EditInvoiceDialog({
       if (values.includeVenueAddress)
         body.venueAddress = values.venueAddress || "";
 
-      const res = await fetch(`/api/invoices/${invoice._id ?? invoice.id}`, {
+      const res = await apiFetch(`/api/invoices/${invoice._id ?? invoice.id}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: { "Content-Type": "application/json" },

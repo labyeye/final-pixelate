@@ -37,7 +37,7 @@ export function MultiAccountSelector({
     }
 
     setLoading(true);
-    fetch(`/api/social-media-accounts?clientId=${clientId}`)
+    apiFetch(`/api/social-media-accounts?clientId=${clientId}`)
       .then((res) => res.json())
       .then((data) => {
         setAccounts(Array.isArray(data) ? data : []);

@@ -60,7 +60,7 @@ export function RecordPaymentDialog({
       const status =
         paidAmount >= Number(invoice.amount || 0) ? "PAID" : "PARTIAL";
 
-      const res = await fetch(`/api/invoices/${invoice._id ?? invoice.id}`, {
+      const res = await apiFetch(`/api/invoices/${invoice._id ?? invoice.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ payments: updatedPayments, paidAmount, status }),

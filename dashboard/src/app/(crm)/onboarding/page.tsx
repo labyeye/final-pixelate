@@ -176,7 +176,7 @@ export default function OnboardingPage() {
         isClient && myClientId
           ? `/api/onboarding?clientId=${myClientId}`
           : "/api/onboarding";
-      const res = await fetch(url);
+      const res = await apiFetch(url);
       if (res.ok) {
         const data = await res.json();
         setOnboardings(data);
@@ -262,7 +262,7 @@ export default function OnboardingPage() {
       const endpoint = isEditing
         ? `/api/onboarding/${editingOnboardingId}`
         : "/api/onboarding";
-      const res = await fetch(endpoint, {
+      const res = await apiFetch(endpoint, {
         method: isEditing ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -330,7 +330,7 @@ export default function OnboardingPage() {
 
     setLoading(true);
     try {
-      const res = await fetch(`/api/onboarding/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/onboarding/${id}`, { method: "DELETE" });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
         throw new Error(err.error || "Delete failed");

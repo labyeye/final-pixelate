@@ -221,7 +221,7 @@ export default function TrashPage() {
     if (restoringIds.has(id)) return;
     setRestoringIds((p) => new Set(p).add(id));
     try {
-      const res = await fetch(`/api/trash/${id}`, { method: "PATCH" });
+      const res = await apiFetch(`/api/trash/${id}`, { method: "PATCH" });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
         throw new Error(err.error || "Restore failed");
@@ -251,7 +251,7 @@ export default function TrashPage() {
     if (deletingIds.has(id)) return;
     setDeletingIds((p) => new Set(p).add(id));
     try {
-      const res = await fetch(`/api/trash/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/trash/${id}`, { method: "DELETE" });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
         throw new Error(err.error || "Permanent delete failed");

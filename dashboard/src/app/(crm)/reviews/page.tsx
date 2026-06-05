@@ -89,7 +89,7 @@ export default function ReviewsPage() {
 
   const handleApprove = async (review: Review) => {
     try {
-      const res = await fetch(`/api/reviews/${review._id}`, {
+      const res = await apiFetch(`/api/reviews/${review._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ approved: true }),
@@ -118,7 +118,7 @@ export default function ReviewsPage() {
 
   const handleReject = async (review: Review) => {
     try {
-      const res = await fetch(`/api/reviews/${review._id}`, {
+      const res = await apiFetch(`/api/reviews/${review._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ approved: false }),
@@ -154,7 +154,7 @@ export default function ReviewsPage() {
     if (!editingReview) return;
 
     try {
-      const res = await fetch(`/api/reviews/${editingReview._id}`, {
+      const res = await apiFetch(`/api/reviews/${editingReview._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -202,7 +202,7 @@ export default function ReviewsPage() {
     }
 
     try {
-      const res = await fetch(`/api/reviews/${review._id}`, {
+      const res = await apiFetch(`/api/reviews/${review._id}`, {
         method: "DELETE",
       });
 

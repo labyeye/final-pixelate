@@ -683,7 +683,7 @@ export default function JourneyPage() {
       return;
     }
     setLoading(true);
-    fetch(`/api/journey?clientId=${encodeURIComponent(selectedClientId)}`)
+    apiFetch(`/api/journey?clientId=${encodeURIComponent(selectedClientId)}`)
       .then((r) => r.json())
       .then((data: JourneyEvent[]) => setEvents(data))
       .catch(console.error)

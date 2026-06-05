@@ -54,7 +54,7 @@ export default function SocialMediaCalendarPage() {
         url.searchParams.set("assignedTo", user.name);
       }
 
-      const res = await fetch(url.toString(), { cache: "no-store" });
+      const res = await apiFetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to load social posts");
       const data = await res.json();
       setPosts(Array.isArray(data) ? data : []);
@@ -160,7 +160,7 @@ export default function SocialMediaCalendarPage() {
   }, [filtered]);
 
   const updatePostDate = async (id: string, dateStr: string) => {
-    const res = await fetch(`/api/social-media-posts/${id}`, {
+    const res = await apiFetch(`/api/social-media-posts/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ scheduledDate: dateStr, status: "Scheduled" }),

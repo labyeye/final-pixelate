@@ -157,7 +157,7 @@ export default function CreateQuotationPage() {
 
     (async () => {
       try {
-        const res = await fetch(`/api/quotations/${editId}`);
+        const res = await apiFetch(`/api/quotations/${editId}`);
         if (!res.ok) throw new Error("Failed to fetch quotation");
         const quotation = await res.json();
 
@@ -246,7 +246,7 @@ export default function CreateQuotationPage() {
       };
 
       if (isEditMode && editId) {
-        const res = await fetch(`/api/quotations/${editId}`, {
+        const res = await apiFetch(`/api/quotations/${editId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

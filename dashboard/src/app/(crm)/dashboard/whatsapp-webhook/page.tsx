@@ -120,7 +120,7 @@ export default function WhatsAppWebhookPage() {
         status: statusFilter,
         limit: "200",
       });
-      const res = await fetch(`/api/whatsapp/delivery-log?${params}`);
+      const res = await apiFetch(`/api/whatsapp/delivery-log?${params}`);
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       setEntries(data);

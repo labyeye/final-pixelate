@@ -32,7 +32,7 @@ export function PostAccountDisplay({
           window.location.origin,
         );
         url.searchParams.set("id", accountId);
-        const res = await fetch(url.toString(), { cache: "no-store" });
+        const res = await apiFetch(url.toString(), { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
           const acc = Array.isArray(data) ? data[0] : data;

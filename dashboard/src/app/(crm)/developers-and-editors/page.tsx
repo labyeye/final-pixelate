@@ -129,7 +129,7 @@ export default function DevelopersAndEditorsPage() {
   const handleDeleteUser = async (u: any) => {
     try {
       const id = u._id ?? u.id;
-      const res = await fetch(`/api/users/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/users/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error(`Failed to delete user: ${res.status}`);
       setUsers((prev) => prev.filter((x) => (x._id ?? x.id) !== id));
       showSuccess("Member deleted!");
@@ -143,7 +143,7 @@ export default function DevelopersAndEditorsPage() {
     update: Partial<Record<string, any>>,
   ) => {
     try {
-      const res = await fetch(`/api/users/${id}`, {
+      const res = await apiFetch(`/api/users/${id}`, {
         method: "PUT",
         body: JSON.stringify(update),
         headers: { "Content-Type": "application/json" },

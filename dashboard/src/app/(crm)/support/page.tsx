@@ -114,7 +114,7 @@ export default function SupportPage() {
         isClient && myClientId
           ? `/api/support-tickets?clientId=${myClientId}`
           : "/api/support-tickets";
-      const res = await fetch(url);
+      const res = await apiFetch(url);
       if (res.ok) {
         const data = await res.json();
         setTickets(data);
@@ -199,7 +199,7 @@ export default function SupportPage() {
     newStatus: TicketStatus,
   ) => {
     try {
-      const res = await fetch(`/api/support-tickets/${ticketId}`, {
+      const res = await apiFetch(`/api/support-tickets/${ticketId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -237,7 +237,7 @@ export default function SupportPage() {
       const commenterName = isClient
         ? myClientName
         : ((user as any)?.name ?? "Staff");
-      const res = await fetch(`/api/support-tickets/${ticketId}`, {
+      const res = await apiFetch(`/api/support-tickets/${ticketId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

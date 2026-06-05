@@ -209,7 +209,7 @@ export function AddExpenseDialog({
 
       const url = isEdit ? `/api/expenses/${editId}` : "/api/expenses";
       const method = isEdit ? "PUT" : "POST";
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
