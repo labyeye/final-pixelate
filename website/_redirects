@@ -25,7 +25,9 @@
 /pricing.html       /pages/pricing.html       301
 /pricing            /pages/pricing.html       301
 /careers.html       /pages/careers.html       301
-/careers            /pages/careers.html       301
+/careers               /pages/careers.html          301
+/team-leadership.html  /pages/team-leadership.html  301
+/team-leadership       /pages/team-leadership.html  301
 /technologies.html  /pages/technologies.html  301
 /technologies       /pages/technologies.html  301
 /photography.html   /pages/photography.html   301
@@ -70,10 +72,14 @@
 /detailed-services.html                                 /services/index.html                 301
 /detailed-services                                      /services/index.html                 301
 
-# Detailed-services path segments
+# Detailed-services path segments (with and without trailing slash)
+/detailed-services/video-editing/       /services/video-editing.html         301
 /detailed-services/video-editing        /services/video-editing.html         301
+/detailed-services/app-development/     /services/app-development.html       301
 /detailed-services/app-development      /services/app-development.html       301
+/detailed-services/web-development/     /services/web-development.html       301
 /detailed-services/web-development      /services/web-development.html       301
+/detailed-services/software-development/ /services/software-development.html 301
 /detailed-services/software-development /services/software-development.html  301
 /detailed-services/*                    /services/index.html                 301
 /detailed-services                      /services/index.html                 301

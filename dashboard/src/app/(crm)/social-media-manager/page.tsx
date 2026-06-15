@@ -286,10 +286,6 @@ export default function SocialMediaManagerPage() {
     try {
       setLoading(true);
       const url = new URL("/api/social-media-tasks", window.location.origin);
-      // Staff see only their own tasks; admins see all
-      if (!isAdmin && user.name) {
-        url.searchParams.set("assignedTo", user.name);
-      }
       const res = await apiFetch(url.toString(), { cache: "no-store" });
       const data = await res.json();
       setTasks(Array.isArray(data) ? data : []);
@@ -445,11 +441,6 @@ export default function SocialMediaManagerPage() {
                 + Add Task
               </Button>
             </>
-          )}
-          {!isAdmin && user?.name && (
-            <span className="text-sm font-bold text-gray-600 border-2 border-gray-300 rounded-lg px-3 py-1.5">
-              Showing tasks for: <span className="text-black">{user.name}</span>
-            </span>
           )}
         </div>
       </div>
