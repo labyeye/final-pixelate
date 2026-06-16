@@ -19,10 +19,22 @@
       "Skill(schedule)",
       "Bash(npx tsc *)",
       "Bash(mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks/\\\\[id\\\\] && mkdir -p /Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/\\\\\\(crm\\\\\\)/social-media-manager)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(xargs ls)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://hrms-backend.pixelatenest.com/api/company)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://hrms-backend.pixelatenest.com/api/billing)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://hrms-backend.pixelatenest.com/api/dashboard)",
+      "Bash(curl -s -w \"\\\\n%{http_code}\" https://hrms-backend.pixelatenest.com/api/company)",
+      "Bash(curl -s -w \"\\\\n%{http_code}\" https://hrms-backend.pixelatenest.com/api/billing)",
+      "Bash(curl -s --max-time 10 https://hrms-backend.pixelatenest.com/api/auth/login -X POST -H \"Content-Type: application/json\" -d '{\"test\": true}')",
+      "Read(//Users/labh/Desktop/Projects/**)",
+      "Bash(node -e ' *)"
     ],
     "additionalDirectories": [
-      "/Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks"
+      "/Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks",
+      "/Users/labh/Desktop/Projects/hrms-pixelate/backend/controllers",
+      "/Users/labh/Desktop/Projects/hrms-pixelate/backend/routes",
+      "/Users/labh/Desktop/Projects/hrms-pixelate/backend"
     ]
   }
 }
