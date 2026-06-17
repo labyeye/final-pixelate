@@ -125,7 +125,9 @@ export function MultiAccountSelector({
           onClick={() => setShowDropdown(!showDropdown)}
           variant="outline"
           className="w-full text-left"
-          disabled={loading || availableAccounts.length === 0 || platforms.length === 0}
+          disabled={
+            loading || availableAccounts.length === 0 || platforms.length === 0
+          }
         >
           {platforms.length === 0
             ? "Select platforms first"

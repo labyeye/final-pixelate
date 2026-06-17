@@ -19,24 +19,25 @@ These are active security breaches, not future risks.
 
 The entire financial backend is publicly accessible right now with no login required.
 
-| Route | What's Exposed |
-|---|---|
-| `POST /api/users` | Anyone can create an admin account right now |
-| `GET /api/invoices` | All invoice data readable by anyone |
-| `POST /api/payments` | Anyone can mark invoices as PAID |
-| `GET /api/expenses` | All business expense data exposed |
-| `GET /api/clients` | Full client database leaked |
-| `GET /api/quotations` | Entire pricing strategy exposed |
-| `GET /api/reports` | Full financial reports, no auth |
-| `GET /api/settings` | System settings readable and modifiable |
-| `GET /api/tasks` | Internal task data exposed |
-| `GET /api/team-members` | Staff data exposed |
+| Route                   | What's Exposed                               |
+| ----------------------- | -------------------------------------------- |
+| `POST /api/users`       | Anyone can create an admin account right now |
+| `GET /api/invoices`     | All invoice data readable by anyone          |
+| `POST /api/payments`    | Anyone can mark invoices as PAID             |
+| `GET /api/expenses`     | All business expense data exposed            |
+| `GET /api/clients`      | Full client database leaked                  |
+| `GET /api/quotations`   | Entire pricing strategy exposed              |
+| `GET /api/reports`      | Full financial reports, no auth              |
+| `GET /api/settings`     | System settings readable and modifiable      |
+| `GET /api/tasks`        | Internal task data exposed                   |
+| `GET /api/team-members` | Staff data exposed                           |
 
 Only 16 routes check for a valid token. ~85% of the backend is open internet.
 
 ### 2. JWT Secret Is Missing From .env
 
 `src/lib/auth.ts` line 3:
+
 ```ts
 const JWT_SECRET = process.env.JWT_SECRET || "dev-secret-change-me";
 ```
@@ -44,6 +45,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "dev-secret-change-me";
 The `.env` file has **no `JWT_SECRET` set**. The app is signing tokens with the literal string `"dev-secret-change-me"`. Anyone who reads the source code can forge a valid admin JWT and log in as any user.
 
 **Fix:** Generate a strong secret and add it to `.env`:
+
 ```bash
 openssl rand -base64 64
 # Add JWT_SECRET=<result> to .env
@@ -56,10 +58,12 @@ openssl rand -base64 64
 ### 4. Debug Logs With Financial Data in Production
 
 `src/app/api/payments/route.ts` logs invoice IDs and payment amounts to the server console on every transaction:
+
 ```ts
 console.log("PAYMENT_DEBUG: Incoming request", { invoiceId, amount });
 console.log("PAYMENT_DEBUG: Success", { invoiceId, newStatus, newPaid });
 ```
+
 These go to the hosting provider's log infrastructure.
 
 ---
@@ -94,12 +98,12 @@ No Sentry or equivalent. When invoice generation breaks at 11pm before a client 
 
 As data grows past a few hundred records, queries will slow. These collections need indexes:
 
-| Collection | Index Fields |
-|---|---|
-| `leads` | `clientId`, `createdAt`, `status` |
+| Collection | Index Fields                      |
+| ---------- | --------------------------------- |
+| `leads`    | `clientId`, `createdAt`, `status` |
 | `invoices` | `clientId`, `status`, `createdAt` |
-| `payments` | `invoiceId` |
-| `expenses` | `date`, `category` |
+| `payments` | `invoiceId`                       |
+| `expenses` | `date`, `category`                |
 
 ### 11. Inconsistent `_id` Handling
 
@@ -140,12 +144,12 @@ Individual DELETE routes hard-delete records directly, bypassing the trash syste
 
 These directly accelerate the path from ₹2.5L to ₹10L:
 
-| Feature | Impact |
-|---|---|
-| **Client Self-Service Portal** (partially built — finish it) | Clients approve quotations and view invoices without calling. Saves 2–3 hrs/week per client. |
-| **Automated Payment Reminders via WhatsApp** | WhatsApp infra already exists. Auto-send "Invoice #123 due in 3 days" — reduces follow-up time. |
-| **Lead Pipeline Analytics** | Conversion rate from lead to client, average deal size. Can't grow what you don't measure. |
-| **Automated Onboarding Flow** | When a quotation is accepted, auto-create project, tasks, and onboarding checklist. |
+| Feature                                                      | Impact                                                                                          |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| **Client Self-Service Portal** (partially built — finish it) | Clients approve quotations and view invoices without calling. Saves 2–3 hrs/week per client.    |
+| **Automated Payment Reminders via WhatsApp**                 | WhatsApp infra already exists. Auto-send "Invoice #123 due in 3 days" — reduces follow-up time. |
+| **Lead Pipeline Analytics**                                  | Conversion rate from lead to client, average deal size. Can't grow what you don't measure.      |
+| **Automated Onboarding Flow**                                | When a quotation is accepted, auto-create project, tasks, and onboarding checklist.             |
 
 ---
 

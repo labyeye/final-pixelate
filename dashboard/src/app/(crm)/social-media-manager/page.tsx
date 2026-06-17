@@ -32,18 +32,34 @@ interface Task {
 }
 
 const STATUSES: TaskStatus[] = ["To Do", "In Progress", "In Review", "Done"];
-const PLATFORMS = ["Instagram", "Facebook", "X / Twitter", "LinkedIn", "YouTube Shorts", "WhatsApp Channel", "Google My Business"];
-const CONTENT_TYPES = ["Image Post", "Reel", "Video", "Carousel", "Story", "Blog Idea", "Text Post"];
+const PLATFORMS = [
+  "Instagram",
+  "Facebook",
+  "X / Twitter",
+  "LinkedIn",
+  "YouTube Shorts",
+  "WhatsApp Channel",
+  "Google My Business",
+];
+const CONTENT_TYPES = [
+  "Image Post",
+  "Reel",
+  "Video",
+  "Carousel",
+  "Story",
+  "Blog Idea",
+  "Text Post",
+];
 
 const STATUS_STYLE: Record<TaskStatus, string> = {
-  "To Do":      "bg-gray-100 text-gray-700 border-gray-300",
-  "In Progress":"bg-blue-100 text-blue-700 border-blue-300",
-  "In Review":  "bg-amber-100 text-amber-700 border-amber-300",
-  "Done":       "bg-green-100 text-green-700 border-green-300",
+  "To Do": "bg-gray-100 text-gray-700 border-gray-300",
+  "In Progress": "bg-blue-100 text-blue-700 border-blue-300",
+  "In Review": "bg-amber-100 text-amber-700 border-amber-300",
+  Done: "bg-green-100 text-green-700 border-green-300",
 };
 
 const APPROVAL_STYLE: Record<string, string> = {
-  Pending:  "bg-yellow-100 text-yellow-700",
+  Pending: "bg-yellow-100 text-yellow-700",
   Approved: "bg-green-100 text-green-700",
   Rejected: "bg-red-100 text-red-700",
 };
@@ -51,7 +67,9 @@ const APPROVAL_STYLE: Record<string, string> = {
 // ─── Day label helper ─────────────────────────────────────────────────────────
 // Within a campaign group, assign D1, D2… based on sorted unique dates
 function buildDayMap(tasks: Task[]): Map<string, string> {
-  const uniqueDates = Array.from(new Set(tasks.map((t) => t.scheduledDate).filter(Boolean))).sort();
+  const uniqueDates = Array.from(
+    new Set(tasks.map((t) => t.scheduledDate).filter(Boolean)),
+  ).sort();
   const map = new Map<string, string>();
   uniqueDates.forEach((date, i) => map.set(date, `D${i + 1}`));
   return map;
@@ -65,9 +83,16 @@ function ViewModal({ task, onClose }: { task: Task; onClose: () => void }) {
         <div className="sticky top-0 bg-black text-white px-5 py-4 flex items-center justify-between rounded-t-xl">
           <div>
             <h2 className="font-black text-lg">{task.title}</h2>
-            <p className="text-gray-300 text-xs mt-0.5">{task.campaign || "No Campaign"}</p>
+            <p className="text-gray-300 text-xs mt-0.5">
+              {task.campaign || "No Campaign"}
+            </p>
           </div>
-          <button onClick={onClose} className="text-white hover:text-gray-300 text-2xl font-black leading-none">×</button>
+          <button
+            onClick={onClose}
+            className="text-white hover:text-gray-300 text-2xl font-black leading-none"
+          >
+            ×
+          </button>
         </div>
         <div className="p-5 space-y-4">
           {/* Meta row */}
@@ -83,7 +108,9 @@ function ViewModal({ task, onClose }: { task: Task; onClose: () => void }) {
               { label: "Approval", value: task.approvalStatus || "—" },
             ].map(({ label, value }) => (
               <div key={label} className="border-2 border-black rounded-lg p-2">
-                <p className="text-xs font-bold text-gray-500 mb-0.5">{label.toUpperCase()}</p>
+                <p className="text-xs font-bold text-gray-500 mb-0.5">
+                  {label.toUpperCase()}
+                </p>
                 <p className="text-sm font-black">{value}</p>
               </div>
             ))}
@@ -107,16 +134,32 @@ function ViewModal({ task, onClose }: { task: Task; onClose: () => void }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {task.mediaUrl && (
               <div className="border-2 border-black rounded-lg p-3">
-                <p className="text-xs font-black text-gray-500 mb-1">MEDIA URL</p>
-                <a href={task.mediaUrl} target="_blank" rel="noopener noreferrer"
-                  className="text-xs text-blue-600 underline break-all">{task.mediaUrl}</a>
+                <p className="text-xs font-black text-gray-500 mb-1">
+                  MEDIA URL
+                </p>
+                <a
+                  href={task.mediaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-blue-600 underline break-all"
+                >
+                  {task.mediaUrl}
+                </a>
               </div>
             )}
             {task.reelVideoLink && (
               <div className="border-2 border-black rounded-lg p-3">
-                <p className="text-xs font-black text-gray-500 mb-1">REEL VIDEO LINK</p>
-                <a href={task.reelVideoLink} target="_blank" rel="noopener noreferrer"
-                  className="text-xs text-blue-600 underline break-all">{task.reelVideoLink}</a>
+                <p className="text-xs font-black text-gray-500 mb-1">
+                  REEL VIDEO LINK
+                </p>
+                <a
+                  href={task.reelVideoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-blue-600 underline break-all"
+                >
+                  {task.reelVideoLink}
+                </a>
               </div>
             )}
           </div>
@@ -167,95 +210,217 @@ function TaskFormModal({
   const set = (k: keyof Task, v: string) => setForm((p) => ({ ...p, [k]: v }));
 
   const handleSubmit = async () => {
-    if (!form.title?.trim()) { alert("Title is required"); return; }
+    if (!form.title?.trim()) {
+      alert("Title is required");
+      return;
+    }
     setSaving(true);
-    try { await onSave(form); onClose(); }
-    catch (e: any) { alert(e.message); }
-    finally { setSaving(false); }
+    try {
+      await onSave(form);
+      onClose();
+    } catch (e: any) {
+      alert(e.message);
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
       <div className="bg-white border-2 border-black rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-black text-white px-5 py-4 flex items-center justify-between rounded-t-xl">
-          <h2 className="font-black text-lg">{initial?._id ? "Edit Task" : "Add Task"}</h2>
-          <button onClick={onClose} className="text-white hover:text-gray-300 text-2xl font-black leading-none">×</button>
+          <h2 className="font-black text-lg">
+            {initial?._id ? "Edit Task" : "Add Task"}
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-white hover:text-gray-300 text-2xl font-black leading-none"
+          >
+            ×
+          </button>
         </div>
         <div className="p-5 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="md:col-span-2">
               <label className="block text-xs font-black mb-1">TITLE *</label>
-              <Input value={form.title || ""} onChange={(e) => set("title", e.target.value)} className="border-2 border-black" />
+              <Input
+                value={form.title || ""}
+                onChange={(e) => set("title", e.target.value)}
+                className="border-2 border-black"
+              />
             </div>
             <div>
               <label className="block text-xs font-black mb-1">PLATFORM</label>
-              <select value={form.platform} onChange={(e) => set("platform", e.target.value)} className="w-full border-2 border-black rounded-md p-2 text-sm">
-                {PLATFORMS.map((p) => <option key={p}>{p}</option>)}
+              <select
+                value={form.platform}
+                onChange={(e) => set("platform", e.target.value)}
+                className="w-full border-2 border-black rounded-md p-2 text-sm"
+              >
+                {PLATFORMS.map((p) => (
+                  <option key={p}>{p}</option>
+                ))}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">CONTENT TYPE</label>
-              <select value={form.contentType} onChange={(e) => set("contentType", e.target.value)} className="w-full border-2 border-black rounded-md p-2 text-sm">
-                {CONTENT_TYPES.map((c) => <option key={c}>{c}</option>)}
+              <label className="block text-xs font-black mb-1">
+                CONTENT TYPE
+              </label>
+              <select
+                value={form.contentType}
+                onChange={(e) => set("contentType", e.target.value)}
+                className="w-full border-2 border-black rounded-md p-2 text-sm"
+              >
+                {CONTENT_TYPES.map((c) => (
+                  <option key={c}>{c}</option>
+                ))}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">SCHEDULED DATE</label>
-              <Input type="date" value={form.scheduledDate || ""} onChange={(e) => set("scheduledDate", e.target.value)} className="border-2 border-black" />
+              <label className="block text-xs font-black mb-1">
+                SCHEDULED DATE
+              </label>
+              <Input
+                type="date"
+                value={form.scheduledDate || ""}
+                onChange={(e) => set("scheduledDate", e.target.value)}
+                className="border-2 border-black"
+              />
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">SCHEDULED TIME</label>
-              <Input type="time" value={form.scheduledTime || ""} onChange={(e) => set("scheduledTime", e.target.value)} className="border-2 border-black" />
+              <label className="block text-xs font-black mb-1">
+                SCHEDULED TIME
+              </label>
+              <Input
+                type="time"
+                value={form.scheduledTime || ""}
+                onChange={(e) => set("scheduledTime", e.target.value)}
+                className="border-2 border-black"
+              />
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">CAMPAIGN / WEEK</label>
-              <Input value={form.campaign || ""} onChange={(e) => set("campaign", e.target.value)} placeholder="e.g. Week 1 – Engagement" className="border-2 border-black" />
+              <label className="block text-xs font-black mb-1">
+                CAMPAIGN / WEEK
+              </label>
+              <Input
+                value={form.campaign || ""}
+                onChange={(e) => set("campaign", e.target.value)}
+                placeholder="e.g. Week 1 – Engagement"
+                className="border-2 border-black"
+              />
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">COMPANY <span className="font-normal text-gray-400">(reference only)</span></label>
-              <Input value={form.company || ""} onChange={(e) => set("company", e.target.value)} placeholder="e.g. Kalahanu Tech" className="border-2 border-black" />
+              <label className="block text-xs font-black mb-1">
+                COMPANY{" "}
+                <span className="font-normal text-gray-400">
+                  (reference only)
+                </span>
+              </label>
+              <Input
+                value={form.company || ""}
+                onChange={(e) => set("company", e.target.value)}
+                placeholder="e.g. Kalahanu Tech"
+                className="border-2 border-black"
+              />
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">ASSIGNED TO</label>
-              <Input value={form.assignedTo || ""} onChange={(e) => set("assignedTo", e.target.value)} className="border-2 border-black" />
+              <label className="block text-xs font-black mb-1">
+                ASSIGNED TO
+              </label>
+              <Input
+                value={form.assignedTo || ""}
+                onChange={(e) => set("assignedTo", e.target.value)}
+                className="border-2 border-black"
+              />
             </div>
             <div>
               <label className="block text-xs font-black mb-1">STATUS</label>
-              <select value={form.status} onChange={(e) => set("status", e.target.value as TaskStatus)} className="w-full border-2 border-black rounded-md p-2 text-sm">
-                {STATUSES.map((s) => <option key={s}>{s}</option>)}
+              <select
+                value={form.status}
+                onChange={(e) => set("status", e.target.value as TaskStatus)}
+                className="w-full border-2 border-black rounded-md p-2 text-sm"
+              >
+                {STATUSES.map((s) => (
+                  <option key={s}>{s}</option>
+                ))}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">APPROVAL STATUS</label>
-              <select value={form.approvalStatus} onChange={(e) => set("approvalStatus", e.target.value)} className="w-full border-2 border-black rounded-md p-2 text-sm">
-                {["Pending", "Approved", "Rejected"].map((s) => <option key={s}>{s}</option>)}
+              <label className="block text-xs font-black mb-1">
+                APPROVAL STATUS
+              </label>
+              <select
+                value={form.approvalStatus}
+                onChange={(e) => set("approvalStatus", e.target.value)}
+                className="w-full border-2 border-black rounded-md p-2 text-sm"
+              >
+                {["Pending", "Approved", "Rejected"].map((s) => (
+                  <option key={s}>{s}</option>
+                ))}
               </select>
             </div>
             <div className="md:col-span-2">
               <label className="block text-xs font-black mb-1">CAPTION</label>
-              <textarea value={form.caption || ""} onChange={(e) => set("caption", e.target.value)} rows={3} className="w-full border-2 border-black rounded-md p-2 text-sm resize-none focus:outline-none" />
+              <textarea
+                value={form.caption || ""}
+                onChange={(e) => set("caption", e.target.value)}
+                rows={3}
+                className="w-full border-2 border-black rounded-md p-2 text-sm resize-none focus:outline-none"
+              />
             </div>
             <div className="md:col-span-2">
               <label className="block text-xs font-black mb-1">HASHTAGS</label>
-              <Input value={form.hashtags || ""} onChange={(e) => set("hashtags", e.target.value)} placeholder="#tag1 #tag2" className="border-2 border-black" />
+              <Input
+                value={form.hashtags || ""}
+                onChange={(e) => set("hashtags", e.target.value)}
+                placeholder="#tag1 #tag2"
+                className="border-2 border-black"
+              />
             </div>
             <div>
               <label className="block text-xs font-black mb-1">MEDIA URL</label>
-              <Input value={form.mediaUrl || ""} onChange={(e) => set("mediaUrl", e.target.value)} placeholder="https://..." className="border-2 border-black" />
+              <Input
+                value={form.mediaUrl || ""}
+                onChange={(e) => set("mediaUrl", e.target.value)}
+                placeholder="https://..."
+                className="border-2 border-black"
+              />
             </div>
             <div>
-              <label className="block text-xs font-black mb-1">REEL VIDEO LINK</label>
-              <Input value={form.reelVideoLink || ""} onChange={(e) => set("reelVideoLink", e.target.value)} placeholder="https://..." className="border-2 border-black" />
+              <label className="block text-xs font-black mb-1">
+                REEL VIDEO LINK
+              </label>
+              <Input
+                value={form.reelVideoLink || ""}
+                onChange={(e) => set("reelVideoLink", e.target.value)}
+                placeholder="https://..."
+                className="border-2 border-black"
+              />
             </div>
             <div className="md:col-span-2">
               <label className="block text-xs font-black mb-1">NOTES</label>
-              <textarea value={form.notes || ""} onChange={(e) => set("notes", e.target.value)} rows={2} className="w-full border-2 border-black rounded-md p-2 text-sm resize-none focus:outline-none" />
+              <textarea
+                value={form.notes || ""}
+                onChange={(e) => set("notes", e.target.value)}
+                rows={2}
+                className="w-full border-2 border-black rounded-md p-2 text-sm resize-none focus:outline-none"
+              />
             </div>
           </div>
         </div>
         <div className="border-t-2 border-black p-4 flex justify-end gap-2">
-          <Button variant="outline" onClick={onClose} disabled={saving} className="border-2 border-black font-bold">Cancel</Button>
-          <Button onClick={handleSubmit} disabled={saving} className="bg-black text-white font-black border-2 border-black">
+          <Button
+            variant="outline"
+            onClick={onClose}
+            disabled={saving}
+            className="border-2 border-black font-bold"
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={handleSubmit}
+            disabled={saving}
+            className="bg-black text-white font-black border-2 border-black"
+          >
             {saving ? "Saving…" : "Save Task"}
           </Button>
         </div>
@@ -297,12 +462,15 @@ export default function SocialMediaManagerPage() {
     }
   };
 
-  useEffect(() => { load(); }, [user]);
+  useEffect(() => {
+    load();
+  }, [user]);
 
   // Filters
   const filtered = tasks.filter((t) => {
     const q = search.toLowerCase();
-    const matchSearch = !search ||
+    const matchSearch =
+      !search ||
       t.title?.toLowerCase().includes(q) ||
       t.company?.toLowerCase().includes(q) ||
       t.assignedTo?.toLowerCase().includes(q) ||
@@ -313,7 +481,9 @@ export default function SocialMediaManagerPage() {
   });
 
   // Group by campaign
-  const campaigns = Array.from(new Set(filtered.map((t) => t.campaign || ""))).sort();
+  const campaigns = Array.from(
+    new Set(filtered.map((t) => t.campaign || "")),
+  ).sort();
   const grouped = campaigns.map((camp) => ({
     campaign: camp || "No Campaign",
     tasks: filtered.filter((t) => (t.campaign || "") === camp),
@@ -323,7 +493,9 @@ export default function SocialMediaManagerPage() {
   const countBy = (s: TaskStatus) => tasks.filter((t) => t.status === s).length;
 
   // All unique campaigns for filter dropdown
-  const allCampaigns = Array.from(new Set(tasks.map((t) => t.campaign || "").filter(Boolean))).sort();
+  const allCampaigns = Array.from(
+    new Set(tasks.map((t) => t.campaign || "").filter(Boolean)),
+  ).sort();
 
   // Status update
   const updateStatus = async (task: Task, status: TaskStatus) => {
@@ -333,7 +505,9 @@ export default function SocialMediaManagerPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status }),
     });
-    setTasks((prev) => prev.map((t) => (t._id || t.id) === id ? { ...t, status } : t));
+    setTasks((prev) =>
+      prev.map((t) => ((t._id || t.id) === id ? { ...t, status } : t)),
+    );
   };
 
   const deleteTask = async (task: Task) => {
@@ -376,27 +550,47 @@ export default function SocialMediaManagerPage() {
       const docs: any[] = [];
       for (const row of rows) {
         const title = String(row["Title"] || row["title"] || "").trim();
-        if (!title) { skipped++; continue; }
+        if (!title) {
+          skipped++;
+          continue;
+        }
         docs.push({
           title,
-          scheduledDate: String(row["Scheduled Date"] || row["scheduled_date"] || "").trim(),
-          scheduledTime: String(row["Scheduled Time"] || row["scheduled_time"] || "").trim(),
-          platform: String(row["Platform"] || row["platform"] || "Instagram").trim(),
-          contentType: String(row["Content Type"] || row["content_type"] || "Image Post").trim(),
+          scheduledDate: String(
+            row["Scheduled Date"] || row["scheduled_date"] || "",
+          ).trim(),
+          scheduledTime: String(
+            row["Scheduled Time"] || row["scheduled_time"] || "",
+          ).trim(),
+          platform: String(
+            row["Platform"] || row["platform"] || "Instagram",
+          ).trim(),
+          contentType: String(
+            row["Content Type"] || row["content_type"] || "Image Post",
+          ).trim(),
           caption: String(row["Caption"] || row["caption"] || "").trim(),
           hashtags: String(row["Hashtags"] || row["hashtags"] || "").trim(),
           mediaUrl: String(row["Media URL"] || row["media_url"] || "").trim(),
-          reelVideoLink: String(row["Reel Video Link"] || row["reel_video_link"] || "").trim(),
+          reelVideoLink: String(
+            row["Reel Video Link"] || row["reel_video_link"] || "",
+          ).trim(),
           campaign: String(row["Campaign"] || row["campaign"] || "").trim(),
           company: String(row["Company"] || row["company"] || "").trim(),
-          assignedTo: String(row["Assigned To"] || row["assigned_to"] || "").trim(),
+          assignedTo: String(
+            row["Assigned To"] || row["assigned_to"] || "",
+          ).trim(),
           notes: String(row["Notes"] || row["notes"] || "").trim(),
           status: "To Do" as TaskStatus,
-          approvalStatus: String(row["Approval Status"] || row["approval_status"] || "Pending").trim(),
+          approvalStatus: String(
+            row["Approval Status"] || row["approval_status"] || "Pending",
+          ).trim(),
         });
       }
 
-      if (docs.length === 0) { alert("No valid rows found (Title column required)."); return; }
+      if (docs.length === 0) {
+        alert("No valid rows found (Title column required).");
+        return;
+      }
 
       const res = await apiFetch("/api/social-media-tasks", {
         method: "POST",
@@ -404,7 +598,9 @@ export default function SocialMediaManagerPage() {
         body: JSON.stringify(docs),
       });
       const result = await res.json();
-      alert(`Import done: ${result.insertedCount} tasks added, ${skipped} rows skipped.`);
+      alert(
+        `Import done: ${result.insertedCount} tasks added, ${skipped} rows skipped.`,
+      );
       await load();
     } catch (err: any) {
       alert(`Import failed: ${err.message}`);
@@ -419,13 +615,23 @@ export default function SocialMediaManagerPage() {
       {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-black tracking-tighter">SOCIAL MEDIA MANAGER</h1>
-          <p className="text-muted-foreground mt-1">Plan, assign, and track content tasks for your team</p>
+          <h1 className="text-4xl font-black tracking-tighter">
+            SOCIAL MEDIA MANAGER
+          </h1>
+          <p className="text-muted-foreground mt-1">
+            Plan, assign, and track content tasks for your team
+          </p>
         </div>
         <div className="flex items-center gap-2">
           {isAdmin && (
             <>
-              <input ref={importRef} type="file" accept=".xlsx,.xls" className="hidden" onChange={handleImport} />
+              <input
+                ref={importRef}
+                type="file"
+                accept=".xlsx,.xls"
+                className="hidden"
+                onChange={handleImport}
+              />
               <Button
                 variant="outline"
                 onClick={() => importRef.current?.click()}
@@ -457,14 +663,24 @@ export default function SocialMediaManagerPage() {
                 : `border-gray-300 ${STATUS_STYLE[s]}`
             }`}
           >
-            <span className={`w-2 h-2 rounded-full ${
-              s === "To Do" ? "bg-gray-400" : s === "In Progress" ? "bg-blue-500" : s === "In Review" ? "bg-amber-500" : "bg-green-500"
-            }`} />
+            <span
+              className={`w-2 h-2 rounded-full ${
+                s === "To Do"
+                  ? "bg-gray-400"
+                  : s === "In Progress"
+                    ? "bg-blue-500"
+                    : s === "In Review"
+                      ? "bg-amber-500"
+                      : "bg-green-500"
+              }`}
+            />
             {s}
             <span className="font-black">({countBy(s)})</span>
           </button>
         ))}
-        <span className="ml-auto text-xs text-gray-500 font-semibold">{filtered.length} tasks</span>
+        <span className="ml-auto text-xs text-gray-500 font-semibold">
+          {filtered.length} tasks
+        </span>
       </div>
 
       {/* Filters */}
@@ -481,11 +697,19 @@ export default function SocialMediaManagerPage() {
           className="px-3 py-2 border-2 border-black rounded-md bg-white font-semibold text-sm"
         >
           <option value="">All Companies</option>
-          {allCampaigns.map((c) => <option key={c} value={c}>{c}</option>)}
+          {allCampaigns.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
         </select>
         {(search || statusFilter || campaignFilter) && (
           <button
-            onClick={() => { setSearch(""); setStatusFilter(""); setCampaignFilter(""); }}
+            onClick={() => {
+              setSearch("");
+              setStatusFilter("");
+              setCampaignFilter("");
+            }}
             className="px-3 py-2 border-2 border-black rounded-md text-xs font-bold hover:bg-gray-50"
           >
             ✕ Clear
@@ -501,18 +725,27 @@ export default function SocialMediaManagerPage() {
       ) : filtered.length === 0 ? (
         <div className="border-2 border-black rounded-xl p-12 text-center">
           <p className="text-xl font-black">No tasks found</p>
-          <p className="text-sm text-gray-500 mt-1">Import an Excel file or add tasks manually</p>
+          <p className="text-sm text-gray-500 mt-1">
+            Import an Excel file or add tasks manually
+          </p>
         </div>
       ) : (
         <div className="space-y-4">
           {grouped.map(({ campaign, tasks: campTasks }) => {
             const dayMap = buildDayMap(campTasks);
             return (
-              <div key={campaign} className="border-2 border-black rounded-xl overflow-hidden">
+              <div
+                key={campaign}
+                className="border-2 border-black rounded-xl overflow-hidden"
+              >
                 {/* Week header */}
                 <div className="bg-black text-white px-4 py-2.5 flex items-center justify-between">
-                  <span className="font-black text-sm uppercase tracking-wide">{campaign}</span>
-                  <span className="text-xs text-gray-400">{campTasks.length} tasks</span>
+                  <span className="font-black text-sm uppercase tracking-wide">
+                    {campaign}
+                  </span>
+                  <span className="text-xs text-gray-400">
+                    {campTasks.length} tasks
+                  </span>
                 </div>
 
                 {/* Table */}
@@ -520,26 +753,53 @@ export default function SocialMediaManagerPage() {
                   <table className="w-full text-sm">
                     <thead className="bg-gray-50 border-b-2 border-black">
                       <tr>
-                        {["DAY", "DATE", "COMPANY", "POST TYPE", "TITLE", "STATUS", "ASSIGNED TO", "ACTIONS"].map((h) => (
-                          <th key={h} className="px-3 py-2.5 text-left text-xs font-black uppercase text-gray-600 whitespace-nowrap">{h}</th>
+                        {[
+                          "DAY",
+                          "DATE",
+                          "COMPANY",
+                          "POST TYPE",
+                          "TITLE",
+                          "STATUS",
+                          "ASSIGNED TO",
+                          "ACTIONS",
+                        ].map((h) => (
+                          <th
+                            key={h}
+                            className="px-3 py-2.5 text-left text-xs font-black uppercase text-gray-600 whitespace-nowrap"
+                          >
+                            {h}
+                          </th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
                       {campTasks.map((task, i) => {
                         const taskId = task._id || task.id || String(i);
-                        const dayLabel = task.scheduledDate ? (dayMap.get(task.scheduledDate) || "—") : "—";
+                        const dayLabel = task.scheduledDate
+                          ? dayMap.get(task.scheduledDate) || "—"
+                          : "—";
                         return (
-                          <tr key={taskId} className={`border-b border-gray-100 hover:bg-gray-50 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}>
+                          <tr
+                            key={taskId}
+                            className={`border-b border-gray-100 hover:bg-gray-50 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}
+                          >
                             <td className="px-3 py-2.5">
-                              <span className="text-xs font-black text-gray-500">{dayLabel}</span>
+                              <span className="text-xs font-black text-gray-500">
+                                {dayLabel}
+                              </span>
                             </td>
                             <td className="px-3 py-2.5 whitespace-nowrap text-xs text-gray-600 font-semibold">
                               {task.scheduledDate || "—"}
-                              {task.scheduledTime && <span className="ml-1 text-gray-400">{task.scheduledTime}</span>}
+                              {task.scheduledTime && (
+                                <span className="ml-1 text-gray-400">
+                                  {task.scheduledTime}
+                                </span>
+                              )}
                             </td>
                             <td className="px-3 py-2.5 max-w-[120px]">
-                              <span className="text-xs text-gray-500 truncate block">{task.company || "—"}</span>
+                              <span className="text-xs text-gray-500 truncate block">
+                                {task.company || "—"}
+                              </span>
                             </td>
                             <td className="px-3 py-2.5">
                               <span className="inline-block px-2 py-0.5 bg-gray-100 rounded text-xs font-semibold text-gray-700 whitespace-nowrap">
@@ -547,18 +807,29 @@ export default function SocialMediaManagerPage() {
                               </span>
                             </td>
                             <td className="px-3 py-2.5 max-w-[220px]">
-                              <div className="font-black text-sm truncate">{task.title}</div>
+                              <div className="font-black text-sm truncate">
+                                {task.title}
+                              </div>
                               {task.platform && (
-                                <div className="text-xs text-gray-400 mt-0.5">{task.platform}</div>
+                                <div className="text-xs text-gray-400 mt-0.5">
+                                  {task.platform}
+                                </div>
                               )}
                             </td>
                             <td className="px-3 py-2.5">
                               <select
                                 value={task.status}
-                                onChange={(e) => updateStatus(task, e.target.value as TaskStatus)}
+                                onChange={(e) =>
+                                  updateStatus(
+                                    task,
+                                    e.target.value as TaskStatus,
+                                  )
+                                }
                                 className={`text-xs font-bold px-2 py-1 rounded border cursor-pointer ${STATUS_STYLE[task.status]}`}
                               >
-                                {STATUSES.map((s) => <option key={s}>{s}</option>)}
+                                {STATUSES.map((s) => (
+                                  <option key={s}>{s}</option>
+                                ))}
                               </select>
                             </td>
                             <td className="px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
@@ -603,7 +874,9 @@ export default function SocialMediaManagerPage() {
       )}
 
       {/* Modals */}
-      {viewTask && <ViewModal task={viewTask} onClose={() => setViewTask(null)} />}
+      {viewTask && (
+        <ViewModal task={viewTask} onClose={() => setViewTask(null)} />
+      )}
       {editTask && (
         <TaskFormModal
           initial={editTask === "new" ? undefined : editTask}

@@ -127,9 +127,9 @@ export default function LeadDetailPage() {
       apiFetch(`/api/leads/${leadId}`, { headers: authHeaders() }).then((r) =>
         r.json(),
       ),
-      apiFetch(`/api/leads/${leadId}/activity`, { headers: authHeaders() }).then(
-        (r) => r.json(),
-      ),
+      apiFetch(`/api/leads/${leadId}/activity`, {
+        headers: authHeaders(),
+      }).then((r) => r.json()),
     ])
       .then(([leadData, actData]) => {
         setLead(leadData);

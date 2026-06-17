@@ -108,6 +108,7 @@
   "/api/me/route": "app/api/me/route.js",
   "/api/meta-leads/route": "app/api/meta-leads/route.js",
   "/api/nda-approvals/route": "app/api/nda-approvals/route.js",
+  "/api/nesthr-stats/route": "app/api/nesthr-stats/route.js",
   "/api/newsletter/route": "app/api/newsletter/route.js",
   "/api/onboarding/[id]/route": "app/api/onboarding/[id]/route.js",
   "/api/onboarding/route": "app/api/onboarding/route.js",

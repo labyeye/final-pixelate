@@ -485,15 +485,18 @@ export default function SocialMediaPlannerPage() {
     );
     if (!nextTime) return;
 
-    const res = await apiFetch(`/api/social-media-posts/${item._id || item.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        scheduledDate: nextDate,
-        scheduledTime: nextTime,
-        status: "Scheduled",
-      }),
-    });
+    const res = await apiFetch(
+      `/api/social-media-posts/${item._id || item.id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          scheduledDate: nextDate,
+          scheduledTime: nextTime,
+          status: "Scheduled",
+        }),
+      },
+    );
     if (!res.ok) {
       alert("Failed to reschedule");
       return;

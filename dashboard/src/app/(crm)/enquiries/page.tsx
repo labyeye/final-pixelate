@@ -29,11 +29,14 @@ export default function EnquiriesPage() {
 
   const updateItem = async (id: string, patch: any) => {
     try {
-      const res = await apiFetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(patch),
-      });
+      const res = await apiFetch(
+        `/api/enquiries?id=${encodeURIComponent(id)}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(patch),
+        },
+      );
       if (!res.ok) throw new Error("update failed");
       const updated = await res.json();
       setItems((prev) =>
@@ -53,9 +56,12 @@ export default function EnquiriesPage() {
         )
       )
         return;
-      const res = await apiFetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
-        method: "DELETE",
-      });
+      const res = await apiFetch(
+        `/api/enquiries?id=${encodeURIComponent(id)}`,
+        {
+          method: "DELETE",
+        },
+      );
       if (!res.ok) throw new Error("delete failed");
 
       setItems((prev) =>

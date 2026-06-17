@@ -92,9 +92,26 @@ async function getAdAccounts(
 
 function todayUnixRange(): { since: number; until: number } {
   const now = new Date();
-  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
-  const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-  return { since: Math.floor(start.getTime() / 1000), until: Math.floor(end.getTime() / 1000) };
+  const start = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    0,
+    0,
+    0,
+  );
+  const end = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    23,
+    59,
+    59,
+  );
+  return {
+    since: Math.floor(start.getTime() / 1000),
+    until: Math.floor(end.getTime() / 1000),
+  };
 }
 
 async function fetchAdAccountLeads(
@@ -348,15 +365,27 @@ export async function POST(request: Request) {
     const incomingMetaIds = allRawLeads.map((ml) => ml.id).filter(Boolean);
     const incomingParsed = allRawLeads.map((ml) => {
       const f = parseFields(ml.field_data);
-      return { ml, f, phone: extractPhone(f), email: extractEmail(f), name: extractName(f) };
+      return {
+        ml,
+        f,
+        phone: extractPhone(f),
+        email: extractEmail(f),
+        name: extractName(f),
+      };
     });
     const incomingPhones = incomingParsed.map((p) => p.phone).filter(Boolean);
     const incomingEmails = incomingParsed.map((p) => p.email).filter(Boolean);
 
     const orClauses: any[] = [];
-    if (incomingMetaIds.length) orClauses.push({ metaLeadId: { $in: incomingMetaIds } }, { fbLeadId: { $in: incomingMetaIds } });
-    if (incomingPhones.length) orClauses.push({ phone: { $in: incomingPhones } });
-    if (incomingEmails.length) orClauses.push({ email: { $in: incomingEmails } });
+    if (incomingMetaIds.length)
+      orClauses.push(
+        { metaLeadId: { $in: incomingMetaIds } },
+        { fbLeadId: { $in: incomingMetaIds } },
+      );
+    if (incomingPhones.length)
+      orClauses.push({ phone: { $in: incomingPhones } });
+    if (incomingEmails.length)
+      orClauses.push({ email: { $in: incomingEmails } });
 
     const existingLeads = orClauses.length
       ? await leadsCol.find({ clientId, $or: orClauses }).toArray()
@@ -382,25 +411,42 @@ export async function POST(request: Request) {
       if (existingById) {
         const patch: Record<string, any> = {};
         if (!existingById.metaLeadId) patch.metaLeadId = ml.id;
-        if (!existingById.campaignName && ml.campaign_name) patch.campaignName = ml.campaign_name;
-        if (!existingById.campaignId && ml.campaign_id) patch.campaignId = ml.campaign_id;
-        if (!existingById.adSetName && ml.adset_name) patch.adSetName = ml.adset_name;
+        if (!existingById.campaignName && ml.campaign_name)
+          patch.campaignName = ml.campaign_name;
+        if (!existingById.campaignId && ml.campaign_id)
+          patch.campaignId = ml.campaign_id;
+        if (!existingById.adSetName && ml.adset_name)
+          patch.adSetName = ml.adset_name;
         if (!existingById.adName && ml.ad_name) patch.adName = ml.ad_name;
         if (Object.keys(patch).length) {
-          bulkUpdates.push({ updateOne: { filter: { _id: existingById._id }, update: { $set: patch } } });
+          bulkUpdates.push({
+            updateOne: {
+              filter: { _id: existingById._id },
+              update: { $set: patch },
+            },
+          });
         }
         skipped++;
         continue;
       }
 
-      const existingByContact = (phone && byPhone.get(phone)) || (email && byEmail.get(email));
+      const existingByContact =
+        (phone && byPhone.get(phone)) || (email && byEmail.get(email));
       if (existingByContact) {
         const patch: Record<string, any> = { metaLeadId: ml.id };
-        if (!existingByContact.campaignName && ml.campaign_name) patch.campaignName = ml.campaign_name;
-        if (!existingByContact.campaignId && ml.campaign_id) patch.campaignId = ml.campaign_id;
-        if (!existingByContact.adSetName && ml.adset_name) patch.adSetName = ml.adset_name;
+        if (!existingByContact.campaignName && ml.campaign_name)
+          patch.campaignName = ml.campaign_name;
+        if (!existingByContact.campaignId && ml.campaign_id)
+          patch.campaignId = ml.campaign_id;
+        if (!existingByContact.adSetName && ml.adset_name)
+          patch.adSetName = ml.adset_name;
         if (!existingByContact.adName && ml.ad_name) patch.adName = ml.ad_name;
-        bulkUpdates.push({ updateOne: { filter: { _id: existingByContact._id }, update: { $set: patch } } });
+        bulkUpdates.push({
+          updateOne: {
+            filter: { _id: existingByContact._id },
+            update: { $set: patch },
+          },
+        });
         skipped++;
         continue;
       }
@@ -438,8 +484,10 @@ export async function POST(request: Request) {
       synced++;
     }
 
-    if (bulkUpdates.length) await leadsCol.bulkWrite(bulkUpdates, { ordered: false });
-    if (toInsert.length) await leadsCol.insertMany(toInsert, { ordered: false });
+    if (bulkUpdates.length)
+      await leadsCol.bulkWrite(bulkUpdates, { ordered: false });
+    if (toInsert.length)
+      await leadsCol.insertMany(toInsert, { ordered: false });
 
     return NextResponse.json(
       {

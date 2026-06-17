@@ -16,7 +16,10 @@ export async function GET(req: NextRequest) {
     if (assignedTo) filter.assigned_to = assignedTo;
     if (company) filter.company = company;
 
-    const items = await col.find(filter).sort({ week_number: 1, day_number: 1 }).toArray();
+    const items = await col
+      .find(filter)
+      .sort({ week_number: 1, day_number: 1 })
+      .toArray();
     return NextResponse.json(items);
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
@@ -56,7 +59,10 @@ export async function POST(req: NextRequest) {
       updated_at: now,
     };
     const result = await col.insertOne(doc);
-    return NextResponse.json({ ...doc, _id: result.insertedId }, { status: 201 });
+    return NextResponse.json(
+      { ...doc, _id: result.insertedId },
+      { status: 201 },
+    );
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }

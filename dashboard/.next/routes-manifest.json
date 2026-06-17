@@ -557,6 +557,12 @@
       "namedRegex": "^/api/nda\\-approvals(?:/)?$"
     },
     {
+      "page": "/api/nesthr-stats",
+      "regex": "^/api/nesthr\\-stats(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nesthr\\-stats(?:/)?$"
+    },
+    {
       "page": "/api/newsletter",
       "regex": "^/api/newsletter(?:/)?$",
       "routeKeys": {},

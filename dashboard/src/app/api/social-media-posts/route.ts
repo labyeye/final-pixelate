@@ -267,7 +267,10 @@ export async function PUT(request: Request) {
       changedFields.push("status");
       changeDetails.status = { before: postBefore?.status, after: body.status };
       // Auto-approve when admin schedules a post
-      if (body.status === "Scheduled" && postBefore?.approvalStatus !== "Approved") {
+      if (
+        body.status === "Scheduled" &&
+        postBefore?.approvalStatus !== "Approved"
+      ) {
         updateData.approvalStatus = "Approved";
       }
     }

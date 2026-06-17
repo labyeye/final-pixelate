@@ -9,7 +9,10 @@ export async function GET(request: NextRequest) {
   if (auth.error) return auth.error;
 
   if (!NESTHR_URL || !NESTHR_TOKEN) {
-    return NextResponse.json({ error: "NestHR not configured" }, { status: 503 });
+    return NextResponse.json(
+      { error: "NestHR not configured" },
+      { status: 503 },
+    );
   }
 
   try {
@@ -24,6 +27,9 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(data);
   } catch (e: any) {
     console.error("NestHR stats error:", e);
-    return NextResponse.json({ error: e.message ?? "Failed to fetch NestHR stats" }, { status: 500 });
+    return NextResponse.json(
+      { error: e.message ?? "Failed to fetch NestHR stats" },
+      { status: 500 },
+    );
   }
 }

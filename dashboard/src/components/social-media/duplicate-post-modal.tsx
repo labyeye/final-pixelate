@@ -70,7 +70,9 @@ export function DuplicatePostModal({
             <FontAwesomeIcon icon={faCopy} className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h2 className="text-lg font-black tracking-tight">Duplicate Post</h2>
+            <h2 className="text-lg font-black tracking-tight">
+              Duplicate Post
+            </h2>
             <p className="text-xs text-muted-foreground font-medium truncate max-w-[280px]">
               {post.title}
             </p>
@@ -98,7 +100,12 @@ export function DuplicatePostModal({
         </div>
 
         <div className="border-t-2 border-black p-4 flex gap-2 justify-end bg-gray-50 rounded-b-xl">
-          <Button variant="outline" onClick={onClose} disabled={saving} className="border-2 border-black">
+          <Button
+            variant="outline"
+            onClick={onClose}
+            disabled={saving}
+            className="border-2 border-black"
+          >
             Cancel
           </Button>
           <Button

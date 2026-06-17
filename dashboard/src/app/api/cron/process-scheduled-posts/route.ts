@@ -37,7 +37,9 @@ export async function GET(request: NextRequest) {
       try {
         const clientsCol = await svc.getCollection("clients");
         const client = await clientsCol.findOne({
-          _id: ObjectId.isValid(clientId) ? new ObjectId(clientId) : (clientId as any),
+          _id: ObjectId.isValid(clientId)
+            ? new ObjectId(clientId)
+            : (clientId as any),
         });
         clientTokenCache[clientId] = client?.metaAccessToken || null;
       } catch {
@@ -56,14 +58,26 @@ export async function GET(request: NextRequest) {
           ? [post.socialAccountId]
           : [];
 
-      console.log(`[DEBUG] Processing post: ${post.title} | accounts: ${accountIds.length}`);
+      console.log(
+        `[DEBUG] Processing post: ${post.title} | accounts: ${accountIds.length}`,
+      );
 
       if (accountIds.length === 0) {
         await postsCol.updateOne(
           { _id: post._id },
-          { $set: { status: "Failed", notes: "Auto-post failed: No social account linked to this post", updatedAt: new Date() } },
+          {
+            $set: {
+              status: "Failed",
+              notes: "Auto-post failed: No social account linked to this post",
+              updatedAt: new Date(),
+            },
+          },
         );
-        results.push({ id: post._id, status: "Failed", error: "No social account linked to this post" });
+        results.push({
+          id: post._id,
+          status: "Failed",
+          error: "No social account linked to this post",
+        });
         continue;
       }
 
@@ -72,33 +86,62 @@ export async function GET(request: NextRequest) {
           ? post.reelLink || post.mediaFile
           : post.mediaFile;
 
-      if (mediaUrl && mediaUrl.includes("cloud.laxmilube.in/s/") && !mediaUrl.endsWith("/download")) {
-        mediaUrl = mediaUrl.endsWith("/") ? mediaUrl + "download" : mediaUrl + "/download";
+      if (
+        mediaUrl &&
+        mediaUrl.includes("cloud.laxmilube.in/s/") &&
+        !mediaUrl.endsWith("/download")
+      ) {
+        mediaUrl = mediaUrl.endsWith("/")
+          ? mediaUrl + "download"
+          : mediaUrl + "/download";
       }
 
       if (!mediaUrl) {
         await postsCol.updateOne(
           { _id: post._id },
-          { $set: { status: "Failed", notes: `Auto-post failed: No media URL found. Add a Reel Video Link or Media URL.`, updatedAt: new Date() } },
+          {
+            $set: {
+              status: "Failed",
+              notes: `Auto-post failed: No media URL found. Add a Reel Video Link or Media URL.`,
+              updatedAt: new Date(),
+            },
+          },
         );
-        results.push({ id: post._id, status: "Failed", error: "No media URL found" });
+        results.push({
+          id: post._id,
+          status: "Failed",
+          error: "No media URL found",
+        });
         continue;
       }
 
-      const caption = post.caption + (post.hashtags ? "\n\n" + post.hashtags : "");
-      const accountResults: { accountId: string; status: string; link?: string; error?: string }[] = [];
-      const postedLinks: Record<string, string> = { ...(post.postedLinks || {}) };
+      const caption =
+        post.caption + (post.hashtags ? "\n\n" + post.hashtags : "");
+      const accountResults: {
+        accountId: string;
+        status: string;
+        link?: string;
+        error?: string;
+      }[] = [];
+      const postedLinks: Record<string, string> = {
+        ...(post.postedLinks || {}),
+      };
       let anySuccess = false;
 
       for (const accountId of accountIds) {
         try {
           let queryId: any = accountId;
           try {
-            if (typeof accountId === "string" && ObjectId.isValid(accountId)) queryId = new ObjectId(accountId);
+            if (typeof accountId === "string" && ObjectId.isValid(accountId))
+              queryId = new ObjectId(accountId);
           } catch {}
 
-          const account = await accountsCol.findOne({ $or: [{ _id: queryId }, { _id: accountId.toString() }] });
-          console.log(`[DEBUG] Account ${accountId} found: ${account ? "Yes" : "No"} | platform: ${account?.platform}`);
+          const account = await accountsCol.findOne({
+            $or: [{ _id: queryId }, { _id: accountId.toString() }],
+          });
+          console.log(
+            `[DEBUG] Account ${accountId} found: ${account ? "Yes" : "No"} | platform: ${account?.platform}`,
+          );
 
           let effectiveToken = account?.accessToken || null;
           if (post.clientId) {
@@ -106,41 +149,77 @@ export async function GET(request: NextRequest) {
             if (clientToken) effectiveToken = clientToken;
           }
 
-          if (!effectiveToken) throw new Error(`Access Token missing for account ${accountId}`);
+          if (!effectiveToken)
+            throw new Error(`Access Token missing for account ${accountId}`);
 
           const platform: string = account?.platform || post.platform || "";
           let publishRes: { id: string; permalink: string };
 
           if (platform === "Instagram") {
             const igId = account?.igAccountId;
-            if (!igId) throw new Error(`Instagram Account ID (igAccountId) missing for account ${accountId} — set it in Social Accounts settings`);
+            if (!igId)
+              throw new Error(
+                `Instagram Account ID (igAccountId) missing for account ${accountId} — set it in Social Accounts settings`,
+              );
 
             const isVideoContent =
               post.contentType === "Reel" ||
               post.contentType === "Video" ||
               /\.(mp4|mov|avi|mkv|webm|m4v)(\?|$)/i.test(mediaUrl || "");
 
-            publishRes = await publishInstagramPost(igId, effectiveToken, caption, mediaUrl, isVideoContent ? "REELS" : "IMAGE");
+            publishRes = await publishInstagramPost(
+              igId,
+              effectiveToken,
+              caption,
+              mediaUrl,
+              isVideoContent ? "REELS" : "IMAGE",
+            );
           } else if (platform === "Facebook") {
             const fbId = account?.platformAccountId;
-            if (!fbId) throw new Error(`Facebook Page ID (platformAccountId) missing for account ${accountId}`);
+            if (!fbId)
+              throw new Error(
+                `Facebook Page ID (platformAccountId) missing for account ${accountId}`,
+              );
             const isFbVideo =
               post.contentType === "Reel" ||
               post.contentType === "Video" ||
               /\.(mp4|mov|avi|mkv|webm|m4v)(\?|$)/i.test(mediaUrl || "");
-            publishRes = await publishFacebookPost(fbId, effectiveToken, caption, mediaUrl, isFbVideo ? "VIDEO" : "IMAGE");
+            publishRes = await publishFacebookPost(
+              fbId,
+              effectiveToken,
+              caption,
+              mediaUrl,
+              isFbVideo ? "VIDEO" : "IMAGE",
+            );
           } else {
-            accountResults.push({ accountId, status: "Skipped", error: `Platform "${platform}" auto-posting not supported` });
+            accountResults.push({
+              accountId,
+              status: "Skipped",
+              error: `Platform "${platform}" auto-posting not supported`,
+            });
             continue;
           }
 
           postedLinks[accountId] = publishRes.permalink;
           anySuccess = true;
-          accountResults.push({ accountId, status: "Success", link: publishRes.permalink });
-          console.log(`[DEBUG] Posted to ${platform} account ${accountId}: ${publishRes.permalink}`);
+          accountResults.push({
+            accountId,
+            status: "Success",
+            link: publishRes.permalink,
+          });
+          console.log(
+            `[DEBUG] Posted to ${platform} account ${accountId}: ${publishRes.permalink}`,
+          );
         } catch (err: any) {
-          console.error(`Failed to post ${post._id} to account ${accountId}:`, err);
-          accountResults.push({ accountId, status: "Failed", error: err.message });
+          console.error(
+            `Failed to post ${post._id} to account ${accountId}:`,
+            err,
+          );
+          accountResults.push({
+            accountId,
+            status: "Failed",
+            error: err.message,
+          });
         }
       }
 
@@ -157,12 +236,21 @@ export async function GET(request: NextRequest) {
             postedLink: firstSuccess?.link || "",
             postedLinks,
             updatedAt: new Date(),
-            ...(allFailed && { notes: `Auto-post failed: ${accountResults.map((r) => r.error).filter(Boolean).join("; ")}` }),
+            ...(allFailed && {
+              notes: `Auto-post failed: ${accountResults
+                .map((r) => r.error)
+                .filter(Boolean)
+                .join("; ")}`,
+            }),
           },
         },
       );
 
-      results.push({ id: post._id, status: finalStatus, accounts: accountResults });
+      results.push({
+        id: post._id,
+        status: finalStatus,
+        accounts: accountResults,
+      });
     }
 
     return NextResponse.json({

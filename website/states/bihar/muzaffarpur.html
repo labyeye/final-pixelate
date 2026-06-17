@@ -74,7 +74,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.google.co.in https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' http://localhost:* https://www.facebook.com https://facebook.com https://connect.facebook.net https://www.google-analytics.com https://*.google.com https://*.google.co.in https://backend.pixelatenest.com https://cdn.prod.website-files.com https://overbridgenet.com https://ap.stape.info https://googleads.g.doubleclick.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.google.co.in https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' http://localhost:* https://www.facebook.com https://facebook.com https://connect.facebook.net https://www.google-analytics.com https://*.google.com https://*.google.co.in https://backend.pixelatenest.com https://cdn.prod.website-files.com https://overbridgenet.com https://ap.stape.info https://googleads.g.doubleclick.net https://ad.doubleclick.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -326,6 +326,21 @@
       onload="this.media = 'all'"
     />
 
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500,
+      });
+      gtag("set", "ads_data_redaction", true);
+      gtag("set", "url_passthrough", true);
+    </script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"
@@ -523,35 +538,45 @@
                             class="dropdown-item"
                           >
                             <i class="fas fa-globe dropdown-item-icon"></i>
-                            <span class="dropdown-item-name">Web Development</span>
+                            <span class="dropdown-item-name"
+                              >Web Development</span
+                            >
                           </a>
                           <a
                             href="https://www.pixelatenest.com/services/app-development.html"
                             class="dropdown-item"
                           >
                             <i class="fas fa-mobile-alt dropdown-item-icon"></i>
-                            <span class="dropdown-item-name">App Development</span>
+                            <span class="dropdown-item-name"
+                              >App Development</span
+                            >
                           </a>
                           <a
                             href="https://www.pixelatenest.com/services/software-development.html"
                             class="dropdown-item"
                           >
                             <i class="fas fa-cube dropdown-item-icon"></i>
-                            <span class="dropdown-item-name">Software Development</span>
+                            <span class="dropdown-item-name"
+                              >Software Development</span
+                            >
                           </a>
                           <a
                             href="https://www.pixelatenest.com/services/digital-marketing.html"
                             class="dropdown-item"
                           >
                             <i class="fas fa-chart-line dropdown-item-icon"></i>
-                            <span class="dropdown-item-name">Digital Marketing</span>
+                            <span class="dropdown-item-name"
+                              >Digital Marketing</span
+                            >
                           </a>
                           <a
                             href="https://www.pixelatenest.com/services/video-editing.html"
                             class="dropdown-item"
                           >
                             <i class="fas fa-video dropdown-item-icon"></i>
-                            <span class="dropdown-item-name">Content Creation</span>
+                            <span class="dropdown-item-name"
+                              >Content Creation</span
+                            >
                           </a>
                         </div>
                       </li>
@@ -4278,4 +4303,3 @@
     </script>
   </body>
 </html>
-

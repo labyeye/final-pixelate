@@ -26,7 +26,10 @@ export async function PUT(request: NextRequest, { params }: RouteContext) {
     );
     return NextResponse.json({ success: true }, { headers: CORS });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500, headers: CORS });
+    return NextResponse.json(
+      { error: e.message },
+      { status: 500, headers: CORS },
+    );
   }
 }
 
@@ -37,6 +40,9 @@ export async function DELETE(_request: NextRequest, { params }: RouteContext) {
     await col.deleteOne({ _id: new ObjectId(id) });
     return NextResponse.json({ success: true }, { headers: CORS });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500, headers: CORS });
+    return NextResponse.json(
+      { error: e.message },
+      { status: 500, headers: CORS },
+    );
   }
 }

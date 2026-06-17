@@ -462,11 +462,16 @@ export async function publishFacebookPost(
 
   if (!res.ok || data.error) {
     const errMsg = data.error?.message || res.statusText;
-    const errDetail = data.error?.code ? ` [code ${data.error.code}${data.error.error_subcode ? `/${data.error.error_subcode}` : ""}]` : "";
+    const errDetail = data.error?.code
+      ? ` [code ${data.error.code}${data.error.error_subcode ? `/${data.error.error_subcode}` : ""}]`
+      : "";
     throw new Error(`FB Publishing Failed: ${errMsg}${errDetail}`);
   }
 
-  console.log(`[FB publish] endpoint=${endpoint} response:`, JSON.stringify({ id: data.id, post_id: data.post_id }));
+  console.log(
+    `[FB publish] endpoint=${endpoint} response:`,
+    JSON.stringify({ id: data.id, post_id: data.post_id }),
+  );
 
   // /photos returns data.id = photo node ID AND data.post_id = actual feed post ID.
   // /videos returns data.id = video ID.
@@ -499,7 +504,14 @@ async function fetchFbPermalink(
       lookupUrl.searchParams.set("access_token", token);
       const r = await fetch(lookupUrl.toString());
       const d = await r.json();
-      console.log(`[FB permalink] lookup /${rawId}:`, JSON.stringify({ post_id: d.post_id, permalink_url: d.permalink_url, link: d.link }));
+      console.log(
+        `[FB permalink] lookup /${rawId}:`,
+        JSON.stringify({
+          post_id: d.post_id,
+          permalink_url: d.permalink_url,
+          link: d.link,
+        }),
+      );
 
       if (d.permalink_url) return d.permalink_url;
 
@@ -510,7 +522,10 @@ async function fetchFbPermalink(
         postLookup.searchParams.set("access_token", token);
         const pr = await fetch(postLookup.toString());
         const pd = await pr.json();
-        console.log(`[FB permalink] post_id lookup /${d.post_id}:`, JSON.stringify({ permalink_url: pd.permalink_url }));
+        console.log(
+          `[FB permalink] post_id lookup /${d.post_id}:`,
+          JSON.stringify({ permalink_url: pd.permalink_url }),
+        );
         if (pd.permalink_url) return pd.permalink_url;
         // Construct from post_id which is "{page_id}_{suffix}"
         const suffix = String(d.post_id).includes("_")
@@ -526,7 +541,10 @@ async function fetchFbPermalink(
       compUrl.searchParams.set("access_token", token);
       const cr = await fetch(compUrl.toString());
       const cd = await cr.json();
-      console.log(`[FB permalink] composite lookup /${compositeId}:`, JSON.stringify({ permalink_url: cd.permalink_url }));
+      console.log(
+        `[FB permalink] composite lookup /${compositeId}:`,
+        JSON.stringify({ permalink_url: cd.permalink_url }),
+      );
       if (cd.permalink_url) return cd.permalink_url;
     } catch (e: any) {
       console.warn("[FB permalink] lookup threw:", e?.message);
@@ -544,7 +562,10 @@ async function fetchFbPermalink(
     postUrl.searchParams.set("access_token", token);
     const r = await fetch(postUrl.toString());
     const d = await r.json();
-    console.log(`[FB permalink] composite /${rawId}:`, JSON.stringify({ permalink_url: d.permalink_url }));
+    console.log(
+      `[FB permalink] composite /${rawId}:`,
+      JSON.stringify({ permalink_url: d.permalink_url }),
+    );
     if (d.permalink_url) return d.permalink_url;
   } catch (e: any) {
     console.warn("[FB permalink] composite threw:", e?.message);

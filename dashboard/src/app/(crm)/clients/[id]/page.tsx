@@ -76,8 +76,8 @@ export default function ClientDetailPage() {
     if (!clientId) return;
     setLoading(true);
     Promise.all([
-      apiFetch(`/api/clients/${clientId}`, { headers: authHeaders() }).then((r) =>
-        r.json(),
+      apiFetch(`/api/clients/${clientId}`, { headers: authHeaders() }).then(
+        (r) => r.json(),
       ),
       apiFetch("/api/leads", { headers: authHeaders() })
         .then((r) => (r.ok ? r.json() : []))

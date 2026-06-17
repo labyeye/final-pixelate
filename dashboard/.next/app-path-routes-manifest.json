@@ -108,6 +108,7 @@
   "/api/me/route": "/api/me",
   "/api/meta-leads/route": "/api/meta-leads",
   "/api/nda-approvals/route": "/api/nda-approvals",
+  "/api/nesthr-stats/route": "/api/nesthr-stats",
   "/api/newsletter/route": "/api/newsletter",
   "/api/onboarding/[id]/route": "/api/onboarding/[id]",
   "/api/onboarding/route": "/api/onboarding",

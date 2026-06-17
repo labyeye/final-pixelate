@@ -322,11 +322,16 @@ export default function ProjectsPage() {
                           onClick={async () => {
                             try {
                               const id = project._id ?? project.id;
-                              const res = await apiFetch(`/api/projects/${id}`, {
-                                method: "PUT",
-                                body: JSON.stringify({ status: "COMPLETED" }),
-                                headers: { "Content-Type": "application/json" },
-                              });
+                              const res = await apiFetch(
+                                `/api/projects/${id}`,
+                                {
+                                  method: "PUT",
+                                  body: JSON.stringify({ status: "COMPLETED" }),
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                  },
+                                },
+                              );
                               if (!res.ok)
                                 throw new Error("Failed to mark complete");
                               const updated = await res.json();

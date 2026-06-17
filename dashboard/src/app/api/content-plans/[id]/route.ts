@@ -5,7 +5,7 @@ import { requireAuth } from "@/lib/require-auth";
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string } },
 ) {
   const auth = requireAuth(req);
   if (auth.error) return auth.error;
@@ -18,15 +18,29 @@ export async function PATCH(
 
     // Staff can only update status; admin can update any field
     const allowedFields = [
-      "week_number", "day_number", "day_name", "post_date", "account",
-      "post_type", "title", "subtitle", "product_image_note", "price_tag",
-      "cta_button", "emotional_touch", "sound_note", "caption", "hashtags",
-      "reel_brief", "ad_brief", "status", "assigned_to", "company",
+      "week_number",
+      "day_number",
+      "day_name",
+      "post_date",
+      "account",
+      "post_type",
+      "title",
+      "subtitle",
+      "product_image_note",
+      "price_tag",
+      "cta_button",
+      "emotional_touch",
+      "sound_note",
+      "caption",
+      "hashtags",
+      "reel_brief",
+      "ad_brief",
+      "status",
+      "assigned_to",
+      "company",
     ];
 
-    const fieldsToUpdate = body.staffOnly
-      ? ["status"]
-      : allowedFields;
+    const fieldsToUpdate = body.staffOnly ? ["status"] : allowedFields;
 
     for (const field of fieldsToUpdate) {
       if (field in body) update[field] = body[field];
@@ -35,7 +49,7 @@ export async function PATCH(
     const result = await col.findOneAndUpdate(
       { _id: new ObjectId(id) },
       { $set: update },
-      { returnDocument: "after" }
+      { returnDocument: "after" },
     );
 
     if (!result) {
@@ -50,7 +64,7 @@ export async function PATCH(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string } },
 ) {
   const auth = requireAuth(req);
   if (auth.error) return auth.error;

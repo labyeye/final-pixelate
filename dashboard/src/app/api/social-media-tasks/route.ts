@@ -40,7 +40,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(items, { headers: CORS });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500, headers: CORS });
+    return NextResponse.json(
+      { error: e.message },
+      { status: 500, headers: CORS },
+    );
   }
 }
 
@@ -70,7 +73,10 @@ export async function POST(request: NextRequest) {
         updatedAt: new Date(),
       }));
       const res = await col.insertMany(docs);
-      return NextResponse.json({ insertedCount: res.insertedCount }, { status: 201, headers: CORS });
+      return NextResponse.json(
+        { insertedCount: res.insertedCount },
+        { status: 201, headers: CORS },
+      );
     }
 
     const col = await svc.getCollection("socialMediaTasks");
@@ -94,8 +100,14 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date(),
     };
     const res = await col.insertOne(doc);
-    return NextResponse.json({ ...doc, _id: res.insertedId }, { status: 201, headers: CORS });
+    return NextResponse.json(
+      { ...doc, _id: res.insertedId },
+      { status: 201, headers: CORS },
+    );
   } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500, headers: CORS });
+    return NextResponse.json(
+      { error: e.message },
+      { status: 500, headers: CORS },
+    );
   }
 }

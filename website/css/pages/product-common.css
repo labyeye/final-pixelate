@@ -628,7 +628,9 @@ details.faq-item[open] .faq-answer {
 /* ========== Slide-in Animations ========== */
 .pn-prod-row > div {
   opacity: 0;
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 /* Normal row: image = first child = LEFT → slides from left */
 .pn-prod-row > div:first-child {
@@ -668,7 +670,9 @@ details.faq-item[open] .faq-answer {
 
 /* ========== FA Icon Hover Animation ========== */
 .pn-icon-item i {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 .pn-icon-item:hover i {
   transform: scale(1.25);

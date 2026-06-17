@@ -92,9 +92,12 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
   async function loadConnection() {
     setLoadingConn(true);
     try {
-      const res = await apiFetch(`/api/fb-ads-connection?clientId=${clientId}`, {
-        headers: authH(),
-      });
+      const res = await apiFetch(
+        `/api/fb-ads-connection?clientId=${clientId}`,
+        {
+          headers: authH(),
+        },
+      );
       if (res.ok) {
         const data = await res.json();
         setConn(data);

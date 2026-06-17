@@ -10,14 +10,20 @@ interface RateRecord {
 
 const store = new Map<string, RateRecord>();
 
-export function checkLoginRateLimit(email: string): { allowed: boolean; retryAfterSecs?: number } {
+export function checkLoginRateLimit(email: string): {
+  allowed: boolean;
+  retryAfterSecs?: number;
+} {
   const key = email.toLowerCase();
   const now = Date.now();
   const record = store.get(key);
 
   if (record?.blockedUntil) {
     if (now < record.blockedUntil) {
-      return { allowed: false, retryAfterSecs: Math.ceil((record.blockedUntil - now) / 1000) };
+      return {
+        allowed: false,
+        retryAfterSecs: Math.ceil((record.blockedUntil - now) / 1000),
+      };
     }
     store.delete(key);
   }

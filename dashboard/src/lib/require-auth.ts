@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
 
-type AuthSuccess = { decoded: ReturnType<typeof verifyToken> & object; error: null };
+type AuthSuccess = {
+  decoded: ReturnType<typeof verifyToken> & object;
+  error: null;
+};
 type AuthFailure = { decoded: null; error: NextResponse };
 
 export function requireAuth(request: Request): AuthSuccess | AuthFailure {
@@ -14,5 +17,8 @@ export function requireAuth(request: Request): AuthSuccess | AuthFailure {
       error: NextResponse.json({ error: "unauthorized" }, { status: 401 }),
     };
   }
-  return { decoded: decoded as object & ReturnType<typeof verifyToken>, error: null };
+  return {
+    decoded: decoded as object & ReturnType<typeof verifyToken>,
+    error: null,
+  };
 }

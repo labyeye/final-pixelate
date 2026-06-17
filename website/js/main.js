@@ -767,7 +767,9 @@ function gtag() {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.15 },
   );
-  rows.forEach(function (row) { obs.observe(row); });
+  rows.forEach(function (row) {
+    obs.observe(row);
+  });
 })();

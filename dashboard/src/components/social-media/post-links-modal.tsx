@@ -143,7 +143,8 @@ export function PostLinksModal({
             // let user edit postedLink directly
             <div className="space-y-2">
               <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-3 py-2">
-                Account details not found for this post. You can still edit the posted link directly.
+                Account details not found for this post. You can still edit the
+                posted link directly.
               </p>
               <Input
                 type="url"

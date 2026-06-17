@@ -65,7 +65,15 @@ export async function POST(req: NextRequest) {
       const week_theme = parseWeekTheme(weekRaw); // e.g. "Pehchaan Banao"
 
       // ── Day ───────────────────────────────────────────────────────────────
-      const dayRaw = pick(row, "Day No.", "Day No", "Day Number", "day_number", "Day", "day");
+      const dayRaw = pick(
+        row,
+        "Day No.",
+        "Day No",
+        "Day Number",
+        "day_number",
+        "Day",
+        "day",
+      );
       const day_number = dayRaw ? Number(dayRaw) : 1;
 
       // day_name is not a separate column in the Excel — derive from week theme if desired
@@ -73,12 +81,19 @@ export async function POST(req: NextRequest) {
 
       // ── Company / Client — stored as plain text, NOT linked to any model ──
       const company =
-        pick(row, "Client / Company", "Client/Company", "company", "Company", "Client", "client") ||
-        fallbackCompany;
+        pick(
+          row,
+          "Client / Company",
+          "Client/Company",
+          "company",
+          "Company",
+          "Client",
+          "client",
+        ) || fallbackCompany;
 
       return {
         week_number,
-        week_label: weekRaw,     // store the full label e.g. "Week 1 – Pehchaan Banao"
+        week_label: weekRaw, // store the full label e.g. "Week 1 – Pehchaan Banao"
         day_number,
         day_name,
         post_date: pick(row, "Post Date", "post_date", "Date", "date"),
@@ -86,7 +101,11 @@ export async function POST(req: NextRequest) {
         post_type: pick(row, "Post Type", "post_type") || "Image Post",
         title: pick(row, "Title", "title"),
         subtitle: pick(row, "Subtitle", "subtitle"),
-        product_image_note: pick(row, "Product Image Note", "product_image_note"),
+        product_image_note: pick(
+          row,
+          "Product Image Note",
+          "product_image_note",
+        ),
         price_tag: pick(row, "Price Tag", "price_tag"),
         cta_button: pick(row, "CTA Button", "cta_button", "CTA"),
         emotional_touch: pick(row, "Emotional Touch", "emotional_touch"),
@@ -95,8 +114,22 @@ export async function POST(req: NextRequest) {
         caption: pick(row, "Caption", "caption"),
         hashtags: pick(row, "Hashtags", "hashtags"),
         // "Reel / Ad Brief" covers both reel and ad brief columns
-        reel_brief: pick(row, "Reel / Ad Brief", "Reel/Ad Brief", "reel_brief", "Reel Brief", "Ad Brief", "ad_brief"),
-        ad_brief: pick(row, "Ad Brief", "ad_brief", "Reel / Ad Brief", "Reel/Ad Brief"),
+        reel_brief: pick(
+          row,
+          "Reel / Ad Brief",
+          "Reel/Ad Brief",
+          "reel_brief",
+          "Reel Brief",
+          "Ad Brief",
+          "ad_brief",
+        ),
+        ad_brief: pick(
+          row,
+          "Ad Brief",
+          "ad_brief",
+          "Reel / Ad Brief",
+          "Reel/Ad Brief",
+        ),
         status: pick(row, "Status", "status") || "To Do",
         assigned_to: pick(row, "Assigned To", "assigned_to", "AssignedTo"),
         // Plain-text company — no foreign key to any collection

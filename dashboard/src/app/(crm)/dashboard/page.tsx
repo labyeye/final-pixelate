@@ -154,7 +154,9 @@ export default function DashboardPage() {
 
         const [clientsList, nesthrRes] = await Promise.all([
           apiFetch("/api/clients").then((r) => r.json()),
-          apiFetch("/api/nesthr-stats").then((r) => r.json()).catch(() => null),
+          apiFetch("/api/nesthr-stats")
+            .then((r) => r.json())
+            .catch(() => null),
         ]);
         if (!mounted) return;
         if (nesthrRes?.success) setNesthrStats(nesthrRes.data);
@@ -172,9 +174,9 @@ export default function DashboardPage() {
         );
 
         const leadsCount = (Array.isArray(leadsData) ? leadsData : []).length;
-        const newLeadsCount = (Array.isArray(leadsData) ? leadsData : []).filter(
-          (l: any) => l.status === "NEW" || l.status === "new",
-        ).length;
+        const newLeadsCount = (
+          Array.isArray(leadsData) ? leadsData : []
+        ).filter((l: any) => l.status === "NEW" || l.status === "new").length;
         const activeProjectsCount = (projectsData || []).filter(
           (p: any) => p.status === "IN PROGRESS",
         ).length;
@@ -539,7 +541,11 @@ export default function DashboardPage() {
             <>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => {
-                  const isCurrency = ["revenue", "expense", "net profit"].includes(stat.name);
+                  const isCurrency = [
+                    "revenue",
+                    "expense",
+                    "net profit",
+                  ].includes(stat.name);
                   return (
                     <Card key={stat.name} className="border-2 border-black">
                       <CardHeader className="pb-2">
@@ -548,7 +554,15 @@ export default function DashboardPage() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className={cn("text-4xl font-black tracking-tighter", stat.name === "net profit" && stat.changeType === "negative" ? "text-destructive" : "text-primary")}>
+                        <p
+                          className={cn(
+                            "text-4xl font-black tracking-tighter",
+                            stat.name === "net profit" &&
+                              stat.changeType === "negative"
+                              ? "text-destructive"
+                              : "text-primary",
+                          )}
+                        >
                           {isCurrency ? (
                             <AnimatedNumber
                               value={Number(stat.value || 0)}
@@ -563,7 +577,14 @@ export default function DashboardPage() {
                           )}
                         </p>
                         {stat.change && (
-                          <p className={cn("text-xs font-semibold mt-1", stat.changeType === "positive" ? "text-green-600" : "text-destructive")}>
+                          <p
+                            className={cn(
+                              "text-xs font-semibold mt-1",
+                              stat.changeType === "positive"
+                                ? "text-green-600"
+                                : "text-destructive",
+                            )}
+                          >
                             {stat.change}
                           </p>
                         )}
@@ -575,92 +596,186 @@ export default function DashboardPage() {
 
               {!isStaff && nesthrStats && (
                 <div className="space-y-4">
-                  <h2 className="text-3xl font-black tracking-tighter">NESTHR — SAAS OVERVIEW</h2>
+                  <h2 className="text-3xl font-black tracking-tighter">
+                    NESTHR — SAAS OVERVIEW
+                  </h2>
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <Card className="border-2 border-black bg-yellow-50">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">TOTAL TENANTS</CardTitle>
+                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
+                          TOTAL TENANTS
+                        </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-4xl font-black tracking-tighter"><AnimatedNumber value={nesthrStats.companies?.total ?? 0} /></p>
-                        <p className="text-xs font-semibold mt-1 text-green-600">{nesthrStats.companies?.newThisMonth ?? 0} new this month</p>
+                        <p className="text-4xl font-black tracking-tighter">
+                          <AnimatedNumber
+                            value={nesthrStats.companies?.total ?? 0}
+                          />
+                        </p>
+                        <p className="text-xs font-semibold mt-1 text-green-600">
+                          {nesthrStats.companies?.newThisMonth ?? 0} new this
+                          month
+                        </p>
                       </CardContent>
                     </Card>
                     <Card className="border-2 border-black bg-yellow-50">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">ACTIVE SUBS</CardTitle>
+                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
+                          ACTIVE SUBS
+                        </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-4xl font-black tracking-tighter"><AnimatedNumber value={nesthrStats.subscriptions?.active ?? 0} /></p>
-                        <p className="text-xs font-semibold mt-1 text-orange-500">{nesthrStats.subscriptions?.expiringSoon ?? 0} expiring in 30d</p>
+                        <p className="text-4xl font-black tracking-tighter">
+                          <AnimatedNumber
+                            value={nesthrStats.subscriptions?.active ?? 0}
+                          />
+                        </p>
+                        <p className="text-xs font-semibold mt-1 text-orange-500">
+                          {nesthrStats.subscriptions?.expiringSoon ?? 0}{" "}
+                          expiring in 30d
+                        </p>
                       </CardContent>
                     </Card>
                     <Card className="border-2 border-black bg-yellow-50">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">MRR</CardTitle>
+                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
+                          MRR
+                        </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-4xl font-black tracking-tighter"><AnimatedNumber value={nesthrStats.revenue?.mrr ?? 0} currency /></p>
-                        <p className="text-xs font-semibold mt-1 text-green-600">monthly recurring</p>
+                        <p className="text-4xl font-black tracking-tighter">
+                          <AnimatedNumber
+                            value={nesthrStats.revenue?.mrr ?? 0}
+                            currency
+                          />
+                        </p>
+                        <p className="text-xs font-semibold mt-1 text-green-600">
+                          monthly recurring
+                        </p>
                       </CardContent>
                     </Card>
                     <Card className="border-2 border-black bg-yellow-50">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">TOTAL REVENUE</CardTitle>
+                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
+                          TOTAL REVENUE
+                        </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-4xl font-black tracking-tighter"><AnimatedNumber value={nesthrStats.revenue?.total ?? 0} currency /></p>
-                        <p className="text-xs font-semibold mt-1 text-green-600"><AnimatedNumber value={nesthrStats.revenue?.thisMonth ?? 0} currency /> this month</p>
+                        <p className="text-4xl font-black tracking-tighter">
+                          <AnimatedNumber
+                            value={nesthrStats.revenue?.total ?? 0}
+                            currency
+                          />
+                        </p>
+                        <p className="text-xs font-semibold mt-1 text-green-600">
+                          <AnimatedNumber
+                            value={nesthrStats.revenue?.thisMonth ?? 0}
+                            currency
+                          />{" "}
+                          this month
+                        </p>
                       </CardContent>
                     </Card>
                   </div>
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     <Card className="border-2 border-black">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-lg font-black tracking-tighter">Companies by Status</CardTitle>
+                        <CardTitle className="text-lg font-black tracking-tighter">
+                          Companies by Status
+                        </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-2">
                         {[
-                          { label: "Active", value: nesthrStats.companies?.active ?? 0, color: "text-green-600" },
-                          { label: "Trial", value: nesthrStats.companies?.trial ?? 0, color: "text-yellow-600" },
-                          { label: "Inactive", value: nesthrStats.companies?.inactive ?? 0, color: "text-red-500" },
+                          {
+                            label: "Active",
+                            value: nesthrStats.companies?.active ?? 0,
+                            color: "text-green-600",
+                          },
+                          {
+                            label: "Trial",
+                            value: nesthrStats.companies?.trial ?? 0,
+                            color: "text-yellow-600",
+                          },
+                          {
+                            label: "Inactive",
+                            value: nesthrStats.companies?.inactive ?? 0,
+                            color: "text-red-500",
+                          },
                         ].map((item) => (
-                          <div key={item.label} className="flex justify-between items-center bg-muted p-2">
-                            <span className="font-bold text-muted-foreground">{item.label}</span>
-                            <span className={cn("font-black text-2xl", item.color)}>{item.value}</span>
+                          <div
+                            key={item.label}
+                            className="flex justify-between items-center bg-muted p-2"
+                          >
+                            <span className="font-bold text-muted-foreground">
+                              {item.label}
+                            </span>
+                            <span
+                              className={cn("font-black text-2xl", item.color)}
+                            >
+                              {item.value}
+                            </span>
                           </div>
                         ))}
                       </CardContent>
                     </Card>
                     <Card className="border-2 border-black">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-lg font-black tracking-tighter">Plan Distribution</CardTitle>
+                        <CardTitle className="text-lg font-black tracking-tighter">
+                          Plan Distribution
+                        </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-2">
-                        {Object.entries(nesthrStats.subscriptions?.byPlan ?? {}).map(([plan, count]) => (
-                          <div key={plan} className="flex justify-between items-center bg-muted p-2">
-                            <span className="font-bold text-muted-foreground capitalize">{plan}</span>
-                            <span className="font-black text-2xl">{Number(count)}</span>
+                        {Object.entries(
+                          nesthrStats.subscriptions?.byPlan ?? {},
+                        ).map(([plan, count]) => (
+                          <div
+                            key={plan}
+                            className="flex justify-between items-center bg-muted p-2"
+                          >
+                            <span className="font-bold text-muted-foreground capitalize">
+                              {plan}
+                            </span>
+                            <span className="font-black text-2xl">
+                              {Number(count)}
+                            </span>
                           </div>
                         ))}
-                        {Object.keys(nesthrStats.subscriptions?.byPlan ?? {}).length === 0 && (
-                          <p className="text-sm text-muted-foreground">No subscription data</p>
+                        {Object.keys(nesthrStats.subscriptions?.byPlan ?? {})
+                          .length === 0 && (
+                          <p className="text-sm text-muted-foreground">
+                            No subscription data
+                          </p>
                         )}
                       </CardContent>
                     </Card>
                     <Card className="border-2 border-black">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-lg font-black tracking-tighter">Billing Cycle Split</CardTitle>
+                        <CardTitle className="text-lg font-black tracking-tighter">
+                          Billing Cycle Split
+                        </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-2">
-                        {Object.entries(nesthrStats.subscriptions?.byBillingCycle ?? {}).map(([cycle, count]) => (
-                          <div key={cycle} className="flex justify-between items-center bg-muted p-2">
-                            <span className="font-bold text-muted-foreground capitalize">{cycle}</span>
-                            <span className="font-black text-2xl">{Number(count)}</span>
+                        {Object.entries(
+                          nesthrStats.subscriptions?.byBillingCycle ?? {},
+                        ).map(([cycle, count]) => (
+                          <div
+                            key={cycle}
+                            className="flex justify-between items-center bg-muted p-2"
+                          >
+                            <span className="font-bold text-muted-foreground capitalize">
+                              {cycle}
+                            </span>
+                            <span className="font-black text-2xl">
+                              {Number(count)}
+                            </span>
                           </div>
                         ))}
-                        {Object.keys(nesthrStats.subscriptions?.byBillingCycle ?? {}).length === 0 && (
-                          <p className="text-sm text-muted-foreground">No billing data</p>
+                        {Object.keys(
+                          nesthrStats.subscriptions?.byBillingCycle ?? {},
+                        ).length === 0 && (
+                          <p className="text-sm text-muted-foreground">
+                            No billing data
+                          </p>
                         )}
                       </CardContent>
                     </Card>
@@ -668,8 +783,12 @@ export default function DashboardPage() {
                   {(nesthrStats.recentInvoices ?? []).length > 0 && (
                     <Card className="border-2 border-black">
                       <CardHeader>
-                        <CardTitle className="text-2xl font-black tracking-tighter">NestHR Recent Payments</CardTitle>
-                        <CardDescription>Latest paid invoices across all tenants</CardDescription>
+                        <CardTitle className="text-2xl font-black tracking-tighter">
+                          NestHR Recent Payments
+                        </CardTitle>
+                        <CardDescription>
+                          Latest paid invoices across all tenants
+                        </CardDescription>
                       </CardHeader>
                       <CardContent>
                         <Table>
@@ -679,19 +798,33 @@ export default function DashboardPage() {
                               <TableHead>Company</TableHead>
                               <TableHead>Plan</TableHead>
                               <TableHead>Cycle</TableHead>
-                              <TableHead className="text-right">Amount</TableHead>
+                              <TableHead className="text-right">
+                                Amount
+                              </TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
-                            {(nesthrStats.recentInvoices ?? []).map((inv: any) => (
-                              <TableRow key={inv.invoiceNumber}>
-                                <TableCell className="font-bold">{inv.invoiceNumber}</TableCell>
-                                <TableCell>{inv.company?.name ?? "-"}</TableCell>
-                                <TableCell className="capitalize">{inv.plan}</TableCell>
-                                <TableCell className="capitalize">{inv.billingCycle}</TableCell>
-                                <TableCell className="text-right font-black">₹{Number(inv.amount || 0).toLocaleString()}</TableCell>
-                              </TableRow>
-                            ))}
+                            {(nesthrStats.recentInvoices ?? []).map(
+                              (inv: any) => (
+                                <TableRow key={inv.invoiceNumber}>
+                                  <TableCell className="font-bold">
+                                    {inv.invoiceNumber}
+                                  </TableCell>
+                                  <TableCell>
+                                    {inv.company?.name ?? "-"}
+                                  </TableCell>
+                                  <TableCell className="capitalize">
+                                    {inv.plan}
+                                  </TableCell>
+                                  <TableCell className="capitalize">
+                                    {inv.billingCycle}
+                                  </TableCell>
+                                  <TableCell className="text-right font-black">
+                                    ₹{Number(inv.amount || 0).toLocaleString()}
+                                  </TableCell>
+                                </TableRow>
+                              ),
+                            )}
                           </TableBody>
                         </Table>
                       </CardContent>

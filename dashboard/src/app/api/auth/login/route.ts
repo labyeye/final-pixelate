@@ -2,7 +2,10 @@ import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { verifyPassword, signToken } from "@/lib/auth";
 import { getDb } from "@/lib/mongodb";
-import { checkLoginRateLimit, clearLoginRateLimit } from "@/lib/login-rate-limiter";
+import {
+  checkLoginRateLimit,
+  clearLoginRateLimit,
+} from "@/lib/login-rate-limiter";
 
 export async function POST(request: Request) {
   try {
@@ -17,7 +20,9 @@ export async function POST(request: Request) {
     if (!allowed) {
       const mins = Math.ceil((retryAfterSecs ?? 900) / 60);
       return NextResponse.json(
-        { error: `Too many failed attempts. Try again in ${mins} minute${mins !== 1 ? "s" : ""}.` },
+        {
+          error: `Too many failed attempts. Try again in ${mins} minute${mins !== 1 ? "s" : ""}.`,
+        },
         { status: 429, headers: { "Retry-After": String(retryAfterSecs) } },
       );
     }

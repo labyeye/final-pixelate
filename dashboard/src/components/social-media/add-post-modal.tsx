@@ -162,11 +162,7 @@ export function AddPostModal({
   };
 
   const handleSave = async (saveAction: "draft" | "schedule" | "posted") => {
-    if (
-      !form.title ||
-      !form.scheduledDate ||
-      !form.scheduledTime
-    ) {
+    if (!form.title || !form.scheduledDate || !form.scheduledTime) {
       alert(
         isAlreadyPosted
           ? "Please fill title, posted date and time."
@@ -180,7 +176,8 @@ export function AddPostModal({
       return;
     }
 
-    const hasAccount = form.socialAccountIds && form.socialAccountIds.length > 0;
+    const hasAccount =
+      form.socialAccountIds && form.socialAccountIds.length > 0;
 
     if (!hasAccount) {
       alert("Please select at least one social account.");
@@ -471,17 +468,15 @@ export function AddPostModal({
               if (accIds.length === 0) {
                 return (
                   <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-xs text-amber-800">
-                    Select at least one social account above to enter its
-                    posted link.
+                    Select at least one social account above to enter its posted
+                    link.
                   </div>
                 );
               }
 
               if (accIds.length === 1) {
                 const id = accIds[0];
-                const acc = postedAccounts.find(
-                  (a) => (a._id || a.id) === id,
-                );
+                const acc = postedAccounts.find((a) => (a._id || a.id) === id);
                 return (
                   <div>
                     <label className="block text-sm font-semibold mb-1">
