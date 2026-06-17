@@ -24,8 +24,11 @@ import {
   X,
   Eye,
   Share2,
+  Download,
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { pdf } from "@react-pdf/renderer";
+import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
 
 export default function ClientPortalPage() {
   const { user, logout } = useAuth();
@@ -34,6 +37,29 @@ export default function ClientPortalPage() {
   const [socialPosts, setSocialPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [processingPostId, setProcessingPostId] = useState<string | null>(null);
+  const [downloadingInv, setDownloadingInv] = useState<Record<string, boolean>>({});
+
+  const downloadInvoicePdf = async (inv: any) => {
+    const id = String(inv._id ?? inv.id ?? Date.now());
+    setDownloadingInv((prev) => ({ ...prev, [id]: true }));
+    try {
+      const blob = await pdf(
+        <InvoicePDFDocument invoice={inv} client={null} />,
+      ).toBlob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Invoice-${inv.invoiceNo || id}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (e: any) {
+      toast({ title: "Download Failed", description: e?.message || "Could not generate PDF.", variant: "destructive" });
+    } finally {
+      setDownloadingInv((prev) => { const n = { ...prev }; delete n[id]; return n; });
+    }
+  };
 
   useEffect(() => {
     if (!user || user.role !== "client") return;
@@ -442,6 +468,16 @@ export default function ClientPortalPage() {
                           {inv.status}
                         </Badge>
                       )}
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="gap-1"
+                        disabled={!!downloadingInv[String(inv._id ?? inv.id)]}
+                        onClick={() => downloadInvoicePdf(inv)}
+                      >
+                        <Download className="h-3.5 w-3.5" />
+                        {downloadingInv[String(inv._id ?? inv.id)] ? "..." : "PDF"}
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>

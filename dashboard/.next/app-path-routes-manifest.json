@@ -152,6 +152,7 @@
   "/api/team-members/route": "/api/team-members",
   "/api/trash/[id]/route": "/api/trash/[id]",
   "/api/trash/route": "/api/trash",
+  "/api/upload-expense-bill/route": "/api/upload-expense-bill",
   "/api/upload-whatsapp-media/route": "/api/upload-whatsapp-media",
   "/api/upload/route": "/api/upload",
   "/api/user-activity/route": "/api/user-activity",

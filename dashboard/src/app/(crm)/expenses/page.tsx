@@ -42,6 +42,7 @@ import {
   AlertCircle,
   CheckCircle2,
   XCircle,
+  FileText,
 } from "lucide-react";
 import {
   AlertDialog,
@@ -529,6 +530,22 @@ export default function ExpensesPage() {
                               </TableCell>
                               <TableCell>
                                 <div className="flex items-center justify-center gap-1">
+                                  {e.category === "inventory" && e.billUrl && (
+                                    <a
+                                      href={`https://www.pixelatenest.com${e.billUrl}`}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      title="View Inventory Bill PDF"
+                                    >
+                                      <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="h-8 w-8 hover:bg-blue-50 hover:text-blue-600 text-blue-500"
+                                      >
+                                        <FileText className="h-4 w-4" />
+                                      </Button>
+                                    </a>
+                                  )}
                                   <AddExpenseDialog
                                     onCreated={load}
                                     editData={e}

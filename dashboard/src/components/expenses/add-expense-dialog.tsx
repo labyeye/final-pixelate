@@ -31,7 +31,7 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { PlusCircle, Pencil, Briefcase } from "lucide-react";
+import { PlusCircle, Pencil, Briefcase, FileUp, X, FileText } from "lucide-react";
 
 export const EXPENSE_CATEGORIES = [
   { value: "salary", label: "💼 Salary & Payroll" },
@@ -134,6 +134,10 @@ export function AddExpenseDialog({
   const [saving, setSaving] = React.useState(false);
   const [teamMembers, setTeamMembers] = React.useState<any[]>([]);
   const [projects, setProjects] = React.useState<any[]>([]);
+  const [billFile, setBillFile] = React.useState<File | null>(null);
+  const [billUrl, setBillUrl] = React.useState<string>("");
+  const [uploading, setUploading] = React.useState(false);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
   const isEdit = !!editId;
 
   const form = useForm<ExpenseFormValues>({
@@ -144,10 +148,13 @@ export function AddExpenseDialog({
   const watchedCategory = form.watch("category");
   const watchedStaffId = form.watch("staffMemberId");
   const isSalary = watchedCategory === "salary";
+  const isInventory = watchedCategory === "inventory";
 
   React.useEffect(() => {
     if (open) {
       form.reset(buildDefaults(editData));
+      setBillFile(null);
+      setBillUrl(editData?.billUrl || "");
 
       apiFetch("/api/team-members")
         .then((r) => r.json())
@@ -163,7 +170,35 @@ export function AddExpenseDialog({
   const handleOpenChange = (val: boolean) => {
     setOpen(val);
     if (!val) {
-      setTimeout(() => form.reset(EMPTY_DEFAULTS), 200);
+      setTimeout(() => {
+        form.reset(EMPTY_DEFAULTS);
+        setBillFile(null);
+        setBillUrl("");
+      }, 200);
+    }
+  };
+
+  const handleBillFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.type !== "application/pdf") {
+      alert("Only PDF files are allowed");
+      return;
+    }
+    setBillFile(file);
+    setUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await apiFetch("/api/upload-expense-bill", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "Upload failed");
+      setBillUrl(data.url);
+    } catch (err: any) {
+      alert(err?.message || "Failed to upload bill");
+      setBillFile(null);
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -197,6 +232,7 @@ export function AddExpenseDialog({
         reference: values.reference || "",
         date: values.date,
         note: values.note || "",
+        ...(values.category === "inventory" && billUrl ? { billUrl } : {}),
         ...(values.category === "salary"
           ? {
               staffMemberId: values.staffMemberId || "",
@@ -491,6 +527,70 @@ export function AddExpenseDialog({
               </div>
             )}
 
+            {}
+            {isInventory && (
+              <div className="border-2 border-black p-4 space-y-3 rounded-sm bg-blue-50/60">
+                <div className="flex items-center gap-2 mb-1">
+                  <FileUp className="h-4 w-4 text-blue-700" />
+                  <span className="text-sm font-black text-blue-800 uppercase tracking-widest">
+                    Inventory Bill (PDF)
+                  </span>
+                </div>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="application/pdf"
+                  className="hidden"
+                  onChange={handleBillFileChange}
+                />
+                {!billFile && !billUrl ? (
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="w-full border-2 border-dashed border-blue-300 rounded-sm p-6 flex flex-col items-center gap-2 text-blue-600 hover:border-blue-500 hover:bg-blue-50 transition-colors"
+                  >
+                    <FileUp className="h-6 w-6" />
+                    <span className="text-sm font-semibold">Click to upload PDF bill</span>
+                    <span className="text-xs text-blue-400">Max size: 10MB</span>
+                  </button>
+                ) : (
+                  <div className="flex items-center gap-3 p-3 bg-white border border-blue-200 rounded-sm">
+                    <FileText className="h-8 w-8 text-blue-600 shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-gray-800 truncate">
+                        {billFile?.name || "Uploaded bill"}
+                      </p>
+                      {uploading && (
+                        <p className="text-xs text-blue-500">Uploading...</p>
+                      )}
+                      {!uploading && billUrl && (
+                        <a
+                          href={billUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-blue-600 hover:underline"
+                        >
+                          View uploaded PDF
+                        </a>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setBillFile(null);
+                        setBillUrl("");
+                        if (fileInputRef.current) fileInputRef.current.value = "";
+                      }}
+                      className="text-gray-400 hover:text-red-500 transition-colors"
+                      aria-label="Remove bill"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+
             <div className="grid grid-cols-2 gap-4">
               {}
               <FormField
@@ -565,9 +665,11 @@ export function AddExpenseDialog({
                 type="submit"
                 size="lg"
                 className="gap-2"
-                disabled={saving}
+                disabled={saving || uploading}
               >
-                {saving ? (
+                {uploading ? (
+                  "Uploading bill..."
+                ) : saving ? (
                   "Saving..."
                 ) : isEdit ? (
                   <>

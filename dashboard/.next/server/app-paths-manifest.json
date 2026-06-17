@@ -152,6 +152,7 @@
   "/api/team-members/route": "app/api/team-members/route.js",
   "/api/trash/[id]/route": "app/api/trash/[id]/route.js",
   "/api/trash/route": "app/api/trash/route.js",
+  "/api/upload-expense-bill/route": "app/api/upload-expense-bill/route.js",
   "/api/upload-whatsapp-media/route": "app/api/upload-whatsapp-media/route.js",
   "/api/upload/route": "app/api/upload/route.js",
   "/api/user-activity/route": "app/api/user-activity/route.js",

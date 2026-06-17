@@ -737,6 +737,12 @@
       "namedRegex": "^/api/upload(?:/)?$"
     },
     {
+      "page": "/api/upload-expense-bill",
+      "regex": "^/api/upload\\-expense\\-bill(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/upload\\-expense\\-bill(?:/)?$"
+    },
+    {
       "page": "/api/upload-whatsapp-media",
       "regex": "^/api/upload\\-whatsapp\\-media(?:/)?$",
       "routeKeys": {},

@@ -1,6 +1,31 @@
-[00:00:01.323] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.461] Server  LOG      ✓ Ready in 1038ms
-[00:00:05.257] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:37.277] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:53.260] Browser WARN    Image with src "http://localhost:9002/_next/static/media/google-my-business-logo.7aa38aa9.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:02:36.367] Server  ERROR   Error logging ERP event: TypeError: Failed to parse URL from undefined/api/erp-events
+[00:00:01.518] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.741] Server  LOG      ✓ Ready in 1330ms
+[00:00:15.718] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:29.963] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:01:29.963] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:04:05.473] Server  LOG      ✓ Compiled in 127ms
+[00:04:08.701] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
+[00:04:11.312] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
+[00:04:14.622] Server  LOG      ✓ Compiled in 84ms
+[00:04:21.007] Server  LOG      ✓ Compiled in 79ms
+[00:04:25.916] Server  LOG      ✓ Compiled in 189ms
+[00:04:33.784] Server  LOG      ✓ Compiled in 167ms
+[00:04:39.795] Server  LOG      ✓ Compiled in 167ms
+[00:04:54.938] Server  LOG      ✓ Compiled in 199ms
+[00:04:59.462] Server  LOG      ✓ Compiled in 161ms
+[00:17:17.964] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:17.964] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:44.880] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:45.807] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:20:45.807] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:25.372] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:25.372] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:22:02.550] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:22:02.550] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:24:24.522] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:28.601] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:24:28.601] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:24:30.774] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:37.790] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:40.603] Server  LOG      ✓ Compiled in 89ms
+[00:25:48.854] Server  LOG      ✓ Compiled in 108ms

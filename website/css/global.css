@@ -4139,8 +4139,10 @@ video {
 .svc-card {
   flex: 0 0 260px;
   height: clamp(340px, 55vh, 460px);
-  background: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   padding: 28px 26px;
   display: flex;
@@ -4153,7 +4155,8 @@ video {
     transform 0.4s ease,
     border-color 0.4s ease,
     background 0.4s ease,
-    box-shadow 0.4s ease;
+    box-shadow 0.4s ease,
+    backdrop-filter 0.4s ease;
   overflow: hidden;
   text-decoration: none;
 }
@@ -4163,6 +4166,8 @@ video {
 }
 .svc-card.active {
   background: var(--primary-900);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   text-decoration: none;
 }
 .svc-card-top {

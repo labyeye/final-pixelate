@@ -31,10 +31,13 @@ import {
   Zap,
   ChevronRight,
   Calendar,
+  Download,
 } from "lucide-react";
 import Link from "next/link";
 import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
 import { SocialAccountTokenPanel } from "@/components/social-media/social-account-token-panel";
+import { pdf } from "@react-pdf/renderer";
+import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
 
 function formatDate(date?: Date | string | null) {
   if (!date) return "—";
@@ -71,6 +74,29 @@ export default function ClientDetailPage() {
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState<Partial<Client>>({});
   const [saving, setSaving] = useState(false);
+  const [downloadingInv, setDownloadingInv] = useState<Record<string, boolean>>({});
+
+  const downloadInvoicePdf = async (inv: any) => {
+    const id = String(inv._id ?? inv.id ?? Date.now());
+    setDownloadingInv((prev) => ({ ...prev, [id]: true }));
+    try {
+      const blob = await pdf(
+        <InvoicePDFDocument invoice={inv} client={client} />,
+      ).toBlob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Invoice-${inv.invoiceNo || id}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (e: any) {
+      toast({ title: "Download Failed", description: e?.message || "Could not generate PDF.", variant: "destructive" });
+    } finally {
+      setDownloadingInv((prev) => { const n = { ...prev }; delete n[id]; return n; });
+    }
+  };
 
   useEffect(() => {
     if (!clientId) return;
@@ -738,17 +764,29 @@ export default function ClientDetailPage() {
                         </p>
                       )}
                     </div>
-                    <div className="text-right">
-                      <p className="font-black text-base">
-                        ₹{Number(inv.amount || 0).toLocaleString("en-IN")}
-                      </p>
-                      {inv.status && (
-                        <span
-                          className={`text-xs px-2 py-0.5 rounded-full border font-bold ${statusColors[inv.status] || "bg-gray-100"}`}
-                        >
-                          {inv.status}
-                        </span>
-                      )}
+                    <div className="text-right flex items-center gap-2">
+                      <div>
+                        <p className="font-black text-base">
+                          ₹{Number(inv.amount || 0).toLocaleString("en-IN")}
+                        </p>
+                        {inv.status && (
+                          <span
+                            className={`text-xs px-2 py-0.5 rounded-full border font-bold ${statusColors[inv.status] || "bg-gray-100"}`}
+                          >
+                            {inv.status}
+                          </span>
+                        )}
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="gap-1 shrink-0"
+                        disabled={!!downloadingInv[invId]}
+                        onClick={() => downloadInvoicePdf(inv)}
+                      >
+                        <Download className="h-3.5 w-3.5" />
+                        {downloadingInv[invId] ? "..." : "PDF"}
+                      </Button>
                     </div>
                   </div>
                 );
