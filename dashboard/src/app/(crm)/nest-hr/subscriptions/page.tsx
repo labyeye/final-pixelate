@@ -180,6 +180,7 @@ export default function NestHRSubscriptionsPage() {
       const res = await apiFetch("/api/nesthr-stats");
       const data = await res.json();
       if (!data.success) throw new Error(data.error ?? "Unknown error");
+      console.log("[NestHR] raw response:", JSON.stringify(data, null, 2));
       // Normalise — fill any missing sub-objects so the page never crashes on undefined
       data.overview = data.overview ?? {};
       data.overview.tenants = data.overview.tenants ?? {};
@@ -244,8 +245,10 @@ export default function NestHRSubscriptionsPage() {
     );
   }
 
-  const { overview, alerts, tenants } = stats;
-  const ov = overview;
+  const overview = stats.overview ?? {};
+  const alerts = stats.alerts ?? { expiringIn7Days: [], expiringIn30Days: [], expired: [], trialsActive: [] };
+  const tenants: Tenant[] = stats.tenants ?? [];
+  const ov = overview as Stats["overview"];
 
   return (
     <div className="p-6 md:p-8 space-y-8">
