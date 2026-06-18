@@ -69,7 +69,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.google.co.in https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' http://localhost:* https://www.facebook.com https://facebook.com https://connect.facebook.net https://www.google-analytics.com https://*.google.com https://*.google.co.in https://backend.pixelatenest.com https://cdn.prod.website-files.com https://overbridgenet.com https://ap.stape.info https://googleads.g.doubleclick.net https://ad.doubleclick.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.google.co.in https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com https://www.pixelatenest.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.pixelatenest.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.pixelatenest.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' http://localhost:* https://www.facebook.com https://facebook.com https://connect.facebook.net https://www.google-analytics.com https://*.google.com https://*.google.co.in https://backend.pixelatenest.com https://cdn.prod.website-files.com https://overbridgenet.com https://ap.stape.info https://googleads.g.doubleclick.net https://ad.doubleclick.net https://pagead2.googlesyndication.com; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -1474,7 +1474,7 @@
                       href="https://www.pixelatenest.com/pages/contact.html"
                       class="hero-cta-button"
                     >
-                      Contact Experts <span class="cta-arrow">→</span>
+                      Contact Experts <span class="cta-arrow">&rarr;</span>
                     </a>
                   </div>
                 </div>
@@ -1959,7 +1959,7 @@
           window.addEventListener("scroll", onScroll, { passive: true });
           window.addEventListener("resize", checkBreakpoint);
 
-          // Prev / next / card-click → scroll the page to the right wrapper offset.
+          // Prev / next / card-click &rarr; scroll the page to the right wrapper offset.
           function goTo(i) {
             i = Math.max(0, Math.min(cards.length - 1, i));
             var rect = wrap.getBoundingClientRect();
@@ -4897,16 +4897,15 @@
         // View project button
         const btn = document.createElement("a");
         btn.className = "portfolio-view-btn";
-        btn.innerText = "View project →";
-        if (photo.link && photo.link.startsWith("http")) {
-          btn.href = photo.link;
-          btn.target = "_blank";
-          btn.rel = "noopener noreferrer";
-        } else {
-          btn.href = "#";
-          btn.style.pointerEvents = "none";
-          btn.style.opacity = "0.5";
-        }
+        btn.innerText = "View project &rarr;";
+        btn.href = "/pages/portfolio-details.html";
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          try {
+            localStorage.setItem("pn_portfolio_item", JSON.stringify(photo));
+          } catch (_) {}
+          window.location.href = "/pages/portfolio-details.html";
+        });
         overlay.appendChild(btn);
 
         card.appendChild(imgWrap);
@@ -4932,7 +4931,7 @@
 
           var totalLen = 0;
           var thresholds = [];
-          var progress = 0; // 0 → 1
+          var progress = 0; // 0 &rarr; 1
           var accDelta = 0; // accumulated wheel delta
           var TOTAL_DELTA = 1200; // wheel px needed to complete animation
           var touchPrevY = 0;
@@ -5008,8 +5007,8 @@
             // Going down: lock once section top is near/past viewport top
             if (goingDown) {
               if (progress > 0 && progress < 1) return true; // mid-animation always lock
-              if (progress >= 1) return false; // done → scroll through
-              return rect.top <= 60; // section top at viewport top → start
+              if (progress >= 1) return false; // done &rarr; scroll through
+              return rect.top <= 60; // section top at viewport top &rarr; start
             }
 
             // Going up: lock if animation has started (so they can rewind)

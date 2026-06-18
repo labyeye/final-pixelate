@@ -4695,7 +4695,7 @@ video {
 }
 .svc-carousel-header h2 {
   font-size: clamp(2.2rem, 4vw, 4rem);
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.05;
   margin: 0;
   color: #000000;

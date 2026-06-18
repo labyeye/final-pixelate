@@ -73,14 +73,14 @@
 /detailed-services                                      /services/index.html                 301
 
 # Detailed-services path segments (with and without trailing slash)
-/detailed-services/video-editing/       /services/video-editing.html         301
-/detailed-services/video-editing        /services/video-editing.html         301
-/detailed-services/app-development/     /services/app-development.html       301
-/detailed-services/app-development      /services/app-development.html       301
-/detailed-services/web-development/     /services/web-development.html       301
-/detailed-services/web-development      /services/web-development.html       301
-/detailed-services/software-development/ /services/software-development.html 301
-/detailed-services/software-development /services/software-development.html  301
+/detailed-services/video-editing/       /services/detailed/video-editing/    301
+/detailed-services/video-editing        /services/detailed/video-editing/    301
+/detailed-services/app-development/     /services/detailed/app-development/       301
+/detailed-services/app-development      /services/detailed/app-development/       301
+/detailed-services/web-development/     /services/detailed/web-development/       301
+/detailed-services/web-development      /services/detailed/web-development/       301
+/detailed-services/software-development/ /services/detailed/software-development/ 301
+/detailed-services/software-development /services/detailed/software-development/  301
 /detailed-services/*                    /services/index.html                 301
 /detailed-services                      /services/index.html                 301
 
