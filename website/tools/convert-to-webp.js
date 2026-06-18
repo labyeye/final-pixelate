@@ -2,7 +2,14 @@
 const fs = require("fs");
 const path = require("path");
 
-const targetDir = path.join(__dirname, "..", "assets", "images", "services", "nav");
+const targetDir = path.join(
+  __dirname,
+  "..",
+  "assets",
+  "images",
+  "services",
+  "nav",
+);
 
 async function processDirectory(directory) {
   const files = fs.readdirSync(directory);
