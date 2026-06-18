@@ -1526,7 +1526,7 @@
           try {
             const res = await fetch(
               "https://backend.pixelatenest.com/api/work-gallery",
-              { cache: "force-cache" },
+              { cache: "no-cache" },
             );
 
             if (!res.ok) throw new Error("Failed to fetch gallery");
