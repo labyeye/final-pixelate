@@ -45,7 +45,6 @@ const formSchema = z.object({
   ]),
   brand: z.string().optional(),
   thumbnailBase64: z.string().optional(),
-  webDevBgImageUrl: z.string().optional(),
   note: z.string().optional(),
 });
 
@@ -71,7 +70,6 @@ export default function WorkGalleryPage() {
       description: "",
       rating: 0,
       showOn: "none",
-      webDevBgImageUrl: "",
       brand: "",
     },
   });
@@ -154,7 +152,8 @@ export default function WorkGalleryPage() {
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0] ?? null;
-    const data = f ? await onFile(f) : null;
+    if (!f) return;
+    const data = await onFile(f);
     form.setValue("thumbnailBase64", data || "");
   };
 
@@ -208,7 +207,6 @@ export default function WorkGalleryPage() {
       showOn: it.showOn || "none",
       brand: it.brand || "",
       thumbnailBase64: it.thumbnailBase64 || "",
-      webDevBgImageUrl: it.webDevBgImageUrl || "",
       note: it.note || "",
     });
     setOpenModal(true);
@@ -316,29 +314,36 @@ export default function WorkGalleryPage() {
 
               <div>
                 <label className="block text-sm font-medium">Thumbnail</label>
+                {form.watch("thumbnailBase64") && (
+                  <div className="mb-2">
+                    <p className="text-xs text-muted-foreground mb-1">
+                      Current image:
+                    </p>
+                    <img
+                      src={form.watch("thumbnailBase64")}
+                      alt="Current thumbnail"
+                      style={{
+                        width: 120,
+                        height: 90,
+                        objectFit: "cover",
+                        borderRadius: 4,
+                        border: "1px solid #e5e7eb",
+                      }}
+                    />
+                  </div>
+                )}
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleFileChange}
                 />
-              </div>
-
-              {form.watch("showOn") === "web-development" && (
-                <div>
-                  <label className="block text-sm font-medium">
-                    Web Dev Background Image URL
-                  </label>
-                  <Input
-                    {...form.register("webDevBgImageUrl")}
-                    placeholder="https://example.com/bg-image.jpg"
-                    className="font-mono text-sm"
-                  />
+                {form.watch("thumbnailBase64") && (
                   <p className="text-xs text-muted-foreground mt-1">
-                    This image will be used as background for large showcase
-                    cards on the Web Development page.
+                    Naya image select karo to replace karein, warna purana hi
+                    rahega.
                   </p>
-                </div>
-              )}
+                )}
+              </div>
 
               <div>
                 <label className="block text-sm font-medium">Note</label>
