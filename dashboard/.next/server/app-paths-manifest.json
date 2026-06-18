@@ -37,6 +37,7 @@
   "/(crm)/leads/[id]/page": "app/(crm)/leads/[id]/page.js",
   "/(crm)/leads/page": "app/(crm)/leads/page.js",
   "/(crm)/nda-approval/page": "app/(crm)/nda-approval/page.js",
+  "/(crm)/nest-hr/subscriptions/page": "app/(crm)/nest-hr/subscriptions/page.js",
   "/(crm)/newsletter/page": "app/(crm)/newsletter/page.js",
   "/(crm)/onboarding/page": "app/(crm)/onboarding/page.js",
   "/(crm)/photo-galleries/page": "app/(crm)/photo-galleries/page.js",

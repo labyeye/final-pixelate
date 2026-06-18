@@ -1013,6 +1013,12 @@
       "namedRegex": "^/nda\\-approval(?:/)?$"
     },
     {
+      "page": "/nest-hr/subscriptions",
+      "regex": "^/nest\\-hr/subscriptions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-hr/subscriptions(?:/)?$"
+    },
+    {
       "page": "/newsletter",
       "regex": "^/newsletter(?:/)?$",
       "routeKeys": {},

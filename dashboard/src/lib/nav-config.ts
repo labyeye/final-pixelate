@@ -29,6 +29,7 @@ import {
   Zap,
   Rocket,
   MessageCircle,
+  Building2,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -303,6 +304,18 @@ export const navGroups = [
         label: "EMI Tracker",
         adminOnly: true,
         icon: CreditCard,
+      },
+    ],
+  },
+
+  {
+    title: "Nest HR",
+    items: [
+      {
+        href: "/nest-hr/subscriptions",
+        label: "Subscriptions",
+        adminOnly: true,
+        icon: Building2,
       },
     ],
   },

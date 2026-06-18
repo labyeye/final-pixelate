@@ -37,6 +37,7 @@
   "/(crm)/leads/[id]/page": "/leads/[id]",
   "/(crm)/leads/page": "/leads",
   "/(crm)/nda-approval/page": "/nda-approval",
+  "/(crm)/nest-hr/subscriptions/page": "/nest-hr/subscriptions",
   "/(crm)/newsletter/page": "/newsletter",
   "/(crm)/onboarding/page": "/onboarding",
   "/(crm)/photo-galleries/page": "/photo-galleries",
