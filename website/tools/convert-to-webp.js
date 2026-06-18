@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const targetDir = path.join(__dirname, "assets");
+const targetDir = path.join(__dirname, "..", "assets", "images", "services", "nav");
 
 async function processDirectory(directory) {
   const files = fs.readdirSync(directory);
@@ -16,7 +16,7 @@ async function processDirectory(directory) {
     } else {
       const ext = path.extname(file).toLowerCase();
 
-      if (ext === ".jpg" || ext === ".jpeg" || ext === ".png") {
+      if (ext === ".png") {
         const outputPath = fullPath.replace(
           new RegExp(`${ext}$`, "i"),
           ".webp",
@@ -26,7 +26,10 @@ async function processDirectory(directory) {
           await sharp(fullPath)
             .webp({ quality: 70, alphaQuality: 90, effort: 6 })
             .toFile(outputPath);
-        } catch (error) {}
+          console.log(`Converted: ${file} → ${path.basename(outputPath)}`);
+        } catch (error) {
+          console.error(`Error converting ${file}:`, error.message);
+        }
       } else if (ext === ".webp") {
         try {
           const tempPath = fullPath + ".tmp.webp";
@@ -47,16 +50,22 @@ async function processDirectory(directory) {
             fs.unlinkSync(fullPath);
             fs.renameSync(tempPath, fullPath);
             const savedKB = ((originalSize - newSize) / 1024).toFixed(2);
+            console.log(`Optimised: ${file} (saved ${savedKB} KB)`);
           } else {
             fs.unlinkSync(tempPath);
+            console.log(`Skipped:   ${file} (already optimal)`);
           }
-        } catch (error) {}
+        } catch (error) {
+          console.error(`Error optimising ${file}:`, error.message);
+        }
       }
     }
   }
 }
 
 if (fs.existsSync(targetDir)) {
-  processDirectory(targetDir);
+  console.log(`Processing: ${targetDir}`);
+  processDirectory(targetDir).then(() => console.log("Done."));
 } else {
+  console.error(`Directory not found: ${targetDir}`);
 }

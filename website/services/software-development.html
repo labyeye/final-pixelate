@@ -208,6 +208,20 @@
         ]
       }
     </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <link
+      href="https://www.pixelatenest.com/css/components/chatbot.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
@@ -231,18 +245,23 @@
                 <div class="navbar-left">
                   <a
                     href="https://www.pixelatenest.com/"
-                    aria-current="page"
-                    class="navbar-brand w-nav-brand w--current"
+                    class="navbar-brand w-nav-brand"
                   >
                     <img
-                      src="../assets/images/logos/Logo_Color_Name_Large.webp"
+                      loading="lazy"
+                      src="https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
                       alt="Pixelate Nest"
                       class="logo-desktop"
+                      width="200"
+                      height="50"
                     />
                     <img
-                      src="../assets/images/logos/Logo_Color.webp"
+                      loading="lazy"
+                      src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp"
                       alt="Pixelate Nest"
                       class="logo-mobile"
+                      width="60"
+                      height="60"
                     />
                   </a>
                 </div>
@@ -282,17 +301,131 @@
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/"
-                          aria-current="page"
                           class="nav-link w-inline-block"
                           ><span class="nav-link-text">Home</span></a
                         >
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item has-dropdown about-mega-nav">
                         <a
                           href="https://www.pixelatenest.com/pages/about.html"
-                          class="nav-link w-inline-block"
-                          ><span class="nav-link-text">About</span></a
+                          class="nav-link dropdown-toggle w-inline-block"
                         >
+                          <span class="nav-link-text">About</span>
+                          <i
+                            class="fas fa-chevron-down dropdown-arrow"
+                            aria-hidden="true"
+                          ></i>
+                        </a>
+                        <div class="about-mega-dropdown">
+                          <div class="about-mega-cards">
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/mission.webp"
+                                alt="Our Mission"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-bullseye about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Our Mission</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/vision.webp"
+                                alt="Our Vision"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i class="fas fa-eye about-mega-card-icon"></i>
+                                <span class="about-mega-card-title"
+                                  >Our Vision</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/goal.webp"
+                                alt="Our Goal"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-trophy about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Our Goal</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="../assets/images/about/bihar.png"
+                                alt="Bihar Roots"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-map-marker-alt about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Bihar Roots</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html#team"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/labh.webp"
+                                alt="Meet The Team"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-users about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Meet The Team</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/dadaji.jpg"
+                                alt="Our Story"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-seedling about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Our Story</span
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
                       </li>
                       <li class="nav-item">
                         <a
@@ -301,10 +434,10 @@
                           ><span class="nav-link-text">Pricing</span></a
                         >
                       </li>
-                      <li class="nav-item has-dropdown">
+                      <li class="nav-item has-dropdown services-mega-nav">
                         <a
                           href="https://www.pixelatenest.com/services/index.html"
-                          class="nav-link dropdown-toggle w-inline-block w--current"
+                          class="nav-link dropdown-toggle w-inline-block"
                         >
                           <span class="nav-link-text">Services</span>
                           <i
@@ -312,56 +445,87 @@
                             aria-hidden="true"
                           ></i>
                         </a>
-                        <div class="dropdown-menu">
-                          <a
-                            href="https://www.pixelatenest.com/services/web-development.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-globe dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Web Development</span
+                        <div class="services-mega-dropdown">
+                          <div class="services-mega-cards">
+                            <a
+                              href="https://www.pixelatenest.com/services/web-development.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/app-development.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-mobile-alt dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >App Development</span
+                              <img
+                                src="../assets/images/services/nav/website-development.webp"
+                                alt="Web Development"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Web Development</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/app-development.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/software-development.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-cube dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Software Development</span
+                              <img
+                                src="../assets/images/services/nav/app-development.webp"
+                                alt="App Development"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >App Development</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/software-development.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/digital-marketing.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-chart-line dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Digital Marketing</span
+                              <img
+                                src="../assets/images/services/nav/software-development.webp"
+                                alt="Software Development"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Software Development</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/digital-marketing.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/video-editing.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-video dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Content Creation</span
+                              <img
+                                src="../assets/images/services/nav/digital-marketing.webp"
+                                alt="Digital Marketing"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Digital Marketing</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/video-editing.html"
+                              class="services-mega-card"
                             >
-                          </a>
+                              <img
+                                src="../assets/images/services/nav/video-editing.webp"
+                                alt="Content Creation"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Content Creation</span
+                                >
+                              </div>
+                            </a>
+                          </div>
                         </div>
                       </li>
-
-                      <li class="nav-item has-dropdown">
+                      <li class="nav-item has-dropdown products-mega-nav">
                         <a
                           href="https://www.pixelatenest.com/pages/product.html"
                           class="nav-link dropdown-toggle w-inline-block"
@@ -372,106 +536,144 @@
                             aria-hidden="true"
                           ></i>
                         </a>
-                        <div class="dropdown-menu">
-                          <a
-                            href="https://www.pixelatenest.com/products/school-management-system.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/school-manage.webp"
-                              alt="School Management System"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >School Management System</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/counter-billing-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/counter-billing.webp"
-                              alt="Counter Billing Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Counter Billing Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/fmcg-retail-and-wholesale-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/fmcg-manage.webp"
-                              alt="FMCG Retail and Wholesale Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >FMCG Retail and Wholesale Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/library-management-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/library-manage.webp"
-                              alt="Library Management Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Library Management Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/transport-management-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/transport-manage.webp"
-                              alt="Transport Management Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Transport Management Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/lead-generation-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/lead-manage.webp"
-                              alt="Lead Generation Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Lead Generation Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/hotel-management-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/hotel-manage.webp"
-                              alt="Hotel Management Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Hotel Management Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/gst-billing-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/gst-bill-manage.webp"
-                              alt="GST Billing Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >GST Billing Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/attendance-payroll-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/attendace-payroll.png"
-                              alt="Attendance &amp; Payroll Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Attendance &amp; Payroll Software</span
-                            ></a
-                          >
+                        <div class="products-mega-dropdown">
+                          <div class="products-mega-cards">
+                            <a
+                              href="https://www.pixelatenest.com/products/school-management-system.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/school-manage.webp"
+                                alt="School Management System"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >School Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/counter-billing-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/counter-billing.webp"
+                                alt="Counter Billing Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Counter Billing</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/fmcg-retail-and-wholesale-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/fmcg-manage.webp"
+                                alt="FMCG Retail and Wholesale Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >FMCG Retail</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/library-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/library-manage.webp"
+                                alt="Library Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Library Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/transport-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/transport-manage.webp"
+                                alt="Transport Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Transport Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/lead-generation-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/lead-manage.webp"
+                                alt="Lead Generation Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Lead Generation</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/hotel-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/hotel-manage.webp"
+                                alt="Hotel Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Hotel Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/gst-billing-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/gst-bill-manage.webp"
+                                alt="GST Billing Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >GST Billing</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/attendance-payroll-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/attendance-payroll.webp"
+                                alt="Attendance & Payroll Software"
+                                loading="lazy"
+                              />
+                              <div class="products-mega-card-overlay">
+                                <span class="products-mega-card-title"
+                                  >Attendance &amp; Payroll</span
+                                >
+                              </div>
+                            </a>
+                          </div>
                         </div>
                       </li>
                       <li class="nav-item">
@@ -566,127 +768,6 @@
                 </div>
               </div>
             </div>
-
-            <script>
-              (function () {
-                const API_BASE =
-                  window.location.hostname === "localhost" ||
-                  window.location.hostname === "127.0.0.1"
-                    ? "https://backend.pixelatenest.com"
-                    : "";
-                const modal = document.getElementById("review-modal");
-                const footerStars = document.getElementById(
-                  "footer-review-stars",
-                );
-                const modalStars = document.getElementById("modal-stars");
-                let selectedRating = 4;
-
-                function setModalStars(r) {
-                  selectedRating = r;
-                  Array.from(modalStars.children).forEach((s) => {
-                    const v = Number(s.getAttribute("data-value"));
-                    s.classList.toggle("filled", v <= r);
-                  });
-                }
-
-                footerStars?.addEventListener("click", () => {
-                  modal.style.display = "flex";
-                  setModalStars(4);
-                });
-
-                modalStars?.addEventListener("click", (ev) => {
-                  const t = ev.target;
-                  if (t && t.getAttribute && t.getAttribute("data-value")) {
-                    setModalStars(Number(t.getAttribute("data-value")));
-                  }
-                });
-
-                document
-                  .getElementById("rv-cancel")
-                  .addEventListener(
-                    "click",
-                    () => (modal.style.display = "none"),
-                  );
-                document
-                  .getElementById("rv-submit")
-                  .addEventListener("click", async () => {
-                    const nameEl = document.getElementById("rv-name");
-                    const emailEl = document.getElementById("rv-email");
-                    const messageEl = document.getElementById("rv-message");
-                    const name = nameEl ? nameEl.value || "" : "";
-                    const email = emailEl ? emailEl.value || "" : "";
-                    const message = messageEl ? messageEl.value || "" : "";
-                    try {
-                      const res = await fetch(API_BASE + "/api/reviews", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                          name,
-                          email,
-                          message,
-                          rating: selectedRating,
-                          createdAt: new Date(),
-                        }),
-                      });
-                      if (!res.ok) throw new Error("Failed");
-                      modal.style.display = "none";
-                      alert("Thanks for your review!");
-                    } catch (e) {
-                      alert("Failed to send review");
-                    }
-                  });
-              })();
-            </script>
-
-            <script>
-              document.addEventListener("DOMContentLoaded", function () {
-                const sections = document.querySelectorAll(
-                  "section:not(.nav-wrap), .portfolio-grid, .process-grid",
-                );
-                sections.forEach((section) => {
-                  section.classList.add("section-animate");
-                });
-
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        entry.target.classList.add("in-view");
-                        observer.unobserve(entry.target);
-                      }
-                    });
-                  },
-                  {
-                    root: null,
-                    threshold: 0.2,
-                    rootMargin: "0px",
-                  },
-                );
-
-                sections.forEach((section) => {
-                  observer.observe(section);
-                });
-
-                const gridItems = document.querySelectorAll(
-                  ".portfolio-item, .process-step",
-                );
-                gridItems.forEach((item, index) => {
-                  item.style.animationDelay = `${index * 0.08}s`;
-                  item.classList.add("section-animate");
-                  observer.observe(item);
-                });
-
-                const heroElements = document.querySelectorAll(
-                  ".main-hero *:not(nav *)",
-                );
-                heroElements.forEach((element, index) => {
-                  element.classList.add("animate-on-load");
-                  element.style.animationDelay = `${0.1 + index * 0.05}s`;
-                });
-              });
-            </script>
-            <script src="../js/main.js"></script>
-            <script src="../js/activity-tracker.js"></script>
           </div>
         </section>
         <section class="home-hero-v1">
@@ -756,45 +837,6 @@
                     </a>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="hero-stats-row">
-              <div class="hero-stat-item" data-stat-index="0">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="3">3</span>
-                  <span class="stat-suffix">+</span>
-                </div>
-                <div class="stat-label">Years Experience</div>
-              </div>
-
-              <div class="stat-divider"></div>
-
-              <div class="hero-stat-item" data-stat-index="1">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="50">50</span>
-                  <span class="stat-suffix">+</span>
-                </div>
-                <div class="stat-label">Projects Delivered</div>
-              </div>
-
-              <div class="stat-divider"></div>
-
-              <div class="hero-stat-item" data-stat-index="2">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="100">100</span>
-                  <span class="stat-suffix">%</span>
-                </div>
-                <div class="stat-label">Client Satisfaction</div>
-              </div>
-
-              <div class="stat-divider"></div>
-
-              <div class="hero-stat-item" data-stat-index="3">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="10">10</span>
-                  <span class="stat-suffix">+</span>
-                </div>
-                <div class="stat-label">Global Clients</div>
               </div>
             </div>
 
@@ -1422,7 +1464,7 @@
                       class="footer-logo w-inline-block"
                     >
                       <img
-                        src="../assets/images/logos/Logo_Color_Name_Large.webp"
+                        src="https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
                         loading="lazy"
                         alt="Pixelate Nest Logo"
                       />
@@ -2029,5 +2071,292 @@
     </script>
     <script src="../js/review-modal.js" defer></script>
     <script src="../js/quick-contact-buttons.js"></script>
+    <script src="https://www.pixelatenest.com/js/chatbot.js" defer></script>
+
+    <div
+      id="landing-contact-modal"
+      class="landing-contact-modal"
+      aria-hidden="true"
+    >
+      <div class="landing-contact-backdrop" data-close-modal="true"></div>
+      <div
+        class="landing-contact-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="landing-contact-title"
+      >
+        <button
+          type="button"
+          class="landing-contact-close"
+          id="landing-contact-close"
+          aria-label="Close contact form"
+        >
+          &times;
+        </button>
+        <h3 id="landing-contact-title">Let's Discuss Your Project</h3>
+        <p class="landing-contact-subtitle">
+          Quick details share kar dijiye, team aapse jaldi connect karegi.
+        </p>
+        <form id="landing-contact-form" class="landing-contact-form" novalidate>
+          <div class="landing-contact-grid">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="Email-Address"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="tel"
+              name="Phone"
+              placeholder="Phone Number"
+              required
+            />
+            <input
+              type="text"
+              name="Enter-your-subject"
+              placeholder="Subject"
+              required
+            />
+            <select name="field" required>
+              <option value="" disabled selected>Select Project Type</option>
+              <option value="Website Development">Website Development</option>
+              <option value="App Development">App Development</option>
+              <option value="Software Development">Software Development</option>
+              <option value="Video Editing">Video Editing</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Other">Other</option>
+            </select>
+            <select name="budget">
+              <option value="" disabled selected>Select Budget</option>
+              <option value="Below 25k">Below 25k</option>
+              <option value="25k - 50k">25k - 50k</option>
+              <option value="50k - 1L">50k - 1L</option>
+              <option value="1L+">1L+</option>
+            </select>
+          </div>
+          <textarea
+            name="Message"
+            rows="4"
+            placeholder="Tell us about your requirement"
+            required
+          ></textarea>
+          <input type="hidden" name="selected-plan" value="" />
+          <div class="landing-contact-actions">
+            <input type="submit" value="Submit" />
+          </div>
+          <p
+            class="landing-contact-success"
+            id="landing-contact-success"
+            hidden
+          >
+            Thanks! Your enquiry has been submitted successfully.
+          </p>
+          <p class="landing-contact-error" id="landing-contact-error" hidden>
+            Something went wrong. Please try again.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <style>
+      .landing-contact-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+      .landing-contact-modal.is-open {
+        display: flex;
+      }
+      .landing-contact-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.62);
+      }
+      .landing-contact-dialog {
+        position: relative;
+        width: min(92vw, 720px);
+        background: #fff;
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        max-height: 88vh;
+        overflow: auto;
+      }
+      .landing-contact-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        border: 0;
+        background: transparent;
+        font-size: 32px;
+        line-height: 1;
+        cursor: pointer;
+        color: #333;
+      }
+      .landing-contact-dialog h3 {
+        margin: 0;
+        font-size: 28px;
+        color: #0f172a;
+      }
+      .landing-contact-subtitle {
+        margin: 8px 0 18px;
+        color: #475569;
+        font-size: 15px;
+      }
+      .landing-contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .landing-contact-form input,
+      .landing-contact-form select,
+      .landing-contact-form textarea {
+        width: 100%;
+        border: 1px solid #d4d4d8;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 14px;
+        font-family: inherit;
+        box-sizing: border-box;
+      }
+      .landing-contact-form textarea {
+        margin-top: 12px;
+        resize: vertical;
+      }
+      .landing-contact-actions {
+        margin-top: 14px;
+      }
+      .landing-contact-actions input[type="submit"] {
+        border: 0;
+        background: #0f4ea8;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .landing-contact-actions input[type="submit"]:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      .landing-contact-success {
+        color: #15803d;
+        margin: 10px 0 0;
+        font-size: 13px;
+      }
+      .landing-contact-error {
+        color: #b91c1c;
+        margin: 10px 0 0;
+        font-size: 13px;
+      }
+      body.modal-open {
+        overflow: hidden;
+      }
+      @media (max-width: 767px) {
+        .landing-contact-dialog {
+          padding: 20px;
+        }
+        .landing-contact-dialog h3 {
+          font-size: 22px;
+        }
+        .landing-contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        var modal = document.getElementById("landing-contact-modal");
+        var closeBtn = document.getElementById("landing-contact-close");
+        var form = document.getElementById("landing-contact-form");
+        var successEl = document.getElementById("landing-contact-success");
+        var errorEl = document.getElementById("landing-contact-error");
+        if (!modal || !closeBtn || !form) return;
+        function openModal() {
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+        }
+        function closeModal() {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("modal-open");
+        }
+        var MODAL_KEY = "pn_discuss_last_shown";
+        var ONE_HOUR = 60 * 60 * 1000;
+        var lastShown = parseInt(localStorage.getItem(MODAL_KEY) || "0", 10);
+        if (Date.now() - lastShown >= ONE_HOUR) {
+          setTimeout(function () {
+            openModal();
+            localStorage.setItem(MODAL_KEY, String(Date.now()));
+          }, 700);
+        }
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (e) {
+          if (e.target && e.target.getAttribute("data-close-modal") === "true")
+            closeModal();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal.classList.contains("is-open"))
+            closeModal();
+        });
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (successEl) successEl.hidden = true;
+          if (errorEl) errorEl.hidden = true;
+          var submitButton = form.querySelector('input[type="submit"]');
+          if (!submitButton) return;
+          submitButton.value = "Sending...";
+          submitButton.disabled = true;
+          var formData = new FormData(form);
+          var data = {
+            name: formData.get("name"),
+            email: formData.get("Email-Address"),
+            phone: formData.get("Phone"),
+            subject: formData.get("Enter-your-subject"),
+            projectType: formData.get("field"),
+            message: formData.get("Message"),
+            selectedPlan: formData.get("selected-plan"),
+            budget: formData.get("budget"),
+          };
+          var API_BASE =
+            window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
+              ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
+              : "";
+          fetch((API_BASE || "") + "/api/enquiries", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then(function (r) {
+              if (!r.ok) throw new Error("Failed");
+              return r.json();
+            })
+            .then(function () {
+              fetch((API_BASE || "") + "/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify(data),
+              }).catch(function () {});
+              form.reset();
+              if (successEl) successEl.hidden = false;
+              setTimeout(closeModal, 1100);
+            })
+            .catch(function () {
+              if (errorEl) errorEl.hidden = false;
+            })
+            .finally(function () {
+              submitButton.value = "Submit";
+              submitButton.disabled = false;
+            });
+        });
+      })();
+    </script>
   </body>
 </html>

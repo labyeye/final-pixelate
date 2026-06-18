@@ -90,7 +90,7 @@
     <link
       rel="preload"
       as="image"
-      href="../../assets/images/logos/Logo_Color_Name_Large.webp"
+      href="../https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
       fetchpriority="high"
     />
     <link
@@ -436,7 +436,7 @@
                     class="navbar-brand w-nav-brand w--current"
                   >
                     <img
-                      src="../../assets/images/logos/Logo_Color_Name_Large.webp"
+                      src="../https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
                       alt="Pixelate Nest"
                       class="logo-desktop"
                       width="200"
@@ -3304,7 +3304,7 @@
                               class="footer-logo w-inline-block"
                             >
                               <img
-                                src="../../assets/images/logos/Logo_Color_Name_Large.webp"
+                                src="../https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
                                 loading="lazy"
                                 alt="Pixelate Nest Logo"
                                 class="fit-cover"

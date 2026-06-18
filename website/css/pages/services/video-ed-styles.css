@@ -74,6 +74,12 @@
   .portfolio-slider-wrap {
     height: 600px;
   }
+  .portfolio-grid {
+    gap: 8px;
+  }
+  .portfolio-card {
+    margin-bottom: 8px;
+  }
 }
 
 .portfolio-card {

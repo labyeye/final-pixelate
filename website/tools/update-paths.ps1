@@ -61,7 +61,7 @@ $cssReplacements = @{
 # Asset replacements for root-level HTML
 $assetReplacements = @{
     # Logos
-    './assets/Logo_Color_Name_Large.webp'     = './assets/images/logos/Logo_Color_Name_Large.webp'
+    './assets/Logo_Color_Name_Large.webp'     = 'https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp'
     './assets/Logo_Color.webp'                = './assets/images/logos/Logo_Color.webp'
     'assets/Logo_Color_Name_Large.webp'       = 'assets/images/logos/Logo_Color_Name_Large.webp'
     'assets/Logo_Color.webp'                  = 'assets/images/logos/Logo_Color.webp'
@@ -159,7 +159,7 @@ foreach ($file in $productFiles) {
     $productReplacements = @{
         'href="../styles.css"'                    = 'href="../css/global.css"'
         'href="../assets/product-common.css"'     = 'href="../css/pages/product-common.css"'
-        '../assets/Logo_Color_Name_Large.webp'    = '../assets/images/logos/Logo_Color_Name_Large.webp'
+        '../assets/Logo_Color_Name_Large.webp'    = 'https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp'
         '../assets/Logo_Color.webp'               = '../assets/images/logos/Logo_Color.webp'
         '../assets/PixelateNest_icons.ico'        = '../assets/icons/favicon.ico'
         '../assets/pixylogo.webp'                 = '../assets/images/logos/pixylogo.webp'
@@ -203,7 +203,7 @@ foreach ($file in $cbFiles) {
 
     $subReplacements = @{
         'href="../styles.css"'                     = 'href="../css/global.css"'
-        '../assets/Logo_Color_Name_Large.webp'     = '../assets/images/logos/Logo_Color_Name_Large.webp'
+        '../assets/Logo_Color_Name_Large.webp'     = 'https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp'
         '../assets/Logo_Color.webp'                = '../assets/images/logos/Logo_Color.webp'
         '../assets/PixelateNest_icons.ico'         = '../assets/icons/favicon.ico'
         '../assets/pixylogo.webp'                  = '../assets/images/logos/pixylogo.webp'
@@ -313,7 +313,7 @@ foreach ($file in $dsFiles) {
     # They reference ../../styles.css, ../../assets/, etc.
     $dsReplacements = @{
         'href="../../styles.css"'                    = 'href="../../css/global.css"'
-        '../../assets/Logo_Color_Name_Large.webp'    = '../../assets/images/logos/Logo_Color_Name_Large.webp'
+        '../../assets/Logo_Color_Name_Large.webp'    = '../https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp'
         '../../assets/Logo_Color.webp'               = '../../assets/images/logos/Logo_Color.webp'
         '../../assets/PixelateNest_icons.ico'        = '../../assets/icons/favicon.ico'
         '../../assets/pixylogo.webp'                 = '../../assets/images/logos/pixylogo.webp'

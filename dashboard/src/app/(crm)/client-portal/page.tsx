@@ -27,8 +27,6 @@ import {
   Download,
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import { pdf } from "@react-pdf/renderer";
-import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
 
 export default function ClientPortalPage() {
   const { user, logout } = useAuth();
@@ -37,12 +35,16 @@ export default function ClientPortalPage() {
   const [socialPosts, setSocialPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [processingPostId, setProcessingPostId] = useState<string | null>(null);
-  const [downloadingInv, setDownloadingInv] = useState<Record<string, boolean>>({});
+  const [downloadingInv, setDownloadingInv] = useState<Record<string, boolean>>(
+    {},
+  );
 
   const downloadInvoicePdf = async (inv: any) => {
     const id = String(inv._id ?? inv.id ?? Date.now());
     setDownloadingInv((prev) => ({ ...prev, [id]: true }));
     try {
+      const { pdf } = await import("@react-pdf/renderer");
+      const { InvoicePDFDocument } = await import("@/components/invoices/invoice-pdf-document");
       const blob = await pdf(
         <InvoicePDFDocument invoice={inv} client={null} />,
       ).toBlob();
@@ -55,9 +57,17 @@ export default function ClientPortalPage() {
       a.remove();
       URL.revokeObjectURL(url);
     } catch (e: any) {
-      toast({ title: "Download Failed", description: e?.message || "Could not generate PDF.", variant: "destructive" });
+      toast({
+        title: "Download Failed",
+        description: e?.message || "Could not generate PDF.",
+        variant: "destructive",
+      });
     } finally {
-      setDownloadingInv((prev) => { const n = { ...prev }; delete n[id]; return n; });
+      setDownloadingInv((prev) => {
+        const n = { ...prev };
+        delete n[id];
+        return n;
+      });
     }
   };
 
@@ -476,7 +486,9 @@ export default function ClientPortalPage() {
                         onClick={() => downloadInvoicePdf(inv)}
                       >
                         <Download className="h-3.5 w-3.5" />
-                        {downloadingInv[String(inv._id ?? inv.id)] ? "..." : "PDF"}
+                        {downloadingInv[String(inv._id ?? inv.id)]
+                          ? "..."
+                          : "PDF"}
                       </Button>
                     </div>
                   </CardContent>

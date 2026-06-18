@@ -37,7 +37,13 @@ export async function POST(request: Request) {
     const filename = `${timestamp}-${originalName}`;
 
     // cwd() = dashboard folder, go up one level to reach project root, then into website
-    const uploadDir = join(process.cwd(), "..", "website", "assets", "expense-bills");
+    const uploadDir = join(
+      process.cwd(),
+      "..",
+      "website",
+      "assets",
+      "expense-bills",
+    );
 
     await mkdir(uploadDir, { recursive: true });
 

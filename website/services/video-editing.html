@@ -37,7 +37,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net https://googleads.g.doubleclick.net https://ad.doubleclick.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net https://googleads.g.doubleclick.net https://ad.doubleclick.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com https://www.youtube.com https://youtube.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -244,6 +244,20 @@
         ]
       }
     </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <link
+      href="https://www.pixelatenest.com/css/components/chatbot.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
@@ -267,18 +281,23 @@
                 <div class="navbar-left">
                   <a
                     href="https://www.pixelatenest.com/"
-                    aria-current="page"
-                    class="navbar-brand w-nav-brand w--current"
+                    class="navbar-brand w-nav-brand"
                   >
                     <img
-                      src="../assets/images/logos/Logo_Color_Name_Large.webp"
+                      loading="lazy"
+                      src="https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
                       alt="Pixelate Nest"
                       class="logo-desktop"
+                      width="200"
+                      height="50"
                     />
                     <img
-                      src="../assets/images/logos/Logo_Color.webp"
+                      loading="lazy"
+                      src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp"
                       alt="Pixelate Nest"
                       class="logo-mobile"
+                      width="60"
+                      height="60"
                     />
                   </a>
                 </div>
@@ -318,17 +337,131 @@
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/"
-                          aria-current="page"
                           class="nav-link w-inline-block"
                           ><span class="nav-link-text">Home</span></a
                         >
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item has-dropdown about-mega-nav">
                         <a
                           href="https://www.pixelatenest.com/pages/about.html"
-                          class="nav-link w-inline-block"
-                          ><span class="nav-link-text">About</span></a
+                          class="nav-link dropdown-toggle w-inline-block"
                         >
+                          <span class="nav-link-text">About</span>
+                          <i
+                            class="fas fa-chevron-down dropdown-arrow"
+                            aria-hidden="true"
+                          ></i>
+                        </a>
+                        <div class="about-mega-dropdown">
+                          <div class="about-mega-cards">
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/mission.webp"
+                                alt="Our Mission"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-bullseye about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Our Mission</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/vision.webp"
+                                alt="Our Vision"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i class="fas fa-eye about-mega-card-icon"></i>
+                                <span class="about-mega-card-title"
+                                  >Our Vision</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/goal.webp"
+                                alt="Our Goal"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-trophy about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Our Goal</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="../assets/images/about/bihar.png"
+                                alt="Bihar Roots"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-map-marker-alt about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Bihar Roots</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html#team"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/labh.webp"
+                                alt="Meet The Team"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-users about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Meet The Team</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/pages/about.html"
+                              class="about-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/about/dadaji.jpg"
+                                alt="Our Story"
+                                loading="lazy"
+                              />
+                              <div class="about-mega-card-overlay">
+                                <i
+                                  class="fas fa-seedling about-mega-card-icon"
+                                ></i>
+                                <span class="about-mega-card-title"
+                                  >Our Story</span
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
                       </li>
                       <li class="nav-item">
                         <a
@@ -337,10 +470,10 @@
                           ><span class="nav-link-text">Pricing</span></a
                         >
                       </li>
-                      <li class="nav-item has-dropdown">
+                      <li class="nav-item has-dropdown services-mega-nav">
                         <a
                           href="https://www.pixelatenest.com/services/index.html"
-                          class="nav-link dropdown-toggle w-inline-block w--current"
+                          class="nav-link dropdown-toggle w-inline-block"
                         >
                           <span class="nav-link-text">Services</span>
                           <i
@@ -348,56 +481,87 @@
                             aria-hidden="true"
                           ></i>
                         </a>
-                        <div class="dropdown-menu">
-                          <a
-                            href="https://www.pixelatenest.com/services/web-development.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-globe dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Web Development</span
+                        <div class="services-mega-dropdown">
+                          <div class="services-mega-cards">
+                            <a
+                              href="https://www.pixelatenest.com/services/web-development.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/app-development.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-mobile-alt dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >App Development</span
+                              <img
+                                src="../assets/images/services/nav/website-development.webp"
+                                alt="Web Development"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Web Development</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/app-development.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/software-development.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-cube dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Software Development</span
+                              <img
+                                src="../assets/images/services/nav/app-development.webp"
+                                alt="App Development"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >App Development</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/software-development.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/digital-marketing.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-chart-line dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Digital Marketing</span
+                              <img
+                                src="../assets/images/services/nav/software-development.webp"
+                                alt="Software Development"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Software Development</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/digital-marketing.html"
+                              class="services-mega-card"
                             >
-                          </a>
-                          <a
-                            href="https://www.pixelatenest.com/services/video-editing.html"
-                            class="dropdown-item"
-                          >
-                            <i class="fas fa-video dropdown-item-icon"></i>
-                            <span class="dropdown-item-name"
-                              >Content Creation</span
+                              <img
+                                src="../assets/images/services/nav/digital-marketing.webp"
+                                alt="Digital Marketing"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Digital Marketing</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/services/video-editing.html"
+                              class="services-mega-card"
                             >
-                          </a>
+                              <img
+                                src="../assets/images/services/nav/video-editing.webp"
+                                alt="Content Creation"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="services-card-title"
+                                  >Content Creation</span
+                                >
+                              </div>
+                            </a>
+                          </div>
                         </div>
                       </li>
-
-                      <li class="nav-item has-dropdown">
+                      <li class="nav-item has-dropdown products-mega-nav">
                         <a
                           href="https://www.pixelatenest.com/pages/product.html"
                           class="nav-link dropdown-toggle w-inline-block"
@@ -408,106 +572,144 @@
                             aria-hidden="true"
                           ></i>
                         </a>
-                        <div class="dropdown-menu">
-                          <a
-                            href="https://www.pixelatenest.com/products/school-management-system.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/school-manage.webp"
-                              alt="School Management System"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >School Management System</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/counter-billing-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/counter-billing.webp"
-                              alt="Counter Billing Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Counter Billing Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/fmcg-retail-and-wholesale-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/fmcg-manage.webp"
-                              alt="FMCG Retail and Wholesale Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >FMCG Retail and Wholesale Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/library-management-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/library-manage.webp"
-                              alt="Library Management Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Library Management Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/transport-management-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/transport-manage.webp"
-                              alt="Transport Management Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Transport Management Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/lead-generation-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/lead-manage.webp"
-                              alt="Lead Generation Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Lead Generation Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/hotel-management-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/hotel-manage.webp"
-                              alt="Hotel Management Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Hotel Management Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/gst-billing-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/gst-bill-manage.webp"
-                              alt="GST Billing Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >GST Billing Software</span
-                            ></a
-                          >
-                          <a
-                            href="https://www.pixelatenest.com/products/attendance-payroll-software.html"
-                            class="dropdown-item"
-                            ><img
-                              src="https://www.pixelatenest.com/assets/images/products/attendace-payroll.png"
-                              alt="Attendance &amp; Payroll Software"
-                              class="dropdown-item-img"
-                            /><span class="dropdown-item-name"
-                              >Attendance &amp; Payroll Software</span
-                            ></a
-                          >
+                        <div class="products-mega-dropdown">
+                          <div class="products-mega-cards">
+                            <a
+                              href="https://www.pixelatenest.com/products/school-management-system.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/school-manage.webp"
+                                alt="School Management System"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >School Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/counter-billing-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/counter-billing.webp"
+                                alt="Counter Billing Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Counter Billing</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/fmcg-retail-and-wholesale-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/fmcg-manage.webp"
+                                alt="FMCG Retail and Wholesale Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >FMCG Retail</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/library-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/library-manage.webp"
+                                alt="Library Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Library Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/transport-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/transport-manage.webp"
+                                alt="Transport Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Transport Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/lead-generation-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/lead-manage.webp"
+                                alt="Lead Generation Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Lead Generation</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/hotel-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/hotel-manage.webp"
+                                alt="Hotel Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Hotel Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/gst-billing-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/gst-bill-manage.webp"
+                                alt="GST Billing Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >GST Billing</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/attendance-payroll-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="../assets/images/products/nav/attendance-payroll.webp"
+                                alt="Attendance & Payroll Software"
+                                loading="lazy"
+                              />
+                              <div class="products-mega-card-overlay">
+                                <span class="products-mega-card-title"
+                                  >Attendance &amp; Payroll</span
+                                >
+                              </div>
+                            </a>
+                          </div>
                         </div>
                       </li>
                       <li class="nav-item">
@@ -673,46 +875,6 @@
                 </div>
               </div>
             </div>
-            <div class="hero-stats-row">
-              <div class="hero-stat-item" data-stat-index="0">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="3">3</span>
-                  <span class="stat-suffix">+</span>
-                </div>
-                <div class="stat-label">Years Experience</div>
-              </div>
-
-              <div class="stat-divider"></div>
-
-              <div class="hero-stat-item" data-stat-index="1">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="50">50</span>
-                  <span class="stat-suffix">+</span>
-                </div>
-                <div class="stat-label">Projects Delivered</div>
-              </div>
-
-              <div class="stat-divider"></div>
-
-              <div class="hero-stat-item" data-stat-index="2">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="100">100</span>
-                  <span class="stat-suffix">%</span>
-                </div>
-                <div class="stat-label">Client Satisfaction</div>
-              </div>
-
-              <div class="stat-divider"></div>
-
-              <div class="hero-stat-item" data-stat-index="3">
-                <div class="stat-number-wrap">
-                  <span class="stat-number" data-target="10">10</span>
-                  <span class="stat-suffix">+</span>
-                </div>
-                <div class="stat-label">Global Clients</div>
-              </div>
-            </div>
-
             <div class="hero-brands-section">
               <div class="brands-carousel-wrapper">
                 <div class="brands-carousel">
@@ -914,6 +1076,19 @@
         style="text-align: center; margin-top: 24px"
       ></div>
       <div id="reels-slider-container" style="margin-top: 24px"></div>
+
+      <!-- Cinematic Videos Section -->
+      <div
+        id="cinematic-section"
+        style="
+          display: none;
+          margin-top: 80px;
+          max-width: 1400px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 0 20px;
+        "
+      ></div>
       <div style="max-width: 1600px; margin: 0 auto">
         <div style="margin-top: 100px">
           <h2 class="faq-headline" style="margin-bottom: 40px">
@@ -963,7 +1138,7 @@
                 ? 4
                 : window.innerWidth > 768
                   ? 2
-                  : 1;
+                  : 2;
           const columns = [];
 
           grid.style.display = "flex";
@@ -1224,7 +1399,7 @@
                       class="footer-logo w-inline-block"
                     >
                       <img
-                        src="../assets/images/logos/Logo_Color_Name_Large.webp"
+                        src="https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
                         loading="lazy"
                         alt="Pixelate Nest Logo"
                         class="fit-cover"
@@ -1654,6 +1829,14 @@
         </div>
       </footer>
       <script>
+        function getYouTubeId(url) {
+          if (!url) return "";
+          const m = url.match(
+            /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([A-Za-z0-9_\-]{11})/,
+          );
+          return m ? m[1] : "";
+        }
+
         async function loadReels() {
           try {
             const res = await fetch(
@@ -1661,122 +1844,741 @@
             );
             if (!res.ok) return;
 
-            const reels = await res.json();
+            const allItems = await res.json();
+
+            const reels = allItems.filter(
+              (r) => !r.category || r.category === "reel",
+            );
+            const cinematics = allItems.filter(
+              (r) => r.category === "cinematic",
+            );
+
+            // ── Render Reels (arc slider) ──
             const container = document.getElementById("reels-slider-container");
-            if (!container) return;
+            if (container) {
+              container.innerHTML = "";
 
-            container.innerHTML = "";
+              reels.forEach((reel) => {
+                const brandSection = document.createElement("div");
+                brandSection.style.cssText =
+                  "width: 100%; display: flex; flex-direction: column; align-items: center;";
 
-            reels.forEach((reel) => {
-              const brandSection = document.createElement("div");
-              brandSection.style.cssText =
-                "width: 100%; display: flex; flex-direction: column; align-items: center;";
+                const brandName =
+                  reel.brand ||
+                  reel.brandName ||
+                  reel.name ||
+                  reel.title ||
+                  "Featured Work";
+                brandSection.innerHTML = `<h2 class="faq-headline" style="margin-bottom: 40px; text-align: center;">${brandName}</h2>`;
+                const wrapper = document.createElement("div");
+                wrapper.className = "reels-slider";
 
-              const brandName =
-                reel.brand ||
-                reel.brandName ||
-                reel.name ||
-                reel.title ||
-                "Featured Work";
-              brandSection.innerHTML = `<h2 class="faq-headline" style="margin-bottom: 40px; text-align: center;">${brandName}</h2>`;
-              const wrapper = document.createElement("div");
-              wrapper.className = "reels-slider";
-
-              // Best visual effect happens with 5 to 7 cards.
-              const entries = (reel.entries || []).slice(0, 7);
-
-              entries.forEach((e) => {
-                const card = document.createElement("div");
-                card.className = "reel-card";
-                card.innerHTML = `<img src="${e.thumbnailBase64 || e.thumbnail}" alt="Video Thumbnail" />`;
-                wrapper.appendChild(card);
-              });
-
-              brandSection.appendChild(wrapper);
-              container.appendChild(brandSection);
-
-              const cards = Array.from(wrapper.querySelectorAll(".reel-card"));
-              let current = 0;
-              let autoplayInterval;
-
-              function updateSlider() {
-                const total = cards.length;
-                const RADIUS = 620; // arc radius — bigger = flatter circle
-                const SPREAD_DEG = 80; // total degrees the fan spans (e.g. -40 to +40)
-
-                cards.forEach((card, i) => {
-                  let pos = (i - current + total) % total;
-                  if (pos > Math.floor(total / 2)) pos -= total;
-
-                  const abs = Math.abs(pos);
-                  card.style.setProperty("--abs", abs);
-                  card.style.setProperty("--offset", pos);
-
-                  // Angle for this card on the arc
-                  const maxPos = Math.floor(total / 2);
-                  const angleDeg = (pos / maxPos) * (SPREAD_DEG / 2);
-                  const angleRad = (angleDeg * Math.PI) / 180;
-
-                  // Position on circle: pivot is below the slider center
-                  const pivotY = RADIUS; // distance below center where pivot sits
-                  const x = RADIUS * Math.sin(angleRad);
-                  const y = pivotY - RADIUS * Math.cos(angleRad);
-
-                  const scale = 1 - abs * 0.06;
-
-                  card.style.transform = `
-      translate(-50%, -50%)
-      translateX(${x}px)
-      translateY(${y}px)
-      rotate(${angleDeg}deg)
-      scale(${scale})
-    `;
-
-                  card.style.zIndex = pos === 0 ? 20 : 10 - abs;
-
-                  // Hide cards beyond ±2
-                  card.style.opacity = abs >= 3 ? "0" : "1";
-                  card.style.pointerEvents = abs >= 3 ? "none" : "auto";
+                const entries = (reel.entries || []).slice(0, 7);
+                entries.forEach((e) => {
+                  const card = document.createElement("div");
+                  card.className = "reel-card";
+                  card.innerHTML = `<img src="${e.thumbnailBase64 || e.thumbnail}" alt="Video Thumbnail" />`;
+                  wrapper.appendChild(card);
                 });
-              }
 
-              function nextSlide() {
-                current = (current + 1) % cards.length;
-                updateSlider();
-              }
+                brandSection.appendChild(wrapper);
+                container.appendChild(brandSection);
 
-              function startAutoplay() {
-                // Set to 3 seconds between auto-scrolls
-                autoplayInterval = setInterval(nextSlide, 3000);
-              }
+                const cards = Array.from(
+                  wrapper.querySelectorAll(".reel-card"),
+                );
+                let current = 0;
+                let autoplayInterval;
 
-              function stopAutoplay() {
-                clearInterval(autoplayInterval);
-              }
-
-              // Add click interactions to jump to a specific card
-              cards.forEach((card, i) => {
-                card.addEventListener("click", () => {
-                  stopAutoplay();
-                  current = i;
+                function updateSlider() {
+                  const total = cards.length;
+                  const RADIUS = 620;
+                  const SPREAD_DEG = 80;
+                  cards.forEach((card, i) => {
+                    let pos = (i - current + total) % total;
+                    if (pos > Math.floor(total / 2)) pos -= total;
+                    const abs = Math.abs(pos);
+                    card.style.setProperty("--abs", abs);
+                    card.style.setProperty("--offset", pos);
+                    const maxPos = Math.floor(total / 2);
+                    const angleDeg = (pos / maxPos) * (SPREAD_DEG / 2);
+                    const angleRad = (angleDeg * Math.PI) / 180;
+                    const pivotY = RADIUS;
+                    const x = RADIUS * Math.sin(angleRad);
+                    const y = pivotY - RADIUS * Math.cos(angleRad);
+                    const scale = 1 - abs * 0.06;
+                    card.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px) rotate(${angleDeg}deg) scale(${scale})`;
+                    card.style.zIndex = pos === 0 ? 20 : 10 - abs;
+                    card.style.opacity = abs >= 3 ? "0" : "1";
+                    card.style.pointerEvents = abs >= 3 ? "none" : "auto";
+                  });
+                }
+                function nextSlide() {
+                  current = (current + 1) % cards.length;
                   updateSlider();
-                  startAutoplay();
+                }
+                function startAutoplay() {
+                  autoplayInterval = setInterval(nextSlide, 3000);
+                }
+                function stopAutoplay() {
+                  clearInterval(autoplayInterval);
+                }
+                cards.forEach((card, i) => {
+                  card.addEventListener("click", () => {
+                    stopAutoplay();
+                    current = i;
+                    updateSlider();
+                    startAutoplay();
+                  });
                 });
+                updateSlider();
+                startAutoplay();
               });
+            }
 
-              // Initialize the first layout
-              updateSlider();
-              startAutoplay();
-            });
-          } catch (e) {}
+            // ── Render Cinematic Videos (16:9 card grid) ──
+            const cinSection = document.getElementById("cinematic-section");
+            if (cinSection && cinematics.length > 0) {
+              cinSection.style.display = "block";
+              cinSection.innerHTML = "";
+
+              cinematics.forEach((item) => {
+                const entries = item.cinematicEntries || [];
+                if (!entries.length) return;
+
+                const collectionName =
+                  item.brandName || item.name || item.title || "Cinematic";
+
+                const block = document.createElement("div");
+                block.style.cssText = "margin-bottom: 64px;";
+                block.innerHTML = `<h2 class="faq-headline" style="margin-bottom: 32px; text-align: center;">${collectionName}</h2>`;
+
+                const grid = document.createElement("div");
+                grid.className = "cinematic-grid";
+
+                entries.forEach((entry) => {
+                  const card = document.createElement("div");
+                  card.className = "cinematic-card";
+
+                  const thumb = entry.thumbnailBase64 || entry.thumbnail || "";
+                  const ytLink = entry.youtubeLink || entry.link || "";
+                  const brand = entry.brandName || "";
+
+                  const embedId = ytLink ? getYouTubeId(ytLink) : "";
+                  card.innerHTML = `
+                    <button class="cinematic-card__link" type="button" ${embedId ? `data-yt-id="${embedId}" data-yt-title="${brand}"` : ""} style="width:100%;background:none;border:none;padding:0;cursor:${embedId ? "pointer" : "default"};">
+                      <div class="cinematic-card__thumb">
+                        ${
+                          thumb
+                            ? `<img src="${thumb}" alt="${brand}" />`
+                            : `<div class="cinematic-card__no-thumb"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m10 8 5 3-5 3V8z"/></svg></div>`
+                        }
+                        ${embedId ? `<div class="cinematic-card__play"><div class="cinematic-card__play-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg></div></div>` : ""}
+                        ${embedId ? `<div class="cinematic-card__yt-badge"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg> YT</div>` : ""}
+                      </div>
+                      ${brand ? `<div class="cinematic-card__footer"><span>${brand}</span></div>` : ""}
+                    </button>
+                  `;
+
+                  grid.appendChild(card);
+                });
+
+                block.appendChild(grid);
+                cinSection.appendChild(block);
+              });
+            }
+          } catch (e) {
+            console.error("loadReels error", e);
+          }
         }
 
         document.addEventListener("DOMContentLoaded", loadReels);
+      </script>
+
+      <style>
+        .cinematic-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+        }
+        @media (max-width: 900px) {
+          .cinematic-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 560px) {
+          .cinematic-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .cinematic-card {
+          border-radius: 14px;
+          overflow: hidden;
+          border: 2px solid #e5e7eb;
+          background: #000;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+          transition:
+            transform 0.22s ease,
+            box-shadow 0.22s ease;
+        }
+        .cinematic-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+        }
+
+        .cinematic-card__link {
+          display: block;
+          text-decoration: none;
+          color: inherit;
+        }
+
+        /* 16:9 aspect ratio */
+        .cinematic-card__thumb {
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%;
+          background: #111;
+          overflow: hidden;
+        }
+        .cinematic-card__thumb img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.3s ease;
+        }
+        .cinematic-card:hover .cinematic-card__thumb img {
+          transform: scale(1.04);
+        }
+        .cinematic-card__no-thumb {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #1a1a1a;
+        }
+
+        /* Play overlay */
+        .cinematic-card__play {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0, 0, 0, 0);
+          transition: background 0.22s ease;
+        }
+        .cinematic-card:hover .cinematic-card__play {
+          background: rgba(0, 0, 0, 0.42);
+        }
+        .cinematic-card__play-btn {
+          width: 52px;
+          height: 52px;
+          border-radius: 50%;
+          background: #ff0000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transform: scale(0.7);
+          transition:
+            opacity 0.22s ease,
+            transform 0.22s ease;
+          box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5);
+        }
+        .cinematic-card:hover .cinematic-card__play-btn {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        /* YouTube badge */
+        .cinematic-card__yt-badge {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: #ff0000;
+          color: #fff;
+          font-size: 10px;
+          font-weight: 800;
+          padding: 3px 7px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        .cinematic-card__footer {
+          background: #fff;
+          padding: 10px 14px;
+          border-top: 1px solid #f0f0f0;
+        }
+        .cinematic-card__footer span {
+          font-size: 13px;
+          font-weight: 700;
+          color: #111;
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        /* ── YouTube Modal ── */
+        #yt-modal-overlay {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.82);
+          z-index: 99999;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+        }
+        #yt-modal-overlay.open {
+          display: flex;
+        }
+        #yt-modal-box {
+          background: #000;
+          border-radius: 16px;
+          width: 100%;
+          max-width: 900px;
+          overflow: hidden;
+          position: relative;
+          box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+          animation: ytModalIn 0.22s ease;
+        }
+        @keyframes ytModalIn {
+          from {
+            opacity: 0;
+            transform: scale(0.93);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        #yt-modal-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 14px 18px;
+          background: #111;
+          border-bottom: 1px solid #222;
+        }
+        #yt-modal-title {
+          font-size: 15px;
+          font-weight: 700;
+          color: #fff;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: calc(100% - 50px);
+        }
+        #yt-modal-close {
+          background: none;
+          border: none;
+          color: #aaa;
+          cursor: pointer;
+          padding: 4px;
+          line-height: 1;
+          border-radius: 6px;
+          transition:
+            color 0.15s,
+            background 0.15s;
+          flex-shrink: 0;
+        }
+        #yt-modal-close:hover {
+          color: #fff;
+          background: rgba(255, 255, 255, 0.1);
+        }
+        /* 16:9 iframe wrapper */
+        #yt-modal-iframe-wrap {
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%;
+          background: #000;
+        }
+        #yt-modal-iframe-wrap iframe {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+      </style>
+
+      <!-- YouTube Video Modal -->
+      <div
+        id="yt-modal-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Video player"
+      >
+        <div id="yt-modal-box">
+          <div id="yt-modal-header">
+            <span id="yt-modal-title"></span>
+            <button id="yt-modal-close" aria-label="Close video">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div id="yt-modal-iframe-wrap">
+            <iframe
+              id="yt-modal-iframe"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const overlay = document.getElementById("yt-modal-overlay");
+          const iframe = document.getElementById("yt-modal-iframe");
+          const title = document.getElementById("yt-modal-title");
+          const closeBtn = document.getElementById("yt-modal-close");
+
+          function openModal(ytId, videoTitle) {
+            iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
+            title.textContent = videoTitle || "";
+            overlay.classList.add("open");
+            document.body.style.overflow = "hidden";
+          }
+
+          function closeModal() {
+            overlay.classList.remove("open");
+            iframe.src = "";
+            document.body.style.overflow = "";
+          }
+
+          closeBtn.addEventListener("click", closeModal);
+
+          overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) closeModal();
+          });
+
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closeModal();
+          });
+
+          // Delegate clicks on cinematic cards
+          document.addEventListener("click", function (e) {
+            const btn = e.target.closest("[data-yt-id]");
+            if (!btn) return;
+            const ytId = btn.dataset.ytId;
+            const ytTitle = btn.dataset.ytTitle || "";
+            if (ytId) openModal(ytId, ytTitle);
+          });
+        })();
       </script>
     </div>
     <script src="../js/activity-tracker.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/review-modal.js" defer></script>
     <script src="../js/quick-contact-buttons.js"></script>
+    <script src="https://www.pixelatenest.com/js/chatbot.js" defer></script>
+
+    <div
+      id="landing-contact-modal"
+      class="landing-contact-modal"
+      aria-hidden="true"
+    >
+      <div class="landing-contact-backdrop" data-close-modal="true"></div>
+      <div
+        class="landing-contact-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="landing-contact-title"
+      >
+        <button
+          type="button"
+          class="landing-contact-close"
+          id="landing-contact-close"
+          aria-label="Close contact form"
+        >
+          &times;
+        </button>
+        <h3 id="landing-contact-title">Let's Discuss Your Project</h3>
+        <p class="landing-contact-subtitle">
+          Quick details share kar dijiye, team aapse jaldi connect karegi.
+        </p>
+        <form id="landing-contact-form" class="landing-contact-form" novalidate>
+          <div class="landing-contact-grid">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="Email-Address"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="tel"
+              name="Phone"
+              placeholder="Phone Number"
+              required
+            />
+            <input
+              type="text"
+              name="Enter-your-subject"
+              placeholder="Subject"
+              required
+            />
+            <select name="field" required>
+              <option value="" disabled selected>Select Project Type</option>
+              <option value="Website Development">Website Development</option>
+              <option value="App Development">App Development</option>
+              <option value="Software Development">Software Development</option>
+              <option value="Video Editing">Video Editing</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Other">Other</option>
+            </select>
+            <select name="budget">
+              <option value="" disabled selected>Select Budget</option>
+              <option value="Below 25k">Below 25k</option>
+              <option value="25k - 50k">25k - 50k</option>
+              <option value="50k - 1L">50k - 1L</option>
+              <option value="1L+">1L+</option>
+            </select>
+          </div>
+          <textarea
+            name="Message"
+            rows="4"
+            placeholder="Tell us about your requirement"
+            required
+          ></textarea>
+          <input type="hidden" name="selected-plan" value="" />
+          <div class="landing-contact-actions">
+            <input type="submit" value="Submit" />
+          </div>
+          <p
+            class="landing-contact-success"
+            id="landing-contact-success"
+            hidden
+          >
+            Thanks! Your enquiry has been submitted successfully.
+          </p>
+          <p class="landing-contact-error" id="landing-contact-error" hidden>
+            Something went wrong. Please try again.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <style>
+      .landing-contact-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+      .landing-contact-modal.is-open {
+        display: flex;
+      }
+      .landing-contact-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.62);
+      }
+      .landing-contact-dialog {
+        position: relative;
+        width: min(92vw, 720px);
+        background: #fff;
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        max-height: 88vh;
+        overflow: auto;
+      }
+      .landing-contact-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        border: 0;
+        background: transparent;
+        font-size: 32px;
+        line-height: 1;
+        cursor: pointer;
+        color: #333;
+      }
+      .landing-contact-dialog h3 {
+        margin: 0;
+        font-size: 28px;
+        color: #0f172a;
+      }
+      .landing-contact-subtitle {
+        margin: 8px 0 18px;
+        color: #475569;
+        font-size: 15px;
+      }
+      .landing-contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .landing-contact-form input,
+      .landing-contact-form select,
+      .landing-contact-form textarea {
+        width: 100%;
+        border: 1px solid #d4d4d8;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 14px;
+        font-family: inherit;
+        box-sizing: border-box;
+      }
+      .landing-contact-form textarea {
+        margin-top: 12px;
+        resize: vertical;
+      }
+      .landing-contact-actions {
+        margin-top: 14px;
+      }
+      .landing-contact-actions input[type="submit"] {
+        border: 0;
+        background: #0f4ea8;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .landing-contact-actions input[type="submit"]:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      .landing-contact-success {
+        color: #15803d;
+        margin: 10px 0 0;
+        font-size: 13px;
+      }
+      .landing-contact-error {
+        color: #b91c1c;
+        margin: 10px 0 0;
+        font-size: 13px;
+      }
+      body.modal-open {
+        overflow: hidden;
+      }
+      @media (max-width: 767px) {
+        .landing-contact-dialog {
+          padding: 20px;
+        }
+        .landing-contact-dialog h3 {
+          font-size: 22px;
+        }
+        .landing-contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        var modal = document.getElementById("landing-contact-modal");
+        var closeBtn = document.getElementById("landing-contact-close");
+        var form = document.getElementById("landing-contact-form");
+        var successEl = document.getElementById("landing-contact-success");
+        var errorEl = document.getElementById("landing-contact-error");
+        if (!modal || !closeBtn || !form) return;
+        function openModal() {
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+        }
+        function closeModal() {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("modal-open");
+        }
+        var MODAL_KEY = "pn_discuss_last_shown";
+        var ONE_HOUR = 60 * 60 * 1000;
+        var lastShown = parseInt(localStorage.getItem(MODAL_KEY) || "0", 10);
+        if (Date.now() - lastShown >= ONE_HOUR) {
+          setTimeout(function () {
+            openModal();
+            localStorage.setItem(MODAL_KEY, String(Date.now()));
+          }, 700);
+        }
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (e) {
+          if (e.target && e.target.getAttribute("data-close-modal") === "true")
+            closeModal();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal.classList.contains("is-open"))
+            closeModal();
+        });
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (successEl) successEl.hidden = true;
+          if (errorEl) errorEl.hidden = true;
+          var submitButton = form.querySelector('input[type="submit"]');
+          if (!submitButton) return;
+          submitButton.value = "Sending...";
+          submitButton.disabled = true;
+          var formData = new FormData(form);
+          var data = {
+            name: formData.get("name"),
+            email: formData.get("Email-Address"),
+            phone: formData.get("Phone"),
+            subject: formData.get("Enter-your-subject"),
+            projectType: formData.get("field"),
+            message: formData.get("Message"),
+            selectedPlan: formData.get("selected-plan"),
+            budget: formData.get("budget"),
+          };
+          var API_BASE =
+            window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
+              ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
+              : "";
+          fetch((API_BASE || "") + "/api/enquiries", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then(function (r) {
+              if (!r.ok) throw new Error("Failed");
+              return r.json();
+            })
+            .then(function () {
+              fetch((API_BASE || "") + "/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify(data),
+              }).catch(function () {});
+              form.reset();
+              if (successEl) successEl.hidden = false;
+              setTimeout(closeModal, 1100);
+            })
+            .catch(function () {
+              if (errorEl) errorEl.hidden = false;
+            })
+            .finally(function () {
+              submitButton.value = "Submit";
+              submitButton.disabled = false;
+            });
+        });
+      })();
+    </script>
   </body>
 </html>

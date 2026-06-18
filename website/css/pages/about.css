@@ -320,7 +320,7 @@ video {
 }
 .history-wrap {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -335,7 +335,7 @@ video {
   max-width: 90%;
 }
 .history-img {
-  width: 1900px;
+  width: 1000px;
   height: 300px;
   border-radius: 12px;
   box-shadow: 0 6px 18px var(--shadow-light);

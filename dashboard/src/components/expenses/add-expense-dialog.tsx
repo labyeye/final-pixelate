@@ -31,7 +31,14 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { PlusCircle, Pencil, Briefcase, FileUp, X, FileText } from "lucide-react";
+import {
+  PlusCircle,
+  Pencil,
+  Briefcase,
+  FileUp,
+  X,
+  FileText,
+} from "lucide-react";
 
 export const EXPENSE_CATEGORIES = [
   { value: "salary", label: "💼 Salary & Payroll" },
@@ -178,7 +185,9 @@ export function AddExpenseDialog({
     }
   };
 
-  const handleBillFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleBillFileChange = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.type !== "application/pdf") {
@@ -190,7 +199,10 @@ export function AddExpenseDialog({
     try {
       const fd = new FormData();
       fd.append("file", file);
-      const res = await apiFetch("/api/upload-expense-bill", { method: "POST", body: fd });
+      const res = await apiFetch("/api/upload-expense-bill", {
+        method: "POST",
+        body: fd,
+      });
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error || "Upload failed");
       setBillUrl(data.url);
@@ -550,8 +562,12 @@ export function AddExpenseDialog({
                     className="w-full border-2 border-dashed border-blue-300 rounded-sm p-6 flex flex-col items-center gap-2 text-blue-600 hover:border-blue-500 hover:bg-blue-50 transition-colors"
                   >
                     <FileUp className="h-6 w-6" />
-                    <span className="text-sm font-semibold">Click to upload PDF bill</span>
-                    <span className="text-xs text-blue-400">Max size: 10MB</span>
+                    <span className="text-sm font-semibold">
+                      Click to upload PDF bill
+                    </span>
+                    <span className="text-xs text-blue-400">
+                      Max size: 10MB
+                    </span>
                   </button>
                 ) : (
                   <div className="flex items-center gap-3 p-3 bg-white border border-blue-200 rounded-sm">
@@ -579,7 +595,8 @@ export function AddExpenseDialog({
                       onClick={() => {
                         setBillFile(null);
                         setBillUrl("");
-                        if (fileInputRef.current) fileInputRef.current.value = "";
+                        if (fileInputRef.current)
+                          fileInputRef.current.value = "";
                       }}
                       className="text-gray-400 hover:text-red-500 transition-colors"
                       aria-label="Remove bill"

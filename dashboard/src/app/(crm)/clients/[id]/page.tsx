@@ -36,8 +36,6 @@ import {
 import Link from "next/link";
 import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
 import { SocialAccountTokenPanel } from "@/components/social-media/social-account-token-panel";
-import { pdf } from "@react-pdf/renderer";
-import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
 
 function formatDate(date?: Date | string | null) {
   if (!date) return "—";
@@ -74,12 +72,16 @@ export default function ClientDetailPage() {
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState<Partial<Client>>({});
   const [saving, setSaving] = useState(false);
-  const [downloadingInv, setDownloadingInv] = useState<Record<string, boolean>>({});
+  const [downloadingInv, setDownloadingInv] = useState<Record<string, boolean>>(
+    {},
+  );
 
   const downloadInvoicePdf = async (inv: any) => {
     const id = String(inv._id ?? inv.id ?? Date.now());
     setDownloadingInv((prev) => ({ ...prev, [id]: true }));
     try {
+      const { pdf } = await import("@react-pdf/renderer");
+      const { InvoicePDFDocument } = await import("@/components/invoices/invoice-pdf-document");
       const blob = await pdf(
         <InvoicePDFDocument invoice={inv} client={client} />,
       ).toBlob();
@@ -92,9 +94,17 @@ export default function ClientDetailPage() {
       a.remove();
       URL.revokeObjectURL(url);
     } catch (e: any) {
-      toast({ title: "Download Failed", description: e?.message || "Could not generate PDF.", variant: "destructive" });
+      toast({
+        title: "Download Failed",
+        description: e?.message || "Could not generate PDF.",
+        variant: "destructive",
+      });
     } finally {
-      setDownloadingInv((prev) => { const n = { ...prev }; delete n[id]; return n; });
+      setDownloadingInv((prev) => {
+        const n = { ...prev };
+        delete n[id];
+        return n;
+      });
     }
   };
 
