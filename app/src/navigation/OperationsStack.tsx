@@ -9,6 +9,7 @@ import TasksScreen from '../screens/operations/TasksScreen';
 import JourneyScreen from '../screens/operations/JourneyScreen';
 import InventoryScreen from '../screens/operations/InventoryScreen';
 import ServicesScreen from '../screens/operations/ServicesScreen';
+import TimelineScreen from '../screens/operations/TimelineScreen';
 
 const Stack = createNativeStackNavigator<OperationsStackParams>();
 
@@ -59,6 +60,11 @@ const OperationsStack = () => (
       name="Services"
       component={ServicesScreen}
       options={{ title: 'SERVICES' }}
+    />
+    <Stack.Screen
+      name="Timeline"
+      component={TimelineScreen}
+      options={{ title: 'PROJECT TIMELINE' }}
     />
   </Stack.Navigator>
 );

@@ -41,6 +41,7 @@ export type OperationsStackParams = {
   Journey: undefined;
   Inventory: undefined;
   Services: undefined;
+  Timeline: undefined;
 };
 
 export type FinanceStackParams = {
@@ -61,8 +62,11 @@ export type MoreStackParams = {
   WhatsAppInbox: undefined;
   BulkMessaging: undefined;
   Campaigns: undefined;
+  WhatsAppTemplates: undefined;
+  WhatsAppWebhook: undefined;
   SocialMediaPlanner: undefined;
   SocialMediaCalendar: undefined;
+  SocialMediaManager: undefined;
   Blogs: undefined;
   BlogDetail: { id: string };
   Newsletter: undefined;
@@ -80,4 +84,6 @@ export type MoreStackParams = {
   Reels: undefined;
   Trash: undefined;
   ERPConsole: undefined;
+  Users: undefined;
+  ClientPortal: undefined;
 };

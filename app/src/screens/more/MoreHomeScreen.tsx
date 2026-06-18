@@ -21,21 +21,33 @@ const SECTIONS = [
     items: [
       {
         label: 'WhatsApp Inbox',
-        emoji: '💬',
+        emoji: '\u{1F4AC}',
         route: 'WhatsAppInbox',
         color: '#25D366',
       },
       {
         label: 'Bulk Messaging',
-        emoji: '📤',
+        emoji: '\u{1F4E4}',
         route: 'BulkMessaging',
         color: '#128C7E',
       },
       {
         label: 'Campaign Insights',
-        emoji: '📊',
+        emoji: '\u{1F4CA}',
         route: 'Campaigns',
         color: '#075E54',
+      },
+      {
+        label: 'WA Templates',
+        emoji: '\u{1F4DD}',
+        route: 'WhatsAppTemplates',
+        color: '#25D366',
+      },
+      {
+        label: 'Delivery Log',
+        emoji: '\u{1F4E8}',
+        route: 'WhatsAppWebhook',
+        color: '#128C7E',
       },
     ],
   },
@@ -43,14 +55,20 @@ const SECTIONS = [
     title: 'SOCIAL MEDIA',
     items: [
       {
-        label: 'Social Media Planner',
-        emoji: '📅',
+        label: 'SM Manager',
+        emoji: '\u{1F4CB}',
+        route: 'SocialMediaManager',
+        color: Colors.secondary,
+      },
+      {
+        label: 'Social Planner',
+        emoji: '\u{1F4C5}',
         route: 'SocialMediaPlanner',
         color: Colors.accent,
       },
       {
         label: 'Content Calendar',
-        emoji: '🗓️',
+        emoji: '\u{1F5D3}',
         route: 'SocialMediaCalendar',
         color: Colors.primary,
       },
@@ -62,13 +80,13 @@ const SECTIONS = [
       { label: 'Blogs', emoji: '✍️', route: 'Blogs', color: Colors.secondary },
       {
         label: 'Newsletter',
-        emoji: '📧',
+        emoji: '\u{1F4E7}',
         route: 'Newsletter',
         color: Colors.accent,
       },
       {
         label: 'Announcements',
-        emoji: '📢',
+        emoji: '\u{1F4E2}',
         route: 'Announcements',
         color: Colors.warning,
       },
@@ -79,20 +97,20 @@ const SECTIONS = [
     items: [
       {
         label: 'Support Tickets',
-        emoji: '🎧',
+        emoji: '\u{1F3A7}',
         route: 'Support',
         color: Colors.primary,
       },
-      { label: 'Careers', emoji: '👔', route: 'Careers', color: Colors.accent },
+      { label: 'Careers', emoji: '\u{1F454}', route: 'Careers', color: Colors.accent },
       {
         label: 'About Us Team',
-        emoji: '👥',
+        emoji: '\u{1F465}',
         route: 'AboutTeam',
         color: Colors.secondary,
       },
       {
         label: 'Developers',
-        emoji: '💻',
+        emoji: '\u{1F4BB}',
         route: 'Developers',
         color: Colors.gray700,
       },
@@ -103,14 +121,14 @@ const SECTIONS = [
     items: [
       {
         label: 'Work Gallery',
-        emoji: '🖼️',
+        emoji: '\u{1F5BC}️',
         route: 'WorkGallery',
         color: Colors.secondary,
       },
-      { label: 'Photos', emoji: '📷', route: 'Photos', color: Colors.accent },
+      { label: 'Photos', emoji: '\u{1F4F7}', route: 'Photos', color: Colors.accent },
       {
         label: 'Reels',
-        emoji: '🎬',
+        emoji: '\u{1F3AC}',
         route: 'Reels',
         color: Colors.destructive,
       },
@@ -121,7 +139,7 @@ const SECTIONS = [
     items: [
       {
         label: 'Profile',
-        emoji: '👤',
+        emoji: '\u{1F464}',
         route: 'Profile',
         color: Colors.primary,
       },
@@ -132,8 +150,20 @@ const SECTIONS = [
         color: Colors.gray700,
       },
       {
+        label: 'Login Users',
+        emoji: '\u{1F511}',
+        route: 'Users',
+        color: Colors.primary,
+      },
+      {
+        label: 'Client Portal',
+        emoji: '\u{1F4C2}',
+        route: 'ClientPortal',
+        color: Colors.accent,
+      },
+      {
         label: 'Trash',
-        emoji: '🗑️',
+        emoji: '\u{1F5D1}️',
         route: 'Trash',
         color: Colors.destructive,
       },

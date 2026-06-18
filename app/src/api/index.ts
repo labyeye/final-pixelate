@@ -124,6 +124,27 @@ export const whatsappAPI = {
   getMessages: () => api.get('/whatsapp/messages'),
   getInbox: () => api.get('/whatsapp/messages'),
   bulkSend: (data: any) => api.post('/whatsapp/bulk-send', data),
+  getDeliveryLog: (status?: string) =>
+    api.get(`/whatsapp/delivery-log?status=${status || 'all'}&limit=200`),
+};
+
+export const whatsappTemplatesAPI = {
+  getAll: () => api.get('/whatsapp-templates'),
+  getById: (id: string) => api.get(`/whatsapp-templates/${id}`),
+  create: (data: any) => api.post('/whatsapp-templates', data),
+  update: (id: string, data: any) => api.patch(`/whatsapp-templates/${id}`, data),
+  delete: (id: string) => api.delete(`/whatsapp-templates/${id}`),
+  syncFromMeta: () => api.post('/whatsapp-templates/sync', {}),
+  submitToMeta: (id: string, name: string) =>
+    api.post(`/whatsapp-templates/${id}/submit`, { name }),
+};
+
+export const socialMediaTasksAPI = {
+  getAll: () => api.get('/social-media-tasks'),
+  getById: (id: string) => api.get(`/social-media-tasks/${id}`),
+  create: (data: any) => api.post('/social-media-tasks', data),
+  update: (id: string, data: any) => api.put(`/social-media-tasks/${id}`, data),
+  delete: (id: string) => api.delete(`/social-media-tasks/${id}`),
 };
 
 export const campaignsAPI = {
@@ -222,4 +243,10 @@ export const trashAPI = {
 
 export const erpAPI = {
   getEvents: () => api.get('/erp-events'),
+};
+
+export const leadsActivityAPI = {
+  getByLeadId: (leadId: string) => api.get(`/leads/${leadId}/activity`),
+  create: (leadId: string, data: any) =>
+    api.post(`/leads/${leadId}/activity`, data),
 };

@@ -6,8 +6,11 @@ import MoreHomeScreen from '../screens/more/MoreHomeScreen';
 import WhatsAppInboxScreen from '../screens/marketing/WhatsAppInboxScreen';
 import BulkMessagingScreen from '../screens/marketing/BulkMessagingScreen';
 import CampaignsScreen from '../screens/marketing/CampaignsScreen';
+import WhatsAppTemplatesScreen from '../screens/marketing/WhatsAppTemplatesScreen';
+import WhatsAppWebhookScreen from '../screens/marketing/WhatsAppWebhookScreen';
 import SocialMediaPlannerScreen from '../screens/marketing/SocialMediaPlannerScreen';
 import SocialMediaCalendarScreen from '../screens/marketing/SocialMediaCalendarScreen';
+import SocialMediaManagerScreen from '../screens/marketing/SocialMediaManagerScreen';
 import BlogsScreen from '../screens/marketing/BlogsScreen';
 import BlogDetailScreen from '../screens/marketing/BlogDetailScreen';
 import NewsletterScreen from '../screens/marketing/NewsletterScreen';
@@ -25,6 +28,8 @@ import PhotosScreen from '../screens/more/PhotosScreen';
 import ReelsScreen from '../screens/more/ReelsScreen';
 import TrashScreen from '../screens/more/TrashScreen';
 import ERPConsoleScreen from '../screens/more/ERPConsoleScreen';
+import UsersScreen from '../screens/more/UsersScreen';
+import ClientPortalScreen from '../screens/more/ClientPortalScreen';
 
 const Stack = createNativeStackNavigator<MoreStackParams>();
 
@@ -62,6 +67,16 @@ const MoreStack = () => (
       options={{ title: 'CAMPAIGNS' }}
     />
     <Stack.Screen
+      name="WhatsAppTemplates"
+      component={WhatsAppTemplatesScreen}
+      options={{ title: 'WA TEMPLATES' }}
+    />
+    <Stack.Screen
+      name="WhatsAppWebhook"
+      component={WhatsAppWebhookScreen}
+      options={{ title: 'WA DELIVERY LOG' }}
+    />
+    <Stack.Screen
       name="SocialMediaPlanner"
       component={SocialMediaPlannerScreen}
       options={{ title: 'SOCIAL MEDIA' }}
@@ -70,6 +85,11 @@ const MoreStack = () => (
       name="SocialMediaCalendar"
       component={SocialMediaCalendarScreen}
       options={{ title: 'CONTENT CALENDAR' }}
+    />
+    <Stack.Screen
+      name="SocialMediaManager"
+      component={SocialMediaManagerScreen}
+      options={{ title: 'SM MANAGER' }}
     />
     <Stack.Screen
       name="Blogs"
@@ -155,6 +175,16 @@ const MoreStack = () => (
       name="ERPConsole"
       component={ERPConsoleScreen}
       options={{ title: 'ERP CONSOLE' }}
+    />
+    <Stack.Screen
+      name="Users"
+      component={UsersScreen}
+      options={{ title: 'LOGIN USERS' }}
+    />
+    <Stack.Screen
+      name="ClientPortal"
+      component={ClientPortalScreen}
+      options={{ title: 'CLIENT PORTAL' }}
     />
   </Stack.Navigator>
 );

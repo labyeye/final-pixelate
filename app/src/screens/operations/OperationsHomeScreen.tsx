@@ -53,6 +53,13 @@ const SECTIONS = [
     color: Colors.primary,
     desc: 'Service catalogue',
   },
+  {
+    label: 'TIMELINE',
+    icon: 'columns',
+    route: 'Timeline',
+    color: Colors.secondary,
+    desc: 'Project Kanban board',
+  },
 ];
 
 const OperationsHomeScreen = () => {

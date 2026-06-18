@@ -180,6 +180,23 @@ export default function NestHRSubscriptionsPage() {
       const res = await apiFetch("/api/nesthr-stats");
       const data = await res.json();
       if (!data.success) throw new Error(data.error ?? "Unknown error");
+      // Normalise — fill any missing sub-objects so the page never crashes on undefined
+      data.overview = data.overview ?? {};
+      data.overview.tenants = data.overview.tenants ?? {};
+      data.overview.subscriptions = data.overview.subscriptions ?? {};
+      data.overview.revenue = data.overview.revenue ?? {};
+      data.overview.revenue.byBillingCycle = data.overview.revenue.byBillingCycle ?? {};
+      data.overview.revenue.byBillingCycle.monthly = data.overview.revenue.byBillingCycle.monthly ?? { total: 0, count: 0 };
+      data.overview.revenue.byBillingCycle.yearly = data.overview.revenue.byBillingCycle.yearly ?? { total: 0, count: 0 };
+      data.overview.employees = data.overview.employees ?? {};
+      data.overview.activity = data.overview.activity ?? {};
+      data.overview.planBreakdown = data.overview.planBreakdown ?? [];
+      data.alerts = data.alerts ?? {};
+      data.alerts.expiringIn7Days = data.alerts.expiringIn7Days ?? [];
+      data.alerts.expiringIn30Days = data.alerts.expiringIn30Days ?? [];
+      data.alerts.expired = data.alerts.expired ?? [];
+      data.alerts.trialsActive = data.alerts.trialsActive ?? [];
+      data.tenants = data.tenants ?? [];
       setStats(data);
     } catch (e: any) {
       setError(e.message ?? "Failed to load stats");
