@@ -515,7 +515,6 @@
   </head>
 
   <body>
-
     <div id="announcement-bar" class="announcement-bar">
       <div class="announcement-content" id="announcement-content"></div>
     </div>
@@ -832,7 +831,7 @@
                               alt="School Management System"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >School Management</span
                               >
@@ -847,7 +846,7 @@
                               alt="Counter Billing Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >Counter Billing</span
                               >
@@ -862,7 +861,7 @@
                               alt="FMCG Retail and Wholesale Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >FMCG Retail</span
                               >
@@ -877,7 +876,7 @@
                               alt="Library Management Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >Library Management</span
                               >
@@ -892,7 +891,7 @@
                               alt="Transport Management Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >Transport Management</span
                               >
@@ -907,7 +906,7 @@
                               alt="Lead Generation Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >Lead Generation</span
                               >
@@ -922,7 +921,7 @@
                               alt="Hotel Management Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >Hotel Management</span
                               >
@@ -937,7 +936,7 @@
                               alt="GST Billing Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >GST Billing</span
                               >
@@ -952,7 +951,7 @@
                               alt="Attendance & Payroll Software"
                               loading="lazy"
                             />
-                            <div class="products-mega-card-overlay">
+                            <div>
                               <span class="products-mega-card-title"
                                 >Attendance &amp; Payroll</span
                               >
@@ -1519,7 +1518,7 @@
       }
       .pn-grid-loader-track {
         fill: none;
-        stroke: rgba(255,255,255,0.1);
+        stroke: rgba(255, 255, 255, 0.1);
         stroke-width: 5;
       }
       .pn-grid-loader-arc {
@@ -1539,11 +1538,20 @@
         animation: pn-grid-pulse 1.6s ease-in-out infinite;
       }
       @keyframes pn-grid-spin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
       @keyframes pn-grid-pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50%       { transform: scale(0.9); opacity: 0.75; }
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(0.9);
+          opacity: 0.75;
+        }
       }
       .pn-grid-loader-wrap {
         display: flex;
@@ -1558,14 +1566,22 @@
         letter-spacing: 0.04em;
       }
       .pn-loading-text::after {
-        content: '';
+        content: "";
         animation: pn-dots 1.5s steps(3, end) infinite;
       }
       @keyframes pn-dots {
-        0%   { content: '.'; }
-        33%  { content: '..'; }
-        66%  { content: '...'; }
-        100% { content: ''; }
+        0% {
+          content: ".";
+        }
+        33% {
+          content: "..";
+        }
+        66% {
+          content: "...";
+        }
+        100% {
+          content: "";
+        }
       }
     </style>
 

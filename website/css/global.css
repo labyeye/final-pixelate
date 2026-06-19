@@ -574,6 +574,8 @@ li {
 }
 .nav-wrap {
   padding-top: 32px;
+  position: relative;
+  z-index: 1000;
 }
 .navbar.sticky {
   position: fixed;
@@ -721,7 +723,7 @@ li {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 .hero-v1-content {
   width: 100%;
