@@ -25,11 +25,7 @@
 
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
     <link href="./styles.css" rel="stylesheet" crossorigin />
-    <link
-      rel="stylesheet"
-      href="../../../assets/fonts/all.min.css"
-      
-    />
+    <link rel="stylesheet" href="../../../assets/fonts/all.min.css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link
       href="https://fonts.gstatic.com"
@@ -1274,7 +1270,7 @@
       );
       const _dsServiceSlug = _dsPathMatch
         ? decodeURIComponent(_dsPathMatch[1])
-        : (_dsParams.get("service") || "video-editing");
+        : _dsParams.get("service") || "video-editing";
 
       async function loadServiceData() {
         try {
