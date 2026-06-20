@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/pages/services/web-dev.css" />
   <link rel="stylesheet" href="../css/pages/portfolio.css" />
+  <link rel="stylesheet" href="../css/pages/portfolio-details-sections.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -543,7 +544,432 @@
     </div>
   </main>
 
-  
+
+  <!-- ═══════════════════════════════════════════════════════
+       PORTFOLIO DETAILS — EXTENDED SECTIONS
+       All content is injected by portfolio-details.js from
+       the project object (localStorage → later: API).
+       Sections with no data remain hidden (pd-dynamic-section).
+       ═══════════════════════════════════════════════════════ -->
+  <div class="pd-sections">
+
+    <!-- ── S1: Metadata ── -->
+    <section class="pd-section pd-section-alt pd-dynamic-section" id="pd-sec-meta">
+      <div class="pd-container">
+        <div class="pd-meta-grid" id="pd-meta-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── S2: About ── -->
+    <section class="pd-section pd-dynamic-section" id="pd-sec-about">
+      <div class="pd-container">
+        <span class="pd-section-label">About the Project</span>
+        <h2 class="pd-section-heading">Background &amp; Approach</h2>
+        <div class="pd-heading-accent"></div>
+        <div class="pd-about-layout">
+          <div class="pd-about-text reveal" id="pd-about-text"></div>
+          <div class="pd-stats-card reveal reveal-d2" id="pd-stats-card" style="display:none">
+            <span class="pd-stats-card-title">Project at a Glance</span>
+            <div id="pd-stat-rows"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── S3: Key Features ── -->
+    <section class="pd-section pd-section-alt pd-dynamic-section" id="pd-sec-features">
+      <div class="pd-container">
+        <span class="pd-section-label">Features</span>
+        <h2 class="pd-section-heading">Key Features</h2>
+        <div class="pd-heading-accent"></div>
+        <div class="pd-features-grid" id="pd-features-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── S4: Tech Stack ── -->
+    <section class="pd-section pd-dynamic-section" id="pd-sec-tech">
+      <div class="pd-container">
+        <span class="pd-section-label">Technology</span>
+        <h2 class="pd-section-heading">Tech Stack</h2>
+        <div class="pd-heading-accent"></div>
+        <div class="pd-tech-grid" id="pd-tech-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── S5: Challenges & Solutions ── -->
+    <section class="pd-section pd-section-alt pd-dynamic-section" id="pd-sec-cs">
+      <div class="pd-container">
+        <span class="pd-section-label">Problem Solving</span>
+        <h2 class="pd-section-heading">Challenges &amp; Solutions</h2>
+        <div class="pd-heading-accent"></div>
+        <div class="pd-cs-list" id="pd-cs-list"></div>
+      </div>
+    </section>
+
+    <!-- ── S6: Gallery ── -->
+    <section class="pd-section pd-dynamic-section" id="pd-sec-gallery">
+      <div class="pd-container">
+        <span class="pd-section-label">Screenshots</span>
+        <h2 class="pd-section-heading">Project Gallery</h2>
+        <div class="pd-heading-accent"></div>
+        <div class="pd-gallery-grid" id="pd-gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── S7: Results ── -->
+    <section class="pd-section pd-section-alt pd-dynamic-section" id="pd-sec-results">
+      <div class="pd-container">
+        <span class="pd-section-label">Results</span>
+        <h2 class="pd-section-heading">Impact &amp; Outcomes</h2>
+        <div class="pd-heading-accent"></div>
+        <div class="pd-results-grid" id="pd-results-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── S8: Timeline ── -->
+    <section class="pd-section pd-dynamic-section" id="pd-sec-timeline">
+      <div class="pd-container" style="text-align:center">
+        <span class="pd-section-label">Process</span>
+        <h2 class="pd-section-heading">Project Timeline</h2>
+        <div class="pd-heading-accent" style="margin-left:auto;margin-right:auto"></div>
+        <div class="pd-timeline-wrap" id="pd-timeline-wrap"></div>
+      </div>
+    </section>
+
+    <!-- ── S9: CTA / Related ── -->
+    <section class="pd-section pd-section-alt" id="pd-sec-cta">
+      <div class="pd-container">
+        <div class="pd-cta-row">
+          <a href="https://www.pixelatenest.com/" class="pd-cta-btn pd-cta-outline">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+          </a>
+          <a href="https://www.pixelatenest.com/pages/contact.html" class="pd-cta-btn pd-cta-primary">
+            Start Your Project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div id="pd-related-wrap" style="display:none">
+          <p class="pd-related-eyebrow">You May Also Like</p>
+          <div class="pd-related-grid" id="pd-related-grid"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- End .pd-sections -->
+
+  <!-- Lightbox -->
+  <div class="pd-lightbox" id="pdLightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="pd-lightbox-close" id="pdLightboxClose" aria-label="Close">&times;</button>
+    <img id="pdLightboxImg" src="" alt="" />
+    <div class="pd-lightbox-caption" id="pdLightboxCaption"></div>
+  </div>
+
+  <script>
+    /* ── Portfolio Details: DB-driven render ──
+       Data source priority:
+         1. window.DASHBOARD_API_BASE + /api/projects/:id  (when backend is live)
+         2. localStorage 'pn_portfolio_item'               (current fallback)
+       The project object shape matches the MongoDB schema
+       defined in dashboard.js. All sections are hidden by
+       default (pd-dynamic-section) and shown only when the
+       corresponding field array/object has content.
+    ── */
+    (function () {
+
+      /* ── helpers ── */
+      function show(id) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = '';
+      }
+      function el(tag, cls, text) {
+        var e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (text !== undefined) e.textContent = text;
+        return e;
+      }
+      function arr(v) { return Array.isArray(v) ? v : []; }
+
+      /* ── scroll reveal (runs after render) ── */
+      function initReveal() {
+        var items = document.querySelectorAll('.reveal');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.1 });
+        items.forEach(function (i) { io.observe(i); });
+      }
+
+      /* ── lightbox ── */
+      function initLightbox() {
+        var lb  = document.getElementById('pdLightbox');
+        var img = document.getElementById('pdLightboxImg');
+        var cap = document.getElementById('pdLightboxCaption');
+        var btn = document.getElementById('pdLightboxClose');
+        if (!lb) return;
+        document.querySelectorAll('.pd-gallery-item').forEach(function (item) {
+          item.addEventListener('click', function () {
+            img.src = item.dataset.lbSrc || '';
+            img.alt = item.dataset.lbCaption || '';
+            cap.textContent = item.dataset.lbCaption || '';
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+        function close() { lb.classList.remove('open'); document.body.style.overflow = ''; img.src = ''; }
+        btn.addEventListener('click', close);
+        lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+      }
+
+      /* ════════════════════════════
+         RENDER FUNCTIONS
+         ════════════════════════════ */
+
+      /* S1 — Metadata */
+      function renderMeta(p) {
+        var cells = [
+          { icon: '🗂️', label: 'Category',  value: p.web && p.web.category ? p.web.category : (p.project_type || '') },
+          { icon: '👤', label: 'Client',    value: p.client_name || '' },
+          { icon: '📅', label: 'Year',      value: p.year ? String(p.year) : '' },
+          { icon: '📍', label: 'Location',  value: p.location || '' },
+        ].filter(function (c) { return c.value; });
+        if (!cells.length) return;
+        var grid = document.getElementById('pd-meta-grid');
+        cells.forEach(function (c, i) {
+          var cell = el('div', 'pd-meta-cell reveal' + (i ? ' reveal-d' + i : ''));
+          cell.innerHTML = '<span class="pd-meta-icon">' + c.icon + '</span>' +
+            '<span class="pd-meta-label">' + c.label + '</span>' +
+            '<span class="pd-meta-value">' + c.value + '</span>';
+          grid.appendChild(cell);
+        });
+        show('pd-sec-meta');
+      }
+
+      /* S2 — About */
+      function renderAbout(p) {
+        var desc = (p.long_description || p.description || p.summary || p.short_description || '').trim();
+        if (!desc) return;
+        var textWrap = document.getElementById('pd-about-text');
+        // Support multi-paragraph: split on \n\n or just render as one block
+        desc.split(/\n{2,}/).forEach(function (para) {
+          var pg = el('p', null, para.trim());
+          textWrap.appendChild(pg);
+        });
+        // Stats card
+        var s = (p.web && p.web.stats) || {};
+        var statsRows = [
+          { label: 'Total Pages', value: s.total_pages },
+          { label: 'Timeline',    value: s.timeline    },
+          { label: 'Team Size',   value: s.team_size   },
+          { label: 'Industry',    value: s.industry    },
+        ].filter(function (r) { return r.value; });
+        if (statsRows.length) {
+          var rowWrap = document.getElementById('pd-stat-rows');
+          statsRows.forEach(function (r) {
+            var div = el('div', 'pd-stat-item');
+            div.innerHTML = '<span class="s-label">' + r.label + '</span><span class="s-value">' + r.value + '</span>';
+            rowWrap.appendChild(div);
+          });
+          document.getElementById('pd-stats-card').style.display = '';
+        }
+        show('pd-sec-about');
+      }
+
+      /* S3 — Key Features */
+      function renderFeatures(p) {
+        var features = arr((p.web || p.app || p.software || {}).features);
+        if (!features.length) return;
+        var grid = document.getElementById('pd-features-grid');
+        var delays = ['', ' reveal-d1', ' reveal-d2', ' reveal-d3', ' reveal-d4', ' reveal-d5'];
+        features.forEach(function (f, i) {
+          var card = el('div', 'pd-feature-card reveal' + (delays[i] || ''));
+          card.innerHTML = '<span class="pd-feature-icon">' + (f.icon || '⚙️') + '</span>' +
+            '<h4>' + (f.title || '') + '</h4>' +
+            '<p>' + (f.description || '') + '</p>';
+          grid.appendChild(card);
+        });
+        show('pd-sec-features');
+      }
+
+      /* S4 — Tech Stack (web only; for other types uses flat tech_stack array) */
+      function renderTech(p) {
+        var grid = document.getElementById('pd-tech-grid');
+        var cols = [];
+        if (p.web) {
+          cols = [
+            { label: '⚛ Frontend', cls: 'c-frontend', tags: arr(p.web.tech_frontend) },
+            { label: '🟢 Backend',  cls: 'c-backend',  tags: arr(p.web.tech_backend)  },
+            { label: '🗄 Database', cls: 'c-database', tags: arr(p.web.tech_database) },
+            { label: '🛠 Tools',    cls: 'c-tools',    tags: arr(p.web.tech_tools)    },
+          ].filter(function (c) { return c.tags.length; });
+        } else {
+          var stack = arr((p.app || p.software || p.uiux || p.video || {}).tech_stack ||
+                         (p.app || p.software || p.uiux || p.video || {}).tools_used);
+          if (stack.length) {
+            cols = [{ label: '🛠 Stack', cls: 'c-tools', tags: stack }];
+          }
+        }
+        if (!cols.length) return;
+        cols.forEach(function (c, i) {
+          var col = el('div', 'pd-tech-col reveal' + (i ? ' reveal-d' + i : ''));
+          var hdr = el('div', 'pd-tech-col-header ' + c.cls, c.label);
+          var tagList = el('div', 'pd-tech-tag-list');
+          c.tags.forEach(function (t) { tagList.appendChild(el('span', 'pd-tech-tag', t)); });
+          col.appendChild(hdr);
+          col.appendChild(tagList);
+          grid.appendChild(col);
+        });
+        show('pd-sec-tech');
+      }
+
+      /* S5 — Challenges & Solutions */
+      function renderCS(p) {
+        var pairs = arr((p.web || p.app || p.software || {}).challenges);
+        if (!pairs.length) return;
+        var list = document.getElementById('pd-cs-list');
+        pairs.forEach(function (pair) {
+          var wrap = el('div', 'pd-cs-pair');
+          var ch = el('div', 'pd-cs-challenge reveal');
+          ch.innerHTML = '<span class="pd-cs-badge">⚠️ Challenge</span><p>' + (pair.challenge || '') + '</p>';
+          var sol = el('div', 'pd-cs-solution reveal reveal-d1');
+          sol.innerHTML = '<span class="pd-cs-badge">✅ Solution</span><p>' + (pair.solution || '') + '</p>';
+          wrap.appendChild(ch);
+          wrap.appendChild(sol);
+          list.appendChild(wrap);
+        });
+        show('pd-sec-cs');
+      }
+
+      /* S6 — Gallery */
+      function renderGallery(p) {
+        var type = p.web || p.app || p.software || p.uiux || p.branding || {};
+        var items = arr(type.gallery || type.bts_gallery);
+        if (!items.length) return;
+        var grid = document.getElementById('pd-gallery-grid');
+        var delays = ['', ' reveal-d1', ' reveal-d2', ' reveal-d3', ' reveal-d4', ' reveal-d5'];
+        items.forEach(function (img, i) {
+          var url = img.url || '';
+          var cap = img.caption || '';
+          var item = el('div', 'pd-gallery-item reveal' + (delays[i % 6] || ''));
+          item.dataset.lbSrc     = url;
+          item.dataset.lbCaption = cap;
+          var image = document.createElement('img');
+          image.src     = url;
+          image.alt     = cap;
+          image.loading = 'lazy';
+          var capEl = el('div', 'pd-gallery-caption', cap);
+          item.appendChild(image);
+          item.appendChild(capEl);
+          grid.appendChild(item);
+        });
+        show('pd-sec-gallery');
+      }
+
+      /* S7 — Results */
+      function renderResults(p) {
+        var type = p.web || p.app || p.software || p.marketing || {};
+        var stats = arr(type.impact_stats);
+        if (!stats.length) return;
+        var grid = document.getElementById('pd-results-grid');
+        var delays = ['', ' reveal-d1', ' reveal-d2', ' reveal-d3'];
+        stats.forEach(function (s, i) {
+          var card = el('div', 'pd-result-card reveal' + (delays[i % 4] || ''));
+          card.innerHTML = '<span class="r-icon">' + (s.icon || '📊') + '</span>' +
+            '<span class="r-number">' + (s.number || '') + '</span>' +
+            '<span class="r-label">' + (s.label || '') + '</span>';
+          grid.appendChild(card);
+        });
+        show('pd-sec-results');
+      }
+
+      /* S8 — Timeline */
+      function renderTimeline(p) {
+        var phases = arr((p.web || {}).timeline_phases || (p.uiux || {}).process_steps);
+        if (!phases.length) return;
+        var wrap = document.getElementById('pd-timeline-wrap');
+        phases.forEach(function (ph, i) {
+          var step = el('div', 'pd-tl-step ' + (i % 2 === 0 ? 'left-active' : 'right-active'));
+          var card = el('div', 'pd-tl-card reveal');
+          card.innerHTML = '<h4>' + (ph.phase_name || ph.step_name || '') + '</h4>' +
+            '<p>' + (ph.description || '') + '</p>';
+          var dot = el('div', 'pd-tl-dot');
+          var dotInner = el('div', 'pd-tl-dot-inner', String(i + 1));
+          dot.appendChild(dotInner);
+          var left  = el('div', 'pd-tl-left');
+          var right = el('div', 'pd-tl-right');
+          if (i % 2 === 0) left.appendChild(card); else right.appendChild(card);
+          step.appendChild(left);
+          step.appendChild(dot);
+          step.appendChild(right);
+          wrap.appendChild(step);
+        });
+        show('pd-sec-timeline');
+      }
+
+      /* S9 — Related projects */
+      function renderRelated(p) {
+        var related = arr(p.related_projects);
+        if (!related.length) return;
+        var grid = document.getElementById('pd-related-grid');
+        var delays = ['', ' reveal-d1', ' reveal-d2'];
+        related.forEach(function (r, i) {
+          var a = el('a', 'pd-related-card reveal' + (delays[i] || ''));
+          a.href = r.url || '#';
+          var img = document.createElement('img');
+          img.src     = r.image || '';
+          img.alt     = r.title || '';
+          img.loading = 'lazy';
+          var info = el('div', 'pd-related-info');
+          info.innerHTML = '<h5>' + (r.title || '') + '</h5>';
+          var tags = el('div', 'pd-related-tags');
+          arr(r.tags || r.tech).forEach(function (t) { tags.appendChild(el('span', null, t)); });
+          info.appendChild(tags);
+          a.appendChild(img);
+          a.appendChild(info);
+          grid.appendChild(a);
+        });
+        document.getElementById('pd-related-wrap').style.display = '';
+      }
+
+      /* ════════════════════════════
+         ENTRY — load data then render
+         ════════════════════════════ */
+      function render(project) {
+        renderMeta(project);
+        renderAbout(project);
+        renderFeatures(project);
+        renderTech(project);
+        renderCS(project);
+        renderGallery(project);
+        renderResults(project);
+        renderTimeline(project);
+        renderRelated(project);
+        initReveal();
+        initLightbox();
+      }
+
+      /* Try API first, fall back to localStorage */
+      var API  = (window.DASHBOARD_API_BASE || '').replace(/\/$/, '');
+      var raw  = localStorage.getItem('pn_portfolio_item');
+      var local = null;
+      try { local = raw ? JSON.parse(raw) : null; } catch (e) { local = null; }
+
+      if (API && local && local._id) {
+        fetch(API + '/api/projects/' + local._id)
+          .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+          .then(function (data) { render(data); })
+          .catch(function () { if (local) render(local); });
+      } else if (local) {
+        render(local);
+      } else {
+        window.location.href = 'https://www.pixelatenest.com/pages/pricing.html';
+      }
+
+    })();
+
+  </script>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-wrap">

@@ -331,6 +331,14 @@
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/quotations/(?<nxtPid>[^/]+?)/view(?:/)?$"
+    },
+    {
+      "page": "/work-gallery/edit/[id]",
+      "regex": "^/work\\-gallery/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/work\\-gallery/edit/(?<nxtPid>[^/]+?)(?:/)?$"
     }
   ],
   "staticRoutes": [
@@ -1155,6 +1163,12 @@
       "regex": "^/work\\-gallery(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/work\\-gallery(?:/)?$"
+    },
+    {
+      "page": "/work-gallery/add",
+      "regex": "^/work\\-gallery/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work\\-gallery/add(?:/)?$"
     }
   ],
   "dataRoutes": [],

@@ -61,6 +61,8 @@
   "/(crm)/trash/page": "/trash",
   "/(crm)/user-activity/page": "/user-activity",
   "/(crm)/users/page": "/users",
+  "/(crm)/work-gallery/add/page": "/work-gallery/add",
+  "/(crm)/work-gallery/edit/[id]/page": "/work-gallery/edit/[id]",
   "/(crm)/work-gallery/page": "/work-gallery",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",

@@ -61,6 +61,8 @@
   "/(crm)/trash/page": "app/(crm)/trash/page.js",
   "/(crm)/user-activity/page": "app/(crm)/user-activity/page.js",
   "/(crm)/users/page": "app/(crm)/users/page.js",
+  "/(crm)/work-gallery/add/page": "app/(crm)/work-gallery/add/page.js",
+  "/(crm)/work-gallery/edit/[id]/page": "app/(crm)/work-gallery/edit/[id]/page.js",
   "/(crm)/work-gallery/page": "app/(crm)/work-gallery/page.js",
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
