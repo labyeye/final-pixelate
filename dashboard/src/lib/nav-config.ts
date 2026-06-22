@@ -174,24 +174,6 @@ export const navGroups = [
     title: "WhatsApp Marketing",
     items: [
       {
-        href: "/dashboard/bulk-messaging",
-        label: "Bulk Messaging",
-        adminOnly: false,
-        icon: MessageCircle,
-      },
-      {
-        href: "/dashboard/whatsapp-inbox",
-        label: "WhatsApp Inbox",
-        adminOnly: false,
-        icon: Mail,
-      },
-      {
-        href: "/dashboard/campaigns",
-        label: "Campaign Insights",
-        adminOnly: false,
-        icon: BarChartIcon,
-      },
-      {
         href: "/dashboard/whatsapp-webhook",
         label: "Webhook Log",
         adminOnly: false,
@@ -316,6 +298,12 @@ export const navGroups = [
         label: "Subscriptions",
         adminOnly: true,
         icon: Building2,
+      },
+      {
+        href: "/nest-hr/invoices",
+        label: "NestHR Invoices",
+        adminOnly: true,
+        icon: Receipt,
       },
     ],
   },

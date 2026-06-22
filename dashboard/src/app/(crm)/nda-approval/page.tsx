@@ -222,7 +222,7 @@ export default function NdaApprovalPage() {
         )}
       </div>
 
-      <div className="border rounded-md">
+      <div className="hidden md:block border rounded-md">
         <Table>
           <TableHeader>
             <TableRow>
@@ -234,39 +234,46 @@ export default function NdaApprovalPage() {
           </TableHeader>
           <TableBody>
             {ndaApprovals.length === 0 ? (
-              <TableRow>
-                <TableCell
-                  colSpan={4}
-                  className="text-center h-24 text-muted-foreground"
-                >
-                  No NDA history found.
-                </TableCell>
-              </TableRow>
+              <TableRow><TableCell colSpan={4} className="text-center h-24 text-muted-foreground">No NDA history found.</TableCell></TableRow>
             ) : (
               ndaApprovals.map((nda) => (
                 <TableRow key={nda._id ?? nda.id}>
-                  <TableCell className="font-medium">
-                    {nda.clientName}
-                  </TableCell>
+                  <TableCell className="font-medium">{nda.clientName}</TableCell>
                   <TableCell>{nda.signatureName || "-"}</TableCell>
-                  <TableCell>
-                    {nda.date ? format(new Date(nda.date), "PP") : "-"}
-                  </TableCell>
+                  <TableCell>{nda.date ? format(new Date(nda.date), "PP") : "-"}</TableCell>
                   <TableCell className="text-right">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => generatePdf(nda)}
-                    >
-                      <Download className="h-4 w-4 mr-2" />
-                      PDF
-                    </Button>
+                    <Button variant="ghost" size="sm" onClick={() => generatePdf(nda)}><Download className="h-4 w-4 mr-2" />PDF</Button>
                   </TableCell>
                 </TableRow>
               ))
             )}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {ndaApprovals.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No NDA history found.</div>}
+        {ndaApprovals.map((nda) => (
+          <div key={nda._id ?? nda.id} className="border-2 border-black bg-white">
+            <div className="divide-y divide-gray-100">
+              <div className="px-3 py-2">
+                <div className="font-black text-base">{nda.clientName}</div>
+              </div>
+              {nda.signatureName && <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Signed By</span>
+                <span className="text-sm">{nda.signatureName}</span>
+              </div>}
+              <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Date</span>
+                <span className="text-sm">{nda.date ? format(new Date(nda.date), "PP") : "-"}</span>
+              </div>
+            </div>
+            <div className="border-t-2 border-black bg-gray-50 px-3 py-2">
+              <Button variant="outline" size="sm" className="h-8 text-xs border-2 border-black" onClick={() => generatePdf(nda)}><Download className="h-3 w-3 mr-1" />Download PDF</Button>
+            </div>
+          </div>
+        ))}
       </div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>

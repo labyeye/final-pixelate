@@ -1,0 +1,3 @@
+{
+  "/api/nesthr-invoices/route": "app/api/nesthr-invoices/route.js"
+}

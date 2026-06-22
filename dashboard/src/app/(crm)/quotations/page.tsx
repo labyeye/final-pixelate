@@ -14,7 +14,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MoreVertical, Download } from "lucide-react";
+import { MoreVertical, Download, FileText, CheckCircle2, Clock, IndianRupee } from "lucide-react";
+import { StatCard } from "@/components/ui/stat-card";
 import { useToast } from "@/hooks/use-toast";
 import { QuotationPDF } from "@/components/quotations/quotation-pdf";
 import { formatCurrency } from "@/lib/currency";
@@ -363,7 +364,20 @@ export default function QuotationsPage() {
         )}
       </header>
 
-      <div className="border-2 border-black rounded-lg overflow-hidden">
+      {!isClient && (
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {[
+            { icon: FileText, label: "TOTAL QUOTES", value: quotations.length, sub: `${quotations.length} records` },
+            { icon: CheckCircle2, label: "ACCEPTED", value: quotations.filter((q: any) => q.status === "accepted").length, sub: "approved" },
+            { icon: Clock, label: "PENDING", value: quotations.filter((q: any) => !q.status || q.status === "pending" || q.status === "sent").length, sub: "awaiting response" },
+            { icon: IndianRupee, label: "TOTAL VALUE", value: `₹${quotations.reduce((s: number, q: any) => s + Number(q.total ?? q.amount ?? 0), 0).toLocaleString()}`, sub: "all quotes" },
+          ].map(({ icon, label, value, sub }, i) => (
+            <StatCard key={label} icon={icon} label={label} value={value} sub={sub} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+          ))}
+        </div>
+      )}
+
+      <div className="hidden md:block border-2 border-black rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
@@ -679,6 +693,71 @@ export default function QuotationsPage() {
             </TableBody>
           </Table>
         </div>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {quotations.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No quotations found.</div>}
+        {quotations.map((quote, idx) => {
+          const qid = (quote as any)._id || (quote as any).id;
+          const servicesTotal = (quote.services || []).reduce((sum: number, item: any) => {
+            const v = Number(item?.amount ?? item?.total ?? (item?.price && item?.qty ? Number(item.price) * Number(item.qty) : item?.unitPrice && item?.qty ? Number(item.unitPrice) * Number(item.qty) : 0));
+            return sum + (Number.isFinite(v) ? v : 0);
+          }, 0);
+          const totalAmount = servicesTotal || quote.amount || 0;
+          const clientName = (quote.clientId && clientsMap[String(quote.clientId)]?.businessName) || (quote.clientId && clientsMap[String(quote.clientId)]?.name) || quote.clientName || "Client";
+          return (
+            <div key={qid ?? idx} className="border-2 border-black bg-white">
+              <div className="divide-y divide-gray-100">
+                <div className="px-3 py-2">
+                  <div className="font-bold text-base text-[#F36F21]">{(quote as any).quoteId || (quote as any).id || `PN-${String(idx + 1).padStart(5, "0")}`}</div>
+                  <div className="font-semibold text-sm">{(quote as any).title || "Untitled Project"}</div>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Client</span>
+                  <span className="text-sm font-bold text-right flex-1">{clientName}</span>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Amount</span>
+                  <span className="font-black text-base">{formatCurrency(totalAmount)}</span>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Date</span>
+                  <span className="text-sm">{(quote as any).date ? new Date((quote as any).date).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) : "N/A"}</span>
+                </div>
+                {quote.services && quote.services.length > 0 && (
+                  <div className="px-3 py-2">
+                    <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase block mb-1">Services</span>
+                    <div className="flex flex-wrap gap-1">
+                      {quote.services.slice(0, 3).map((s: any, si: number) => <Badge key={si} variant="secondary" className="text-xs">{s.serviceName || s.name || "Service"}</Badge>)}
+                      {quote.services.length > 3 && <Badge variant="outline" className="text-xs">+{quote.services.length - 3} more</Badge>}
+                    </div>
+                  </div>
+                )}
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Status</span>
+                  {isClient ? (
+                    <span className={cn("text-xs font-semibold px-2 py-1 rounded-full", quote.status === "APPROVED" && "bg-green-100 text-green-800", quote.status === "REJECTED" && "bg-red-100 text-red-800", (!quote.status || quote.status === "PENDING") && "bg-yellow-100 text-yellow-800")}>{quote.status || "PENDING"}</span>
+                  ) : (
+                    <Select value={quote.status || "PENDING"} onValueChange={(v) => { setQuotations((prev) => prev.map((q) => { const same = (q as any)._id && (quote as any)._id ? String((q as any)._id) === String((quote as any)._id) : (q as any).id && (quote as any).id ? (q as any).id === (quote as any).id : false; return same ? { ...q, status: v as any } : q; })); persistStatus(quote, v); }}>
+                      <SelectTrigger className={cn("h-8 px-2 font-semibold text-xs w-[110px]", quote.status === "APPROVED" && "bg-green-100 text-green-800 border-green-300", quote.status === "REJECTED" && "bg-red-100 text-red-800 border-red-300", (!quote.status || quote.status === "PENDING") && "bg-yellow-100 text-yellow-800 border-yellow-300")}><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="PENDING">PENDING</SelectItem>
+                        <SelectItem value="APPROVED">APPROVED</SelectItem>
+                        <SelectItem value="REJECTED">REJECTED</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  )}
+                </div>
+              </div>
+              <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-2 flex-wrap">
+                <Button size="sm" variant="outline" className="h-8 text-xs border-2 border-black font-bold" onClick={() => router.push(`/quotations/${qid}/view`)}>View</Button>
+                {!isClient && quote.status === "APPROVED" && <Button size="sm" className="bg-[#F36F21] hover:bg-[#d85e1a] h-8 text-xs" onClick={() => createProjectFromQuote(quote)}>Create Project</Button>}
+                {!isClient && <Button size="sm" variant="ghost" className="h-8 text-xs text-red-600 hover:text-red-700 ml-auto" onClick={() => { if (qid && window.confirm("Delete this quotation?")) deleteQuotation(String(qid)); }}>Delete</Button>}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

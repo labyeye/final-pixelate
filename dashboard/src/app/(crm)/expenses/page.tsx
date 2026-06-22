@@ -31,6 +31,7 @@ import AddExpenseDialog, {
   EXPENSE_CATEGORIES,
   PAYMENT_METHODS,
 } from "@/components/expenses/add-expense-dialog";
+import { StatCard } from "@/components/ui/stat-card";
 import {
   TrendingUp,
   TrendingDown,
@@ -245,96 +246,10 @@ export default function ExpensesPage() {
 
       {}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card className="border-2 border-black">
-          <CardContent className="pt-4 pb-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wide">
-                  Total Paid
-                </p>
-                <p className="text-2xl font-black mt-1">
-                  ₹{stats.total.toLocaleString()}
-                </p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  {stats.count} entries
-                </p>
-              </div>
-              <div className="h-12 w-12 bg-primary rounded-xl flex items-center justify-center">
-                <Wallet className="h-6 w-6 text-primary-foreground" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-black">
-          <CardContent className="pt-4 pb-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wide">
-                  This Month
-                </p>
-                <p className="text-2xl font-black mt-1">
-                  ₹{stats.thisMonthTotal.toLocaleString()}
-                </p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  Paid expenses
-                </p>
-              </div>
-              <div className="h-12 w-12 bg-accent rounded-xl flex items-center justify-center">
-                <CalendarDays className="h-6 w-6 text-accent-foreground" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-secondary">
-          <CardContent className="pt-4 pb-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wide">
-                  Pending
-                </p>
-                <p className="text-2xl font-black mt-1">
-                  ₹{stats.pendingTotal.toLocaleString()}
-                </p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  To be paid
-                </p>
-              </div>
-              <div className="h-12 w-12 bg-secondary rounded-xl flex items-center justify-center">
-                <AlertCircle className="h-6 w-6 text-secondary-foreground" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-black">
-          <CardContent className="pt-4 pb-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wide">
-                  Top Category
-                </p>
-                <p className="text-lg font-black mt-1 capitalize leading-tight">
-                  {stats.topCategory
-                    ? getCategoryLabel(stats.topCategory[0])
-                        .split(" ")
-                        .slice(1)
-                        .join(" ")
-                    : "—"}
-                </p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  {stats.topCategory
-                    ? `₹${Number(stats.topCategory[1]).toLocaleString()}`
-                    : "No data"}
-                </p>
-              </div>
-              <div className="h-12 w-12 bg-success rounded-xl flex items-center justify-center">
-                <TrendingUp className="h-6 w-6 text-success-foreground" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <StatCard icon={Wallet} label="TOTAL PAID" value={`₹${stats.total.toLocaleString()}`} sub={`${stats.count} entries`} iconVariant="primary" />
+        <StatCard icon={CalendarDays} label="THIS MONTH" value={`₹${stats.thisMonthTotal.toLocaleString()}`} sub="paid expenses" iconVariant="secondary" />
+        <StatCard icon={AlertCircle} label="PENDING" value={`₹${stats.pendingTotal.toLocaleString()}`} sub="to be paid" iconVariant="primary" />
+        <StatCard icon={TrendingUp} label="TOP CATEGORY" value={stats.topCategory ? getCategoryLabel(stats.topCategory[0]).split(" ").slice(1).join(" ") || getCategoryLabel(stats.topCategory[0]) : "—"} sub={stats.topCategory ? `₹${Number(stats.topCategory[1]).toLocaleString()}` : "No data"} iconVariant="secondary" />
       </div>
 
       {}
@@ -437,7 +352,8 @@ export default function ExpensesPage() {
                       </p>
                     </div>
                   ) : (
-                    <div className="overflow-x-auto">
+                    <>
+                    <div className="hidden md:block overflow-x-auto">
                       <Table>
                         <TableHeader>
                           <TableRow className="bg-muted/50">
@@ -605,6 +521,69 @@ export default function ExpensesPage() {
                         </TableBody>
                       </Table>
                     </div>
+
+                    {/* Mobile cards */}
+                    <div className="md:hidden space-y-3 mt-3">
+                      {filtered.map((e) => {
+                        const eid = e._id?.toString() || e.id;
+                        return (
+                          <div key={eid} className="border-2 border-black bg-white">
+                            <div className="divide-y divide-gray-100">
+                              <div className="px-3 py-2">
+                                <div className="font-bold text-sm">{e.title}</div>
+                                {e.staffName && <div className="text-xs text-blue-600 font-semibold">Staff: {e.staffName}</div>}
+                                {e.linkedProjectTitle && <div className="text-xs text-purple-600 font-semibold">Project: {e.linkedProjectTitle}</div>}
+                                {e.note && <div className="text-xs text-muted-foreground italic">{e.note}</div>}
+                              </div>
+                              <div className="flex justify-between items-center px-3 py-2">
+                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Amount</span>
+                                <span className="font-black text-base">₹{Number(e.amount || 0).toLocaleString()}</span>
+                              </div>
+                              <div className="flex justify-between items-center px-3 py-2">
+                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Category</span>
+                                <CategoryCell category={e.category} />
+                              </div>
+                              {e.vendor && <div className="flex justify-between items-center px-3 py-2">
+                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Vendor</span>
+                                <span className="text-sm text-right flex-1">{e.vendor}</span>
+                              </div>}
+                              <div className="flex justify-between items-center px-3 py-2">
+                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Status</span>
+                                <StatusBadge status={e.status || "paid"} />
+                              </div>
+                              <div className="flex justify-between items-center px-3 py-2">
+                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Date</span>
+                                <span className="text-xs text-muted-foreground">{e.date ? new Date(e.date).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : e.createdAt ? new Date(e.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—"}</span>
+                              </div>
+                            </div>
+                            <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-1">
+                              {e.category === "inventory" && e.billUrl && (
+                                <a href={`https://www.pixelatenest.com${e.billUrl}`} target="_blank" rel="noopener noreferrer">
+                                  <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-600 text-blue-500"><FileText className="h-4 w-4" /></Button>
+                                </a>
+                              )}
+                              <AddExpenseDialog onCreated={load} editData={e} editId={eid} trigger={<Button variant="ghost" size="icon" className="h-8 w-8"><Pencil className="h-4 w-4" /></Button>} />
+                              <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                  <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"><Trash2 className="h-4 w-4" /></Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                  <AlertDialogHeader>
+                                    <AlertDialogTitle>Delete Expense?</AlertDialogTitle>
+                                    <AlertDialogDescription>Are you sure you want to delete <strong>&quot;{e.title}&quot;</strong>? This action cannot be undone.</AlertDialogDescription>
+                                  </AlertDialogHeader>
+                                  <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction className="bg-destructive hover:bg-destructive/90 text-destructive-foreground" onClick={() => handleDelete(eid)}>Delete</AlertDialogAction>
+                                  </AlertDialogFooter>
+                                </AlertDialogContent>
+                              </AlertDialog>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    </>
                   )}
                 </CardContent>
               </Card>

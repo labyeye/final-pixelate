@@ -42,6 +42,8 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { Eye, Download, Trash2, FileText, CheckCircle2, Clock, AlertCircle, IndianRupee } from "lucide-react";
+import { StatCard } from "@/components/ui/stat-card";
 
 type Invoice = any;
 
@@ -707,7 +709,7 @@ export default function InvoicingPage() {
 
   return (
     <div className="space-y-8 font-headline">
-      <header className="flex items-center justify-between gap-4">
+      <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <div>
           <h1 className="text-3xl font-black tracking-tighter">
             {isClient ? "MY INVOICES" : "INVOICING"}
@@ -728,7 +730,20 @@ export default function InvoicingPage() {
         )}
       </header>
 
-      <div className="border-2 border-black overflow-x-auto">
+      {!isClient && (
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {[
+            { icon: FileText, label: "TOTAL INVOICES", value: invoices.length, sub: `${invoices.length} records`, variant: "primary" as const },
+            { icon: CheckCircle2, label: "PAID", value: invoices.filter((i: any) => i.status === "PAID").length, sub: `₹${invoices.filter((i: any) => i.status === "PAID").reduce((s: number, i: any) => s + Number(i.amount ?? 0), 0).toLocaleString()}`, variant: "secondary" as const },
+            { icon: Clock, label: "DUE", value: invoices.filter((i: any) => i.status === "DUE").length, sub: `₹${invoices.filter((i: any) => i.status === "DUE").reduce((s: number, i: any) => s + Number(i.amount ?? 0), 0).toLocaleString()}`, variant: "primary" as const },
+            { icon: AlertCircle, label: "OVERDUE", value: invoices.filter((i: any) => i.status === "OVERDUE").length, sub: `₹${invoices.filter((i: any) => i.status === "OVERDUE").reduce((s: number, i: any) => s + Number(i.amount ?? 0), 0).toLocaleString()}`, variant: "secondary" as const },
+          ].map(({ icon, label, value, sub, variant }) => (
+            <StatCard key={label} icon={icon} label={label} value={value} sub={sub} iconVariant={variant} />
+          ))}
+        </div>
+      )}
+
+      <div className="hidden md:block border-2 border-black overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black">
@@ -936,6 +951,78 @@ export default function InvoicingPage() {
           </TableBody>
         </Table>
       </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {invoices.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No invoices found.</div>}
+        {invoices.map((invoice) => {
+          const iid = String(invoice._id ?? invoice.id ?? "");
+          const clientName = invoice.clientName || invoice.client || clients.find((c) => String(c.id ?? c._id) === String(invoice.clientId))?.name || "-";
+          return (
+            <div key={invoice._id ?? invoice.id ?? invoice.invoiceNo} className="border-2 border-black bg-white">
+              <div className="divide-y divide-gray-100">
+                <div className="px-3 py-2 flex items-start justify-between">
+                  <div>
+                    <div className="font-black text-sm">{invoice.invoiceNo ?? invoice.id ?? invoice._id}</div>
+                    <div className="text-xs text-muted-foreground">{invoice.title ?? invoice.projectTitle ?? ""}</div>
+                  </div>
+                  <span className={cn("text-xs font-black tracking-widest p-1", invoice.status === "PAID" && "bg-success text-success-foreground", invoice.status === "DUE" && "bg-destructive text-destructive-foreground", invoice.status === "OVERDUE" && "bg-accent text-accent-foreground")}>{invoice.status}</span>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Client</span>
+                  <span className="text-sm font-bold text-right flex-1">{clientName}</span>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Amount</span>
+                  <span className="font-black text-base">₹{(invoice.amount ?? 0).toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Paid</span>
+                  <span className="text-sm font-bold text-green-700">₹{(invoice.paidAmount ?? 0).toLocaleString()}</span>
+                </div>
+                {invoice.dueDate && <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Due</span>
+                  <span className="text-sm">{new Date(invoice.dueDate).toLocaleDateString()}</span>
+                </div>}
+              </div>
+              <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-1.5">
+                {!isClient && <EditInvoiceDialog invoice={invoice} clients={clients} services={services} projects={projects} onUpdated={refresh} iconOnly />}
+                <Button size="sm" variant="outline" className="h-8 w-8 p-0 border-2 border-black" onClick={() => setPreviewInvoice(invoice)} title="Preview"><Eye className="w-3.5 h-3.5" /></Button>
+                <Button size="sm" className="h-8 w-8 p-0" onClick={() => generatePdfAndSave(invoice)} disabled={!!downloading[iid]} title="Download">
+                  {downloading[iid] ? <span className="text-[10px]">...</span> : <Download className="w-3.5 h-3.5" />}
+                </Button>
+                {!isClient && (
+                  <>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-8 w-8 p-0 border-[#EA4335] text-[#EA4335] hover:bg-[#EA4335] hover:text-white disabled:opacity-50"
+                      title="Send via Gmail"
+                      disabled={!!gmailSending[iid]}
+                      onClick={() => sendGmailInvoice(invoice)}
+                    >
+                      {gmailSending[iid] ? (
+                        <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                        </svg>
+                      ) : (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.148C21.69 2.28 24 3.434 24 5.457z" fill="currentColor" />
+                        </svg>
+                      )}
+                    </Button>
+                    <WhatsAppOptInToggle client={clients.find((c) => String(c.id ?? c._id) === String(invoice.clientId))} onClientUpdate={refreshClients} />
+                    <WhatsAppInvoiceSendButton invoice={invoice} client={clients.find((c) => String(c.id ?? c._id) === String(invoice.clientId))} onClientUpdate={refreshClients} />
+                  </>
+                )}
+                {!isClient && <Button size="sm" variant="destructive" className="h-8 w-8 p-0 ml-auto" disabled={deletingInvoices.has(iid)} onClick={() => handleDeleteInvoice(iid, String(invoice.invoiceNo ?? invoice.id ?? ""))} title="Delete">{deletingInvoices.has(iid) ? <span className="text-[10px]">...</span> : <Trash2 className="w-3.5 h-3.5" />}</Button>}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       {}
       <Dialog
         open={!!previewInvoice}

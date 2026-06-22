@@ -45,6 +45,7 @@ import {
   Eye,
 } from "lucide-react";
 import Link from "next/link";
+import { StatCard } from "@/components/ui/stat-card";
 
 function getToken() {
   return localStorage.getItem("auth_token") || "";
@@ -207,24 +208,10 @@ function AnalyticsStrip({ leads }: { leads: Lead[] }) {
   ];
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-      {cards.map((c) => {
-        const Icon = c.icon;
-        return (
-          <div
-            key={c.label}
-            className={`border-2 border-black p-3 flex flex-col gap-1 ${c.color}`}
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wide">
-                {c.label}
-              </span>
-              <Icon className="w-4 h-4 text-muted-foreground" />
-            </div>
-            <span className="text-2xl font-black">{c.value}</span>
-          </div>
-        );
-      })}
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      {cards.map((c, i) => (
+        <StatCard key={c.label} icon={c.icon} label={c.label.toUpperCase()} value={c.value} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+      ))}
     </div>
   );
 }
@@ -851,7 +838,8 @@ export default function LeadsPage() {
 
       {}
       {!loading && view === "table" && (
-        <div className="border-2 border-black overflow-hidden">
+        <>
+        <div className="hidden md:block border-2 border-black overflow-hidden">
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -1036,6 +1024,68 @@ export default function LeadsPage() {
             </Table>
           </div>
         </div>
+
+        {/* Mobile cards for leads */}
+        <div className="md:hidden space-y-3">
+          {filtered.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No leads match your filters.</div>}
+          {filtered.map((lead) => {
+            const id = String(lead._id || lead.id);
+            const overdueFlag = isOverdue(lead.followUpDate);
+            return (
+              <div key={id} className="border-2 border-black bg-white">
+                <div className="divide-y divide-gray-100">
+                  <div className="px-3 py-2">
+                    <Link href={`/leads/${id}`} className="font-black text-base flex items-center gap-1 hover:underline">{lead.name} <ChevronRight className="w-3 h-3 opacity-40" /></Link>
+                    {lead.doNotDelete && <span className="text-xs text-orange-600 flex items-center gap-0.5"><AlertTriangle className="w-3 h-3" /> protected</span>}
+                  </div>
+                  {(lead.phone || lead.email) && (
+                    <div className="flex justify-between items-start px-3 py-2">
+                      <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Contact</span>
+                      <div className="text-right flex-1">
+                        {lead.phone && <div className="text-sm">{lead.phone}</div>}
+                        {lead.email && <div className="text-xs text-muted-foreground">{lead.email}</div>}
+                      </div>
+                    </div>
+                  )}
+                  {(lead.projectType || lead.subject) && (
+                    <div className="flex justify-between items-start px-3 py-2">
+                      <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Project</span>
+                      <div className="text-right flex-1">
+                        <div className="text-sm">{lead.projectType || lead.subject}</div>
+                        {lead.budget && <div className="text-xs font-bold text-green-700">₹{lead.budget}</div>}
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex justify-between items-center px-3 py-2 gap-2 flex-wrap">
+                    <span className="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">{lead.source || "Unknown"}</span>
+                    {lead.priority && <span className={`text-xs px-2 py-1 rounded-full border font-medium ${priorityColors[lead.priority] || ""}`}>{lead.priority}</span>}
+                    {lead.assignedToName && <span className="text-xs text-muted-foreground">{lead.assignedToName}</span>}
+                  </div>
+                  {lead.followUpDate && (
+                    <div className="flex justify-between items-center px-3 py-2">
+                      <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Follow-up</span>
+                      <span className={`text-xs flex items-center gap-1 ${overdueFlag ? "text-red-600 font-bold" : "text-muted-foreground"}`}>
+                        <Calendar className="w-3 h-3" />{formatDate(lead.followUpDate)}{overdueFlag && <AlertTriangle className="w-3 h-3" />}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-2">
+                  <select
+                    value={lead.status || "not called"}
+                    onChange={(e) => updateLeadStatus(id, e.target.value)}
+                    className={`px-2 py-1 rounded-lg border-2 border-black text-xs font-bold flex-1 ${leadStatusColors[lead.status || "not called"] || "bg-gray-100"}`}
+                  >
+                    {leadStatuses.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                  <Link href={`/leads/${id}`}><Button variant="ghost" size="icon" className="h-7 w-7"><Eye className="w-3.5 h-3.5" /></Button></Link>
+                  {role === "admin" && <Button variant="ghost" size="icon" className="h-7 w-7 text-red-500 hover:text-red-700" onClick={() => deleteLead(id)}><Trash className="w-3.5 h-3.5" /></Button>}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        </>
       )}
 
       {}

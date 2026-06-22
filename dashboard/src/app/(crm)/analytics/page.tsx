@@ -347,9 +347,7 @@ export default function AnalyticsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-black">
-              {animatedTotalInvoices === undefined
-                ? serviceCategories
-                : animatedTotalInvoices}
+              {serviceCategories}
             </div>
           </CardContent>
         </Card>

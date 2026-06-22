@@ -366,7 +366,8 @@ export default function TrashPage() {
           </p>
         </div>
       ) : (
-        <div className="border-2 border-black rounded-xl overflow-hidden">
+        <>
+        <div className="hidden md:block border-2 border-black rounded-xl overflow-hidden">
           <Table>
             <TableHeader className="bg-muted/60">
               <TableRow className="border-b-2 border-black">
@@ -516,6 +517,59 @@ export default function TrashPage() {
             </TableBody>
           </Table>
         </div>
+
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-3">
+          {filtered.map((item) => {
+            const id = String(item._id);
+            const meta = getMeta(item.originalCollection);
+            const summary = meta.summary(item.document);
+            const isRestoring = restoringIds.has(id);
+            const isDeleting = deletingIds.has(id);
+            const doc = item.document;
+            const detail = (doc.clientName ?? doc.client ?? doc.email ?? doc.status ?? doc.amount)
+              ? [doc.clientName ?? doc.client ?? "", doc.email ?? "", doc.amount != null ? `₹${Number(doc.amount).toLocaleString()}` : "", doc.status ?? ""].filter(Boolean).join(" · ")
+              : "—";
+            return (
+              <div key={id} className="border-2 border-black bg-white">
+                <div className="divide-y divide-gray-100">
+                  <div className="px-3 py-2 flex items-center gap-2">
+                    <span className={cn("text-xs font-black tracking-wider px-2 py-0.5 rounded-md whitespace-nowrap", meta.colour)}>{meta.label}</span>
+                    <span className="font-bold text-sm flex-1 truncate">{summary}</span>
+                  </div>
+                  {detail !== "—" && <div className="px-3 py-2 text-xs text-muted-foreground">{detail}</div>}
+                  {item.deletedAt && <div className="flex justify-between items-center px-3 py-2">
+                    <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Deleted</span>
+                    <span className="text-xs">{fmtDate(item.deletedAt)}</span>
+                  </div>}
+                </div>
+                <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2">
+                  <Button size="sm" variant="outline" className="border-2 border-black font-bold h-8 text-xs gap-1" disabled={isRestoring || isDeleting} onClick={() => handleRestore(item)}>
+                    <RotateCcw className="w-3 h-3" />{isRestoring ? "Restoring…" : "Restore"}
+                  </Button>
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <Button size="sm" variant="destructive" className="font-bold h-8 text-xs gap-1 ml-auto" disabled={isRestoring || isDeleting}>
+                        <Trash2 className="w-3 h-3" />{isDeleting ? "Deleting…" : "Delete Forever"}
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent className="border-2 border-black">
+                      <AlertDialogHeader>
+                        <AlertDialogTitle className="font-black text-xl flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-destructive" />Permanently Delete?</AlertDialogTitle>
+                        <AlertDialogDescription className="font-semibold"><span className={cn("text-xs font-black px-1.5 py-0.5 rounded mr-1", meta.colour)}>{meta.label}</span><strong>{summary}</strong> will be permanently removed. This action <strong className="text-destructive">cannot be undone</strong>.</AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel className="border-2 border-black font-bold">Cancel</AlertDialogCancel>
+                        <AlertDialogAction className="bg-destructive text-destructive-foreground font-bold hover:bg-destructive/90" onClick={() => handlePermanentDelete(item)}>Yes, Delete Forever</AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        </>
       )}
 
       <p className="text-xs text-muted-foreground font-semibold text-right">

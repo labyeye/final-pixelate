@@ -367,6 +367,23 @@ const AuthProvider = ({ children })=>{
         })();
         return true;
     };
+    const refreshUser = async ()=>{
+        try {
+            const token = localStorage.getItem("auth_token");
+            if (!token) return;
+            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/me", {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (res.ok) {
+                const updated = await res.json();
+                setUser(updated);
+            }
+        } catch (e) {
+            console.error("refreshUser failed", e);
+        }
+    };
     const logout = ()=>{
         try {
             if (user) {
@@ -420,12 +437,13 @@ const AuthProvider = ({ children })=>{
             user,
             login,
             logout,
-            loading: loading
+            loading: loading,
+            refreshUser
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/src/hooks/use-auth.tsx",
-        lineNumber: 174,
+        lineNumber: 191,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

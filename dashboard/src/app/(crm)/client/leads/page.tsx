@@ -6,6 +6,8 @@ import { useAuth } from "@/hooks/use-auth";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 interface StatusHistoryEntry {
   from: string;
@@ -836,7 +838,8 @@ export default function ClientLeadsPage() {
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
+          <>
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full">
               <thead className="bg-black text-white">
                 <tr>
@@ -1030,6 +1033,37 @@ export default function ClientLeadsPage() {
               </tbody>
             </table>
           </div>
+
+          {/* Mobile cards */}
+          <div className="md:hidden space-y-3 p-3">
+            {filtered.map((lead) => {
+              const followUpDue = lead.followUpDate && lead.followUpDate <= new Date().toISOString().slice(0, 10);
+              return (
+                <div key={String(lead._id || lead.id)} className="border-2 border-black bg-white">
+                  <div className="divide-y divide-gray-100">
+                    <div className="px-3 py-2">
+                      <div className="font-black text-base">{lead.name || "—"}</div>
+                      {lead.campaignName && <div className="text-xs text-gray-500">📢 {lead.campaignName}</div>}
+                    </div>
+                    {(lead.phone || lead.email) && <div className="px-3 py-2">
+                      {lead.phone && <a href={`tel:${lead.phone}`} className="text-sm font-semibold text-blue-700 hover:underline block">{lead.phone}</a>}
+                      {lead.email && <div className="text-xs text-gray-500 truncate">{lead.email}</div>}
+                      {lead.phone && <a href={`https://wa.me/${lead.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-green-600 font-bold hover:underline mt-1"><FontAwesomeIcon icon={faWhatsapp} className="w-3.5 h-3.5" /> WhatsApp</a>}
+                    </div>}
+                    <div className="flex justify-between items-center px-3 py-2 flex-wrap gap-2">
+                      <StatusBadge status={lead.status || "not called"} />
+                      {lead.followUpDate && <span className={`text-xs font-bold ${followUpDue ? "text-red-600" : "text-gray-600"}`}>{followUpDue ? "🔔 " : "📅 "}{new Date(lead.followUpDate).toLocaleDateString("en-IN", { day: "2-digit", month: "short" })}</span>}
+                    </div>
+                    {lead.notes && <div className="px-3 py-2 text-xs text-gray-600">{lead.notes}</div>}
+                  </div>
+                  <div className="border-t-2 border-black bg-gray-50 px-3 py-2">
+                    <Button size="sm" className="text-xs font-bold border-2 border-black h-7 px-3 bg-white text-black hover:bg-black hover:text-white" onClick={() => setSelectedLead(lead)}>Manage</Button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          </>
         )}
       </div>
 

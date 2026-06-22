@@ -27,6 +27,7 @@ import {
   Download,
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { StatCard } from "@/components/ui/stat-card";
 
 export default function ClientPortalPage() {
   const { user, logout } = useAuth();
@@ -224,47 +225,9 @@ export default function ClientPortalPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="border-2 border-black">
-            <CardContent className="pt-6 flex items-center gap-4">
-              <div className="p-3 rounded-lg bg-primary/10 border-2 border-black">
-                <Briefcase className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-3xl font-black">{projects.length}</p>
-                <p className="text-sm text-muted-foreground font-bold">
-                  Total Projects
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="border-2 border-black">
-            <CardContent className="pt-6 flex items-center gap-4">
-              <div className="p-3 rounded-lg bg-primary/10 border-2 border-black">
-                <FileText className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-3xl font-black">{invoices.length}</p>
-                <p className="text-sm text-muted-foreground font-bold">
-                  Total Invoices
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="border-2 border-black">
-            <CardContent className="pt-6 flex items-center gap-4">
-              <div className="p-3 rounded-lg bg-primary/10 border-2 border-black">
-                <Share2 className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-3xl font-black">
-                  {pendingSocialPosts.length}
-                </p>
-                <p className="text-sm text-muted-foreground font-bold">
-                  Posts to Approve
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <StatCard icon={Briefcase} label="TOTAL PROJECTS" value={projects.length} sub="assigned to you" iconVariant="primary" />
+          <StatCard icon={FileText} label="TOTAL INVOICES" value={invoices.length} sub="all invoices" iconVariant="secondary" />
+          <StatCard icon={Share2} label="POSTS TO APPROVE" value={pendingSocialPosts.length} sub="pending approval" iconVariant="primary" />
         </div>
 
         {/* Social Media Approval */}

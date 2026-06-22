@@ -25,6 +25,7 @@ import {
   Activity,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { StatCard } from "@/components/ui/stat-card";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -311,67 +312,14 @@ export default function NestHRSubscriptionsPage() {
               <IndianRupee className="w-5 h-5" /> Revenue
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <Card className="border-2 border-black bg-green-50">
-                <CardHeader className="pb-1 pt-4 px-4">
-                  <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">All-Time Revenue</CardTitle>
-                </CardHeader>
-                <CardContent className="px-4 pb-4">
-                  <p className="text-3xl font-black tracking-tighter">{fmtCurrency(ov.revenue.totalAllTime)}</p>
-                  <p className="text-xs text-muted-foreground font-semibold mt-1">all paid invoices</p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-black bg-green-50">
-                <CardHeader className="pb-1 pt-4 px-4">
-                  <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">Last 30 Days</CardTitle>
-                </CardHeader>
-                <CardContent className="px-4 pb-4">
-                  <p className="text-3xl font-black tracking-tighter">{fmtCurrency(ov.revenue.last30Days)}</p>
-                  <p className="text-xs text-muted-foreground font-semibold mt-1">collected revenue</p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-black bg-blue-50">
-                <CardHeader className="pb-1 pt-4 px-4">
-                  <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">MRR</CardTitle>
-                </CardHeader>
-                <CardContent className="px-4 pb-4">
-                  <p className="text-3xl font-black tracking-tighter">{fmtCurrency(ov.revenue.mrr)}</p>
-                  <p className="text-xs text-muted-foreground font-semibold mt-1">monthly recurring</p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-black bg-blue-50">
-                <CardHeader className="pb-1 pt-4 px-4">
-                  <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">ARR</CardTitle>
-                </CardHeader>
-                <CardContent className="px-4 pb-4">
-                  <p className="text-3xl font-black tracking-tighter">{fmtCurrency(ov.revenue.arr)}</p>
-                  <p className="text-xs text-muted-foreground font-semibold mt-1">annualised recurring</p>
-                </CardContent>
-              </Card>
+              <StatCard icon={IndianRupee} label="ALL-TIME REVENUE" value={fmtCurrency(ov.revenue.totalAllTime)} sub="all paid invoices" iconVariant="primary" />
+              <StatCard icon={TrendingUp} label="LAST 30 DAYS" value={fmtCurrency(ov.revenue.last30Days)} sub="collected revenue" iconVariant="secondary" />
+              <StatCard icon={Activity} label="MRR" value={fmtCurrency(ov.revenue.mrr)} sub="monthly recurring" iconVariant="primary" />
+              <StatCard icon={CheckCircle2} label="ARR" value={fmtCurrency(ov.revenue.arr)} sub="annualised recurring" iconVariant="secondary" />
             </div>
-            {/* Billing cycle split */}
             <div className="grid grid-cols-2 gap-4 mt-4">
-              <Card className="border-2 border-black">
-                <CardHeader className="pb-1 pt-4 px-4">
-                  <CardTitle className="text-xs font-black uppercase tracking-widest">Monthly Plans</CardTitle>
-                </CardHeader>
-                <CardContent className="px-4 pb-4 flex items-end justify-between">
-                  <div>
-                    <p className="text-2xl font-black">{fmtCurrency(ov.revenue.byBillingCycle.monthly.total)}</p>
-                    <p className="text-xs text-muted-foreground font-semibold">{ov.revenue.byBillingCycle.monthly.count} subscribers</p>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-black">
-                <CardHeader className="pb-1 pt-4 px-4">
-                  <CardTitle className="text-xs font-black uppercase tracking-widest">Yearly Plans</CardTitle>
-                </CardHeader>
-                <CardContent className="px-4 pb-4 flex items-end justify-between">
-                  <div>
-                    <p className="text-2xl font-black">{fmtCurrency(ov.revenue.byBillingCycle.yearly.total)}</p>
-                    <p className="text-xs text-muted-foreground font-semibold">{ov.revenue.byBillingCycle.yearly.count} subscribers</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <StatCard icon={Clock} label="MONTHLY PLANS" value={fmtCurrency(ov.revenue.byBillingCycle.monthly.total)} sub={`${ov.revenue.byBillingCycle.monthly.count} subscribers`} iconVariant="primary" />
+              <StatCard icon={Building2} label="YEARLY PLANS" value={fmtCurrency(ov.revenue.byBillingCycle.yearly.total)} sub={`${ov.revenue.byBillingCycle.yearly.count} subscribers`} iconVariant="secondary" />
             </div>
           </div>
 
@@ -382,21 +330,14 @@ export default function NestHRSubscriptionsPage() {
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { label: "Total Companies", value: ov.tenants.total, color: "bg-white" },
-                { label: "Active", value: ov.tenants.active, color: "bg-green-50" },
-                { label: "On Trial", value: ov.tenants.trial, color: "bg-yellow-50" },
-                { label: "Inactive", value: ov.tenants.inactive, color: "bg-gray-50" },
-                { label: "New (7 days)", value: ov.tenants.newLast7Days, color: "bg-blue-50" },
-                { label: "New (30 days)", value: ov.tenants.newLast30Days, color: "bg-blue-50" },
-              ].map((s) => (
-                <Card key={s.label} className={`border-2 border-black ${s.color}`}>
-                  <CardHeader className="pb-1 pt-4 px-4">
-                    <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">{s.label}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="px-4 pb-4">
-                    <p className="text-4xl font-black tracking-tighter">{fmt(s.value)}</p>
-                  </CardContent>
-                </Card>
+                { label: "TOTAL COMPANIES", value: fmt(ov.tenants.total), icon: Building2 },
+                { label: "ACTIVE", value: fmt(ov.tenants.active), icon: CheckCircle2 },
+                { label: "ON TRIAL", value: fmt(ov.tenants.trial), icon: Clock },
+                { label: "INACTIVE", value: fmt(ov.tenants.inactive), icon: XCircle },
+                { label: "NEW (7 DAYS)", value: fmt(ov.tenants.newLast7Days), icon: TrendingUp },
+                { label: "NEW (30 DAYS)", value: fmt(ov.tenants.newLast30Days), icon: Activity },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={value} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
               ))}
             </div>
           </div>
@@ -408,23 +349,16 @@ export default function NestHRSubscriptionsPage() {
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { label: "Active", value: ov.subscriptions.active, color: "bg-green-50" },
-                { label: "Trial", value: ov.subscriptions.trial, color: "bg-yellow-50" },
-                { label: "Cancelled", value: ov.subscriptions.cancelled, color: "bg-gray-50" },
-                { label: "Pending Renewal", value: ov.subscriptions.pendingRenewal, color: "bg-orange-50" },
-                { label: "Expiring in 7 Days", value: ov.subscriptions.expiringIn7Days, color: "bg-red-50" },
-                { label: "Expiring in 30 Days", value: ov.subscriptions.expiringIn30Days, color: "bg-orange-50" },
-                { label: "Expired", value: ov.subscriptions.expired, color: "bg-red-50" },
-                { label: "Total", value: ov.subscriptions.total, color: "bg-white" },
-              ].map((s) => (
-                <Card key={s.label} className={`border-2 border-black ${s.color}`}>
-                  <CardHeader className="pb-1 pt-4 px-4">
-                    <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">{s.label}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="px-4 pb-4">
-                    <p className="text-4xl font-black tracking-tighter">{fmt(s.value)}</p>
-                  </CardContent>
-                </Card>
+                { label: "ACTIVE", value: ov.subscriptions.active, icon: CheckCircle2 },
+                { label: "TRIAL", value: ov.subscriptions.trial, icon: Clock },
+                { label: "CANCELLED", value: ov.subscriptions.cancelled, icon: XCircle },
+                { label: "PENDING RENEWAL", value: ov.subscriptions.pendingRenewal, icon: AlertTriangle },
+                { label: "EXPIRING IN 7 DAYS", value: ov.subscriptions.expiringIn7Days, icon: AlertTriangle },
+                { label: "EXPIRING IN 30 DAYS", value: ov.subscriptions.expiringIn30Days, icon: Clock },
+                { label: "EXPIRED", value: ov.subscriptions.expired, icon: XCircle },
+                { label: "TOTAL", value: ov.subscriptions.total, icon: Activity },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={fmt(value)} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
               ))}
             </div>
           </div>
@@ -436,19 +370,12 @@ export default function NestHRSubscriptionsPage() {
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { label: "Total Employees", value: fmt(ov.employees.total) },
-                { label: "Active Employees", value: fmt(ov.employees.active) },
-                { label: "Avg per Tenant", value: String(ov.employees.avgPerTenant) },
-                { label: "Largest Tenant", value: fmt(ov.employees.maxInOneTenant) },
-              ].map((s) => (
-                <Card key={s.label} className="border-2 border-black bg-white">
-                  <CardHeader className="pb-1 pt-4 px-4">
-                    <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">{s.label}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="px-4 pb-4">
-                    <p className="text-4xl font-black tracking-tighter">{s.value}</p>
-                  </CardContent>
-                </Card>
+                { label: "TOTAL EMPLOYEES", value: fmt(ov.employees.total), icon: Users },
+                { label: "ACTIVE EMPLOYEES", value: fmt(ov.employees.active), icon: CheckCircle2 },
+                { label: "AVG PER TENANT", value: String(ov.employees.avgPerTenant), icon: Activity },
+                { label: "LARGEST TENANT", value: fmt(ov.employees.maxInOneTenant), icon: Building2 },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={value} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
               ))}
             </div>
           </div>
@@ -460,18 +387,11 @@ export default function NestHRSubscriptionsPage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: "Attendance Records", value: ov.activity.attendanceRecordsLast30Days },
-                { label: "Leave Requests", value: ov.activity.leaveRequestsLast30Days },
-                { label: "Payrolls Processed", value: ov.activity.payrollsProcessedLast30Days },
-              ].map((s) => (
-                <Card key={s.label} className="border-2 border-black bg-white">
-                  <CardHeader className="pb-1 pt-4 px-4">
-                    <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">{s.label}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="px-4 pb-4">
-                    <p className="text-4xl font-black tracking-tighter">{fmt(s.value)}</p>
-                  </CardContent>
-                </Card>
+                { label: "ATTENDANCE RECORDS", value: ov.activity.attendanceRecordsLast30Days, icon: CheckCircle2 },
+                { label: "LEAVE REQUESTS", value: ov.activity.leaveRequestsLast30Days, icon: Clock },
+                { label: "PAYROLLS PROCESSED", value: ov.activity.payrollsProcessedLast30Days, icon: IndianRupee },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={fmt(value)} sub="last 30 days" iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
               ))}
             </div>
           </div>

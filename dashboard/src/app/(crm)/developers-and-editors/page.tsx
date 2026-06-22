@@ -201,7 +201,7 @@ export default function DevelopersAndEditorsPage() {
         </AddMemberDialog>
       </header>
 
-      <div className="border-2 border-black">
+      <div className="hidden md:block border-2 border-black">
         <div className="p-4 flex items-center justify-between">
           <div>
             {loading ? (
@@ -312,6 +312,46 @@ export default function DevelopersAndEditorsPage() {
             ))}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {users.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No team members found.</div>}
+        {users.map((member) => {
+          const mid = member._id ?? member.id;
+          const avatarSrc = member.avatar || member.profileImage || member.image || member.avatarUrl;
+          return (
+            <div key={mid} className="border-2 border-black bg-white">
+              <div className="divide-y divide-gray-100">
+                <div className="px-3 py-3 flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full border-2 border-black bg-primary/20 flex items-center justify-center overflow-hidden shrink-0">
+                    {avatarSrc ? <img src={avatarSrc} alt={member.name} className="w-full h-full object-cover" /> : <span className="text-lg font-black text-primary">{member.name?.charAt(0).toUpperCase()}</span>}
+                  </div>
+                  <div>
+                    <div className="font-black text-base">{member.name}</div>
+                    <div className="text-xs text-muted-foreground">{member.jobRole ?? member.role ?? "staff"}</div>
+                  </div>
+                </div>
+                {member.email && <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Email</span>
+                  <span className="text-sm text-right flex-1 break-all">{member.email}</span>
+                </div>}
+                {member.phone && <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Phone</span>
+                  <span className="text-sm text-right flex-1">{member.phone}</span>
+                </div>}
+                {member.address && <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Address</span>
+                  <span className="text-sm text-right flex-1">{member.address}</span>
+                </div>}
+              </div>
+              <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2">
+                <Button size="sm" variant="outline" className="border-2 border-black font-bold text-xs h-8" onClick={() => { setEditingMember(member); setIsEditDialogOpen(true); }}>Edit</Button>
+                <Button size="sm" variant="destructive" className="font-bold text-xs h-8" onClick={() => handleDeleteUser(member)}>Delete</Button>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {}

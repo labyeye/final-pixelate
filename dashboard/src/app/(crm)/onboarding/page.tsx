@@ -378,7 +378,7 @@ export default function OnboardingPage() {
         )}
       </div>
 
-      <div className="border rounded-md">
+      <div className="hidden md:block border rounded-md overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -391,61 +391,23 @@ export default function OnboardingPage() {
           </TableHeader>
           <TableBody>
             {onboardings.length === 0 ? (
-              <TableRow>
-                <TableCell
-                  colSpan={5}
-                  className="text-center h-24 text-muted-foreground"
-                >
-                  No onboarding history found.
-                </TableCell>
-              </TableRow>
+              <TableRow><TableCell colSpan={5} className="text-center h-24 text-muted-foreground">No onboarding history found.</TableCell></TableRow>
             ) : (
               onboardings.map((onb) => (
                 <TableRow key={onb._id ?? onb.id}>
                   <TableCell className="font-medium">
-                    <div className="flex flex-col">
-                      <span>{onb.clientName}</span>
-                      <span className="text-xs text-muted-foreground">
-                        {onb.company}
-                      </span>
-                    </div>
+                    <div className="flex flex-col"><span>{onb.clientName}</span><span className="text-xs text-muted-foreground">{onb.company}</span></div>
                   </TableCell>
                   <TableCell>{onb.projectType}</TableCell>
-                  <TableCell>
-                    {onb.date ? format(new Date(onb.date), "PP") : "-"}
-                  </TableCell>
+                  <TableCell>{onb.date ? format(new Date(onb.date), "PP") : "-"}</TableCell>
                   <TableCell>{onb.contactName || onb.email}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => generatePdf(onb)}
-                      >
-                        <Download className="h-4 w-4 mr-2" />
-                        PDF
-                      </Button>
-                      {!isClient && (
-                        <>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => handleEditOnboarding(onb)}
-                          >
-                            <Pencil className="h-4 w-4 mr-2" />
-                            Edit
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="text-destructive hover:text-destructive"
-                            onClick={() => handleDeleteOnboarding(onb)}
-                          >
-                            <Trash2 className="h-4 w-4 mr-2" />
-                            Delete
-                          </Button>
-                        </>
-                      )}
+                      <Button variant="ghost" size="sm" onClick={() => generatePdf(onb)}><Download className="h-4 w-4 mr-2" />PDF</Button>
+                      {!isClient && <>
+                        <Button variant="ghost" size="sm" onClick={() => handleEditOnboarding(onb)}><Pencil className="h-4 w-4 mr-2" />Edit</Button>
+                        <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive" onClick={() => handleDeleteOnboarding(onb)}><Trash2 className="h-4 w-4 mr-2" />Delete</Button>
+                      </>}
                     </div>
                   </TableCell>
                 </TableRow>
@@ -453,6 +415,40 @@ export default function OnboardingPage() {
             )}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {onboardings.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No onboarding history found.</div>}
+        {onboardings.map((onb) => (
+          <div key={onb._id ?? onb.id} className="border-2 border-black bg-white">
+            <div className="divide-y divide-gray-100">
+              <div className="px-3 py-2">
+                <div className="font-black text-base">{onb.clientName}</div>
+                {onb.company && <div className="text-xs text-muted-foreground">{onb.company}</div>}
+              </div>
+              {onb.projectType && <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Project</span>
+                <span className="text-sm text-right flex-1">{onb.projectType}</span>
+              </div>}
+              <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Date</span>
+                <span className="text-sm">{onb.date ? format(new Date(onb.date), "PP") : "-"}</span>
+              </div>
+              {(onb.contactName || onb.email) && <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Contact</span>
+                <span className="text-sm text-right flex-1">{onb.contactName || onb.email}</span>
+              </div>}
+            </div>
+            <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2 flex-wrap">
+              <Button variant="outline" size="sm" className="h-8 text-xs border-2 border-black" onClick={() => generatePdf(onb)}><Download className="h-3 w-3 mr-1" />PDF</Button>
+              {!isClient && <>
+                <Button variant="outline" size="sm" className="h-8 text-xs" onClick={() => handleEditOnboarding(onb)}><Pencil className="h-3 w-3 mr-1" />Edit</Button>
+                <Button variant="destructive" size="sm" className="h-8 text-xs ml-auto" onClick={() => handleDeleteOnboarding(onb)}><Trash2 className="h-3 w-3 mr-1" />Delete</Button>
+              </>}
+            </div>
+          </div>
+        ))}
       </div>
 
       <Dialog

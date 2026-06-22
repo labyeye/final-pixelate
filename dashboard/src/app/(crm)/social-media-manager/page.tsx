@@ -450,10 +450,22 @@ export default function SocialMediaManagerPage() {
     if (!user) return;
     try {
       setLoading(true);
-      const url = new URL("/api/social-media-tasks", window.location.origin);
-      const res = await apiFetch(url.toString(), { cache: "no-store" });
+      const res = await apiFetch("/api/social-media-tasks", { cache: "no-store" });
       const data = await res.json();
-      setTasks(Array.isArray(data) ? data : []);
+      const all: Task[] = Array.isArray(data) ? data : [];
+      // Staff only see tasks assigned to them
+      if (!isAdmin) {
+        const name = (user as any).name?.toLowerCase() || "";
+        const email = (user as any).email?.toLowerCase() || "";
+        setTasks(
+          all.filter((t) => {
+            const assigned = (t.assignedTo || "").toLowerCase();
+            return assigned && (assigned === name || assigned === email || assigned.includes(name));
+          })
+        );
+      } else {
+        setTasks(all);
+      }
     } catch (e) {
       console.error(e);
       setTasks([]);
@@ -719,53 +731,51 @@ export default function SocialMediaManagerPage() {
 
       {/* Table grouped by Campaign */}
       {loading ? (
-        <div className="border-2 border-black rounded-xl p-12 text-center text-muted-foreground font-semibold">
+        <div className="border-2 border-black p-12 text-center text-muted-foreground font-semibold">
           Loading tasks…
         </div>
       ) : filtered.length === 0 ? (
-        <div className="border-2 border-black rounded-xl p-12 text-center">
+        <div className="border-2 border-black p-12 text-center">
           <p className="text-xl font-black">No tasks found</p>
           <p className="text-sm text-gray-500 mt-1">
             Import an Excel file or add tasks manually
           </p>
         </div>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-6">
           {grouped.map(({ campaign, tasks: campTasks }) => {
             const dayMap = buildDayMap(campTasks);
             return (
-              <div
-                key={campaign}
-                className="border-2 border-black rounded-xl overflow-hidden"
-              >
-                {/* Week header */}
-                <div className="bg-black text-white px-4 py-2.5 flex items-center justify-between">
-                  <span className="font-black text-sm uppercase tracking-wide">
+              <div key={campaign}>
+                {/* Campaign header */}
+                <div className="bg-primary text-white px-4 py-2.5 flex items-center justify-between border-2 border-black border-b-0">
+                  <span className="font-black text-sm uppercase tracking-widest">
                     {campaign}
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-gray-400 font-bold">
                     {campTasks.length} tasks
                   </span>
                 </div>
 
-                {/* Table */}
-                <div className="overflow-x-auto">
+                {/* Invoicing-style table */}
+                <div className="hidden md:block border-2 border-black overflow-x-auto">
                   <table className="w-full text-sm">
-                    <thead className="bg-gray-50 border-b-2 border-black">
-                      <tr>
+                    <thead>
+                      <tr className="border-b-2 border-black bg-white">
                         {[
-                          "DAY",
-                          "DATE",
-                          "COMPANY",
-                          "POST TYPE",
-                          "TITLE",
-                          "STATUS",
-                          "ASSIGNED TO",
-                          "ACTIONS",
+                          "Day",
+                          "Date & Time",
+                          "Company",
+                          "Post Type",
+                          "Title / Platform",
+                          "Status",
+                          "Approval",
+                          "Assigned To",
+                          "Actions",
                         ].map((h) => (
                           <th
                             key={h}
-                            className="px-3 py-2.5 text-left text-xs font-black uppercase text-gray-600 whitespace-nowrap"
+                            className="px-3 py-2.5 text-left text-sm font-bold whitespace-nowrap"
                           >
                             {h}
                           </th>
@@ -781,33 +791,29 @@ export default function SocialMediaManagerPage() {
                         return (
                           <tr
                             key={taskId}
-                            className={`border-b border-gray-100 hover:bg-gray-50 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}
+                            className="border-b-2 border-black last:border-b-0 hover:bg-gray-50"
                           >
-                            <td className="px-3 py-2.5">
-                              <span className="text-xs font-black text-gray-500">
-                                {dayLabel}
-                              </span>
+                            <td className="px-3 py-2 text-xs font-black text-gray-500">
+                              {dayLabel}
                             </td>
-                            <td className="px-3 py-2.5 whitespace-nowrap text-xs text-gray-600 font-semibold">
+                            <td className="px-3 py-2 whitespace-nowrap text-sm font-bold">
                               {task.scheduledDate || "—"}
                               {task.scheduledTime && (
-                                <span className="ml-1 text-gray-400">
+                                <div className="text-xs text-gray-400 font-normal">
                                   {task.scheduledTime}
-                                </span>
+                                </div>
                               )}
                             </td>
-                            <td className="px-3 py-2.5 max-w-[120px]">
-                              <span className="text-xs text-gray-500 truncate block">
-                                {task.company || "—"}
-                              </span>
+                            <td className="px-3 py-2 text-sm">
+                              {task.company || "—"}
                             </td>
-                            <td className="px-3 py-2.5">
-                              <span className="inline-block px-2 py-0.5 bg-gray-100 rounded text-xs font-semibold text-gray-700 whitespace-nowrap">
+                            <td className="px-3 py-2">
+                              <span className="text-xs font-black tracking-widest p-1 bg-gray-100 text-gray-700 whitespace-nowrap">
                                 {task.contentType}
                               </span>
                             </td>
-                            <td className="px-3 py-2.5 max-w-[220px]">
-                              <div className="font-black text-sm truncate">
+                            <td className="px-3 py-2 max-w-[220px]">
+                              <div className="font-bold text-sm truncate">
                                 {task.title}
                               </div>
                               {task.platform && (
@@ -816,47 +822,57 @@ export default function SocialMediaManagerPage() {
                                 </div>
                               )}
                             </td>
-                            <td className="px-3 py-2.5">
+                            <td className="px-3 py-2">
                               <select
                                 value={task.status}
                                 onChange={(e) =>
-                                  updateStatus(
-                                    task,
-                                    e.target.value as TaskStatus,
-                                  )
+                                  updateStatus(task, e.target.value as TaskStatus)
                                 }
-                                className={`text-xs font-bold px-2 py-1 rounded border cursor-pointer ${STATUS_STYLE[task.status]}`}
+                                className={`text-xs font-black tracking-widest px-2 py-1 border cursor-pointer ${STATUS_STYLE[task.status]}`}
                               >
                                 {STATUSES.map((s) => (
                                   <option key={s}>{s}</option>
                                 ))}
                               </select>
                             </td>
-                            <td className="px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
+                            <td className="px-3 py-2">
+                              <span
+                                className={`text-xs font-black tracking-widest p-1 ${
+                                  APPROVAL_STYLE[task.approvalStatus || "Pending"] ||
+                                  "bg-gray-100 text-gray-600"
+                                }`}
+                              >
+                                {task.approvalStatus || "Pending"}
+                              </span>
+                            </td>
+                            <td className="px-3 py-2 text-sm font-bold whitespace-nowrap">
                               {task.assignedTo || "—"}
                             </td>
-                            <td className="px-3 py-2.5">
+                            <td className="px-3 py-2">
                               <div className="flex items-center gap-1.5">
-                                <button
+                                <Button
+                                  size="sm"
+                                  variant="outline"
                                   onClick={() => setViewTask(task)}
-                                  className="px-2.5 py-1 text-xs font-bold border-2 border-black rounded hover:bg-black hover:text-white transition-colors"
                                 >
                                   View
-                                </button>
+                                </Button>
                                 {isAdmin && (
                                   <>
-                                    <button
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
                                       onClick={() => setEditTask(task)}
-                                      className="px-2.5 py-1 text-xs font-bold border-2 border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors"
                                     >
                                       Edit
-                                    </button>
-                                    <button
+                                    </Button>
+                                    <Button
+                                      size="sm"
+                                      variant="destructive"
                                       onClick={() => deleteTask(task)}
-                                      className="px-2.5 py-1 text-xs font-bold border-2 border-red-400 text-red-500 rounded hover:bg-red-500 hover:text-white transition-colors"
                                     >
-                                      ✕
-                                    </button>
+                                      Delete
+                                    </Button>
                                   </>
                                 )}
                               </div>
@@ -866,6 +882,53 @@ export default function SocialMediaManagerPage() {
                       })}
                     </tbody>
                   </table>
+                </div>
+
+                {/* Mobile cards */}
+                <div className="md:hidden space-y-3 mt-2">
+                  {campTasks.map((task, i) => {
+                    const taskId = task._id || task.id || String(i);
+                    const dayLabel = task.scheduledDate ? dayMap.get(task.scheduledDate) || "—" : "—";
+                    return (
+                      <div key={taskId} className="border-2 border-black bg-white">
+                        <div className="divide-y divide-gray-100">
+                          <div className="px-3 py-2">
+                            <div className="font-bold text-sm">{task.title}</div>
+                            {task.platform && <div className="text-xs text-gray-400">{task.platform}</div>}
+                          </div>
+                          <div className="flex justify-between items-center px-3 py-2">
+                            <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Date</span>
+                            <span className="text-sm font-bold">{dayLabel} — {task.scheduledDate || "—"}{task.scheduledTime ? ` ${task.scheduledTime}` : ""}</span>
+                          </div>
+                          {task.company && <div className="flex justify-between items-center px-3 py-2">
+                            <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Company</span>
+                            <span className="text-sm text-right flex-1">{task.company}</span>
+                          </div>}
+                          <div className="flex justify-between items-center px-3 py-2">
+                            <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Type</span>
+                            <span className="text-xs font-black tracking-widest p-1 bg-gray-100 text-gray-700">{task.contentType}</span>
+                          </div>
+                          {task.assignedTo && <div className="flex justify-between items-center px-3 py-2">
+                            <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Assigned</span>
+                            <span className="text-sm text-right flex-1">{task.assignedTo}</span>
+                          </div>}
+                          <div className="flex justify-between items-center px-3 py-2 gap-2 flex-wrap">
+                            <span className={`text-xs font-black tracking-widest p-1 ${APPROVAL_STYLE[task.approvalStatus || "Pending"] || "bg-gray-100 text-gray-600"}`}>{task.approvalStatus || "Pending"}</span>
+                          </div>
+                        </div>
+                        <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-2 flex-wrap">
+                          <select value={task.status} onChange={(e) => updateStatus(task, e.target.value as TaskStatus)} className={`text-xs font-black tracking-widest px-2 py-1 border cursor-pointer flex-1 ${STATUS_STYLE[task.status]}`}>
+                            {STATUSES.map((s) => <option key={s}>{s}</option>)}
+                          </select>
+                          <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => setViewTask(task)}>View</Button>
+                          {isAdmin && <>
+                            <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => setEditTask(task)}>Edit</Button>
+                            <Button size="sm" variant="destructive" className="h-8 text-xs" onClick={() => deleteTask(task)}>Delete</Button>
+                          </>}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );

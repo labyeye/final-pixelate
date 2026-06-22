@@ -43,18 +43,42 @@
       content="https://www.pixelatenest.com/assets/images/logos/Logo_Color_Name_Large.webp"
     />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/pages/product-common.css" />
+    <link
+      rel="preload"
+      href="../assets/images/products/attendance-details/attendance-person.webp"
+      as="image"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media = 'all'"
     />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    /></noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
     />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet"
+    /></noscript>
     <link
       rel="stylesheet"
       href="../assets/fonts/all.min.css"
@@ -269,7 +293,7 @@
                               class="about-mega-card"
                             >
                               <img
-                                src="../assets/images/about/bihar.png"
+                                src="../assets/images/about/bihar.webp"
                                 alt="Bihar Roots"
                                 loading="lazy"
                               />
@@ -656,700 +680,2868 @@
           </div>
         </section>
 
-        <section class="home-hero-v1">
-          <div class="container">
-            <div class="home-hero-v1-wrap">
-              <div class="hero-v1-content">
-                <div class="hero-v1-title-wrap">
-                  <div class="hero-trust-badge">
-                    <div class="trust-avatars">
-                      <img
-                        src="../assets/images/homescreen/customer/customer1.webp"
-                        alt="Happy Customer"
-                        class="trust-avatar"
-                      />
-                      <img
-                        src="../assets/images/homescreen/customer/customer2.webp"
-                        alt="Happy Customer"
-                        class="trust-avatar"
-                      />
-                      <img
-                        src="../assets/images/homescreen/customer/customer3.webp"
-                        alt="Happy Customer"
-                        class="trust-avatar"
-                      />
-                      <img
-                        src="../assets/images/homescreen/customer/customer4.webp"
-                        alt="Happy Customer"
-                        class="trust-avatar"
-                      />
-                    </div>
-                    <div class="trust-text">
-                      TRUSTED BY
-                      <span class="trust-number">20+</span> DELIGHTED CUSTOMERS
-                    </div>
-                  </div>
+        <section class="home-hero-v1 nh-hero-split">
+          <style>
+            /* ===== SPLIT HERO ===== */
+            .nh-hero-split {
+              padding: 40px 0 0 !important;
+              overflow: hidden !important;
+            }
+            .nh-hs-inner {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 40px;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 32px;
+              align-items: flex-end;
+              min-height: 340px;
+            }
+            /* LEFT — text */
+            .nh-hs-left {
+              padding-bottom: 48px;
+            }
+            .nh-hs-tag {
+              display: inline-block;
+              background: rgba(255, 255, 255, 0.18);
+              border: 1px solid var(--primary-900);
+              color: var(--primary-900);
+              font-size: 11px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              padding: 5px 14px;
+              border-radius: 50px;
+              margin-bottom: 20px;
+            }
+            .nh-hs-left h1 {
+              font-size: clamp(30px, 4vw, 52px);
+              font-weight: 800;
+              color: var(--primary-900);
+              margin: 0 0 16px;
+              line-height: 1.15;
+            }
+            .nh-hs-left p {
+              color: var(--primary-900);
+              font-size: 15px;
+              line-height: 1.75;
+              margin: 0 0 28px;
+              max-width: 420px;
+            }
+            .nh-hs-cta {
+              display: inline-block;
+              background: #fff;
+              color: #044bab;
+              font-weight: 800;
+              font-size: 15px;
+              padding: 13px 30px;
+              border-radius: 50px;
+              text-decoration: none;
+              transition:
+                background 0.2s,
+                transform 0.2s,
+                color 0.2s;
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            }
+            .nh-hs-cta:hover {
+              background: #fa731b;
+              color: #fff;
+              transform: translateY(-2px);
+            }
+            /* RIGHT — person + floating cards */
+            .nh-hs-right {
+              position: relative;
+              display: flex;
+              align-items: flex-end;
+              justify-content: center;
+            }
+            /* Purple circle */
 
-                  <div class="heading-wrap hero-v1-heading">
-                    <h1 class="h1 hero-heading hero-main-title">
-                      Attendance &amp; Payroll
-                      <i style="font-weight: 100">(Online / Offline) </i>
-                      Software
-                    </h1>
-                  </div>
+            .nh-hs-person {
+              position: relative;
+              z-index: 2;
+              display: block;
+              object-fit: contain;
+              object-position: bottom;
+              filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.2));
+            }
+            /* Responsive */
+            @media (max-width: 860px) {
+              .nh-hs-inner {
+                grid-template-columns: 1fr;
+                min-height: unset;
+                padding: 0 20px;
+              }
+              .nh-hs-left {
+                padding-bottom: 0;
+                text-align: center;
+              }
+              .nh-hs-left p {
+                max-width: 100%;
+              }
+              .nh-hs-right {
+                min-height: 260px;
+                margin-top: 24px;
+              }
+              .nh-hs-person {
+                height: 260px;
+              }
+            }
+          </style>
 
-                  <div class="sub-heading-wrap">
-                    <p class="hero-subheadline">
-                      Automate Employee Attendance Tracking, Salary Processing,
-                      Leave Management, and Compliance Reporting with Our
-                      All-in-One Attendance &amp; Payroll Software
-                    </p>
-                  </div>
+          <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
+            <div class="nh-hs-left slide-left">
+              <span class="nh-hs-tag">Attendance Management</span>
+              <h1>
+                Smart Attendance<br />
+                Management Software
+              </h1>
 
-                  <div class="hero-cta-wrap">
-                    <a
-                      href="https://www.pixelatenest.com/pages/contact.html"
-                      class="hero-cta-button"
+              <p>
+                Streamline employee attendance tracking with real-time
+                attendance management, GPS-based check-ins, face recognition
+                attendance, shift scheduling, leave management, and workforce
+                monitoring. Our cloud-based attendance management system helps
+                businesses improve productivity, reduce manual errors, and
+                manage their workforce from anywhere.
+              </p>
+              <a
+                href="https://www.pixelatenest.com/pages/contact.html"
+                class="nh-hs-cta"
+                >Explore Now</a
+              >
+            </div>
+
+            <!-- RIGHT: Person + floating cards -->
+            <div class="nh-hs-right slide-right">
+              <!-- Person image (cards & circle already inside the image) -->
+              <img
+                src="../assets/images/products/attendance-details/attendance-person.webp"
+                alt="NestHR Employee"
+                class="nh-hs-person"
+                loading="eager"
+                fetchpriority="high"
+                width="520"
+                height="480"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <style>
+        /* ---- NestHR Page Styles ---- */
+        .nh-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 24px;
+        }
+
+        .nh-section-title {
+          font-size: clamp(22px, 3.5vw, 36px);
+          font-weight: 800;
+          color: #111;
+          margin: 0 0 12px;
+          line-height: 1.25;
+        }
+        .nh-section-sub {
+          color: #515152;
+          font-size: 16px;
+          margin: 0 auto 40px;
+          max-width: 640px;
+        }
+        .nh-accent {
+          color: #044bab;
+        }
+        /* Attendance Methods */
+        .nh-methods-section {
+          padding: 64px 0;
+          background: #fff;
+          text-align: center;
+        }
+        .nh-methods-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+          .nh-methods-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 480px) {
+          .nh-methods-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+          }
+        }
+        .nh-method-card {
+          background: #fff;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 4px 16px rgba(4, 75, 171, 0.08);
+          transition:
+            transform 0.25s,
+            box-shadow 0.25s;
+          cursor: pointer;
+          
+        }
+        .nh-method-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 32px rgba(4, 75, 171, 0.14);
+        }
+        .nh-method-card-img-wrap {
+          position: relative;
+          overflow: hidden;
+
+          
+        }
+        .nh-method-card-img-wrap img {
+          width: 80%;
+          height: auto;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.3s;
+          margin: 0 auto;
+          padding-top: 10px;
+          
+        }
+        .nh-method-card:hover .nh-method-card-img-wrap img {
+          transform: scale(1.04);
+        }
+        .nh-method-card-zoom {
+          position: absolute;
+          inset: 0;
+          background: rgba(4, 75, 171, 0.45);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.25s;
+        }
+        .nh-method-card:hover .nh-method-card-zoom {
+          opacity: 1;
+        }
+        .nh-method-card-zoom svg {
+          width: 36px;
+          height: 36px;
+          fill: #fff;
+        }
+        .nh-method-card-body {
+          padding: 14px 16px 16px;
+          text-align: center;
+        }
+        .nh-method-card-body p {
+          margin: 0 0 4px;
+          font-weight: 700;
+          font-size: 14px;
+          color: #111;
+        }
+        .nh-method-card-body span {
+          font-size: 12px;
+          color: #666;
+          line-height: 1.4;
+        }
+        /* Dashboard preview modal */
+        .nh-dash-modal-backdrop {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.82);
+          z-index: 9999;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(6px);
+        }
+        .nh-dash-modal-backdrop.active {
+          display: flex;
+        }
+        .nh-dash-modal {
+          position: relative;
+          max-width: min(900px, 94vw);
+          width: 100%;
+          border-radius: 20px;
+          overflow: hidden;
+          background: #000;
+          box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+          animation: nh-modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .nh-dash-modal img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+        .nh-dash-modal-close {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.15);
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 20px;
+          transition: background 0.2s;
+          z-index: 10;
+        }
+        .nh-dash-modal-close:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+        /* Testimonials Carousel */
+        .nh-testi-section {
+          padding: 72px 0 56px;
+          background: #f7fbff;
+          text-align: center;
+        }
+        .nh-testi-carousel-wrap {
+          position: relative;
+          margin-top: 40px;
+          overflow: hidden;
+        }
+        .nh-testi-track {
+          display: flex;
+          gap: 20px;
+          transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+          will-change: transform;
+        }
+        .nh-testi-card {
+          flex: 0 0 calc((100% - 40px) / 3);
+          background: #fff;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 4px 20px rgba(4, 75, 171, 0.09);
+          aspect-ratio: 9/16;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+        @media (max-width: 860px) {
+          .nh-testi-card {
+            flex: 0 0 calc((100% - 20px) / 2);
+          }
+        }
+        @media (max-width: 540px) {
+          .nh-testi-card {
+            flex: 0 0 80%;
+          }
+        }
+        .nh-testi-placeholder {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          padding: 32px 24px;
+          height: 100%;
+          background: linear-gradient(135deg, #f0f5ff 0%, #e8f0ff 100%);
+        }
+        .nh-testi-placeholder-icon {
+          width: 56px;
+          height: 56px;
+          background: #044bab;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .nh-testi-placeholder-icon svg {
+          width: 24px;
+          height: 24px;
+          fill: #fff;
+          margin-left: 4px;
+        }
+        .nh-testi-placeholder h4 {
+          font-size: 14px;
+          font-weight: 700;
+          color: #111;
+          margin: 0;
+        }
+        .nh-testi-placeholder p {
+          font-size: 12px;
+          color: #666;
+          margin: 0;
+          line-height: 1.5;
+        }
+        .nh-testi-coming-tag {
+          display: inline-block;
+          background: #fa731b;
+          color: #fff;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          padding: 4px 12px;
+          border-radius: 50px;
+        }
+        .nh-testi-nav {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          margin-top: 28px;
+        }
+        .nh-testi-btn {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          border: 2px solid #044bab;
+          background: #fff;
+          color: #044bab;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition:
+            background 0.2s,
+            color 0.2s;
+          font-size: 18px;
+        }
+        .nh-testi-btn:hover {
+          background: #044bab;
+          color: #fff;
+        }
+        .nh-testi-dots {
+          display: flex;
+          gap: 8px;
+        }
+        .nh-testi-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #c5d5f0;
+          transition:
+            background 0.2s,
+            width 0.2s;
+          cursor: pointer;
+        }
+        .nh-testi-dot.active {
+          background: #044bab;
+          width: 22px;
+          border-radius: 4px;
+        }
+
+        /* Clients */
+        .nh-clients-section {
+          padding: 72px 0;
+          background: #fff;
+          text-align: center;
+        }
+        .nh-brand-strip {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 24px;
+          margin: 40px 0 0;
+        }
+        .nh-brand-strip img {
+          height: 85px;
+          width: auto;
+          object-fit: contain;
+          filter: grayscale(1) opacity(0.7);
+          transition: filter 0.2s;
+        }
+        .nh-brand-strip img:hover {
+          filter: none;
+        }
+        .nh-testimonials {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          margin-top: 48px;
+          text-align: left;
+        }
+        @media (max-width: 768px) {
+          .nh-testimonials {
+            grid-template-columns: 1fr;
+          }
+        }
+        .nh-testi-card {
+          background: #f0f6ff;
+          border-radius: 16px;
+          padding: 28px 24px;
+        }
+        .nh-testi-stars {
+          color: #fa731b;
+          font-size: 18px;
+          margin-bottom: 12px;
+        }
+        .nh-testi-card p {
+          color: #333;
+          font-size: 14px;
+          line-height: 1.7;
+          margin: 0 0 18px;
+          font-style: italic;
+        }
+        .nh-testi-author strong {
+          font-size: 14px;
+          color: #111;
+        }
+        .nh-testi-author span {
+          font-size: 12px;
+          color: #747577;
+        }
+
+        /* Stats */
+        .nh-stats-section {
+          padding: 64px 0;
+          background: #044bab;
+        }
+        .nh-stats-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          text-align: center;
+        }
+        @media (max-width: 600px) {
+          .nh-stats-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        .nh-stat-item {
+          padding: 20px;
+        }
+        .nh-stat-num {
+          font-size: clamp(40px, 6vw, 72px);
+          font-weight: 800;
+          color: #fff;
+          display: inline-block;
+        }
+        .nh-stat-plus {
+          font-size: 40px;
+          font-weight: 800;
+          color: #fa731b;
+          display: inline-block;
+        }
+        .nh-stat-label {
+          font-size: 16px;
+          color: rgba(255, 255, 255, 0.8);
+          margin-top: 6px;
+        }
+
+        /* Slide-in animations */
+        .slide-up,
+        .slide-left,
+        .slide-right {
+          opacity: 0;
+          transition:
+            opacity 0.6s ease,
+            transform 0.6s ease;
+        }
+        .slide-up {
+          transform: translateY(40px);
+        }
+        .slide-left {
+          transform: translateX(-50px);
+        }
+        .slide-right {
+          transform: translateX(50px);
+        }
+        .slide-up.in-view,
+        .slide-left.in-view,
+        .slide-right.in-view {
+          opacity: 1;
+          transform: translate(0);
+        }
+
+        /* What is NestHR */
+        .nh-about-section {
+          padding: 72px 0 56px;
+          background: #fff;
+        }
+        .nh-about-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+          align-items: center;
+        }
+        @media (max-width: 860px) {
+          .nh-about-row {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+        }
+        .nh-about-tag {
+          display: inline-block;
+          background: #e8f0ff;
+          color: #044bab;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          padding: 5px 14px;
+          border-radius: 50px;
+          margin-bottom: 16px;
+        }
+        .nh-about-left h2 {
+          font-size: clamp(24px, 3vw, 38px);
+          font-weight: 800;
+          color: #111;
+          margin: 0 0 16px;
+          line-height: 1.25;
+        }
+        .nh-about-left p {
+          color: #515152;
+          font-size: 15px;
+          line-height: 1.8;
+          margin: 0 0 28px;
+        }
+        .nh-about-highlights {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .nh-about-highlight {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+        }
+        .nh-hl-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+          background: #e8f0ff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+        .nh-hl-icon i {
+          color: #044bab;
+          font-size: 17px;
+        }
+        .nh-hl-text strong {
+          display: block;
+          font-size: 14px;
+          font-weight: 700;
+          color: #111;
+          margin-bottom: 2px;
+        }
+        .nh-hl-text span {
+          font-size: 13px;
+          color: #555;
+          line-height: 1.5;
+        }
+        /* YT Short Card */
+        .nh-about-right {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .nh-yt-card {
+          position: relative;
+          width: 100%;
+          max-width: 320px;
+          aspect-ratio: 9 / 16;
+          border-radius: 20px;
+          overflow: hidden;
+          cursor: pointer;
+          box-shadow: 0 20px 60px rgba(4, 75, 171, 0.25);
+          background: #000;
+          transition:
+            transform 0.25s,
+            box-shadow 0.25s;
+        }
+        .nh-yt-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 28px 72px rgba(4, 75, 171, 0.35);
+        }
+        .nh-yt-card img.nh-yt-thumb {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.35s;
+        }
+        .nh-yt-card:hover img.nh-yt-thumb {
+          transform: scale(1.04);
+        }
+        .nh-yt-card-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(0, 0, 0, 0.75) 100%
+          );
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .nh-yt-play-btn {
+          width: 64px;
+          height: 64px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+          transition:
+            transform 0.2s,
+            background 0.2s;
+        }
+        .nh-yt-card:hover .nh-yt-play-btn {
+          transform: scale(1.1);
+          background: #fff;
+        }
+        .nh-yt-play-btn svg {
+          width: 28px;
+          height: 28px;
+          fill: #fa731b;
+          margin-left: 4px;
+        }
+        .nh-yt-card-label {
+          position: absolute;
+          bottom: 20px;
+          left: 16px;
+          right: 16px;
+        }
+        .nh-yt-card-label-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: #fa731b;
+          color: #fff;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          padding: 4px 10px;
+          border-radius: 50px;
+          margin-bottom: 6px;
+        }
+        .nh-yt-card-label-tag svg {
+          width: 12px;
+          height: 12px;
+          fill: #fff;
+        }
+        .nh-yt-card-label p {
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          margin: 0;
+          line-height: 1.4;
+          text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        /* YT Modal */
+        .nh-yt-modal-backdrop {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.85);
+          z-index: 9999;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(6px);
+        }
+        .nh-yt-modal-backdrop.active {
+          display: flex;
+        }
+        .nh-yt-modal {
+          position: relative;
+          width: min(360px, 90vw);
+          aspect-ratio: 9 / 16;
+          border-radius: 20px;
+          overflow: hidden;
+          background: #000;
+          box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+          animation: nh-modal-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes nh-modal-in {
+          from {
+            transform: scale(0.88);
+            opacity: 0;
+          }
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        .nh-yt-modal iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+          display: block;
+        }
+        .nh-yt-modal-close {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.15);
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 20px;
+          line-height: 1;
+          transition: background 0.2s;
+          z-index: 10;
+        }
+        .nh-yt-modal-close:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Key Features Grid */
+        .nh-features-section {
+          padding: 72px 0;
+          background: #f7fbff;
+          text-align: center;
+        }
+        .nh-features-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          margin-top: 48px;
+          text-align: left;
+        }
+        @media (max-width: 900px) {
+          .nh-features-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 480px) {
+          .nh-features-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        .nh-feat-card {
+          background: #fff;
+          border-radius: 16px;
+          padding: 28px 24px;
+          box-shadow: 0 2px 16px rgba(4, 75, 171, 0.07);
+          transition:
+            transform 0.2s,
+            box-shadow 0.2s;
+        }
+        .nh-feat-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 32px rgba(4, 75, 171, 0.13);
+        }
+        .nh-feat-icon {
+          width: 48px;
+          height: 48px;
+          background: #e8f0ff;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 16px;
+        }
+        .nh-feat-icon i {
+          color: #044bab;
+          font-size: 20px;
+        }
+        .nh-feat-card h3 {
+          font-size: 16px;
+          font-weight: 700;
+          color: #111;
+          margin: 0 0 8px;
+        }
+        .nh-feat-card p {
+          font-size: 13px;
+          color: #555;
+          line-height: 1.65;
+          margin: 0;
+        }
+
+        /* Industries */
+        .nh-industries-section {
+          padding: 72px 0;
+          background: #fff;
+          text-align: center;
+        }
+        .nh-industries-grid {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 16px;
+          margin-top: 48px;
+        }
+        @media (max-width: 900px) {
+          .nh-industries-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+        @media (max-width: 480px) {
+          .nh-industries-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        .nh-industry-item {
+          background: #f7fbff;
+          border-radius: 14px;
+          padding: 24px 16px;
+          text-align: center;
+          transition:
+            background 0.2s,
+            transform 0.2s;
+        }
+        .nh-industry-item:hover {
+          background: #e8f0ff;
+          transform: translateY(-3px);
+        }
+        .nh-industry-item i {
+          font-size: 28px;
+          color: #044bab;
+          margin-bottom: 10px;
+          display: block;
+        }
+        .nh-industry-item span {
+          font-size: 13px;
+          font-weight: 600;
+          color: #111;
+        }
+
+        /* Why NestHR */
+        .nh-why-section {
+          padding: 72px 0;
+          background: #f7fbff;
+        }
+        .nh-why-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+          margin-top: 48px;
+        }
+        @media (max-width: 900px) {
+          .nh-why-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 480px) {
+          .nh-why-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        .nh-why-card {
+          background: #fff;
+          border-radius: 14px;
+          padding: 24px 20px;
+          text-align: center;
+          box-shadow: 0 2px 12px rgba(4, 75, 171, 0.06);
+        }
+        .nh-why-card i {
+          font-size: 28px;
+          color: #fa731b;
+          margin-bottom: 12px;
+          display: block;
+        }
+        .nh-why-card strong {
+          display: block;
+          font-size: 14px;
+          font-weight: 700;
+          color: #111;
+          margin-bottom: 6px;
+        }
+        .nh-why-card p {
+          font-size: 12px;
+          color: #666;
+          line-height: 1.55;
+          margin: 0;
+        }
+
+        /* CTA Banner */
+        .nh-cta-banner {
+          padding: 80px 0;
+          background: linear-gradient(135deg, #044bab 0%, #0a35e0 100%);
+          text-align: center;
+        }
+        .nh-cta-banner h2 {
+          font-size: clamp(22px, 3.5vw, 36px);
+          font-weight: 800;
+          color: #fff;
+          margin: 0 0 32px;
+          line-height: 1.4;
+        }
+        .nh-cta-btn {
+          display: inline-block;
+          background: #fa731b;
+          color: #fff;
+          font-weight: 700;
+          font-size: 16px;
+          padding: 16px 36px;
+          border-radius: 50px;
+          text-decoration: none;
+          transition:
+            background 0.2s,
+            transform 0.2s;
+        }
+        .nh-cta-btn:hover {
+          background: #e05a00;
+          transform: translateY(-2px);
+        }
+      </style>
+      <!-- SECTION: What is NestHR -->
+      <section class="nh-about-section">
+        <div class="nh-container">
+          <div class="nh-about-row">
+            <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
+              <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
+                <!-- Replace with your actual Short thumbnail URL -->
+                <img
+                  class="nh-yt-thumb"
+                  src="../assets/videos/cover/nesthr-intro.webp"
+                  alt="NestHR Demo Short"
+                />
+                <div class="nh-yt-card-overlay"></div>
+                <div class="nh-yt-card-label">
+                  <div class="nh-yt-card-label-tag">Laxmi bothra</div>
+                  <p>See how NestHR simplifies payroll in 60 seconds</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <script>
+              var NH_YT_ID = "hdFeg9A9qbc";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
+                  document
+                    .getElementById("nhYtModalBackdrop")
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
+                }
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
+            <div class="nh-about-left slide-left">
+              <span class="nh-about-tag">About NestHR</span>
+              <h2>One platform to manage your entire workforce</h2>
+              <p>
+                NestHR by Pixelate Nest is a modern cloud-based HRMS designed
+                for startups, SMEs, schools, agencies, and enterprises. From
+                real-time attendance tracking and automated payroll processing
+                to leave management, compliance reporting, and employee
+                self-service — NestHR brings your entire HR operation into one
+                intelligent, easy-to-use platform.
+              </p>
+              <div class="nh-about-highlights">
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-cloud"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>Cloud-Based & Accessible Anywhere</strong>
+                    <span
+                      >Access your HR data from any device, any location — 24/7
+                      uptime guaranteed.</span
                     >
-                      Book Demo <span class="cta-arrow">&rarr;</span>
-                    </a>
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-bolt"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>Fully Automated Workflows</strong>
+                    <span
+                      >From attendance capture to payslip generation —
+                      everything runs on autopilot.</span
+                    >
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="nh-hl-text">
+                    <strong>Built for Indian Compliance</strong>
+                    <span
+                      >PF, ESI, TDS challans and registers generated in seconds,
+                      ready to file.</span
+                    >
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                  </div>
+                  <div class="nh-hl-text">
+                    <strong>Mobile-First Employee App</strong>
+                    <span
+                      >Employees mark attendance, apply for leave, and view
+                      payslips from their phone.</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Attendance Methods -->
+      <section class="nh-methods-section">
+        <div class="nh-container">
+          <h2 class="nh-section-title slide-up">
+            Why stick to one attendance method?<br /><span class="nh-accent"
+              >With NestHR, you can have them all</span
+            >
+          </h2>
+          <p class="nh-section-sub">
+            Set up online attendance tracking for your employees. NestHR
+            captures attendance through multiple devices and methods — across
+            all your locations.
+          </p>
+          <div class="nh-methods-grid">
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/attendance-details/home.webp',
+                  'Live Dashboard',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/attendance-details/home.webp"
+                  alt="NestHR Dashboard"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Live Dashboard</p>
+                <span
+                  >Real-time overview of attendance, payroll and team
+                  activity.</span
+                >
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.1s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/attendance-details/attendance.webp',
+                  'Attendance Tracking',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/attendance-details/attendance.webp"
+                  alt="Attendance Tracking"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Attendance Tracking</p>
+                <span
+                  >Monitor who's present, absent, or late across all
+                  locations.</span
+                >
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.2s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/attendance-details/employee.webp',
+                  'Employee Management',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/attendance-details/employee.webp"
+                  alt="Employee Management"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Employee Management</p>
+                <span>Store and manage all employee records in one place.</span>
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.3s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/attendance-details/payroll.webp',
+                  'Payroll Service',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/attendance-details/payroll.webp"
+                  alt="Payroll Service"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Payroll Service</p>
+                <span
+                  >Automate payroll processing, generate reports, and ensure compliance.</span
+                >
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.4s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/attendance-details/departments.webp',
+                  'Department View',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/attendance-details/departments.webp"
+                  alt="Department View"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Department View</p>
+                <span
+                  >Organise teams by department with dedicated views and
+                  filters.</span
+                >
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.5s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/attendance-details/employee-self.webp',
+                  'Employee Self Service',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/attendance-details/employee-self.webp"
+                  alt="Employee Self Service"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Employee Self Service</p>
+                <span
+                  >Access payslips, leaves, and profiles on their own.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard preview modal -->
+          <div
+            class="nh-dash-modal-backdrop"
+            id="nhDashBackdrop"
+            onclick="nhDashClose(event)"
+          >
+            <div class="nh-dash-modal">
+              <button
+                class="nh-dash-modal-close"
+                onclick="nhDashClose(null, true)"
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
+            </div>
+          </div>
+          <script>
+            function nhDashOpen(src, alt) {
+              var img = document.getElementById("nhDashModalImg");
+              img.src = src;
+              img.alt = alt;
+              document.getElementById("nhDashBackdrop").classList.add("active");
+              document.body.style.overflow = "hidden";
+            }
+            function nhDashClose(e, force) {
+              if (
+                force ||
+                (e && e.target === document.getElementById("nhDashBackdrop"))
+              ) {
+                document
+                  .getElementById("nhDashBackdrop")
+                  .classList.remove("active");
+                document.body.style.overflow = "";
+              }
+            }
+            document.addEventListener("keydown", function (e) {
+              if (e.key === "Escape") nhDashClose(null, true);
+            });
+          </script>
+        </div>
+      </section>
+
+      <!-- SECTION: Client Testimonials Carousel -->
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        (function () {
+          var track = document.getElementById("nhTestiTrack");
+          var cards = track.children;
+          var dotsWrap = document.getElementById("nhTestiDots");
+          var perView =
+            window.innerWidth <= 540 ? 1 : window.innerWidth <= 860 ? 2 : 3;
+          var total = cards.length;
+          var maxIdx = total - perView;
+          var cur = 0;
+
+          for (var i = 0; i < total; i++) {
+            var d = document.createElement("div");
+            d.className = "nh-testi-dot" + (i === 0 ? " active" : "");
+            d.dataset.i = i;
+            d.onclick = function () {
+              goTo(+this.dataset.i);
+            };
+            dotsWrap.appendChild(d);
+          }
+
+          function goTo(idx) {
+            cur = Math.max(0, Math.min(idx, maxIdx));
+            var cardW = cards[0].offsetWidth + 20;
+            track.style.transform = "translateX(-" + cur * cardW + "px)";
+            var dots = dotsWrap.querySelectorAll(".nh-testi-dot");
+            dots.forEach(function (d, i) {
+              d.classList.toggle("active", i === cur);
+            });
+          }
+          document.getElementById("nhTestiPrev").onclick = function () {
+            goTo(cur - 1);
+          };
+          document.getElementById("nhTestiNext").onclick = function () {
+            goTo(cur + 1);
+          };
+
+          var startX;
+          track.addEventListener(
+            "touchstart",
+            function (e) {
+              startX = e.touches[0].clientX;
+            },
+            { passive: true },
+          );
+          track.addEventListener(
+            "touchend",
+            function (e) {
+              var dx = e.changedTouches[0].clientX - startX;
+              if (Math.abs(dx) > 40) goTo(dx < 0 ? cur + 1 : cur - 1);
+            },
+            { passive: true },
+          );
+        })();
+        });
+      </script>
+
+      <!-- ===== FEATURE SECTIONS ===== -->
+      <style>
+        .nsf-section {
+          background: #fff;
+          padding: 64px 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .nsf-row {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 32px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+          align-items: center;
+        }
+        .nsf-img-box img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 10px;
+        }
+        .nsf-content h2 {
+          font-size: clamp(22px, 2.6vw, 32px);
+          font-weight: 800;
+          color: #111;
+          margin: 0 0 4px;
+          line-height: 1.25;
+        }
+        .nsf-content h2 span {
+          display: block;
+          color: #fa731b;
+          font-size: clamp(18px, 2.2vw, 26px);
+          font-weight: 700;
+          margin-top: 4px;
+        }
+        .nsf-content p {
+          color: #555;
+          font-size: 15px;
+          line-height: 1.75;
+          margin: 16px 0 24px;
+        }
+        .nsf-bullets {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+        }
+        .nsf-bullets li {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #222;
+          line-height: 1.5;
+        }
+        .nsf-check {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: #044bab;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 1px;
+        }
+        .nsf-check i {
+          color: #fff;
+          font-size: 10px;
+        }
+        @media (max-width: 860px) {
+          .nsf-row {
+            grid-template-columns: 1fr;
+            gap: 28px;
+          }
+        }
+      </style>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/attendance-details/web/whatsapp.webp"
+              alt="WhatsApp Notifications"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              WhatsApp notifications<span
+                >HR updates, right where your team already is</span
+              >
+            </h2>
+            <p>
+              No app downloads, no email chains. NestHR sends real-time HR
+              alerts directly on WhatsApp — so employees and managers stay
+              informed the moment something happens.
+            </p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Instant payslip delivery on WhatsApp every pay cycle
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Leave
+                approval and rejection alerts in real time
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Attendance punch reminders sent automatically
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Salary credit confirmation directly to employees
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              Automatic attendance processing<span
+                >While you sit back and relax</span
+              >
+            </h2>
+            <p>
+              Manual tracking and enforcement of attendance policies is a
+              nightmare. NestHR automatically tracks and compiles attendance so
+              your HR team can focus on what matters.
+            </p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>View
+                real-time attendance information
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Automatic scheduled auto-download of swipes
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Daily
+                scheduled attendance processing
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Get
+                notifications and alerts for specific events
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
+                shift detection
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Integrated with leave management
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/attendance-details/web/attendance.webp"
+              alt="Automatic Attendance Processing"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/attendance-details/web/employee-self.webp"
+              alt="Employee Self Service"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Employee Self Service<span
+                >Helping employees help themselves</span
+              >
+            </h2>
+            <p>
+              Deploy an online attendance management system for the benefit of
+              your employees. Empower employees with detailed attendance and
+              overtime information through the NestHR portal or mobile app.
+            </p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Attendance marking
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Complete attendance information
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Attendance regularisation
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>Payroll Processing<span>In no time at all</span></h2>
+            <p>
+              Running payroll manually takes days and leaves room for errors.
+              NestHR automates the entire payroll cycle — from attendance data
+              to payslips — in minutes, not days.
+            </p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >1-click salary processing for the whole team
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
+                PF, ESI, and TDS deduction calculation
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Email
+                payslips directly to employees
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Overtime and bonus management
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/attendance-details/web/payroll.webp"
+              alt="Payroll Processing"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/attendance-details/web/leave-manage.webp"
+              alt="Leave Management"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Leave Management<span>Accounting for absences, made simple</span>
+            </h2>
+            <p>
+              Make leave tracking transparent and stress-free. NestHR
+              streamlines every leave request, approval, and balance update
+              automatically.
+            </p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Custom leave policy per category
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Apply
+                for leave from mobile or web
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Manager approval in one click
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span
+                >Automatic leave register export
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              Two-way secure login<span
+                >OTP on WhatsApp or Email — your choice</span
+              >
+            </h2>
+            <p>
+              NestHR makes login effortless and secure. Employees can sign in
+              with a one-time password delivered instantly to their WhatsApp or
+              email — no passwords to remember, no friction.
+            </p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>OTP
+                delivered on WhatsApp in under 5 seconds
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Email
+                OTP as an alternative login method
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>No
+                passwords — zero risk of credential leaks
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Works
+                on mobile and web without any app install
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/attendance-details/reports.webp"
+              alt="OTP Login via WhatsApp and Email"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: Key Features -->
+      <section class="nh-features-section">
+        <div class="nh-container">
+          <h2 class="nh-section-title slide-up">
+            Everything you need to
+            <span class="nh-accent">run HR on autopilot</span>
+          </h2>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
+            NestHR is packed with 9+ powerful modules built to eliminate manual
+            HR work, reduce errors, and give your team more time to focus on
+            what matters.
+          </p>
+          <div class="nh-features-grid">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-fingerprint"></i></div>
+              <h3>Attendance Tracking</h3>
+              <p>
+                Biometric, mobile, and GPS-based attendance capture with
+                real-time dashboards. Know who is present, late, or absent at a
+                glance — across all locations.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon">
+                <i class="fas fa-money-check-alt"></i>
+              </div>
+              <h3>Payroll Processing</h3>
+              <p>
+                Process salaries for your entire team in one click.
+                Auto-calculates PF, ESI, TDS, HRA, and overtime. Payslips are
+                emailed directly to employees.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <h3>Leave Management</h3>
+              <p>
+                Employees apply online, managers approve in-app, and the system
+                auto-adjusts payroll — no WhatsApp, no spreadsheets, no
+                paperwork.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-users"></i></div>
+              <h3>Employee Records</h3>
+              <p>
+                Maintain a centralised digital employee directory with
+                documents, roles, salary history, and department info — securely
+                stored and always accessible.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-chart-bar"></i></div>
+              <h3>Performance Monitoring</h3>
+              <p>
+                Track productivity, set goals, and generate performance reports
+                for individuals and teams. Build a data-driven culture of
+                accountability.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
+              <div class="nh-feat-icon">
+                <i class="fas fa-file-invoice"></i>
+              </div>
+              <h3>Compliance Reports</h3>
+              <p>
+                Generate PF challans, ESI challans, Form 16, salary registers,
+                and TDS reports in seconds. Stay audit-ready and legally
+                compliant at all times.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-user-plus"></i></div>
+              <h3>Recruitment Module</h3>
+              <p>
+                Manage job postings, track applicants, and onboard new hires —
+                all within NestHR. Cut your hiring time and reduce HR overhead
+                significantly.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-sitemap"></i></div>
+              <h3>Department Management</h3>
+              <p>
+                Create departments, assign roles, manage reporting hierarchies,
+                and get department-wise attendance and payroll breakdowns in one
+                place.
+              </p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-chart-pie"></i></div>
+              <h3>Reports &amp; Analytics</h3>
+              <p>
+                Get deep insights through visual dashboards and downloadable
+                reports — attendance trends, payroll summaries, leave patterns,
+                and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <!-- SECTION: Mobile App -->
+      <section class="nh-mobile-app-section">
+        <div class="nh-container" style="text-align: center; padding: 60px 20px; background-color: #ffffff; border-radius: 16px; margin: 40px auto;">
+          <p style="font-size: 1.7rem; font-weight: 600; color: #1e2d5a; max-width: 1260px; margin: 0 auto 32px;">
+            Stay connected with NestHR wherever you go with our mobile app for android and iOS
+          </p>
+          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="#" aria-label="Get it on Google Play">
+              <img src="../assets/images/platform/googleplay.webp" alt="Get it on Google Play" style="height: 52px; border-radius: 8px;" />
+            </a>
+            <a href="#" aria-label="Download on the App Store">
+              <img src="../assets/images/platform/app store.webp" alt="Download on the App Store" style="height: 52px; border-radius: 8px;" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Industries We Serve -->
+      <section class="nh-industries-section">
+        <div class="nh-container">
+          <h2 class="nh-section-title slide-up">
+            Built for every industry,
+            <span class="nh-accent">customised for yours</span>
+          </h2>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
+            NestHR adapts to the unique workforce needs of 10+ industries — from
+            fast-growing startups to large enterprises with multi-branch
+            operations.
+          </p>
+          <div class="nh-industries-grid">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-laptop-code"></i><span>IT &amp; Tech</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.07s"
+            >
+              <i class="fas fa-industry"></i><span>Manufacturing</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.14s"
+            >
+              <i class="fas fa-store"></i><span>Retail &amp; FMCG</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.21s"
+            >
+              <i class="fas fa-graduation-cap"></i><span>Education</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.28s"
+            >
+              <i class="fas fa-heartbeat"></i><span>Healthcare</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.07s"
+            >
+              <i class="fas fa-concierge-bell"></i><span>Hospitality</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.14s"
+            >
+              <i class="fas fa-truck"></i><span>Logistics</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.21s"
+            >
+              <i class="fas fa-hard-hat"></i><span>Construction</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.28s"
+            >
+              <i class="fas fa-seedling"></i><span>Startups</span>
+            </div>
+            <div
+              class="nh-industry-item slide-up"
+              style="transition-delay: 0.35s"
+            >
+              <i class="fas fa-building"></i><span>Corporates</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Why Choose NestHR -->
+      <section class="nh-why-section">
+        <div class="nh-container">
+          <h2 class="nh-section-title slide-up" style="text-align: center">
+            Why businesses choose <span class="nh-accent">NestHR</span>
+          </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >
+            More than just software — NestHR is a complete HR transformation for
+            your business.
+          </p>
+          <div class="nh-why-grid">
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-hourglass-half"></i>
+              <strong>Saves Hours Every Day</strong>
+              <p>
+                Automate repetitive HR tasks and free your team for strategic
+                work that actually moves the business forward.
+              </p>
+            </div>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-ban"></i>
+              <strong>Zero Paperwork</strong>
+              <p>
+                All records, payslips, registers, and compliance documents are
+                digital — searchable, secure, and always available.
+              </p>
+            </div>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-bullseye"></i>
+              <strong>100% Accurate Payroll</strong>
+              <p>
+                Eliminate manual calculation errors. NestHR computes every
+                deduction, allowance, and statutory contribution automatically.
+              </p>
+            </div>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-balance-scale"></i>
+              <strong>Statutory Compliance</strong>
+              <p>
+                Stay legally compliant with auto-generated PF, ESI, and TDS
+                reports — no consultant fees, no last-minute scrambles.
+              </p>
+            </div>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-user-cog"></i>
+              <strong>Employee Self-Service</strong>
+              <p>
+                Employees manage their own attendance, leave requests, and
+                payslip downloads — reducing HR queries by 70%.
+              </p>
+            </div>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Quick Onboarding</strong>
+              <p>
+                Get started in hours, not weeks. Import employee data, set up
+                policies, and go live with minimal IT effort.
+              </p>
+            </div>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-code-branch"></i>
+              <strong>Multi-Branch Ready</strong>
+              <p>
+                Manage attendance, payroll, and HR operations across multiple
+                offices and locations from a single dashboard.
+              </p>
+            </div>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.4s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>
+                Our team is always reachable via call, email, or chat — fast
+                responses, real solutions, no bots.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="nh-testi-section">
+        <div class="nh-container">
+          <h2 class="nh-section-title slide-up">What our clients say</h2>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
+            Real stories from businesses that transformed their HR with NestHR.
+          </p>
+          <div class="nh-testi-carousel-wrap">
+            <div class="nh-testi-track" id="nhTestiTrack">
+              <div class="nh-testi-card">
+                <div class="nh-testi-placeholder">
+                  <div class="nh-testi-placeholder-icon">
+                    <svg viewBox="0 0 24 24">
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  </div>
+                  <span class="nh-testi-coming-tag">Coming Soon</span>
+                  <h4>Client Testimonial #1</h4>
+                  <p>Video shoot in progress — stay tuned for real stories.</p>
+                </div>
+              </div>
+              <div class="nh-testi-card">
+                <div class="nh-testi-placeholder">
+                  <div class="nh-testi-placeholder-icon">
+                    <svg viewBox="0 0 24 24">
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  </div>
+                  <span class="nh-testi-coming-tag">Coming Soon</span>
+                  <h4>Client Testimonial #2</h4>
+                  <p>Video shoot in progress — stay tuned for real stories.</p>
+                </div>
+              </div>
+              <div class="nh-testi-card">
+                <div class="nh-testi-placeholder">
+                  <div class="nh-testi-placeholder-icon">
+                    <svg viewBox="0 0 24 24">
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  </div>
+                  <span class="nh-testi-coming-tag">Coming Soon</span>
+                  <h4>Client Testimonial #3</h4>
+                  <p>Video shoot in progress — stay tuned for real stories.</p>
+                </div>
+              </div>
+              <div class="nh-testi-card">
+                <div class="nh-testi-placeholder">
+                  <div class="nh-testi-placeholder-icon">
+                    <svg viewBox="0 0 24 24">
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  </div>
+                  <span class="nh-testi-coming-tag">Coming Soon</span>
+                  <h4>Client Testimonial #4</h4>
+                  <p>Video shoot in progress — stay tuned for real stories.</p>
+                </div>
+              </div>
+              <div class="nh-testi-card">
+                <div class="nh-testi-placeholder">
+                  <div class="nh-testi-placeholder-icon">
+                    <svg viewBox="0 0 24 24">
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  </div>
+                  <span class="nh-testi-coming-tag">Coming Soon</span>
+                  <h4>Client Testimonial #5</h4>
+                  <p>Video shoot in progress — stay tuned for real stories.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nh-testi-nav">
+            <button class="nh-testi-btn" id="nhTestiPrev" aria-label="Previous">
+              &#8592;
+            </button>
+            <div class="nh-testi-dots" id="nhTestiDots"></div>
+            <button class="nh-testi-btn" id="nhTestiNext" aria-label="Next">
+              &#8594;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Clients & Testimonials -->
+      <section class="nh-clients-section">
+        <div class="nh-container">
+          <h2 class="nh-section-title slide-up">
+            Meet the brands that <span class="nh-accent">chose NestHR</span>
+          </h2>
+          <p class="nh-section-sub">
+            Trusted by 20+ growing businesses across India — from startups to
+            enterprises.
+          </p>
+          <div class="nh-brand-strip slide-up">
+            <img
+              src="../assets/images/brands/1.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/brands/2.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/brands/3.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/brands/4.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/brands/5.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/brands/6.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/brands/7.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+            <img
+              src="../assets/images/brands/8.webp"
+              alt="Client Brand"
+              loading="lazy"
+            />
+          </div>
+          <div class="nh-testimonials">
+            <div class="nh-testi-card slide-up" style="transition-delay: 0s">
+              <div class="nh-testi-stars">★★★★★</div>
+              <p>
+                "NestHR has completely transformed how we manage our team.
+                Payroll that used to take two days now takes 10 minutes. Highly
+                recommend!"
+              </p>
+              <div class="nh-testi-author">
+                <strong>Ravi Sharma</strong><br />
+                <span>HR Manager, TechCorp India</span>
+              </div>
+            </div>
+            <div class="nh-testi-card slide-up" style="transition-delay: 0.15s">
+              <div class="nh-testi-stars">★★★★★</div>
+              <p>
+                "The leave management and biometric sync features saved us hours
+                every week. Our team loves the self-service portal."
+              </p>
+              <div class="nh-testi-author">
+                <strong>Priya Nair</strong><br />
+                <span>Operations Head, RetailZone</span>
+              </div>
+            </div>
+            <div class="nh-testi-card slide-up" style="transition-delay: 0.3s">
+              <div class="nh-testi-stars">★★★★★</div>
+              <p>
+                "Statutory compliance was always a headache. NestHR generates PF
+                and ESI challans in seconds. It's a game-changer for us."
+              </p>
+              <div class="nh-testi-author">
+                <strong>Ankit Verma</strong><br />
+                <span>CEO, BuildRight Constructions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Stats -->
+      <section class="nh-stats-section">
+        <div class="nh-container">
+          <div class="nh-stats-grid">
+            <div class="nh-stat-item slide-up">
+              <div>
+                <span class="nh-stat-num" data-target="20">0</span
+                ><span class="nh-stat-plus">+</span>
+              </div>
+              <div class="nh-stat-label">Customers</div>
+            </div>
+            <div class="nh-stat-item slide-up">
+              <div>
+                <span class="nh-stat-num" data-target="500">0</span
+                ><span class="nh-stat-plus">+</span>
+              </div>
+              <div class="nh-stat-label">Employees Managed</div>
+            </div>
+            <div class="nh-stat-item slide-up">
+              <div>
+                <span class="nh-stat-num" data-target="10">0</span
+                ><span class="nh-stat-plus">+</span>
+              </div>
+              <div class="nh-stat-label">Industries Served</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: CTA Banner -->
+      <section class="nh-cta-banner">
+        <div class="nh-container">
+          <h2 class="slide-up">
+            Discuss business needs, find out pricing or get a demo.<br />We
+            would love to talk.
+          </h2>
+          <a
+            href="https://www.pixelatenest.com/pages/contact.html"
+            class="nh-cta-btn"
+            >Book a Demo &rarr;</a
+          >
+        </div>
+      </section>
+
+      <!-- ========== OLD SECTIONS HIDDEN (SEO CONTENT PRESERVED) ========== -->
+      <div style="display: none">
+        <!-- 1. What is NestHR -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/home.webp"
+                alt="NestHR Dashboard"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>What is NestHR</h2>
+              <p>
+                NestHR by Pixelate Nest is a modern cloud-based HRMS software
+                designed to simplify and automate human resource management for
+                startups, businesses, agencies, schools, and enterprises. From
+                employee attendance tracking and payroll processing to leave
+                management, performance monitoring, and staff management, NestHR
+                helps organizations manage their workforce efficiently through
+                one smart and user-friendly platform. Built for growing
+                businesses, NestHR improves productivity, reduces manual HR
+                work, and streamlines daily operations with secure, scalable,
+                and easy-to-use HR automation tools.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Features of NestHR -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row reverse">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/attemdance.webp"
+                alt="NestHR Features"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>Features of NestHR</h2>
+              <p>
+                NestHR is packed with powerful tools to manage your entire
+                workforce from a single dashboard. Every feature is designed to
+                reduce manual effort, improve accuracy, and keep your HR
+                operations running smoothly.
+              </p>
+              <div class="pn-icon-grid">
+                <div class="pn-icon-item">
+                  <i class="fas fa-fingerprint"></i
+                  ><span>Attendance Tracking</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-money-check-alt"></i
+                  ><span>Payroll Processing</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-calendar-check"></i
+                  ><span>Leave Management</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-users"></i><span>Employee Records</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-chart-bar"></i
+                  ><span>Performance Monitoring</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-file-invoice"></i
+                  ><span>Compliance Reports</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-user-plus"></i><span>Recruitment</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-sitemap"></i
+                  ><span>Department Management</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-chart-pie"></i
+                  ><span>Reports & Analytics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Benefits of Using NestHR -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/reports.webp"
+                alt="NestHR Benefits"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>Benefits of Using NestHR</h2>
+              <p>
+                NestHR by Pixelate Nest is built to simplify modern workforce
+                management with smart automation, real-time tracking, and an
+                easy-to-use interface. It helps businesses manage attendance,
+                payroll, leaves, employee records, and team productivity from
+                one centralized platform.
+              </p>
+              <div class="pn-icon-grid">
+                <div class="pn-icon-item">
+                  <i class="fas fa-bolt"></i><span>Smart Automation</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-clock"></i><span>Real-Time Tracking</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-hand-point-up"></i
+                  ><span>Easy-to-Use Interface</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-layer-group"></i
+                  ><span>Centralized Platform</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-shield-alt"></i
+                  ><span>Secure & Scalable</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-coins"></i><span>Cost Efficient</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-cloud"></i><span>24/7 Cloud Access</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-mobile-alt"></i><span>Mobile Friendly</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-headset"></i><span>Expert Support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Why NestHR -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row reverse">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/payroll.webp"
+                alt="Why NestHR"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>Why NestHR</h2>
+              <p>
+                NestHR by Pixelate Nest is built to simplify modern workforce
+                management with smart automation, real-time tracking, and an
+                easy-to-use interface. It helps businesses manage attendance,
+                payroll, leaves, employee records, and team productivity from
+                one centralized platform.
+              </p>
+              <div class="pn-icon-grid">
+                <div class="pn-icon-item">
+                  <i class="fas fa-cloud-upload-alt"></i
+                  ><span>Cloud-Based System</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-calculator"></i><span>Auto Payroll</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-check-circle"></i
+                  ><span>Leave Approval Flow</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-wifi"></i><span>Biometric Sync</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-file-contract"></i
+                  ><span>PF / ESI Ready</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-code-branch"></i
+                  ><span>Multi-Branch Support</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-lock"></i><span>Data Security</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-plug"></i><span>Easy Integration</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-tachometer-alt"></i
+                  ><span>High Performance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Advantage of Using NestHR -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/profile.webp"
+                alt="NestHR Advantage"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>Advantage of Using NestHR</h2>
+              <p>
+                NestHR by Pixelate Nest helps businesses simplify HR operations,
+                improve workforce efficiency, and reduce manual tasks through
+                smart automation. It streamlines attendance, payroll, leave
+                management, and employee tracking from one centralized platform,
+                saving valuable time for HR teams and management. With real-time
+                insights, secure cloud access, and an easy-to-use interface,
+                NestHR improves productivity, enhances employee experience, and
+                supports smooth business growth for startups, SMEs, and
+                enterprises.
+              </p>
+              <div class="pn-icon-grid">
+                <div class="pn-icon-item">
+                  <i class="fas fa-hourglass-half"></i
+                  ><span>Saves Time Daily</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-ban"></i><span>No Paperwork</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-bullseye"></i><span>Accurate Records</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-balance-scale"></i
+                  ><span>Statutory Compliance</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-user-cog"></i
+                  ><span>Employee Self-Service</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-rocket"></i><span>Easy Onboarding</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-bell"></i><span>Smart Alerts</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-sync-alt"></i><span>Auto Sync</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-star"></i><span>Better Productivity</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Industries Using NestHR -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row reverse">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/leave.webp"
+                alt="Industries Using NestHR"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>Industries Using NestHR</h2>
+              <p>
+                NestHR by Pixelate Nest is designed for multiple industries
+                including startups, IT companies, creative agencies, schools and
+                colleges, retail businesses, healthcare organizations,
+                manufacturing companies, corporate offices, and service-based
+                businesses. Its flexible and scalable HRMS system adapts to
+                different workforce structures and operational needs.
+              </p>
+              <div class="pn-icon-grid">
+                <div class="pn-icon-item">
+                  <i class="fas fa-laptop-code"></i><span>IT & Tech</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-industry"></i><span>Manufacturing</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-store"></i><span>Retail & FMCG</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-graduation-cap"></i><span>Education</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-heartbeat"></i><span>Healthcare</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-concierge-bell"></i><span>Hospitality</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-truck"></i><span>Logistics</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-hard-hat"></i><span>Construction</span>
+                </div>
+                <div class="pn-icon-item">
+                  <i class="fas fa-seedling"></i><span>Startups</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. Brands Using NestHR -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/recruitment.webp"
+                alt="Brands Using NestHR"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>Brands Using Our NestHR</h2>
+              <p>
+                NestHR by Pixelate Nest is trusted by over 20+ delighted
+                customers across various industries. From startups to
+                enterprises, our clients rely on NestHR to manage their
+                workforce efficiently and streamline HR operations. Join the
+                growing list of brands that have transformed their HR management
+                with NestHR's smart automation and user-friendly platform.
+              </p>
+              <div class="pn-brand-grid">
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/1.webp" alt="Brand 1" />
+                </div>
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/2.webp" alt="Brand 2" />
+                </div>
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/3.webp" alt="Brand 3" />
+                </div>
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/4.webp" alt="Brand 4" />
+                </div>
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/5.webp" alt="Brand 5" />
+                </div>
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/6.webp" alt="Brand 6" />
+                </div>
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/7.webp" alt="Brand 7" />
+                </div>
+                <div class="pn-brand-item">
+                  <img src="../assets/images/brands/8.webp" alt="Brand 8" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. Pricing -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row reverse">
+            <div class="pn-prod-img-wrap">
+              <img
+                data-src="../assets/images/products/attendance-details/employee.webp"
+                alt="NestHR Pricing"
+                class="pn-prod-img"
+              />
+            </div>
+            <div class="pn-prod-content">
+              <h2>Pricing</h2>
+              <p>
+                NestHR by Pixelate Nest offers flexible pricing plans to suit
+                businesses of all sizes. Whether you're a startup, SME, or
+                enterprise, we have a plan that fits your needs and budget. Our
+                transparent pricing includes all features with no hidden costs,
+                allowing you to choose the right level of support and
+                functionality for your organization. Contact us for a custom
+                quote or book a free demo to see how NestHR can transform your
+                HR management.
+              </p>
+              <div class="pn-pricing-cards">
+                <div class="pn-pricing-card">
+                  <strong>Basic Plan</strong>
+                  <ul>
+                    <li>Up to 25 employees</li>
+                    <li>Attendance & leave management</li>
+                    <li>Payroll processing</li>
+                    <li>Basic reports</li>
+                    <li>Email support</li>
+                  </ul>
+                </div>
+                <div class="pn-pricing-card">
+                  <strong>Professional Plan</strong>
+                  <ul>
+                    <li>Up to 100 employees</li>
+                    <li>All Basic features</li>
+                    <li>Performance monitoring</li>
+                    <li>PF / ESI compliance reports</li>
+                    <li>Priority support</li>
+                  </ul>
+                </div>
+                <div class="pn-pricing-card">
+                  <strong>Enterprise Plan</strong>
+                  <ul>
+                    <li>Unlimited employees</li>
+                    <li>All Professional features</li>
+                    <li>Multi-branch management</li>
+                    <li>Custom integrations</li>
+                    <li>Dedicated account manager</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. Testimonials -->
+        <section class="pn-prod-section pn-testimonial-section-wrap">
+          <div style="max-width: 1800px; margin: 0 auto; padding: 0 24px">
+            <div class="pn-prod-row">
+              <div class="pn-prod-img-wrap">
+                <img
+                  data-src="../assets/images/products/attendance-details/settings.webp"
+                  alt="NestHR Testimonials"
+                  class="pn-prod-img"
+                />
+              </div>
+              <div class="pn-prod-content">
+                <h2>Testimonial</h2>
+                <p>
+                  Don't just take our word for it — see what our customers have
+                  to say about their experience with NestHR. From time savings
+                  and improved accuracy to better employee management and
+                  compliance, our clients share how NestHR has transformed their
+                  HR operations and helped their businesses grow.
+                </p>
+                <div class="pn-testimonial-cards" style="margin-top: 40px">
+                  <div class="pn-testimonial-card">
+                    <img
+                      data-src="../assets/images/products/nesthr-testimonial-1.webp"
+                      alt="Customer 1"
+                      class="pn-testimonial-avatar"
+                    />
+                    <p>
+                      "NestHR has completely transformed how we manage our team.
+                      Payroll that used to take two days now takes 10 minutes.
+                      Highly recommend!"
+                    </p>
+                    <span class="pn-tc-name">Ravi Sharma</span>
+                    <span style="font-size: 12px; opacity: 0.8"
+                      >HR Manager, TechCorp India</span
+                    >
+                  </div>
+                  <div class="pn-testimonial-card">
+                    <img
+                      data-src="../assets/images/products/nesthr-testimonial-2.webp"
+                      alt="Customer 2"
+                      class="pn-testimonial-avatar"
+                    />
+                    <p>
+                      "The leave management and biometric sync features saved us
+                      hours every week. Our team loves the self-service portal."
+                    </p>
+                    <span class="pn-tc-name">Priya Nair</span>
+                    <span style="font-size: 12px; opacity: 0.8"
+                      >Operations Head, RetailZone</span
+                    >
+                  </div>
+                  <div class="pn-testimonial-card">
+                    <img
+                      data-src="../assets/images/products/nesthr-testimonial-3.webp"
+                      alt="Customer 3"
+                      class="pn-testimonial-avatar"
+                    />
+                    <p>
+                      "Statutory compliance was always a headache. NestHR
+                      generates PF and ESI challans in seconds. It's a
+                      game-changer for us."
+                    </p>
+                    <span class="pn-tc-name">Ankit Verma</span>
+                    <span style="font-size: 12px; opacity: 0.8"
+                      >CEO, BuildRight Constructions</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </div>
 
-      <!-- ========== PRODUCT SECTIONS ========== -->
-
-      <!-- 1. What is NestHR -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/home.png"
-              alt="NestHR Dashboard"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>What is NestHR</h2>
-            <p>
-              NestHR by Pixelate Nest is a modern cloud-based HRMS software
-              designed to simplify and automate human resource management for
-              startups, businesses, agencies, schools, and enterprises. From
-              employee attendance tracking and payroll processing to leave
-              management, performance monitoring, and staff management, NestHR
-              helps organizations manage their workforce efficiently through one
-              smart and user-friendly platform. Built for growing businesses,
-              NestHR improves productivity, reduces manual HR work, and
-              streamlines daily operations with secure, scalable, and
-              easy-to-use HR automation tools.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. Features of NestHR -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row reverse">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/attemdance.png"
-              alt="NestHR Features"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>Features of NestHR</h2>
-            <p>
-              NestHR is packed with powerful tools to manage your entire
-              workforce from a single dashboard. Every feature is designed to
-              reduce manual effort, improve accuracy, and keep your HR
-              operations running smoothly.
-            </p>
-            <div class="pn-icon-grid">
-              <div class="pn-icon-item">
-                <i class="fas fa-fingerprint"></i
-                ><span>Attendance Tracking</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-money-check-alt"></i
-                ><span>Payroll Processing</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-calendar-check"></i
-                ><span>Leave Management</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-users"></i><span>Employee Records</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-chart-bar"></i
-                ><span>Performance Monitoring</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-file-invoice"></i
-                ><span>Compliance Reports</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-user-plus"></i><span>Recruitment</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-sitemap"></i><span>Department Management</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-chart-pie"></i><span>Reports & Analytics</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. Benefits of Using NestHR -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/reports.png"
-              alt="NestHR Benefits"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>Benefits of Using NestHR</h2>
-            <p>
-              NestHR by Pixelate Nest is built to simplify modern workforce
-              management with smart automation, real-time tracking, and an
-              easy-to-use interface. It helps businesses manage attendance,
-              payroll, leaves, employee records, and team productivity from one
-              centralized platform.
-            </p>
-            <div class="pn-icon-grid">
-              <div class="pn-icon-item">
-                <i class="fas fa-bolt"></i><span>Smart Automation</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-clock"></i><span>Real-Time Tracking</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-hand-point-up"></i
-                ><span>Easy-to-Use Interface</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-layer-group"></i
-                ><span>Centralized Platform</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-shield-alt"></i><span>Secure & Scalable</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-coins"></i><span>Cost Efficient</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-cloud"></i><span>24/7 Cloud Access</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-mobile-alt"></i><span>Mobile Friendly</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-headset"></i><span>Expert Support</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Why NestHR -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row reverse">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/payroll.png"
-              alt="Why NestHR"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>Why NestHR</h2>
-            <p>
-              NestHR by Pixelate Nest is built to simplify modern workforce
-              management with smart automation, real-time tracking, and an
-              easy-to-use interface. It helps businesses manage attendance,
-              payroll, leaves, employee records, and team productivity from one
-              centralized platform.
-            </p>
-            <div class="pn-icon-grid">
-              <div class="pn-icon-item">
-                <i class="fas fa-cloud-upload-alt"></i
-                ><span>Cloud-Based System</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-calculator"></i><span>Auto Payroll</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-check-circle"></i
-                ><span>Leave Approval Flow</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-wifi"></i><span>Biometric Sync</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-file-contract"></i><span>PF / ESI Ready</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-code-branch"></i
-                ><span>Multi-Branch Support</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-lock"></i><span>Data Security</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-plug"></i><span>Easy Integration</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-tachometer-alt"></i
-                ><span>High Performance</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Advantage of Using NestHR -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/profile.png"
-              alt="NestHR Advantage"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>Advantage of Using NestHR</h2>
-            <p>
-              NestHR by Pixelate Nest helps businesses simplify HR operations,
-              improve workforce efficiency, and reduce manual tasks through
-              smart automation. It streamlines attendance, payroll, leave
-              management, and employee tracking from one centralized platform,
-              saving valuable time for HR teams and management. With real-time
-              insights, secure cloud access, and an easy-to-use interface,
-              NestHR improves productivity, enhances employee experience, and
-              supports smooth business growth for startups, SMEs, and
-              enterprises.
-            </p>
-            <div class="pn-icon-grid">
-              <div class="pn-icon-item">
-                <i class="fas fa-hourglass-half"></i
-                ><span>Saves Time Daily</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-ban"></i><span>No Paperwork</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-bullseye"></i><span>Accurate Records</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-balance-scale"></i
-                ><span>Statutory Compliance</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-user-cog"></i
-                ><span>Employee Self-Service</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-rocket"></i><span>Easy Onboarding</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-bell"></i><span>Smart Alerts</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-sync-alt"></i><span>Auto Sync</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-star"></i><span>Better Productivity</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 6. Industries Using NestHR -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row reverse">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/leave.png"
-              alt="Industries Using NestHR"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>Industries Using NestHR</h2>
-            <p>
-              NestHR by Pixelate Nest is designed for multiple industries
-              including startups, IT companies, creative agencies, schools and
-              colleges, retail businesses, healthcare organizations,
-              manufacturing companies, corporate offices, and service-based
-              businesses. Its flexible and scalable HRMS system adapts to
-              different workforce structures and operational needs.
-            </p>
-            <div class="pn-icon-grid">
-              <div class="pn-icon-item">
-                <i class="fas fa-laptop-code"></i><span>IT & Tech</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-industry"></i><span>Manufacturing</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-store"></i><span>Retail & FMCG</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-graduation-cap"></i><span>Education</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-heartbeat"></i><span>Healthcare</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-concierge-bell"></i><span>Hospitality</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-truck"></i><span>Logistics</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-hard-hat"></i><span>Construction</span>
-              </div>
-              <div class="pn-icon-item">
-                <i class="fas fa-seedling"></i><span>Startups</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 7. Brands Using NestHR -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/recruitment.png"
-              alt="Brands Using NestHR"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>Brands Using Our NestHR</h2>
-            <p>
-              NestHR by Pixelate Nest is trusted by over 20+ delighted customers
-              across various industries. From startups to enterprises, our
-              clients rely on NestHR to manage their workforce efficiently and
-              streamline HR operations. Join the growing list of brands that
-              have transformed their HR management with NestHR's smart
-              automation and user-friendly platform.
-            </p>
-            <div class="pn-brand-grid">
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/1.webp" alt="Brand 1" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/2.webp" alt="Brand 2" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/3.webp" alt="Brand 3" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/4.webp" alt="Brand 4" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/5.webp" alt="Brand 5" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/6.webp" alt="Brand 6" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/7.webp" alt="Brand 7" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/8.webp" alt="Brand 8" />
-              </div>
-              <div class="pn-brand-item">
-                <img src="../assets/images/brands/9.webp" alt="Brand 9" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 8. Pricing -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row reverse">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/employee.png"
-              alt="NestHR Pricing"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <h2>Pricing</h2>
-            <p>
-              NestHR by Pixelate Nest offers flexible pricing plans to suit
-              businesses of all sizes. Whether you're a startup, SME, or
-              enterprise, we have a plan that fits your needs and budget. Our
-              transparent pricing includes all features with no hidden costs,
-              allowing you to choose the right level of support and
-              functionality for your organization. Contact us for a custom quote
-              or book a free demo to see how NestHR can transform your HR
-              management.
-            </p>
-            <div class="pn-pricing-cards">
-              <div class="pn-pricing-card">
-                <strong>Basic Plan</strong>
-                <ul>
-                  <li>Up to 25 employees</li>
-                  <li>Attendance & leave management</li>
-                  <li>Payroll processing</li>
-                  <li>Basic reports</li>
-                  <li>Email support</li>
-                </ul>
-              </div>
-              <div class="pn-pricing-card">
-                <strong>Professional Plan</strong>
-                <ul>
-                  <li>Up to 100 employees</li>
-                  <li>All Basic features</li>
-                  <li>Performance monitoring</li>
-                  <li>PF / ESI compliance reports</li>
-                  <li>Priority support</li>
-                </ul>
-              </div>
-              <div class="pn-pricing-card">
-                <strong>Enterprise Plan</strong>
-                <ul>
-                  <li>Unlimited employees</li>
-                  <li>All Professional features</li>
-                  <li>Multi-branch management</li>
-                  <li>Custom integrations</li>
-                  <li>Dedicated account manager</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 9. Testimonials -->
-      <section class="pn-prod-section pn-testimonial-section-wrap">
-        <div style="max-width: 1800px; margin: 0 auto; padding: 0 24px">
-          <div class="pn-prod-row">
+        <!-- 10. CTA -->
+        <section class="pn-prod-section">
+          <div class="pn-prod-row reverse">
             <div class="pn-prod-img-wrap">
               <img
-                src="../assets/images/products/attendance-details/settings.png"
-                alt="NestHR Testimonials"
+                data-src="../assets/images/products/attendance-details/departments.webp"
+                alt="Get Started with NestHR"
                 class="pn-prod-img"
               />
             </div>
             <div class="pn-prod-content">
-              <h2>Testimonial</h2>
-              <p>
-                Don't just take our word for it — see what our customers have to
-                say about their experience with NestHR. From time savings and
-                improved accuracy to better employee management and compliance,
-                our clients share how NestHR has transformed their HR operations
-                and helped their businesses grow.
-              </p>
-              <div class="pn-testimonial-cards" style="margin-top: 40px">
-                <div class="pn-testimonial-card">
-                  <img
-                    src="../assets/images/products/nesthr-testimonial-1.png"
-                    alt="Customer 1"
-                    class="pn-testimonial-avatar"
-                  />
-                  <p>
-                    "NestHR has completely transformed how we manage our team.
-                    Payroll that used to take two days now takes 10 minutes.
-                    Highly recommend!"
-                  </p>
-                  <span class="pn-tc-name">Ravi Sharma</span>
-                  <span style="font-size: 12px; opacity: 0.8"
-                    >HR Manager, TechCorp India</span
-                  >
-                </div>
-                <div class="pn-testimonial-card">
-                  <img
-                    src="../assets/images/products/nesthr-testimonial-2.png"
-                    alt="Customer 2"
-                    class="pn-testimonial-avatar"
-                  />
-                  <p>
-                    "The leave management and biometric sync features saved us
-                    hours every week. Our team loves the self-service portal."
-                  </p>
-                  <span class="pn-tc-name">Priya Nair</span>
-                  <span style="font-size: 12px; opacity: 0.8"
-                    >Operations Head, RetailZone</span
-                  >
-                </div>
-                <div class="pn-testimonial-card">
-                  <img
-                    src="../assets/images/products/nesthr-testimonial-3.png"
-                    alt="Customer 3"
-                    class="pn-testimonial-avatar"
-                  />
-                  <p>
-                    "Statutory compliance was always a headache. NestHR
-                    generates PF and ESI challans in seconds. It's a
-                    game-changer for us."
-                  </p>
-                  <span class="pn-tc-name">Ankit Verma</span>
-                  <span style="font-size: 12px; opacity: 0.8"
-                    >CEO, BuildRight Constructions</span
-                  >
-                </div>
+              <div class="pn-cta-box">
+                <h2>Ready to Simplify Your HR & Payroll?</h2>
+                <p>
+                  Join hundreds of businesses already using NestHR to automate
+                  attendance, process payroll, and manage their workforce
+                  effortlessly. Get started today with a free demo.
+                </p>
+                <a
+                  href="https://www.pixelatenest.com/pages/contact.html"
+                  class="pn-cta-btn"
+                  >Book a Free Demo &rarr;</a
+                >
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- 10. CTA -->
-      <section class="pn-prod-section">
-        <div class="pn-prod-row reverse">
-          <div class="pn-prod-img-wrap">
-            <img
-              src="../assets/images/products/attendance-details/departments.png"
-              alt="Get Started with NestHR"
-              class="pn-prod-img"
-            />
-          </div>
-          <div class="pn-prod-content">
-            <div class="pn-cta-box">
-              <h2>Ready to Simplify Your HR & Payroll?</h2>
-              <p>
-                Join hundreds of businesses already using NestHR to automate
-                attendance, process payroll, and manage their workforce
-                effortlessly. Get started today with a free demo.
-              </p>
-              <a
-                href="https://www.pixelatenest.com/pages/contact.html"
-                class="pn-cta-btn"
-                >Book a Free Demo &rarr;</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
+      <!-- end hidden old sections -->
       <!-- ========== END PRODUCT SECTIONS ========== -->
 
       <script>
-        const apObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) {
-                e.target.classList.add("visible");
-                apObserver.unobserve(e.target);
-              }
+        // Slide-in on scroll
+        (function () {
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("in-view");
+                  obs.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.12 },
+          );
+          document
+            .querySelectorAll(".slide-up, .slide-left, .slide-right")
+            .forEach(function (el) {
+              obs.observe(el);
             });
-          },
-          { threshold: 0.12 },
-        );
-        document
-          .querySelectorAll(".fade-in-section")
-          .forEach((el) => apObserver.observe(el));
-        const navItems = document.querySelectorAll(".ap-feature-nav-item");
-        const uiLabel = document.getElementById("apUiLabel");
-        const caption = document.getElementById("apFeatureCaption");
-        const screenshot = document.getElementById("apSoftwareScreenshot");
-        const captions = [
-          {
-            label: "Attendance Tracking",
-            text: "Biometric & mobile geo-tagged attendance, synced in real time — see who is present, late, or absent at a glance.",
-          },
-          {
-            label: "Payroll Processing",
-            text: "One-click salary processing with auto-calculated PF, ESI, TDS, and HRA — payslips emailed to every employee instantly.",
-          },
-          {
-            label: "Leave Management",
-            text: "Employees apply online, managers approve in-app, and the system auto-adjusts payroll — no WhatsApp, no paperwork.",
-          },
-          {
-            label: "Compliance Reports",
-            text: "PF challans, ESI challans, salary registers and TDS reports generated in seconds, ready for statutory filing.",
-          },
-        ];
-        navItems.forEach((item) => {
-          item.addEventListener("click", () => {
-            const idx = +item.dataset.feature;
-            navItems.forEach((n) => n.classList.remove("active"));
-            item.classList.add("active");
-            screenshot.style.opacity = "0";
-            setTimeout(() => {
-              uiLabel.textContent = captions[idx].label;
-              caption.querySelector("p").textContent = captions[idx].text;
-              screenshot.style.opacity = "1";
-            }, 200);
-          });
-        });
+        })();
+      </script>
 
-        // Count-up for stats
-        const apStatObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (!e.isIntersecting) return;
-              e.target
-                .querySelectorAll(".ap-stat-num[data-target]")
-                .forEach((el) => {
-                  const target = +el.dataset.target;
-                  let current = 0;
-                  const step = target / 50;
-                  const timer = setInterval(() => {
+      <script>
+        // NestHR Stats Counter
+        (function () {
+          var nums = document.querySelectorAll(".nh-stat-num[data-target]");
+          if (!nums.length) return;
+          var observed = false;
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (!e.isIntersecting || observed) return;
+                observed = true;
+                nums.forEach(function (el) {
+                  var target = parseInt(el.dataset.target, 10);
+                  var current = 0;
+                  var step = Math.max(1, target / 60);
+                  var timer = setInterval(function () {
                     current = Math.min(current + step, target);
                     el.textContent = Math.floor(current);
                     if (current >= target) clearInterval(timer);
-                  }, 30);
+                  }, 25);
                 });
-              apStatObserver.unobserve(e.target);
-            });
-          },
-          { threshold: 0.3 },
-        );
-        const statsSection = document.querySelector(".ap-stats-section");
-        if (statsSection) apStatObserver.observe(statsSection);
-
-        // Pricing toggle
-        const billingToggle = document.getElementById("apBillingToggle");
-        if (billingToggle) {
-          billingToggle.addEventListener("change", () => {
-            const isAnnual = billingToggle.checked;
-            document
-              .querySelectorAll(".ap-price-val[data-monthly]")
-              .forEach((el) => {
-                const val = isAnnual ? el.dataset.annual : el.dataset.monthly;
-                if (!isNaN(val)) {
-                  el.textContent = Number(val).toLocaleString("en-IN");
-                } else {
-                  el.textContent = val;
-                }
               });
-          });
-        }
-
-        // Mobile testimonial auto-rotate
-        if (window.innerWidth <= 900) {
-          const cards = document.querySelectorAll(".ap-testimonial-card");
-          let cur = 0;
-          if (cards.length > 1) {
-            setInterval(() => {
-              cards[cur].style.opacity = "0.4";
-              cur = (cur + 1) % cards.length;
-              cards[cur].style.opacity = "1";
-            }, 5000);
-          }
-        }
+            },
+            { threshold: 0.4 },
+          );
+          var statsSection = document.querySelector(".nh-stats-section");
+          if (statsSection) obs.observe(statsSection);
+        })();
       </script>
+
       <footer class="footer">
         <div class="container">
           <div class="footer-wrap">
@@ -1682,26 +3874,40 @@
         </p>
         <form id="landing-contact-form" class="landing-contact-form" novalidate>
           <div class="landing-contact-grid">
-            <input type="text" name="name" placeholder="Your Name" required />
+            <label class="lc-sr-only" for="lc-name">Your Name</label>
             <input
+              id="lc-name"
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+            />
+            <label class="lc-sr-only" for="lc-email">Email Address</label>
+            <input
+              id="lc-email"
               type="email"
               name="Email-Address"
               placeholder="Email Address"
               required
             />
+            <label class="lc-sr-only" for="lc-phone">Phone Number</label>
             <input
+              id="lc-phone"
               type="tel"
               name="Phone"
               placeholder="Phone Number"
               required
             />
+            <label class="lc-sr-only" for="lc-subject">Subject</label>
             <input
+              id="lc-subject"
               type="text"
               name="Enter-your-subject"
               placeholder="Subject"
               required
             />
-            <select name="field" required>
+            <label class="lc-sr-only" for="lc-field">Project Type</label>
+            <select id="lc-field" name="field" required>
               <option value="" disabled selected>Select Project Type</option>
               <option value="Website Development">Website Development</option>
               <option value="App Development">App Development</option>
@@ -1710,7 +3916,8 @@
               <option value="Digital Marketing">Digital Marketing</option>
               <option value="Other">Other</option>
             </select>
-            <select name="budget">
+            <label class="lc-sr-only" for="lc-budget">Budget</label>
+            <select id="lc-budget" name="budget">
               <option value="" disabled selected>Select Budget</option>
               <option value="Below 25k">Below 25k</option>
               <option value="25k - 50k">25k - 50k</option>
@@ -1718,7 +3925,9 @@
               <option value="1L+">1L+</option>
             </select>
           </div>
+          <label class="lc-sr-only" for="lc-message">Message</label>
           <textarea
+            id="lc-message"
             name="Message"
             rows="4"
             placeholder="Tell us about your requirement"
@@ -1743,6 +3952,17 @@
     </div>
 
     <style>
+      .lc-sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
       .landing-contact-modal {
         position: fixed;
         inset: 0;

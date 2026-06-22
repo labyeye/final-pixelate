@@ -37,14 +37,6 @@
       "namedRegex": "^/api/blogs/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
-      "page": "/api/campaigns/[id]",
-      "regex": "^/api/campaigns/([^/]+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPid": "nxtPid"
-      },
-      "namedRegex": "^/api/campaigns/(?<nxtPid>[^/]+?)(?:/)?$"
-    },
-    {
       "page": "/api/careers/[id]",
       "regex": "^/api/careers/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -421,12 +413,6 @@
       "namedRegex": "^/api/blogs(?:/)?$"
     },
     {
-      "page": "/api/campaigns",
-      "regex": "^/api/campaigns(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/campaigns(?:/)?$"
-    },
-    {
       "page": "/api/careers",
       "regex": "^/api/careers(?:/)?$",
       "routeKeys": {},
@@ -563,6 +549,12 @@
       "regex": "^/api/nda\\-approvals(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/nda\\-approvals(?:/)?$"
+    },
+    {
+      "page": "/api/nesthr-invoices",
+      "regex": "^/api/nesthr\\-invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nesthr\\-invoices(?:/)?$"
     },
     {
       "page": "/api/nesthr-stats",
@@ -745,6 +737,12 @@
       "namedRegex": "^/api/upload(?:/)?$"
     },
     {
+      "page": "/api/upload/avatar",
+      "regex": "^/api/upload/avatar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/upload/avatar(?:/)?$"
+    },
+    {
       "page": "/api/upload-expense-bill",
       "regex": "^/api/upload\\-expense\\-bill(?:/)?$",
       "routeKeys": {},
@@ -901,18 +899,6 @@
       "namedRegex": "^/dashboard(?:/)?$"
     },
     {
-      "page": "/dashboard/bulk-messaging",
-      "regex": "^/dashboard/bulk\\-messaging(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/dashboard/bulk\\-messaging(?:/)?$"
-    },
-    {
-      "page": "/dashboard/campaigns",
-      "regex": "^/dashboard/campaigns(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/dashboard/campaigns(?:/)?$"
-    },
-    {
       "page": "/dashboard/payments",
       "regex": "^/dashboard/payments(?:/)?$",
       "routeKeys": {},
@@ -935,12 +921,6 @@
       "regex": "^/dashboard/settings(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/dashboard/settings(?:/)?$"
-    },
-    {
-      "page": "/dashboard/whatsapp-inbox",
-      "regex": "^/dashboard/whatsapp\\-inbox(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/dashboard/whatsapp\\-inbox(?:/)?$"
     },
     {
       "page": "/dashboard/whatsapp-templates",
@@ -1019,6 +999,12 @@
       "regex": "^/nda\\-approval(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nda\\-approval(?:/)?$"
+    },
+    {
+      "page": "/nest-hr/invoices",
+      "regex": "^/nest\\-hr/invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-hr/invoices(?:/)?$"
     },
     {
       "page": "/nest-hr/subscriptions",

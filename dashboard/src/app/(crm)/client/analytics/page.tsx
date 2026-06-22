@@ -34,6 +34,7 @@ import {
   Image as ImageIcon,
   Calendar,
 } from "lucide-react";
+import { StatCard } from "@/components/ui/stat-card";
 
 function getAuthHeaders(): Record<string, string> {
   const t =
@@ -58,36 +59,6 @@ const PIE_COLORS = [
   "#f59e0b",
 ];
 
-function StatCard({
-  icon,
-  label,
-  value,
-  sub,
-  color = "text-foreground",
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string | number;
-  sub?: string;
-  color?: string;
-}) {
-  return (
-    <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-          {icon}
-          {label}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className={`text-3xl font-black ${color}`}>
-          {typeof value === "number" ? value.toLocaleString() : value}
-        </div>
-        {sub && <p className="text-xs text-muted-foreground mt-1">{sub}</p>}
-      </CardContent>
-    </Card>
-  );
-}
 
 export default function ClientAnalyticsPage() {
   const { user } = useAuth();
@@ -333,46 +304,12 @@ export default function ClientAnalyticsPage() {
         <>
           {}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            <StatCard
-              icon={<BarChart2 className="w-4 h-4" />}
-              label="Posts"
-              value={postedPosts.length}
-              sub="Published"
-            />
-            <StatCard
-              icon={<Eye className="w-4 h-4" />}
-              label="Total Views"
-              value={totalViews}
-              sub="Impressions"
-            />
-            <StatCard
-              icon={<Heart className="w-4 h-4" />}
-              label="Likes"
-              value={totalLikes}
-              sub="Reactions"
-              color="text-red-600"
-            />
-            <StatCard
-              icon={<Share2 className="w-4 h-4" />}
-              label="Shares"
-              value={totalShares}
-              sub="Reposts"
-              color="text-blue-600"
-            />
-            <StatCard
-              icon={<MessageCircle className="w-4 h-4" />}
-              label="Comments"
-              value={totalComments}
-              sub="Replies"
-              color="text-purple-600"
-            />
-            <StatCard
-              icon={<TrendingUp className="w-4 h-4" />}
-              label="Eng. Rate"
-              value={`${engagementRate}%`}
-              sub="(likes+shares+comments)/views"
-              color="text-green-600"
-            />
+            <StatCard icon={BarChart2} label="POSTS" value={postedPosts.length} sub="Published" iconVariant="primary" />
+            <StatCard icon={Eye} label="TOTAL VIEWS" value={totalViews} sub="Impressions" iconVariant="secondary" />
+            <StatCard icon={Heart} label="LIKES" value={totalLikes} sub="Reactions" iconVariant="primary" />
+            <StatCard icon={Share2} label="SHARES" value={totalShares} sub="Reposts" iconVariant="secondary" />
+            <StatCard icon={MessageCircle} label="COMMENTS" value={totalComments} sub="Replies" iconVariant="primary" />
+            <StatCard icon={TrendingUp} label="ENG. RATE" value={`${engagementRate}%`} sub="engagement" iconVariant="secondary" />
           </div>
 
           {}

@@ -12,7 +12,12 @@ import {
   ArrowUpDown,
   Calendar,
   ChevronDown,
+  ListTodo,
+  CheckCircle2,
+  Activity,
+  Clock,
 } from "lucide-react";
+import { StatCard } from "@/components/ui/stat-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -103,6 +108,13 @@ export default function TasksPage() {
           <h1 className="text-4xl font-black tracking-tight text-foreground cursor-text">
             Tasks
           </h1>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <StatCard icon={ListTodo} label="TOTAL TASKS" value={tasks.length} sub={`${filteredTasks.length} matching`} iconVariant="primary" />
+          <StatCard icon={CheckCircle2} label="DONE" value={getTasksByStatus("done").length} sub="completed" iconVariant="secondary" />
+          <StatCard icon={Activity} label="IN PROGRESS" value={getTasksByStatus("in-progress").length} sub="active" iconVariant="primary" />
+          <StatCard icon={Clock} label="NOT STARTED" value={getTasksByStatus("not-started").length} sub="pending" iconVariant="secondary" />
         </div>
 
         {}

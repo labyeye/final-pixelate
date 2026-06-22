@@ -420,91 +420,85 @@ export default function AboutUsTeamPage() {
           {loading && !members.length ? (
             <div className="text-center py-10">Loading...</div>
           ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Order</TableHead>
-                  <TableHead>Image</TableHead>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Designation</TableHead>
-                  <TableHead>Phone</TableHead>
-                  <TableHead>Social Links</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {members.length === 0 ? (
-                  <TableRow>
-                    <TableCell
-                      colSpan={7}
-                      className="text-center py-10 text-muted-foreground"
-                    >
-                      No team members added yet. Click "Add Team Member" to get
-                      started.
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  members.map((member) => (
-                    <TableRow key={member._id}>
-                      <TableCell>{member.order}</TableCell>
-                      <TableCell>
-                        {member.imageUrl ? (
-                          <img
-                            src={member.imageUrl}
-                            alt={member.name}
-                            className="h-10 w-10 rounded-full object-cover"
-                          />
-                        ) : (
-                          <div className="h-10 w-10 rounded-full bg-gray-200" />
-                        )}
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        {member.name}
-                      </TableCell>
-                      <TableCell>{member.designation}</TableCell>
-                      <TableCell>{member.phone || "-"}</TableCell>
-                      <TableCell>
-                        <div className="flex gap-1">
-                          {member.socialLinks.instagram && (
-                            <span title="Instagram">📷</span>
-                          )}
-                          {member.socialLinks.linkedin && (
-                            <span title="LinkedIn">💼</span>
-                          )}
-                          {member.socialLinks.facebook && (
-                            <span title="Facebook">📘</span>
-                          )}
-                          {!member.socialLinks.instagram &&
-                            !member.socialLinks.linkedin &&
-                            !member.socialLinks.facebook &&
-                            "-"}
-                        </div>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex justify-end gap-2">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => handleEdit(member)}
-                          >
-                            <Pencil className="h-4 w-4" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() =>
-                              member._id && handleDelete(member._id)
-                            }
-                          >
-                            <Trash2 className="h-4 w-4 text-red-500" />
-                          </Button>
-                        </div>
-                      </TableCell>
+            <>
+              {/* Desktop table */}
+              <div className="hidden md:block overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Order</TableHead>
+                      <TableHead>Image</TableHead>
+                      <TableHead>Name</TableHead>
+                      <TableHead>Designation</TableHead>
+                      <TableHead>Phone</TableHead>
+                      <TableHead>Social Links</TableHead>
+                      <TableHead className="text-right">Actions</TableHead>
                     </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {members.length === 0 ? (
+                      <TableRow><TableCell colSpan={7} className="text-center py-10 text-muted-foreground">No team members added yet.</TableCell></TableRow>
+                    ) : (
+                      members.map((member) => (
+                        <TableRow key={member._id}>
+                          <TableCell>{member.order}</TableCell>
+                          <TableCell>{member.imageUrl ? <img src={member.imageUrl} alt={member.name} className="h-10 w-10 rounded-full object-cover" /> : <div className="h-10 w-10 rounded-full bg-gray-200" />}</TableCell>
+                          <TableCell className="font-medium">{member.name}</TableCell>
+                          <TableCell>{member.designation}</TableCell>
+                          <TableCell>{member.phone || "-"}</TableCell>
+                          <TableCell>
+                            <div className="flex gap-1">
+                              {member.socialLinks.instagram && <span title="Instagram">📷</span>}
+                              {member.socialLinks.linkedin && <span title="LinkedIn">💼</span>}
+                              {member.socialLinks.facebook && <span title="Facebook">📘</span>}
+                              {!member.socialLinks.instagram && !member.socialLinks.linkedin && !member.socialLinks.facebook && "-"}
+                            </div>
+                          </TableCell>
+                          <TableCell className="text-right">
+                            <div className="flex justify-end gap-2">
+                              <Button variant="ghost" size="sm" onClick={() => handleEdit(member)}><Pencil className="h-4 w-4" /></Button>
+                              <Button variant="ghost" size="sm" onClick={() => member._id && handleDelete(member._id)}><Trash2 className="h-4 w-4 text-red-500" /></Button>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ))
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="md:hidden space-y-3">
+                {members.length === 0 && <div className="p-8 text-center text-muted-foreground">No team members added yet.</div>}
+                {members.map((member) => (
+                  <div key={member._id} className="border-2 border-black bg-white">
+                    <div className="divide-y divide-gray-100">
+                      <div className="px-3 py-3 flex items-center gap-3">
+                        {member.imageUrl ? <img src={member.imageUrl} alt={member.name} className="h-12 w-12 rounded-full object-cover border-2 border-black shrink-0" /> : <div className="h-12 w-12 rounded-full bg-gray-200 shrink-0" />}
+                        <div>
+                          <div className="font-black text-base">{member.name}</div>
+                          <div className="text-xs text-muted-foreground">{member.designation}</div>
+                        </div>
+                        <span className="ml-auto text-xs font-bold text-gray-400">#{member.order}</span>
+                      </div>
+                      {member.phone && <div className="flex justify-between items-center px-3 py-2">
+                        <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Phone</span>
+                        <span className="text-sm">{member.phone}</span>
+                      </div>}
+                      <div className="px-3 py-2 flex gap-2">
+                        {member.socialLinks.instagram && <span title="Instagram">📷</span>}
+                        {member.socialLinks.linkedin && <span title="LinkedIn">💼</span>}
+                        {member.socialLinks.facebook && <span title="Facebook">📘</span>}
+                      </div>
+                    </div>
+                    <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2">
+                      <Button variant="outline" size="sm" className="h-8 text-xs border-2 border-black" onClick={() => handleEdit(member)}><Pencil className="h-3 w-3 mr-1" />Edit</Button>
+                      <Button variant="destructive" size="sm" className="h-8 text-xs ml-auto" onClick={() => member._id && handleDelete(member._id)}><Trash2 className="h-3 w-3 mr-1" />Delete</Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </CardContent>
       </Card>

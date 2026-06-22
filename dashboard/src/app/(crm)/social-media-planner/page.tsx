@@ -12,6 +12,8 @@ import {
   isSameDate,
 } from "@/lib/social-media-planner";
 import { ClientPicker } from "@/components/social-media/client-picker";
+import { StatCard as SharedStatCard } from "@/components/ui/stat-card";
+import { FileText, Edit, CheckCircle2, Clock, AlertCircle, Calendar, CalendarCheck, Zap } from "lucide-react";
 
 const statusColor: Record<string, string> = {
   Draft: "bg-gray-100 text-gray-700",
@@ -228,17 +230,14 @@ export default function SocialMediaPlannerDashboardPage() {
           </header>
 
           <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-3">
-            <StatCard label="Total Planned" value={metrics.totalPlannedPosts} />
-            <StatCard label="Draft" value={metrics.byStatus.Draft || 0} />
-            <StatCard
-              label="Scheduled"
-              value={metrics.byStatus.Scheduled || 0}
-            />
-            <StatCard label="Posted" value={metrics.byStatus.Posted || 0} />
-            <StatCard label="Missed" value={metrics.byStatus.Missed || 0} />
-            <StatCard label="Today" value={metrics.todaysPosts} />
-            <StatCard label="This Week" value={metrics.thisWeeksPosts} />
-            <StatCard label="Ready" value={metrics.byStatus.Ready || 0} />
+            <SharedStatCard icon={FileText} label="TOTAL PLANNED" value={metrics.totalPlannedPosts} iconVariant="primary" />
+            <SharedStatCard icon={Edit} label="DRAFT" value={metrics.byStatus.Draft || 0} iconVariant="secondary" />
+            <SharedStatCard icon={Clock} label="SCHEDULED" value={metrics.byStatus.Scheduled || 0} iconVariant="primary" />
+            <SharedStatCard icon={CheckCircle2} label="POSTED" value={metrics.byStatus.Posted || 0} iconVariant="secondary" />
+            <SharedStatCard icon={AlertCircle} label="MISSED" value={metrics.byStatus.Missed || 0} iconVariant="primary" />
+            <SharedStatCard icon={Calendar} label="TODAY" value={metrics.todaysPosts} iconVariant="secondary" />
+            <SharedStatCard icon={CalendarCheck} label="THIS WEEK" value={metrics.thisWeeksPosts} iconVariant="primary" />
+            <SharedStatCard icon={Zap} label="READY" value={metrics.byStatus.Ready || 0} iconVariant="secondary" />
           </div>
 
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
@@ -400,13 +399,3 @@ export default function SocialMediaPlannerDashboardPage() {
   );
 }
 
-function StatCard({ label, value }: { label: string; value: number }) {
-  return (
-    <Card>
-      <CardContent className="p-3">
-        <div className="text-xs text-muted-foreground">{label}</div>
-        <div className="text-2xl font-black">{value}</div>
-      </CardContent>
-    </Card>
-  );
-}

@@ -271,7 +271,7 @@ export default function ReviewsPage() {
         </Button>
       </div>
 
-      <div className="rounded-md border">
+      <div className="hidden md:block rounded-md border">
         <Table>
           <TableHeader>
             <TableRow>
@@ -368,6 +368,47 @@ export default function ReviewsPage() {
             )}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {reviews.length === 0 && !isLoading && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No reviews yet.</div>}
+        {reviews.map((review) => (
+          <div key={review._id} className="border-2 border-black bg-white">
+            <div className="divide-y divide-gray-100">
+              <div className="px-3 py-2">
+                <div className="font-bold text-base">{review.name}</div>
+                <div className="text-xs text-muted-foreground">{review.email}</div>
+              </div>
+              {review.brand && <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Brand</span>
+                <span className="text-sm text-right flex-1">{review.brand}</span>
+              </div>}
+              <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Rating</span>
+                <span>{renderStars(review.rating)}</span>
+              </div>
+              {review.message && <div className="px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase block mb-1">Message</span>
+                <span className="text-sm line-clamp-3">{review.message}</span>
+              </div>}
+              <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Status</span>
+                {review.approved ? <Badge className="bg-green-500">Approved</Badge> : <Badge variant="secondary">Pending</Badge>}
+              </div>
+              <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Date</span>
+                <span className="text-sm">{new Date(review.createdAt).toLocaleDateString()}</span>
+              </div>
+            </div>
+            <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2 flex-wrap">
+              {!review.approved && <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => handleApprove(review)}><Check className="h-3 w-3 mr-1" />Approve</Button>}
+              {review.approved && <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => handleReject(review)}><X className="h-3 w-3 mr-1" />Reject</Button>}
+              <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => handleEdit(review)}><Edit className="h-3 w-3 mr-1" />Edit</Button>
+              <Button size="sm" variant="destructive" className="h-8 text-xs ml-auto" onClick={() => handleDelete(review)}><Trash2 className="h-3 w-3 mr-1" />Delete</Button>
+            </div>
+          </div>
+        ))}
       </div>
 
       {}

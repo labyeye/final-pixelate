@@ -6,9 +6,6 @@ const targetDir = path.join(
   __dirname,
   "..",
   "assets",
-  "images",
-  "services",
-  "nav",
 );
 
 async function processDirectory(directory) {
@@ -29,41 +26,17 @@ async function processDirectory(directory) {
           ".webp",
         );
 
-        try {
-          await sharp(fullPath)
-            .webp({ quality: 70, alphaQuality: 90, effort: 6 })
-            .toFile(outputPath);
-          console.log(`Converted: ${file} → ${path.basename(outputPath)}`);
-        } catch (error) {
-          console.error(`Error converting ${file}:`, error.message);
-        }
-      } else if (ext === ".webp") {
-        try {
-          const tempPath = fullPath + ".tmp.webp";
-          const originalSize = fs.statSync(fullPath).size;
-
-          await sharp(fullPath)
-            .webp({
-              quality: 65,
-              alphaQuality: 85,
-              effort: 6,
-              nearLossless: false,
-            })
-            .toFile(tempPath);
-
-          const newSize = fs.statSync(tempPath).size;
-
-          if (newSize < originalSize) {
-            fs.unlinkSync(fullPath);
-            fs.renameSync(tempPath, fullPath);
-            const savedKB = ((originalSize - newSize) / 1024).toFixed(2);
-            console.log(`Optimised: ${file} (saved ${savedKB} KB)`);
-          } else {
-            fs.unlinkSync(tempPath);
-            console.log(`Skipped:   ${file} (already optimal)`);
+        if (fs.existsSync(outputPath)) {
+          console.log(`Skipped:   ${file} (webp already exists)`);
+        } else {
+          try {
+            await sharp(fullPath)
+              .webp({ quality: 70, alphaQuality: 90, effort: 6 })
+              .toFile(outputPath);
+            console.log(`Converted: ${file} → ${path.basename(outputPath)}`);
+          } catch (error) {
+            console.error(`Error converting ${file}:`, error.message);
           }
-        } catch (error) {
-          console.error(`Error optimising ${file}:`, error.message);
         }
       }
     }

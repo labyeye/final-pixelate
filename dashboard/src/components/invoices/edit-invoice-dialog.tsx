@@ -11,6 +11,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Pencil } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   Form,
@@ -62,12 +63,14 @@ export function EditInvoiceDialog({
   services,
   projects,
   onUpdated,
+  iconOnly,
 }: {
   invoice: any;
   clients: any[];
   services: any[];
   projects: any[];
   onUpdated?: () => void;
+  iconOnly?: boolean;
 }) {
   const [open, setOpen] = React.useState(false);
   const [lineItems, setLineItems] = useState<LineItem[]>([emptyLineItem()]);
@@ -223,7 +226,11 @@ export function EditInvoiceDialog({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="sm">Edit</Button>
+        {iconOnly ? (
+          <Button size="sm" variant="outline" className="h-8 w-8 p-0 border-2 border-black"><Pencil className="w-3.5 h-3.5" /></Button>
+        ) : (
+          <Button size="sm">Edit</Button>
+        )}
       </DialogTrigger>
       <DialogContent className="max-w-5xl max-h-[85vh] overflow-auto">
         <DialogHeader>

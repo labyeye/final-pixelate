@@ -10,7 +10,8 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Plus, Briefcase, Users, Eye, Edit, Trash2 } from "lucide-react";
+import { Plus, Briefcase, Users, Eye, Edit, Trash2, CheckCircle2, FileText } from "lucide-react";
+import { StatCard } from "@/components/ui/stat-card";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SuccessModal } from "@/components/ui/success-modal";
@@ -141,57 +142,11 @@ export default function CareersPage() {
         </Link>
       </div>
 
-      {}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Total Jobs
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{stats.total}</div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Active Postings
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-green-600">
-              {stats.active}
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Closed Postings
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-gray-500">
-              {stats.closed}
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Total Applications
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-blue-600">
-              {stats.totalApplications}
-            </div>
-          </CardContent>
-        </Card>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <StatCard icon={FileText} label="TOTAL JOBS" value={stats.total} sub="all postings" iconVariant="primary" />
+        <StatCard icon={CheckCircle2} label="ACTIVE" value={stats.active} sub="open roles" iconVariant="secondary" />
+        <StatCard icon={Eye} label="CLOSED" value={stats.closed} sub="filled/closed" iconVariant="primary" />
+        <StatCard icon={Users} label="APPLICATIONS" value={stats.totalApplications} sub="total received" iconVariant="secondary" />
       </div>
 
       {}

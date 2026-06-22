@@ -372,7 +372,7 @@ export default function WorkGalleryPage() {
         </DialogContent>
       </Dialog>
 
-      <div className="border-2 border-black">
+      <div className="hidden md:block border-2 border-black">
         <Table>
           <TableHeader>
             <TableRow>
@@ -388,19 +388,7 @@ export default function WorkGalleryPage() {
           <TableBody>
             {items.map((it) => (
               <TableRow key={it._id ?? it.id}>
-                <TableCell>
-                  {it.thumbnailBase64 ? (
-                    <img
-                      src={it.thumbnailBase64}
-                      alt={it.title}
-                      style={{ width: 80, height: 60, objectFit: "cover" }}
-                    />
-                  ) : (
-                    <div className="w-20 h-12 bg-gray-100 flex items-center justify-center">
-                      No image
-                    </div>
-                  )}
-                </TableCell>
+                <TableCell>{it.thumbnailBase64 ? <img src={it.thumbnailBase64} alt={it.title} style={{ width: 80, height: 60, objectFit: "cover" }} /> : <div className="w-20 h-12 bg-gray-100 flex items-center justify-center">No image</div>}</TableCell>
                 <TableCell className="font-bold">{it.title}</TableCell>
                 <TableCell>{it.brand || "-"}</TableCell>
                 <TableCell>{it.tech}</TableCell>
@@ -408,30 +396,50 @@ export default function WorkGalleryPage() {
                 <TableCell>{it.showOn ?? "none"}</TableCell>
                 <TableCell>
                   <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      onClick={() => window.open(it.link || "#", "_blank")}
-                    >
-                      Open
-                    </Button>
-                    <Button size="sm" onClick={() => startEdit(it)}>
-                      Edit
-                    </Button>
-                    {isAdmin ? (
-                      <Button
-                        size="sm"
-                        variant="destructive"
-                        onClick={() => deleteItem(String(it._id ?? it.id))}
-                      >
-                        Delete
-                      </Button>
-                    ) : null}
+                    <Button size="sm" onClick={() => window.open(it.link || "#", "_blank")}>Open</Button>
+                    <Button size="sm" onClick={() => startEdit(it)}>Edit</Button>
+                    {isAdmin ? <Button size="sm" variant="destructive" onClick={() => deleteItem(String(it._id ?? it.id))}>Delete</Button> : null}
                   </div>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {items.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No gallery items yet.</div>}
+        {items.map((it) => (
+          <div key={it._id ?? it.id} className="border-2 border-black bg-white">
+            <div className="divide-y divide-gray-100">
+              <div className="px-3 py-3 flex items-center gap-3">
+                {it.thumbnailBase64 ? <img src={it.thumbnailBase64} alt={it.title} className="w-20 h-14 object-cover shrink-0 border border-gray-200" /> : <div className="w-20 h-14 bg-gray-100 flex items-center justify-center text-xs text-muted-foreground shrink-0">No image</div>}
+                <div>
+                  <div className="font-black text-base">{it.title}</div>
+                  {it.brand && <div className="text-xs text-muted-foreground">{it.brand}</div>}
+                </div>
+              </div>
+              {it.tech && <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Tech</span>
+                <span className="text-sm text-right flex-1">{it.tech}</span>
+              </div>}
+              <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Show On</span>
+                <span className="text-sm">{it.showOn ?? "none"}</span>
+              </div>
+              {it.rating != null && <div className="flex justify-between items-center px-3 py-2">
+                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Rating</span>
+                <span className="text-sm">{it.rating}</span>
+              </div>}
+            </div>
+            <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2">
+              <Button size="sm" variant="outline" className="h-8 text-xs border-2 border-black" onClick={() => window.open(it.link || "#", "_blank")}>Open</Button>
+              <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => startEdit(it)}>Edit</Button>
+              {isAdmin && <Button size="sm" variant="destructive" className="h-8 text-xs ml-auto" onClick={() => deleteItem(String(it._id ?? it.id))}>Delete</Button>}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );

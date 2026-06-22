@@ -13,8 +13,13 @@ import {
   Pencil,
   Trash2,
   FolderOpen,
+  Briefcase,
+  Activity,
+  Clock,
+  CheckCircle2,
 } from "lucide-react";
 import { SuccessModal } from "@/components/ui/success-modal";
+import { StatCard } from "@/components/ui/stat-card";
 import { useToast } from "@/hooks/use-toast";
 import {
   Table,
@@ -120,6 +125,17 @@ export default function ProjectsPage() {
         </p>
       </header>
 
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {[
+          { icon: Briefcase, label: "TOTAL PROJECTS", value: projects.length, sub: `${projects.length} records` },
+          { icon: Activity, label: "IN PROGRESS", value: projects.filter((p: any) => p.status === "IN PROGRESS").length, sub: "active" },
+          { icon: Clock, label: "BACKLOG", value: projects.filter((p: any) => (p.status ?? "BACKLOG") === "BACKLOG").length, sub: "pending" },
+          { icon: CheckCircle2, label: "COMPLETED", value: projects.filter((p: any) => p.status === "COMPLETED").length, sub: "done" },
+        ].map(({ icon, label, value, sub }, i) => (
+          <StatCard key={label} icon={icon} label={label} value={value} sub={sub} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+        ))}
+      </div>
+
       <Card className="border-2 border-black">
         <CardHeader>
           <CardTitle className="text-2xl font-black tracking-tighter">
@@ -152,7 +168,7 @@ export default function ProjectsPage() {
       </Card>
 
       {}
-      <div className="border-2 border-black overflow-hidden">
+      <div className="hidden md:block border-2 border-black overflow-hidden">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
@@ -407,6 +423,101 @@ export default function ProjectsPage() {
             </TableBody>
           </Table>
         </div>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {projects.length === 0 && (
+          <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No projects yet.</div>
+        )}
+        {projects.map((project) => {
+          const pid = project.id ?? String(project._id);
+          return (
+            <div key={pid} className="border-2 border-black bg-white">
+              <div className="divide-y divide-gray-100">
+                <div className="px-3 py-2">
+                  <div className="flex items-center gap-2">
+                    {project.status === "COMPLETED" && <CheckCircle className="h-4 w-4 text-green-600 shrink-0" />}
+                    <span className="font-black text-sm">{project.title}</span>
+                  </div>
+                  {project.description && <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{project.description}</p>}
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Client</span>
+                  <span className="text-sm text-right flex-1">{getClientName(project.client, project)}</span>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Status</span>
+                  <span className={`text-xs font-black tracking-widest px-2 py-1 ${statusColor[project.status ?? ""] ?? "bg-gray-100 text-gray-700 border border-gray-300"}`}>{project.status ?? "—"}</span>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Amount</span>
+                  <span className="text-sm font-bold text-right flex-1">₹{(project.amount ?? 0).toLocaleString()}</span>
+                </div>
+                <div className="px-3 py-2 space-y-1">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">Progress</span>
+                    <span>{project.progress ?? 0}%</span>
+                  </div>
+                  <Progress value={project.progress ?? 0} className="h-2" />
+                </div>
+                {project.assignees && project.assignees.length > 0 && (
+                  <div className="px-3 py-2">
+                    <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase block mb-1">Assignees</span>
+                    <div className="flex flex-wrap gap-1">
+                      {project.assignees.slice(0, 4).map((a: any, i: number) => (
+                        <span key={i} className="text-xs bg-black text-white px-1.5 py-0.5 font-bold">{typeof a === "string" ? a : (a?.name ?? "—")}</span>
+                      ))}
+                      {project.assignees.length > 4 && <span className="text-xs bg-muted px-1.5 py-0.5 font-bold">+{project.assignees.length - 4}</span>}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-2">
+                <Button size="sm" variant="outline" className="h-8 px-3 border-2 border-black hover:bg-black hover:text-white text-xs font-bold"
+                  onClick={async () => {
+                    try {
+                      const res = await fetch(`/api/projects/${project._id ?? project.id}`);
+                      if (!res.ok) throw new Error("Failed to fetch project");
+                      const data = await res.json();
+                      setEditing({ ...data, id: data._id ? String(data._id) : data.id });
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    } catch (err) { console.error(err); }
+                  }}>
+                  <Pencil className="h-3 w-3 mr-1" /> Edit
+                </Button>
+                {project.status !== "COMPLETED" && (
+                  <Button size="sm" variant="outline" className="h-8 px-3 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white text-xs font-bold"
+                    onClick={async () => {
+                      try {
+                        const id = project._id ?? project.id;
+                        const res = await apiFetch(`/api/projects/${id}`, { method: "PUT", body: JSON.stringify({ status: "COMPLETED" }), headers: { "Content-Type": "application/json" } });
+                        if (!res.ok) throw new Error("Failed");
+                        const updated = await res.json();
+                        setProjects((prev) => prev.map((p) => (p._id ?? p.id) === id ? updated : p));
+                        showSuccess("Project completed!");
+                      } catch (err) { console.error(err); }
+                    }}>
+                    <CheckCheck className="h-3 w-3 mr-1" /> Complete
+                  </Button>
+                )}
+                <Button size="sm" variant="destructive" className="h-8 px-3 text-xs font-bold ml-auto"
+                  onClick={async () => {
+                    if (!window.confirm("Delete this project?")) return;
+                    try {
+                      const id = project._id ?? project.id;
+                      const res = await apiFetch(`/api/projects/${id}`, { method: "DELETE" });
+                      if (!res.ok) throw new Error("Delete failed");
+                      setProjects((prev) => prev.filter((p) => (p._id ?? p.id) !== id));
+                      showSuccess("Project deleted!");
+                    } catch (err) { console.error(err); }
+                  }}>
+                  <Trash2 className="h-3 w-3 mr-1" /> Delete
+                </Button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

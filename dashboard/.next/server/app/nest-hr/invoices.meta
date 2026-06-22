@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-hr/layout,_N_T_/(crm)/nest-hr/invoices/layout,_N_T_/(crm)/nest-hr/invoices/page,_N_T_/nest-hr/invoices"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-hr/invoices/__PAGE__",
+    "/!KGNybSk/nest-hr/invoices",
+    "/!KGNybSk/nest-hr",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

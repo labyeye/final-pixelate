@@ -5,9 +5,9 @@ import { useRef } from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 import type { Project, Quotation } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -22,36 +22,1069 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TeamMembersSection } from "@/components/dashboard/team-members-section";
-import { PaymentReceiptModal } from "@/components/dashboard/payment-receipt-modal";
-import { TaskCreationModal } from "@/components/dashboard/task-creation-modal";
 import { TrendsSection } from "@/components/dashboard/trends-section";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Briefcase,
+  IndianRupee,
+  CalendarDays,
+  ListTodo,
+  TrendingUp,
+  User,
+  Settings,
+  CheckCircle2,
+  Clock,
+  Link,
+  Users,
+  FileText,
+  TrendingDown,
+  Target,
+  Activity,
+  DollarSign,
+  FileCheck,
+  Building2,
+  CreditCard,
+  BarChart3,
+} from "lucide-react";
+import { StatCard } from "@/components/ui/stat-card";
+import { navGroups, defaultStaffAllowed } from "@/lib/nav-config";
 
-const MONTH_NAMES = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function AnimatedNumber({
+  value,
+  duration = 800,
+  currency = false,
+}: {
+  value: number;
+  duration?: number;
+  currency?: boolean;
+}) {
+  const ref = useRef<number | null>(null);
+  const [display, setDisplay] = useState<number>(0);
+  useEffect(() => {
+    let start: number | null = null;
+    const to = Number(value || 0);
+    if (to === 0) {
+      setDisplay(0);
+      return;
+    }
+    const step = (ts: number) => {
+      if (!start) start = ts;
+      const elapsed = Math.min(duration, ts - start);
+      const cur = Math.round((elapsed / duration) * to);
+      setDisplay(cur);
+      if (elapsed < duration) ref.current = requestAnimationFrame(step);
+    };
+    ref.current = requestAnimationFrame(step);
+    return () => {
+      if (ref.current) cancelAnimationFrame(ref.current as any);
+    };
+  }, [value, duration]);
+  return (
+    <>{currency ? `₹${Number(display || 0).toLocaleString()}` : display}</>
+  );
+}
 
-const projectChartConfig = {
-  count: { label: "Projects" },
-  BACKLOG: { label: "Backlog", color: "hsl(var(--chart-1))" },
-  "IN PROGRESS": { label: "In Progress", color: "hsl(var(--chart-2))" },
-  "IN REVIEW": { label: "In Review", color: "hsl(var(--chart-3))" },
-  COMPLETED: { label: "Completed", color: "hsl(var(--chart-4))" },
+const SectionHeader = ({ icon: Icon, title }: { icon: any; title: string }) => (
+  <div className="bg-[#1a3a8f] text-white py-3 px-4 flex items-center gap-2">
+    <Icon className="w-4 h-4" />
+    <span className="text-sm font-black tracking-widest">{title}</span>
+  </div>
+);
+
+const statusColor: Record<string, string> = {
+  COMPLETED: "bg-green-100 text-green-700 border-green-300",
+  "IN PROGRESS": "bg-blue-100 text-blue-700 border-blue-300",
+  "IN REVIEW": "bg-yellow-100 text-yellow-700 border-yellow-300",
+  BACKLOG: "bg-gray-100 text-gray-600 border-gray-300",
 };
 
+const taskStatusColor: Record<string, string> = {
+  COMPLETED: "bg-green-100 text-green-700 border-green-300",
+  DONE: "bg-green-100 text-green-700 border-green-300",
+  IN_PROGRESS: "bg-blue-100 text-blue-700 border-blue-300",
+  "IN PROGRESS": "bg-blue-100 text-blue-700 border-blue-300",
+  PENDING: "bg-yellow-100 text-yellow-700 border-yellow-300",
+  TODO: "bg-gray-100 text-gray-600 border-gray-300",
+};
+
+// ─── Tab content components ───────────────────────────────────────────────────
+
+function OverviewTab({
+  user,
+  myProjects,
+  myTasks,
+  earningsByProject,
+  totalEarnings,
+  projInProgress,
+  projCompleted,
+}: any) {
+  const taskDone = myTasks.filter(
+    (t: any) => t.status === "COMPLETED" || t.status === "DONE",
+  ).length;
+  const taskPending = myTasks.filter(
+    (t: any) =>
+      t.status === "PENDING" ||
+      t.status === "TODO" ||
+      t.status === "IN_PROGRESS" ||
+      t.status === "IN PROGRESS",
+  ).length;
+  const taskOverdue = myTasks.filter((t: any) => {
+    if (!t.dueDate) return false;
+    return (
+      new Date(t.dueDate) < new Date() &&
+      t.status !== "COMPLETED" &&
+      t.status !== "DONE"
+    );
+  }).length;
+
+  const joinedDate = user?.createdAt
+    ? new Date(user.createdAt).toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })
+    : "—";
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* Left col */}
+      <div className="space-y-4">
+        <Card className="border-2 border-black">
+          <SectionHeader icon={User} title="PERSONAL INFORMATION" />
+          <CardContent className="p-0">
+            {[
+              { label: "FULL NAME", value: user?.name || "—" },
+              { label: "EMAIL", value: user?.email || "—" },
+              { label: "ROLE", value: user?.role?.toUpperCase() || "—" },
+              { label: "JOB ROLE", value: user?.jobRole || "—" },
+              { label: "JOINED", value: joinedDate },
+            ].map(({ label, value }) => (
+              <div
+                key={label}
+                className="px-4 py-3 border-b border-gray-100 last:border-0"
+              >
+                <p className="text-[10px] font-black text-muted-foreground tracking-widest">
+                  {label}
+                </p>
+                <p className="font-bold text-sm mt-0.5">{value}</p>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+
+        <Card className="border-2 border-black">
+          <SectionHeader icon={TrendingUp} title="TASK SUMMARY" />
+          <CardContent className="p-0">
+            {[
+              {
+                label: "TOTAL TASKS",
+                value: myTasks.length,
+                color: "text-foreground",
+              },
+              {
+                label: "COMPLETED",
+                value: taskDone,
+                color: "text-green-600",
+              },
+              {
+                label: "IN PROGRESS / PENDING",
+                value: taskPending,
+                color: "text-blue-600",
+              },
+              {
+                label: "OVERDUE",
+                value: taskOverdue,
+                color: "text-red-500",
+              },
+            ].map(({ label, value, color }) => (
+              <div
+                key={label}
+                className="px-4 py-3 border-b border-gray-100 last:border-0 flex justify-between items-center"
+              >
+                <p className="text-[10px] font-black text-muted-foreground tracking-widest">
+                  {label}
+                </p>
+                <p className={cn("font-black text-xl", color)}>{value}</p>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Right col */}
+      <div className="lg:col-span-2 space-y-6">
+        <div className="grid grid-cols-3 gap-4">
+          {[
+            {
+              label: "MY PROJECTS",
+              value: myProjects.length,
+              sub: `${projInProgress} in progress`,
+              accent: "border-l-blue-500",
+            },
+            {
+              label: "COMPLETED",
+              value: projCompleted,
+              sub: `${myProjects.length - projCompleted} remaining`,
+              accent: "border-l-green-500",
+            },
+            {
+              label: "TOTAL EARNINGS",
+              value: `₹${totalEarnings.toLocaleString()}`,
+              sub: `across ${earningsByProject.filter((e: any) => e.payout > 0).length} projects`,
+              accent: "border-l-[#1a3a8f]",
+            },
+          ].map(({ label, value, sub, accent }) => (
+            <Card
+              key={label}
+              className={cn("border-2 border-black border-l-4", accent)}
+            >
+              <CardContent className="p-4">
+                <p className="text-[10px] font-black text-muted-foreground tracking-widest mb-2">
+                  {label}
+                </p>
+                <p className="text-3xl font-black">{value}</p>
+                <p className="text-xs text-muted-foreground mt-1 font-bold">
+                  {sub}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <Card className="border-2 border-black">
+          <SectionHeader icon={Briefcase} title="MY ASSIGNED PROJECTS" />
+          <CardContent className="p-0">
+            {myProjects.length === 0 ? (
+              <p className="text-sm text-muted-foreground p-4">
+                No projects assigned yet.
+              </p>
+            ) : (
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-gray-50">
+                    <TableHead className="text-[10px] font-black tracking-widest">
+                      PROJECT
+                    </TableHead>
+                    <TableHead className="text-[10px] font-black tracking-widest">
+                      CLIENT
+                    </TableHead>
+                    <TableHead className="text-[10px] font-black tracking-widest">
+                      STATUS
+                    </TableHead>
+                    <TableHead className="text-[10px] font-black tracking-widest text-right">
+                      PAYOUT
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {earningsByProject.map((p: any, i: number) => (
+                    <TableRow key={i}>
+                      <TableCell className="font-bold text-sm">
+                        {p.title}
+                      </TableCell>
+                      <TableCell className="text-sm text-muted-foreground">
+                        {p.client}
+                      </TableCell>
+                      <TableCell>
+                        <span
+                          className={cn(
+                            "text-[10px] font-black px-2 py-0.5 rounded border",
+                            statusColor[p.status] ||
+                              "bg-gray-100 text-gray-600 border-gray-300",
+                          )}
+                        >
+                          {p.status}
+                        </span>
+                      </TableCell>
+                      <TableCell className="text-right font-black">
+                        {p.payout > 0 ? `₹${p.payout.toLocaleString()}` : "—"}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card className="border-2 border-black">
+          <SectionHeader icon={ListTodo} title="RECENT TASKS" />
+          <CardContent className="p-0">
+            {myTasks.length === 0 ? (
+              <p className="text-sm text-muted-foreground p-4">
+                No tasks assigned yet.
+              </p>
+            ) : (
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-gray-50">
+                    <TableHead className="text-[10px] font-black tracking-widest">
+                      TASK
+                    </TableHead>
+                    <TableHead className="text-[10px] font-black tracking-widest">
+                      STATUS
+                    </TableHead>
+                    <TableHead className="text-[10px] font-black tracking-widest">
+                      PRIORITY
+                    </TableHead>
+                    <TableHead className="text-[10px] font-black tracking-widest text-right">
+                      DUE DATE
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {myTasks.slice(0, 8).map((t: any, i: number) => {
+                    const isOverdue =
+                      t.dueDate &&
+                      new Date(t.dueDate) < new Date() &&
+                      t.status !== "COMPLETED" &&
+                      t.status !== "DONE";
+                    return (
+                      <TableRow key={i}>
+                        <TableCell className="font-bold text-sm">
+                          {t.title}
+                        </TableCell>
+                        <TableCell>
+                          <span
+                            className={cn(
+                              "text-[10px] font-black px-2 py-0.5 rounded border",
+                              taskStatusColor[t.status] ||
+                                "bg-gray-100 text-gray-600 border-gray-300",
+                            )}
+                          >
+                            {t.status || "TODO"}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <span
+                            className={cn(
+                              "text-[10px] font-black px-2 py-0.5 rounded border",
+                              t.priority === "HIGH"
+                                ? "bg-red-100 text-red-700 border-red-300"
+                                : t.priority === "MEDIUM"
+                                  ? "bg-yellow-100 text-yellow-700 border-yellow-300"
+                                  : "bg-gray-100 text-gray-600 border-gray-300",
+                            )}
+                          >
+                            {t.priority || "LOW"}
+                          </span>
+                        </TableCell>
+                        <TableCell
+                          className={cn(
+                            "text-right text-sm font-bold",
+                            isOverdue ? "text-red-500" : "",
+                          )}
+                        >
+                          {t.dueDate
+                            ? new Date(t.dueDate).toLocaleDateString("en-IN", {
+                                day: "2-digit",
+                                month: "short",
+                                year: "numeric",
+                              })
+                            : "—"}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
+
+function MyProjectsTab({ earningsByProject, myProjects }: any) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {(["BACKLOG", "IN PROGRESS", "IN REVIEW", "COMPLETED"] as string[]).map(
+          (s) => {
+            const count = myProjects.filter(
+              (p: any) => (p.status || "BACKLOG") === s,
+            ).length;
+            return (
+              <Card key={s} className="border-2 border-black">
+                <CardContent className="p-4">
+                  <p className="text-[10px] font-black text-muted-foreground tracking-widest mb-2">
+                    {s}
+                  </p>
+                  <p
+                    className={cn(
+                      "text-3xl font-black",
+                      s === "COMPLETED"
+                        ? "text-green-600"
+                        : s === "IN PROGRESS"
+                          ? "text-blue-600"
+                          : s === "IN REVIEW"
+                            ? "text-yellow-600"
+                            : "text-gray-500",
+                    )}
+                  >
+                    {count}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          },
+        )}
+      </div>
+
+      <Card className="border-2 border-black">
+        <SectionHeader icon={Briefcase} title="ALL MY PROJECTS" />
+        <CardContent className="p-0">
+          {myProjects.length === 0 ? (
+            <p className="text-sm text-muted-foreground p-6">
+              No projects assigned to you yet.
+            </p>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-gray-50">
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    PROJECT
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    CLIENT
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    STATUS
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    DEADLINE
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest text-right">
+                    PAYOUT
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {earningsByProject.map((p: any, i: number) => (
+                  <TableRow key={i}>
+                    <TableCell className="font-bold">{p.title}</TableCell>
+                    <TableCell className="text-muted-foreground">
+                      {p.client}
+                    </TableCell>
+                    <TableCell>
+                      <span
+                        className={cn(
+                          "text-[10px] font-black px-2 py-0.5 rounded border",
+                          statusColor[p.status] ||
+                            "bg-gray-100 text-gray-600 border-gray-300",
+                        )}
+                      >
+                        {p.status}
+                      </span>
+                    </TableCell>
+                    <TableCell className="text-muted-foreground text-sm">
+                      {p.deadline
+                        ? new Date(p.deadline).toLocaleDateString("en-IN")
+                        : "—"}
+                    </TableCell>
+                    <TableCell className="text-right font-black">
+                      {p.payout > 0 ? `₹${p.payout.toLocaleString()}` : "—"}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function MyTasksTab({ myTasks }: { myTasks: any[] }) {
+  const [filter, setFilter] = useState("ALL");
+  const statuses = [
+    "ALL",
+    "TODO",
+    "IN PROGRESS",
+    "IN_PROGRESS",
+    "PENDING",
+    "COMPLETED",
+    "DONE",
+  ];
+  const displayStatuses = [
+    "ALL",
+    "TODO",
+    "IN PROGRESS",
+    "PENDING",
+    "COMPLETED",
+    "DONE",
+  ];
+
+  const filtered =
+    filter === "ALL"
+      ? myTasks
+      : myTasks.filter(
+          (t) =>
+            t.status === filter ||
+            (filter === "IN PROGRESS" && t.status === "IN_PROGRESS"),
+        );
+
+  const overdue = myTasks.filter(
+    (t) =>
+      t.dueDate &&
+      new Date(t.dueDate) < new Date() &&
+      t.status !== "COMPLETED" &&
+      t.status !== "DONE",
+  ).length;
+
+  return (
+    <div className="space-y-5">
+      {/* Summary row */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {[
+          { label: "TOTAL", value: myTasks.length, color: "text-foreground" },
+          {
+            label: "COMPLETED",
+            value: myTasks.filter(
+              (t) => t.status === "COMPLETED" || t.status === "DONE",
+            ).length,
+            color: "text-green-600",
+          },
+          {
+            label: "PENDING",
+            value: myTasks.filter(
+              (t) =>
+                t.status === "PENDING" ||
+                t.status === "TODO" ||
+                t.status === "IN_PROGRESS" ||
+                t.status === "IN PROGRESS",
+            ).length,
+            color: "text-blue-600",
+          },
+          { label: "OVERDUE", value: overdue, color: "text-red-500" },
+        ].map(({ label, value, color }) => (
+          <Card key={label} className="border-2 border-black">
+            <CardContent className="p-4">
+              <p className="text-[10px] font-black text-muted-foreground tracking-widest mb-1">
+                {label}
+              </p>
+              <p className={cn("text-3xl font-black", color)}>{value}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Filter pills */}
+      <div className="flex gap-2 flex-wrap">
+        {displayStatuses.map((s) => (
+          <button
+            key={s}
+            onClick={() => setFilter(s)}
+            className={cn(
+              "text-[10px] font-black px-3 py-1.5 border-2 tracking-widest transition-colors",
+              filter === s
+                ? "bg-[#1a3a8f] text-white border-[#1a3a8f]"
+                : "border-black text-muted-foreground hover:bg-muted",
+            )}
+          >
+            {s}
+          </button>
+        ))}
+      </div>
+
+      <Card className="border-2 border-black">
+        <SectionHeader icon={ListTodo} title="MY TASKS" />
+        <CardContent className="p-0">
+          {filtered.length === 0 ? (
+            <p className="text-sm text-muted-foreground p-6">No tasks found.</p>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-gray-50">
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    TASK
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    STATUS
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    PRIORITY
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest text-right">
+                    DUE DATE
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filtered.map((t: any, i: number) => {
+                  const isOverdue =
+                    t.dueDate &&
+                    new Date(t.dueDate) < new Date() &&
+                    t.status !== "COMPLETED" &&
+                    t.status !== "DONE";
+                  return (
+                    <TableRow key={i}>
+                      <TableCell className="font-bold">{t.title}</TableCell>
+                      <TableCell>
+                        <span
+                          className={cn(
+                            "text-[10px] font-black px-2 py-0.5 rounded border",
+                            taskStatusColor[t.status] ||
+                              "bg-gray-100 text-gray-600 border-gray-300",
+                          )}
+                        >
+                          {t.status || "TODO"}
+                        </span>
+                      </TableCell>
+                      <TableCell>
+                        <span
+                          className={cn(
+                            "text-[10px] font-black px-2 py-0.5 rounded border",
+                            t.priority === "HIGH"
+                              ? "bg-red-100 text-red-700 border-red-300"
+                              : t.priority === "MEDIUM"
+                                ? "bg-yellow-100 text-yellow-700 border-yellow-300"
+                                : "bg-gray-100 text-gray-600 border-gray-300",
+                          )}
+                        >
+                          {t.priority || "LOW"}
+                        </span>
+                      </TableCell>
+                      <TableCell
+                        className={cn(
+                          "text-right text-sm font-bold",
+                          isOverdue ? "text-red-500" : "",
+                        )}
+                      >
+                        {t.dueDate
+                          ? new Date(t.dueDate).toLocaleDateString("en-IN", {
+                              day: "2-digit",
+                              month: "short",
+                              year: "numeric",
+                            })
+                          : "—"}
+                        {isOverdue && (
+                          <span className="ml-1 text-[10px] text-red-500 font-black">
+                            OVERDUE
+                          </span>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function EarningsTab({
+  earningsByProject,
+  totalEarnings,
+}: {
+  earningsByProject: any[];
+  totalEarnings: number;
+}) {
+  const paid = earningsByProject.filter(
+    (p) => p.status === "COMPLETED" && p.payout > 0,
+  );
+  const pending = earningsByProject.filter(
+    (p) => p.status !== "COMPLETED" && p.payout > 0,
+  );
+  const paidTotal = paid.reduce((s, p) => s + p.payout, 0);
+  const pendingTotal = pending.reduce((s, p) => s + p.payout, 0);
+
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          {
+            label: "TOTAL EARNINGS",
+            value: `₹${totalEarnings.toLocaleString()}`,
+            color: "text-[#1a3a8f]",
+            accent: "border-l-[#1a3a8f]",
+          },
+          {
+            label: "FROM COMPLETED",
+            value: `₹${paidTotal.toLocaleString()}`,
+            color: "text-green-600",
+            accent: "border-l-green-500",
+          },
+          {
+            label: "PENDING (IN PROGRESS)",
+            value: `₹${pendingTotal.toLocaleString()}`,
+            color: "text-yellow-600",
+            accent: "border-l-yellow-500",
+          },
+        ].map(({ label, value, color, accent }) => (
+          <Card
+            key={label}
+            className={cn("border-2 border-black border-l-4", accent)}
+          >
+            <CardContent className="p-5">
+              <p className="text-[10px] font-black text-muted-foreground tracking-widest mb-2">
+                {label}
+              </p>
+              <p className={cn("text-4xl font-black", color)}>{value}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      <Card className="border-2 border-black">
+        <SectionHeader
+          icon={IndianRupee}
+          title="EARNINGS BREAKDOWN BY PROJECT"
+        />
+        <CardContent className="p-0">
+          {earningsByProject.filter((e) => e.payout > 0).length === 0 ? (
+            <p className="text-sm text-muted-foreground p-6">
+              No payouts assigned yet.
+            </p>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-gray-50">
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    PROJECT
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    CLIENT
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    STATUS
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest text-right">
+                    PAYOUT
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {earningsByProject
+                  .filter((e) => e.payout > 0)
+                  .sort((a, b) => b.payout - a.payout)
+                  .map((p, i) => (
+                    <TableRow key={i}>
+                      <TableCell className="font-bold">{p.title}</TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {p.client}
+                      </TableCell>
+                      <TableCell>
+                        <span
+                          className={cn(
+                            "text-[10px] font-black px-2 py-0.5 rounded border",
+                            statusColor[p.status] ||
+                              "bg-gray-100 text-gray-600 border-gray-300",
+                          )}
+                        >
+                          {p.status}
+                        </span>
+                      </TableCell>
+                      <TableCell className="text-right font-black text-[#1a3a8f]">
+                        ₹{p.payout.toLocaleString()}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function SettingsTab({ user }: { user: any }) {
+  const allowedPages: string[] =
+    Array.isArray(user?.allowedPages) && user.allowedPages.length > 0
+      ? user.allowedPages
+      : [];
+
+  // Build a map of all nav items for quick lookup
+  const allItems = navGroups.flatMap((g) =>
+    g.items.map((item) => ({ ...item, group: g.title })),
+  );
+
+  // Filter to only those the user is allowed
+  const allowed = allItems.filter((item) => allowedPages.includes(item.href));
+
+  // Group them by nav group title
+  const grouped = navGroups
+    .map((g) => ({
+      title: g.title,
+      items: g.items.filter((item) => allowedPages.includes(item.href)),
+    }))
+    .filter((g) => g.items.length > 0);
+
+  return (
+    <div className="space-y-6 max-w-2xl">
+      <Card className="border-2 border-black">
+        <SectionHeader icon={Settings} title="MY ACCESS & PERMISSIONS" />
+        <CardContent className="p-4">
+          <p className="text-sm text-muted-foreground mb-4">
+            These are the pages and sections you have access to. Contact your
+            admin to request additional access.
+          </p>
+          <div className="space-y-5">
+            {grouped.map((group) => (
+              <div key={group.title}>
+                <p className="text-[10px] font-black tracking-widest text-muted-foreground mb-2 uppercase">
+                  {group.title}
+                </p>
+                <div className="space-y-1">
+                  {group.items.map((item) => (
+                    <div
+                      key={item.href}
+                      className="flex items-center gap-3 px-3 py-2 border border-gray-200 bg-green-50"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0" />
+                      <item.icon className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <span className="font-bold text-sm">{item.label}</span>
+                      <span className="ml-auto text-[10px] text-muted-foreground font-mono">
+                        {item.href}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          {allowed.length === 0 && (
+            <p className="text-sm text-muted-foreground">
+              No specific pages assigned. Contact your admin.
+            </p>
+          )}
+        </CardContent>
+      </Card>
+
+      <Card className="border-2 border-black">
+        <SectionHeader icon={User} title="ACCOUNT SETTINGS" />
+        <CardContent className="p-4">
+          <p className="text-sm text-muted-foreground mb-3">
+            To update your profile picture, name, email or password, visit your
+            profile page.
+          </p>
+          <a
+            href="/profile"
+            className="inline-flex items-center gap-2 border-2 border-black bg-[#1a3a8f] text-white px-4 py-2 text-sm font-black hover:bg-[#152d6e] transition-colors"
+          >
+            <User className="w-4 h-4" />
+            GO TO PROFILE
+          </a>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ─── Staff Dashboard shell ────────────────────────────────────────────────────
+function StaffDashboard({
+  user,
+  projects,
+  tasks,
+  clients,
+}: {
+  user: any;
+  projects: any[];
+  tasks: any[];
+  clients: any[];
+}) {
+  const [activeTab, setActiveTab] = useState("overview");
+  const uid = String(user?.id ?? user?._id ?? "");
+
+  const myProjects = projects.filter((p) =>
+    (p.assignees || []).some((a: any) => String(a.id ?? a._id ?? a) === uid),
+  );
+
+  const myTasks = tasks.filter(
+    (t) => String(t.assigneeId ?? t.userId ?? "") === uid,
+  );
+
+  let totalEarnings = 0;
+  const earningsByProject: {
+    title: string;
+    client: string;
+    payout: number;
+    status: string;
+    deadline?: string;
+  }[] = [];
+  for (const p of myProjects) {
+    const assignee = (p.assignees || []).find(
+      (a: any) => String(a.id ?? a._id ?? a) === uid,
+    );
+    const payout = Number(assignee?.payout || 0);
+    const clientName =
+      p.clientName ||
+      clients.find(
+        (c: any) => String(c._id ?? c.id) === String(p.clientId ?? p.client),
+      )?.name ||
+      "-";
+    totalEarnings += payout;
+    earningsByProject.push({
+      title: p.title || "Untitled",
+      client: clientName,
+      payout,
+      status: p.status || "BACKLOG",
+      deadline: p.deadline || p.dueDate,
+    });
+  }
+
+  const projInProgress = myProjects.filter(
+    (p) => p.status === "IN PROGRESS",
+  ).length;
+  const projCompleted = myProjects.filter(
+    (p) => p.status === "COMPLETED",
+  ).length;
+
+  const joinedDate = user?.createdAt
+    ? new Date(user.createdAt).toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })
+    : "—";
+
+  const TABS = [
+    { id: "overview", label: "OVERVIEW", icon: User },
+    { id: "projects", label: "MY PROJECTS", icon: Briefcase },
+    { id: "tasks", label: "MY TASKS", icon: ListTodo },
+    { id: "earnings", label: "EARNINGS", icon: IndianRupee },
+    { id: "settings", label: "SETTINGS", icon: Settings },
+  ];
+
+  return (
+    <div className="space-y-0 font-headline">
+      {/* ── Hero Banner ── */}
+      <div className="relative bg-[#1a3a8f] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.15) 10px,rgba(255,255,255,.15) 11px)",
+          }}
+        />
+        <div className="relative flex flex-col sm:flex-row items-center gap-5 px-6 py-5">
+          <div className="shrink-0">
+            <Avatar className="h-24 w-24 border-4 border-white shadow-xl">
+              <AvatarImage
+                src={user?.avatar || undefined}
+                alt={user?.name}
+                className="object-cover"
+              />
+              <AvatarFallback className="bg-white text-[#1a3a8f] text-4xl font-black">
+                {user?.name?.charAt(0).toUpperCase() ?? "U"}
+              </AvatarFallback>
+            </Avatar>
+          </div>
+
+          <div className="flex-1 text-center sm:text-left">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+              <h1 className="text-3xl font-black tracking-tight text-white uppercase">
+                {user?.name || "Staff Member"}
+              </h1>
+              <span className="text-xs font-bold bg-green-400 text-green-900 px-2 py-0.5 uppercase tracking-wider">
+                Active
+              </span>
+            </div>
+            <p className="text-blue-200 text-sm font-bold mt-1 uppercase tracking-wider">
+              {user?.jobRole || user?.role || "Staff"} ·{" "}
+              {user?.role?.toUpperCase() || "STAFF"}
+            </p>
+          </div>
+
+          <div className="flex gap-3 flex-wrap justify-center sm:justify-end">
+            {[
+              {
+                icon: IndianRupee,
+                label: "EARNINGS",
+                value: `₹${totalEarnings.toLocaleString()}`,
+                valueClass: "text-white",
+              },
+              {
+                icon: CalendarDays,
+                label: "JOINED",
+                value: joinedDate,
+                valueClass: "text-white",
+              },
+              {
+                icon: Briefcase,
+                label: "PROJECTS",
+                value: myProjects.length,
+                valueClass: "text-cyan-300",
+              },
+            ].map(({ icon: Icon, label, value, valueClass }) => (
+              <div
+                key={label}
+                className="border-2 border-white/40 bg-white/10 text-white px-4 py-2 text-center min-w-[90px]"
+              >
+                <div className="flex items-center justify-center gap-1 text-blue-200 text-[10px] font-black mb-1 tracking-widest">
+                  <Icon className="w-3 h-3" />
+                  {label}
+                </div>
+                <p className={cn("text-base font-black", valueClass)}>
+                  {value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Tab Bar ── */}
+      <div className="flex border-b-2 border-black bg-white overflow-x-auto">
+        {TABS.map(({ id, label, icon: Icon }) => (
+          <button
+            key={id}
+            onClick={() => setActiveTab(id)}
+            className={cn(
+              "flex items-center gap-2 px-6 py-3 text-xs font-black tracking-widest border-r-2 border-black whitespace-nowrap transition-colors",
+              activeTab === id
+                ? "bg-[#1a3a8f] text-white"
+                : "text-muted-foreground hover:bg-muted",
+            )}
+          >
+            <Icon className="w-3.5 h-3.5" />
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Tab Content ── */}
+      <div className="pt-6">
+        {activeTab === "overview" && (
+          <OverviewTab
+            user={user}
+            myProjects={myProjects}
+            myTasks={myTasks}
+            earningsByProject={earningsByProject}
+            totalEarnings={totalEarnings}
+            projInProgress={projInProgress}
+            projCompleted={projCompleted}
+          />
+        )}
+        {activeTab === "projects" && (
+          <MyProjectsTab
+            myProjects={myProjects}
+            earningsByProject={earningsByProject}
+          />
+        )}
+        {activeTab === "tasks" && <MyTasksTab myTasks={myTasks} />}
+        {activeTab === "earnings" && (
+          <EarningsTab
+            earningsByProject={earningsByProject}
+            totalEarnings={totalEarnings}
+          />
+        )}
+        {activeTab === "settings" && <SettingsTab user={user} />}
+      </div>
+    </div>
+  );
+}
+
+// ─── Admin Dashboard ──────────────────────────────────────────────────────────
 export default function DashboardPage() {
   const { user } = useAuth();
-
   const isStaff = user?.role === "staff";
 
   const [stats, setStats] = useState<any[]>([]);
@@ -61,52 +1094,12 @@ export default function DashboardPage() {
   const [clients, setClients] = useState<any[]>([]);
   const [leads, setLeads] = useState<any[]>([]);
   const [quotations, setQuotations] = useState<Quotation[]>([]);
-  const [services, setServices] = useState<any[]>([]);
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
   const [nesthrStats, setNesthrStats] = useState<any>(null);
-
-  function AnimatedNumber({
-    value,
-    duration = 800,
-    currency = false,
-  }: {
-    value: number;
-    duration?: number;
-    currency?: boolean;
-  }) {
-    const ref = useRef<number | null>(null);
-    const [display, setDisplay] = useState<number>(0);
-    useEffect(() => {
-      let start: number | null = null;
-      const from = 0;
-      const to = Number(value || 0);
-      if (to === from) {
-        setDisplay(to);
-        return;
-      }
-      const step = (ts: number) => {
-        if (!start) start = ts;
-        const elapsed = Math.min(duration, ts - start);
-        const pct = elapsed / duration;
-        const cur = Math.round(from + (to - from) * pct);
-        setDisplay(cur);
-        if (elapsed < duration) {
-          ref.current = requestAnimationFrame(step);
-        }
-      };
-      ref.current = requestAnimationFrame(step);
-      return () => {
-        if (ref.current) cancelAnimationFrame(ref.current as any);
-      };
-    }, [value, duration]);
-    return (
-      <>{currency ? `₹${Number(display || 0).toLocaleString()}` : display}</>
-    );
-  }
+  const [tasks, setTasks] = useState<any[]>([]);
 
   useEffect(() => {
     let mounted = true;
-
     async function load() {
       try {
         const [
@@ -114,34 +1107,34 @@ export default function DashboardPage() {
           invoicesRes,
           leadsRes,
           quotationsRes,
-          servicesRes,
           expensesRes,
           teamMembersRes,
+          tasksRes,
         ] = await Promise.all([
           apiFetch("/api/projects"),
           apiFetch("/api/invoices"),
           apiFetch("/api/leads"),
           apiFetch("/api/quotations"),
-          apiFetch("/api/services"),
           apiFetch("/api/expenses"),
           apiFetch("/api/users"),
+          apiFetch("/api/tasks"),
         ]);
         const [
           projectsData,
           invoicesData,
           leadsData,
           quotationsData,
-          servicesData,
           expensesData,
           teamMembersData,
+          tasksData,
         ] = await Promise.all([
           projectsRes.json(),
           invoicesRes.json(),
           leadsRes.json(),
           quotationsRes.json(),
-          servicesRes.json(),
           expensesRes.json(),
           teamMembersRes.json(),
+          tasksRes.json(),
         ]);
         if (!mounted) return;
         setProjects(Array.isArray(projectsData) ? projectsData : []);
@@ -149,8 +1142,8 @@ export default function DashboardPage() {
         setExpenses(Array.isArray(expensesData) ? expensesData : []);
         setLeads(Array.isArray(leadsData) ? leadsData : []);
         setQuotations(Array.isArray(quotationsData) ? quotationsData : []);
-        setServices(Array.isArray(servicesData) ? servicesData : []);
         setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
+        setTasks(Array.isArray(tasksData) ? tasksData : []);
 
         const [clientsList, nesthrRes] = await Promise.all([
           apiFetch("/api/clients").then((r) => r.json()),
@@ -161,18 +1154,15 @@ export default function DashboardPage() {
         if (!mounted) return;
         if (nesthrRes?.success) setNesthrStats(nesthrRes.data);
         setClients(clientsList || []);
-        const clientsCount = (clientsList || []).length || 0;
-        const projectsCount = (projectsData || []).length || 0;
+
         const totalRevenue = (invoicesData || []).reduce(
           (s: any, inv: any) => s + Number(inv.amount || 0),
           0,
         );
-
         const totalExpense = (expensesData || []).reduce(
           (s: any, ex: any) => s + Number(ex.amount || 0),
           0,
         );
-
         const leadsCount = (Array.isArray(leadsData) ? leadsData : []).length;
         const newLeadsCount = (
           Array.isArray(leadsData) ? leadsData : []
@@ -186,18 +1176,17 @@ export default function DashboardPage() {
         const paidInvoicesCount = (invoicesData || []).filter(
           (inv: any) => inv.status === "PAID",
         ).length;
-        const netProfit = totalRevenue - totalExpense;
 
         setStats([
           {
             name: "clients",
-            value: clientsCount,
+            value: (clientsList || []).length,
             change: "+1.1%",
             changeType: "positive",
           },
           {
             name: "projects",
-            value: projectsCount,
+            value: (projectsData || []).length,
             change: "+2.4%",
             changeType: "positive",
           },
@@ -227,9 +1216,10 @@ export default function DashboardPage() {
           },
           {
             name: "net profit",
-            value: netProfit,
-            change: netProfit >= 0 ? "surplus" : "deficit",
-            changeType: netProfit >= 0 ? "positive" : "negative",
+            value: totalRevenue - totalExpense,
+            change: totalRevenue - totalExpense >= 0 ? "surplus" : "deficit",
+            changeType:
+              totalRevenue - totalExpense >= 0 ? "positive" : "negative",
           },
           {
             name: "open quotes",
@@ -242,61 +1232,30 @@ export default function DashboardPage() {
         console.error("Failed to load dashboard data", e);
       }
     }
-
     load();
-
-    const handler = (ev: Event) => {
-      const custom = ev as CustomEvent;
+    const handler = () => {
       (async () => {
         try {
-          if (custom?.detail?.invoices) {
-            setInvoices(custom.detail.invoices || []);
-            const projectsRes = await apiFetch("/api/projects");
-            const projectsData = await projectsRes.json();
-            if (!mounted) return;
-            setProjects(Array.isArray(projectsData) ? projectsData : []);
-          } else {
-            const [projectsRes, invoicesRes] = await Promise.all([
-              apiFetch("/api/projects"),
-              apiFetch("/api/invoices"),
-            ]);
-            const [projectsData, invoicesData] = await Promise.all([
-              projectsRes.json(),
-              invoicesRes.json(),
-            ]);
-            if (!mounted) return;
-            setProjects(Array.isArray(projectsData) ? projectsData : []);
-            setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
-          }
-        } catch (e) {
-          console.error("Failed to refresh dashboard data", e);
-        }
+          const [projectsRes, invoicesRes] = await Promise.all([
+            apiFetch("/api/projects"),
+            apiFetch("/api/invoices"),
+          ]);
+          const [projectsData, invoicesData] = await Promise.all([
+            projectsRes.json(),
+            invoicesRes.json(),
+          ]);
+          if (!mounted) return;
+          setProjects(Array.isArray(projectsData) ? projectsData : []);
+          setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
+        } catch (e) {}
       })();
     };
-
     window.addEventListener("data:changed", handler as EventListener);
     return () => {
       mounted = false;
       window.removeEventListener("data:changed", handler as EventListener);
     };
   }, []);
-
-  const projectStatusCounts = projects.reduce(
-    (acc, project) => {
-      const status = project.status || "BACKLOG";
-      acc[status] = (acc[status] || 0) + 1;
-      return acc;
-    },
-    {} as Record<string, number>,
-  );
-
-  const projectChartData = Object.keys(projectStatusCounts).map((status) => ({
-    status,
-    count: projectStatusCounts[status],
-    fill: `hsl(var(--chart-${
-      Object.keys(projectStatusCounts).indexOf(status) + 1
-    }))`,
-  }));
 
   const leadsByStatus = leads.reduce(
     (acc, lead) => {
@@ -307,632 +1266,156 @@ export default function DashboardPage() {
     {} as Record<string, number>,
   );
 
-  const serviceUsageCounts = quotations
-    .filter((q) => q.status === "APPROVED")
-    .flatMap((q) => q.services ?? [])
-    .reduce(
-      (acc, service) => {
-        if (!service) return acc;
-        const name = service.name ?? "Unknown";
-        acc[name] = (acc[name] || 0) + 1;
-        return acc;
-      },
-      {} as Record<string, number>,
+  if (isStaff) {
+    return (
+      <StaffDashboard
+        user={user}
+        projects={projects}
+        tasks={tasks}
+        clients={clients}
+      />
     );
-
-  const serviceChartData = Object.entries(serviceUsageCounts)
-    .map(([service, count]) => ({ service, count }))
-    .sort((a, b) => b.count - a.count);
-
-  const revenueData = (() => {
-    const now = new Date();
-    const months: { month: string; revenue: number }[] = [];
-    for (let i = 5; i >= 0; i--) {
-      const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
-      months.push({ month: MONTH_NAMES[d.getMonth()], revenue: 0 });
-    }
-
-    for (const inv of invoices || []) {
-      const created = inv.createdAt ? new Date(inv.createdAt) : null;
-      if (!created || Number.isNaN(created.getTime())) continue;
-      const monthsAgo =
-        (now.getFullYear() - created.getFullYear()) * 12 +
-        (now.getMonth() - created.getMonth());
-      if (monthsAgo >= 0 && monthsAgo < 6) {
-        const idx = 5 - monthsAgo;
-        months[idx].revenue += Number(inv.amount || 0);
-      }
-    }
-
-    return months;
-  })();
-
-  const completedProjectChartData = (projects || [])
-    .filter((p) => p.status === "COMPLETED")
-    .map((p) => ({ title: p.title, amount: Number(p.amount || 0) }));
-
-  const myEarnings = (() => {
-    if (!user || user.role !== "staff") return 0;
-    const uid = user.id ?? (user._id as any);
-    let sum = 0;
-    for (const p of projects || []) {
-      const ass = p.assignees || [];
-      for (const aRaw of ass) {
-        const a: any = aRaw as any;
-
-        const aid =
-          a && (a.id ?? a._id ?? a.teamMemberId ?? a.memberId ?? a.userId ?? a);
-        if (!aid) continue;
-        if (String(aid) === String(uid)) {
-          sum += Number(a.payout || 0);
-        }
-      }
-    }
-    return sum;
-  })();
-
-  const myEarningsByProject = (() => {
-    if (!user || user.role !== "staff")
-      return [] as {
-        projectId: any;
-        title: string;
-        payout: number;
-        clientName?: string;
-      }[];
-    const uid = user.id ?? (user._id as any);
-    const map = new Map<
-      string,
-      { projectId: any; title: string; payout: number; clientName?: string }
-    >();
-    for (const p of projects || []) {
-      const ass = p.assignees || [];
-      for (const aRaw of ass) {
-        const a: any = aRaw as any;
-        const aid =
-          a && (a.id ?? a._id ?? a.teamMemberId ?? a.memberId ?? a.userId ?? a);
-        if (!aid) continue;
-        if (String(aid) === String(uid)) {
-          const pid = String(p._id ?? p.id ?? p.title);
-
-          let clientName = (p as any).clientName || "-";
-          try {
-            if (!clientName || clientName === "-") {
-              if (
-                p.client &&
-                typeof p.client === "object" &&
-                ((p.client as any).name || (p.client as any).title)
-              ) {
-                clientName =
-                  (p.client as any).name ||
-                  (p.client as any).title ||
-                  String(p.client);
-              } else if (p.client) {
-                const found = (clients || []).find(
-                  (c: any) => String(c.id ?? c._id) === String(p.client),
-                );
-                clientName = found?.name || String(p.client);
-              } else if ((p as any).clientId) {
-                const found = (clients || []).find(
-                  (c: any) =>
-                    String(c.id ?? c._id) === String((p as any).clientId),
-                );
-                clientName = found?.name || String((p as any).clientId);
-              } else {
-                clientName = "-";
-              }
-            }
-          } catch (e) {
-            clientName = "-";
-          }
-
-          const prev = map.get(pid) || {
-            projectId: p._id ?? p.id ?? pid,
-            title: p.title || "Untitled",
-            payout: 0,
-            clientName,
-          };
-          prev.payout += Number(a.payout || 0);
-
-          if (!prev.clientName) prev.clientName = clientName;
-          map.set(pid, prev);
-        }
-      }
-    }
-    return Array.from(map.values()).sort((a, b) => b.payout - a.payout);
-  })();
+  }
 
   return (
     <div className="space-y-8 font-headline">
-      <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <h1 className="text-5xl font-black tracking-tighter">DASHBOARD</h1>
-          <p className="text-muted-foreground text-lg">
-            Real-time pulse of your agency.
-          </p>
-        </div>
+      <header>
+        <h1 className="text-5xl font-black tracking-tighter">DASHBOARD</h1>
+        <p className="text-muted-foreground text-lg">
+          Real-time pulse of your agency.
+        </p>
       </header>
 
       <Tabs defaultValue="overview">
         <TabsContent value="overview" className="space-y-8 mt-8">
-          {isStaff ? (
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
-              <Card className="border-2 border-black">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-black tracking-tighter">
-                    Leads Pipeline
-                  </CardTitle>
-                  <CardDescription>
-                    Current status of all leads.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {Object.entries(leadsByStatus).map(([status, count]) => (
-                    <div
-                      key={status}
-                      className="flex justify-between items-center bg-muted p-3"
-                    >
-                      <span className="font-bold text-muted-foreground text-lg">
-                        {status}
-                      </span>
-                      <span className="font-black text-3xl">
-                        {Number(count)}
-                      </span>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-black">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-black tracking-tighter">
-                    My Earnings
-                  </CardTitle>
-                  <CardDescription>
-                    Total payouts assigned to you across projects
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-5xl font-black">
-                    ₹{Number(myEarnings || 0).toLocaleString()}
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-black">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-black tracking-tighter">
-                    Earnings by Project
-                  </CardTitle>
-                  <CardDescription>
-                    Which projects contributed to your earnings
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  {myEarningsByProject.length === 0 ? (
-                    <div className="text-sm text-muted-foreground">
-                      No assigned payouts found
-                    </div>
-                  ) : (
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead>Project</TableHead>
-                          <TableHead>Client</TableHead>
-                          <TableHead className="text-right">Payout</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {myEarningsByProject.map((p) => (
-                          <TableRow key={String(p.projectId)}>
-                            <TableCell className="font-bold">
-                              {p.title}
-                            </TableCell>
-                            <TableCell>{p.clientName || "-"}</TableCell>
-                            <TableCell className="text-right font-black">
-                              ₹{Number(p.payout || 0).toLocaleString()}
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {stats.map((stat) => {
-                  const isCurrency = [
-                    "revenue",
-                    "expense",
-                    "net profit",
-                  ].includes(stat.name);
-                  return (
-                    <Card key={stat.name} className="border-2 border-black">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
-                          {stat.name.toUpperCase()}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p
-                          className={cn(
-                            "text-4xl font-black tracking-tighter",
-                            stat.name === "net profit" &&
-                              stat.changeType === "negative"
-                              ? "text-destructive"
-                              : "text-primary",
-                          )}
-                        >
-                          {isCurrency ? (
-                            <AnimatedNumber
-                              value={Number(stat.value || 0)}
-                              duration={1000}
-                              currency
-                            />
-                          ) : (
-                            <AnimatedNumber
-                              value={Number(stat.value || 0)}
-                              duration={900}
-                            />
-                          )}
-                        </p>
-                        {stat.change && (
-                          <p
-                            className={cn(
-                              "text-xs font-semibold mt-1",
-                              stat.changeType === "positive"
-                                ? "text-green-600"
-                                : "text-destructive",
-                            )}
-                          >
-                            {stat.change}
-                          </p>
-                        )}
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-
-              {!isStaff && nesthrStats && (
-                <div className="space-y-4">
-                  <h2 className="text-3xl font-black tracking-tighter">
-                    NESTHR — SAAS OVERVIEW
-                  </h2>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    <Card className="border-2 border-black bg-yellow-50">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
-                          TOTAL TENANTS
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-4xl font-black tracking-tighter">
-                          <AnimatedNumber
-                            value={nesthrStats.companies?.total ?? 0}
-                          />
-                        </p>
-                        <p className="text-xs font-semibold mt-1 text-green-600">
-                          {nesthrStats.companies?.newThisMonth ?? 0} new this
-                          month
-                        </p>
-                      </CardContent>
-                    </Card>
-                    <Card className="border-2 border-black bg-yellow-50">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
-                          ACTIVE SUBS
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-4xl font-black tracking-tighter">
-                          <AnimatedNumber
-                            value={nesthrStats.subscriptions?.active ?? 0}
-                          />
-                        </p>
-                        <p className="text-xs font-semibold mt-1 text-orange-500">
-                          {nesthrStats.subscriptions?.expiringSoon ?? 0}{" "}
-                          expiring in 30d
-                        </p>
-                      </CardContent>
-                    </Card>
-                    <Card className="border-2 border-black bg-yellow-50">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
-                          MRR
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-4xl font-black tracking-tighter">
-                          <AnimatedNumber
-                            value={nesthrStats.revenue?.mrr ?? 0}
-                            currency
-                          />
-                        </p>
-                        <p className="text-xs font-semibold mt-1 text-green-600">
-                          monthly recurring
-                        </p>
-                      </CardContent>
-                    </Card>
-                    <Card className="border-2 border-black bg-yellow-50">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
-                          TOTAL REVENUE
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-4xl font-black tracking-tighter">
-                          <AnimatedNumber
-                            value={nesthrStats.revenue?.total ?? 0}
-                            currency
-                          />
-                        </p>
-                        <p className="text-xs font-semibold mt-1 text-green-600">
-                          <AnimatedNumber
-                            value={nesthrStats.revenue?.thisMonth ?? 0}
-                            currency
-                          />{" "}
-                          this month
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    <Card className="border-2 border-black">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-lg font-black tracking-tighter">
-                          Companies by Status
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-2">
-                        {[
-                          {
-                            label: "Active",
-                            value: nesthrStats.companies?.active ?? 0,
-                            color: "text-green-600",
-                          },
-                          {
-                            label: "Trial",
-                            value: nesthrStats.companies?.trial ?? 0,
-                            color: "text-yellow-600",
-                          },
-                          {
-                            label: "Inactive",
-                            value: nesthrStats.companies?.inactive ?? 0,
-                            color: "text-red-500",
-                          },
-                        ].map((item) => (
-                          <div
-                            key={item.label}
-                            className="flex justify-between items-center bg-muted p-2"
-                          >
-                            <span className="font-bold text-muted-foreground">
-                              {item.label}
-                            </span>
-                            <span
-                              className={cn("font-black text-2xl", item.color)}
-                            >
-                              {item.value}
-                            </span>
-                          </div>
-                        ))}
-                      </CardContent>
-                    </Card>
-                    <Card className="border-2 border-black">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-lg font-black tracking-tighter">
-                          Plan Distribution
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-2">
-                        {Object.entries(
-                          nesthrStats.subscriptions?.byPlan ?? {},
-                        ).map(([plan, count]) => (
-                          <div
-                            key={plan}
-                            className="flex justify-between items-center bg-muted p-2"
-                          >
-                            <span className="font-bold text-muted-foreground capitalize">
-                              {plan}
-                            </span>
-                            <span className="font-black text-2xl">
-                              {Number(count)}
-                            </span>
-                          </div>
-                        ))}
-                        {Object.keys(nesthrStats.subscriptions?.byPlan ?? {})
-                          .length === 0 && (
-                          <p className="text-sm text-muted-foreground">
-                            No subscription data
-                          </p>
-                        )}
-                      </CardContent>
-                    </Card>
-                    <Card className="border-2 border-black">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-lg font-black tracking-tighter">
-                          Billing Cycle Split
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-2">
-                        {Object.entries(
-                          nesthrStats.subscriptions?.byBillingCycle ?? {},
-                        ).map(([cycle, count]) => (
-                          <div
-                            key={cycle}
-                            className="flex justify-between items-center bg-muted p-2"
-                          >
-                            <span className="font-bold text-muted-foreground capitalize">
-                              {cycle}
-                            </span>
-                            <span className="font-black text-2xl">
-                              {Number(count)}
-                            </span>
-                          </div>
-                        ))}
-                        {Object.keys(
-                          nesthrStats.subscriptions?.byBillingCycle ?? {},
-                        ).length === 0 && (
-                          <p className="text-sm text-muted-foreground">
-                            No billing data
-                          </p>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </div>
-                  {(nesthrStats.recentInvoices ?? []).length > 0 && (
-                    <Card className="border-2 border-black">
-                      <CardHeader>
-                        <CardTitle className="text-2xl font-black tracking-tighter">
-                          NestHR Recent Payments
-                        </CardTitle>
-                        <CardDescription>
-                          Latest paid invoices across all tenants
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Table>
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead>Invoice</TableHead>
-                              <TableHead>Company</TableHead>
-                              <TableHead>Plan</TableHead>
-                              <TableHead>Cycle</TableHead>
-                              <TableHead className="text-right">
-                                Amount
-                              </TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {(nesthrStats.recentInvoices ?? []).map(
-                              (inv: any) => (
-                                <TableRow key={inv.invoiceNumber}>
-                                  <TableCell className="font-bold">
-                                    {inv.invoiceNumber}
-                                  </TableCell>
-                                  <TableCell>
-                                    {inv.company?.name ?? "-"}
-                                  </TableCell>
-                                  <TableCell className="capitalize">
-                                    {inv.plan}
-                                  </TableCell>
-                                  <TableCell className="capitalize">
-                                    {inv.billingCycle}
-                                  </TableCell>
-                                  <TableCell className="text-right font-black">
-                                    ₹{Number(inv.amount || 0).toLocaleString()}
-                                  </TableCell>
-                                </TableRow>
-                              ),
-                            )}
-                          </TableBody>
-                        </Table>
-                      </CardContent>
-                    </Card>
-                  )}
-                </div>
-              )}
-
-              {}
-              {}
-              {!isStaff && (
-                <TrendsSection invoices={invoices} clients={clients} />
-              )}
-
-              {}
-              {!isStaff && (
-                <TeamMembersSection
-                  teamMembers={teamMembers}
-                  projects={projects}
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {(
+              [
+                { name: "clients", icon: Users },
+                { name: "projects", icon: Briefcase },
+                { name: "revenue", icon: IndianRupee },
+                { name: "expense", icon: TrendingDown },
+                { name: "leads", icon: Target },
+                { name: "active projects", icon: Activity },
+                { name: "net profit", icon: DollarSign },
+                { name: "open quotes", icon: FileText },
+              ] as { name: string; icon: any }[]
+            ).map((meta, i) => {
+              const stat = stats.find((s) => s.name === meta.name);
+              if (!stat) return null;
+              const isCurrency = ["revenue", "expense", "net profit"].includes(
+                stat.name,
+              );
+              return (
+                <StatCard
+                  key={stat.name}
+                  icon={meta.icon}
+                  label={stat.name.toUpperCase()}
+                  value={
+                    isCurrency
+                      ? `₹${Number(stat.value || 0).toLocaleString()}`
+                      : Number(stat.value || 0)
+                  }
+                  sub={stat.change}
+                  iconVariant={i % 2 === 0 ? "primary" : "secondary"}
                 />
-              )}
+              );
+            })}
+          </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <Card className="lg:col-span-2 border-2 border-black">
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-black tracking-tighter">
-                      Recent Invoices
-                    </CardTitle>
-                    <CardDescription>
-                      A quick look at the latest billing activity.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead>Invoice ID</TableHead>
-                          <TableHead>Client</TableHead>
-                          <TableHead>Project / Title</TableHead>
-                          <TableHead>Amount</TableHead>
-                          <TableHead className="text-right">Status</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {invoices.slice(0, 4).map((invoice: any) => (
-                          <TableRow key={invoice.id}>
-                            <TableCell className="font-bold">
-                              {invoice.id}
-                            </TableCell>
-                            <TableCell>
-                              {invoice.client || invoice.clientName || "-"}
-                            </TableCell>
-                            <TableCell>
-                              {invoice.clientName ||
-                                invoice.client ||
-                                clients.find(
-                                  (c: any) =>
-                                    String(c.id ?? c._id) ===
-                                    String(invoice.clientId),
-                                )?.name ||
-                                "-"}
-                            </TableCell>
-                            <TableCell>
-                              {invoice.title || invoice.projectTitle || "-"}
-                            </TableCell>
-                            <TableCell>
-                              ₹{Number(invoice.amount || 0).toLocaleString()}
-                            </TableCell>
-                            <TableCell className="text-right font-bold">
-                              {invoice.status}
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </CardContent>
-                </Card>
-                <Card className="border-2 border-black">
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-black tracking-tighter">
-                      Leads Pipeline
-                    </CardTitle>
-                    <CardDescription>
-                      Current status of all leads.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {Object.entries(leadsByStatus).map(([status, count]) => (
-                      <div
-                        key={status}
-                        className="flex justify-between items-center bg-muted p-3"
-                      >
-                        <span className="font-bold text-muted-foreground text-lg">
-                          {status}
-                        </span>
-                        <span className="font-black text-3xl">
-                          <AnimatedNumber
-                            value={Number(count)}
-                            duration={700}
-                          />
-                        </span>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
+          {nesthrStats && (
+            <div className="space-y-4">
+              <h2 className="text-3xl font-black tracking-tighter">
+                NESTHR — SAAS OVERVIEW
+              </h2>
+              <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+                {[
+                  { label: "TOTAL TENANTS", value: nesthrStats.companies?.total ?? 0, sub: `${nesthrStats.companies?.newThisMonth ?? 0} new this month`, icon: Building2 },
+                  { label: "ACTIVE SUBS", value: nesthrStats.subscriptions?.active ?? 0, sub: `${nesthrStats.subscriptions?.expiringSoon ?? 0} expiring in 30d`, icon: CreditCard },
+                  { label: "MRR", value: `₹${(nesthrStats.revenue?.mrr ?? 0).toLocaleString()}`, sub: "monthly recurring", icon: BarChart3 },
+                  { label: "TOTAL REVENUE", value: `₹${(nesthrStats.revenue?.total ?? 0).toLocaleString()}`, sub: `₹${(nesthrStats.revenue?.thisMonth ?? 0).toLocaleString()} this month`, icon: IndianRupee },
+                ].map(({ label, value, sub, icon }, i) => (
+                  <StatCard key={label} icon={icon} label={label} value={value} sub={sub} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+                ))}
               </div>
-            </>
+            </div>
           )}
+
+          <TrendsSection invoices={invoices} clients={clients} />
+          <TeamMembersSection teamMembers={teamMembers} projects={projects} />
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <Card className="lg:col-span-2 border-2 border-black">
+              <CardHeader>
+                <CardTitle className="text-2xl font-black tracking-tighter">
+                  Recent Invoices
+                </CardTitle>
+                <CardDescription>
+                  A quick look at the latest billing activity.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Invoice ID</TableHead>
+                      <TableHead>Client</TableHead>
+                      <TableHead>Amount</TableHead>
+                      <TableHead className="text-right">Status</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {invoices.slice(0, 6).map((invoice: any) => (
+                      <TableRow key={invoice.id ?? invoice._id}>
+                        <TableCell className="font-bold">
+                          {invoice.id ?? invoice._id}
+                        </TableCell>
+                        <TableCell>
+                          {invoice.clientName ||
+                            invoice.client ||
+                            clients.find(
+                              (c: any) =>
+                                String(c.id ?? c._id) ===
+                                String(invoice.clientId),
+                            )?.name ||
+                            "-"}
+                        </TableCell>
+                        <TableCell>
+                          ₹{Number(invoice.amount || 0).toLocaleString()}
+                        </TableCell>
+                        <TableCell className="text-right font-bold">
+                          {invoice.status}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-black">
+              <CardHeader>
+                <CardTitle className="text-2xl font-black tracking-tighter">
+                  Leads Pipeline
+                </CardTitle>
+                <CardDescription>Current status of all leads.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {Object.entries(leadsByStatus).map(([status, count]) => (
+                  <div
+                    key={status}
+                    className="flex justify-between items-center bg-muted p-3"
+                  >
+                    <span className="font-bold text-muted-foreground text-lg">
+                      {status}
+                    </span>
+                    <span className="font-black text-3xl">
+                      <AnimatedNumber value={Number(count)} duration={700} />
+                    </span>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
         </TabsContent>
       </Tabs>
     </div>

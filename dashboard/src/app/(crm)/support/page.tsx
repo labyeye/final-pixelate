@@ -23,6 +23,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import { StatCard } from "@/components/ui/stat-card";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/use-auth";
 import {
@@ -544,48 +545,22 @@ export default function SupportPage() {
           </Button>
         </div>
 
-        {}
         <div className="grid grid-cols-3 gap-4">
-          {(["new", "in_progress", "resolved"] as const).map((s) => (
-            <Card
-              key={s}
-              className={cn(
-                "border-2 cursor-pointer transition-all",
-                activeTab === s
-                  ? "border-purple-500 shadow-md"
-                  : "border-gray-200 hover:border-purple-300",
-              )}
-              onClick={() => setActiveTab(activeTab === s ? "all" : s)}
-            >
-              <CardContent className="flex items-center gap-4 p-5">
-                <div
-                  className={cn(
-                    "w-10 h-10 rounded-full flex items-center justify-center shrink-0",
-                    s === "new"
-                      ? "bg-blue-100"
-                      : s === "in_progress"
-                        ? "bg-purple-100"
-                        : "bg-green-100",
-                  )}
-                >
-                  {s === "new" ? (
-                    <AlertCircle className="h-5 w-5 text-blue-600" />
-                  ) : s === "in_progress" ? (
-                    <Clock className="h-5 w-5 text-purple-600" />
-                  ) : (
-                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                  )}
-                </div>
-                <div>
-                  <p className="text-2xl font-black">
-                    {getTicketsByStatus(s).length}
-                  </p>
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                    {getStatusLabel(s)}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+          {([
+            { s: "new" as const, icon: AlertCircle },
+            { s: "in_progress" as const, icon: Clock },
+            { s: "resolved" as const, icon: CheckCircle2 },
+          ]).map(({ s, icon }, i) => (
+            <button key={s} onClick={() => setActiveTab(activeTab === s ? "all" : s)} className="text-left">
+              <StatCard
+                icon={icon}
+                label={getStatusLabel(s).toUpperCase()}
+                value={getTicketsByStatus(s).length}
+                sub="tickets"
+                iconVariant={i % 2 === 0 ? "primary" : "secondary"}
+                className={activeTab === s ? "ring-2 ring-black" : ""}
+              />
+            </button>
           ))}
         </div>
 

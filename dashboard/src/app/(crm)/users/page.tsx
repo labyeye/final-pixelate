@@ -18,8 +18,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { MoreVertical } from "lucide-react";
+import { MoreVertical, Users, ShieldCheck, UserCog, UserX } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
+import { StatCard } from "@/components/ui/stat-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SuccessModal } from "@/components/ui/success-modal";
@@ -116,52 +117,38 @@ export default function UsersPage() {
         <div />
       </header>
 
-      <div className="border-2 border-black">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <StatCard icon={Users} label="TOTAL USERS" value={users.length} sub="all accounts" iconVariant="primary" />
+        <StatCard icon={ShieldCheck} label="ADMINS" value={users.filter((u: any) => u.role === "admin").length} sub="admin access" iconVariant="secondary" />
+        <StatCard icon={UserCog} label="STAFF" value={users.filter((u: any) => u.role === "staff").length} sub="team members" iconVariant="primary" />
+        <StatCard icon={UserX} label="CLIENTS" value={users.filter((u: any) => u.role === "client").length} sub="client logins" iconVariant="secondary" />
+      </div>
+
+      <div className="hidden md:block border-2 border-black">
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black">
               <TableHead className="text-base font-bold">Name</TableHead>
               <TableHead className="text-base font-bold">Email</TableHead>
               <TableHead className="text-base font-bold">Role</TableHead>
-              <TableHead className="text-right text-base font-bold">
-                Actions
-              </TableHead>
+              <TableHead className="text-right text-base font-bold">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {users.map((u) => (
-              <TableRow
-                key={u._id ?? (u as any).id}
-                className="border-b-2 border-black last:border-b-0"
-              >
-                <TableCell className="font-bold text-base py-4">
-                  {u.name}
-                </TableCell>
+              <TableRow key={u._id ?? (u as any).id} className="border-b-2 border-black last:border-b-0">
+                <TableCell className="font-bold text-base py-4">{u.name}</TableCell>
                 <TableCell className="text-base py-4">{u.email}</TableCell>
                 <TableCell className="text-base py-4">{u.role}</TableCell>
-                <TableCell className="text-right py-4 text-base font-bold">
+                <TableCell className="text-right py-4">
                   <div className="flex items-center justify-end gap-2">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MoreVertical className="h-5 w-5" />
-                        </Button>
+                        <Button variant="ghost" size="icon" className="h-8 w-8"><MoreVertical className="h-5 w-5" /></Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuItem
-                          onClick={() => {
-                            setEditingUser(u);
-                            setIsEditOpen(true);
-                          }}
-                        >
-                          Edit
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => handleDelete(u)}
-                          className="text-destructive"
-                        >
-                          Delete
-                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => { setEditingUser(u); setIsEditOpen(true); }}>Edit</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleDelete(u)} className="text-destructive">Delete</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
@@ -170,6 +157,32 @@ export default function UsersPage() {
             ))}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {users.map((u) => {
+          const uid = u._id ?? (u as any).id;
+          return (
+            <div key={uid} className="border-2 border-black bg-white">
+              <div className="divide-y divide-gray-100">
+                <div className="px-3 py-2">
+                  <div className="font-black text-base">{u.name}</div>
+                  <div className="text-xs text-muted-foreground capitalize">{u.role}</div>
+                </div>
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Email</span>
+                  <span className="text-sm text-right flex-1 break-all">{u.email}</span>
+                </div>
+              </div>
+              <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2">
+                <Button size="sm" variant="outline" className="border-2 border-black font-bold text-xs h-8" onClick={() => { setEditingUser(u); setIsEditOpen(true); }}>Edit</Button>
+                <Button size="sm" variant="destructive" className="font-bold text-xs h-8" onClick={() => handleDelete(u)}>Delete</Button>
+              </div>
+            </div>
+          );
+        })}
+        {users.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No users found.</div>}
       </div>
 
       {editingUser && (

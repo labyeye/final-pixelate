@@ -21,8 +21,16 @@ export async function GET(request: NextRequest) {
       next: { revalidate: 60 },
     });
 
+    const contentType = res.headers.get("content-type") ?? "";
+    if (!contentType.includes("application/json")) {
+      const text = await res.text();
+      throw new Error(
+        `NestHR returned non-JSON response (${res.status}): ${text.slice(0, 200)}`,
+      );
+    }
+
     const data = await res.json();
-    if (!res.ok) throw new Error(data?.message ?? "NestHR stats fetch failed");
+    if (!res.ok) throw new Error(data?.message ?? `NestHR stats fetch failed (${res.status})`);
 
     return NextResponse.json(data);
   } catch (e: any) {

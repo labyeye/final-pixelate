@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import { AddClientDialog } from "@/components/clients/add-client-dialog";
 import Link from "next/link";
+import { StatCard } from "@/components/ui/stat-card";
 
 function SuccessModal({ message }: { message: string }) {
   return (
@@ -289,59 +290,24 @@ export default function ClientsPage() {
         </div>
       </header>
 
-      {}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          {
-            label: "Active",
-            value: active,
-            icon: UserCheck,
-            color: "bg-green-50 border-green-300",
-            filter: "active",
-          },
-          {
-            label: "Prospect",
-            value: prospect,
-            icon: TrendingUp,
-            color: "bg-blue-50 border-blue-300",
-            filter: "prospect",
-          },
-          {
-            label: "Inactive",
-            value: inactive,
-            icon: Users,
-            color: "bg-gray-50 border-gray-300",
-            filter: "inactive",
-          },
-          {
-            label: "Churned",
-            value: churned,
-            icon: UserX,
-            color: "bg-red-50 border-red-300",
-            filter: "churned",
-          },
-        ].map((s) => {
-          const Icon = s.icon;
-          return (
-            <button
-              key={s.label}
-              onClick={() =>
-                setStatusFilter(statusFilter === s.filter ? "" : s.filter)
-              }
-              className={`border-2 border-black rounded-xl p-3 text-left transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
-                statusFilter === s.filter ? "bg-black text-white" : s.color
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wide opacity-70">
-                  {s.label}
-                </span>
-                <Icon className="w-4 h-4 opacity-60" />
-              </div>
-              <span className="text-2xl font-black">{s.value}</span>
-            </button>
-          );
-        })}
+          { label: "ACTIVE", value: active, icon: UserCheck, sub: `${clients.length} total`, filter: "active" },
+          { label: "PROSPECT", value: prospect, icon: TrendingUp, sub: "in pipeline", filter: "prospect" },
+          { label: "INACTIVE", value: inactive, icon: Users, sub: "paused", filter: "inactive" },
+          { label: "CHURNED", value: churned, icon: UserX, sub: "lost", filter: "churned" },
+        ].map(({ label, value, icon, sub, filter }, i) => (
+          <button key={label} onClick={() => setStatusFilter(statusFilter === filter ? "" : filter)} className="text-left">
+            <StatCard
+              icon={icon}
+              label={label}
+              value={value}
+              sub={sub}
+              iconVariant={i % 2 === 0 ? "primary" : "secondary"}
+              className={statusFilter === filter ? "ring-2 ring-black" : ""}
+            />
+          </button>
+        ))}
       </div>
 
       {}
@@ -422,7 +388,7 @@ export default function ClientsPage() {
       )}
 
       {}
-      <div className="border-2 border-black rounded-xl overflow-hidden">
+      <div className="hidden md:block border-2 border-black rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
@@ -568,6 +534,63 @@ export default function ClientsPage() {
             </TableBody>
           </Table>
         </div>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-3">
+        {filtered.length === 0 && (
+          <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No clients match your filters.</div>
+        )}
+        {filtered.map((c) => {
+          const cid = String(c._id ?? c.id);
+          const statusColor = clientStatusColors[c.status || "active"] || "bg-green-100 text-green-700";
+          return (
+            <div key={cid} className="border-2 border-black bg-white cursor-pointer" onClick={() => router.push(`/clients/${cid}`)}>
+              <div className="divide-y divide-gray-100">
+                <div className="px-3 py-2">
+                  <div className="font-black text-base flex items-center gap-1">{c.name} <ChevronRight className="w-3 h-3 opacity-30" /></div>
+                  {c.industry && <div className="text-xs text-muted-foreground">{c.industry}</div>}
+                </div>
+                {(c.email || c.phone) && (
+                  <div className="flex justify-between items-start px-3 py-2">
+                    <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Contact</span>
+                    <div className="text-right flex-1">
+                      {c.email && <div className="text-sm">{c.email}</div>}
+                      {c.phone && <div className="text-xs text-muted-foreground">{c.phone}</div>}
+                    </div>
+                  </div>
+                )}
+                {(c.city || c.state) && (
+                  <div className="flex justify-between items-center px-3 py-2">
+                    <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Location</span>
+                    <span className="text-sm text-right flex-1">{[c.city, c.state].filter(Boolean).join(", ")}</span>
+                  </div>
+                )}
+                <div className="flex justify-between items-center px-3 py-2">
+                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Status</span>
+                  <span className={`text-xs font-bold px-2 py-1 rounded-full border ${statusColor}`}>{c.status || "active"}</span>
+                </div>
+                {(c.tags || []).length > 0 && (
+                  <div className="px-3 py-2">
+                    <div className="flex flex-wrap gap-1">
+                      {(c.tags || []).slice(0, 4).map((tag: string) => (
+                        <span key={tag} className="text-xs px-1.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">#{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                {c.hasGst ? <span className="text-xs font-bold text-green-700 border border-green-300 px-2 py-0.5 rounded">GST Registered</span> : <span className="text-xs text-muted-foreground">No GST</span>}
+                {c.userId && <span className="text-xs font-bold text-blue-700 border border-blue-200 px-2 py-0.5 rounded">Portal Active</span>}
+                <div className="ml-auto flex gap-2">
+                  <button className="text-xs font-bold underline" onClick={() => { setEditingClient(c); setIsEditDialogOpen(true); }}>Edit</button>
+                  <button className="text-xs font-bold text-red-600 underline" onClick={() => handleDeleteClient(c)}>Delete</button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

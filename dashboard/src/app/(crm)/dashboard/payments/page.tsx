@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { StatCard } from "@/components/ui/stat-card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -540,6 +541,15 @@ export default function PaymentsPage() {
           </p>
         </div>
       </div>
+
+      {!isClient && (
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <StatCard icon={Receipt} label="TOTAL BILLED" value={`₹${clientSummary.billed.toLocaleString()}`} sub={`${invoices.length} invoices`} iconVariant="primary" />
+          <StatCard icon={CheckCircle2} label="COLLECTED" value={`₹${clientSummary.received.toLocaleString()}`} sub="received" iconVariant="secondary" />
+          <StatCard icon={AlertCircle} label="OUTSTANDING" value={`₹${Math.max(0, outstanding).toLocaleString()}`} sub="balance due" iconVariant="primary" />
+          <StatCard icon={DollarSign} label="PAID INVOICES" value={invoices.filter((i: any) => i.status === "PAID").length} sub={`of ${invoices.length} total`} iconVariant="secondary" />
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {}

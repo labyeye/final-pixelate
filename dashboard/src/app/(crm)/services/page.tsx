@@ -198,7 +198,7 @@ export default function ServicesPage() {
         </CardContent>
       </Card>
 
-      <div className="border-2 border-black">
+      <div className="hidden md:block border-2 border-black">
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black">
@@ -261,6 +261,36 @@ export default function ServicesPage() {
             ))}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-2">
+        {services.map((s) => {
+          const sid = s._id ?? s.id;
+          return (
+            <div key={sid} className="border-2 border-black bg-white px-3 py-3 flex items-center justify-between gap-2">
+              {editingServiceId === sid ? (
+                <div className="flex items-center gap-2 flex-1">
+                  <Input value={editingValue} onChange={(e) => setEditingValue(e.target.value)} className="border-2 border-black flex-1" />
+                  <Button size="sm" onClick={saveEdit}>Save</Button>
+                  <Button size="sm" variant="ghost" onClick={cancelEdit}>Cancel</Button>
+                </div>
+              ) : (
+                <>
+                  <span className="font-bold text-sm flex-1">{s.name}</span>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild><Button variant="ghost" size="icon" className="h-8 w-8"><MoreVertical className="h-5 w-5" /></Button></DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem onClick={() => startEdit(s)}>Edit</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => deleteService(s)} className="text-destructive">Delete</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </>
+              )}
+            </div>
+          );
+        })}
+        {services.length === 0 && <div className="border-2 border-black p-8 text-center text-muted-foreground font-bold">No services yet.</div>}
       </div>
     </div>
   );

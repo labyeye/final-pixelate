@@ -340,59 +340,43 @@ export default function UserActivityPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Page URL</TableHead>
-                <TableHead>Total Visits</TableHead>
-                <TableHead>Unique Visitors</TableHead>
-                <TableHead>Avg. Time (s)</TableHead>
-                <TableHead>Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {pagePerformance.map((page) => (
-                <TableRow key={page.page}>
-                  <TableCell className="font-medium text-slate-800">
-                    <span className="flex items-center gap-2">
-                      <Globe className="h-3 w-3 text-slate-400" />
-                      {page.page}
-                    </span>
-                  </TableCell>
-                  <TableCell>
-                    {page.visits > 0 ? (
-                      <span className="font-bold text-slate-900">
-                        {page.visits}
-                      </span>
-                    ) : (
-                      <span className="text-slate-400">0</span>
-                    )}
-                  </TableCell>
-                  <TableCell>{page.unique}</TableCell>
-                  <TableCell>
-                    {page.visits > 0 ? (
-                      <span className="text-xs bg-slate-100 px-2 py-1 rounded-full text-slate-600">
-                        {page.avgTime}s
-                      </span>
-                    ) : (
-                      <span className="text-xs text-slate-400">-</span>
-                    )}
-                  </TableCell>
-                  <TableCell>
-                    {page.visits > 0 ? (
-                      <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                        Active
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-500/10">
-                        No Visits
-                      </span>
-                    )}
-                  </TableCell>
+          <div className="hidden md:block overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Page URL</TableHead>
+                  <TableHead>Total Visits</TableHead>
+                  <TableHead>Unique Visitors</TableHead>
+                  <TableHead>Avg. Time (s)</TableHead>
+                  <TableHead>Status</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {pagePerformance.map((page) => (
+                  <TableRow key={page.page}>
+                    <TableCell className="font-medium text-slate-800"><span className="flex items-center gap-2"><Globe className="h-3 w-3 text-slate-400" />{page.page}</span></TableCell>
+                    <TableCell>{page.visits > 0 ? <span className="font-bold text-slate-900">{page.visits}</span> : <span className="text-slate-400">0</span>}</TableCell>
+                    <TableCell>{page.unique}</TableCell>
+                    <TableCell>{page.visits > 0 ? <span className="text-xs bg-slate-100 px-2 py-1 rounded-full text-slate-600">{page.avgTime}s</span> : <span className="text-xs text-slate-400">-</span>}</TableCell>
+                    <TableCell>{page.visits > 0 ? <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Active</span> : <span className="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-500/10">No Visits</span>}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+          <div className="md:hidden space-y-2">
+            {pagePerformance.map((page) => (
+              <div key={page.page} className="border border-slate-200 rounded-lg px-3 py-2">
+                <div className="font-medium text-sm text-slate-800 break-all">{page.page}</div>
+                <div className="flex items-center gap-4 mt-1 text-xs text-slate-500">
+                  <span>{page.visits} visits</span>
+                  <span>{page.unique} unique</span>
+                  {page.visits > 0 && <span>{page.avgTime}s avg</span>}
+                  {page.visits > 0 ? <span className="text-green-600 font-bold">Active</span> : <span className="text-slate-400">No visits</span>}
+                </div>
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
 
@@ -404,50 +388,43 @@ export default function UserActivityPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px]">User</TableHead>
-                <TableHead>Page</TableHead>
-                <TableHead>Duration</TableHead>
-                <TableHead>Time</TableHead>
-                <TableHead className="text-right">Referrer</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.slice(0, 10).map((activity) => (
-                <TableRow key={activity._id}>
-                  <TableCell className="font-mono text-xs text-slate-500">
-                    {activity.userId.split("_")[1] || "Guest"}
-                  </TableCell>
-                  <TableCell className="font-medium text-slate-800 break-words max-w-md">
-                    <span className="flex items-center gap-2">
-                      <Globe className="h-3 w-3 text-slate-400" />
-                      {activity.url
-                        .replace("http://", "")
-                        .replace("https://", "")
-                        .substring(0, 50)}
-                    </span>
-                  </TableCell>
-                  <TableCell>
-                    {activity.duration > 0 ? (
-                      <span className="text-xs bg-slate-100 px-2 py-1 rounded-full text-slate-600">
-                        {activity.duration}s
-                      </span>
-                    ) : (
-                      <span className="text-xs text-slate-400">-</span>
-                    )}
-                  </TableCell>
-                  <TableCell className="text-slate-600 text-sm">
-                    {new Date(activity.startTime).toLocaleTimeString()}
-                  </TableCell>
-                  <TableCell className="text-right text-xs text-slate-400 max-w-[150px] truncate">
-                    {activity.referrer || "Direct"}
-                  </TableCell>
+          <div className="hidden md:block overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[100px]">User</TableHead>
+                  <TableHead>Page</TableHead>
+                  <TableHead>Duration</TableHead>
+                  <TableHead>Time</TableHead>
+                  <TableHead className="text-right">Referrer</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {data.slice(0, 10).map((activity) => (
+                  <TableRow key={activity._id}>
+                    <TableCell className="font-mono text-xs text-slate-500">{activity.userId.split("_")[1] || "Guest"}</TableCell>
+                    <TableCell className="font-medium text-slate-800 break-words max-w-md"><span className="flex items-center gap-2"><Globe className="h-3 w-3 text-slate-400" />{activity.url.replace("http://", "").replace("https://", "").substring(0, 50)}</span></TableCell>
+                    <TableCell>{activity.duration > 0 ? <span className="text-xs bg-slate-100 px-2 py-1 rounded-full text-slate-600">{activity.duration}s</span> : <span className="text-xs text-slate-400">-</span>}</TableCell>
+                    <TableCell className="text-slate-600 text-sm">{new Date(activity.startTime).toLocaleTimeString()}</TableCell>
+                    <TableCell className="text-right text-xs text-slate-400 max-w-[150px] truncate">{activity.referrer || "Direct"}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+          <div className="md:hidden space-y-2">
+            {data.slice(0, 10).map((activity) => (
+              <div key={activity._id} className="border border-slate-200 rounded-lg px-3 py-2">
+                <div className="font-medium text-sm text-slate-800 break-all">{activity.url.replace("http://", "").replace("https://", "").substring(0, 60)}</div>
+                <div className="flex items-center gap-3 mt-1 text-xs text-slate-500 flex-wrap">
+                  <span className="font-mono">{activity.userId.split("_")[1] || "Guest"}</span>
+                  <span>{new Date(activity.startTime).toLocaleTimeString()}</span>
+                  {activity.duration > 0 && <span>{activity.duration}s</span>}
+                  {activity.referrer && <span className="text-slate-400 truncate max-w-[140px]">{activity.referrer}</span>}
+                </div>
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </div>

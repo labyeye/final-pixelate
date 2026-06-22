@@ -64,12 +64,6 @@ const LoginScreen = () => {
           {}
           <Card style={styles.card} shadow="lg">
             <Text style={styles.cardTitle}>SIGN IN</Text>
-            <Text style={styles.cardSubtitle}>
-              Enter your credentials to continue
-            </Text>
-
-            <View style={styles.divider} />
-
             <Input
               label="EMAIL"
               value={email}
@@ -145,18 +139,15 @@ const styles = StyleSheet.create({
     gap: Spacing.md,
   },
   logoBox: {
-    width: 64,
-    height: 64,
+    width: 100,
+    height: 100,
     backgroundColor: Colors.white,
-    borderWidth: Border.widthBold,
-    borderColor: Colors.black,
     alignItems: 'center',
     justifyContent: 'center',
-    ...Shadows.md,
   },
   logoLetter: {
-    width: 48,
-    height: 48,
+    width: 100,
+    height: 100,
   },
   logoTextBlock: { gap: 10, flexDirection: 'row', alignItems: 'center' },
   logoTitle: {
@@ -188,10 +179,12 @@ const styles = StyleSheet.create({
     ...Shadows.lg,
   },
   cardTitle: {
-    fontSize: Typography['2xl'],
+    fontSize: 30,
     fontWeight: Typography.black,
     color: Colors.foreground,
     letterSpacing: 1,
+    textAlign: 'center',
+    marginBottom: 20,
   },
   cardSubtitle: {
     fontSize: Typography.sm,
