@@ -17,7 +17,9 @@ export async function GET(request: NextRequest) {
     const col = await svc.getCollection("invoices");
     const invoices = await col.find(query).sort({ createdAt: -1 }).toArray();
 
-    return NextResponse.json(invoices);
+    return NextResponse.json(invoices, {
+      headers: { "Cache-Control": "private, max-age=30, stale-while-revalidate=60" },
+    });
   } catch (error: any) {
     console.error("Error fetching invoices:", error);
     return NextResponse.json(

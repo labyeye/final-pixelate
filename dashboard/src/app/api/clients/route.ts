@@ -8,7 +8,9 @@ export async function GET(request: Request) {
   if (auth.error) return auth.error;
   try {
     const items = await svc.getClients();
-    return NextResponse.json(items);
+    return NextResponse.json(items, {
+      headers: { "Cache-Control": "private, max-age=30, stale-while-revalidate=60" },
+    });
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },

@@ -10,15 +10,16 @@ export async function GET(request: Request) {
   const auth = requireAuth(request);
   if (auth.error) return auth.error;
   try {
-    const col = await svc.getCollection("projects");
-    const items = await col.find().toArray();
-
-    const clientCol = await svc.getCollection("clients");
-    const usersCol = await svc.getCollection("users");
-    const clients = await clientCol.find().toArray();
-    const teamMembers = await usersCol
-      .find({ jobRole: { $exists: true } })
-      .toArray();
+    const [col, clientCol, usersCol] = await Promise.all([
+      svc.getCollection("projects"),
+      svc.getCollection("clients"),
+      svc.getCollection("users"),
+    ]);
+    const [items, clients, teamMembers] = await Promise.all([
+      col.find().toArray(),
+      clientCol.find().toArray(),
+      usersCol.find({ jobRole: { $exists: true } }).toArray(),
+    ]);
 
     const enrichedItems = items.map((project) => {
       let enriched = { ...project };
@@ -52,7 +53,9 @@ export async function GET(request: Request) {
       return enriched;
     });
 
-    return NextResponse.json(enrichedItems);
+    return NextResponse.json(enrichedItems, {
+      headers: { "Cache-Control": "private, max-age=30, stale-while-revalidate=60" },
+    });
   } catch (e: any) {
     console.error("GET /api/projects error:", e);
     return NextResponse.json(
