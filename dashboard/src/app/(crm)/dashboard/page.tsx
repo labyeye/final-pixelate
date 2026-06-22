@@ -1103,23 +1103,6 @@ export default function DashboardPage() {
     async function load() {
       try {
         const [
-          projectsRes,
-          invoicesRes,
-          leadsRes,
-          quotationsRes,
-          expensesRes,
-          teamMembersRes,
-          tasksRes,
-        ] = await Promise.all([
-          apiFetch("/api/projects"),
-          apiFetch("/api/invoices"),
-          apiFetch("/api/leads"),
-          apiFetch("/api/quotations"),
-          apiFetch("/api/expenses"),
-          apiFetch("/api/users"),
-          apiFetch("/api/tasks"),
-        ]);
-        const [
           projectsData,
           invoicesData,
           leadsData,
@@ -1127,14 +1110,18 @@ export default function DashboardPage() {
           expensesData,
           teamMembersData,
           tasksData,
+          clientsList,
+          nesthrRes,
         ] = await Promise.all([
-          projectsRes.json(),
-          invoicesRes.json(),
-          leadsRes.json(),
-          quotationsRes.json(),
-          expensesRes.json(),
-          teamMembersRes.json(),
-          tasksRes.json(),
+          apiFetch("/api/projects").then((r) => r.json()),
+          apiFetch("/api/invoices").then((r) => r.json()),
+          apiFetch("/api/leads").then((r) => r.json()),
+          apiFetch("/api/quotations").then((r) => r.json()),
+          apiFetch("/api/expenses").then((r) => r.json()),
+          apiFetch("/api/users").then((r) => r.json()),
+          apiFetch("/api/tasks").then((r) => r.json()),
+          apiFetch("/api/clients").then((r) => r.json()),
+          apiFetch("/api/nesthr-stats").then((r) => r.json()).catch(() => null),
         ]);
         if (!mounted) return;
         setProjects(Array.isArray(projectsData) ? projectsData : []);
@@ -1144,14 +1131,6 @@ export default function DashboardPage() {
         setQuotations(Array.isArray(quotationsData) ? quotationsData : []);
         setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
         setTasks(Array.isArray(tasksData) ? tasksData : []);
-
-        const [clientsList, nesthrRes] = await Promise.all([
-          apiFetch("/api/clients").then((r) => r.json()),
-          apiFetch("/api/nesthr-stats")
-            .then((r) => r.json())
-            .catch(() => null),
-        ]);
-        if (!mounted) return;
         if (nesthrRes?.success) setNesthrStats(nesthrRes.data);
         setClients(clientsList || []);
 
