@@ -116,6 +116,15 @@ RewriteRule ^school-crm-bihar$ /pages/locations.html [R=301,L]
 RewriteRule ^school-crm-bihar/(.+)$ /locations/school-crm-bihar/$1 [R=301,L]
 RewriteRule ^school-crm-muzaffarpur$ /locations/school-crm-muzaffarpur.html [R=301,L]
 
+# === BIHAR LOCATION RESTRUCTURE REDIRECTS (old slug-first -> new city-first) ===
+RewriteRule ^locations/bihar/attendance-payroll-bihar/(.+)\.html$ /locations/bihar/$1/attendance-management-software.html [R=301,L]
+RewriteRule ^locations/bihar/attendance-payroll-bihar/(.+)$ /locations/bihar/$1/attendance-management-software.html [R=301,L]
+RewriteRule ^locations/bihar/lead-manage-bihar/(.+)\.html$ /locations/bihar/$1/lead-management-software.html [R=301,L]
+RewriteRule ^locations/bihar/lead-manage-bihar/(.+)$ /locations/bihar/$1/lead-management-software.html [R=301,L]
+# Also cover the folder names as they exist on disk
+RewriteRule ^locations/bihar/attendance-management-software/(.+)\.html$ /locations/bihar/$1/attendance-management-software.html [R=301,L]
+RewriteRule ^locations/bihar/lead-management-software/(.+)\.html$ /locations/bihar/$1/lead-management-software.html [R=301,L]
+
 # State with city query string — redirect to locations hub
 RewriteCond %{QUERY_STRING} city= [NC]
 RewriteRule ^state(\.html)?$ /pages/locations.html? [R=301,L]
