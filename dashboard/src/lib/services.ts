@@ -17,9 +17,9 @@ export async function getCollection(name: string) {
   return db.collection(name);
 }
 
-export async function getClients() {
+export async function getClients(projection?: Record<string, 1 | 0>) {
   const col = await getCollection("clients");
-  return col.find().toArray();
+  return col.find({}, { projection }).toArray();
 }
 
 export async function createClient(client: any) {
@@ -315,6 +315,11 @@ export async function createTeamMember(member: any) {
 export async function getUsers() {
   const col = await getCollection("users");
   return col.find().toArray();
+}
+
+export async function getUserByEmail(email: string) {
+  const col = await getCollection("users");
+  return col.findOne({ email });
 }
 
 export async function createUser(user: any) {

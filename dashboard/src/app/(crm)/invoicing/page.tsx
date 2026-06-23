@@ -117,7 +117,7 @@ export default function InvoicingPage() {
     (async () => {
       try {
         const [cRes, sRes, pRes] = await Promise.all([
-          apiFetch("/api/clients"),
+          apiFetch("/api/clients?slim=1"),
           apiFetch("/api/services"),
           apiFetch("/api/projects"),
         ]);
@@ -157,7 +157,7 @@ export default function InvoicingPage() {
 
   const refreshClients = async () => {
     try {
-      const res = await apiFetch("/api/clients");
+      const res = await apiFetch("/api/clients?slim=1");
       if (!res.ok) return;
       const data = await res.json();
       setClients(data || []);

@@ -288,19 +288,46 @@ Rules:
 - If a value is not found, use an empty string or empty array
 - Do not invent data — only extract what is explicitly stated in the document
 - brandVoice should summarise how the brand communicates (formal, playful, professional, etc.)`;
-        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ai$2f$genkit$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["ai"].generate({
-            prompt: [
-                {
-                    media: {
-                        contentType: "application/pdf",
-                        url: `data:application/pdf;base64,${pdfBase64}`
-                    }
-                },
-                {
-                    text: prompt
+        const models = [
+            "googleai/gemini-2.5-flash",
+            "googleai/gemini-1.5-flash"
+        ];
+        let response;
+        let lastErr;
+        for (const model of models){
+            try {
+                response = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ai$2f$genkit$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["ai"].generate({
+                    model,
+                    prompt: [
+                        {
+                            media: {
+                                contentType: "application/pdf",
+                                url: `data:application/pdf;base64,${pdfBase64}`
+                            }
+                        },
+                        {
+                            text: prompt
+                        }
+                    ]
+                });
+                break;
+            } catch (err) {
+                lastErr = err;
+                const is503 = err?.status === 503 || err?.message?.includes("503") || err?.message?.toLowerCase().includes("unavailable");
+                if (is503) {
+                    continue;
                 }
-            ]
-        });
+                throw err;
+            }
+        }
+        if (!response) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: "AI service is temporarily unavailable due to high demand. Please try again in a minute."
+            }, {
+                status: 503,
+                headers: CORS
+            });
+        }
         const rawText = response.text.trim();
         // Strip markdown code fences if Gemini wraps output
         const jsonText = rawText.replace(/^```json\s*/i, "").replace(/^```\s*/i, "").replace(/```\s*$/i, "").trim();

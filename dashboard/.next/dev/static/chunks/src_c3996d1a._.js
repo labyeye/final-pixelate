@@ -767,8 +767,8 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/api-fetch.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/utils.ts [app-client] (ecmascript)");
@@ -805,7 +805,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-;
 if (("TURBOPACK compile-time value", "object") !== "undefined" && !window.__projectsStore) {
     window.__projectsStore = [];
 }
@@ -824,7 +823,7 @@ function WhatsAppLogo({ size = 16 }) {
                 fill: "#25D366"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 46,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -832,13 +831,13 @@ function WhatsAppLogo({ size = 16 }) {
                 fill: "white"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 47,
+                lineNumber: 46,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-        lineNumber: 45,
+        lineNumber: 44,
         columnNumber: 5
     }, this);
 }
@@ -855,7 +854,7 @@ function GmailLogo({ size = 16 }) {
                 fill: "#4285F4"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 55,
+                lineNumber: 54,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -863,7 +862,7 @@ function GmailLogo({ size = 16 }) {
                 fill: "#34A853"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 56,
+                lineNumber: 55,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -871,7 +870,7 @@ function GmailLogo({ size = 16 }) {
                 fill: "#FBBC05"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 57,
+                lineNumber: 56,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -879,7 +878,7 @@ function GmailLogo({ size = 16 }) {
                 fill: "#EA4335"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 58,
+                lineNumber: 57,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -887,13 +886,13 @@ function GmailLogo({ size = 16 }) {
                 fill: "#C5221F"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 59,
+                lineNumber: 58,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-        lineNumber: 54,
+        lineNumber: 53,
         columnNumber: 5
     }, this);
 }
@@ -1041,56 +1040,28 @@ function QuotationsPage() {
         open: false,
         step: "generating"
     });
-    const generateQuotationPdf = async (quote, clientData)=>{
-        const { default: jsPDF } = await __turbopack_context__.A("[project]/node_modules/jspdf/dist/jspdf.es.min.js [app-client] (ecmascript, async loader)");
-        const { renderToString } = await __turbopack_context__.A("[project]/node_modules/next/dist/compiled/react-dom/server.browser.js [app-client] (ecmascript, async loader)");
-        const { QuotationPrintLayout } = await __turbopack_context__.A("[project]/src/components/quotations/quotation-print-layout.tsx [app-client] (ecmascript, async loader)");
-        let settings = null;
-        try {
-            const sRes = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/settings");
-            if (sRes.ok) settings = await sRes.json();
-        } catch (_) {}
-        const displayId = quote.quoteId || quote.id || `PN-${Date.now()}`;
-        const html = renderToString(/*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].createElement(QuotationPrintLayout, {
-            quotation: {
-                ...quote,
-                quoteId: displayId
+    const generateQuotationPdf = async (quote, _clientData)=>{
+        const quotationId = quote._id || quote.id || quote.id;
+        const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/generate-quotation-pdf", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
             },
-            client: clientData,
-            settings
-        })).replace(/₹/g, "Rs.");
-        const origin = ("TURBOPACK compile-time truthy", 1) ? window.location.origin : "TURBOPACK unreachable";
-        const styledHtml = `<base href="${origin}/"><style>*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0}table{border-collapse:collapse;width:100%}</style><div style="width:794px">${html}</div>`;
-        const doc = new jsPDF({
-            unit: "mm",
-            format: "a4",
-            orientation: "portrait",
-            compress: true
+            body: JSON.stringify({
+                quotationId
+            })
         });
-        await new Promise((resolve)=>{
-            doc.html(styledHtml, {
-                callback: ()=>resolve(),
-                x: 0,
-                y: 0,
-                width: 210,
-                windowWidth: 794,
-                html2canvas: {
-                    scale: 0.45,
-                    useCORS: true,
-                    allowTaint: true,
-                    logging: false,
-                    imageTimeout: 0
-                },
-                image: {
-                    type: "jpeg",
-                    quality: 0.7
-                }
-            });
+        if (!res.ok) {
+            const err = await res.json().catch(()=>({}));
+            throw new Error(err?.error || "PDF generation failed");
+        }
+        const blob = await res.blob();
+        const filename = res.headers.get("X-Filename") || `${quote.quoteId || quotationId}.pdf`;
+        const base64 = await new Promise((resolve)=>{
+            const reader = new FileReader();
+            reader.onloadend = ()=>resolve(reader.result.split(",")[1]);
+            reader.readAsDataURL(blob);
         });
-        const blob = doc.output("blob");
-        const base64 = doc.output("datauristring").split(",")[1];
-        const safeTitle = (quote.title || "Quotation").replace(/[^a-zA-Z0-9-_]/g, "-");
-        const filename = `${displayId}-${safeTitle}.pdf`;
         return {
             blob,
             base64,
@@ -1286,7 +1257,7 @@ function QuotationsPage() {
                                                     fill: "#25D366"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 379,
+                                                    lineNumber: 361,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -1294,13 +1265,13 @@ function QuotationsPage() {
                                                     fill: "white"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 380,
+                                                    lineNumber: 362,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 378,
+                                            lineNumber: 360,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1308,13 +1279,13 @@ function QuotationsPage() {
                                             children: "Sending via WhatsApp"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 382,
+                                            lineNumber: 364,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 377,
+                                    lineNumber: 359,
                                     columnNumber: 15
                                 }, this),
                                 (waModal.step === "done" || waModal.step === "error") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1327,18 +1298,18 @@ function QuotationsPage() {
                                         size: 18
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 386,
+                                        lineNumber: 368,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 385,
+                                    lineNumber: 367,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 376,
+                            lineNumber: 358,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1359,7 +1330,7 @@ function QuotationsPage() {
                                                     strokeWidth: 3
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 403,
+                                                    lineNumber: 385,
                                                     columnNumber: 34
                                                 }, this),
                                                 isError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
@@ -1368,7 +1339,7 @@ function QuotationsPage() {
                                                     strokeWidth: 3
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 404,
+                                                    lineNumber: 386,
                                                     columnNumber: 35
                                                 }, this),
                                                 isActive && !isError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
@@ -1376,13 +1347,13 @@ function QuotationsPage() {
                                                     className: "text-black animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 405,
+                                                    lineNumber: 387,
                                                     columnNumber: 48
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 398,
+                                            lineNumber: 380,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1390,19 +1361,19 @@ function QuotationsPage() {
                                             children: s.label
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 407,
+                                            lineNumber: 389,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, s.key, true, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 397,
+                                    lineNumber: 379,
                                     columnNumber: 19
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 391,
+                            lineNumber: 373,
                             columnNumber: 13
                         }, this),
                         waModal.step === "done" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1416,12 +1387,12 @@ function QuotationsPage() {
                                         strokeWidth: 3
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 420,
+                                        lineNumber: 402,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 419,
+                                    lineNumber: 401,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1429,13 +1400,13 @@ function QuotationsPage() {
                                     children: "Sent successfully!"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 422,
+                                    lineNumber: 404,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 418,
+                            lineNumber: 400,
                             columnNumber: 15
                         }, this),
                         waModal.step === "error" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1446,7 +1417,7 @@ function QuotationsPage() {
                                     children: "Error"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 428,
+                                    lineNumber: 410,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1454,13 +1425,13 @@ function QuotationsPage() {
                                     children: waModal.error
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 429,
+                                    lineNumber: 411,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 427,
+                            lineNumber: 409,
                             columnNumber: 15
                         }, this),
                         (waModal.step === "done" || waModal.step === "error") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1472,18 +1443,18 @@ function QuotationsPage() {
                             children: "Close"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 434,
+                            lineNumber: 416,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                    lineNumber: 375,
+                    lineNumber: 357,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 374,
+                lineNumber: 356,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -1496,7 +1467,7 @@ function QuotationsPage() {
                                 children: "QUOTATIONS"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 447,
+                                lineNumber: 429,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1504,13 +1475,13 @@ function QuotationsPage() {
                                 children: isClient ? "View your quotations from us." : "Create, send, and track client quotations."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 448,
+                                lineNumber: 430,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 446,
+                        lineNumber: 428,
                         columnNumber: 9
                     }, this),
                     !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1522,18 +1493,18 @@ function QuotationsPage() {
                             children: "New Professional Quotation"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 456,
+                            lineNumber: 438,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 455,
+                        lineNumber: 437,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 445,
+                lineNumber: 427,
                 columnNumber: 7
             }, this),
             !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1571,12 +1542,12 @@ function QuotationsPage() {
                         iconVariant: i % 2 === 0 ? "primary" : "secondary"
                     }, label, false, {
                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 475,
+                        lineNumber: 457,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 468,
+                lineNumber: 450,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1594,7 +1565,7 @@ function QuotationsPage() {
                                             children: "Quote ID / Title"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 485,
+                                            lineNumber: 467,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1602,7 +1573,7 @@ function QuotationsPage() {
                                             children: "Client"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 488,
+                                            lineNumber: 470,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1610,7 +1581,7 @@ function QuotationsPage() {
                                             children: "Date"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 491,
+                                            lineNumber: 473,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1618,7 +1589,7 @@ function QuotationsPage() {
                                             children: "Services"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 494,
+                                            lineNumber: 476,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1626,7 +1597,7 @@ function QuotationsPage() {
                                             children: "Modules"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 497,
+                                            lineNumber: 479,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1634,7 +1605,7 @@ function QuotationsPage() {
                                             children: "Total Amount"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 500,
+                                            lineNumber: 482,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1642,7 +1613,7 @@ function QuotationsPage() {
                                             children: "Status"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 503,
+                                            lineNumber: 485,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1650,18 +1621,18 @@ function QuotationsPage() {
                                             children: "Actions"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 506,
+                                            lineNumber: 488,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 484,
+                                    lineNumber: 466,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 483,
+                                lineNumber: 465,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1672,12 +1643,12 @@ function QuotationsPage() {
                                         children: "No quotations found. Create your first quotation to get started."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 514,
+                                        lineNumber: 496,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 513,
+                                    lineNumber: 495,
                                     columnNumber: 17
                                 }, this) : quotations.map((quote, idx)=>{
                                     const servicesTotal = (quote.services || []).reduce((sum, item)=>{
@@ -1700,7 +1671,7 @@ function QuotationsPage() {
                                                         children: quote.quoteId || quote.id || `PN-${String(idx + 1).padStart(5, "0")}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 561,
+                                                        lineNumber: 543,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1708,7 +1679,7 @@ function QuotationsPage() {
                                                         children: quote.title || "Untitled Project"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 566,
+                                                        lineNumber: 548,
                                                         columnNumber: 25
                                                     }, this),
                                                     quote.subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1716,13 +1687,13 @@ function QuotationsPage() {
                                                         children: quote.subtitle
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 570,
+                                                        lineNumber: 552,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 560,
+                                                lineNumber: 542,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1733,7 +1704,7 @@ function QuotationsPage() {
                                                         children: quote.clientId && clientsMap[String(quote.clientId)]?.businessName || quote.clientId && clientsMap[String(quote.clientId)]?.name || quote.clientName || "Client"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 577,
+                                                        lineNumber: 559,
                                                         columnNumber: 25
                                                     }, this),
                                                     quote.clientId && clientsMap[String(quote.clientId)]?.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1741,13 +1712,13 @@ function QuotationsPage() {
                                                         children: clientsMap[String(quote.clientId)].email
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 587,
+                                                        lineNumber: 569,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 576,
+                                                lineNumber: 558,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1761,12 +1732,12 @@ function QuotationsPage() {
                                                     }) : "N/A"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 594,
+                                                    lineNumber: 576,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 593,
+                                                lineNumber: 575,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1780,14 +1751,14 @@ function QuotationsPage() {
                                                                 children: s.serviceName || s.name || "Service"
                                                             }, `${String(s._id ?? s.id ?? s.serviceName ?? "service")}-${sidx}`, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 614,
+                                                                lineNumber: 596,
                                                                 columnNumber: 33
                                                             }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             className: "text-xs text-gray-500",
                                                             children: "No services"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 625,
+                                                            lineNumber: 607,
                                                             columnNumber: 29
                                                         }, this),
                                                         quote.services && quote.services.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1800,18 +1771,18 @@ function QuotationsPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 630,
+                                                            lineNumber: 612,
                                                             columnNumber: 29
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 609,
+                                                    lineNumber: 591,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 608,
+                                                lineNumber: 590,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1825,14 +1796,14 @@ function QuotationsPage() {
                                                                 children: m.moduleName || "Module"
                                                             }, `${String(m._id ?? m.id ?? m.moduleName ?? "module")}-${midx}`, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 644,
+                                                                lineNumber: 626,
                                                                 columnNumber: 33
                                                             }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             className: "text-xs text-gray-500",
                                                             children: "No modules"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 655,
+                                                            lineNumber: 637,
                                                             columnNumber: 29
                                                         }, this),
                                                         quote.modules && quote.modules.length > 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1844,18 +1815,18 @@ function QuotationsPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 661,
+                                                            lineNumber: 643,
                                                             columnNumber: 31
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 638,
+                                                    lineNumber: 620,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 637,
+                                                lineNumber: 619,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1863,7 +1834,7 @@ function QuotationsPage() {
                                                 children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$currency$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatCurrency"])(totalAmount)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 668,
+                                                lineNumber: 650,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1873,7 +1844,7 @@ function QuotationsPage() {
                                                     children: quote.status || "PENDING"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 674,
+                                                    lineNumber: 656,
                                                     columnNumber: 27
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
                                                     value: quote.status || "PENDING",
@@ -1892,12 +1863,12 @@ function QuotationsPage() {
                                                             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("h-9 px-3 font-semibold text-xs w-[110px]", quote.status === "APPROVED" && "bg-green-100 text-green-800 border-green-300", quote.status === "REJECTED" && "bg-red-100 text-red-800 border-red-300", (!quote.status || quote.status === "PENDING") && "bg-yellow-100 text-yellow-800 border-yellow-300"),
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 717,
+                                                                lineNumber: 699,
                                                                 columnNumber: 31
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 706,
+                                                            lineNumber: 688,
                                                             columnNumber: 29
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1907,7 +1878,7 @@ function QuotationsPage() {
                                                                     children: "PENDING"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 720,
+                                                                    lineNumber: 702,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1915,7 +1886,7 @@ function QuotationsPage() {
                                                                     children: "APPROVED"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 721,
+                                                                    lineNumber: 703,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1923,24 +1894,24 @@ function QuotationsPage() {
                                                                     children: "REJECTED"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 722,
+                                                                    lineNumber: 704,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 719,
+                                                            lineNumber: 701,
                                                             columnNumber: 29
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 688,
+                                                    lineNumber: 670,
                                                     columnNumber: 27
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 672,
+                                                lineNumber: 654,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1956,7 +1927,7 @@ function QuotationsPage() {
                                                             children: "View"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 730,
+                                                            lineNumber: 712,
                                                             columnNumber: 27
                                                         }, this),
                                                         !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1970,12 +1941,12 @@ function QuotationsPage() {
                                                                 size: 16
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 754,
+                                                                lineNumber: 736,
                                                                 columnNumber: 31
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 746,
+                                                            lineNumber: 728,
                                                             columnNumber: 29
                                                         }, this),
                                                         !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1989,18 +1960,18 @@ function QuotationsPage() {
                                                                 className: "w-3 h-3 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 768,
+                                                                lineNumber: 750,
                                                                 columnNumber: 33
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(GmailLogo, {
                                                                 size: 16
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 770,
+                                                                lineNumber: 752,
                                                                 columnNumber: 33
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 759,
+                                                            lineNumber: 741,
                                                             columnNumber: 29
                                                         }, this),
                                                         !isClient && quote.status === "APPROVED" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2010,7 +1981,7 @@ function QuotationsPage() {
                                                             children: "Create Project"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 776,
+                                                            lineNumber: 758,
                                                             columnNumber: 29
                                                         }, this),
                                                         !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenu"], {
@@ -2025,17 +1996,17 @@ function QuotationsPage() {
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                            lineNumber: 793,
+                                                                            lineNumber: 775,
                                                                             columnNumber: 35
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                        lineNumber: 788,
+                                                                        lineNumber: 770,
                                                                         columnNumber: 33
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 787,
+                                                                    lineNumber: 769,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2051,57 +2022,57 @@ function QuotationsPage() {
                                                                         children: "Delete"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                        lineNumber: 797,
+                                                                        lineNumber: 779,
                                                                         columnNumber: 33
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 796,
+                                                                    lineNumber: 778,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 786,
+                                                            lineNumber: 768,
                                                             columnNumber: 29
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 729,
+                                                    lineNumber: 711,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 728,
+                                                lineNumber: 710,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, quote._id ?? quote.id ?? idx, true, {
                                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 556,
+                                        lineNumber: 538,
                                         columnNumber: 21
                                     }, this);
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 511,
+                                lineNumber: 493,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 482,
+                        lineNumber: 464,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                    lineNumber: 481,
+                    lineNumber: 463,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 480,
+                lineNumber: 462,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2112,7 +2083,7 @@ function QuotationsPage() {
                         children: "No quotations found."
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 830,
+                        lineNumber: 812,
                         columnNumber: 37
                     }, this),
                     quotations.map((quote, idx)=>{
@@ -2137,7 +2108,7 @@ function QuotationsPage() {
                                                     children: quote.quoteId || quote.id || `PN-${String(idx + 1).padStart(5, "0")}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 843,
+                                                    lineNumber: 825,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2145,13 +2116,13 @@ function QuotationsPage() {
                                                     children: quote.title || "Untitled Project"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 844,
+                                                    lineNumber: 826,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 842,
+                                            lineNumber: 824,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2162,7 +2133,7 @@ function QuotationsPage() {
                                                     children: "Client"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 847,
+                                                    lineNumber: 829,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2170,13 +2141,13 @@ function QuotationsPage() {
                                                     children: clientName
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 848,
+                                                    lineNumber: 830,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 846,
+                                            lineNumber: 828,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2187,7 +2158,7 @@ function QuotationsPage() {
                                                     children: "Amount"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 851,
+                                                    lineNumber: 833,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2195,13 +2166,13 @@ function QuotationsPage() {
                                                     children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$currency$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatCurrency"])(totalAmount)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 852,
+                                                    lineNumber: 834,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 850,
+                                            lineNumber: 832,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2212,7 +2183,7 @@ function QuotationsPage() {
                                                     children: "Date"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 855,
+                                                    lineNumber: 837,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2224,13 +2195,13 @@ function QuotationsPage() {
                                                     }) : "N/A"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 856,
+                                                    lineNumber: 838,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 854,
+                                            lineNumber: 836,
                                             columnNumber: 17
                                         }, this),
                                         quote.services && quote.services.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2241,7 +2212,7 @@ function QuotationsPage() {
                                                     children: "Services"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 860,
+                                                    lineNumber: 842,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2253,7 +2224,7 @@ function QuotationsPage() {
                                                                 children: s.serviceName || s.name || "Service"
                                                             }, si, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 862,
+                                                                lineNumber: 844,
                                                                 columnNumber: 79
                                                             }, this)),
                                                         quote.services.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -2266,19 +2237,19 @@ function QuotationsPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 863,
+                                                            lineNumber: 845,
                                                             columnNumber: 53
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 861,
+                                                    lineNumber: 843,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 859,
+                                            lineNumber: 841,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2289,7 +2260,7 @@ function QuotationsPage() {
                                                     children: "Status"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 868,
+                                                    lineNumber: 850,
                                                     columnNumber: 19
                                                 }, this),
                                                 isClient ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2297,7 +2268,7 @@ function QuotationsPage() {
                                                     children: quote.status || "PENDING"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 870,
+                                                    lineNumber: 852,
                                                     columnNumber: 21
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
                                                     value: quote.status || "PENDING",
@@ -2316,12 +2287,12 @@ function QuotationsPage() {
                                                             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("h-8 px-2 font-semibold text-xs w-[110px]", quote.status === "APPROVED" && "bg-green-100 text-green-800 border-green-300", quote.status === "REJECTED" && "bg-red-100 text-red-800 border-red-300", (!quote.status || quote.status === "PENDING") && "bg-yellow-100 text-yellow-800 border-yellow-300"),
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 873,
+                                                                lineNumber: 855,
                                                                 columnNumber: 349
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 873,
+                                                            lineNumber: 855,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2331,7 +2302,7 @@ function QuotationsPage() {
                                                                     children: "PENDING"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 875,
+                                                                    lineNumber: 857,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2339,7 +2310,7 @@ function QuotationsPage() {
                                                                     children: "APPROVED"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 876,
+                                                                    lineNumber: 858,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2347,31 +2318,31 @@ function QuotationsPage() {
                                                                     children: "REJECTED"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 877,
+                                                                    lineNumber: 859,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 874,
+                                                            lineNumber: 856,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 872,
+                                                    lineNumber: 854,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 867,
+                                            lineNumber: 849,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 841,
+                                    lineNumber: 823,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2385,7 +2356,7 @@ function QuotationsPage() {
                                             children: "View"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 884,
+                                            lineNumber: 866,
                                             columnNumber: 17
                                         }, this),
                                         !isClient && quote.status === "APPROVED" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2395,7 +2366,7 @@ function QuotationsPage() {
                                             children: "Create Project"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 885,
+                                            lineNumber: 867,
                                             columnNumber: 62
                                         }, this),
                                         !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2408,32 +2379,32 @@ function QuotationsPage() {
                                             children: "Delete"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 886,
+                                            lineNumber: 868,
                                             columnNumber: 31
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 883,
+                                    lineNumber: 865,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, qid ?? idx, true, {
                             fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 840,
+                            lineNumber: 822,
                             columnNumber: 13
                         }, this);
                     })
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 829,
+                lineNumber: 811,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/quotations/page.tsx",
-        lineNumber: 370,
+        lineNumber: 352,
         columnNumber: 5
     }, this);
 }

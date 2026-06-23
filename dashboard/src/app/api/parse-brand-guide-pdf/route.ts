@@ -48,17 +48,40 @@ Rules:
 - Do not invent data — only extract what is explicitly stated in the document
 - brandVoice should summarise how the brand communicates (formal, playful, professional, etc.)`;
 
-    const response = await ai.generate({
-      prompt: [
-        {
-          media: {
-            contentType: "application/pdf",
-            url: `data:application/pdf;base64,${pdfBase64}`,
-          },
-        },
-        { text: prompt },
-      ],
-    });
+    const models = ["googleai/gemini-2.5-flash", "googleai/gemini-1.5-flash"];
+    let response: any;
+    let lastErr: any;
+    for (const model of models) {
+      try {
+        response = await ai.generate({
+          model,
+          prompt: [
+            {
+              media: {
+                contentType: "application/pdf",
+                url: `data:application/pdf;base64,${pdfBase64}`,
+              },
+            },
+            { text: prompt },
+          ],
+        });
+        break;
+      } catch (err: any) {
+        lastErr = err;
+        const is503 = err?.status === 503 || err?.message?.includes("503") || err?.message?.toLowerCase().includes("unavailable");
+        if (is503) {
+          // try next model in list
+          continue;
+        }
+        throw err;
+      }
+    }
+    if (!response) {
+      return NextResponse.json(
+        { error: "AI service is temporarily unavailable due to high demand. Please try again in a minute." },
+        { status: 503, headers: CORS }
+      );
+    }
 
     const rawText = response.text.trim();
 

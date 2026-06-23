@@ -1,19 +1,8 @@
 {
-  "/(crm)/quotations/[id]/view/page": "app/(crm)/quotations/[id]/view/page.js",
-  "/(crm)/quotations/create/page": "app/(crm)/quotations/create/page.js",
-  "/(crm)/quotations/page": "app/(crm)/quotations/page.js",
-  "/(crm)/social-media-calendar/page": "app/(crm)/social-media-calendar/page.js",
-  "/(crm)/social-media-manager/page": "app/(crm)/social-media-manager/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/clients/[id]/route": "app/api/clients/[id]/route.js",
+  "/(crm)/dashboard/whatsapp-send/page": "app/(crm)/dashboard/whatsapp-send/page.js",
   "/api/clients/route": "app/api/clients/route.js",
-  "/api/quotations/[id]/route": "app/api/quotations/[id]/route.js",
-  "/api/quotations/route": "app/api/quotations/route.js",
-  "/api/send-invoice-whatsapp/route": "app/api/send-invoice-whatsapp/route.js",
   "/api/settings/client-sidebar/route": "app/api/settings/client-sidebar/route.js",
-  "/api/settings/route": "app/api/settings/route.js",
-  "/api/social-media-posts/route": "app/api/social-media-posts/route.js",
-  "/api/social-media-tasks/route": "app/api/social-media-tasks/route.js",
-  "/api/upload-whatsapp-media/route": "app/api/upload-whatsapp-media/route.js",
-  "/api/users/route": "app/api/users/route.js"
+  "/api/users/route": "app/api/users/route.js",
+  "/api/whatsapp-templates/route": "app/api/whatsapp-templates/route.js",
+  "/api/whatsapp/send-template/route": "app/api/whatsapp/send-template/route.js"
 }

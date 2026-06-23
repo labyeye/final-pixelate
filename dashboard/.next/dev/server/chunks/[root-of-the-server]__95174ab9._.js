@@ -145,6 +145,8 @@ __turbopack_context__.s([
     ()=>signToken,
     "verifyPassword",
     ()=>verifyPassword,
+    "verifyPasswordAsync",
+    ()=>verifyPasswordAsync,
     "verifyToken",
     ()=>verifyToken
 ]);
@@ -158,6 +160,9 @@ function hashPassword(password) {
 }
 function verifyPassword(password, hash) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compareSync(password, hash);
+}
+async function verifyPasswordAsync(password, hash) {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compare(password, hash);
 }
 function signToken(payload, opts = {}) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jsonwebtoken$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].sign(payload, JWT_SECRET, {
@@ -229,6 +234,8 @@ __turbopack_context__.s([
     ()=>getServices,
     "getTeamMembers",
     ()=>getTeamMembers,
+    "getUserByEmail",
+    ()=>getUserByEmail,
     "getUsers",
     ()=>getUsers,
     "permanentlyDestroyTrashItem",
@@ -263,9 +270,11 @@ async function getCollection(name) {
     const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDb"])();
     return db.collection(name);
 }
-async function getClients() {
+async function getClients(projection) {
     const col = await getCollection("clients");
-    return col.find().toArray();
+    return col.find({}, {
+        projection
+    }).toArray();
 }
 async function createClient(client) {
     const col = await getCollection("clients");
@@ -581,6 +590,12 @@ async function createTeamMember(member) {
 async function getUsers() {
     const col = await getCollection("users");
     return col.find().toArray();
+}
+async function getUserByEmail(email) {
+    const col = await getCollection("users");
+    return col.findOne({
+        email
+    });
 }
 async function createUser(user) {
     const col = await getCollection("users");
@@ -907,7 +922,25 @@ async function GET(request) {
     const auth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$require$2d$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["requireAuth"])(request);
     if (auth.error) return auth.error;
     try {
-        const items = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getClients"]();
+        const { searchParams } = new URL(request.url);
+        const slim = searchParams.get("slim") === "1";
+        const projection = slim ? {
+            name: 1,
+            email: 1,
+            phone: 1,
+            address: 1,
+            city: 1,
+            state: 1,
+            pin: 1,
+            gst: 1,
+            gstin: 1,
+            gstNumber: 1,
+            businessName: 1,
+            whatsapp_opt_in: 1,
+            userId: 1,
+            loginEmail: 1
+        } : undefined;
+        const items = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getClients"](projection);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(items, {
             headers: {
                 "Cache-Control": "private, max-age=30, stale-while-revalidate=60"

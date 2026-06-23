@@ -1,5 +1,5 @@
 var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/send-invoice-whatsapp/route.js")
-R.c("server/chunks/[root-of-the-server]__4a42b4a4._.js")
+R.c("server/chunks/[root-of-the-server]__2d82d747._.js")
 R.c("server/chunks/node_modules_next_dist_esm_build_templates_app-route_399d7620.js")
 R.c("server/chunks/[root-of-the-server]__e7faf961._.js")
 R.c("server/chunks/_69059c6b._.js")

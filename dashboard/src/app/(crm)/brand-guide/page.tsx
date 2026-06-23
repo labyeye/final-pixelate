@@ -204,6 +204,8 @@ export default function BrandGuidePage() {
   const [saving, setSaving] = useState(false);
   const [sendingEmail, setSendingEmail] = useState<string | null>(null);
   const [sendingWa, setSendingWa] = useState<string | null>(null);
+  // 0=idle 1=uploading 2=sending 3=sent
+  const [waStep, setWaStep] = useState(0);
 
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -289,39 +291,49 @@ export default function BrandGuidePage() {
       return;
     }
     setPdfFile(file);
-
-    // Step 1 — Uploading (reading file into base64)
     setParsing(true);
     setParseStep(1);
 
-    const reader = new FileReader();
-    reader.onload = async (ev) => {
-      const base64 = (ev.target?.result as string).split(",")[1];
-      setForm((f) => ({ ...f, pdfBase64: base64 }));
-      setPdfPreview("new");
-
-      // Step 2 — Processing
-      setParseStep(2);
-      await new Promise((r) => setTimeout(r, 600));
-
-      // Step 3 — Analysing (Gemini call)
-      setParseStep(3);
+    (async () => {
       try {
-        const res = await apiFetch("/api/parse-brand-guide-pdf", {
+        // Step 1 — Upload PDF to server
+        const uploadFormData = new FormData();
+        uploadFormData.append("file", file);
+        const uploadRes = await apiFetch("/api/upload-brand-guide-pdf", {
+          method: "POST",
+          body: uploadFormData,
+        });
+        const uploadData = await uploadRes.json();
+        if (!uploadRes.ok) throw new Error(uploadData.error || "Upload failed");
+        const pdfUrl = uploadData.url as string;
+        setForm((f) => ({ ...f, pdfUrl, pdfBase64: "" }));
+        setPdfPreview("new");
+
+        // Step 2 — Processing (read base64 for AI analysis only)
+        setParseStep(2);
+        const base64 = await new Promise<string>((res) => {
+          const reader = new FileReader();
+          reader.onload = (ev) => res((ev.target?.result as string).split(",")[1]);
+          reader.readAsDataURL(file);
+        });
+
+        // Step 3 — AI analysis
+        setParseStep(3);
+        const parseRes = await apiFetch("/api/parse-brand-guide-pdf", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ pdfBase64: base64 }),
         });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Parse failed");
+        const data = await parseRes.json();
+        if (!parseRes.ok) throw new Error(data.error || "Parse failed");
 
         // Step 4 — Done, auto-fill
         setParseStep(4);
         await new Promise((r) => setTimeout(r, 700));
-
         setForm((f) => ({
           ...f,
-          pdfBase64: base64,
+          pdfUrl,
+          pdfBase64: "",
           brandName: data.brandName || f.brandName,
           primaryColors: data.primaryColors?.length ? data.primaryColors : f.primaryColors,
           secondaryColors: data.secondaryColors?.length ? data.secondaryColors : f.secondaryColors,
@@ -330,17 +342,20 @@ export default function BrandGuidePage() {
           notes: data.notes || f.notes,
         }));
       } catch (err: any) {
+        const msg = err.message || "";
+        const isOverload = msg.includes("503") || msg.toLowerCase().includes("unavailable") || msg.toLowerCase().includes("overload");
         toast({
-          title: "Auto-fill failed",
-          description: err.message || "Could not read the PDF. Please fill in details manually.",
+          title: isOverload ? "Auto-fill failed" : "Upload failed",
+          description: isOverload
+            ? "Google AI is temporarily overloaded. PDF was uploaded — fill in details manually."
+            : msg || "Could not upload or read the PDF.",
           variant: "destructive",
         });
       } finally {
         setParsing(false);
         setParseStep(0);
       }
-    };
-    reader.readAsDataURL(file);
+    })();
   }
 
   async function handleSave() {
@@ -350,18 +365,20 @@ export default function BrandGuidePage() {
     }
     setSaving(true);
     try {
+      // Never store pdfBase64 in DB — use pdfUrl (server file) instead
+      const { pdfBase64: _drop, ...savePayload } = form;
       if (editingId) {
         await apiFetch(`/api/brand-guides/${editingId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
+          body: JSON.stringify(savePayload),
         });
         toast({ title: "Saved", description: "Brand guide updated." });
       } else {
         await apiFetch("/api/brand-guides", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
+          body: JSON.stringify(savePayload),
         });
         toast({ title: "Created", description: "Brand guide created." });
       }
@@ -378,11 +395,15 @@ export default function BrandGuidePage() {
     const id = String(guide._id ?? guide.id ?? "");
     if (!confirm(`Delete brand guide for "${guide.brandName}"?`)) return;
     try {
-      await apiFetch(`/api/brand-guides/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/brand-guides/${id}`, { method: "DELETE" });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error((err as any)?.error || `Server returned ${res.status}`);
+      }
       toast({ title: "Deleted", description: "Brand guide removed." });
       fetchAll();
-    } catch {
-      toast({ title: "Error", description: "Failed to delete.", variant: "destructive" });
+    } catch (err: any) {
+      toast({ title: "Error", description: err.message || "Failed to delete.", variant: "destructive" });
     }
   }
 
@@ -394,12 +415,21 @@ export default function BrandGuidePage() {
       toast({ title: "No email", description: "This client has no email address saved.", variant: "destructive" });
       return;
     }
-    if (!guide.pdfBase64) {
+    if (!guide.pdfUrl) {
       toast({ title: "No PDF", description: "Please upload a PDF first.", variant: "destructive" });
       return;
     }
     setSendingEmail(id);
     try {
+      // Fetch PDF from server and convert to base64 for email attachment
+      const pdfRes = await fetch(guide.pdfUrl);
+      if (!pdfRes.ok) throw new Error("Could not read the stored PDF file");
+      const pdfBlob = await pdfRes.blob();
+      const pdfBase64 = await new Promise<string>((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve((reader.result as string).split(",")[1]);
+        reader.readAsDataURL(pdfBlob);
+      });
       const res = await apiFetch("/api/send-brand-guide-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -407,7 +437,7 @@ export default function BrandGuidePage() {
           to: email,
           clientName: guide.clientName,
           brandName: guide.brandName,
-          pdfBase64: guide.pdfBase64,
+          pdfBase64,
           fileName: `Brand-Guide-${guide.brandName}.pdf`,
         }),
       });
@@ -429,52 +459,48 @@ export default function BrandGuidePage() {
       toast({ title: "No phone", description: "This client has no phone number saved.", variant: "destructive" });
       return;
     }
-    if (!guide.pdfBase64 && !guide.pdfUrl) {
+    if (!guide.pdfUrl) {
       toast({ title: "No PDF", description: "Please upload a PDF first.", variant: "destructive" });
       return;
     }
 
     setSendingWa(id);
+    setWaStep(1);
     try {
-      let mediaId: string | undefined;
-      let pdfUrl: string | undefined;
+      // Step 1: Fetch PDF and upload to WhatsApp media
+      const pdfRes = await fetch(guide.pdfUrl);
+      if (!pdfRes.ok) throw new Error("Could not read the stored PDF file");
+      const pdfBlob = await pdfRes.blob();
 
-      if (guide.pdfBase64) {
-        // Upload to WhatsApp media first
-        const uploadRes = await apiFetch("/api/upload-whatsapp-media", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            base64: guide.pdfBase64,
-            filename: `Brand-Guide-${guide.brandName}.pdf`,
-            mimeType: "application/pdf",
-          }),
-        });
-        const uploadData = await uploadRes.json();
-        if (!uploadRes.ok) throw new Error(uploadData.error || "Media upload failed");
-        mediaId = uploadData.mediaId || uploadData.id;
-      } else {
-        pdfUrl = guide.pdfUrl;
-      }
+      const waForm = new FormData();
+      waForm.append("file", new File([pdfBlob], `Brand-Guide-${guide.brandName}.pdf`, { type: "application/pdf" }));
 
+      const uploadRes = await apiFetch("/api/upload-whatsapp-media", {
+        method: "POST",
+        body: waForm,
+      });
+      const uploadData = await uploadRes.json();
+      if (!uploadRes.ok) throw new Error(uploadData.error || "Media upload failed");
+      const mediaId = uploadData.mediaId || uploadData.id;
+
+      // Step 2: Send WhatsApp message
+      setWaStep(2);
       const res = await apiFetch("/api/send-brand-guide-whatsapp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone,
-          clientName: guide.clientName,
-          brandName: guide.brandName,
-          mediaId,
-          pdfUrl,
-        }),
+        body: JSON.stringify({ phone, clientName: guide.clientName, brandName: guide.brandName, mediaId }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to send");
-      toast({ title: "WhatsApp sent!", description: `Brand guide sent to ${phone}` });
+
+      // Step 3: Done
+      setWaStep(3);
+      await new Promise((r) => setTimeout(r, 1800));
     } catch (err: any) {
       toast({ title: "WhatsApp failed", description: err.message, variant: "destructive" });
     } finally {
       setSendingWa(null);
+      setWaStep(0);
     }
   }
 
@@ -573,7 +599,7 @@ export default function BrandGuidePage() {
           {filtered.map((guide) => {
             const id = String(guide._id ?? guide.id ?? "");
             const client = clients.find((c) => String(c._id ?? c.id) === guide.clientId);
-            const hasPdf = !!(guide.pdfBase64 || guide.pdfUrl);
+            const hasPdf = !!guide.pdfUrl;
             return (
               <Card
                 key={id}
@@ -677,6 +703,16 @@ export default function BrandGuidePage() {
                       )}
                       WhatsApp
                     </Button>
+                    {guide.pdfUrl && (
+                      <a
+                        href={guide.pdfUrl}
+                        download
+                        className="inline-flex items-center justify-center border-2 border-black font-bold text-xs h-8 px-2 rounded-md bg-white hover:bg-muted transition-colors"
+                        title="Download PDF"
+                      >
+                        <FileText className="w-3 h-3" />
+                      </a>
+                    )}
                     <Button
                       size="sm"
                       variant="outline"
@@ -728,6 +764,52 @@ export default function BrandGuidePage() {
                   </div>
                   <div>
                     <p className={`text-sm font-black ${isDone ? "text-green-700" : isActive ? "text-foreground" : "text-muted-foreground/50"}`}>
+                      {label}
+                    </p>
+                    <p className={`text-xs ${isDone || isActive ? "text-muted-foreground" : "text-muted-foreground/30"}`}>
+                      {desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* WhatsApp Send Progress Modal */}
+      <Dialog open={waStep > 0} onOpenChange={() => {}}>
+        <DialogContent
+          className="max-w-sm border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+          onInteractOutside={(e) => e.preventDefault()}
+        >
+          <DialogHeader>
+            <DialogTitle className="font-black text-lg flex items-center gap-2">
+              <MessageCircle className="w-5 h-5 text-green-600" />
+              Sending via WhatsApp
+            </DialogTitle>
+          </DialogHeader>
+          <div className="py-4 space-y-4">
+            {[
+              { step: 1, label: "Uploading PDF", desc: "Uploading brand guide to WhatsApp" },
+              { step: 2, label: "Sending Message", desc: "Delivering to client's WhatsApp" },
+              { step: 3, label: "Message Sent!", desc: "Brand guide delivered successfully" },
+            ].map(({ step, label, desc }) => {
+              const isDone = waStep > step;
+              const isActive = waStep === step;
+              return (
+                <div key={step} className="flex items-center gap-4">
+                  <div className="shrink-0 w-8 h-8 flex items-center justify-center">
+                    {isDone || (waStep === 3 && step === 3) ? (
+                      <CheckCircle2 className="w-6 h-6 text-green-600" />
+                    ) : isActive ? (
+                      <Loader2 className="w-6 h-6 text-green-600 animate-spin" />
+                    ) : (
+                      <Circle className="w-6 h-6 text-muted-foreground/30" />
+                    )}
+                  </div>
+                  <div>
+                    <p className={`text-sm font-black ${isDone || (waStep === 3 && step === 3) ? "text-green-700" : isActive ? "text-foreground" : "text-muted-foreground/50"}`}>
                       {label}
                     </p>
                     <p className={`text-xs ${isDone || isActive ? "text-muted-foreground" : "text-muted-foreground/30"}`}>

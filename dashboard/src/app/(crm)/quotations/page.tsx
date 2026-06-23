@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -206,41 +205,24 @@ export default function QuotationsPage() {
   type WaStep = "generating" | "uploading" | "sending" | "done" | "error";
   const [waModal, setWaModal] = useState<{ open: boolean; step: WaStep; error?: string }>({ open: false, step: "generating" });
 
-  const generateQuotationPdf = async (quote: Quotation, clientData: any): Promise<{ blob: Blob; base64: string; filename: string }> => {
-    const { default: jsPDF } = await import("jspdf");
-    const { renderToString } = await import("react-dom/server");
-    const { QuotationPrintLayout } = await import("@/components/quotations/quotation-print-layout");
-
-    let settings = null;
-    try {
-      const sRes = await apiFetch("/api/settings");
-      if (sRes.ok) settings = await sRes.json();
-    } catch (_) {}
-
-    const displayId = (quote as any).quoteId || quote.id || `PN-${Date.now()}`;
-    const html = renderToString(
-      React.createElement(QuotationPrintLayout, { quotation: { ...(quote as any), quoteId: displayId }, client: clientData, settings })
-    ).replace(/₹/g, "Rs.");
-
-    const origin = typeof window !== "undefined" ? window.location.origin : "";
-    const styledHtml = `<base href="${origin}/"><style>*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0}table{border-collapse:collapse;width:100%}</style><div style="width:794px">${html}</div>`;
-
-    const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait", compress: true });
-    await new Promise<void>((resolve) => {
-      (doc as any).html(styledHtml, {
-        callback: () => resolve(),
-        x: 0, y: 0,
-        width: 210,
-        windowWidth: 794,
-        html2canvas: { scale: 0.45, useCORS: true, allowTaint: true, logging: false, imageTimeout: 0 },
-        image: { type: "jpeg", quality: 0.7 },
-      });
+  const generateQuotationPdf = async (quote: Quotation, _clientData: any): Promise<{ blob: Blob; base64: string; filename: string }> => {
+    const quotationId = (quote as any)._id || (quote as any).id || quote.id;
+    const res = await apiFetch("/api/generate-quotation-pdf", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ quotationId }),
     });
-
-    const blob = doc.output("blob");
-    const base64 = doc.output("datauristring").split(",")[1];
-    const safeTitle = ((quote as any).title || "Quotation").replace(/[^a-zA-Z0-9-_]/g, "-");
-    const filename = `${displayId}-${safeTitle}.pdf`;
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error((err as any)?.error || "PDF generation failed");
+    }
+    const blob = await res.blob();
+    const filename = res.headers.get("X-Filename") || `${(quote as any).quoteId || quotationId}.pdf`;
+    const base64 = await new Promise<string>((resolve) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve((reader.result as string).split(",")[1]);
+      reader.readAsDataURL(blob);
+    });
     return { blob, base64, filename };
   };
 

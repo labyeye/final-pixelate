@@ -56,8 +56,8 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const tmplName = templateName || "brand_guide";
-  const tmplLang = templateLang || process.env.WHATSAPP_TEMPLATE_LANG || "en_US";
+  const tmplName ="brand_guide";
+  const tmplLang = "en_us";
 
   const safeFilename = `Brand-Guide-${(brandName || clientName).replace(/[/\\:*?"<>|]/g, "-")}.pdf`;
 

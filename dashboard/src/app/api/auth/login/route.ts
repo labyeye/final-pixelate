@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
-import { verifyPassword, signToken } from "@/lib/auth";
+import { verifyPasswordAsync, signToken } from "@/lib/auth";
 import { getDb } from "@/lib/mongodb";
 import {
   checkLoginRateLimit,
@@ -27,14 +27,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const users = await svc.getUsers();
-    const u = (users || []).find((x: any) => x.email === email);
+    const u = await svc.getUserByEmail(email);
     if (!u)
       return NextResponse.json(
         { error: "invalid credentials" },
         { status: 401 },
       );
-    if (!u.password || !verifyPassword(password, u.password))
+    if (!u.password || !(await verifyPasswordAsync(password, u.password)))
       return NextResponse.json(
         { error: "invalid credentials" },
         { status: 401 },

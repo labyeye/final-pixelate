@@ -145,6 +145,8 @@ __turbopack_context__.s([
     ()=>signToken,
     "verifyPassword",
     ()=>verifyPassword,
+    "verifyPasswordAsync",
+    ()=>verifyPasswordAsync,
     "verifyToken",
     ()=>verifyToken
 ]);
@@ -158,6 +160,9 @@ function hashPassword(password) {
 }
 function verifyPassword(password, hash) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compareSync(password, hash);
+}
+async function verifyPasswordAsync(password, hash) {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compare(password, hash);
 }
 function signToken(payload, opts = {}) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jsonwebtoken$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].sign(payload, JWT_SECRET, {
@@ -229,6 +234,8 @@ __turbopack_context__.s([
     ()=>getServices,
     "getTeamMembers",
     ()=>getTeamMembers,
+    "getUserByEmail",
+    ()=>getUserByEmail,
     "getUsers",
     ()=>getUsers,
     "permanentlyDestroyTrashItem",
@@ -581,6 +588,12 @@ async function createTeamMember(member) {
 async function getUsers() {
     const col = await getCollection("users");
     return col.find().toArray();
+}
+async function getUserByEmail(email) {
+    const col = await getCollection("users");
+    return col.findOne({
+        email
+    });
 }
 async function createUser(user) {
     const col = await getCollection("users");

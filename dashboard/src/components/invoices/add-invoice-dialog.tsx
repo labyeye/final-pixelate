@@ -53,6 +53,7 @@ type AddFormValues = {
   clientId: string;
   projectTitle: string;
   title: string;
+  invoiceDate: string;
   dueDate: string;
   venueName: string;
   venueAddress: string;
@@ -87,6 +88,7 @@ export function AddInvoiceDialog({
       clientId: "",
       projectTitle: "",
       title: "",
+      invoiceDate: new Date().toISOString().slice(0, 10),
       dueDate: "",
       venueName: "",
       venueAddress: "",
@@ -157,7 +159,7 @@ export function AddInvoiceDialog({
         gstPercent: 18,
         tax,
         status: "DUE",
-        createdAt: new Date(),
+        createdAt: values.invoiceDate ? new Date(values.invoiceDate) : new Date(),
         whatsapp_opt_in: waOptIn,
         whatsapp_opt_in_source: waOptIn ? "invoice_creation" : null,
         whatsapp_opt_in_time: waOptIn ? new Date().toISOString() : null,
@@ -350,6 +352,19 @@ export function AddInvoiceDialog({
                     <FormLabel>Invoice Title</FormLabel>
                     <FormControl>
                       <Input {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                name="invoiceDate"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Invoice Date</FormLabel>
+                    <FormControl>
+                      <Input type="date" {...field} />
                     </FormControl>
                   </FormItem>
                 )}

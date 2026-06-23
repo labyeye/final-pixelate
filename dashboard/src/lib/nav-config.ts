@@ -31,6 +31,8 @@ import {
   MessageCircle,
   Building2,
   Palette,
+  Tag,
+  Send,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -175,6 +177,12 @@ export const navGroups = [
     title: "WhatsApp Marketing",
     items: [
       {
+        href: "/dashboard/whatsapp-send",
+        label: "Send Message",
+        adminOnly: true,
+        icon: Send,
+      },
+      {
         href: "/dashboard/whatsapp-webhook",
         label: "Webhook Log",
         adminOnly: false,
@@ -311,6 +319,12 @@ export const navGroups = [
         label: "NestHR Invoices",
         adminOnly: true,
         icon: Receipt,
+      },
+      {
+        href: "/nest-hr/offers",
+        label: "Offer Codes",
+        adminOnly: true,
+        icon: Tag,
       },
     ],
   },

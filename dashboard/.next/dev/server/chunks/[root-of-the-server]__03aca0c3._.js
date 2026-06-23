@@ -145,6 +145,8 @@ __turbopack_context__.s([
     ()=>signToken,
     "verifyPassword",
     ()=>verifyPassword,
+    "verifyPasswordAsync",
+    ()=>verifyPasswordAsync,
     "verifyToken",
     ()=>verifyToken
 ]);
@@ -158,6 +160,9 @@ function hashPassword(password) {
 }
 function verifyPassword(password, hash) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compareSync(password, hash);
+}
+async function verifyPasswordAsync(password, hash) {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compare(password, hash);
 }
 function signToken(payload, opts = {}) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jsonwebtoken$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].sign(payload, JWT_SECRET, {
@@ -229,6 +234,8 @@ __turbopack_context__.s([
     ()=>getServices,
     "getTeamMembers",
     ()=>getTeamMembers,
+    "getUserByEmail",
+    ()=>getUserByEmail,
     "getUsers",
     ()=>getUsers,
     "permanentlyDestroyTrashItem",
@@ -263,9 +270,11 @@ async function getCollection(name) {
     const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDb"])();
     return db.collection(name);
 }
-async function getClients() {
+async function getClients(projection) {
     const col = await getCollection("clients");
-    return col.find().toArray();
+    return col.find({}, {
+        projection
+    }).toArray();
 }
 async function createClient(client) {
     const col = await getCollection("clients");
@@ -581,6 +590,12 @@ async function createTeamMember(member) {
 async function getUsers() {
     const col = await getCollection("users");
     return col.find().toArray();
+}
+async function getUserByEmail(email) {
+    const col = await getCollection("users");
+    return col.findOne({
+        email
+    });
 }
 async function createUser(user) {
     const col = await getCollection("users");
@@ -905,6 +920,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/message-circle.js [app-route] (ecmascript) <export default as MessageCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2d$2$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Building2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/building-2.js [app-route] (ecmascript) <export default as Building2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$palette$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Palette$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/palette.js [app-route] (ecmascript) <export default as Palette>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$tag$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Tag$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/tag.js [app-route] (ecmascript) <export default as Tag>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-route] (ecmascript) <export default as Send>");
 ;
 const defaultStaffAllowed = [
     "/dashboard",
@@ -1046,6 +1063,12 @@ const navGroups = [
         title: "WhatsApp Marketing",
         items: [
             {
+                href: "/dashboard/whatsapp-send",
+                label: "Send Message",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__["Send"]
+            },
+            {
                 href: "/dashboard/whatsapp-webhook",
                 label: "Webhook Log",
                 adminOnly: false,
@@ -1178,6 +1201,12 @@ const navGroups = [
                 label: "NestHR Invoices",
                 adminOnly: true,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__["Receipt"]
+            },
+            {
+                href: "/nest-hr/offers",
+                label: "Offer Codes",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$tag$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Tag$3e$__["Tag"]
             }
         ]
     },

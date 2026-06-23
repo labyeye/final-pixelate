@@ -864,6 +864,8 @@ function BrandGuidePage() {
     const [saving, setSaving] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [sendingEmail, setSendingEmail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [sendingWa, setSendingWa] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // 0=idle 1=uploading 2=sending 3=sent
+    const [waStep, setWaStep] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const [showForm, setShowForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [editingId, setEditingId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [form, setForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
@@ -959,24 +961,36 @@ function BrandGuidePage() {
             return;
         }
         setPdfFile(file);
-        // Step 1 — Uploading (reading file into base64)
         setParsing(true);
         setParseStep(1);
-        const reader = new FileReader();
-        reader.onload = async (ev)=>{
-            const base64 = (ev.target?.result).split(",")[1];
-            setForm((f)=>({
-                    ...f,
-                    pdfBase64: base64
-                }));
-            setPdfPreview("new");
-            // Step 2 — Processing
-            setParseStep(2);
-            await new Promise((r)=>setTimeout(r, 600));
-            // Step 3 — Analysing (Gemini call)
-            setParseStep(3);
+        (async ()=>{
             try {
-                const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/parse-brand-guide-pdf", {
+                // Step 1 — Upload PDF to server
+                const uploadFormData = new FormData();
+                uploadFormData.append("file", file);
+                const uploadRes = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/upload-brand-guide-pdf", {
+                    method: "POST",
+                    body: uploadFormData
+                });
+                const uploadData = await uploadRes.json();
+                if (!uploadRes.ok) throw new Error(uploadData.error || "Upload failed");
+                const pdfUrl = uploadData.url;
+                setForm((f)=>({
+                        ...f,
+                        pdfUrl,
+                        pdfBase64: ""
+                    }));
+                setPdfPreview("new");
+                // Step 2 — Processing (read base64 for AI analysis only)
+                setParseStep(2);
+                const base64 = await new Promise((res)=>{
+                    const reader = new FileReader();
+                    reader.onload = (ev)=>res((ev.target?.result).split(",")[1]);
+                    reader.readAsDataURL(file);
+                });
+                // Step 3 — AI analysis
+                setParseStep(3);
+                const parseRes = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/parse-brand-guide-pdf", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -985,14 +999,15 @@ function BrandGuidePage() {
                         pdfBase64: base64
                     })
                 });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error || "Parse failed");
+                const data = await parseRes.json();
+                if (!parseRes.ok) throw new Error(data.error || "Parse failed");
                 // Step 4 — Done, auto-fill
                 setParseStep(4);
                 await new Promise((r)=>setTimeout(r, 700));
                 setForm((f)=>({
                         ...f,
-                        pdfBase64: base64,
+                        pdfUrl,
+                        pdfBase64: "",
                         brandName: data.brandName || f.brandName,
                         primaryColors: data.primaryColors?.length ? data.primaryColors : f.primaryColors,
                         secondaryColors: data.secondaryColors?.length ? data.secondaryColors : f.secondaryColors,
@@ -1001,17 +1016,18 @@ function BrandGuidePage() {
                         notes: data.notes || f.notes
                     }));
             } catch (err) {
+                const msg = err.message || "";
+                const isOverload = msg.includes("503") || msg.toLowerCase().includes("unavailable") || msg.toLowerCase().includes("overload");
                 toast({
-                    title: "Auto-fill failed",
-                    description: err.message || "Could not read the PDF. Please fill in details manually.",
+                    title: isOverload ? "Auto-fill failed" : "Upload failed",
+                    description: isOverload ? "Google AI is temporarily overloaded. PDF was uploaded — fill in details manually." : msg || "Could not upload or read the PDF.",
                     variant: "destructive"
                 });
             } finally{
                 setParsing(false);
                 setParseStep(0);
             }
-        };
-        reader.readAsDataURL(file);
+        })();
     }
     async function handleSave() {
         if (!form.clientId) {
@@ -1024,13 +1040,15 @@ function BrandGuidePage() {
         }
         setSaving(true);
         try {
+            // Never store pdfBase64 in DB — use pdfUrl (server file) instead
+            const { pdfBase64: _drop, ...savePayload } = form;
             if (editingId) {
                 await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/api/brand-guides/${editingId}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(form)
+                    body: JSON.stringify(savePayload)
                 });
                 toast({
                     title: "Saved",
@@ -1042,7 +1060,7 @@ function BrandGuidePage() {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(form)
+                    body: JSON.stringify(savePayload)
                 });
                 toast({
                     title: "Created",
@@ -1065,18 +1083,22 @@ function BrandGuidePage() {
         const id = String(guide._id ?? guide.id ?? "");
         if (!confirm(`Delete brand guide for "${guide.brandName}"?`)) return;
         try {
-            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/api/brand-guides/${id}`, {
+            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/api/brand-guides/${id}`, {
                 method: "DELETE"
             });
+            if (!res.ok) {
+                const err = await res.json().catch(()=>({}));
+                throw new Error(err?.error || `Server returned ${res.status}`);
+            }
             toast({
                 title: "Deleted",
                 description: "Brand guide removed."
             });
             fetchAll();
-        } catch  {
+        } catch (err) {
             toast({
                 title: "Error",
-                description: "Failed to delete.",
+                description: err.message || "Failed to delete.",
                 variant: "destructive"
             });
         }
@@ -1093,7 +1115,7 @@ function BrandGuidePage() {
             });
             return;
         }
-        if (!guide.pdfBase64) {
+        if (!guide.pdfUrl) {
             toast({
                 title: "No PDF",
                 description: "Please upload a PDF first.",
@@ -1103,6 +1125,15 @@ function BrandGuidePage() {
         }
         setSendingEmail(id);
         try {
+            // Fetch PDF from server and convert to base64 for email attachment
+            const pdfRes = await fetch(guide.pdfUrl);
+            if (!pdfRes.ok) throw new Error("Could not read the stored PDF file");
+            const pdfBlob = await pdfRes.blob();
+            const pdfBase64 = await new Promise((resolve)=>{
+                const reader = new FileReader();
+                reader.onloadend = ()=>resolve(reader.result.split(",")[1]);
+                reader.readAsDataURL(pdfBlob);
+            });
             const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/send-brand-guide-email", {
                 method: "POST",
                 headers: {
@@ -1112,7 +1143,7 @@ function BrandGuidePage() {
                     to: email,
                     clientName: guide.clientName,
                     brandName: guide.brandName,
-                    pdfBase64: guide.pdfBase64,
+                    pdfBase64,
                     fileName: `Brand-Guide-${guide.brandName}.pdf`
                 })
             });
@@ -1144,7 +1175,7 @@ function BrandGuidePage() {
             });
             return;
         }
-        if (!guide.pdfBase64 && !guide.pdfUrl) {
+        if (!guide.pdfUrl) {
             toast({
                 title: "No PDF",
                 description: "Please upload a PDF first.",
@@ -1153,28 +1184,27 @@ function BrandGuidePage() {
             return;
         }
         setSendingWa(id);
+        setWaStep(1);
         try {
-            let mediaId;
-            let pdfUrl;
-            if (guide.pdfBase64) {
-                // Upload to WhatsApp media first
-                const uploadRes = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/upload-whatsapp-media", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        base64: guide.pdfBase64,
-                        filename: `Brand-Guide-${guide.brandName}.pdf`,
-                        mimeType: "application/pdf"
-                    })
-                });
-                const uploadData = await uploadRes.json();
-                if (!uploadRes.ok) throw new Error(uploadData.error || "Media upload failed");
-                mediaId = uploadData.mediaId || uploadData.id;
-            } else {
-                pdfUrl = guide.pdfUrl;
-            }
+            // Step 1: Fetch PDF and upload to WhatsApp media
+            const pdfRes = await fetch(guide.pdfUrl);
+            if (!pdfRes.ok) throw new Error("Could not read the stored PDF file");
+            const pdfBlob = await pdfRes.blob();
+            const waForm = new FormData();
+            waForm.append("file", new File([
+                pdfBlob
+            ], `Brand-Guide-${guide.brandName}.pdf`, {
+                type: "application/pdf"
+            }));
+            const uploadRes = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/upload-whatsapp-media", {
+                method: "POST",
+                body: waForm
+            });
+            const uploadData = await uploadRes.json();
+            if (!uploadRes.ok) throw new Error(uploadData.error || "Media upload failed");
+            const mediaId = uploadData.mediaId || uploadData.id;
+            // Step 2: Send WhatsApp message
+            setWaStep(2);
             const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/send-brand-guide-whatsapp", {
                 method: "POST",
                 headers: {
@@ -1184,16 +1214,14 @@ function BrandGuidePage() {
                     phone,
                     clientName: guide.clientName,
                     brandName: guide.brandName,
-                    mediaId,
-                    pdfUrl
+                    mediaId
                 })
             });
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || "Failed to send");
-            toast({
-                title: "WhatsApp sent!",
-                description: `Brand guide sent to ${phone}`
-            });
+            // Step 3: Done
+            setWaStep(3);
+            await new Promise((r)=>setTimeout(r, 1800));
         } catch (err) {
             toast({
                 title: "WhatsApp failed",
@@ -1202,6 +1230,7 @@ function BrandGuidePage() {
             });
         } finally{
             setSendingWa(null);
+            setWaStep(0);
         }
     }
     const filtered = filterClient === "all" ? guides : guides.filter((g)=>g.clientId === filterClient);
@@ -1224,12 +1253,12 @@ function BrandGuidePage() {
                                     className: "w-5 h-5 text-primary-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 496,
+                                    lineNumber: 522,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 495,
+                                lineNumber: 521,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1239,7 +1268,7 @@ function BrandGuidePage() {
                                         children: "Brand Guides"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 499,
+                                        lineNumber: 525,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1247,19 +1276,19 @@ function BrandGuidePage() {
                                         children: "Upload and send brand guides to clients"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 500,
+                                        lineNumber: 526,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 498,
+                                lineNumber: 524,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                        lineNumber: 494,
+                        lineNumber: 520,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1270,20 +1299,20 @@ function BrandGuidePage() {
                                 className: "w-4 h-4 mr-2"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 509,
+                                lineNumber: 535,
                                 columnNumber: 11
                             }, this),
                             "New Brand Guide"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                        lineNumber: 505,
+                        lineNumber: 531,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 493,
+                lineNumber: 519,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1320,12 +1349,12 @@ function BrandGuidePage() {
                                         className: "w-4 h-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 525,
+                                        lineNumber: 551,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 524,
+                                    lineNumber: 550,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1335,7 +1364,7 @@ function BrandGuidePage() {
                                             children: value
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 528,
+                                            lineNumber: 554,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1343,29 +1372,29 @@ function BrandGuidePage() {
                                             children: label
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 529,
+                                            lineNumber: 555,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 527,
+                                    lineNumber: 553,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 523,
+                            lineNumber: 549,
                             columnNumber: 13
                         }, this)
                     }, label, false, {
                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                        lineNumber: 522,
+                        lineNumber: 548,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 515,
+                lineNumber: 541,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1381,12 +1410,12 @@ function BrandGuidePage() {
                                     placeholder: "Filter by client"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 540,
+                                    lineNumber: 566,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 539,
+                                lineNumber: 565,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1396,7 +1425,7 @@ function BrandGuidePage() {
                                         children: "All Clients"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 543,
+                                        lineNumber: 569,
                                         columnNumber: 13
                                     }, this),
                                     clientsWithGuides.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1404,19 +1433,19 @@ function BrandGuidePage() {
                                             children: c.name
                                         }, String(c._id ?? c.id), false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 545,
+                                            lineNumber: 571,
                                             columnNumber: 15
                                         }, this))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 542,
+                                lineNumber: 568,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                        lineNumber: 538,
+                        lineNumber: 564,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1428,13 +1457,13 @@ function BrandGuidePage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                        lineNumber: 551,
+                        lineNumber: 577,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 537,
+                lineNumber: 563,
                 columnNumber: 7
             }, this),
             loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1443,12 +1472,12 @@ function BrandGuidePage() {
                     className: "w-6 h-6 animate-spin text-muted-foreground"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                    lineNumber: 559,
+                    lineNumber: 585,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 558,
+                lineNumber: 584,
                 columnNumber: 9
             }, this) : filtered.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                 className: "border-2 border-dashed border-black/30",
@@ -1459,7 +1488,7 @@ function BrandGuidePage() {
                             className: "w-12 h-12 text-muted-foreground/40"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 564,
+                            lineNumber: 590,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1467,7 +1496,7 @@ function BrandGuidePage() {
                             children: "No brand guides yet"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 565,
+                            lineNumber: 591,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1475,25 +1504,25 @@ function BrandGuidePage() {
                             children: 'Click "New Brand Guide" to create one for a client.'
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 566,
+                            lineNumber: 592,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                    lineNumber: 563,
+                    lineNumber: 589,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 562,
+                lineNumber: 588,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid gap-4 md:grid-cols-2 xl:grid-cols-3",
                 children: filtered.map((guide)=>{
                     const id = String(guide._id ?? guide.id ?? "");
                     const client = clients.find((c)=>String(c._id ?? c.id) === guide.clientId);
-                    const hasPdf = !!(guide.pdfBase64 || guide.pdfUrl);
+                    const hasPdf = !!guide.pdfUrl;
                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                         className: "border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow",
                         children: [
@@ -1510,7 +1539,7 @@ function BrandGuidePage() {
                                                     children: guide.brandName || guide.clientName
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 585,
+                                                    lineNumber: 611,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -1518,13 +1547,13 @@ function BrandGuidePage() {
                                                     children: guide.clientName
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 588,
+                                                    lineNumber: 614,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 584,
+                                            lineNumber: 610,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1532,18 +1561,18 @@ function BrandGuidePage() {
                                             children: hasPdf ? "PDF Ready" : "No PDF"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 592,
+                                            lineNumber: 618,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 583,
+                                    lineNumber: 609,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 582,
+                                lineNumber: 608,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1556,7 +1585,7 @@ function BrandGuidePage() {
                                                 className: "w-3.5 h-3.5 text-muted-foreground shrink-0"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 607,
+                                                lineNumber: 633,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1572,18 +1601,18 @@ function BrandGuidePage() {
                                                         title: c
                                                     }, c, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 610,
+                                                        lineNumber: 636,
                                                         columnNumber: 27
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 608,
+                                                lineNumber: 634,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 606,
+                                        lineNumber: 632,
                                         columnNumber: 21
                                     }, this),
                                     guide.fonts?.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1593,7 +1622,7 @@ function BrandGuidePage() {
                                                 className: "w-3.5 h-3.5 text-muted-foreground shrink-0"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 624,
+                                                lineNumber: 650,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1601,13 +1630,13 @@ function BrandGuidePage() {
                                                 children: guide.fonts.join(", ")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 625,
+                                                lineNumber: 651,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 623,
+                                        lineNumber: 649,
                                         columnNumber: 21
                                     }, this),
                                     guide.brandVoice && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1617,7 +1646,7 @@ function BrandGuidePage() {
                                                 className: "w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 634,
+                                                lineNumber: 660,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1625,13 +1654,13 @@ function BrandGuidePage() {
                                                 children: guide.brandVoice
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 635,
+                                                lineNumber: 661,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 633,
+                                        lineNumber: 659,
                                         columnNumber: 21
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1647,14 +1676,14 @@ function BrandGuidePage() {
                                                         className: "w-3 h-3 mr-1"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 649,
+                                                        lineNumber: 675,
                                                         columnNumber: 23
                                                     }, this),
                                                     "Edit"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 643,
+                                                lineNumber: 669,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1668,20 +1697,20 @@ function BrandGuidePage() {
                                                         className: "w-3 h-3 mr-1 animate-spin"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 660,
+                                                        lineNumber: 686,
                                                         columnNumber: 25
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$mail$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Mail$3e$__["Mail"], {
                                                         className: "w-3 h-3 mr-1"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 662,
+                                                        lineNumber: 688,
                                                         columnNumber: 25
                                                     }, this),
                                                     "Email"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 652,
+                                                lineNumber: 678,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1695,21 +1724,38 @@ function BrandGuidePage() {
                                                         className: "w-3 h-3 mr-1 animate-spin"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 674,
+                                                        lineNumber: 700,
                                                         columnNumber: 25
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__["MessageCircle"], {
                                                         className: "w-3 h-3 mr-1"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 676,
+                                                        lineNumber: 702,
                                                         columnNumber: 25
                                                     }, this),
                                                     "WhatsApp"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 666,
+                                                lineNumber: 692,
                                                 columnNumber: 21
+                                            }, this),
+                                            guide.pdfUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: guide.pdfUrl,
+                                                download: true,
+                                                className: "inline-flex items-center justify-center border-2 border-black font-bold text-xs h-8 px-2 rounded-md bg-white hover:bg-muted transition-colors",
+                                                title: "Download PDF",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
+                                                    className: "w-3 h-3"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                                    lineNumber: 713,
+                                                    columnNumber: 25
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                                lineNumber: 707,
+                                                columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                                 size: "sm",
@@ -1720,36 +1766,36 @@ function BrandGuidePage() {
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 686,
+                                                    lineNumber: 722,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 680,
+                                                lineNumber: 716,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 642,
+                                        lineNumber: 668,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 603,
+                                lineNumber: 629,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, id, true, {
                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                        lineNumber: 578,
+                        lineNumber: 604,
                         columnNumber: 15
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 572,
+                lineNumber: 598,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -1767,19 +1813,19 @@ function BrandGuidePage() {
                                         className: "w-5 h-5 text-primary"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                        lineNumber: 704,
+                                        lineNumber: 740,
                                         columnNumber: 15
                                     }, this),
                                     "Reading Brand Guide"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 703,
+                                lineNumber: 739,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 702,
+                            lineNumber: 738,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1817,24 +1863,24 @@ function BrandGuidePage() {
                                                 className: "w-6 h-6 text-green-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 722,
+                                                lineNumber: 758,
                                                 columnNumber: 23
                                             }, this) : isActive ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
                                                 className: "w-6 h-6 text-primary animate-spin"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 724,
+                                                lineNumber: 760,
                                                 columnNumber: 23
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
                                                 className: "w-6 h-6 text-muted-foreground/30"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 726,
+                                                lineNumber: 762,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 720,
+                                            lineNumber: 756,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1844,7 +1890,7 @@ function BrandGuidePage() {
                                                     children: label
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 730,
+                                                    lineNumber: 766,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1852,36 +1898,163 @@ function BrandGuidePage() {
                                                     children: desc
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 733,
+                                                    lineNumber: 769,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 729,
+                                            lineNumber: 765,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, step, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 719,
+                                    lineNumber: 755,
                                     columnNumber: 17
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 709,
+                            lineNumber: 745,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                    lineNumber: 698,
+                    lineNumber: 734,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 697,
+                lineNumber: 733,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
+                open: waStep > 0,
+                onOpenChange: ()=>{},
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
+                    className: "max-w-sm border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+                    onInteractOutside: (e)=>e.preventDefault(),
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
+                                className: "font-black text-lg flex items-center gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__["MessageCircle"], {
+                                        className: "w-5 h-5 text-green-600"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                        lineNumber: 788,
+                                        columnNumber: 15
+                                    }, this),
+                                    "Sending via WhatsApp"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                lineNumber: 787,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                            lineNumber: 786,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "py-4 space-y-4",
+                            children: [
+                                {
+                                    step: 1,
+                                    label: "Uploading PDF",
+                                    desc: "Uploading brand guide to WhatsApp"
+                                },
+                                {
+                                    step: 2,
+                                    label: "Sending Message",
+                                    desc: "Delivering to client's WhatsApp"
+                                },
+                                {
+                                    step: 3,
+                                    label: "Message Sent!",
+                                    desc: "Brand guide delivered successfully"
+                                }
+                            ].map(({ step, label, desc })=>{
+                                const isDone = waStep > step;
+                                const isActive = waStep === step;
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center gap-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "shrink-0 w-8 h-8 flex items-center justify-center",
+                                            children: isDone || waStep === 3 && step === 3 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                                                className: "w-6 h-6 text-green-600"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                                lineNumber: 804,
+                                                columnNumber: 23
+                                            }, this) : isActive ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                className: "w-6 h-6 text-green-600 animate-spin"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                                lineNumber: 806,
+                                                columnNumber: 23
+                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+                                                className: "w-6 h-6 text-muted-foreground/30"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                                lineNumber: 808,
+                                                columnNumber: 23
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                            lineNumber: 802,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: `text-sm font-black ${isDone || waStep === 3 && step === 3 ? "text-green-700" : isActive ? "text-foreground" : "text-muted-foreground/50"}`,
+                                                    children: label
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                                    lineNumber: 812,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: `text-xs ${isDone || isActive ? "text-muted-foreground" : "text-muted-foreground/30"}`,
+                                                    children: desc
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                                    lineNumber: 815,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                            lineNumber: 811,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, step, true, {
+                                    fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                                    lineNumber: 801,
+                                    columnNumber: 17
+                                }, this);
+                            })
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                            lineNumber: 792,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                    lineNumber: 782,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
+                lineNumber: 781,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -1896,12 +2069,12 @@ function BrandGuidePage() {
                                 children: editingId ? "Edit Brand Guide" : "New Brand Guide"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                lineNumber: 748,
+                                lineNumber: 830,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 747,
+                            lineNumber: 829,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1915,7 +2088,7 @@ function BrandGuidePage() {
                                             children: "Client *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 756,
+                                            lineNumber: 838,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1928,12 +2101,12 @@ function BrandGuidePage() {
                                                         placeholder: "Select a client"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 759,
+                                                        lineNumber: 841,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 758,
+                                                    lineNumber: 840,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1942,24 +2115,24 @@ function BrandGuidePage() {
                                                             children: c.name
                                                         }, String(c._id ?? c.id), false, {
                                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                            lineNumber: 763,
+                                                            lineNumber: 845,
                                                             columnNumber: 21
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 761,
+                                                    lineNumber: 843,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 757,
+                                            lineNumber: 839,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 755,
+                                    lineNumber: 837,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1970,7 +2143,7 @@ function BrandGuidePage() {
                                             children: "Brand Name"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 773,
+                                            lineNumber: 855,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1983,13 +2156,13 @@ function BrandGuidePage() {
                                             className: "border-2 border-black font-medium"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 774,
+                                            lineNumber: 856,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 772,
+                                    lineNumber: 854,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2005,14 +2178,14 @@ function BrandGuidePage() {
                                                             className: "w-3.5 h-3.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                            lineNumber: 786,
+                                                            lineNumber: 868,
                                                             columnNumber: 19
                                                         }, this),
                                                         " Primary Colors"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 785,
+                                                    lineNumber: 867,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ColorChips, {
@@ -2023,13 +2196,13 @@ function BrandGuidePage() {
                                                             }))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 788,
+                                                    lineNumber: 870,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 784,
+                                            lineNumber: 866,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2042,14 +2215,14 @@ function BrandGuidePage() {
                                                             className: "w-3.5 h-3.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                            lineNumber: 795,
+                                                            lineNumber: 877,
                                                             columnNumber: 19
                                                         }, this),
                                                         " Secondary Colors"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 794,
+                                                    lineNumber: 876,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ColorChips, {
@@ -2060,19 +2233,19 @@ function BrandGuidePage() {
                                                             }))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 797,
+                                                    lineNumber: 879,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 793,
+                                            lineNumber: 875,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 783,
+                                    lineNumber: 865,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2085,14 +2258,14 @@ function BrandGuidePage() {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 807,
+                                                    lineNumber: 889,
                                                     columnNumber: 17
                                                 }, this),
                                                 " Fonts / Typography"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 806,
+                                            lineNumber: 888,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FontChips, {
@@ -2103,13 +2276,13 @@ function BrandGuidePage() {
                                                     }))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 809,
+                                            lineNumber: 891,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 805,
+                                    lineNumber: 887,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2122,14 +2295,14 @@ function BrandGuidePage() {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 818,
+                                                    lineNumber: 900,
                                                     columnNumber: 17
                                                 }, this),
                                                 " Brand Voice & Tone"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 817,
+                                            lineNumber: 899,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -2143,13 +2316,13 @@ function BrandGuidePage() {
                                             rows: 3
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 820,
+                                            lineNumber: 902,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 816,
+                                    lineNumber: 898,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2162,14 +2335,14 @@ function BrandGuidePage() {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 832,
+                                                    lineNumber: 914,
                                                     columnNumber: 17
                                                 }, this),
                                                 " Logo URL"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 831,
+                                            lineNumber: 913,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2182,13 +2355,13 @@ function BrandGuidePage() {
                                             className: "border-2 border-black font-medium"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 834,
+                                            lineNumber: 916,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 830,
+                                    lineNumber: 912,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2201,14 +2374,14 @@ function BrandGuidePage() {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 845,
+                                                    lineNumber: 927,
                                                     columnNumber: 17
                                                 }, this),
                                                 " Brand Guide PDF"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 844,
+                                            lineNumber: 926,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2221,7 +2394,7 @@ function BrandGuidePage() {
                                                         className: "w-8 h-8 text-primary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 853,
+                                                        lineNumber: 935,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2229,7 +2402,7 @@ function BrandGuidePage() {
                                                         children: pdfFile.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 854,
+                                                        lineNumber: 936,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2240,13 +2413,13 @@ function BrandGuidePage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 855,
+                                                        lineNumber: 937,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 852,
+                                                lineNumber: 934,
                                                 columnNumber: 19
                                             }, this) : pdfPreview === "existing" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex flex-col items-center gap-2",
@@ -2255,7 +2428,7 @@ function BrandGuidePage() {
                                                         className: "w-8 h-8 text-green-600"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 861,
+                                                        lineNumber: 943,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2263,7 +2436,7 @@ function BrandGuidePage() {
                                                         children: "PDF already uploaded"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 862,
+                                                        lineNumber: 944,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2271,13 +2444,13 @@ function BrandGuidePage() {
                                                         children: "Click to replace with a new PDF"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 863,
+                                                        lineNumber: 945,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 860,
+                                                lineNumber: 942,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex flex-col items-center gap-2",
@@ -2286,7 +2459,7 @@ function BrandGuidePage() {
                                                         className: "w-8 h-8 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 867,
+                                                        lineNumber: 949,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2294,7 +2467,7 @@ function BrandGuidePage() {
                                                         children: "Click to upload PDF"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 868,
+                                                        lineNumber: 950,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2302,18 +2475,18 @@ function BrandGuidePage() {
                                                         children: "Max 50 MB · PDF only · AI auto-fills the form"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                        lineNumber: 869,
+                                                        lineNumber: 951,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 866,
+                                                lineNumber: 948,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 847,
+                                            lineNumber: 929,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2324,7 +2497,7 @@ function BrandGuidePage() {
                                             onChange: handleFileChange
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 873,
+                                            lineNumber: 955,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2334,7 +2507,7 @@ function BrandGuidePage() {
                                                     className: "flex-1 h-px bg-border"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 882,
+                                                    lineNumber: 964,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2342,20 +2515,20 @@ function BrandGuidePage() {
                                                     children: "OR"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 883,
+                                                    lineNumber: 965,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex-1 h-px bg-border"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                    lineNumber: 884,
+                                                    lineNumber: 966,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 881,
+                                            lineNumber: 963,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2368,13 +2541,13 @@ function BrandGuidePage() {
                                             className: "border-2 border-black font-medium"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 886,
+                                            lineNumber: 968,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 843,
+                                    lineNumber: 925,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2385,7 +2558,7 @@ function BrandGuidePage() {
                                             children: "Notes"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 896,
+                                            lineNumber: 978,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -2399,19 +2572,19 @@ function BrandGuidePage() {
                                             rows: 2
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                            lineNumber: 897,
+                                            lineNumber: 979,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 895,
+                                    lineNumber: 977,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 753,
+                            lineNumber: 835,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -2424,7 +2597,7 @@ function BrandGuidePage() {
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 908,
+                                    lineNumber: 990,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2437,7 +2610,7 @@ function BrandGuidePage() {
                                                 className: "w-4 h-4 mr-2 animate-spin"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 922,
+                                                lineNumber: 1004,
                                                 columnNumber: 19
                                             }, this),
                                             "Saving..."
@@ -2448,7 +2621,7 @@ function BrandGuidePage() {
                                                 className: "w-4 h-4 mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                                lineNumber: 927,
+                                                lineNumber: 1009,
                                                 columnNumber: 19
                                             }, this),
                                             editingId ? "Update Guide" : "Create Guide"
@@ -2456,34 +2629,34 @@ function BrandGuidePage() {
                                     }, void 0, true)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                                    lineNumber: 915,
+                                    lineNumber: 997,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                            lineNumber: 907,
+                            lineNumber: 989,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                    lineNumber: 746,
+                    lineNumber: 828,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-                lineNumber: 745,
+                lineNumber: 827,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/brand-guide/page.tsx",
-        lineNumber: 491,
+        lineNumber: 517,
         columnNumber: 5
     }, this);
 }
-_s2(BrandGuidePage, "F2fNtYcG1BmYQJsl28kq9xnNrmo=", false, function() {
+_s2(BrandGuidePage, "aBSaEYgkg4b1AzewSK/lKAZY71k=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]
     ];

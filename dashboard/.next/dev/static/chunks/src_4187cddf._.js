@@ -2079,6 +2079,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
             clientId: "",
             projectTitle: "",
             title: "",
+            invoiceDate: new Date().toISOString().slice(0, 10),
             dueDate: "",
             venueName: "",
             venueAddress: "",
@@ -2132,7 +2133,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                 gstPercent: 18,
                 tax,
                 status: "DUE",
-                createdAt: new Date(),
+                createdAt: values.invoiceDate ? new Date(values.invoiceDate) : new Date(),
                 whatsapp_opt_in: waOptIn,
                 whatsapp_opt_in_source: waOptIn ? "invoice_creation" : null,
                 whatsapp_opt_in_time: waOptIn ? new Date().toISOString() : null
@@ -2186,7 +2187,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                     client: selectedClient
                 }, void 0, false, {
                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                    lineNumber: 209,
+                    lineNumber: 211,
                     columnNumber: 11
                 }, this));
                 const notoHref = "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
@@ -2233,7 +2234,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                     client: selectedClient
                 }, void 0, false, {
                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                    lineNumber: 265,
+                    lineNumber: 267,
                     columnNumber: 11
                 }, this));
                 const pageWidth = doc.internal.pageSize.getWidth();
@@ -2269,12 +2270,12 @@ function AddInvoiceDialog({ clients, onCreated }) {
                     children: "New Invoice"
                 }, void 0, false, {
                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                    lineNumber: 297,
+                    lineNumber: 299,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                lineNumber: 296,
+                lineNumber: 298,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2285,12 +2286,12 @@ function AddInvoiceDialog({ clients, onCreated }) {
                             children: "Create Invoice"
                         }, void 0, false, {
                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                            lineNumber: 303,
+                            lineNumber: 305,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                        lineNumber: 302,
+                        lineNumber: 304,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Form"], {
@@ -2311,7 +2312,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "Client"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 314,
+                                                            lineNumber: 316,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -2324,7 +2325,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                         children: "Select client"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 317,
+                                                                        lineNumber: 319,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     clients.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2332,29 +2333,29 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                             children: c.name
                                                                         }, String(c.id ?? c._id), false, {
                                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 319,
+                                                                            lineNumber: 321,
                                                                             columnNumber: 27
                                                                         }, void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 316,
+                                                                lineNumber: 318,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 315,
+                                                            lineNumber: 317,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 313,
+                                                    lineNumber: 315,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 309,
+                                            lineNumber: 311,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -2366,7 +2367,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "Project Title"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 337,
+                                                            lineNumber: 339,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -2374,23 +2375,23 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 339,
+                                                                lineNumber: 341,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 338,
+                                                            lineNumber: 340,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 336,
+                                                    lineNumber: 338,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 332,
+                                            lineNumber: 334,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -2402,7 +2403,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "Invoice Title"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 350,
+                                                            lineNumber: 352,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -2410,23 +2411,60 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 352,
+                                                                lineNumber: 354,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 351,
+                                                            lineNumber: 353,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 349,
+                                                    lineNumber: 351,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 345,
+                                            lineNumber: 347,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
+                                            name: "invoiceDate",
+                                            control: form.control,
+                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
+                                                            children: "Invoice Date"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 365,
+                                                            columnNumber: 21
+                                                        }, void 0),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                type: "date",
+                                                                ...field
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
+                                                                lineNumber: 367,
+                                                                columnNumber: 23
+                                                            }, void 0)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 366,
+                                                            columnNumber: 21
+                                                        }, void 0)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 364,
+                                                    columnNumber: 19
+                                                }, void 0)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
+                                            lineNumber: 360,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -2438,7 +2476,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "Due Date"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 363,
+                                                            lineNumber: 378,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -2447,29 +2485,29 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 365,
+                                                                lineNumber: 380,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 364,
+                                                            lineNumber: 379,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 362,
+                                                    lineNumber: 377,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 358,
+                                            lineNumber: 373,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                    lineNumber: 308,
+                                    lineNumber: 310,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2482,7 +2520,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                     children: "Services / Line Items"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 375,
+                                                    lineNumber: 390,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2493,13 +2531,13 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                     children: "+ Add Row"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 378,
+                                                    lineNumber: 393,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 374,
+                                            lineNumber: 389,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2509,21 +2547,21 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                     children: "Description"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 390,
+                                                    lineNumber: 405,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: "HSN Code"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 391,
+                                                    lineNumber: 406,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: "Qty"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 392,
+                                                    lineNumber: 407,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2531,7 +2569,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                     children: "Rate (₹)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 393,
+                                                    lineNumber: 408,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2539,18 +2577,18 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                     children: "Amount (₹)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 394,
+                                                    lineNumber: 409,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 395,
+                                                    lineNumber: 410,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 389,
+                                            lineNumber: 404,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2568,7 +2606,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                 })
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 406,
+                                                            lineNumber: 421,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -2582,12 +2620,12 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                     children: o.value
                                                                 }, o.value, false, {
                                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 421,
+                                                                    lineNumber: 436,
                                                                     columnNumber: 27
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 413,
+                                                            lineNumber: 428,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2599,7 +2637,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                 })
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 426,
+                                                            lineNumber: 441,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2612,7 +2650,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             className: "text-right"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 436,
+                                                            lineNumber: 451,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2620,7 +2658,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: amt.toLocaleString("en-IN")
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 445,
+                                                            lineNumber: 460,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2633,19 +2671,19 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "✕"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 448,
+                                                            lineNumber: 463,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, idx, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 402,
+                                                    lineNumber: 417,
                                                     columnNumber: 21
                                                 }, this);
                                             })
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 398,
+                                            lineNumber: 413,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2659,7 +2697,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "Subtotal"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 466,
+                                                            lineNumber: 481,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2672,13 +2710,13 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 467,
+                                                            lineNumber: 482,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 465,
+                                                    lineNumber: 480,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2692,7 +2730,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                     children: "Discount"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 476,
+                                                                    lineNumber: 491,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2705,7 +2743,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                             children: "₹"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 478,
+                                                                            lineNumber: 493,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2715,13 +2753,13 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                             children: "%"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 485,
+                                                                            lineNumber: 500,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 477,
+                                                                    lineNumber: 492,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2733,13 +2771,13 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                     className: "w-20 h-7 text-right text-sm"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 493,
+                                                                    lineNumber: 508,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 475,
+                                                            lineNumber: 490,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2749,13 +2787,13 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             })}` : "—"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 502,
+                                                            lineNumber: 517,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 474,
+                                                    lineNumber: 489,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2766,7 +2804,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "GST (18%)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 509,
+                                                            lineNumber: 524,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2779,13 +2817,13 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 510,
+                                                            lineNumber: 525,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 508,
+                                                    lineNumber: 523,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2795,7 +2833,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             children: "Total"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 515,
+                                                            lineNumber: 530,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2808,25 +2846,25 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 516,
+                                                            lineNumber: 531,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 514,
+                                                    lineNumber: 529,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 464,
+                                            lineNumber: 479,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                    lineNumber: 373,
+                                    lineNumber: 388,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2848,7 +2886,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                         onChange: (e)=>field.onChange(e.target.checked)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 535,
+                                                                        lineNumber: 550,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2856,23 +2894,23 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                         children: "Include Venue Name"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 542,
+                                                                        lineNumber: 557,
                                                                         columnNumber: 25
                                                                     }, void 0)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 534,
+                                                                lineNumber: 549,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 533,
+                                                            lineNumber: 548,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 529,
+                                                    lineNumber: 544,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -2886,28 +2924,28 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                     placeholder: "Venue name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 555,
+                                                                    lineNumber: 570,
                                                                     columnNumber: 25
                                                                 }, void 0)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 554,
+                                                                lineNumber: 569,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 553,
+                                                            lineNumber: 568,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 549,
+                                                    lineNumber: 564,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 528,
+                                            lineNumber: 543,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2926,7 +2964,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                         onChange: (e)=>field.onChange(e.target.checked)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 573,
+                                                                        lineNumber: 588,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2934,23 +2972,23 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                         children: "Include Venue Address"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 580,
+                                                                        lineNumber: 595,
                                                                         columnNumber: 25
                                                                     }, void 0)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 572,
+                                                                lineNumber: 587,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 571,
+                                                            lineNumber: 586,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 567,
+                                                    lineNumber: 582,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -2964,34 +3002,34 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                     placeholder: "Venue address"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 593,
+                                                                    lineNumber: 608,
                                                                     columnNumber: 25
                                                                 }, void 0)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 592,
+                                                                lineNumber: 607,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 591,
+                                                            lineNumber: 606,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 587,
+                                                    lineNumber: 602,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 566,
+                                            lineNumber: 581,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                    lineNumber: 527,
+                                    lineNumber: 542,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -3029,7 +3067,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 632,
+                                                                lineNumber: 647,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3047,7 +3085,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 646,
+                                                                        lineNumber: 661,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3063,7 +3101,7 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                                 children: selectedClient?.name ?? "the client"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                lineNumber: 658,
+                                                                                lineNumber: 673,
                                                                                 columnNumber: 29
                                                                             }, this),
                                                                             " ",
@@ -3073,30 +3111,30 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                                                 children: "⚠️ No WhatsApp number saved for this client. Add their number in the client profile first."
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                lineNumber: 664,
+                                                                                lineNumber: 679,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 653,
+                                                                        lineNumber: 668,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 645,
+                                                                lineNumber: 660,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                        lineNumber: 628,
+                                                        lineNumber: 643,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 619,
+                                                    lineNumber: 634,
                                                     columnNumber: 21
                                                 }, this);
                                             })(),
@@ -3107,41 +3145,41 @@ function AddInvoiceDialog({ clients, onCreated }) {
                                                 children: waOptIn ? "Create Invoice & Send on WhatsApp ✓" : "Create & Download PDF"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                                lineNumber: 676,
+                                                lineNumber: 691,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                        lineNumber: 607,
+                                        lineNumber: 622,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                                    lineNumber: 606,
+                                    lineNumber: 621,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                            lineNumber: 306,
+                            lineNumber: 308,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                        lineNumber: 305,
+                        lineNumber: 307,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-                lineNumber: 301,
+                lineNumber: 303,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/invoices/add-invoice-dialog.tsx",
-        lineNumber: 295,
+        lineNumber: 297,
         columnNumber: 5
     }, this);
 }
@@ -7260,7 +7298,7 @@ function InvoicingPage() {
                 "InvoicingPage.useEffect": async ()=>{
                     try {
                         const [cRes, sRes, pRes] = await Promise.all([
-                            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/clients"),
+                            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/clients?slim=1"),
                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/services"),
                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/projects")
                         ]);
@@ -7302,7 +7340,7 @@ function InvoicingPage() {
     };
     const refreshClients = async ()=>{
         try {
-            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/clients");
+            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/clients?slim=1");
             if (!res.ok) return;
             const data = await res.json();
             setClients(data || []);

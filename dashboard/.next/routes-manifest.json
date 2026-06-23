@@ -93,6 +93,14 @@
       "namedRegex": "^/api/expenses/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/hrms-offers/[id]",
+      "regex": "^/api/hrms\\-offers/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/hrms\\-offers/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/inventory/[id]",
       "regex": "^/api/inventory/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -511,6 +519,18 @@
       "namedRegex": "^/api/generate\\-payment\\-receipt(?:/)?$"
     },
     {
+      "page": "/api/generate-quotation-pdf",
+      "regex": "^/api/generate\\-quotation\\-pdf(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/generate\\-quotation\\-pdf(?:/)?$"
+    },
+    {
+      "page": "/api/hrms-offers",
+      "regex": "^/api/hrms\\-offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/hrms\\-offers(?:/)?$"
+    },
+    {
       "page": "/api/inventory",
       "regex": "^/api/inventory(?:/)?$",
       "routeKeys": {},
@@ -787,6 +807,12 @@
       "namedRegex": "^/api/upload/avatar(?:/)?$"
     },
     {
+      "page": "/api/upload-brand-guide-pdf",
+      "regex": "^/api/upload\\-brand\\-guide\\-pdf(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/upload\\-brand\\-guide\\-pdf(?:/)?$"
+    },
+    {
       "page": "/api/upload-expense-bill",
       "regex": "^/api/upload\\-expense\\-bill(?:/)?$",
       "routeKeys": {},
@@ -827,6 +853,12 @@
       "regex": "^/api/whatsapp/messages(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/whatsapp/messages(?:/)?$"
+    },
+    {
+      "page": "/api/whatsapp/send-template",
+      "regex": "^/api/whatsapp/send\\-template(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp/send\\-template(?:/)?$"
     },
     {
       "page": "/api/whatsapp/webhook-sync",
@@ -973,6 +1005,12 @@
       "namedRegex": "^/dashboard/settings(?:/)?$"
     },
     {
+      "page": "/dashboard/whatsapp-send",
+      "regex": "^/dashboard/whatsapp\\-send(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/whatsapp\\-send(?:/)?$"
+    },
+    {
       "page": "/dashboard/whatsapp-templates",
       "regex": "^/dashboard/whatsapp\\-templates(?:/)?$",
       "routeKeys": {},
@@ -1055,6 +1093,12 @@
       "regex": "^/nest\\-hr/invoices(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-hr/invoices(?:/)?$"
+    },
+    {
+      "page": "/nest-hr/offers",
+      "regex": "^/nest\\-hr/offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-hr/offers(?:/)?$"
     },
     {
       "page": "/nest-hr/subscriptions",
