@@ -1,9 +1,9 @@
 "use client";
 
+import React from "react";
 import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import jsPDF from "jspdf";
 import { Button } from "@/components/ui/button";
 import type { Quotation, Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -14,12 +14,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MoreVertical, Download, FileText, CheckCircle2, Clock, IndianRupee } from "lucide-react";
+import { MoreVertical, Download, FileText, CheckCircle2, Clock, IndianRupee, Loader2, Check, X } from "lucide-react";
 import { StatCard } from "@/components/ui/stat-card";
 import { useToast } from "@/hooks/use-toast";
-import { QuotationPDF } from "@/components/quotations/quotation-pdf";
 import { formatCurrency } from "@/lib/currency";
-import { renderToString } from "react-dom/server";
 import { useAuth } from "@/hooks/use-auth";
 import {
   Table,
@@ -40,6 +38,27 @@ import {
 
 if (typeof window !== "undefined" && !(window as any).__projectsStore) {
   (window as any).__projectsStore = [];
+}
+
+function WhatsAppLogo({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#25D366" />
+      <path d="M34.5 13.4C32 10.9 28.7 9.5 25.2 9.5c-7.3 0-13.2 5.9-13.2 13.2 0 2.3.6 4.6 1.8 6.6L12 38.5l9.4-2.5c1.9 1 4 1.6 6.2 1.6h.1c7.3 0 13.2-5.9 13.2-13.2-.1-3.5-1.5-6.8-4.4-9zm-9.3 20.3h-.1c-2 0-3.9-.5-5.6-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8 0-5.9 4.8-10.7 10.7-10.7 2.9 0 5.5 1.1 7.5 3.1s3.1 4.7 3.1 7.5c0 5.9-4.8 10.7-10.7 10.7l.6.3zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.1-1.5.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.5z" fill="white"/>
+    </svg>
+  );
+}
+
+function GmailLogo({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.5 39.5h7V23.3L2 14.5v21A4 4 0 0 0 4.5 39.5z" fill="#4285F4"/>
+      <path d="M36.5 39.5h7a4 4 0 0 0 2.5-3.7v-21l-9.5 8.8z" fill="#34A853"/>
+      <path d="M36.5 10.5v12.8L46 14.5V12a6 6 0 0 0-9.5-4.8z" fill="#FBBC05"/>
+      <path d="M11.5 23.3V10.5L24 20.3l12.5-9.8v12.8L24 33.1z" fill="#EA4335"/>
+      <path d="M2 12v2.5l9.5 8.8V10.5L9.5 7.2A6 6 0 0 0 2 12z" fill="#C5221F"/>
+    </svg>
+  );
 }
 
 export default function QuotationsPage() {
@@ -175,173 +194,254 @@ export default function QuotationsPage() {
   };
 
   const generatePdf = (quote: Quotation) => {
-    (async () => {
-      try {
-        let client = undefined;
-        if (quote.clientId) {
-          const res = await apiFetch(`/api/clients/${quote.clientId}`);
-          if (res.ok) client = await res.json();
-        }
+    const quoteAny = quote as any;
+    const id = quoteAny._id || quoteAny.id || quote.id;
+    // Open the view page — the user prints from there exactly as seen
+    router.push(`/quotations/${id}/view`);
+  };
 
-        const doc = new jsPDF({
-          unit: "mm",
-          format: "a4",
-          orientation: "portrait",
-        });
-        try {
-          const { loadNotoSansForJsPDF } = await import("@/lib/pdf-fonts");
-          const family = await loadNotoSansForJsPDF(doc, "NotoSans");
-          if (family) {
-            try {
-              doc.setFont(family);
-            } catch (e) {}
-          }
-          const notoHref =
-            "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
-          if (typeof document !== "undefined") {
-            if (!document.querySelector(`link[href="${notoHref}"]`)) {
-              const link = document.createElement("link");
-              link.rel = "stylesheet";
-              link.href = notoHref;
-              document.head.appendChild(link);
-            }
-            try {
-              await (document as any).fonts.load('1em "Noto Sans"');
-              await (document as any).fonts.ready;
-            } catch (e) {}
-          }
-          const displayId =
-            quote.id ||
-            (quote._id
-              ? `PN-${String(
-                  quotations.findIndex((q) => q === quote) + 1,
-                ).padStart(5, "0")}`
-              : undefined);
-          const pdfBody = renderToString(
-            <QuotationPDF
-              quote={quote}
-              client={client}
-              displayId={displayId}
-            />,
-          );
-          let styledHtml: string;
-          const fontLinkTag = `<link href="${notoHref}" rel="stylesheet">`;
-          try {
-            const fres = await fetch("/fonts/NotoSans-Regular.ttf");
-            if (fres && fres.ok) {
-              const arrayBuffer = await fres.arrayBuffer();
-              const bytes = new Uint8Array(arrayBuffer);
-              let binary = "";
-              const chunkSize = 0x8000;
-              for (let i = 0; i < bytes.length; i += chunkSize) {
-                binary += String.fromCharCode.apply(
-                  null,
-                  Array.from(bytes.slice(i, i + chunkSize)) as any,
-                );
-              }
-              const base64 =
-                typeof btoa !== "undefined"
-                  ? btoa(binary)
-                  : Buffer.from(binary, "binary").toString("base64");
-              const fontDataFace = `
-                <style>
-                  @font-face {
-                    font-family: 'Noto Sans Local';
-                    src: url('data:font/truetype;base64,${base64}') format('truetype');
-                    font-weight: 400;
-                    font-style: normal;
-                    font-display: swap;
-                  }
-                  * { box-sizing: border-box; }
-                  table { border-collapse: collapse; width: 100%; }
-                  tr { page-break-inside: avoid; break-inside: avoid; }
-                  thead { display: table-header-group; }
-                  tfoot { display: table-footer-group; }
-                </style>
-              `;
+  const [sendingEmail, setSendingEmail] = useState<string | null>(null);
 
-              styledHtml = `${fontDataFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
-            } else {
-              const localFontFace = `
-                <style>
-                  @font-face {
-                    font-family: 'Noto Sans Local';
-                    src: url('/fonts/NotoSans-Regular.ttf') format('truetype');
-                    font-weight: 400;
-                    font-style: normal;
-                    font-display: swap;
-                  }
-                  @font-face {
-                    font-family: 'Noto Sans Local';
-                    src: url('/fonts/NotoSans-Bold.ttf') format('truetype');
-                    font-weight: 700;
-                    font-style: normal;
-                    font-display: swap;
-                  }
-                  * { box-sizing: border-box; }
-                  table { border-collapse: collapse; width: 100%; }
-                  tr { page-break-inside: avoid; break-inside: avoid; }
-                  thead { display: table-header-group; }
-                  tfoot { display: table-footer-group; }
-                </style>
-              `;
-              styledHtml = `${localFontFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Local','Noto Sans',${
-                family ? family : "sans-serif"
-              };">${pdfBody}</div>`;
-            }
-          } catch (e) {
-            styledHtml = `${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans',${
-              family ? family : "sans-serif"
-            };">${pdfBody}</div>`;
-          }
+  // Progress modal state
+  type WaStep = "generating" | "uploading" | "sending" | "done" | "error";
+  const [waModal, setWaModal] = useState<{ open: boolean; step: WaStep; error?: string }>({ open: false, step: "generating" });
 
-          const finalHtml = styledHtml.replace(/₹/g, "Rs.");
+  const generateQuotationPdf = async (quote: Quotation, clientData: any): Promise<{ blob: Blob; base64: string; filename: string }> => {
+    const { default: jsPDF } = await import("jspdf");
+    const { renderToString } = await import("react-dom/server");
+    const { QuotationPrintLayout } = await import("@/components/quotations/quotation-print-layout");
 
-          const pageWidth = doc.internal.pageSize.getWidth();
-          const pageHeight = doc.internal.pageSize.getHeight();
+    let settings = null;
+    try {
+      const sRes = await apiFetch("/api/settings");
+      if (sRes.ok) settings = await sRes.json();
+    } catch (_) {}
 
-          doc.html(finalHtml, {
-            callback: function (doc) {
-              doc.save(`Quotation-${quote.id}.pdf`);
-            },
-            x: 0,
-            y: 0,
-            width: pageWidth,
-            windowWidth: 794,
-            autoPaging: "text",
-            margin: [0, 0, 0, 0],
-          });
-        } catch (e) {
-          const pdfContent = renderToString(
-            <QuotationPDF quote={quote} client={client} />,
-          );
-          const finalPdfContent = String(pdfContent).replace(/₹/g, "Rs.");
-          const pageWidth = doc.internal.pageSize.getWidth();
-          doc.html(finalPdfContent, {
-            callback: function (doc) {
-              doc.save(`Quotation-${quote.id}.pdf`);
-            },
-            x: 0,
-            y: 0,
-            width: pageWidth,
-            windowWidth: 794,
-            autoPaging: "text",
-            margin: [0, 0, 0, 0],
-          });
-        }
-      } catch (e) {
-        console.error("Failed to generate PDF", e);
-        toast({ title: "Failed", description: "Could not generate PDF" });
+    const displayId = (quote as any).quoteId || quote.id || `PN-${Date.now()}`;
+    const html = renderToString(
+      React.createElement(QuotationPrintLayout, { quotation: { ...(quote as any), quoteId: displayId }, client: clientData, settings })
+    ).replace(/₹/g, "Rs.");
+
+    const origin = typeof window !== "undefined" ? window.location.origin : "";
+    const styledHtml = `<base href="${origin}/"><style>*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0}table{border-collapse:collapse;width:100%}</style><div style="width:794px">${html}</div>`;
+
+    const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait", compress: true });
+    await new Promise<void>((resolve) => {
+      (doc as any).html(styledHtml, {
+        callback: () => resolve(),
+        x: 0, y: 0,
+        width: 210,
+        windowWidth: 794,
+        html2canvas: { scale: 0.45, useCORS: true, allowTaint: true, logging: false, imageTimeout: 0 },
+        image: { type: "jpeg", quality: 0.7 },
+      });
+    });
+
+    const blob = doc.output("blob");
+    const base64 = doc.output("datauristring").split(",")[1];
+    const safeTitle = ((quote as any).title || "Quotation").replace(/[^a-zA-Z0-9-_]/g, "-");
+    const filename = `${displayId}-${safeTitle}.pdf`;
+    return { blob, base64, filename };
+  };
+
+  const sendWhatsApp = async (quote: Quotation) => {
+    const client = clientsMap[String(quote.clientId)];
+    const phone = client?.phone || client?.whatsapp;
+    if (!phone) {
+      toast({ title: "No phone number", description: "This client has no phone number saved." });
+      return;
+    }
+
+    setWaModal({ open: true, step: "generating" });
+    try {
+      const clientName = client?.businessName || client?.name || (quote as any).clientName || "Client";
+      const grandTotal = (quote.services || []).reduce((s: number, sv: any) => s + (Number(sv.price || 0) * Number(sv.qty || 1)), 0);
+
+      // Step 1 — generate PDF (native jsPDF, no canvas, tiny file)
+      const { blob, filename } = await generateQuotationPdf(quote, client);
+
+      // Step 2 — upload to WhatsApp media
+      setWaModal({ open: true, step: "uploading" });
+      const form = new FormData();
+      form.append("file", new Blob([blob], { type: "application/pdf" }), filename);
+      const uploadRes = await apiFetch("/api/upload-whatsapp-media", { method: "POST", body: form });
+      if (!uploadRes.ok) {
+        const err = await uploadRes.json().catch(() => ({}));
+        throw new Error((err as any)?.error || "Failed to upload PDF to WhatsApp");
       }
-    })();
+      const { mediaId } = await uploadRes.json();
+      if (!mediaId) throw new Error("No media_id returned from upload");
+
+      // Step 3 — send via template
+      setWaModal({ open: true, step: "sending" });
+      const rawDigits = phone.replace(/\D/g, "");
+      const normalizedPhone = phone.trim().startsWith("+")
+        ? rawDigits
+        : rawDigits.length === 10
+          ? "91" + rawDigits
+          : rawDigits;
+      const res = await apiFetch("/api/send-invoice-whatsapp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          phone: normalizedPhone,
+          clientName,
+          invNo: (quote as any).quoteId || quote.id || "QUOTE",
+          amount: `Rs.${grandTotal.toLocaleString("en-IN")}`,
+          filename,
+          mediaId,
+          templateName: process.env.NEXT_PUBLIC_QUOTATION_WA_TEMPLATE || "quotation_send",
+          extraBodyParams: [
+            { type: "text", parameter_name: "project_title", text: (quote as any).title || "Project Quotation" },
+          ],
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "WhatsApp send failed");
+
+      setWaModal({ open: true, step: "done" });
+    } catch (e: any) {
+      setWaModal({ open: true, step: "error", error: e.message || "Could not send WhatsApp message." });
+    }
+  };
+
+  const sendEmail = async (quote: Quotation) => {
+    const quoteId = String((quote as any)._id || (quote as any).id || "");
+    const client = clientsMap[String(quote.clientId)];
+    const to = client?.email || (quote as any).clientEmail;
+    if (!to) {
+      toast({ title: "No email", description: "This client has no email address saved." });
+      return;
+    }
+    setSendingEmail(quoteId);
+    try {
+      // Generate PDF first
+      const { base64, filename } = await generateQuotationPdf(quote, client);
+
+      const settingsRes = await apiFetch("/api/settings");
+      const settings = settingsRes.ok ? await settingsRes.json() : {};
+
+      const res = await apiFetch("/api/send-quotation-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to,
+          pdfBase64: base64,
+          pdfFilename: filename,
+          clientName: client?.businessName || client?.name || (quote as any).clientName || "Client",
+          agencyName: settings?.name,
+          agencyPhone: settings?.phone,
+          agencyEmail: settings?.email,
+          agencyWebsite: settings?.website,
+          quotation: {
+            quoteId: (quote as any).quoteId || quote.id,
+            title: (quote as any).title,
+            date: (quote as any).date,
+            services: quote.services,
+            timeline: (quote as any).timeline,
+            paymentTerms: (quote as any).paymentTerms,
+            notes: (quote as any).notes,
+          },
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "Failed");
+      toast({ title: "Email Sent", description: `Quotation PDF emailed to ${to}.` });
+    } catch (e: any) {
+      toast({ title: "Email Failed", description: e.message || "Could not send email." });
+    } finally {
+      setSendingEmail(null);
+    }
   };
 
   const getAuthorName = (authorId: number | undefined) => {
     return "Unknown";
   };
 
+  const WA_STEPS: { key: WaStep; label: string }[] = [
+    { key: "generating", label: "Generating PDF" },
+    { key: "uploading",  label: "Uploading to WhatsApp" },
+    { key: "sending",    label: "Sending message" },
+    { key: "done",       label: "Sent successfully!" },
+  ];
+  const waStepIndex = WA_STEPS.findIndex(s => s.key === waModal.step);
+
   return (
     <div className="space-y-8 font-headline">
+
+      {/* ── WhatsApp Progress Modal ── */}
+      {waModal.open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="bg-white border-[3px] border-black shadow-[6px_6px_0px_#111] w-full max-w-sm mx-4 p-7">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="24" fill="#25D366"/>
+                  <path d="M34.5 13.4C32 10.9 28.7 9.5 25.2 9.5c-7.3 0-13.2 5.9-13.2 13.2 0 2.3.6 4.6 1.8 6.6L12 38.5l9.4-2.5c1.9 1 4 1.6 6.2 1.6h.1c7.3 0 13.2-5.9 13.2-13.2-.1-3.5-1.5-6.8-4.4-9z" fill="white"/>
+                </svg>
+                <span className="font-black text-[15px] uppercase tracking-wide">Sending via WhatsApp</span>
+              </div>
+              {(waModal.step === "done" || waModal.step === "error") && (
+                <button onClick={() => setWaModal({ open: false, step: "generating" })} className="text-gray-400 hover:text-black transition-colors">
+                  <X size={18} />
+                </button>
+              )}
+            </div>
+
+            <div className="space-y-3">
+              {WA_STEPS.slice(0, 3).map((s, i) => {
+                const isDone = waModal.step === "error" ? false : (waStepIndex > i || waModal.step === "done");
+                const isActive = waModal.step === s.key;
+                const isError = waModal.step === "error" && waStepIndex === i;
+                return (
+                  <div key={s.key} className="flex items-center gap-3">
+                    <div className={`w-7 h-7 border-[2px] flex items-center justify-center flex-shrink-0 ${
+                      isDone ? "border-black bg-black" :
+                      isError ? "border-red-600 bg-red-600" :
+                      isActive ? "border-black" : "border-gray-300"
+                    }`}>
+                      {isDone && <Check size={14} className="text-white" strokeWidth={3} />}
+                      {isError && <X size={14} className="text-white" strokeWidth={3} />}
+                      {isActive && !isError && <Loader2 size={14} className="text-black animate-spin" />}
+                    </div>
+                    <span className={`text-sm font-bold uppercase tracking-wide ${
+                      isDone ? "text-black" :
+                      isError ? "text-red-600" :
+                      isActive ? "text-black" : "text-gray-400"
+                    }`}>{s.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {waModal.step === "done" && (
+              <div className="mt-5 border-t-[2px] border-black pt-4 flex items-center gap-2">
+                <div className="w-7 h-7 border-[2px] border-black bg-black flex items-center justify-center">
+                  <Check size={14} className="text-white" strokeWidth={3} />
+                </div>
+                <span className="text-sm font-black uppercase tracking-wide text-black">Sent successfully!</span>
+              </div>
+            )}
+
+            {waModal.step === "error" && (
+              <div className="mt-5 border-t-[2px] border-red-600 pt-4">
+                <p className="text-xs font-bold text-red-600 uppercase tracking-wide mb-1">Error</p>
+                <p className="text-sm text-red-700">{waModal.error}</p>
+              </div>
+            )}
+
+            {(waModal.step === "done" || waModal.step === "error") && (
+              <button
+                onClick={() => setWaModal({ open: false, step: "generating" })}
+                className="mt-5 w-full bg-black text-white text-xs font-black uppercase tracking-widest py-2.5 hover:bg-gray-800 transition-colors"
+              >
+                Close
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
       <header className="flex items-center justify-between gap-4">
         <div>
           <h1 className="text-5xl font-black tracking-tighter">QUOTATIONS</h1>
@@ -641,6 +741,36 @@ export default function QuotationsPage() {
                           >
                             View
                           </Button>
+
+                          {!isClient && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="h-8 w-8 p-0 border-[#25D366] hover:bg-[#f0fff4] disabled:opacity-50"
+                              title="Send quotation via WhatsApp"
+                              disabled={waModal.open && waModal.step !== "done" && waModal.step !== "error"}
+                              onClick={() => sendWhatsApp(quote)}
+                            >
+                              <WhatsAppLogo size={16} />
+                            </Button>
+                          )}
+
+                          {!isClient && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="h-8 w-8 p-0 border-gray-300 hover:bg-gray-50 disabled:opacity-50"
+                              title="Send quotation via Email"
+                              disabled={sendingEmail === String((quote as any)._id || (quote as any).id)}
+                              onClick={() => sendEmail(quote)}
+                            >
+                              {sendingEmail === String((quote as any)._id || (quote as any).id) ? (
+                                <div className="w-3 h-3 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+                              ) : (
+                                <GmailLogo size={16} />
+                              )}
+                            </Button>
+                          )}
 
                           {!isClient && quote.status === "APPROVED" && (
                             <Button

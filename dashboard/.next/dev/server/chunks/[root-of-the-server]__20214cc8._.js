@@ -1128,16 +1128,20 @@ async function GET(request) {
     const auth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$require$2d$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["requireAuth"])(request);
     if (auth.error) return auth.error;
     try {
-        const col = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("projects");
-        const items = await col.find().toArray();
-        const clientCol = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("clients");
-        const usersCol = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("users");
-        const clients = await clientCol.find().toArray();
-        const teamMembers = await usersCol.find({
-            jobRole: {
-                $exists: true
-            }
-        }).toArray();
+        const [col, clientCol, usersCol] = await Promise.all([
+            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("projects"),
+            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("clients"),
+            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("users")
+        ]);
+        const [items, clients, teamMembers] = await Promise.all([
+            col.find().toArray(),
+            clientCol.find().toArray(),
+            usersCol.find({
+                jobRole: {
+                    $exists: true
+                }
+            }).toArray()
+        ]);
         const enrichedItems = items.map((project)=>{
             let enriched = {
                 ...project
@@ -1168,7 +1172,11 @@ async function GET(request) {
             }
             return enriched;
         });
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(enrichedItems);
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(enrichedItems, {
+            headers: {
+                "Cache-Control": "private, max-age=30, stale-while-revalidate=60"
+            }
+        });
     } catch (e) {
         console.error("GET /api/projects error:", e);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({

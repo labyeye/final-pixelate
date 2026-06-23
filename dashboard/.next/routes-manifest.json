@@ -37,6 +37,14 @@
       "namedRegex": "^/api/blogs/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/brand-guides/[id]",
+      "regex": "^/api/brand\\-guides/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/brand\\-guides/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/careers/[id]",
       "regex": "^/api/careers/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -413,6 +421,12 @@
       "namedRegex": "^/api/blogs(?:/)?$"
     },
     {
+      "page": "/api/brand-guides",
+      "regex": "^/api/brand\\-guides(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/brand\\-guides(?:/)?$"
+    },
+    {
       "page": "/api/careers",
       "regex": "^/api/careers(?:/)?$",
       "routeKeys": {},
@@ -575,6 +589,12 @@
       "namedRegex": "^/api/onboarding(?:/)?$"
     },
     {
+      "page": "/api/parse-brand-guide-pdf",
+      "regex": "^/api/parse\\-brand\\-guide\\-pdf(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/parse\\-brand\\-guide\\-pdf(?:/)?$"
+    },
+    {
       "page": "/api/payments",
       "regex": "^/api/payments(?:/)?$",
       "routeKeys": {},
@@ -635,6 +655,18 @@
       "namedRegex": "^/api/reviews(?:/)?$"
     },
     {
+      "page": "/api/send-brand-guide-email",
+      "regex": "^/api/send\\-brand\\-guide\\-email(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-brand\\-guide\\-email(?:/)?$"
+    },
+    {
+      "page": "/api/send-brand-guide-whatsapp",
+      "regex": "^/api/send\\-brand\\-guide\\-whatsapp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-brand\\-guide\\-whatsapp(?:/)?$"
+    },
+    {
       "page": "/api/send-email",
       "regex": "^/api/send\\-email(?:/)?$",
       "routeKeys": {},
@@ -657,6 +689,18 @@
       "regex": "^/api/send\\-payment\\-receipt\\-whatsapp(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/send\\-payment\\-receipt\\-whatsapp(?:/)?$"
+    },
+    {
+      "page": "/api/send-quotation-email",
+      "regex": "^/api/send\\-quotation\\-email(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-quotation\\-email(?:/)?$"
+    },
+    {
+      "page": "/api/send-quotation-whatsapp",
+      "regex": "^/api/send\\-quotation\\-whatsapp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-quotation\\-whatsapp(?:/)?$"
     },
     {
       "page": "/api/services",
@@ -831,6 +875,12 @@
       "regex": "^/blogs(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/blogs(?:/)?$"
+    },
+    {
+      "page": "/brand-guide",
+      "regex": "^/brand\\-guide(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/brand\\-guide(?:/)?$"
     },
     {
       "page": "/careers",

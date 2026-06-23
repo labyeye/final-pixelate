@@ -1,0 +1,3 @@
+{
+  "/api/parse-brand-guide-pdf/route": "app/api/parse-brand-guide-pdf/route.js"
+}

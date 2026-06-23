@@ -168,8 +168,13 @@ async function GET(request) {
                 revalidate: 60
             }
         });
+        const contentType = res.headers.get("content-type") ?? "";
+        if (!contentType.includes("application/json")) {
+            const text = await res.text();
+            throw new Error(`NestHR returned non-JSON response (${res.status}): ${text.slice(0, 200)}`);
+        }
         const data = await res.json();
-        if (!res.ok) throw new Error(data?.message ?? "NestHR stats fetch failed");
+        if (!res.ok) throw new Error(data?.message ?? `NestHR stats fetch failed (${res.status})`);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(data);
     } catch (e) {
         console.error("NestHR stats error:", e);

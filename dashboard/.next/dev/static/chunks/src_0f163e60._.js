@@ -2970,33 +2970,28 @@ function DashboardPage() {
             let mounted = true;
             async function load() {
                 try {
-                    const [projectsRes, invoicesRes, leadsRes, quotationsRes, expensesRes, teamMembersRes, tasksRes] = await Promise.all([
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/projects"),
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/invoices"),
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/leads"),
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/quotations"),
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/expenses"),
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/users"),
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/tasks")
-                    ]);
-                    const [projectsData, invoicesData, leadsData, quotationsData, expensesData, teamMembersData, tasksData] = await Promise.all([
-                        projectsRes.json(),
-                        invoicesRes.json(),
-                        leadsRes.json(),
-                        quotationsRes.json(),
-                        expensesRes.json(),
-                        teamMembersRes.json(),
-                        tasksRes.json()
-                    ]);
-                    if (!mounted) return;
-                    setProjects(Array.isArray(projectsData) ? projectsData : []);
-                    setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
-                    setExpenses(Array.isArray(expensesData) ? expensesData : []);
-                    setLeads(Array.isArray(leadsData) ? leadsData : []);
-                    setQuotations(Array.isArray(quotationsData) ? quotationsData : []);
-                    setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
-                    setTasks(Array.isArray(tasksData) ? tasksData : []);
-                    const [clientsList, nesthrRes] = await Promise.all([
+                    const [projectsData, invoicesData, leadsData, quotationsData, expensesData, teamMembersData, tasksData, clientsList, nesthrRes] = await Promise.all([
+                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/projects").then({
+                            "DashboardPage.useEffect.load": (r)=>r.json()
+                        }["DashboardPage.useEffect.load"]),
+                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/invoices").then({
+                            "DashboardPage.useEffect.load": (r)=>r.json()
+                        }["DashboardPage.useEffect.load"]),
+                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/leads").then({
+                            "DashboardPage.useEffect.load": (r)=>r.json()
+                        }["DashboardPage.useEffect.load"]),
+                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/quotations").then({
+                            "DashboardPage.useEffect.load": (r)=>r.json()
+                        }["DashboardPage.useEffect.load"]),
+                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/expenses").then({
+                            "DashboardPage.useEffect.load": (r)=>r.json()
+                        }["DashboardPage.useEffect.load"]),
+                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/users").then({
+                            "DashboardPage.useEffect.load": (r)=>r.json()
+                        }["DashboardPage.useEffect.load"]),
+                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/tasks").then({
+                            "DashboardPage.useEffect.load": (r)=>r.json()
+                        }["DashboardPage.useEffect.load"]),
                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/clients").then({
                             "DashboardPage.useEffect.load": (r)=>r.json()
                         }["DashboardPage.useEffect.load"]),
@@ -3007,6 +3002,13 @@ function DashboardPage() {
                         }["DashboardPage.useEffect.load"])
                     ]);
                     if (!mounted) return;
+                    setProjects(Array.isArray(projectsData) ? projectsData : []);
+                    setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
+                    setExpenses(Array.isArray(expensesData) ? expensesData : []);
+                    setLeads(Array.isArray(leadsData) ? leadsData : []);
+                    setQuotations(Array.isArray(quotationsData) ? quotationsData : []);
+                    setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
+                    setTasks(Array.isArray(tasksData) ? tasksData : []);
                     if (nesthrRes?.success) setNesthrStats(nesthrRes.data);
                     setClients(clientsList || []);
                     const totalRevenue = (invoicesData || []).reduce({
@@ -3126,7 +3128,7 @@ function DashboardPage() {
             clients: clients
         }, void 0, false, {
             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-            lineNumber: 1271,
+            lineNumber: 1250,
             columnNumber: 7
         }, this);
     }
@@ -3140,7 +3142,7 @@ function DashboardPage() {
                         children: "DASHBOARD"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1283,
+                        lineNumber: 1262,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3148,13 +3150,13 @@ function DashboardPage() {
                         children: "Real-time pulse of your agency."
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1284,
+                        lineNumber: 1263,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 1282,
+                lineNumber: 1261,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
@@ -3214,13 +3216,13 @@ function DashboardPage() {
                                     iconVariant: i % 2 === 0 ? "primary" : "secondary"
                                 }, stat.name, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1310,
+                                    lineNumber: 1289,
                                     columnNumber: 17
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1291,
+                            lineNumber: 1270,
                             columnNumber: 11
                         }, this),
                         nesthrStats && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3231,7 +3233,7 @@ function DashboardPage() {
                                     children: "NESTHR — SAAS OVERVIEW"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1328,
+                                    lineNumber: 1307,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3269,18 +3271,18 @@ function DashboardPage() {
                                             iconVariant: i % 2 === 0 ? "primary" : "secondary"
                                         }, label, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1338,
+                                            lineNumber: 1317,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1331,
+                                    lineNumber: 1310,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1327,
+                            lineNumber: 1306,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$dashboard$2f$trends$2d$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TrendsSection"], {
@@ -3288,7 +3290,7 @@ function DashboardPage() {
                             clients: clients
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1344,
+                            lineNumber: 1323,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$dashboard$2f$team$2d$members$2d$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TeamMembersSection"], {
@@ -3296,7 +3298,7 @@ function DashboardPage() {
                             projects: projects
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1345,
+                            lineNumber: 1324,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3312,20 +3314,20 @@ function DashboardPage() {
                                                     children: "Recent Invoices"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1350,
+                                                    lineNumber: 1329,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
                                                     children: "A quick look at the latest billing activity."
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1353,
+                                                    lineNumber: 1332,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1349,
+                                            lineNumber: 1328,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -3338,21 +3340,21 @@ function DashboardPage() {
                                                                     children: "Invoice ID"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1361,
+                                                                    lineNumber: 1340,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                                     children: "Client"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1362,
+                                                                    lineNumber: 1341,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                                     children: "Amount"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1363,
+                                                                    lineNumber: 1342,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -3360,18 +3362,18 @@ function DashboardPage() {
                                                                     children: "Status"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1364,
+                                                                    lineNumber: 1343,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 1360,
+                                                            lineNumber: 1339,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 1359,
+                                                        lineNumber: 1338,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -3382,14 +3384,14 @@ function DashboardPage() {
                                                                         children: invoice.id ?? invoice._id
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1370,
+                                                                        lineNumber: 1349,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                         children: invoice.clientName || invoice.client || clients.find((c)=>String(c.id ?? c._id) === String(invoice.clientId))?.name || "-"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1373,
+                                                                        lineNumber: 1352,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3399,7 +3401,7 @@ function DashboardPage() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1383,
+                                                                        lineNumber: 1362,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3407,35 +3409,35 @@ function DashboardPage() {
                                                                         children: invoice.status
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1386,
+                                                                        lineNumber: 1365,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, invoice.id ?? invoice._id, true, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 1369,
+                                                                lineNumber: 1348,
                                                                 columnNumber: 23
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 1367,
+                                                        lineNumber: 1346,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 1358,
+                                                lineNumber: 1337,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1357,
+                                            lineNumber: 1336,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1348,
+                                    lineNumber: 1327,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3448,20 +3450,20 @@ function DashboardPage() {
                                                     children: "Leads Pipeline"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1397,
+                                                    lineNumber: 1376,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
                                                     children: "Current status of all leads."
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1400,
+                                                    lineNumber: 1379,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1396,
+                                            lineNumber: 1375,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -3474,7 +3476,7 @@ function DashboardPage() {
                                                             children: status
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 1408,
+                                                            lineNumber: 1387,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3484,52 +3486,52 @@ function DashboardPage() {
                                                                 duration: 700
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 1412,
+                                                                lineNumber: 1391,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 1411,
+                                                            lineNumber: 1390,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, status, true, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1404,
+                                                    lineNumber: 1383,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1402,
+                                            lineNumber: 1381,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1395,
+                                    lineNumber: 1374,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1347,
+                            lineNumber: 1326,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                    lineNumber: 1290,
+                    lineNumber: 1269,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 1289,
+                lineNumber: 1268,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 1281,
+        lineNumber: 1260,
         columnNumber: 5
     }, this);
 }

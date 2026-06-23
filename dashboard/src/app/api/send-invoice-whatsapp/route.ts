@@ -25,6 +25,7 @@ interface SendInvoiceBody {
   invoiceId?: string;
   templateName?: string;
   templateLang?: string;
+  extraBodyParams?: Array<{ type: string; parameter_name: string; text: string }>;
 }
 
 interface WhatsAppErrorDetail {
@@ -141,6 +142,7 @@ export async function POST(req: NextRequest) {
     invoiceId,
     templateName: bodyTemplateName,
     templateLang: bodyTemplateLang,
+    extraBodyParams,
   } = body;
   if (clientId) {
     try {
@@ -330,6 +332,7 @@ export async function POST(req: NextRequest) {
               parameter_name: "amount",
               text: `${String(amount)} incl GST`,
             },
+            ...(Array.isArray(extraBodyParams) ? extraBodyParams : []),
           ],
         },
       ],

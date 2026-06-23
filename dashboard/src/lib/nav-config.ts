@@ -30,6 +30,7 @@ import {
   Rocket,
   MessageCircle,
   Building2,
+  Palette,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -214,6 +215,12 @@ export const navGroups = [
         label: "NDA Approval",
         adminOnly: false,
         icon: Lock,
+      },
+      {
+        href: "/brand-guide",
+        label: "Brand Guide",
+        adminOnly: false,
+        icon: Palette,
       },
     ],
   },
