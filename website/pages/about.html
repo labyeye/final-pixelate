@@ -2506,9 +2506,7 @@
             budget: formData.get("budget"),
           };
           var API_BASE =
-            window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
-              ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
-              : "";
+            "https://backend.pixelatenest.com" || "";
           fetch((API_BASE || "") + "/api/enquiries", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
