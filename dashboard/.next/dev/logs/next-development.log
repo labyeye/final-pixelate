@@ -1,12 +1,2 @@
-[00:00:01.665] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.914] Server  LOG      ✓ Ready in 1381ms
-[00:00:04.830] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:37.282] Server  LOG      ✓ Compiled in 207ms
-[00:01:16.237] Server  ERROR   [whatsapp/send-template] API error: "{\n  \"error\": {\n    \"message\": \"(#132000) Number of parameters does not match the expected number of params\",\n    \"code\": 132000,\n    \"type\": \"OAuthException\",\n    \"error_data\": {\n      \"messaging_product\": \"whatsapp\",\n      \"details\": \"body: number of localizable_params (0) does not match the expected number of params (1)\"\n    },\n    \"fbtrace_id\": \"AFB5guS_zn6SaBOCj1fsPwg\"\n  }\n}"
-[00:01:59.355] Server  LOG      ✓ Compiled in 184ms
-[00:02:07.252] Server  LOG      ✓ Compiled in 171ms
-[00:02:18.621] Server  LOG      ✓ Compiled in 168ms
-[00:02:30.118] Server  LOG      ✓ Compiled in 175ms
-[00:02:43.421] Server  LOG      ✓ Compiled in 171ms
-[00:04:46.902] Server  INFO    [whatsapp/send-template] Sent "payment_details" to 919234112345, wamid: wamid.HBgMOTE5MjM0MTEyMzQ1FQIAERgSNDA0OEFDNUNFN0YwM0E4NTgwAA==
-[00:05:08.948] Server  INFO    [whatsapp/send-template] Sent "payment_details" to 60182010378, wamid: wamid.HBgLNjAxODIwMTAzNzgVAgARGBI1N0FCOTYxMEIzRjhFNjU2RjUA
+[00:00:02.332] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:02.621] Server  LOG      ✓ Ready in 1930ms

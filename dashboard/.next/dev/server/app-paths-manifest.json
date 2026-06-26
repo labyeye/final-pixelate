@@ -1,8 +1,1 @@
-{
-  "/(crm)/dashboard/whatsapp-send/page": "app/(crm)/dashboard/whatsapp-send/page.js",
-  "/api/clients/route": "app/api/clients/route.js",
-  "/api/settings/client-sidebar/route": "app/api/settings/client-sidebar/route.js",
-  "/api/users/route": "app/api/users/route.js",
-  "/api/whatsapp-templates/route": "app/api/whatsapp-templates/route.js",
-  "/api/whatsapp/send-template/route": "app/api/whatsapp/send-template/route.js"
-}
+{}

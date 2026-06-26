@@ -47,10 +47,37 @@ export async function POST(request: NextRequest) {
     const ticketData = await request.json();
     const col = await svc.getCollection("supportTickets");
     const res = await col.insertOne({ ...ticketData, createdAt: new Date() });
-    return NextResponse.json(
-      { ...ticketData, _id: res.insertedId },
-      { status: 201 },
-    );
+    const inserted = { ...ticketData, _id: res.insertedId };
+
+    // Fire-and-forget webhook to HRMS
+    const nesthrBase = process.env.NESTHR_BACKEND_URL;
+    const apiSecret = process.env.NESTHR_STATS_SECRET;
+    if (nesthrBase && apiSecret) {
+      fetch(`${nesthrBase}/api/hrms/support-tickets`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": apiSecret,
+        },
+        body: JSON.stringify({
+          hrmsTicketId: res.insertedId.toString(),
+          ticketNumber: ticketData.ticketNumber || null,
+          companyName: ticketData.client || null,
+          submittedBy: ticketData.submittedBy || null,
+          subject: ticketData.title,
+          issueType: ticketData.category || null,
+          issueTypeLabel: ticketData.category || null,
+          priority: ticketData.priority || "medium",
+          description: ticketData.description,
+          status: ticketData.status || "new",
+          createdAt: new Date().toISOString(),
+        }),
+      }).catch((err) =>
+        console.error("CRM → HRMS support webhook failed:", err)
+      );
+    }
+
+    return NextResponse.json(inserted, { status: 201 });
   } catch (error: any) {
     console.error("Error creating support ticket:", error);
     return NextResponse.json(

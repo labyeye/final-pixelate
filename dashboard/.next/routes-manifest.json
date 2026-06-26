@@ -229,6 +229,14 @@
       "namedRegex": "^/api/social\\-media\\-tasks/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/support/[hrmsTicketId]/status",
+      "regex": "^/api/support/([^/]+?)/status(?:/)?$",
+      "routeKeys": {
+        "nxtPhrmsTicketId": "nxtPhrmsTicketId"
+      },
+      "namedRegex": "^/api/support/(?<nxtPhrmsTicketId>[^/]+?)/status(?:/)?$"
+    },
+    {
       "page": "/api/support-tickets/[id]",
       "regex": "^/api/support\\-tickets/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -523,6 +531,12 @@
       "regex": "^/api/generate\\-quotation\\-pdf(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/generate\\-quotation\\-pdf(?:/)?$"
+    },
+    {
+      "page": "/api/hrms/support-tickets",
+      "regex": "^/api/hrms/support\\-tickets(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/hrms/support\\-tickets(?:/)?$"
     },
     {
       "page": "/api/hrms-offers",
