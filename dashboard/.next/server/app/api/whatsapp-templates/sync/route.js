@@ -1,6 +1,6 @@
 var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/whatsapp-templates/sync/route.js")
-R.c("server/chunks/[root-of-the-server]__415aabe2._.js")
-R.c("server/chunks/[root-of-the-server]__e7faf961._.js")
-R.c("server/chunks/_next-internal_server_app_api_whatsapp-templates_sync_route_actions_d7e7051e.js")
-R.m(122046)
-module.exports=R.m(122046).exports
+R.c("server/chunks/[root-of-the-server]__41ba781d._.js")
+R.c("server/chunks/[root-of-the-server]__9f86b0ac._.js")
+R.c("server/chunks/333bf__next-internal_server_app_api_whatsapp-templates_sync_route_actions_994f16c0.js")
+R.m(802595)
+module.exports=R.m(802595).exports
