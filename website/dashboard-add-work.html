@@ -1,813 +1,1674 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Add New Project — Pixelate Nest Admin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="stylesheet" href="dashboard.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1920093578545260');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Add New Project — Pixelate Nest Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "1920093578545260");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+  </head>
+  <body>
+    <!-- ── Top Bar ── -->
+    <header class="dash-topbar">
+      <a href="#" class="dash-topbar-brand">
+        <i class="fas fa-layer-group"></i>
+        Pixelate<span>Nest</span> Admin
+      </a>
+      <div class="dash-topbar-right">
+        <a href="#"
+          ><i class="fas fa-grid-2" style="margin-right: 4px"></i> Dashboard</a
+        >
+        <a href="#"
+          ><i class="fas fa-folder-open" style="margin-right: 4px"></i> Work
+          Gallery</a
+        >
+        <a href="#" style="color: #ef4444"
+          ><i class="fas fa-sign-out-alt" style="margin-right: 4px"></i>
+          Logout</a
+        >
+      </div>
+    </header>
 
-<!-- ── Top Bar ── -->
-<header class="dash-topbar">
-  <a href="#" class="dash-topbar-brand">
-    <i class="fas fa-layer-group"></i>
-    Pixelate<span>Nest</span> Admin
-  </a>
-  <div class="dash-topbar-right">
-    <a href="#"><i class="fas fa-grid-2" style="margin-right:4px"></i> Dashboard</a>
-    <a href="#"><i class="fas fa-folder-open" style="margin-right:4px"></i> Work Gallery</a>
-    <a href="#" style="color:#ef4444"><i class="fas fa-sign-out-alt" style="margin-right:4px"></i> Logout</a>
-  </div>
-</header>
+    <div class="dash-page">
+      <div class="dash-page-header">
+        <h1>
+          <i
+            class="fas fa-plus-circle"
+            style="font-size: 22px; margin-right: 10px; color: #f97316"
+          ></i
+          >Add New Project
+        </h1>
+        <p>
+          Fill in the details below. Dynamic fields will appear based on the
+          Project Type you select.
+        </p>
+      </div>
 
-<div class="dash-page">
-  <div class="dash-page-header">
-    <h1><i class="fas fa-plus-circle" style="font-size:22px;margin-right:10px;color:#f97316"></i>Add New Project</h1>
-    <p>Fill in the details below. Dynamic fields will appear based on the Project Type you select.</p>
-  </div>
-
-  <form id="addWorkForm" novalidate>
-    <!-- ════════════════════════════════════════════════
+      <form id="addWorkForm" novalidate>
+        <!-- ════════════════════════════════════════════════
          BASE FIELDS — always visible
          ════════════════════════════════════════════════ -->
-    <div class="dash-card">
-      <p class="form-section-title">Project Information</p>
-      <div class="form-grid-2" style="margin-bottom:16px">
-        <div class="form-field">
-          <label class="form-label" for="project_title">Project Title <span class="req">*</span></label>
-          <input class="form-input" type="text" id="project_title" name="project_title" placeholder="e.g. Flaunt By Nishi" autocomplete="off" />
-          <span class="field-error">Please enter a project title.</span>
+        <div class="dash-card">
+          <p class="form-section-title">Project Information</p>
+          <div class="form-grid-2" style="margin-bottom: 16px">
+            <div class="form-field">
+              <label class="form-label" for="project_title"
+                >Project Title <span class="req">*</span></label
+              >
+              <input
+                class="form-input"
+                type="text"
+                id="project_title"
+                name="project_title"
+                placeholder="e.g. Flaunt By Nishi"
+                autocomplete="off"
+              />
+              <span class="field-error">Please enter a project title.</span>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="project_type"
+                >Project Type <span class="req">*</span></label
+              >
+              <select class="form-select" id="project_type" name="project_type">
+                <option value="" disabled selected>Select type…</option>
+                <option value="web_development">Web Development</option>
+                <option value="app_development">App Development</option>
+                <option value="software_development">
+                  Software Development
+                </option>
+                <option value="video_editing">Video Editing</option>
+                <option value="digital_marketing">Digital Marketing</option>
+                <option value="uiux_design">UI/UX Design</option>
+                <option value="branding">Branding</option>
+              </select>
+              <span class="field-error">Please select a project type.</span>
+            </div>
+          </div>
+          <div class="form-grid-3" style="margin-bottom: 16px">
+            <div class="form-field">
+              <label class="form-label" for="client_name"
+                >Client Name <span class="req">*</span></label
+              >
+              <input
+                class="form-input"
+                type="text"
+                id="client_name"
+                name="client_name"
+                placeholder="e.g. Nishi Sharma"
+              />
+              <span class="field-error">Please enter the client name.</span>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="year"
+                >Year <span class="req">*</span></label
+              >
+              <input
+                class="form-input"
+                type="number"
+                id="year"
+                name="year"
+                placeholder="2024"
+                min="2015"
+                max="2035"
+              />
+              <span class="field-error">Please enter the year.</span>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="location">Location / City</label>
+              <input
+                class="form-input"
+                type="text"
+                id="location"
+                name="location"
+                placeholder="e.g. Surat, Gujarat"
+              />
+            </div>
+          </div>
+          <div class="form-field" style="margin-bottom: 16px">
+            <label class="form-label" for="short_description"
+              >Short Description <span class="req">*</span>
+              <span class="form-hint">(max 200 chars)</span></label
+            >
+            <div class="char-counter-wrap">
+              <textarea
+                class="form-textarea"
+                id="short_description"
+                name="short_description"
+                rows="3"
+                maxlength="200"
+                placeholder="A brief summary shown on the portfolio card…"
+              ></textarea>
+              <span class="char-counter-badge" id="short_desc_counter"
+                >200/200</span
+              >
+            </div>
+            <span class="field-error">Please add a short description.</span>
+          </div>
+          <div class="form-grid-2" style="margin-bottom: 16px">
+            <div class="form-field">
+              <label class="form-label" for="live_url"
+                >Live URL / Visit Link</label
+              >
+              <input
+                class="form-input"
+                type="url"
+                id="live_url"
+                name="live_url"
+                placeholder="https://example.com"
+              />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="status">Status</label>
+              <select class="form-select" id="status" name="status">
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+                <option value="archived">Archived</option>
+              </select>
+            </div>
+          </div>
+          <!-- Hero / Thumbnail Image -->
+          <div class="form-field">
+            <label class="form-label">Hero / Thumbnail Image</label>
+            <div class="file-drop-zone" data-single-upload="hero_preview">
+              <input type="file" name="hero_image" accept="image/*" />
+              <div class="drop-icon">🖼️</div>
+              <p><strong>Click to upload</strong> or drag &amp; drop</p>
+              <p style="font-size: 11px; margin-top: 4px">
+                PNG, JPG, WEBP — Max 5 MB
+              </p>
+            </div>
+            <div class="single-image-preview" id="hero_preview">
+              <img src="" alt="Hero preview" />
+              <button
+                type="button"
+                class="remove-preview"
+                aria-label="Remove image"
+              >
+                ×
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="form-field">
-          <label class="form-label" for="project_type">Project Type <span class="req">*</span></label>
-          <select class="form-select" id="project_type" name="project_type">
-            <option value="" disabled selected>Select type…</option>
-            <option value="web_development">Web Development</option>
-            <option value="app_development">App Development</option>
-            <option value="software_development">Software Development</option>
-            <option value="video_editing">Video Editing</option>
-            <option value="digital_marketing">Digital Marketing</option>
-            <option value="uiux_design">UI/UX Design</option>
-            <option value="branding">Branding</option>
-          </select>
-          <span class="field-error">Please select a project type.</span>
-        </div>
-      </div>
-      <div class="form-grid-3" style="margin-bottom:16px">
-        <div class="form-field">
-          <label class="form-label" for="client_name">Client Name <span class="req">*</span></label>
-          <input class="form-input" type="text" id="client_name" name="client_name" placeholder="e.g. Nishi Sharma" />
-          <span class="field-error">Please enter the client name.</span>
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="year">Year <span class="req">*</span></label>
-          <input class="form-input" type="number" id="year" name="year" placeholder="2024" min="2015" max="2035" />
-          <span class="field-error">Please enter the year.</span>
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="location">Location / City</label>
-          <input class="form-input" type="text" id="location" name="location" placeholder="e.g. Surat, Gujarat" />
-        </div>
-      </div>
-      <div class="form-field" style="margin-bottom:16px">
-        <label class="form-label" for="short_description">Short Description <span class="req">*</span> <span class="form-hint">(max 200 chars)</span></label>
-        <div class="char-counter-wrap">
-          <textarea class="form-textarea" id="short_description" name="short_description" rows="3" maxlength="200" placeholder="A brief summary shown on the portfolio card…"></textarea>
-          <span class="char-counter-badge" id="short_desc_counter">200/200</span>
-        </div>
-        <span class="field-error">Please add a short description.</span>
-      </div>
-      <div class="form-grid-2" style="margin-bottom:16px">
-        <div class="form-field">
-          <label class="form-label" for="live_url">Live URL / Visit Link</label>
-          <input class="form-input" type="url" id="live_url" name="live_url" placeholder="https://example.com" />
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="status">Status</label>
-          <select class="form-select" id="status" name="status">
-            <option value="draft">Draft</option>
-            <option value="published">Published</option>
-            <option value="archived">Archived</option>
-          </select>
-        </div>
-      </div>
-      <!-- Hero / Thumbnail Image -->
-      <div class="form-field">
-        <label class="form-label">Hero / Thumbnail Image</label>
-        <div class="file-drop-zone" data-single-upload="hero_preview">
-          <input type="file" name="hero_image" accept="image/*" />
-          <div class="drop-icon">🖼️</div>
-          <p><strong>Click to upload</strong> or drag &amp; drop</p>
-          <p style="font-size:11px;margin-top:4px">PNG, JPG, WEBP — Max 5 MB</p>
-        </div>
-        <div class="single-image-preview" id="hero_preview">
-          <img src="" alt="Hero preview" />
-          <button type="button" class="remove-preview" aria-label="Remove image">×</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- SEO Fields -->
-    <div class="dash-card">
-      <p class="form-section-title">SEO Meta</p>
-      <div class="form-grid-2">
-        <div class="form-field">
-          <label class="form-label" for="seo_meta_title">Meta Title</label>
-          <input class="form-input" type="text" id="seo_meta_title" name="seo_meta_title" placeholder="SEO page title (60 chars)" maxlength="60" />
+        <!-- SEO Fields -->
+        <div class="dash-card">
+          <p class="form-section-title">SEO Meta</p>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label class="form-label" for="seo_meta_title">Meta Title</label>
+              <input
+                class="form-input"
+                type="text"
+                id="seo_meta_title"
+                name="seo_meta_title"
+                placeholder="SEO page title (60 chars)"
+                maxlength="60"
+              />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="seo_meta_desc"
+                >Meta Description</label
+              >
+              <input
+                class="form-input"
+                type="text"
+                id="seo_meta_desc"
+                name="seo_meta_desc"
+                placeholder="SEO description (160 chars)"
+                maxlength="160"
+              />
+            </div>
+          </div>
         </div>
-        <div class="form-field">
-          <label class="form-label" for="seo_meta_desc">Meta Description</label>
-          <input class="form-input" type="text" id="seo_meta_desc" name="seo_meta_desc" placeholder="SEO description (160 chars)" maxlength="160" />
-        </div>
-      </div>
-    </div>
 
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          DYNAMIC: WEB DEVELOPMENT
          ════════════════════════════════════════════════ -->
-    <div class="dynamic-section" id="section-web">
+        <div class="dynamic-section" id="section-web">
+          <!-- Category & Stats -->
+          <div class="dash-card">
+            <p class="form-section-title">Web Development Details</p>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label" for="web_category">Category</label>
+                <select
+                  class="form-select"
+                  id="web_category"
+                  name="web[category]"
+                >
+                  <option value="">Select…</option>
+                  <option value="E-Commerce">E-Commerce</option>
+                  <option value="Blog/CMS">Blog / CMS</option>
+                  <option value="SaaS">SaaS</option>
+                  <option value="Corporate">Corporate</option>
+                  <option value="Landing Page">Landing Page</option>
+                  <option value="Web App">Web App</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-bottom: 0">
+              <div class="form-field">
+                <label class="form-label" for="web_total_pages"
+                  >Total Pages / Screens</label
+                >
+                <input
+                  class="form-input"
+                  type="text"
+                  id="web_total_pages"
+                  name="web[stats][total_pages]"
+                  placeholder="e.g. 14 pages"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="web_timeline">Timeline</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="web_timeline"
+                  name="web[stats][timeline]"
+                  placeholder="e.g. 8 weeks"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="web_team">Team Size</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="web_team"
+                  name="web[stats][team_size]"
+                  placeholder="e.g. 3 members"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="web_industry">Industry</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="web_industry"
+                  name="web[stats][industry]"
+                  placeholder="e.g. Fashion Retail"
+                />
+              </div>
+            </div>
+          </div>
 
-      <!-- Category & Stats -->
-      <div class="dash-card">
-        <p class="form-section-title">Web Development Details</p>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label" for="web_category">Category</label>
-            <select class="form-select" id="web_category" name="web[category]">
-              <option value="">Select…</option>
-              <option value="E-Commerce">E-Commerce</option>
-              <option value="Blog/CMS">Blog / CMS</option>
-              <option value="SaaS">SaaS</option>
-              <option value="Corporate">Corporate</option>
-              <option value="Landing Page">Landing Page</option>
-              <option value="Web App">Web App</option>
-              <option value="Other">Other</option>
-            </select>
+          <!-- Tech Stack -->
+          <div class="dash-card">
+            <p class="form-section-title">Tech Stack</p>
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label class="form-label">Frontend</label>
+                <div class="tag-input-wrap" data-field="web[tech_frontend][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="React, Vue… Enter to add"
+                  />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Backend</label>
+                <div class="tag-input-wrap" data-field="web[tech_backend][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Node.js, Django… Enter to add"
+                  />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Database</label>
+                <div class="tag-input-wrap" data-field="web[tech_database][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="MongoDB, MySQL… Enter to add"
+                  />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Tools &amp; DevOps</label>
+                <div class="tag-input-wrap" data-field="web[tech_tools][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Docker, Vercel… Enter to add"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Features Repeater -->
+          <div class="dash-card">
+            <p class="form-section-title">Key Features</p>
+            <div class="repeater-list" id="web-features-list">
+              <!-- Template row (hidden) -->
+              <div class="repeater-row cols-3 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Icon / Emoji</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[features][][icon]"
+                    placeholder="🛍️ or fa-cart"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Feature Title</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[features][][title]"
+                    placeholder="Feature name"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Description</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[features][][description]"
+                    placeholder="One-line description"
+                  />
+                </div>
+                <button type="button" class="repeater-remove">✕ Remove</button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="web-features-list"
+            >
+              <i class="fas fa-plus"></i> Add Feature
+            </button>
+          </div>
+
+          <!-- Challenges & Solutions Repeater -->
+          <div class="dash-card">
+            <p class="form-section-title">Challenges &amp; Solutions</p>
+            <div class="repeater-list" id="web-cs-list">
+              <div class="repeater-row cols-2 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">⚠️ Challenge</label>
+                  <textarea
+                    class="form-textarea"
+                    name="web[challenges][][challenge]"
+                    rows="2"
+                    placeholder="Describe the challenge…"
+                  ></textarea>
+                </div>
+                <div class="form-field">
+                  <label class="form-label">✅ Solution</label>
+                  <textarea
+                    class="form-textarea"
+                    name="web[challenges][][solution]"
+                    rows="2"
+                    placeholder="Describe the solution…"
+                  ></textarea>
+                </div>
+                <button
+                  type="button"
+                  class="repeater-remove"
+                  style="align-self: end; margin-top: 0"
+                >
+                  ✕ Remove
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="web-cs-list"
+            >
+              <i class="fas fa-plus"></i> Add Challenge / Solution
+            </button>
+          </div>
+
+          <!-- Impact Stats Repeater -->
+          <div class="dash-card">
+            <p class="form-section-title">Result / Impact Stats</p>
+            <div class="repeater-list" id="web-impact-list">
+              <div class="repeater-row cols-3 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Icon / Emoji</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[impact_stats][][icon]"
+                    placeholder="📦"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Stat Number</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[impact_stats][][number]"
+                    placeholder="500+"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Stat Label</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[impact_stats][][label]"
+                    placeholder="Products Listed"
+                  />
+                </div>
+                <button type="button" class="repeater-remove">✕ Remove</button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="web-impact-list"
+            >
+              <i class="fas fa-plus"></i> Add Stat
+            </button>
+          </div>
+
+          <!-- Timeline Phases Repeater -->
+          <div class="dash-card">
+            <p class="form-section-title">Project Timeline Phases</p>
+            <div class="repeater-list" id="web-timeline-list">
+              <div class="repeater-row cols-2 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Phase Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[timeline_phases][][phase_name]"
+                    placeholder="e.g. Discovery"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Description</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="web[timeline_phases][][description]"
+                    placeholder="What happened in this phase"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="repeater-remove"
+                  style="align-self: end; margin-top: 0"
+                >
+                  ✕ Remove
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="web-timeline-list"
+            >
+              <i class="fas fa-plus"></i> Add Phase
+            </button>
+          </div>
+
+          <!-- Gallery -->
+          <div class="dash-card">
+            <p class="form-section-title">Screenshots / Gallery</p>
+            <div
+              class="file-drop-zone"
+              data-multi-upload="web-gallery-grid"
+              data-caption-field="web[gallery][][caption]"
+            >
+              <input
+                type="file"
+                name="web_gallery_images"
+                accept="image/*"
+                multiple
+              />
+              <div class="drop-icon">📷</div>
+              <p>
+                <strong>Click to upload</strong> multiple images or drag &amp;
+                drop
+              </p>
+              <p style="font-size: 11px; margin-top: 4px">
+                Add a caption to each image after uploading
+              </p>
+            </div>
+            <div class="multi-preview-grid" id="web-gallery-grid"></div>
           </div>
         </div>
-        <div class="form-grid-2" style="margin-bottom:0">
-          <div class="form-field">
-            <label class="form-label" for="web_total_pages">Total Pages / Screens</label>
-            <input class="form-input" type="text" id="web_total_pages" name="web[stats][total_pages]" placeholder="e.g. 14 pages" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="web_timeline">Timeline</label>
-            <input class="form-input" type="text" id="web_timeline" name="web[stats][timeline]" placeholder="e.g. 8 weeks" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="web_team">Team Size</label>
-            <input class="form-input" type="text" id="web_team" name="web[stats][team_size]" placeholder="e.g. 3 members" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="web_industry">Industry</label>
-            <input class="form-input" type="text" id="web_industry" name="web[stats][industry]" placeholder="e.g. Fashion Retail" />
-          </div>
-        </div>
-      </div>
+        <!-- /section-web -->
 
-      <!-- Tech Stack -->
-      <div class="dash-card">
-        <p class="form-section-title">Tech Stack</p>
-        <div class="form-grid-2">
-          <div class="form-field">
-            <label class="form-label">Frontend</label>
-            <div class="tag-input-wrap" data-field="web[tech_frontend][]">
-              <input class="tag-input-inner" type="text" placeholder="React, Vue… Enter to add" />
-            </div>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Backend</label>
-            <div class="tag-input-wrap" data-field="web[tech_backend][]">
-              <input class="tag-input-inner" type="text" placeholder="Node.js, Django… Enter to add" />
-            </div>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Database</label>
-            <div class="tag-input-wrap" data-field="web[tech_database][]">
-              <input class="tag-input-inner" type="text" placeholder="MongoDB, MySQL… Enter to add" />
-            </div>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Tools &amp; DevOps</label>
-            <div class="tag-input-wrap" data-field="web[tech_tools][]">
-              <input class="tag-input-inner" type="text" placeholder="Docker, Vercel… Enter to add" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Key Features Repeater -->
-      <div class="dash-card">
-        <p class="form-section-title">Key Features</p>
-        <div class="repeater-list" id="web-features-list">
-          <!-- Template row (hidden) -->
-          <div class="repeater-row cols-3 repeater-row-template" hidden>
-            <div class="form-field">
-              <label class="form-label">Icon / Emoji</label>
-              <input class="form-input" type="text" name="web[features][][icon]" placeholder="🛍️ or fa-cart" />
-            </div>
-            <div class="form-field">
-              <label class="form-label">Feature Title</label>
-              <input class="form-input" type="text" name="web[features][][title]" placeholder="Feature name" />
-            </div>
-            <div class="form-field">
-              <label class="form-label">Description</label>
-              <input class="form-input" type="text" name="web[features][][description]" placeholder="One-line description" />
-            </div>
-            <button type="button" class="repeater-remove">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="web-features-list">
-          <i class="fas fa-plus"></i> Add Feature
-        </button>
-      </div>
-
-      <!-- Challenges & Solutions Repeater -->
-      <div class="dash-card">
-        <p class="form-section-title">Challenges &amp; Solutions</p>
-        <div class="repeater-list" id="web-cs-list">
-          <div class="repeater-row cols-2 repeater-row-template" hidden>
-            <div class="form-field">
-              <label class="form-label">⚠️ Challenge</label>
-              <textarea class="form-textarea" name="web[challenges][][challenge]" rows="2" placeholder="Describe the challenge…"></textarea>
-            </div>
-            <div class="form-field">
-              <label class="form-label">✅ Solution</label>
-              <textarea class="form-textarea" name="web[challenges][][solution]" rows="2" placeholder="Describe the solution…"></textarea>
-            </div>
-            <button type="button" class="repeater-remove" style="align-self:end;margin-top:0">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="web-cs-list">
-          <i class="fas fa-plus"></i> Add Challenge / Solution
-        </button>
-      </div>
-
-      <!-- Impact Stats Repeater -->
-      <div class="dash-card">
-        <p class="form-section-title">Result / Impact Stats</p>
-        <div class="repeater-list" id="web-impact-list">
-          <div class="repeater-row cols-3 repeater-row-template" hidden>
-            <div class="form-field">
-              <label class="form-label">Icon / Emoji</label>
-              <input class="form-input" type="text" name="web[impact_stats][][icon]" placeholder="📦" />
-            </div>
-            <div class="form-field">
-              <label class="form-label">Stat Number</label>
-              <input class="form-input" type="text" name="web[impact_stats][][number]" placeholder="500+" />
-            </div>
-            <div class="form-field">
-              <label class="form-label">Stat Label</label>
-              <input class="form-input" type="text" name="web[impact_stats][][label]" placeholder="Products Listed" />
-            </div>
-            <button type="button" class="repeater-remove">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="web-impact-list">
-          <i class="fas fa-plus"></i> Add Stat
-        </button>
-      </div>
-
-      <!-- Timeline Phases Repeater -->
-      <div class="dash-card">
-        <p class="form-section-title">Project Timeline Phases</p>
-        <div class="repeater-list" id="web-timeline-list">
-          <div class="repeater-row cols-2 repeater-row-template" hidden>
-            <div class="form-field">
-              <label class="form-label">Phase Name</label>
-              <input class="form-input" type="text" name="web[timeline_phases][][phase_name]" placeholder="e.g. Discovery" />
-            </div>
-            <div class="form-field">
-              <label class="form-label">Description</label>
-              <input class="form-input" type="text" name="web[timeline_phases][][description]" placeholder="What happened in this phase" />
-            </div>
-            <button type="button" class="repeater-remove" style="align-self:end;margin-top:0">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="web-timeline-list">
-          <i class="fas fa-plus"></i> Add Phase
-        </button>
-      </div>
-
-      <!-- Gallery -->
-      <div class="dash-card">
-        <p class="form-section-title">Screenshots / Gallery</p>
-        <div class="file-drop-zone" data-multi-upload="web-gallery-grid" data-caption-field="web[gallery][][caption]">
-          <input type="file" name="web_gallery_images" accept="image/*" multiple />
-          <div class="drop-icon">📷</div>
-          <p><strong>Click to upload</strong> multiple images or drag &amp; drop</p>
-          <p style="font-size:11px;margin-top:4px">Add a caption to each image after uploading</p>
-        </div>
-        <div class="multi-preview-grid" id="web-gallery-grid"></div>
-      </div>
-
-    </div>
-    <!-- /section-web -->
-
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          DYNAMIC: APP DEVELOPMENT
          ════════════════════════════════════════════════ -->
-    <div class="dynamic-section" id="section-app">
-      <div class="dash-card">
-        <p class="form-section-title">App Development Details</p>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label" for="app_platform">Platform</label>
-            <select class="form-select" id="app_platform" name="app[platform]">
-              <option value="">Select…</option>
-              <option value="Android">Android</option>
-              <option value="iOS">iOS</option>
-              <option value="Both (Flutter/RN)">Both (Flutter / React Native)</option>
-              <option value="PWA">PWA</option>
-              <option value="Cross-Platform">Cross-Platform</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Tech Stack</label>
-            <div class="tag-input-wrap" data-field="app[tech_stack][]">
-              <input class="tag-input-inner" type="text" placeholder="Flutter, Swift… Enter to add" />
+        <div class="dynamic-section" id="section-app">
+          <div class="dash-card">
+            <p class="form-section-title">App Development Details</p>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label" for="app_platform">Platform</label>
+                <select
+                  class="form-select"
+                  id="app_platform"
+                  name="app[platform]"
+                >
+                  <option value="">Select…</option>
+                  <option value="Android">Android</option>
+                  <option value="iOS">iOS</option>
+                  <option value="Both (Flutter/RN)">
+                    Both (Flutter / React Native)
+                  </option>
+                  <option value="PWA">PWA</option>
+                  <option value="Cross-Platform">Cross-Platform</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Tech Stack</label>
+                <div class="tag-input-wrap" data-field="app[tech_stack][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Flutter, Swift… Enter to add"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label" for="app_play"
+                  >Google Play Store URL</label
+                >
+                <input
+                  class="form-input"
+                  type="url"
+                  id="app_play"
+                  name="app[play_store_url]"
+                  placeholder="https://play.google.com/…"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="app_apple"
+                  >Apple App Store URL</label
+                >
+                <input
+                  class="form-input"
+                  type="url"
+                  id="app_apple"
+                  name="app[app_store_url]"
+                  placeholder="https://apps.apple.com/…"
+                />
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Screens / Flows Covered</label>
+              <div class="tag-input-wrap" data-field="app[screens_flows][]">
+                <input
+                  class="tag-input-inner"
+                  type="text"
+                  placeholder="Onboarding, Dashboard… Enter to add"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label" for="app_play">Google Play Store URL</label>
-            <input class="form-input" type="url" id="app_play" name="app[play_store_url]" placeholder="https://play.google.com/…" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="app_apple">Apple App Store URL</label>
-            <input class="form-input" type="url" id="app_apple" name="app[app_store_url]" placeholder="https://apps.apple.com/…" />
-          </div>
-        </div>
-        <div class="form-field">
-          <label class="form-label">Screens / Flows Covered</label>
-          <div class="tag-input-wrap" data-field="app[screens_flows][]">
-            <input class="tag-input-inner" type="text" placeholder="Onboarding, Dashboard… Enter to add" />
-          </div>
-        </div>
-      </div>
 
-      <div class="dash-card">
-        <p class="form-section-title">Key Features</p>
-        <div class="repeater-list" id="app-features-list">
-          <div class="repeater-row cols-3 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">Icon</label><input class="form-input" type="text" name="app[features][][icon]" placeholder="📱" /></div>
-            <div class="form-field"><label class="form-label">Title</label><input class="form-input" type="text" name="app[features][][title]" placeholder="Feature name" /></div>
-            <div class="form-field"><label class="form-label">Description</label><input class="form-input" type="text" name="app[features][][description]" placeholder="One-line description" /></div>
-            <button type="button" class="repeater-remove">✕ Remove</button>
+          <div class="dash-card">
+            <p class="form-section-title">Key Features</p>
+            <div class="repeater-list" id="app-features-list">
+              <div class="repeater-row cols-3 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Icon</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="app[features][][icon]"
+                    placeholder="📱"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Title</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="app[features][][title]"
+                    placeholder="Feature name"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Description</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="app[features][][description]"
+                    placeholder="One-line description"
+                  />
+                </div>
+                <button type="button" class="repeater-remove">✕ Remove</button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="app-features-list"
+            >
+              <i class="fas fa-plus"></i> Add Feature
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Challenges &amp; Solutions</p>
+            <div class="repeater-list" id="app-cs-list">
+              <div class="repeater-row cols-2 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">⚠️ Challenge</label
+                  ><textarea
+                    class="form-textarea"
+                    name="app[challenges][][challenge]"
+                    rows="2"
+                  ></textarea>
+                </div>
+                <div class="form-field">
+                  <label class="form-label">✅ Solution</label
+                  ><textarea
+                    class="form-textarea"
+                    name="app[challenges][][solution]"
+                    rows="2"
+                  ></textarea>
+                </div>
+                <button
+                  type="button"
+                  class="repeater-remove"
+                  style="align-self: end; margin-top: 0"
+                >
+                  ✕ Remove
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="app-cs-list"
+            >
+              <i class="fas fa-plus"></i> Add Pair
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Result / Impact Stats</p>
+            <div class="repeater-list" id="app-impact-list">
+              <div class="repeater-row cols-3 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Icon</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="app[impact_stats][][icon]"
+                    placeholder="📲"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Number</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="app[impact_stats][][number]"
+                    placeholder="10k+"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Label</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="app[impact_stats][][label]"
+                    placeholder="Downloads"
+                  />
+                </div>
+                <button type="button" class="repeater-remove">✕ Remove</button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="app-impact-list"
+            >
+              <i class="fas fa-plus"></i> Add Stat
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Screenshots / Gallery</p>
+            <div
+              class="file-drop-zone"
+              data-multi-upload="app-gallery-grid"
+              data-caption-field="app[gallery][][caption]"
+            >
+              <input
+                type="file"
+                name="app_gallery_images"
+                accept="image/*"
+                multiple
+              />
+              <div class="drop-icon">📱</div>
+              <p><strong>Click to upload</strong> or drag &amp; drop</p>
+            </div>
+            <div class="multi-preview-grid" id="app-gallery-grid"></div>
           </div>
         </div>
-        <button type="button" class="repeater-add-btn" data-repeater="app-features-list"><i class="fas fa-plus"></i> Add Feature</button>
-      </div>
+        <!-- /section-app -->
 
-      <div class="dash-card">
-        <p class="form-section-title">Challenges &amp; Solutions</p>
-        <div class="repeater-list" id="app-cs-list">
-          <div class="repeater-row cols-2 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">⚠️ Challenge</label><textarea class="form-textarea" name="app[challenges][][challenge]" rows="2"></textarea></div>
-            <div class="form-field"><label class="form-label">✅ Solution</label><textarea class="form-textarea" name="app[challenges][][solution]" rows="2"></textarea></div>
-            <button type="button" class="repeater-remove" style="align-self:end;margin-top:0">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="app-cs-list"><i class="fas fa-plus"></i> Add Pair</button>
-      </div>
-
-      <div class="dash-card">
-        <p class="form-section-title">Result / Impact Stats</p>
-        <div class="repeater-list" id="app-impact-list">
-          <div class="repeater-row cols-3 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">Icon</label><input class="form-input" type="text" name="app[impact_stats][][icon]" placeholder="📲" /></div>
-            <div class="form-field"><label class="form-label">Number</label><input class="form-input" type="text" name="app[impact_stats][][number]" placeholder="10k+" /></div>
-            <div class="form-field"><label class="form-label">Label</label><input class="form-input" type="text" name="app[impact_stats][][label]" placeholder="Downloads" /></div>
-            <button type="button" class="repeater-remove">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="app-impact-list"><i class="fas fa-plus"></i> Add Stat</button>
-      </div>
-
-      <div class="dash-card">
-        <p class="form-section-title">Screenshots / Gallery</p>
-        <div class="file-drop-zone" data-multi-upload="app-gallery-grid" data-caption-field="app[gallery][][caption]">
-          <input type="file" name="app_gallery_images" accept="image/*" multiple />
-          <div class="drop-icon">📱</div>
-          <p><strong>Click to upload</strong> or drag &amp; drop</p>
-        </div>
-        <div class="multi-preview-grid" id="app-gallery-grid"></div>
-      </div>
-    </div>
-    <!-- /section-app -->
-
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          DYNAMIC: SOFTWARE DEVELOPMENT
          ════════════════════════════════════════════════ -->
-    <div class="dynamic-section" id="section-software">
-      <div class="dash-card">
-        <p class="form-section-title">Software Development Details</p>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label" for="sw_type">Software Type</label>
-            <select class="form-select" id="sw_type" name="software[software_type]">
-              <option value="">Select…</option>
-              <option>Desktop App</option><option>ERP</option><option>CRM</option>
-              <option>Billing</option><option>Inventory</option><option>HR</option><option>Custom</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Tech Stack</label>
-            <div class="tag-input-wrap" data-field="software[tech_stack][]">
-              <input class="tag-input-inner" type="text" placeholder="Python, C#, Electron… Enter to add" />
+        <div class="dynamic-section" id="section-software">
+          <div class="dash-card">
+            <p class="form-section-title">Software Development Details</p>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label" for="sw_type">Software Type</label>
+                <select
+                  class="form-select"
+                  id="sw_type"
+                  name="software[software_type]"
+                >
+                  <option value="">Select…</option>
+                  <option>Desktop App</option>
+                  <option>ERP</option>
+                  <option>CRM</option>
+                  <option>Billing</option>
+                  <option>Inventory</option>
+                  <option>HR</option>
+                  <option>Custom</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Tech Stack</label>
+                <div class="tag-input-wrap" data-field="software[tech_stack][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Python, C#, Electron… Enter to add"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-field" style="margin-bottom: 16px">
+              <label class="form-label">Platform / OS</label>
+              <div class="checkbox-group">
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="software[platform_os][]"
+                    value="Windows"
+                  />
+                  Windows</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="software[platform_os][]"
+                    value="Mac"
+                  />
+                  Mac</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="software[platform_os][]"
+                    value="Linux"
+                  />
+                  Linux</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="software[platform_os][]"
+                    value="Web-based"
+                  />
+                  Web-based</label
+                >
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Integrations</label>
+              <div class="tag-input-wrap" data-field="software[integrations][]">
+                <input
+                  class="tag-input-inner"
+                  type="text"
+                  placeholder="Tally, GST API… Enter to add"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="form-field" style="margin-bottom:16px">
-          <label class="form-label">Platform / OS</label>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" name="software[platform_os][]" value="Windows" /> Windows</label>
-            <label class="checkbox-label"><input type="checkbox" name="software[platform_os][]" value="Mac" /> Mac</label>
-            <label class="checkbox-label"><input type="checkbox" name="software[platform_os][]" value="Linux" /> Linux</label>
-            <label class="checkbox-label"><input type="checkbox" name="software[platform_os][]" value="Web-based" /> Web-based</label>
+
+          <div class="dash-card">
+            <p class="form-section-title">Key Modules</p>
+            <div class="repeater-list" id="sw-modules-list">
+              <div class="repeater-row cols-2 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Module Name</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="software[modules][][module_name]"
+                    placeholder="e.g. Inventory"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Description</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="software[modules][][description]"
+                    placeholder="What this module does"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="repeater-remove"
+                  style="align-self: end; margin-top: 0"
+                >
+                  ✕ Remove
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="sw-modules-list"
+            >
+              <i class="fas fa-plus"></i> Add Module
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Challenges &amp; Solutions</p>
+            <div class="repeater-list" id="sw-cs-list">
+              <div class="repeater-row cols-2 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">⚠️ Challenge</label
+                  ><textarea
+                    class="form-textarea"
+                    name="software[challenges][][challenge]"
+                    rows="2"
+                  ></textarea>
+                </div>
+                <div class="form-field">
+                  <label class="form-label">✅ Solution</label
+                  ><textarea
+                    class="form-textarea"
+                    name="software[challenges][][solution]"
+                    rows="2"
+                  ></textarea>
+                </div>
+                <button
+                  type="button"
+                  class="repeater-remove"
+                  style="align-self: end; margin-top: 0"
+                >
+                  ✕ Remove
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="sw-cs-list"
+            >
+              <i class="fas fa-plus"></i> Add Pair
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Result / Impact Stats</p>
+            <div class="repeater-list" id="sw-impact-list">
+              <div class="repeater-row cols-3 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Icon</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="software[impact_stats][][icon]"
+                    placeholder="🏭"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Number</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="software[impact_stats][][number]"
+                    placeholder="300%"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Label</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="software[impact_stats][][label]"
+                    placeholder="Faster Processing"
+                  />
+                </div>
+                <button type="button" class="repeater-remove">✕ Remove</button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="sw-impact-list"
+            >
+              <i class="fas fa-plus"></i> Add Stat
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Screenshots / Gallery</p>
+            <div
+              class="file-drop-zone"
+              data-multi-upload="sw-gallery-grid"
+              data-caption-field="software[gallery][][caption]"
+            >
+              <input
+                type="file"
+                name="sw_gallery_images"
+                accept="image/*"
+                multiple
+              />
+              <div class="drop-icon">💻</div>
+              <p><strong>Click to upload</strong> or drag &amp; drop</p>
+            </div>
+            <div class="multi-preview-grid" id="sw-gallery-grid"></div>
           </div>
         </div>
-        <div class="form-field">
-          <label class="form-label">Integrations</label>
-          <div class="tag-input-wrap" data-field="software[integrations][]">
-            <input class="tag-input-inner" type="text" placeholder="Tally, GST API… Enter to add" />
-          </div>
-        </div>
-      </div>
+        <!-- /section-software -->
 
-      <div class="dash-card">
-        <p class="form-section-title">Key Modules</p>
-        <div class="repeater-list" id="sw-modules-list">
-          <div class="repeater-row cols-2 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">Module Name</label><input class="form-input" type="text" name="software[modules][][module_name]" placeholder="e.g. Inventory" /></div>
-            <div class="form-field"><label class="form-label">Description</label><input class="form-input" type="text" name="software[modules][][description]" placeholder="What this module does" /></div>
-            <button type="button" class="repeater-remove" style="align-self:end;margin-top:0">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="sw-modules-list"><i class="fas fa-plus"></i> Add Module</button>
-      </div>
-
-      <div class="dash-card">
-        <p class="form-section-title">Challenges &amp; Solutions</p>
-        <div class="repeater-list" id="sw-cs-list">
-          <div class="repeater-row cols-2 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">⚠️ Challenge</label><textarea class="form-textarea" name="software[challenges][][challenge]" rows="2"></textarea></div>
-            <div class="form-field"><label class="form-label">✅ Solution</label><textarea class="form-textarea" name="software[challenges][][solution]" rows="2"></textarea></div>
-            <button type="button" class="repeater-remove" style="align-self:end;margin-top:0">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="sw-cs-list"><i class="fas fa-plus"></i> Add Pair</button>
-      </div>
-
-      <div class="dash-card">
-        <p class="form-section-title">Result / Impact Stats</p>
-        <div class="repeater-list" id="sw-impact-list">
-          <div class="repeater-row cols-3 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">Icon</label><input class="form-input" type="text" name="software[impact_stats][][icon]" placeholder="🏭" /></div>
-            <div class="form-field"><label class="form-label">Number</label><input class="form-input" type="text" name="software[impact_stats][][number]" placeholder="300%" /></div>
-            <div class="form-field"><label class="form-label">Label</label><input class="form-input" type="text" name="software[impact_stats][][label]" placeholder="Faster Processing" /></div>
-            <button type="button" class="repeater-remove">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="sw-impact-list"><i class="fas fa-plus"></i> Add Stat</button>
-      </div>
-
-      <div class="dash-card">
-        <p class="form-section-title">Screenshots / Gallery</p>
-        <div class="file-drop-zone" data-multi-upload="sw-gallery-grid" data-caption-field="software[gallery][][caption]">
-          <input type="file" name="sw_gallery_images" accept="image/*" multiple />
-          <div class="drop-icon">💻</div>
-          <p><strong>Click to upload</strong> or drag &amp; drop</p>
-        </div>
-        <div class="multi-preview-grid" id="sw-gallery-grid"></div>
-      </div>
-    </div>
-    <!-- /section-software -->
-
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          DYNAMIC: VIDEO EDITING
          ════════════════════════════════════════════════ -->
-    <div class="dynamic-section" id="section-video">
-      <div class="dash-card">
-        <p class="form-section-title">Video Editing Details</p>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label" for="vid_type">Video Type</label>
-            <select class="form-select" id="vid_type" name="video[video_type]">
-              <option value="">Select…</option>
-              <option>Brand Film</option><option>Reels/Shorts</option><option>Product Video</option>
-              <option>Testimonial</option><option>Event Coverage</option><option>YouTube</option><option>Ad Creative</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="vid_duration">Duration</label>
-            <input class="form-input" type="text" id="vid_duration" name="video[duration]" placeholder="e.g. 2:30 mins" />
-          </div>
-        </div>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label">Tools Used</label>
-            <div class="tag-input-wrap" data-field="video[tools_used][]">
-              <input class="tag-input-inner" type="text" placeholder="Premiere Pro, DaVinci… Enter to add" />
+        <div class="dynamic-section" id="section-video">
+          <div class="dash-card">
+            <p class="form-section-title">Video Editing Details</p>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label" for="vid_type">Video Type</label>
+                <select
+                  class="form-select"
+                  id="vid_type"
+                  name="video[video_type]"
+                >
+                  <option value="">Select…</option>
+                  <option>Brand Film</option>
+                  <option>Reels/Shorts</option>
+                  <option>Product Video</option>
+                  <option>Testimonial</option>
+                  <option>Event Coverage</option>
+                  <option>YouTube</option>
+                  <option>Ad Creative</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="vid_duration">Duration</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="vid_duration"
+                  name="video[duration]"
+                  placeholder="e.g. 2:30 mins"
+                />
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label">Tools Used</label>
+                <div class="tag-input-wrap" data-field="video[tools_used][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Premiere Pro, DaVinci… Enter to add"
+                  />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Style / Mood</label>
+                <div class="tag-input-wrap" data-field="video[style_mood][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Cinematic, Minimal… Enter to add"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-field" style="margin-bottom: 16px">
+              <label class="form-label">Deliverables</label>
+              <div class="tag-input-wrap" data-field="video[deliverables][]">
+                <input
+                  class="tag-input-inner"
+                  type="text"
+                  placeholder="4K Export, Subtitles… Enter to add"
+                />
+              </div>
+            </div>
+            <div class="form-field" style="margin-bottom: 16px">
+              <label class="form-label" for="vid_embed"
+                >YouTube / Vimeo URL</label
+              >
+              <input
+                class="form-input"
+                type="url"
+                id="vid_embed"
+                name="video[embed_url]"
+                data-video-preview="vid-embed-preview"
+                placeholder="https://youtu.be/… or https://vimeo.com/…"
+              />
+              <div class="video-preview-wrap" id="vid-embed-preview"></div>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Thumbnail Image</label>
+              <div
+                class="file-drop-zone"
+                data-single-upload="vid_thumb_preview"
+              >
+                <input type="file" name="video[thumbnail]" accept="image/*" />
+                <div class="drop-icon">🎬</div>
+                <p>
+                  <strong>Click to upload</strong> or drag &amp; drop thumbnail
+                </p>
+              </div>
+              <div class="single-image-preview" id="vid_thumb_preview">
+                <img src="" alt="Thumbnail preview" />
+                <button
+                  type="button"
+                  class="remove-preview"
+                  aria-label="Remove"
+                >
+                  ×
+                </button>
+              </div>
             </div>
           </div>
-          <div class="form-field">
-            <label class="form-label">Style / Mood</label>
-            <div class="tag-input-wrap" data-field="video[style_mood][]">
-              <input class="tag-input-inner" type="text" placeholder="Cinematic, Minimal… Enter to add" />
+
+          <div class="dash-card">
+            <p class="form-section-title">Behind-the-Scenes Gallery</p>
+            <div
+              class="file-drop-zone"
+              data-multi-upload="vid-gallery-grid"
+              data-caption-field="video[bts_gallery][][caption]"
+            >
+              <input
+                type="file"
+                name="vid_bts_images"
+                accept="image/*"
+                multiple
+              />
+              <div class="drop-icon">🎥</div>
+              <p>
+                <strong>Click to upload</strong> BTS images or drag &amp; drop
+              </p>
             </div>
+            <div class="multi-preview-grid" id="vid-gallery-grid"></div>
           </div>
         </div>
-        <div class="form-field" style="margin-bottom:16px">
-          <label class="form-label">Deliverables</label>
-          <div class="tag-input-wrap" data-field="video[deliverables][]">
-            <input class="tag-input-inner" type="text" placeholder="4K Export, Subtitles… Enter to add" />
-          </div>
-        </div>
-        <div class="form-field" style="margin-bottom:16px">
-          <label class="form-label" for="vid_embed">YouTube / Vimeo URL</label>
-          <input class="form-input" type="url" id="vid_embed" name="video[embed_url]"
-                 data-video-preview="vid-embed-preview"
-                 placeholder="https://youtu.be/… or https://vimeo.com/…" />
-          <div class="video-preview-wrap" id="vid-embed-preview"></div>
-        </div>
-        <div class="form-field">
-          <label class="form-label">Thumbnail Image</label>
-          <div class="file-drop-zone" data-single-upload="vid_thumb_preview">
-            <input type="file" name="video[thumbnail]" accept="image/*" />
-            <div class="drop-icon">🎬</div>
-            <p><strong>Click to upload</strong> or drag &amp; drop thumbnail</p>
-          </div>
-          <div class="single-image-preview" id="vid_thumb_preview">
-            <img src="" alt="Thumbnail preview" />
-            <button type="button" class="remove-preview" aria-label="Remove">×</button>
-          </div>
-        </div>
-      </div>
+        <!-- /section-video -->
 
-      <div class="dash-card">
-        <p class="form-section-title">Behind-the-Scenes Gallery</p>
-        <div class="file-drop-zone" data-multi-upload="vid-gallery-grid" data-caption-field="video[bts_gallery][][caption]">
-          <input type="file" name="vid_bts_images" accept="image/*" multiple />
-          <div class="drop-icon">🎥</div>
-          <p><strong>Click to upload</strong> BTS images or drag &amp; drop</p>
-        </div>
-        <div class="multi-preview-grid" id="vid-gallery-grid"></div>
-      </div>
-    </div>
-    <!-- /section-video -->
-
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          DYNAMIC: DIGITAL MARKETING
          ════════════════════════════════════════════════ -->
-    <div class="dynamic-section" id="section-marketing">
-      <div class="dash-card">
-        <p class="form-section-title">Digital Marketing Details</p>
-        <div style="margin-bottom:16px">
-          <label class="form-label" style="margin-bottom:8px;display:block">Services Provided</label>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" name="marketing[services][]" value="SEO" /> SEO</label>
-            <label class="checkbox-label"><input type="checkbox" name="marketing[services][]" value="SMM" /> SMM</label>
-            <label class="checkbox-label"><input type="checkbox" name="marketing[services][]" value="PPC" /> PPC</label>
-            <label class="checkbox-label"><input type="checkbox" name="marketing[services][]" value="Email Marketing" /> Email Marketing</label>
-            <label class="checkbox-label"><input type="checkbox" name="marketing[services][]" value="Content Marketing" /> Content Marketing</label>
-            <label class="checkbox-label"><input type="checkbox" name="marketing[services][]" value="Influencer" /> Influencer</label>
-            <label class="checkbox-label"><input type="checkbox" name="marketing[services][]" value="WhatsApp Marketing" /> WhatsApp Marketing</label>
-          </div>
-        </div>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label">Platforms</label>
-            <div class="tag-input-wrap" data-field="marketing[platforms][]">
-              <input class="tag-input-inner" type="text" placeholder="Google, Instagram… Enter to add" />
+        <div class="dynamic-section" id="section-marketing">
+          <div class="dash-card">
+            <p class="form-section-title">Digital Marketing Details</p>
+            <div style="margin-bottom: 16px">
+              <label
+                class="form-label"
+                style="margin-bottom: 8px; display: block"
+                >Services Provided</label
+              >
+              <div class="checkbox-group">
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="marketing[services][]"
+                    value="SEO"
+                  />
+                  SEO</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="marketing[services][]"
+                    value="SMM"
+                  />
+                  SMM</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="marketing[services][]"
+                    value="PPC"
+                  />
+                  PPC</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="marketing[services][]"
+                    value="Email Marketing"
+                  />
+                  Email Marketing</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="marketing[services][]"
+                    value="Content Marketing"
+                  />
+                  Content Marketing</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="marketing[services][]"
+                    value="Influencer"
+                  />
+                  Influencer</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="marketing[services][]"
+                    value="WhatsApp Marketing"
+                  />
+                  WhatsApp Marketing</label
+                >
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label">Platforms</label>
+                <div class="tag-input-wrap" data-field="marketing[platforms][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Google, Instagram… Enter to add"
+                  />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="mktg_duration"
+                  >Campaign Duration</label
+                >
+                <input
+                  class="form-input"
+                  type="text"
+                  id="mktg_duration"
+                  name="marketing[campaign_duration]"
+                  placeholder="e.g. 3 months"
+                />
+              </div>
+            </div>
+            <div class="form-field" style="margin-bottom: 16px">
+              <label class="form-label" for="mktg_audience"
+                >Target Audience</label
+              >
+              <textarea
+                class="form-textarea"
+                id="mktg_audience"
+                name="marketing[target_audience]"
+                rows="2"
+                placeholder="Describe the target audience…"
+              ></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="mktg_case"
+                >Case Study Summary</label
+              >
+              <textarea
+                class="form-textarea"
+                id="mktg_case"
+                name="marketing[case_study]"
+                rows="4"
+                placeholder="Write a detailed case study summary…"
+              ></textarea>
             </div>
           </div>
-          <div class="form-field">
-            <label class="form-label" for="mktg_duration">Campaign Duration</label>
-            <input class="form-input" type="text" id="mktg_duration" name="marketing[campaign_duration]" placeholder="e.g. 3 months" />
+
+          <div class="dash-card">
+            <p class="form-section-title">Result / Impact Stats</p>
+            <div class="repeater-list" id="mktg-impact-list">
+              <div class="repeater-row cols-3 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Icon</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="marketing[impact_stats][][icon]"
+                    placeholder="📈"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Number</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="marketing[impact_stats][][number]"
+                    placeholder="3x ROAS"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Label</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="marketing[impact_stats][][label]"
+                    placeholder="Return on Ad Spend"
+                  />
+                </div>
+                <button type="button" class="repeater-remove">✕ Remove</button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="mktg-impact-list"
+            >
+              <i class="fas fa-plus"></i> Add Stat
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Creatives / Screenshots Gallery</p>
+            <div
+              class="file-drop-zone"
+              data-multi-upload="mktg-gallery-grid"
+              data-caption-field="marketing[gallery][][caption]"
+            >
+              <input
+                type="file"
+                name="mktg_gallery_images"
+                accept="image/*"
+                multiple
+              />
+              <div class="drop-icon">📊</div>
+              <p><strong>Click to upload</strong> or drag &amp; drop</p>
+            </div>
+            <div class="multi-preview-grid" id="mktg-gallery-grid"></div>
           </div>
         </div>
-        <div class="form-field" style="margin-bottom:16px">
-          <label class="form-label" for="mktg_audience">Target Audience</label>
-          <textarea class="form-textarea" id="mktg_audience" name="marketing[target_audience]" rows="2" placeholder="Describe the target audience…"></textarea>
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="mktg_case">Case Study Summary</label>
-          <textarea class="form-textarea" id="mktg_case" name="marketing[case_study]" rows="4" placeholder="Write a detailed case study summary…"></textarea>
-        </div>
-      </div>
+        <!-- /section-marketing -->
 
-      <div class="dash-card">
-        <p class="form-section-title">Result / Impact Stats</p>
-        <div class="repeater-list" id="mktg-impact-list">
-          <div class="repeater-row cols-3 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">Icon</label><input class="form-input" type="text" name="marketing[impact_stats][][icon]" placeholder="📈" /></div>
-            <div class="form-field"><label class="form-label">Number</label><input class="form-input" type="text" name="marketing[impact_stats][][number]" placeholder="3x ROAS" /></div>
-            <div class="form-field"><label class="form-label">Label</label><input class="form-input" type="text" name="marketing[impact_stats][][label]" placeholder="Return on Ad Spend" /></div>
-            <button type="button" class="repeater-remove">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="mktg-impact-list"><i class="fas fa-plus"></i> Add Stat</button>
-      </div>
-
-      <div class="dash-card">
-        <p class="form-section-title">Creatives / Screenshots Gallery</p>
-        <div class="file-drop-zone" data-multi-upload="mktg-gallery-grid" data-caption-field="marketing[gallery][][caption]">
-          <input type="file" name="mktg_gallery_images" accept="image/*" multiple />
-          <div class="drop-icon">📊</div>
-          <p><strong>Click to upload</strong> or drag &amp; drop</p>
-        </div>
-        <div class="multi-preview-grid" id="mktg-gallery-grid"></div>
-      </div>
-    </div>
-    <!-- /section-marketing -->
-
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          DYNAMIC: UI/UX DESIGN
          ════════════════════════════════════════════════ -->
-    <div class="dynamic-section" id="section-uiux">
-      <div class="dash-card">
-        <p class="form-section-title">UI/UX Design Details</p>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label" for="uiux_type">Design Type</label>
-            <select class="form-select" id="uiux_type" name="uiux[design_type]">
-              <option value="">Select…</option>
-              <option>Website UI</option><option>App UI</option><option>Dashboard</option>
-              <option>Design System</option><option>Prototype</option><option>Wireframe</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="uiux_screens">No. of Screens Designed</label>
-            <input class="form-input" type="number" id="uiux_screens" name="uiux[screens_count]" placeholder="e.g. 24" min="1" />
-          </div>
-        </div>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label">Tools Used</label>
-            <div class="tag-input-wrap" data-field="uiux[tools_used][]">
-              <input class="tag-input-inner" type="text" placeholder="Figma, Adobe XD… Enter to add" />
+        <div class="dynamic-section" id="section-uiux">
+          <div class="dash-card">
+            <p class="form-section-title">UI/UX Design Details</p>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label" for="uiux_type">Design Type</label>
+                <select
+                  class="form-select"
+                  id="uiux_type"
+                  name="uiux[design_type]"
+                >
+                  <option value="">Select…</option>
+                  <option>Website UI</option>
+                  <option>App UI</option>
+                  <option>Dashboard</option>
+                  <option>Design System</option>
+                  <option>Prototype</option>
+                  <option>Wireframe</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="uiux_screens"
+                  >No. of Screens Designed</label
+                >
+                <input
+                  class="form-input"
+                  type="number"
+                  id="uiux_screens"
+                  name="uiux[screens_count]"
+                  placeholder="e.g. 24"
+                  min="1"
+                />
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label">Tools Used</label>
+                <div class="tag-input-wrap" data-field="uiux[tools_used][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Figma, Adobe XD… Enter to add"
+                  />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Typography Used</label>
+                <div class="tag-input-wrap" data-field="uiux[typography][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Inter, Poppins… Enter to add"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-field" style="margin-bottom: 16px">
+              <label class="form-label" for="uiux_figma"
+                >Figma / Prototype Link</label
+              >
+              <input
+                class="form-input"
+                type="url"
+                id="uiux_figma"
+                name="uiux[figma_url]"
+                placeholder="https://figma.com/…"
+              />
+            </div>
+            <!-- Color Palette -->
+            <div class="form-field">
+              <label class="form-label"
+                >Color Palette <span class="form-hint">(up to 5)</span></label
+              >
+              <div
+                data-color-palette="uiux-palette"
+                data-field-name="uiux[color_palette]"
+              >
+                <div class="color-swatch-list" id="uiux-palette"></div>
+                <button type="button" class="add-swatch-btn">
+                  <i class="fas fa-plus"></i> Add Colour
+                </button>
+              </div>
             </div>
           </div>
-          <div class="form-field">
-            <label class="form-label">Typography Used</label>
-            <div class="tag-input-wrap" data-field="uiux[typography][]">
-              <input class="tag-input-inner" type="text" placeholder="Inter, Poppins… Enter to add" />
+
+          <div class="dash-card">
+            <p class="form-section-title">Design Process Steps</p>
+            <div class="repeater-list" id="uiux-process-list">
+              <div class="repeater-row cols-2 repeater-row-template" hidden>
+                <div class="form-field">
+                  <label class="form-label">Step Name</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="uiux[process_steps][][step_name]"
+                    placeholder="e.g. Research"
+                  />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Description</label
+                  ><input
+                    class="form-input"
+                    type="text"
+                    name="uiux[process_steps][][description]"
+                    placeholder="What happened in this step"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="repeater-remove"
+                  style="align-self: end; margin-top: 0"
+                >
+                  ✕ Remove
+                </button>
+              </div>
             </div>
+            <button
+              type="button"
+              class="repeater-add-btn"
+              data-repeater="uiux-process-list"
+            >
+              <i class="fas fa-plus"></i> Add Step
+            </button>
+          </div>
+
+          <div class="dash-card">
+            <p class="form-section-title">Screenshots / Gallery</p>
+            <div
+              class="file-drop-zone"
+              data-multi-upload="uiux-gallery-grid"
+              data-caption-field="uiux[gallery][][caption]"
+            >
+              <input
+                type="file"
+                name="uiux_gallery_images"
+                accept="image/*"
+                multiple
+              />
+              <div class="drop-icon">🎨</div>
+              <p>
+                <strong>Click to upload</strong> design screens or drag &amp;
+                drop
+              </p>
+            </div>
+            <div class="multi-preview-grid" id="uiux-gallery-grid"></div>
           </div>
         </div>
-        <div class="form-field" style="margin-bottom:16px">
-          <label class="form-label" for="uiux_figma">Figma / Prototype Link</label>
-          <input class="form-input" type="url" id="uiux_figma" name="uiux[figma_url]" placeholder="https://figma.com/…" />
-        </div>
-        <!-- Color Palette -->
-        <div class="form-field">
-          <label class="form-label">Color Palette <span class="form-hint">(up to 5)</span></label>
-          <div data-color-palette="uiux-palette" data-field-name="uiux[color_palette]">
-            <div class="color-swatch-list" id="uiux-palette"></div>
-            <button type="button" class="add-swatch-btn"><i class="fas fa-plus"></i> Add Colour</button>
-          </div>
-        </div>
-      </div>
+        <!-- /section-uiux -->
 
-      <div class="dash-card">
-        <p class="form-section-title">Design Process Steps</p>
-        <div class="repeater-list" id="uiux-process-list">
-          <div class="repeater-row cols-2 repeater-row-template" hidden>
-            <div class="form-field"><label class="form-label">Step Name</label><input class="form-input" type="text" name="uiux[process_steps][][step_name]" placeholder="e.g. Research" /></div>
-            <div class="form-field"><label class="form-label">Description</label><input class="form-input" type="text" name="uiux[process_steps][][description]" placeholder="What happened in this step" /></div>
-            <button type="button" class="repeater-remove" style="align-self:end;margin-top:0">✕ Remove</button>
-          </div>
-        </div>
-        <button type="button" class="repeater-add-btn" data-repeater="uiux-process-list"><i class="fas fa-plus"></i> Add Step</button>
-      </div>
-
-      <div class="dash-card">
-        <p class="form-section-title">Screenshots / Gallery</p>
-        <div class="file-drop-zone" data-multi-upload="uiux-gallery-grid" data-caption-field="uiux[gallery][][caption]">
-          <input type="file" name="uiux_gallery_images" accept="image/*" multiple />
-          <div class="drop-icon">🎨</div>
-          <p><strong>Click to upload</strong> design screens or drag &amp; drop</p>
-        </div>
-        <div class="multi-preview-grid" id="uiux-gallery-grid"></div>
-      </div>
-    </div>
-    <!-- /section-uiux -->
-
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          DYNAMIC: BRANDING
          ════════════════════════════════════════════════ -->
-    <div class="dynamic-section" id="section-branding">
-      <div class="dash-card">
-        <p class="form-section-title">Branding Details</p>
-        <div style="margin-bottom:16px">
-          <label class="form-label" style="margin-bottom:8px;display:block">Branding Services</label>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" name="branding[services][]" value="Logo Design" /> Logo Design</label>
-            <label class="checkbox-label"><input type="checkbox" name="branding[services][]" value="Brand Guidelines" /> Brand Guidelines</label>
-            <label class="checkbox-label"><input type="checkbox" name="branding[services][]" value="Business Card" /> Business Card</label>
-            <label class="checkbox-label"><input type="checkbox" name="branding[services][]" value="Social Kit" /> Social Kit</label>
-            <label class="checkbox-label"><input type="checkbox" name="branding[services][]" value="Packaging" /> Packaging</label>
-            <label class="checkbox-label"><input type="checkbox" name="branding[services][]" value="Pitch Deck" /> Pitch Deck</label>
-          </div>
-        </div>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label">Tools Used</label>
-            <div class="tag-input-wrap" data-field="branding[tools_used][]">
-              <input class="tag-input-inner" type="text" placeholder="Illustrator, Canva… Enter to add" />
+        <div class="dynamic-section" id="section-branding">
+          <div class="dash-card">
+            <p class="form-section-title">Branding Details</p>
+            <div style="margin-bottom: 16px">
+              <label
+                class="form-label"
+                style="margin-bottom: 8px; display: block"
+                >Branding Services</label
+              >
+              <div class="checkbox-group">
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="branding[services][]"
+                    value="Logo Design"
+                  />
+                  Logo Design</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="branding[services][]"
+                    value="Brand Guidelines"
+                  />
+                  Brand Guidelines</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="branding[services][]"
+                    value="Business Card"
+                  />
+                  Business Card</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="branding[services][]"
+                    value="Social Kit"
+                  />
+                  Social Kit</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="branding[services][]"
+                    value="Packaging"
+                  />
+                  Packaging</label
+                >
+                <label class="checkbox-label"
+                  ><input
+                    type="checkbox"
+                    name="branding[services][]"
+                    value="Pitch Deck"
+                  />
+                  Pitch Deck</label
+                >
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label">Tools Used</label>
+                <div class="tag-input-wrap" data-field="branding[tools_used][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Illustrator, Canva… Enter to add"
+                  />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Typography / Fonts</label>
+                <div class="tag-input-wrap" data-field="branding[typography][]">
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="Playfair, Montserrat… Enter to add"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-bottom: 16px">
+              <div class="form-field">
+                <label class="form-label" for="brand_voice"
+                  >Brand Voice / Tone</label
+                >
+                <select
+                  class="form-select"
+                  id="brand_voice"
+                  name="branding[brand_voice]"
+                >
+                  <option value="">Select…</option>
+                  <option>Professional</option>
+                  <option>Playful</option>
+                  <option>Minimal</option>
+                  <option>Luxury</option>
+                  <option>Bold</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Deliverables</label>
+                <div
+                  class="tag-input-wrap"
+                  data-field="branding[deliverables][]"
+                >
+                  <input
+                    class="tag-input-inner"
+                    type="text"
+                    placeholder="AI Files, PNG, Brand PDF… Enter to add"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Color Palette -->
+            <div class="form-field">
+              <label class="form-label"
+                >Color Palette <span class="form-hint">(up to 5)</span></label
+              >
+              <div
+                data-color-palette="branding-palette"
+                data-field-name="branding[color_palette]"
+              >
+                <div class="color-swatch-list" id="branding-palette"></div>
+                <button type="button" class="add-swatch-btn">
+                  <i class="fas fa-plus"></i> Add Colour
+                </button>
+              </div>
             </div>
           </div>
-          <div class="form-field">
-            <label class="form-label">Typography / Fonts</label>
-            <div class="tag-input-wrap" data-field="branding[typography][]">
-              <input class="tag-input-inner" type="text" placeholder="Playfair, Montserrat… Enter to add" />
+
+          <div class="dash-card">
+            <p class="form-section-title">Brand Assets Gallery</p>
+            <div
+              class="file-drop-zone"
+              data-multi-upload="brand-gallery-grid"
+              data-caption-field="branding[gallery][][caption]"
+            >
+              <input
+                type="file"
+                name="brand_gallery_images"
+                accept="image/*"
+                multiple
+              />
+              <div class="drop-icon">✏️</div>
+              <p>
+                <strong>Click to upload</strong> brand assets or drag &amp; drop
+              </p>
             </div>
+            <div class="multi-preview-grid" id="brand-gallery-grid"></div>
           </div>
         </div>
-        <div class="form-grid-2" style="margin-bottom:16px">
-          <div class="form-field">
-            <label class="form-label" for="brand_voice">Brand Voice / Tone</label>
-            <select class="form-select" id="brand_voice" name="branding[brand_voice]">
-              <option value="">Select…</option>
-              <option>Professional</option><option>Playful</option><option>Minimal</option>
-              <option>Luxury</option><option>Bold</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Deliverables</label>
-            <div class="tag-input-wrap" data-field="branding[deliverables][]">
-              <input class="tag-input-inner" type="text" placeholder="AI Files, PNG, Brand PDF… Enter to add" />
-            </div>
-          </div>
-        </div>
-        <!-- Color Palette -->
-        <div class="form-field">
-          <label class="form-label">Color Palette <span class="form-hint">(up to 5)</span></label>
-          <div data-color-palette="branding-palette" data-field-name="branding[color_palette]">
-            <div class="color-swatch-list" id="branding-palette"></div>
-            <button type="button" class="add-swatch-btn"><i class="fas fa-plus"></i> Add Colour</button>
-          </div>
-        </div>
-      </div>
+        <!-- /section-branding -->
 
-      <div class="dash-card">
-        <p class="form-section-title">Brand Assets Gallery</p>
-        <div class="file-drop-zone" data-multi-upload="brand-gallery-grid" data-caption-field="branding[gallery][][caption]">
-          <input type="file" name="brand_gallery_images" accept="image/*" multiple />
-          <div class="drop-icon">✏️</div>
-          <p><strong>Click to upload</strong> brand assets or drag &amp; drop</p>
-        </div>
-        <div class="multi-preview-grid" id="brand-gallery-grid"></div>
-      </div>
-    </div>
-    <!-- /section-branding -->
-
-
-    <!-- ════════════════════════════════════════════════
+        <!-- ════════════════════════════════════════════════
          SUBMIT BAR
          ════════════════════════════════════════════════ -->
-    <div class="form-action-bar">
-      <button type="button" class="btn-draft" id="btn_draft">
-        <i class="fas fa-floppy-disk" style="margin-right:6px"></i> Save as Draft
-      </button>
-      <button type="button" class="btn-publish" id="btn_publish">
-        <i class="fas fa-rocket" style="margin-right:6px"></i> Publish Project
-      </button>
-      <span class="form-action-hint">Fields marked <span style="color:#ef4444">*</span> are required before publishing.</span>
+        <div class="form-action-bar">
+          <button type="button" class="btn-draft" id="btn_draft">
+            <i class="fas fa-floppy-disk" style="margin-right: 6px"></i> Save as
+            Draft
+          </button>
+          <button type="button" class="btn-publish" id="btn_publish">
+            <i class="fas fa-rocket" style="margin-right: 6px"></i> Publish
+            Project
+          </button>
+          <span class="form-action-hint"
+            >Fields marked <span style="color: #ef4444">*</span> are required
+            before publishing.</span
+          >
+        </div>
+      </form>
     </div>
+    <!-- /.dash-page -->
 
-  </form>
-</div><!-- /.dash-page -->
-
-<script src="dashboard.js"></script>
-</body>
+    <script src="dashboard.js"></script>
+  </body>
 </html>

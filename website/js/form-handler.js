@@ -15,8 +15,7 @@ async function handleFormSubmit(e) {
       budget: a.get("budget"),
     };
   try {
-    const e =
-      "https://backend.pixelatenest.com";
+    const e = "https://backend.pixelatenest.com";
     if (
       !(
         await fetch((e || "") + "/api/enquiries", {
@@ -60,9 +59,15 @@ window.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contactForm");
   if (!contactForm) return;
 
-  const submitBtn = contactForm.querySelector('button[type="submit"], input[type="submit"]');
-  const successEl = contactForm.querySelector(".form-success-message, .w-form-done");
-  const errorEl = contactForm.querySelector(".form-error-message, .w-form-fail");
+  const submitBtn = contactForm.querySelector(
+    'button[type="submit"], input[type="submit"]',
+  );
+  const successEl = contactForm.querySelector(
+    ".form-success-message, .w-form-done",
+  );
+  const errorEl = contactForm.querySelector(
+    ".form-error-message, .w-form-fail",
+  );
 
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();

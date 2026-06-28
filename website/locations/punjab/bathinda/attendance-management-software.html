@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>NestHR – Attendance & Payroll Software in Bathinda, Punjab | Pixelate Nest</title>
+    <title>
+      NestHR – Attendance & Payroll Software in Bathinda, Punjab | Pixelate Nest
+    </title>
     <meta
       name="description"
       content="NestHR by Pixelate Nest is the best attendance and payroll software in Bathinda, Punjab. Automate employee tracking, salary processing, leave management, and compliance reporting. Try NestHR today."
@@ -226,23 +228,42 @@
       type="text/css"
     />
     <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1920093578545260');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-</head>
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "1920093578545260");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+  </head>
 
   <body>
     <div class="page-wrapper">
@@ -776,7 +797,9 @@
           <div class="nh-hs-inner">
             <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">NestHR – Attendance &amp; Payroll in Bathinda, Punjab</span>
+              <span class="nh-hs-tag"
+                >NestHR – Attendance &amp; Payroll in Bathinda, Punjab</span
+              >
               <h1>
                 NestHR: Attendance &amp; Payroll<br />
                 Software in Bathinda, Punjab
@@ -2376,28 +2399,52 @@
               </p>
               <div class="pn-brand-grid">
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/1.webp" alt="Brand 1" />
+                  <img
+                    src="../../../assets/images/brands/1.webp"
+                    alt="Brand 1"
+                  />
                 </div>
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/2.webp" alt="Brand 2" />
+                  <img
+                    src="../../../assets/images/brands/2.webp"
+                    alt="Brand 2"
+                  />
                 </div>
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/3.webp" alt="Brand 3" />
+                  <img
+                    src="../../../assets/images/brands/3.webp"
+                    alt="Brand 3"
+                  />
                 </div>
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/4.webp" alt="Brand 4" />
+                  <img
+                    src="../../../assets/images/brands/4.webp"
+                    alt="Brand 4"
+                  />
                 </div>
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/5.webp" alt="Brand 5" />
+                  <img
+                    src="../../../assets/images/brands/5.webp"
+                    alt="Brand 5"
+                  />
                 </div>
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/6.webp" alt="Brand 6" />
+                  <img
+                    src="../../../assets/images/brands/6.webp"
+                    alt="Brand 6"
+                  />
                 </div>
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/7.webp" alt="Brand 7" />
+                  <img
+                    src="../../../assets/images/brands/7.webp"
+                    alt="Brand 7"
+                  />
                 </div>
                 <div class="pn-brand-item">
-                  <img src="../../../assets/images/brands/8.webp" alt="Brand 8" />
+                  <img
+                    src="../../../assets/images/brands/8.webp"
+                    alt="Brand 8"
+                  />
                 </div>
               </div>
             </div>
@@ -3204,8 +3251,7 @@
             selectedPlan: formData.get("selected-plan"),
             budget: formData.get("budget"),
           };
-          var API_BASE =
-            "https://backend.pixelatenest.com" || "";
+          var API_BASE = "https://backend.pixelatenest.com" || "";
           fetch((API_BASE || "") + "/api/enquiries", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -226,23 +226,42 @@
       type="text/css"
     />
     <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1920093578545260');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-</head>
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "1920093578545260");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+  </head>
 
   <body>
     <div class="page-wrapper">
@@ -782,7 +801,11 @@
                 NestLeads: Best Lead Generation &amp; CRM Software in Gaya
               </h1>
               <p>
-                NestLeads by Pixelate Nest is the best lead generation and CRM software in Gaya. Capture leads from every channel, assign them instantly, and close deals faster. Our cloud-based platform helps businesses in Gaya stop losing leads, boost conversions, and grow revenue.
+                NestLeads by Pixelate Nest is the best lead generation and CRM
+                software in Gaya. Capture leads from every channel, assign them
+                instantly, and close deals faster. Our cloud-based platform
+                helps businesses in Gaya stop losing leads, boost conversions,
+                and grow revenue.
               </p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
@@ -2578,8 +2601,7 @@
             selectedPlan: formData.get("selected-plan"),
             budget: formData.get("budget"),
           };
-          var API_BASE =
-            "https://backend.pixelatenest.com" || "";
+          var API_BASE = "https://backend.pixelatenest.com" || "";
           fetch((API_BASE || "") + "/api/enquiries", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
