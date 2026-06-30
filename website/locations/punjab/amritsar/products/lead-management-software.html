@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>NestLeads – Lead Generation Software in Amritsar | Pixelate Nest</title>
+    <title>
+      NestLeads – Lead Generation Software in Amritsar | Pixelate Nest
+    </title>
     <meta
       name="description"
       content="NestLeads by Pixelate Nest is the best lead generation and CRM software in Amritsar. Capture, track, assign, and convert more leads efficiently. Try NestLeads today."
@@ -226,23 +228,42 @@
       type="text/css"
     />
     <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1920093578545260');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-</head>
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "1920093578545260");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+  </head>
 
   <body>
     <div class="page-wrapper">
@@ -672,8 +693,21 @@
                                 <span class="products-mega-card-title"
                                   >Attendance &amp; Payroll</span
                                 >
-                              </div>
-                            </a>
+                              </div> </a
+                            ><a
+                              href="https://www.pixelatenest.com/products/kirana-store-billing-software.html"
+                              class="products-mega-card"
+                              ><img
+                                src="https://www.pixelatenest.com/assets/images/products/nav/kirana-manage.webp"
+                                alt="Kirana Store Billing"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Kirana Store</span
+                                >
+                              </div></a
+                            >
                           </div>
                         </div>
                       </li>
@@ -777,12 +811,18 @@
           <div class="nh-hs-inner">
             <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">NestLeads – Lead Generation in Amritsar</span>
+              <span class="nh-hs-tag"
+                >NestLeads – Lead Generation in Amritsar</span
+              >
               <h1>
                 NestLeads: Best Lead Generation &amp; CRM Software in Amritsar
               </h1>
               <p>
-                NestLeads by Pixelate Nest is the best lead generation and CRM software in Amritsar. Capture leads from every channel, assign them instantly, and close deals faster. Our cloud-based platform helps businesses in Amritsar stop losing leads, boost conversions, and grow revenue.
+                NestLeads by Pixelate Nest is the best lead generation and CRM
+                software in Amritsar. Capture leads from every channel, assign
+                them instantly, and close deals faster. Our cloud-based platform
+                helps businesses in Amritsar stop losing leads, boost
+                conversions, and grow revenue.
               </p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
@@ -2578,8 +2618,7 @@
             selectedPlan: formData.get("selected-plan"),
             budget: formData.get("budget"),
           };
-          var API_BASE =
-            "https://backend.pixelatenest.com" || "";
+          var API_BASE = "https://backend.pixelatenest.com" || "";
           fetch((API_BASE || "") + "/api/enquiries", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

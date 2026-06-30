@@ -3565,7 +3565,7 @@ video {
 .products-mega-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  height: 400px;
+  height: 600px;
 }
 .products-mega-card {
   position: relative;

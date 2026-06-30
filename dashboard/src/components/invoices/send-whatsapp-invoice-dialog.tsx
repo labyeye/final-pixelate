@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useWhatsAppInvoice } from "@/hooks/use-whatsapp-invoice";
+import { apiFetch } from "@/lib/api-fetch";
 
 const WA_GREEN = "#25D366";
 
@@ -94,14 +95,14 @@ export function WhatsAppOptInToggle({
     setToggling(true);
     try {
       if (!optedIn) {
-        const res = await fetch("/api/whatsapp-optin", {
+        const res = await apiFetch("/api/whatsapp-optin", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ clientId, source: "manual_toggle" }),
         });
         if (!res.ok) throw new Error("Opt-in failed");
       } else {
-        const res = await fetch("/api/whatsapp-optin", {
+        const res = await apiFetch("/api/whatsapp-optin", {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ clientId }),
