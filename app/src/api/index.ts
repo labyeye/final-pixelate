@@ -91,11 +91,15 @@ export const quotationsAPI = {
 export const onboardingAPI = {
   getAll: () => api.get('/onboarding'),
   getById: (id: string) => api.get(`/onboarding/${id}`),
-  update: (id: string, data: any) => api.patch(`/onboarding/${id}`, data),
+  create: (data: any) => api.post('/onboarding', data),
+  update: (id: string, data: any) => api.put(`/onboarding/${id}`, data),
+  delete: (id: string) => api.delete(`/onboarding/${id}`),
 };
 
 export const ndaAPI = {
   getAll: () => api.get('/nda-approvals'),
+  create: (data: any) => api.post('/nda-approvals', data),
+  delete: (id: string) => api.delete(`/nda-approvals/${id}`),
 };
 
 export const reviewsAPI = {
@@ -249,4 +253,33 @@ export const leadsActivityAPI = {
   getByLeadId: (leadId: string) => api.get(`/leads/${leadId}/activity`),
   create: (leadId: string, data: any) =>
     api.post(`/leads/${leadId}/activity`, data),
+};
+
+export const brandGuideAPI = {
+  getAll: () => api.get('/brand-guides'),
+  create: (data: any) => api.post('/brand-guides', data),
+  update: (id: string, data: any) => api.put(`/brand-guides/${id}`, data),
+  delete: (id: string) => api.delete(`/brand-guides/${id}`),
+  uploadPdf: (formData: any) =>
+    api.post('/upload-brand-guide-pdf', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    }),
+  parsePdf: (pdfBase64: string) =>
+    api.post('/parse-brand-guide-pdf', { pdfBase64 }),
+  sendEmail: (data: any) => api.post('/send-brand-guide-email', data),
+  sendWhatsApp: (data: any) => api.post('/send-brand-guide-whatsapp', data),
+};
+
+export const nestHRAPI = {
+  getStats: () => api.get('/nesthr-stats'),
+  getInvoices: (status?: string) =>
+    api.get(
+      status && status !== 'all'
+        ? `/nesthr-invoices?status=${status}`
+        : '/nesthr-invoices',
+    ),
+  getOffers: () => api.get('/hrms-offers'),
+  createOffer: (data: any) => api.post('/hrms-offers', data),
+  updateOffer: (id: string, data: any) => api.put(`/hrms-offers/${id}`, data),
+  deleteOffer: (id: string) => api.delete(`/hrms-offers/${id}`),
 };

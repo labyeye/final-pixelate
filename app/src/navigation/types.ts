@@ -48,13 +48,17 @@ export type FinanceStackParams = {
   FinanceHome: undefined;
   Invoicing: undefined;
   InvoiceDetail: { id: string };
+  InvoiceForm: { id?: string };
   Payments: undefined;
   Expenses: undefined;
   EMITracker: undefined;
   Quotations: undefined;
   QuotationDetail: { id: string };
+  QuotationForm: { id?: string };
   Onboarding: undefined;
+  OnboardingForm: { id?: string };
   NDAApproval: undefined;
+  NDAForm: { id?: string };
 };
 
 export type MoreStackParams = {
@@ -86,4 +90,10 @@ export type MoreStackParams = {
   ERPConsole: undefined;
   Users: undefined;
   ClientPortal: undefined;
+  BrandGuide: undefined;
+  BrandGuideForm: { id?: string };
+  NestHR: undefined;
+  HRSubscriptions: undefined;
+  HRInvoices: undefined;
+  HROffers: undefined;
 };
