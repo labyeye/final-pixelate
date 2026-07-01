@@ -36,6 +36,9 @@ async function handleFormSubmit(e) {
     } catch (e) {}
     ((document.querySelector(".form-success-message").style.display = "block"),
       t.reset());
+    if (typeof fbq === "function") {
+      fbq("track", "Lead");
+    }
   } catch (e) {
     document.querySelector(".form-error-message").style.display = "block";
   } finally {
@@ -117,6 +120,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
       contactForm.reset();
       if (successEl) successEl.style.display = "block";
+      if (typeof fbq === "function") {
+        fbq("track", "Lead");
+      }
     } catch (_) {
       if (errorEl) errorEl.style.display = "block";
     } finally {
