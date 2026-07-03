@@ -85,13 +85,15 @@ export function WhatsAppOptInToggle({
   onClientUpdate?: (updated: any) => void;
 }) {
   const [toggling, setToggling] = useState(false);
+  const togglingRef = React.useRef(false);
   const optedIn = client?.whatsapp_opted_in === true;
   const clientId = String(client?._id ?? client?.id ?? "");
 
   if (!clientId) return null;
 
   const toggle = async () => {
-    if (toggling) return;
+    if (togglingRef.current) return;
+    togglingRef.current = true;
     setToggling(true);
     try {
       if (!optedIn) {
@@ -113,6 +115,7 @@ export function WhatsAppOptInToggle({
     } catch (e) {
       console.error("WhatsApp opt-in toggle failed", e);
     } finally {
+      togglingRef.current = false;
       setToggling(false);
     }
   };
