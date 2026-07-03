@@ -3572,6 +3572,7 @@ video {
   height: 200px;
   overflow: hidden;
   display: block;
+  text-decoration: none;
 }
 .products-mega-card img {
   width: 100%;
@@ -3656,7 +3657,7 @@ video {
     border-radius: 10px;
     display: flex;
     align-items: center;
-    padding: 11px 14px;
+    padding: 8px 14px;
     gap: 12px;
     background: transparent;
     transition: background 0.18s ease;
@@ -3697,6 +3698,13 @@ video {
     font-size: 0.88rem;
     font-weight: 500;
     text-shadow: none;
+    text-decoration: none;
+  }
+  .products-mega-card > div {
+    position: static;
+    text-align: left;
+    background: none;
+    padding: 0;
   }
 }
 
@@ -3737,6 +3745,7 @@ video {
   height: 100%;
   overflow: hidden;
   display: block;
+  text-decoration: none;
 }
 .services-mega-card img {
   width: 100%;
@@ -3834,7 +3843,7 @@ video {
     border-radius: 10px;
     display: flex;
     align-items: center;
-    padding: 11px 14px;
+    padding: 8px 14px;
     gap: 12px;
     background: transparent;
     transition: background 0.18s ease;
@@ -3870,11 +3879,21 @@ video {
     line-height: 36px;
     text-align: center;
   }
-  .services-mega-card-title {
+  .services-mega-card-title,
+  .services-card-title {
     color: #1a1a2e !important;
     font-size: 0.88rem;
     font-weight: 500;
+    text-align: left;
     text-shadow: none;
+    text-decoration: none;
+  }
+  .services-mega-card > div {
+    position: static;
+    text-align: left;
+    background: none;
+    padding: 0;
+    text-align: left;
   }
 }
 

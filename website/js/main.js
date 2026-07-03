@@ -31,25 +31,6 @@ function gtag() {
   (window.dataLayer = window.dataLayer || []),
   gtag("js", new Date()),
   gtag("config", "G-T64KPYDX6P"),
-  (function (e, t, n, o, a, s, r) {
-    e.fbq ||
-      ((a = e.fbq =
-        function () {
-          a.callMethod
-            ? a.callMethod.apply(a, arguments)
-            : a.queue.push(arguments);
-        }),
-      e._fbq || (e._fbq = a),
-      (a.push = a),
-      (a.loaded = !0),
-      (a.version = "2.0"),
-      (a.queue = []),
-      ((s = t.createElement(n)).async = !0),
-      (s.src = "https://connect.facebook.net/en_US/fbevents.js"),
-      (r = t.getElementsByTagName(n)[0]).parentNode.insertBefore(s, r));
-  })(window, document, "script"),
-  fbq("init", "1529543734863040"),
-  fbq("track", "PageView"),
   (async function () {
     try {
       const e = await fetch(
