@@ -10,7 +10,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const slim = searchParams.get("slim") === "1";
     const projection = slim
-      ? { name: 1, email: 1, phone: 1, address: 1, city: 1, state: 1, pin: 1, gst: 1, gstin: 1, gstNumber: 1, businessName: 1, whatsapp_opt_in: 1, userId: 1, loginEmail: 1 }
+      ? { name: 1, email: 1, phone: 1, address: 1, city: 1, state: 1, pin: 1, gst: 1, gstin: 1, gstNumber: 1, businessName: 1, whatsapp_opt_in: 1, whatsapp_opted_in: 1, whatsapp_opt_in_time: 1, userId: 1, loginEmail: 1 }
       : undefined;
     const items = await svc.getClients(projection);
     return NextResponse.json(items, {

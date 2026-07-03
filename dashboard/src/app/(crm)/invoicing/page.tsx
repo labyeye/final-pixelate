@@ -157,7 +157,7 @@ export default function InvoicingPage() {
 
   const refreshClients = async () => {
     try {
-      const res = await apiFetch("/api/clients?slim=1");
+      const res = await apiFetch("/api/clients?slim=1", { cache: "no-store" } as any);
       if (!res.ok) return;
       const data = await res.json();
       setClients(data || []);
