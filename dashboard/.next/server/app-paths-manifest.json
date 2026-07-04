@@ -187,6 +187,7 @@
   "/api/whatsapp/delivery-log/route": "app/api/whatsapp/delivery-log/route.js",
   "/api/whatsapp/messages/route": "app/api/whatsapp/messages/route.js",
   "/api/whatsapp/send-template/route": "app/api/whatsapp/send-template/route.js",
+  "/api/whatsapp/upload-media/route": "app/api/whatsapp/upload-media/route.js",
   "/api/whatsapp/webhook-sync/route": "app/api/whatsapp/webhook-sync/route.js",
   "/api/work-gallery/[id]/route": "app/api/work-gallery/[id]/route.js",
   "/api/work-gallery/route": "app/api/work-gallery/route.js",

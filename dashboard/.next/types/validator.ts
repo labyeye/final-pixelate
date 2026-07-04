@@ -1739,6 +1739,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/whatsapp/upload-media/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp/upload-media">> = Specific
+  const handler = {} as typeof import("../../src/app/api/whatsapp/upload-media/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/whatsapp/webhook-sync/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp/webhook-sync">> = Specific

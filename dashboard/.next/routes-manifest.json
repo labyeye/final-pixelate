@@ -875,6 +875,12 @@
       "namedRegex": "^/api/whatsapp/send\\-template(?:/)?$"
     },
     {
+      "page": "/api/whatsapp/upload-media",
+      "regex": "^/api/whatsapp/upload\\-media(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp/upload\\-media(?:/)?$"
+    },
+    {
       "page": "/api/whatsapp/webhook-sync",
       "regex": "^/api/whatsapp/webhook\\-sync(?:/)?$",
       "routeKeys": {},

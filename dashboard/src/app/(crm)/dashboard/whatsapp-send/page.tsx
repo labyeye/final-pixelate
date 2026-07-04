@@ -14,6 +14,9 @@ import {
   FileText,
   MessageCircle,
   X,
+  Upload,
+  CheckCircle,
+  Paperclip,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -74,6 +77,11 @@ export default function WhatsAppSendPage() {
   const [templateSearch, setTemplateSearch] = useState("");
   const [selectedTemplate, setSelectedTemplate] = useState<WaTemplate | null>(null);
   const [variableValues, setVariableValues] = useState<Record<string, string>>({});
+
+  // Document attachment state (for DOCUMENT header templates, e.g. product brochures)
+  const [documentMediaId, setDocumentMediaId] = useState<string | null>(null);
+  const [documentFileName, setDocumentFileName] = useState<string | null>(null);
+  const [uploadingDocument, setUploadingDocument] = useState(false);
 
   // Send state
   const [sending, setSending] = useState(false);
@@ -140,16 +148,41 @@ export default function WhatsAppSendPage() {
     setSelectedTemplate(t);
     setVariableValues({});
     setLastResult(null);
+    setDocumentMediaId(null);
+    setDocumentFileName(null);
+  }
+
+  async function handleDocumentUpload(file: File) {
+    setUploadingDocument(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await apiFetch("/api/whatsapp/upload-media", {
+        method: "POST",
+        body: fd,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Upload failed");
+      setDocumentMediaId(data.mediaId);
+      setDocumentFileName(data.fileName || file.name);
+      toast({ title: "PDF attached", description: `"${data.fileName || file.name}" ready to send.` });
+    } catch (err: any) {
+      toast({ title: "Upload Failed", description: err.message, variant: "destructive" });
+    } finally {
+      setUploadingDocument(false);
+    }
   }
 
   const effectivePhone = manualPhone.trim();
   const bodyVarNums = selectedTemplate
     ? [...new Set([...(selectedTemplate.body.matchAll(/\{\{(\d+)\}\}/g))].map((m) => Number(m[1])))].sort((a, b) => a - b)
     : [];
+  const needsDocument = selectedTemplate?.headerType === "DOCUMENT";
   const canSend =
     !!selectedTemplate &&
     !!effectivePhone &&
-    bodyVarNums.every((n) => variableValues[String(n)]?.trim());
+    bodyVarNums.every((n) => variableValues[String(n)]?.trim()) &&
+    (!needsDocument || !!documentMediaId);
 
   async function handleSend() {
     if (!canSend || !selectedTemplate) return;
@@ -167,6 +200,17 @@ export default function WhatsAppSendPage() {
     }));
 
     const components: any[] = [];
+    if (selectedTemplate.headerType === "DOCUMENT" && documentMediaId) {
+      components.push({
+        type: "header",
+        parameters: [
+          {
+            type: "document",
+            document: { id: documentMediaId, filename: documentFileName || "document.pdf" },
+          },
+        ],
+      });
+    }
     if (bodyParams.length > 0) {
       components.push({ type: "body", parameters: bodyParams });
     }
@@ -388,6 +432,63 @@ export default function WhatsAppSendPage() {
 
           {/* Right panel: variables + preview + send */}
           <div className="space-y-5">
+            {/* Document attachment */}
+            {selectedTemplate && needsDocument && (
+              <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+                <h2 className="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-2">
+                  <Paperclip className="w-4 h-4" /> Attach PDF
+                </h2>
+                <p className="text-xs text-gray-400 mb-3">
+                  This template requires a document — e.g. a product brochure — to send with the message.
+                </p>
+
+                {documentMediaId ? (
+                  <div className="flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-3 py-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 shrink-0" />
+                    <p className="text-xs font-medium text-green-700 truncate flex-1">
+                      {documentFileName}
+                    </p>
+                    <button
+                      onClick={() => {
+                        setDocumentMediaId(null);
+                        setDocumentFileName(null);
+                      }}
+                      className="text-xs font-medium text-red-500 hover:underline shrink-0"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ) : (
+                  <label className="flex items-center justify-center gap-2 h-12 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                    {uploadingDocument ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-gray-500" />
+                        <span className="text-xs font-medium text-gray-500">Uploading…</span>
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="w-4 h-4 text-gray-400" />
+                        <span className="text-xs font-medium text-gray-500">
+                          Click to attach a PDF
+                        </span>
+                      </>
+                    )}
+                    <input
+                      type="file"
+                      accept="application/pdf"
+                      className="hidden"
+                      disabled={uploadingDocument}
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) handleDocumentUpload(file);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
+                )}
+              </div>
+            )}
+
             {/* Variables */}
             {selectedTemplate && variables.length > 0 && (
               <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
@@ -426,6 +527,21 @@ export default function WhatsAppSendPage() {
                       <p className="text-xs font-bold text-gray-700 mb-2">
                         {selectedTemplate.headerText}
                       </p>
+                    )}
+                    {needsDocument && (
+                      <div
+                        className={cn(
+                          "rounded h-10 flex items-center gap-2 px-2 mb-2",
+                          documentMediaId
+                            ? "bg-green-50 border border-green-200"
+                            : "bg-gray-100 border border-gray-200",
+                        )}
+                      >
+                        <FileText className={cn("w-4 h-4 shrink-0", documentMediaId ? "text-green-600" : "text-gray-400")} />
+                        <span className={cn("text-[10px] font-medium truncate", documentMediaId ? "text-green-700" : "text-gray-400")}>
+                          {documentFileName || "No PDF attached yet"}
+                        </span>
+                      </div>
                     )}
                     <p
                       className="text-xs text-gray-800 whitespace-pre-wrap leading-relaxed"
@@ -507,6 +623,11 @@ export default function WhatsAppSendPage() {
                     Fill all variables to enable send
                   </p>
                 )}
+              {selectedTemplate && effectivePhone && needsDocument && !documentMediaId && (
+                <p className="text-xs text-gray-400 text-center mt-2">
+                  Attach a PDF to enable send
+                </p>
+              )}
             </div>
           </div>
         </div>
