@@ -4,7 +4,6 @@ import {
   Activity,
   Users,
   Megaphone,
-  KanbanSquare,
   LifeBuoy,
   UserPlus,
   Lock,
@@ -37,10 +36,8 @@ import {
 
 export const defaultStaffAllowed = [
   "/dashboard",
-  "/leads",
   "/blogs",
   "/work-gallery",
-  "/social-media-manager",
   "/social-media-planner",
   "/social-media-calendar",
   "/dashboard/bulk-messaging",
@@ -100,12 +97,6 @@ export const navGroups = [
     title: "Marketing",
     items: [
       {
-        href: "/leads",
-        label: "Leads",
-        adminOnly: false,
-        icon: KanbanSquare,
-      },
-      {
         href: "/enquiries",
         label: "Enquiries",
         adminOnly: false,
@@ -152,12 +143,6 @@ export const navGroups = [
         label: "Reels",
         adminOnly: true,
         icon: PlayCircle,
-      },
-      {
-        href: "/social-media-manager",
-        label: "Social Media Manager",
-        adminOnly: false,
-        icon: CalendarDays,
       },
       {
         href: "/social-media-planner",
@@ -369,7 +354,6 @@ export const clientPortalGroups = [
       { href: "/client/analytics", label: "Analytics", icon: BarChartIcon },
       { href: "/client/development", label: "Development", icon: Rocket },
       { href: "/client/support", label: "Support", icon: Headphones },
-      { href: "/client/leads", label: "Leads", icon: Zap },
     ],
   },
   {
@@ -382,7 +366,6 @@ export const clientPortalGroups = [
   {
     title: "Marketing",
     items: [
-      { href: "/leads", label: "Leads", icon: KanbanSquare },
       { href: "/enquiries", label: "Enquiries", icon: LifeBuoy },
       { href: "/reviews", label: "Reviews", icon: Star },
       { href: "/work-gallery", label: "Work Gallery", icon: ImageIcon },
@@ -439,5 +422,4 @@ export const clientSpecificNavItems = [
   { href: "/client/analytics", label: "Analytics", icon: BarChartIcon },
   { href: "/client/development", label: "Development", icon: Rocket },
   { href: "/client/support", label: "Support", icon: Headphones },
-  { href: "/client/leads", label: "Leads", icon: Zap },
 ];

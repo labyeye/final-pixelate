@@ -2,11 +2,16 @@
 
 import { apiFetch } from "@/lib/api-fetch";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import AddProjectForm from "@/components/projects/add-project-form";
 import { Progress } from "@/components/ui/progress";
 import type { Project } from "@/lib/data";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   CheckCircle,
   CheckCheck,
@@ -17,6 +22,7 @@ import {
   Activity,
   Clock,
   CheckCircle2,
+  Plus,
 } from "lucide-react";
 import { SuccessModal } from "@/components/ui/success-modal";
 import { StatCard } from "@/components/ui/stat-card";
@@ -33,6 +39,7 @@ import {
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [editing, setEditing] = useState<Project | null>(null);
+  const [formOpen, setFormOpen] = useState(false);
   const [clients, setClients] = useState<any[]>([]);
   const [services, setServices] = useState<any[]>([]);
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
@@ -136,13 +143,31 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <Card className="border-2 border-black">
-        <CardHeader>
-          <CardTitle className="text-2xl font-black tracking-tighter">
-            {editing ? "Edit Project" : "Add Project"}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
+      <div className="flex justify-end">
+        <Button
+          className="font-black"
+          onClick={() => {
+            setEditing(null);
+            setFormOpen(true);
+          }}
+        >
+          <Plus className="h-4 w-4 mr-2" /> Add Project
+        </Button>
+      </div>
+
+      <Dialog
+        open={formOpen}
+        onOpenChange={(open) => {
+          setFormOpen(open);
+          if (!open) setEditing(null);
+        }}
+      >
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-black tracking-tighter">
+              {editing ? "Edit Project" : "Add Project"}
+            </DialogTitle>
+          </DialogHeader>
           <AddProjectForm
             clients={clients}
             services={services}
@@ -162,10 +187,11 @@ export default function ProjectsPage() {
                 setProjects((prev) => [p, ...prev]);
                 showSuccess("Project added!");
               }
+              setFormOpen(false);
             }}
           />
-        </CardContent>
-      </Card>
+        </DialogContent>
+      </Dialog>
 
       {}
       <div className="hidden md:block border-2 border-black overflow-hidden">
@@ -309,7 +335,7 @@ export default function ProjectsPage() {
                         title="Edit"
                         onClick={async () => {
                           try {
-                            const res = await fetch(
+                            const res = await apiFetch(
                               `/api/projects/${project._id ?? project.id}`,
                             );
                             if (!res.ok)
@@ -319,7 +345,7 @@ export default function ProjectsPage() {
                               ...data,
                               id: data._id ? String(data._id) : data.id,
                             });
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            setFormOpen(true);
                           } catch (err) {
                             console.error(err);
                           }
@@ -477,11 +503,11 @@ export default function ProjectsPage() {
                 <Button size="sm" variant="outline" className="h-8 px-3 border-2 border-black hover:bg-black hover:text-white text-xs font-bold"
                   onClick={async () => {
                     try {
-                      const res = await fetch(`/api/projects/${project._id ?? project.id}`);
+                      const res = await apiFetch(`/api/projects/${project._id ?? project.id}`);
                       if (!res.ok) throw new Error("Failed to fetch project");
                       const data = await res.json();
                       setEditing({ ...data, id: data._id ? String(data._id) : data.id });
-                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      setFormOpen(true);
                     } catch (err) { console.error(err); }
                   }}>
                   <Pencil className="h-3 w-3 mr-1" /> Edit

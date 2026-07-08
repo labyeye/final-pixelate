@@ -122,6 +122,8 @@ export function Sidebar() {
           </>
         ) : (
           navGroups.map((group) => {
+            if (isStaff && group.title === "Nest HR") return null;
+
             const filteredItems = group.items.filter((item) => {
               if (isStaff) {
                 return userAllowedPages.includes(item.href);

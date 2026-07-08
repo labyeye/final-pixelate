@@ -38,6 +38,7 @@ const formSchema = z.object({
   name: z
     .string()
     .min(2, { message: "Service name must be at least 2 characters." }),
+  hsnCode: z.string().optional(),
 });
 
 export default function ServicesPage() {
@@ -68,7 +69,7 @@ export default function ServicesPage() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: "" },
+    defaultValues: { name: "", hsnCode: "" },
   });
 
   if (user?.role !== "admin") {
@@ -94,7 +95,7 @@ export default function ServicesPage() {
     try {
       const res = await apiFetch("/api/services", {
         method: "POST",
-        body: JSON.stringify({ name: values.name }),
+        body: JSON.stringify({ name: values.name, hsnCode: values.hsnCode || "" }),
         headers: { "Content-Type": "application/json" },
       });
       if (!res.ok) throw new Error(`Failed to create service: ${res.status}`);
@@ -111,15 +112,18 @@ export default function ServicesPage() {
     string | number | null
   >(null);
   const [editingValue, setEditingValue] = useState("");
+  const [editingHsn, setEditingHsn] = useState("");
 
   const startEdit = (s: Service) => {
     setEditingServiceId(s._id ?? s.id ?? null);
     setEditingValue(s.name);
+    setEditingHsn(s.hsnCode || "");
   };
 
   const cancelEdit = () => {
     setEditingServiceId(null);
     setEditingValue("");
+    setEditingHsn("");
   };
 
   const saveEdit = async () => {
@@ -127,7 +131,7 @@ export default function ServicesPage() {
     try {
       const res = await apiFetch(`/api/services/${editingServiceId}`, {
         method: "PUT",
-        body: JSON.stringify({ name: editingValue }),
+        body: JSON.stringify({ name: editingValue, hsnCode: editingHsn }),
         headers: { "Content-Type": "application/json" },
       });
       if (!res.ok) throw new Error(`Failed to update service: ${res.status}`);
@@ -184,7 +188,19 @@ export default function ServicesPage() {
                 render={({ field }) => (
                   <FormItem className="flex-grow">
                     <FormControl>
-                      <Input placeholder="e.g., Video Editing" {...field} />
+                      <Input placeholder="e.g., Design and Development Services" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="hsnCode"
+                render={({ field }) => (
+                  <FormItem className="w-48">
+                    <FormControl>
+                      <Input placeholder="HSN/SAC code" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -205,6 +221,10 @@ export default function ServicesPage() {
               <TableHead className="text-base font-bold">
                 Service Name
               </TableHead>
+              <TableHead className="text-base font-bold w-48">
+                HSN/SAC Code
+              </TableHead>
+              <TableHead className="w-16"></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -213,50 +233,66 @@ export default function ServicesPage() {
                 key={s._id ?? s.id}
                 className="border-b-2 border-black last:border-b-0"
               >
-                <TableCell className="font-bold text-base py-4">
-                  {editingServiceId === (s._id ?? s.id) ? (
-                    <div className="flex items-center gap-2">
+                {editingServiceId === (s._id ?? s.id) ? (
+                  <>
+                    <TableCell className="font-bold text-base py-4">
                       <Input
                         value={editingValue}
                         onChange={(e) => setEditingValue(e.target.value)}
                       />
-                      <Button size="sm" onClick={saveEdit}>
-                        Save
-                      </Button>
-                      <Button size="sm" variant="ghost" onClick={cancelEdit}>
-                        Cancel
-                      </Button>
-                    </div>
-                  ) : (
-                    <div className="flex items-center justify-between">
-                      <div>{s.name}</div>
-                      <div>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="h-8 w-8"
-                            >
-                              <MoreVertical className="h-5 w-5" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuItem onClick={() => startEdit(s)}>
-                              Edit
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => deleteService(s)}
-                              className="text-destructive"
-                            >
-                              Delete
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <Input
+                        value={editingHsn}
+                        onChange={(e) => setEditingHsn(e.target.value)}
+                        placeholder="HSN/SAC code"
+                      />
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <Button size="sm" onClick={saveEdit}>
+                          Save
+                        </Button>
+                        <Button size="sm" variant="ghost" onClick={cancelEdit}>
+                          Cancel
+                        </Button>
                       </div>
-                    </div>
-                  )}
-                </TableCell>
+                    </TableCell>
+                  </>
+                ) : (
+                  <>
+                    <TableCell className="font-bold text-base py-4">
+                      {s.name}
+                    </TableCell>
+                    <TableCell className="text-base py-4 text-muted-foreground">
+                      {s.hsnCode || "—"}
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <MoreVertical className="h-5 w-5" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem onClick={() => startEdit(s)}>
+                            Edit
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => deleteService(s)}
+                            className="text-destructive"
+                          >
+                            Delete
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
+                  </>
+                )}
               </TableRow>
             ))}
           </TableBody>
@@ -270,14 +306,20 @@ export default function ServicesPage() {
           return (
             <div key={sid} className="border-2 border-black bg-white px-3 py-3 flex items-center justify-between gap-2">
               {editingServiceId === sid ? (
-                <div className="flex items-center gap-2 flex-1">
-                  <Input value={editingValue} onChange={(e) => setEditingValue(e.target.value)} className="border-2 border-black flex-1" />
-                  <Button size="sm" onClick={saveEdit}>Save</Button>
-                  <Button size="sm" variant="ghost" onClick={cancelEdit}>Cancel</Button>
+                <div className="flex flex-col gap-2 flex-1">
+                  <Input value={editingValue} onChange={(e) => setEditingValue(e.target.value)} className="border-2 border-black" />
+                  <Input value={editingHsn} onChange={(e) => setEditingHsn(e.target.value)} placeholder="HSN/SAC code" className="border-2 border-black" />
+                  <div className="flex items-center gap-2">
+                    <Button size="sm" onClick={saveEdit}>Save</Button>
+                    <Button size="sm" variant="ghost" onClick={cancelEdit}>Cancel</Button>
+                  </div>
                 </div>
               ) : (
                 <>
-                  <span className="font-bold text-sm flex-1">{s.name}</span>
+                  <div className="flex-1">
+                    <div className="font-bold text-sm">{s.name}</div>
+                    <div className="text-xs text-muted-foreground">{s.hsnCode || "—"}</div>
+                  </div>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild><Button variant="ghost" size="icon" className="h-8 w-8"><MoreVertical className="h-5 w-5" /></Button></DropdownMenuTrigger>
                     <DropdownMenuContent align="end">

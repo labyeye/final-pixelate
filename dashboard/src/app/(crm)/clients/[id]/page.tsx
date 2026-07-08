@@ -3,7 +3,7 @@
 import { apiFetch } from "@/lib/api-fetch";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import type { Client, Lead } from "@/lib/data";
+import type { Client } from "@/lib/data";
 import { clientStatusColors } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,13 +28,11 @@ import {
   IndianRupee,
   FileText,
   FolderOpen,
-  Zap,
   ChevronRight,
   Calendar,
   Download,
 } from "lucide-react";
 import Link from "next/link";
-import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
 import { SocialAccountTokenPanel } from "@/components/social-media/social-account-token-panel";
 
 function formatDate(date?: Date | string | null) {
@@ -65,7 +63,6 @@ export default function ClientDetailPage() {
   const clientId = params.id as string;
 
   const [client, setClient] = useState<Client | null>(null);
-  const [leads, setLeads] = useState<Lead[]>([]);
   const [projects, setProjects] = useState<any[]>([]);
   const [invoices, setInvoices] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -115,9 +112,6 @@ export default function ClientDetailPage() {
       apiFetch(`/api/clients/${clientId}`, { headers: authHeaders() }).then(
         (r) => r.json(),
       ),
-      apiFetch("/api/leads", { headers: authHeaders() })
-        .then((r) => (r.ok ? r.json() : []))
-        .catch(() => []),
       apiFetch("/api/projects", { headers: authHeaders() })
         .then((r) => (r.ok ? r.json() : []))
         .catch(() => []),
@@ -125,19 +119,10 @@ export default function ClientDetailPage() {
         .then((r) => (r.ok ? r.json() : []))
         .catch(() => []),
     ])
-      .then(([clientData, allLeads, allProjects, allInvoices]) => {
+      .then(([clientData, allProjects, allInvoices]) => {
         setClient(clientData);
         setEditForm(clientData);
 
-        setLeads(
-          Array.isArray(allLeads)
-            ? allLeads.filter(
-                (l: any) =>
-                  String(l.clientId) === clientId ||
-                  String(l.convertedToClientId) === clientId,
-              )
-            : [],
-        );
         setProjects(
           Array.isArray(allProjects)
             ? allProjects.filter(
@@ -527,17 +512,6 @@ export default function ClientDetailPage() {
                       <span className="font-medium">{client.industry}</span>
                     </div>
                   )}
-                  {client.convertedFromLeadId && (
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">From Lead</span>
-                      <Link
-                        href={`/leads/${client.convertedFromLeadId}`}
-                        className="text-xs text-blue-600 hover:underline flex items-center gap-1"
-                      >
-                        View Lead <ChevronRight className="w-3 h-3" />
-                      </Link>
-                    </div>
-                  )}
                   {client.createdAt && (
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Since</span>
@@ -669,12 +643,6 @@ export default function ClientDetailPage() {
               <TabsTrigger value="invoices" className="font-bold">
                 Invoices ({invoices.length})
               </TabsTrigger>
-              <TabsTrigger value="leads" className="font-bold">
-                Leads ({leads.length})
-              </TabsTrigger>
-              <TabsTrigger value="fb-leads" className="font-bold">
-                FB Lead Ads
-              </TabsTrigger>
               <TabsTrigger value="social-tokens" className="font-bold">
                 Social Tokens
               </TabsTrigger>
@@ -801,44 +769,6 @@ export default function ClientDetailPage() {
                   </div>
                 );
               })}
-            </TabsContent>
-
-            {}
-            <TabsContent value="leads" className="space-y-3">
-              {leads.length === 0 && (
-                <div className="text-center py-12 border-2 border-dashed border-gray-200 rounded-xl text-muted-foreground">
-                  <Zap className="w-10 h-10 mx-auto mb-2 opacity-30" />
-                  No linked leads.
-                </div>
-              )}
-              {leads.map((l) => {
-                const lid = String(l._id || l.id);
-                return (
-                  <Link key={lid} href={`/leads/${lid}`}>
-                    <div className="border-2 border-black rounded-xl p-4 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-between gap-3">
-                      <div>
-                        <p className="font-bold text-sm">{l.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {l.subject || l.projectType || l.source || "—"}
-                        </p>
-                      </div>
-                      <div className="text-right flex items-center gap-2">
-                        {l.status && (
-                          <span className="text-xs px-2 py-0.5 rounded-full border font-bold capitalize">
-                            {l.status}
-                          </span>
-                        )}
-                        <ChevronRight className="w-4 h-4 opacity-40" />
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </TabsContent>
-
-            {}
-            <TabsContent value="fb-leads">
-              <FbAdsConnectionPanel clientId={clientId} />
             </TabsContent>
 
             <TabsContent value="social-tokens">

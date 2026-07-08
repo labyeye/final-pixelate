@@ -57,6 +57,8 @@ export async function POST(req: NextRequest) {
       assigneeName: body.assigneeName || null,
       assigneeAvatar: body.assigneeAvatar || null,
       dueDate: body.dueDate || null,
+      assetLink: body.assetLink || null,
+      updates: [],
       tags: body.tags || [],
       createdAt: new Date(),
       updatedAt: new Date(),

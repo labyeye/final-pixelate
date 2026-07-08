@@ -31,20 +31,36 @@ export async function PUT(
       );
     }
 
-    const updateData = {
-      ...body,
+    const { remark, byId, byName, logUpdate, ...rest } = body;
+
+    const updateData: any = {
+      ...rest,
       updatedAt: new Date(),
     };
     delete updateData._id;
     delete updateData.id;
 
+    const updateOps: any = { $set: updateData };
+
+    if (logUpdate || remark) {
+      updateOps.$push = {
+        updates: {
+          id: new ObjectId().toString(),
+          status: updateData.status ?? task.status,
+          remark: remark || "",
+          completedLink: updateData.completedLink || null,
+          byId: byId ?? userId ?? null,
+          byName: byName ?? null,
+          at: new Date(),
+        },
+      };
+    }
+
     const result = await db
       .collection("tasks")
-      .findOneAndUpdate(
-        { _id: new ObjectId(id) },
-        { $set: updateData },
-        { returnDocument: "after" },
-      );
+      .findOneAndUpdate({ _id: new ObjectId(id) }, updateOps, {
+        returnDocument: "after",
+      });
 
     if (!result) {
       return NextResponse.json({ error: "Task not found" }, { status: 404 });

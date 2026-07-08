@@ -270,9 +270,11 @@ async function getCollection(name) {
     const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDb"])();
     return db.collection(name);
 }
-async function getClients() {
+async function getClients(projection) {
     const col = await getCollection("clients");
-    return col.find().toArray();
+    return col.find({}, {
+        projection
+    }).toArray();
 }
 async function createClient(client) {
     const col = await getCollection("clients");
@@ -418,7 +420,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
     }
     const LABELS = {
         invoices: "Invoice",
-        leads: "Lead",
         clients: "Client",
         quotations: "Quotation",
         projects: "Project",

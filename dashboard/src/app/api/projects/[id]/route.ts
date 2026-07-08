@@ -18,7 +18,42 @@ export async function GET(
     const item = await svc.findById("projects", id);
     if (!item)
       return NextResponse.json({ error: "Not found" }, { status: 404 });
-    return NextResponse.json(item);
+
+    const [clientCol, usersCol] = await Promise.all([
+      svc.getCollection("clients"),
+      svc.getCollection("users"),
+    ]);
+    const [clients, teamMembers] = await Promise.all([
+      clientCol.find().toArray(),
+      usersCol.find({ jobRole: { $exists: true } }).toArray(),
+    ]);
+
+    let enriched: any = { ...item };
+
+    if (item.clientId || item.client) {
+      const clientIdStr = String(item.clientId || item.client);
+      const clientDoc = clients.find((c: any) => {
+        const cId = String(c._id || c.id || "");
+        return cId === clientIdStr;
+      });
+      if (clientDoc) enriched.clientName = clientDoc.name;
+    }
+
+    if (Array.isArray(item.assignees) && item.assignees.length > 0) {
+      enriched.assignees = item.assignees.map((assignee: any) => {
+        const assigneeId = String(assignee.id ?? assignee);
+        const teamMember = teamMembers.find((t: any) => {
+          const tId = String(t._id || t.id || "");
+          return tId === assigneeId;
+        });
+        return {
+          ...assignee,
+          name: teamMember?.name || assignee.name || "—",
+        };
+      });
+    }
+
+    return NextResponse.json(enriched);
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },

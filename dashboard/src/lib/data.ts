@@ -20,7 +20,6 @@ export interface Client {
   tags?: string[];
   industry?: string;
   notes?: string;
-  convertedFromLeadId?: string;
   createdAt?: Date | string;
 }
 
@@ -63,89 +62,6 @@ export async function getUsers() {
 export async function addUser(user: Omit<User, "id" | "_id">) {
   const svc = await import("./services");
   return svc.createUser(user);
-}
-
-export interface LeadActivity {
-  _id?: string | any;
-  leadId: string;
-  type: "note" | "call" | "email" | "meeting" | "status_change" | "conversion";
-  content: string;
-  createdBy?: string;
-  createdByName?: string;
-  createdAt?: Date | string;
-}
-
-export interface Lead {
-  id?: number;
-  _id?: string | any;
-  name: string;
-  project?: string;
-  value?: number;
-  category?: string;
-  doNotDelete?: boolean;
-  reason?: string;
-  status?:
-    | "not called"
-    | "called"
-    | "not interested"
-    | "meeting booked"
-    | "interested"
-    | "call back later"
-    | "converted"
-    | "other";
-  statusReason?: string;
-  phone?: string;
-  email?: string;
-  assignedTo?: string | any;
-  assignedToName?: string;
-  subject?: string;
-  message?: string;
-  projectType?: string;
-  budget?: string | number | null;
-  selectedPlan?: string | null;
-  source?: string;
-  campaignName?: string;
-  formName?: string;
-  adName?: string;
-  fbLeadId?: string;
-  indiamrtSynced?: boolean;
-  indiamrtResponse?: any;
-
-  priority?: "low" | "medium" | "high";
-  followUpDate?: Date | string | null;
-  tags?: string[];
-  score?: number;
-  convertedToClientId?: string | null;
-  city?: string;
-  notes?: string;
-  createdAt?: Date | string;
-  updatedAt?: Date | string;
-}
-
-export const leads: Lead[] = [];
-
-export const leadStatuses: (
-  | "not called"
-  | "called"
-  | "not interested"
-  | "meeting booked"
-  | "interested"
-  | "call back later"
-  | "other"
-)[] = [
-  "not called",
-  "called",
-  "not interested",
-  "meeting booked",
-  "interested",
-  "call back later",
-  "other",
-];
-
-export async function getLeads() {
-  const svc = await import("./services");
-  const col = await svc.getCollection("leads");
-  return col.find().toArray();
 }
 
 export type ProjectStatus =
@@ -241,7 +157,7 @@ export interface Service {
   id?: number | string;
   _id?: string | any;
   name: string;
-
+  hsnCode?: string;
   description?: string;
 }
 

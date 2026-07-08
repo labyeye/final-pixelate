@@ -11,7 +11,6 @@ import {
   Filter,
   ArrowUpDown,
   Calendar,
-  ChevronDown,
   ListTodo,
   CheckCircle2,
   Activity,
@@ -23,18 +22,17 @@ import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { TaskCreationModal } from "@/components/dashboard/task-creation-modal";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { TaskDetailModal } from "@/components/dashboard/task-detail-modal";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function TasksPage() {
+  const { user } = useAuth();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
 
   const fetchTasks = async (currentUserId: string | null) => {
     try {
@@ -66,36 +64,32 @@ export default function TasksPage() {
     return () => window.removeEventListener("task:created", handler);
   }, []);
 
-  const updateTaskStatus = async (taskId: string, newStatus: TaskStatus) => {
-    try {
-      const url = userId
-        ? `/api/tasks/${taskId}?userId=${encodeURIComponent(userId)}`
-        : `/api/tasks/${taskId}`;
-      const res = await apiFetch(url, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: newStatus }),
-      });
-
-      if (res.ok) {
-        const updatedTask = await res.json();
-        setTasks(
-          tasks.map((t) => (t.id === taskId ? { ...t, status: newStatus } : t)),
-        );
-      } else {
-        console.error("Failed to update task status");
-      }
-    } catch (e) {
-      console.error("Failed to update task status", e);
-    }
-  };
-
   const filteredTasks = tasks.filter((t) =>
     t.title.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   const getTasksByStatus = (status: TaskStatus) =>
     filteredTasks.filter((t) => t.status === status);
+
+  const openTask = (task: Task) => {
+    setSelectedTask(task);
+    setDetailOpen(true);
+  };
+
+  const handleTaskUpdated = (updated: Task) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === (updated.id ?? (updated as any)._id) ? { ...t, ...updated } : t)),
+    );
+    setSelectedTask(updated);
+  };
+
+  const actor = user
+    ? {
+        id: String(user.id ?? (user as any)._id ?? ""),
+        name: user.name ?? "",
+        role: user.role ?? "staff",
+      }
+    : null;
 
   return (
     <div className="h-[calc(100vh-2rem)] flex flex-col font-sans text-foreground">
@@ -168,7 +162,7 @@ export default function TasksPage() {
             count={getTasksByStatus("not-started").length}
             color="bg-muted-foreground/20"
             tasks={getTasksByStatus("not-started")}
-            onStatusChange={updateTaskStatus}
+            onOpenTask={openTask}
           />
 
           {}
@@ -178,17 +172,37 @@ export default function TasksPage() {
             color="bg-blue-500/20"
             textColor="text-blue-600"
             tasks={getTasksByStatus("in-progress")}
-            onStatusChange={updateTaskStatus}
+            onOpenTask={openTask}
           />
 
           {}
           <TaskColumn
-            title="Done"
+            title="Done (Review)"
             count={getTasksByStatus("done").length}
+            color="bg-amber-500/20"
+            textColor="text-amber-600"
+            tasks={getTasksByStatus("done")}
+            onOpenTask={openTask}
+          />
+
+          {}
+          <TaskColumn
+            title="Issues"
+            count={getTasksByStatus("issues").length}
+            color="bg-red-500/20"
+            textColor="text-red-600"
+            tasks={getTasksByStatus("issues")}
+            onOpenTask={openTask}
+          />
+
+          {}
+          <TaskColumn
+            title="Completed"
+            count={getTasksByStatus("completed").length}
             color="bg-green-500/20"
             textColor="text-green-600"
-            tasks={getTasksByStatus("done")}
-            onStatusChange={updateTaskStatus}
+            tasks={getTasksByStatus("completed")}
+            onOpenTask={openTask}
           />
 
           {}
@@ -199,6 +213,14 @@ export default function TasksPage() {
           </div>
         </div>
       </div>
+
+      <TaskDetailModal
+        task={selectedTask}
+        open={detailOpen}
+        onOpenChange={setDetailOpen}
+        actor={actor}
+        onUpdated={handleTaskUpdated}
+      />
     </div>
   );
 }
@@ -209,14 +231,14 @@ function TaskColumn({
   color,
   textColor = "text-muted-foreground",
   tasks,
-  onStatusChange,
+  onOpenTask,
 }: {
   title: string;
   count: number;
   color: string;
   textColor?: string;
   tasks: Task[];
-  onStatusChange: (taskId: string, status: TaskStatus) => void;
+  onOpenTask: (task: Task) => void;
 }) {
   return (
     <div className="w-[300px] flex flex-col h-full">
@@ -243,7 +265,7 @@ function TaskColumn({
       {}
       <div className="flex-1 flex flex-col gap-2 pb-4 overflow-y-auto">
         {tasks.map((task) => (
-          <TaskCard key={task.id} task={task} onStatusChange={onStatusChange} />
+          <TaskCard key={task.id} task={task} onOpenTask={onOpenTask} />
         ))}
 
         <Button
@@ -259,15 +281,16 @@ function TaskColumn({
 
 function TaskCard({
   task,
-  onStatusChange,
+  onOpenTask,
 }: {
   task: Task;
-  onStatusChange: (taskId: string, status: TaskStatus) => void;
+  onOpenTask: (task: Task) => void;
 }) {
-  const statusOptions: TaskStatus[] = ["not-started", "in-progress", "done"];
-
   return (
-    <div className="bg-card hover:bg-accent/10 border border-transparent hover:border-border transition-all rounded-md shadow-sm p-3 group cursor-pointer flex flex-col gap-2 relative">
+    <div
+      onClick={() => onOpenTask(task)}
+      className="bg-card hover:bg-accent/10 border border-transparent hover:border-border transition-all rounded-md shadow-sm p-3 group cursor-pointer flex flex-col gap-2 relative"
+    >
       {}
       <span className="font-medium text-sm text-foreground/90">
         {task.title}
@@ -324,36 +347,10 @@ function TaskCard({
       )}
 
       {}
-      <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-7 text-xs w-full justify-between"
-            >
-              <span className="capitalize">
-                {task.status.replace("-", " ")}
-              </span>
-              <ChevronDown className="w-3 h-3 ml-1" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-40">
-            {statusOptions.map((status) => (
-              <DropdownMenuItem
-                key={status}
-                onClick={() => {
-                  if (task.id) {
-                    onStatusChange(task.id, status);
-                  }
-                }}
-                className="capitalize"
-              >
-                {status.replace("-", " ")}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+      <div className="mt-2">
+        <span className="inline-block h-7 leading-7 px-2 text-xs font-bold border rounded-md capitalize text-muted-foreground">
+          {task.status.replace("-", " ")}
+        </span>
       </div>
     </div>
   );

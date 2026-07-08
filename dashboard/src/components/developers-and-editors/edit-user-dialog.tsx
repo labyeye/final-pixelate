@@ -23,6 +23,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import type { User } from "@/lib/models";
+import { apiFetch } from "@/lib/api-fetch";
+import { useToast } from "@/hooks/use-toast";
+import { compressImage } from "@/lib/compress-image";
 
 const schema = z.object({
   name: z.string().min(1),
@@ -44,6 +47,9 @@ export default function EditUserDialog({
   initialValues,
   onSave,
 }: Props) {
+  const { toast } = useToast();
+  const [avatar, setAvatar] = React.useState((initialValues as any).avatar || "");
+  const [uploading, setUploading] = React.useState(false);
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -54,11 +60,43 @@ export default function EditUserDialog({
     },
   });
 
+  React.useEffect(() => {
+    setAvatar((initialValues as any).avatar || "");
+  }, [initialValues]);
+
+  async function handleAvatarUpload(file: File) {
+    setUploading(true);
+    try {
+      const compressed = await compressImage(file);
+      const formData = new FormData();
+      formData.append("file", compressed);
+      const res = await apiFetch("/api/upload/avatar", {
+        method: "POST",
+        body: formData,
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Upload failed");
+      }
+      const { url } = await res.json();
+      setAvatar(url);
+      toast({ title: "Photo Uploaded", description: "Save to apply changes." });
+    } catch (e: any) {
+      toast({
+        title: "Upload Failed",
+        description: e.message || "Something went wrong",
+        variant: "destructive",
+      });
+    }
+    setUploading(false);
+  }
+
   async function handleSubmit(values: z.infer<typeof schema>) {
     const update: any = {
       name: values.name,
       email: values.email,
       role: values.role,
+      avatar,
     };
     if (values.password) update.password = values.password;
     await onSave(update);
@@ -80,6 +118,42 @@ export default function EditUserDialog({
             onSubmit={form.handleSubmit(handleSubmit)}
             className="space-y-4"
           >
+            <div className="space-y-2">
+              <FormLabel>Photo</FormLabel>
+              <div className="flex items-center gap-4">
+                {avatar ? (
+                  <img
+                    src={avatar}
+                    alt="avatar"
+                    className="h-16 w-16 rounded-full object-cover border-2 border-black"
+                  />
+                ) : (
+                  <div className="h-16 w-16 rounded-full bg-gray-200 border-2 border-black" />
+                )}
+                <Button
+                  type="button"
+                  variant="outline"
+                  disabled={uploading}
+                  onClick={() =>
+                    document.getElementById("edit-user-avatar-upload")?.click()
+                  }
+                >
+                  {uploading ? "Uploading..." : "Upload Photo"}
+                </Button>
+                <input
+                  id="edit-user-avatar-upload"
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) handleAvatarUpload(file);
+                    e.target.value = "";
+                  }}
+                />
+              </div>
+            </div>
+
             <FormField
               control={form.control}
               name="name"

@@ -20,22 +20,24 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
-import type { Client } from "@/lib/data";
+import type { Client, Service } from "@/lib/data";
 import { InvoicePDF } from "./invoice-pdf";
 import jsPDF from "jspdf";
 import { renderToString } from "react-dom/server";
+import { Combobox, type ComboboxOption } from "@/components/ui/combobox";
 
 const WA_GREEN = "#25D366";
 
-const HSN_OPTIONS = [
-  { value: "998313", label: "998313 – Management Consulting Services" },
-  { value: "998314", label: "998314 – IT/Creative Services" },
-  { value: "999612", label: "999612 – Photography/Video" },
-  { value: "998315", label: "998315 – Hosting/Maintenance" },
-  { value: "998361", label: "998361 – Advertising Services" },
+const FALLBACK_SERVICES: { name: string; hsnCode: string }[] = [
+  { name: "Design and Development Services", hsnCode: "998314" },
+  { name: "Advertisment Services (Meta Ads)", hsnCode: "998361" },
+  { name: "Advertisment Services (Social Media)", hsnCode: "998361" },
+  { name: "Hosting Subscription", hsnCode: "998315" },
+  { name: "Consulting and Support Services", hsnCode: "998313" },
 ];
 
 type LineItem = {
+  serviceName: string;
   description: string;
   hsnCode: string;
   quantity: number;
@@ -43,16 +45,15 @@ type LineItem = {
 };
 
 const emptyLineItem = (): LineItem => ({
+  serviceName: "",
   description: "",
-  hsnCode: "998314",
+  hsnCode: "",
   quantity: 1,
   rate: 0,
 });
 
 type AddFormValues = {
   clientId: string;
-  projectTitle: string;
-  title: string;
   invoiceDate: string;
   dueDate: string;
   venueName: string;
@@ -73,6 +74,64 @@ export function AddInvoiceDialog({
   const [lineItems, setLineItems] = useState<LineItem[]>([emptyLineItem()]);
   const [discountType, setDiscountType] = useState<"flat" | "percent">("flat");
   const [discountInput, setDiscountInput] = useState<string>("0");
+  const [services, setServices] = useState<Service[]>([]);
+
+  React.useEffect(() => {
+    if (open) {
+      (async () => {
+        try {
+          const res = await apiFetch("/api/services");
+          if (res.ok) {
+            const items = (await res.json()) as Service[];
+            setServices(items);
+          }
+        } catch (e) {
+          console.error("Failed to load services", e);
+        }
+      })();
+    }
+  }, [open]);
+
+  const serviceRows: { value: string; label: string; hsnCode: string }[] =
+    React.useMemo(() => {
+      const fromDb = (services || []).map((s) => ({
+        value: String(s._id ?? s.id ?? s.name),
+        label: s.name,
+        hsnCode: s.hsnCode || "",
+      }));
+      if (fromDb.length > 0) return fromDb;
+      return FALLBACK_SERVICES.map((s) => ({
+        value: s.name,
+        label: s.name,
+        hsnCode: s.hsnCode,
+      }));
+    }, [services]);
+
+  const serviceOptions: ComboboxOption[] = React.useMemo(
+    () =>
+      serviceRows.map((s) => ({
+        value: s.value,
+        label: s.label,
+        sublabel: s.hsnCode ? `HSN: ${s.hsnCode}` : undefined,
+      })),
+    [serviceRows],
+  );
+
+  const hsnByServiceValue = React.useMemo(() => {
+    const map: Record<string, { label: string; hsnCode: string }> = {};
+    for (const s of serviceRows) map[s.value] = { label: s.label, hsnCode: s.hsnCode };
+    return map;
+  }, [serviceRows]);
+
+  const clientOptions: ComboboxOption[] = React.useMemo(
+    () =>
+      clients.map((c) => ({
+        value: String(c.id ?? c._id),
+        label: c.name,
+        sublabel: (c as any).phone || (c as any).whatsapp || undefined,
+      })),
+    [clients],
+  );
 
   React.useEffect(() => {
     if (!open) {
@@ -86,8 +145,6 @@ export function AddInvoiceDialog({
   const form = useForm<AddFormValues>({
     defaultValues: {
       clientId: "",
-      projectTitle: "",
-      title: "",
       invoiceDate: new Date().toISOString().slice(0, 10),
       dueDate: "",
       venueName: "",
@@ -125,7 +182,7 @@ export function AddInvoiceDialog({
       );
 
       const apiLineItems = lineItems.map((r) => ({
-        description: r.description || "Professional Services",
+        description: r.serviceName || r.description || "Professional Services",
         hsnCode: r.hsnCode || "998314",
         quantity: Number(r.quantity || 1),
         price: Number(r.rate || 0),
@@ -148,8 +205,8 @@ export function AddInvoiceDialog({
           selectedClient?.gstin ||
           selectedClient?.gstNumber ||
           "",
-        projectTitle: values.projectTitle || values.title || "",
-        title: values.title || values.projectTitle || "Invoice",
+        title:
+          lineItems[0]?.serviceName || lineItems[0]?.description || "Invoice",
         lineItems: apiLineItems,
         amount: subtotal,
         discount: discountAmt,
@@ -315,43 +372,14 @@ export function AddInvoiceDialog({
                   <FormItem>
                     <FormLabel>Client</FormLabel>
                     <FormControl>
-                      <select {...field} className="w-full border rounded p-2">
-                        <option value="">Select client</option>
-                        {clients.map((c) => (
-                          <option
-                            key={String(c.id ?? c._id)}
-                            value={String(c.id ?? c._id)}
-                          >
-                            {c.name}
-                          </option>
-                        ))}
-                      </select>
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                name="projectTitle"
-                control={form.control}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Project Title</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                name="title"
-                control={form.control}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Invoice Title</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
+                      <Combobox
+                        options={clientOptions}
+                        value={field.value}
+                        onChange={field.onChange}
+                        placeholder="Select client"
+                        searchPlaceholder="Search clients..."
+                        emptyText="No clients found."
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -402,7 +430,7 @@ export function AddInvoiceDialog({
 
               {/* Table Header */}
               <div className="grid grid-cols-[2fr_1fr_80px_100px_100px_40px] gap-2 text-xs font-semibold text-muted-foreground border-b pb-1 mb-1 px-1">
-                <span>Description</span>
+                <span>Service</span>
                 <span>HSN Code</span>
                 <span>Qty</span>
                 <span className="text-right">Rate (₹)</span>
@@ -418,26 +446,28 @@ export function AddInvoiceDialog({
                       key={idx}
                       className="grid grid-cols-[2fr_1fr_80px_100px_100px_40px] gap-2 items-center"
                     >
-                      <Input
-                        placeholder="Service description"
-                        value={row.description}
-                        onChange={(e) =>
-                          updateLineItem(idx, { description: e.target.value })
-                        }
+                      <Combobox
+                        options={serviceOptions}
+                        value={row.serviceName}
+                        onChange={(val) => {
+                          const found = hsnByServiceValue[val];
+                          updateLineItem(idx, {
+                            serviceName: val,
+                            description: found?.label ?? val,
+                            hsnCode: found?.hsnCode ?? "",
+                          });
+                        }}
+                        placeholder="Select service"
+                        searchPlaceholder="Search services..."
+                        emptyText="No services found."
+                        className="h-9"
                       />
-                      <select
-                        className="border rounded p-2 text-sm"
+                      <Input
                         value={row.hsnCode}
-                        onChange={(e) =>
-                          updateLineItem(idx, { hsnCode: e.target.value })
-                        }
-                      >
-                        {HSN_OPTIONS.map((o) => (
-                          <option key={o.value} value={o.value}>
-                            {o.value}
-                          </option>
-                        ))}
-                      </select>
+                        placeholder="HSN"
+                        readOnly
+                        className="bg-muted text-sm"
+                      />
                       <Input
                         type="number"
                         min={1}

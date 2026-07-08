@@ -142,7 +142,6 @@ export async function softDeleteById(
 
   const LABELS: Record<string, string> = {
     invoices: "Invoice",
-    leads: "Lead",
     clients: "Client",
     quotations: "Quotation",
     projects: "Project",

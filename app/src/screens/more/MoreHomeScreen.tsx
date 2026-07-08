@@ -55,12 +55,6 @@ const SECTIONS = [
     title: 'SOCIAL MEDIA',
     items: [
       {
-        label: 'SM Manager',
-        emoji: '\u{1F4CB}',
-        route: 'SocialMediaManager',
-        color: Colors.secondary,
-      },
-      {
         label: 'Social Planner',
         emoji: '\u{1F4C5}',
         route: 'SocialMediaPlanner',

@@ -38,7 +38,6 @@ import {
   Users,
   FileText,
   TrendingDown,
-  Target,
   Activity,
   DollarSign,
   FileCheck,
@@ -679,18 +678,24 @@ function MyTasksTab({ myTasks }: { myTasks: any[] }) {
   );
 }
 
+const expenseStatusColor: Record<string, string> = {
+  PAID: "bg-green-100 text-green-700 border-green-300",
+  PENDING: "bg-yellow-100 text-yellow-700 border-yellow-300",
+  CANCELLED: "bg-red-100 text-red-700 border-red-300",
+};
+
 function EarningsTab({
-  earningsByProject,
+  salaryEntries,
   totalEarnings,
 }: {
-  earningsByProject: any[];
+  salaryEntries: any[];
   totalEarnings: number;
 }) {
-  const paid = earningsByProject.filter(
-    (p) => p.status === "COMPLETED" && p.payout > 0,
+  const paid = salaryEntries.filter(
+    (p) => p.status === "paid" && p.payout > 0,
   );
-  const pending = earningsByProject.filter(
-    (p) => p.status !== "COMPLETED" && p.payout > 0,
+  const pending = salaryEntries.filter(
+    (p) => p.status === "pending" && p.payout > 0,
   );
   const paidTotal = paid.reduce((s, p) => s + p.payout, 0);
   const pendingTotal = pending.reduce((s, p) => s + p.payout, 0);
@@ -706,13 +711,13 @@ function EarningsTab({
             accent: "border-l-[#1a3a8f]",
           },
           {
-            label: "FROM COMPLETED",
+            label: "PAID",
             value: `₹${paidTotal.toLocaleString()}`,
             color: "text-green-600",
             accent: "border-l-green-500",
           },
           {
-            label: "PENDING (IN PROGRESS)",
+            label: "PENDING",
             value: `₹${pendingTotal.toLocaleString()}`,
             color: "text-yellow-600",
             accent: "border-l-yellow-500",
@@ -735,22 +740,26 @@ function EarningsTab({
       <Card className="border-2 border-black">
         <SectionHeader
           icon={IndianRupee}
-          title="EARNINGS BREAKDOWN BY PROJECT"
+          title="EARNINGS BREAKDOWN (FROM EXPENSES)"
         />
         <CardContent className="p-0">
-          {earningsByProject.filter((e) => e.payout > 0).length === 0 ? (
+          {salaryEntries.filter((e) => e.payout > 0).length === 0 ? (
             <p className="text-sm text-muted-foreground p-6">
-              No payouts assigned yet.
+              No salary entries recorded yet. Ask your admin to log your
+              payouts via the Expenses section.
             </p>
           ) : (
             <Table>
               <TableHeader>
                 <TableRow className="bg-gray-50">
                   <TableHead className="text-[10px] font-black tracking-widest">
-                    PROJECT
+                    TITLE
                   </TableHead>
                   <TableHead className="text-[10px] font-black tracking-widest">
-                    CLIENT
+                    LINKED PROJECT
+                  </TableHead>
+                  <TableHead className="text-[10px] font-black tracking-widest">
+                    DATE
                   </TableHead>
                   <TableHead className="text-[10px] font-black tracking-widest">
                     STATUS
@@ -761,24 +770,34 @@ function EarningsTab({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {earningsByProject
+                {salaryEntries
                   .filter((e) => e.payout > 0)
-                  .sort((a, b) => b.payout - a.payout)
+                  .sort(
+                    (a, b) =>
+                      new Date(b.date || 0).getTime() -
+                      new Date(a.date || 0).getTime(),
+                  )
                   .map((p, i) => (
                     <TableRow key={i}>
                       <TableCell className="font-bold">{p.title}</TableCell>
                       <TableCell className="text-muted-foreground">
-                        {p.client}
+                        {p.linkedProjectTitle || "—"}
+                      </TableCell>
+                      <TableCell className="text-muted-foreground text-sm">
+                        {p.date
+                          ? new Date(p.date).toLocaleDateString("en-IN")
+                          : "—"}
                       </TableCell>
                       <TableCell>
                         <span
                           className={cn(
                             "text-[10px] font-black px-2 py-0.5 rounded border",
-                            statusColor[p.status] ||
-                              "bg-gray-100 text-gray-600 border-gray-300",
+                            expenseStatusColor[
+                              String(p.status).toUpperCase()
+                            ] || "bg-gray-100 text-gray-600 border-gray-300",
                           )}
                         >
-                          {p.status}
+                          {String(p.status).toUpperCase()}
                         </span>
                       </TableCell>
                       <TableCell className="text-right font-black text-[#1a3a8f]">
@@ -884,11 +903,13 @@ function StaffDashboard({
   projects,
   tasks,
   clients,
+  expenses,
 }: {
   user: any;
   projects: any[];
   tasks: any[];
   clients: any[];
+  expenses: any[];
 }) {
   const [activeTab, setActiveTab] = useState("overview");
   const uid = String(user?.id ?? user?._id ?? "");
@@ -901,34 +922,57 @@ function StaffDashboard({
     (t) => String(t.assigneeId ?? t.userId ?? "") === uid,
   );
 
-  let totalEarnings = 0;
+  // Earnings are sourced from the Expenses collection ("salary" category
+  // entries linked to this staff member), not from project payout fields.
+  const mySalaryExpenses = expenses.filter(
+    (e: any) =>
+      e.category === "salary" && String(e.staffMemberId || "") === uid,
+  );
+
+  const salaryEntries = mySalaryExpenses.map((e: any) => ({
+    title: e.title || "Salary",
+    linkedProjectId: e.linkedProjectId || "",
+    linkedProjectTitle: e.linkedProjectTitle || "",
+    payout: Number(e.amount || 0),
+    status: e.status || "pending",
+    date: e.date || e.createdAt,
+  }));
+
+  const totalEarnings = salaryEntries
+    .filter((e) => e.status !== "cancelled")
+    .reduce((s, e) => s + e.payout, 0);
+
+  const projectPayout = new Map<string, number>();
+  for (const e of salaryEntries) {
+    if (!e.linkedProjectId || e.status === "cancelled") continue;
+    projectPayout.set(
+      e.linkedProjectId,
+      (projectPayout.get(e.linkedProjectId) || 0) + e.payout,
+    );
+  }
+
   const earningsByProject: {
     title: string;
     client: string;
     payout: number;
     status: string;
     deadline?: string;
-  }[] = [];
-  for (const p of myProjects) {
-    const assignee = (p.assignees || []).find(
-      (a: any) => String(a.id ?? a._id ?? a) === uid,
-    );
-    const payout = Number(assignee?.payout || 0);
+  }[] = myProjects.map((p) => {
+    const pid = String(p._id ?? p.id ?? "");
     const clientName =
       p.clientName ||
       clients.find(
         (c: any) => String(c._id ?? c.id) === String(p.clientId ?? p.client),
       )?.name ||
       "-";
-    totalEarnings += payout;
-    earningsByProject.push({
+    return {
       title: p.title || "Untitled",
       client: clientName,
-      payout,
+      payout: projectPayout.get(pid) || 0,
       status: p.status || "BACKLOG",
       deadline: p.deadline || p.dueDate,
-    });
-  }
+    };
+  });
 
   const projInProgress = myProjects.filter(
     (p) => p.status === "IN PROGRESS",
@@ -1072,7 +1116,7 @@ function StaffDashboard({
         {activeTab === "tasks" && <MyTasksTab myTasks={myTasks} />}
         {activeTab === "earnings" && (
           <EarningsTab
-            earningsByProject={earningsByProject}
+            salaryEntries={salaryEntries}
             totalEarnings={totalEarnings}
           />
         )}
@@ -1092,7 +1136,6 @@ export default function DashboardPage() {
   const [invoices, setInvoices] = useState<any[]>([]);
   const [expenses, setExpenses] = useState<any[]>([]);
   const [clients, setClients] = useState<any[]>([]);
-  const [leads, setLeads] = useState<any[]>([]);
   const [quotations, setQuotations] = useState<Quotation[]>([]);
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
   const [nesthrStats, setNesthrStats] = useState<any>(null);
@@ -1105,7 +1148,6 @@ export default function DashboardPage() {
         const [
           projectsData,
           invoicesData,
-          leadsData,
           quotationsData,
           expensesData,
           teamMembersData,
@@ -1115,7 +1157,6 @@ export default function DashboardPage() {
         ] = await Promise.all([
           apiFetch("/api/projects").then((r) => r.json()),
           apiFetch("/api/invoices").then((r) => r.json()),
-          apiFetch("/api/leads").then((r) => r.json()),
           apiFetch("/api/quotations").then((r) => r.json()),
           apiFetch("/api/expenses").then((r) => r.json()),
           apiFetch("/api/users").then((r) => r.json()),
@@ -1127,7 +1168,6 @@ export default function DashboardPage() {
         setProjects(Array.isArray(projectsData) ? projectsData : []);
         setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
         setExpenses(Array.isArray(expensesData) ? expensesData : []);
-        setLeads(Array.isArray(leadsData) ? leadsData : []);
         setQuotations(Array.isArray(quotationsData) ? quotationsData : []);
         setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
         setTasks(Array.isArray(tasksData) ? tasksData : []);
@@ -1142,10 +1182,6 @@ export default function DashboardPage() {
           (s: any, ex: any) => s + Number(ex.amount || 0),
           0,
         );
-        const leadsCount = (Array.isArray(leadsData) ? leadsData : []).length;
-        const newLeadsCount = (
-          Array.isArray(leadsData) ? leadsData : []
-        ).filter((l: any) => l.status === "NEW" || l.status === "new").length;
         const activeProjectsCount = (projectsData || []).filter(
           (p: any) => p.status === "IN PROGRESS",
         ).length;
@@ -1180,12 +1216,6 @@ export default function DashboardPage() {
             value: totalExpense,
             change: "-0.8%",
             changeType: "negative",
-          },
-          {
-            name: "leads",
-            value: leadsCount,
-            change: `${newLeadsCount} new`,
-            changeType: "positive",
           },
           {
             name: "active projects",
@@ -1236,15 +1266,6 @@ export default function DashboardPage() {
     };
   }, []);
 
-  const leadsByStatus = leads.reduce(
-    (acc, lead) => {
-      const key = lead.status ?? "NEW";
-      acc[key] = (acc[key] || 0) + 1;
-      return acc;
-    },
-    {} as Record<string, number>,
-  );
-
   if (isStaff) {
     return (
       <StaffDashboard
@@ -1252,6 +1273,7 @@ export default function DashboardPage() {
         projects={projects}
         tasks={tasks}
         clients={clients}
+        expenses={expenses}
       />
     );
   }
@@ -1274,7 +1296,6 @@ export default function DashboardPage() {
                 { name: "projects", icon: Briefcase },
                 { name: "revenue", icon: IndianRupee },
                 { name: "expense", icon: TrendingDown },
-                { name: "leads", icon: Target },
                 { name: "active projects", icon: Activity },
                 { name: "net profit", icon: DollarSign },
                 { name: "open quotes", icon: FileText },
@@ -1323,8 +1344,8 @@ export default function DashboardPage() {
           <TrendsSection invoices={invoices} clients={clients} />
           <TeamMembersSection teamMembers={teamMembers} projects={projects} />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <Card className="lg:col-span-2 border-2 border-black">
+          <div className="grid grid-cols-1 gap-8">
+            <Card className="border-2 border-black">
               <CardHeader>
                 <CardTitle className="text-2xl font-black tracking-tighter">
                   Recent Invoices
@@ -1369,29 +1390,6 @@ export default function DashboardPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-black">
-              <CardHeader>
-                <CardTitle className="text-2xl font-black tracking-tighter">
-                  Leads Pipeline
-                </CardTitle>
-                <CardDescription>Current status of all leads.</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {Object.entries(leadsByStatus).map(([status, count]) => (
-                  <div
-                    key={status}
-                    className="flex justify-between items-center bg-muted p-3"
-                  >
-                    <span className="font-bold text-muted-foreground text-lg">
-                      {status}
-                    </span>
-                    <span className="font-black text-3xl">
-                      <AnimatedNumber value={Number(count)} duration={700} />
-                    </span>
-                  </div>
-                ))}
               </CardContent>
             </Card>
           </div>

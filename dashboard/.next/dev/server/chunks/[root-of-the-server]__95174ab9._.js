@@ -420,7 +420,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
     }
     const LABELS = {
         invoices: "Invoice",
-        leads: "Lead",
         clients: "Client",
         quotations: "Quotation",
         projects: "Project",
@@ -937,6 +936,8 @@ async function GET(request) {
             gstNumber: 1,
             businessName: 1,
             whatsapp_opt_in: 1,
+            whatsapp_opted_in: 1,
+            whatsapp_opt_in_time: 1,
             userId: 1,
             loginEmail: 1
         } : undefined;

@@ -164,15 +164,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../src/app/(crm)/client/leads/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/client/leads">> = Specific
-  const handler = {} as typeof import("../../src/app/(crm)/client/leads/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../src/app/(crm)/client/planner/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/client/planner">> = Specific
@@ -353,24 +344,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../src/app/(crm)/leads/[id]/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/leads/[id]">> = Specific
-  const handler = {} as typeof import("../../src/app/(crm)/leads/[id]/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/(crm)/leads/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/leads">> = Specific
-  const handler = {} as typeof import("../../src/app/(crm)/leads/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../src/app/(crm)/nda-approval/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/nda-approval">> = Specific
@@ -510,15 +483,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/social-media-calendar">> = Specific
   const handler = {} as typeof import("../../src/app/(crm)/social-media-calendar/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/(crm)/social-media-manager/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/social-media-manager">> = Specific
-  const handler = {} as typeof import("../../src/app/(crm)/social-media-manager/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -776,15 +740,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../src/app/api/client-leads/sync/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/client-leads/sync">> = Specific
-  const handler = {} as typeof import("../../src/app/api/client-leads/sync/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../src/app/api/clients/[id]/meta-token/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/clients/[id]/meta-token">> = Specific
@@ -897,33 +852,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/expenses">> = Specific
   const handler = {} as typeof import("../../src/app/api/expenses/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/fb-ads-connection/forms/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fb-ads-connection/forms">> = Specific
-  const handler = {} as typeof import("../../src/app/api/fb-ads-connection/forms/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/fb-ads-connection/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fb-ads-connection">> = Specific
-  const handler = {} as typeof import("../../src/app/api/fb-ads-connection/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/fb-ads-connection/sync/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fb-ads-connection/sync">> = Specific
-  const handler = {} as typeof import("../../src/app/api/fb-ads-connection/sync/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -1046,46 +974,10 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../src/app/api/leads/[id]/activity/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/leads/[id]/activity">> = Specific
-  const handler = {} as typeof import("../../src/app/api/leads/[id]/activity/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/leads/[id]/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/leads/[id]">> = Specific
-  const handler = {} as typeof import("../../src/app/api/leads/[id]/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/leads/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/leads">> = Specific
-  const handler = {} as typeof import("../../src/app/api/leads/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../src/app/api/me/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/me">> = Specific
   const handler = {} as typeof import("../../src/app/api/me/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/meta-leads/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/meta-leads">> = Specific
-  const handler = {} as typeof import("../../src/app/api/meta-leads/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -1203,15 +1095,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/photos">> = Specific
   const handler = {} as typeof import("../../src/app/api/photos/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/pixy-lead/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/pixy-lead">> = Specific
-  const handler = {} as typeof import("../../src/app/api/pixy-lead/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -1455,24 +1338,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/social-media-posts">> = Specific
   const handler = {} as typeof import("../../src/app/api/social-media-posts/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/social-media-tasks/[id]/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/social-media-tasks/[id]">> = Specific
-  const handler = {} as typeof import("../../src/app/api/social-media-tasks/[id]/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/social-media-tasks/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/social-media-tasks">> = Specific
-  const handler = {} as typeof import("../../src/app/api/social-media-tasks/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

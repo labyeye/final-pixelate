@@ -37,6 +37,7 @@ import { Check } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import { apiFetch } from "@/lib/api-fetch";
 
 const schema = z.object({
   title: z.string().min(2),
@@ -104,7 +105,7 @@ export default function AddProjectForm({
         clientId: initialValues.clientId
           ? String(initialValues.clientId)
           : initialValues.client
-            ? initialValues.client
+            ? String(initialValues.client)
             : "",
         services: (initialValues.services || []).map((s: any) => ({
           id: String(s.id ?? s._id ?? s),
@@ -140,7 +141,7 @@ export default function AddProjectForm({
         progress: values.progress ?? 0,
         assignees: values.assignees,
       };
-      const res = await fetch(
+      const res = await apiFetch(
         editingId ? `/api/projects/${editingId}` : "/api/projects",
         {
           method: editingId ? "PUT" : "POST",

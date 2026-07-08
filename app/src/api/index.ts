@@ -143,14 +143,6 @@ export const whatsappTemplatesAPI = {
     api.post(`/whatsapp-templates/${id}/submit`, { name }),
 };
 
-export const socialMediaTasksAPI = {
-  getAll: () => api.get('/social-media-tasks'),
-  getById: (id: string) => api.get(`/social-media-tasks/${id}`),
-  create: (data: any) => api.post('/social-media-tasks', data),
-  update: (id: string, data: any) => api.put(`/social-media-tasks/${id}`, data),
-  delete: (id: string) => api.delete(`/social-media-tasks/${id}`),
-};
-
 export const campaignsAPI = {
   getAll: () => api.get('/campaigns'),
   getById: (id: string) => api.get(`/campaigns/${id}`),

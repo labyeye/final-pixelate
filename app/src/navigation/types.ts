@@ -70,7 +70,6 @@ export type MoreStackParams = {
   WhatsAppWebhook: undefined;
   SocialMediaPlanner: undefined;
   SocialMediaCalendar: undefined;
-  SocialMediaManager: undefined;
   Blogs: undefined;
   BlogDetail: { id: string };
   Newsletter: undefined;

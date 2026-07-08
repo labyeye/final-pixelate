@@ -1111,7 +1111,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/users.js [app-client] (ecmascript) <export default as Users>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trending-down.js [app-client] (ecmascript) <export default as TrendingDown>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$target$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Target$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/target.js [app-client] (ecmascript) <export default as Target>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/activity.js [app-client] (ecmascript) <export default as Activity>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript) <export default as DollarSign>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Building2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/building-2.js [app-client] (ecmascript) <export default as Building2>");
@@ -1182,7 +1181,7 @@ const SectionHeader = ({ icon: Icon, title })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 className: "w-4 h-4"
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 90,
+                lineNumber: 89,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1190,13 +1189,13 @@ const SectionHeader = ({ icon: Icon, title })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 children: title
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 91,
+                lineNumber: 90,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 89,
+        lineNumber: 88,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 _c1 = SectionHeader;
@@ -1241,7 +1240,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                 title: "PERSONAL INFORMATION"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 154,
+                                lineNumber: 153,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1275,7 +1274,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                 children: label
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 167,
+                                                lineNumber: 166,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1283,24 +1282,24 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                 children: value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 170,
+                                                lineNumber: 169,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, label, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 162,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 155,
+                                lineNumber: 154,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 153,
+                        lineNumber: 152,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1311,7 +1310,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                 title: "TASK SUMMARY"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 177,
+                                lineNumber: 176,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1345,7 +1344,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                 children: label
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 205,
+                                                lineNumber: 204,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1353,30 +1352,30 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                 children: value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 208,
+                                                lineNumber: 207,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, label, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 201,
+                                        lineNumber: 200,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 178,
+                                lineNumber: 177,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 176,
+                        lineNumber: 175,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 152,
+                lineNumber: 151,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1413,7 +1412,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                             children: label
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 243,
+                                            lineNumber: 242,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1421,7 +1420,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                             children: value
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 246,
+                                            lineNumber: 245,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1429,23 +1428,23 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                             children: sub
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 247,
+                                            lineNumber: 246,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 242,
+                                    lineNumber: 241,
                                     columnNumber: 15
                                 }, this)
                             }, label, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 238,
+                                lineNumber: 237,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 217,
+                        lineNumber: 216,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1456,7 +1455,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                 title: "MY ASSIGNED PROJECTS"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 256,
+                                lineNumber: 255,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1466,7 +1465,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                     children: "No projects assigned yet."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 258,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
                                     children: [
@@ -1479,7 +1478,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "PROJECT"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 266,
+                                                        lineNumber: 265,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1487,7 +1486,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "CLIENT"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 269,
+                                                        lineNumber: 268,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1495,7 +1494,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "STATUS"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 272,
+                                                        lineNumber: 271,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1503,18 +1502,18 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "PAYOUT"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 275,
+                                                        lineNumber: 274,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 265,
+                                                lineNumber: 264,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 264,
+                                            lineNumber: 263,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1525,7 +1524,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                             children: p.title
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 283,
+                                                            lineNumber: 282,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1533,7 +1532,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                             children: p.client
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 286,
+                                                            lineNumber: 285,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1542,12 +1541,12 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                                 children: p.status
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 290,
+                                                                lineNumber: 289,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 289,
+                                                            lineNumber: 288,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1555,35 +1554,35 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                             children: p.payout > 0 ? `₹${p.payout.toLocaleString()}` : "—"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 300,
+                                                            lineNumber: 299,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, i, true, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 282,
+                                                    lineNumber: 281,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 280,
+                                            lineNumber: 279,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 263,
+                                    lineNumber: 262,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 257,
+                                lineNumber: 256,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 255,
+                        lineNumber: 254,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1594,7 +1593,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                 title: "RECENT TASKS"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 312,
+                                lineNumber: 311,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1604,7 +1603,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                     children: "No tasks assigned yet."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 315,
+                                    lineNumber: 314,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
                                     children: [
@@ -1617,7 +1616,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "TASK"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 322,
+                                                        lineNumber: 321,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1625,7 +1624,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "STATUS"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 325,
+                                                        lineNumber: 324,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1633,7 +1632,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "PRIORITY"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 328,
+                                                        lineNumber: 327,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1641,18 +1640,18 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                         children: "DUE DATE"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 331,
+                                                        lineNumber: 330,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 321,
+                                                lineNumber: 320,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 320,
+                                            lineNumber: 319,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1665,7 +1664,7 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                             children: t.title
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 345,
+                                                            lineNumber: 344,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1674,12 +1673,12 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                                 children: t.status || "TODO"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 349,
+                                                                lineNumber: 348,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 348,
+                                                            lineNumber: 347,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1688,12 +1687,12 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                                 children: t.priority || "LOW"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 360,
+                                                                lineNumber: 359,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 359,
+                                                            lineNumber: 358,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1705,48 +1704,48 @@ function OverviewTab({ user, myProjects, myTasks, earningsByProject, totalEarnin
                                                             }) : "—"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 373,
+                                                            lineNumber: 372,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, i, true, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 343,
                                                     columnNumber: 23
                                                 }, this);
                                             })
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 336,
+                                            lineNumber: 335,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 319,
+                                    lineNumber: 318,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 313,
+                                lineNumber: 312,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 311,
+                        lineNumber: 310,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 216,
+                lineNumber: 215,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 150,
+        lineNumber: 149,
         columnNumber: 5
     }, this);
 }
@@ -1774,7 +1773,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                     children: s
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 412,
+                                    lineNumber: 411,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1782,24 +1781,24 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                     children: count
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 415,
+                                    lineNumber: 414,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 411,
+                            lineNumber: 410,
                             columnNumber: 17
                         }, this)
                     }, s, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 410,
+                        lineNumber: 409,
                         columnNumber: 15
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 403,
+                lineNumber: 402,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1810,7 +1809,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                         title: "ALL MY PROJECTS"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 437,
+                        lineNumber: 436,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1820,7 +1819,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                             children: "No projects assigned to you yet."
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 440,
+                            lineNumber: 439,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
                             children: [
@@ -1833,7 +1832,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                 children: "PROJECT"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 447,
+                                                lineNumber: 446,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1841,7 +1840,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                 children: "CLIENT"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 450,
+                                                lineNumber: 449,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1849,7 +1848,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                 children: "STATUS"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 453,
+                                                lineNumber: 452,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1857,7 +1856,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                 children: "DEADLINE"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 456,
+                                                lineNumber: 455,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1865,18 +1864,18 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                 children: "PAYOUT"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 459,
+                                                lineNumber: 458,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 446,
+                                        lineNumber: 445,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 445,
+                                    lineNumber: 444,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1887,7 +1886,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                     children: p.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 467,
+                                                    lineNumber: 466,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1895,7 +1894,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                     children: p.client
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 468,
+                                                    lineNumber: 467,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1904,12 +1903,12 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                         children: p.status
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 472,
+                                                        lineNumber: 471,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 471,
+                                                    lineNumber: 470,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1917,7 +1916,7 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                     children: p.deadline ? new Date(p.deadline).toLocaleDateString("en-IN") : "—"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 482,
+                                                    lineNumber: 481,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1925,41 +1924,41 @@ function MyProjectsTab({ earningsByProject, myProjects }) {
                                                     children: p.payout > 0 ? `₹${p.payout.toLocaleString()}` : "—"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 487,
+                                                    lineNumber: 486,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 466,
+                                            lineNumber: 465,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 464,
+                                    lineNumber: 463,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 444,
+                            lineNumber: 443,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 438,
+                        lineNumber: 437,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 436,
+                lineNumber: 435,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 402,
+        lineNumber: 401,
         columnNumber: 5
     }, this);
 }
@@ -2022,7 +2021,7 @@ function MyTasksTab({ myTasks }) {
                                     children: label
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 566,
+                                    lineNumber: 565,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2030,23 +2029,23 @@ function MyTasksTab({ myTasks }) {
                                     children: value
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 569,
+                                    lineNumber: 568,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 565,
+                            lineNumber: 564,
                             columnNumber: 13
                         }, this)
                     }, label, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 564,
+                        lineNumber: 563,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 541,
+                lineNumber: 540,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2057,12 +2056,12 @@ function MyTasksTab({ myTasks }) {
                         children: s
                     }, s, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 578,
+                        lineNumber: 577,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 576,
+                lineNumber: 575,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -2073,7 +2072,7 @@ function MyTasksTab({ myTasks }) {
                         title: "MY TASKS"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 594,
+                        lineNumber: 593,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2083,7 +2082,7 @@ function MyTasksTab({ myTasks }) {
                             children: "No tasks found."
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 597,
+                            lineNumber: 596,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
                             children: [
@@ -2096,7 +2095,7 @@ function MyTasksTab({ myTasks }) {
                                                 children: "TASK"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 602,
+                                                lineNumber: 601,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2104,7 +2103,7 @@ function MyTasksTab({ myTasks }) {
                                                 children: "STATUS"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 605,
+                                                lineNumber: 604,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2112,7 +2111,7 @@ function MyTasksTab({ myTasks }) {
                                                 children: "PRIORITY"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 608,
+                                                lineNumber: 607,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2120,18 +2119,18 @@ function MyTasksTab({ myTasks }) {
                                                 children: "DUE DATE"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 611,
+                                                lineNumber: 610,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 601,
+                                        lineNumber: 600,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 600,
+                                    lineNumber: 599,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -2144,7 +2143,7 @@ function MyTasksTab({ myTasks }) {
                                                     children: t.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 625,
+                                                    lineNumber: 624,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2153,12 +2152,12 @@ function MyTasksTab({ myTasks }) {
                                                         children: t.status || "TODO"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 627,
+                                                        lineNumber: 626,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 626,
+                                                    lineNumber: 625,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2167,12 +2166,12 @@ function MyTasksTab({ myTasks }) {
                                                         children: t.priority || "LOW"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 638,
+                                                        lineNumber: 637,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 637,
+                                                    lineNumber: 636,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2188,56 +2187,61 @@ function MyTasksTab({ myTasks }) {
                                                             children: "OVERDUE"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 665,
+                                                            lineNumber: 664,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 651,
+                                                    lineNumber: 650,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 624,
+                                            lineNumber: 623,
                                             columnNumber: 21
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 616,
+                                    lineNumber: 615,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 599,
+                            lineNumber: 598,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 595,
+                        lineNumber: 594,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 593,
+                lineNumber: 592,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 539,
+        lineNumber: 538,
         columnNumber: 5
     }, this);
 }
 _s1(MyTasksTab, "f2eOXn5VOakyxgKqcdlM4V0AB+Q=");
 _c4 = MyTasksTab;
-function EarningsTab({ earningsByProject, totalEarnings }) {
-    const paid = earningsByProject.filter((p)=>p.status === "COMPLETED" && p.payout > 0);
-    const pending = earningsByProject.filter((p)=>p.status !== "COMPLETED" && p.payout > 0);
+const expenseStatusColor = {
+    PAID: "bg-green-100 text-green-700 border-green-300",
+    PENDING: "bg-yellow-100 text-yellow-700 border-yellow-300",
+    CANCELLED: "bg-red-100 text-red-700 border-red-300"
+};
+function EarningsTab({ salaryEntries, totalEarnings }) {
+    const paid = salaryEntries.filter((p)=>p.status === "paid" && p.payout > 0);
+    const pending = salaryEntries.filter((p)=>p.status === "pending" && p.payout > 0);
     const paidTotal = paid.reduce((s, p)=>s + p.payout, 0);
     const pendingTotal = pending.reduce((s, p)=>s + p.payout, 0);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2253,13 +2257,13 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                         accent: "border-l-[#1a3a8f]"
                     },
                     {
-                        label: "FROM COMPLETED",
+                        label: "PAID",
                         value: `₹${paidTotal.toLocaleString()}`,
                         color: "text-green-600",
                         accent: "border-l-green-500"
                     },
                     {
-                        label: "PENDING (IN PROGRESS)",
+                        label: "PENDING",
                         value: `₹${pendingTotal.toLocaleString()}`,
                         color: "text-yellow-600",
                         accent: "border-l-yellow-500"
@@ -2274,7 +2278,7 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                                     children: label
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 726,
+                                    lineNumber: 731,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2282,23 +2286,23 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                                     children: value
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 729,
+                                    lineNumber: 734,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 725,
+                            lineNumber: 730,
                             columnNumber: 13
                         }, this)
                     }, label, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 721,
+                        lineNumber: 726,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 700,
+                lineNumber: 705,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -2306,20 +2310,20 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SectionHeader, {
                         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$indian$2d$rupee$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__IndianRupee$3e$__["IndianRupee"],
-                        title: "EARNINGS BREAKDOWN BY PROJECT"
+                        title: "EARNINGS BREAKDOWN (FROM EXPENSES)"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 736,
+                        lineNumber: 741,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                         className: "p-0",
-                        children: earningsByProject.filter((e)=>e.payout > 0).length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        children: salaryEntries.filter((e)=>e.payout > 0).length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-sm text-muted-foreground p-6",
-                            children: "No payouts assigned yet."
+                            children: "No salary entries recorded yet. Ask your admin to log your payouts via the Expenses section."
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 742,
+                            lineNumber: 747,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
                             children: [
@@ -2329,18 +2333,26 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                 className: "text-[10px] font-black tracking-widest",
-                                                children: "PROJECT"
+                                                children: "TITLE"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 749,
+                                                lineNumber: 755,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                 className: "text-[10px] font-black tracking-widest",
-                                                children: "CLIENT"
+                                                children: "LINKED PROJECT"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 752,
+                                                lineNumber: 758,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                className: "text-[10px] font-black tracking-widest",
+                                                children: "DATE"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                lineNumber: 761,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2348,7 +2360,7 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                                                 children: "STATUS"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 755,
+                                                lineNumber: 764,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2356,51 +2368,59 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                                                 children: "PAYOUT"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 758,
+                                                lineNumber: 767,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 748,
+                                        lineNumber: 754,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 747,
+                                    lineNumber: 753,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
-                                    children: earningsByProject.filter((e)=>e.payout > 0).sort((a, b)=>b.payout - a.payout).map((p, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
+                                    children: salaryEntries.filter((e)=>e.payout > 0).sort((a, b)=>new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()).map((p, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                     className: "font-bold",
                                                     children: p.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 769,
+                                                    lineNumber: 782,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                     className: "text-muted-foreground",
-                                                    children: p.client
+                                                    children: p.linkedProjectTitle || "—"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 770,
+                                                    lineNumber: 783,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                    className: "text-muted-foreground text-sm",
+                                                    children: p.date ? new Date(p.date).toLocaleDateString("en-IN") : "—"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                    lineNumber: 786,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-[10px] font-black px-2 py-0.5 rounded border", statusColor[p.status] || "bg-gray-100 text-gray-600 border-gray-300"),
-                                                        children: p.status
+                                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-[10px] font-black px-2 py-0.5 rounded border", expenseStatusColor[String(p.status).toUpperCase()] || "bg-gray-100 text-gray-600 border-gray-300"),
+                                                        children: String(p.status).toUpperCase()
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 774,
+                                                        lineNumber: 792,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 773,
+                                                    lineNumber: 791,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2411,41 +2431,41 @@ function EarningsTab({ earningsByProject, totalEarnings }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 784,
+                                                    lineNumber: 803,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 768,
+                                            lineNumber: 781,
                                             columnNumber: 21
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 763,
+                                    lineNumber: 772,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 746,
+                            lineNumber: 752,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 740,
+                        lineNumber: 745,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 735,
+                lineNumber: 740,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 699,
+        lineNumber: 704,
         columnNumber: 5
     }, this);
 }
@@ -2475,7 +2495,7 @@ function SettingsTab({ user }) {
                         title: "MY ACCESS & PERMISSIONS"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 823,
+                        lineNumber: 842,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2486,7 +2506,7 @@ function SettingsTab({ user }) {
                                 children: "These are the pages and sections you have access to. Contact your admin to request additional access."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 825,
+                                lineNumber: 844,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2498,7 +2518,7 @@ function SettingsTab({ user }) {
                                                 children: group.title
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 832,
+                                                lineNumber: 851,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2510,14 +2530,14 @@ function SettingsTab({ user }) {
                                                                 className: "w-4 h-4 text-green-600 shrink-0"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 841,
+                                                                lineNumber: 860,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(item.icon, {
                                                                 className: "w-4 h-4 text-muted-foreground shrink-0"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 842,
+                                                                lineNumber: 861,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2525,7 +2545,7 @@ function SettingsTab({ user }) {
                                                                 children: item.label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 843,
+                                                                lineNumber: 862,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2533,29 +2553,29 @@ function SettingsTab({ user }) {
                                                                 children: item.href
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 844,
+                                                                lineNumber: 863,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, item.href, true, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 837,
+                                                        lineNumber: 856,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 835,
+                                                lineNumber: 854,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, group.title, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 831,
+                                        lineNumber: 850,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 829,
+                                lineNumber: 848,
                                 columnNumber: 11
                             }, this),
                             allowed.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2563,19 +2583,19 @@ function SettingsTab({ user }) {
                                 children: "No specific pages assigned. Contact your admin."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 854,
+                                lineNumber: 873,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 824,
+                        lineNumber: 843,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 822,
+                lineNumber: 841,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -2586,7 +2606,7 @@ function SettingsTab({ user }) {
                         title: "ACCOUNT SETTINGS"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 862,
+                        lineNumber: 881,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2597,7 +2617,7 @@ function SettingsTab({ user }) {
                                 children: "To update your profile picture, name, email or password, visit your profile page."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 864,
+                                lineNumber: 883,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2608,58 +2628,71 @@ function SettingsTab({ user }) {
                                         className: "w-4 h-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 872,
+                                        lineNumber: 891,
                                         columnNumber: 13
                                     }, this),
                                     "GO TO PROFILE"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 868,
+                                lineNumber: 887,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 863,
+                        lineNumber: 882,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 861,
+                lineNumber: 880,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 821,
+        lineNumber: 840,
         columnNumber: 5
     }, this);
 }
 _c6 = SettingsTab;
 // ─── Staff Dashboard shell ────────────────────────────────────────────────────
-function StaffDashboard({ user, projects, tasks, clients }) {
+function StaffDashboard({ user, projects, tasks, clients, expenses }) {
     _s2();
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("overview");
     const uid = String(user?.id ?? user?._id ?? "");
     const myProjects = projects.filter((p)=>(p.assignees || []).some((a)=>String(a.id ?? a._id ?? a) === uid));
     const myTasks = tasks.filter((t)=>String(t.assigneeId ?? t.userId ?? "") === uid);
-    let totalEarnings = 0;
-    const earningsByProject = [];
-    for (const p of myProjects){
-        const assignee = (p.assignees || []).find((a)=>String(a.id ?? a._id ?? a) === uid);
-        const payout = Number(assignee?.payout || 0);
+    // Earnings are sourced from the Expenses collection ("salary" category
+    // entries linked to this staff member), not from project payout fields.
+    const mySalaryExpenses = expenses.filter((e)=>e.category === "salary" && String(e.staffMemberId || "") === uid);
+    const salaryEntries = mySalaryExpenses.map((e)=>({
+            title: e.title || "Salary",
+            linkedProjectId: e.linkedProjectId || "",
+            linkedProjectTitle: e.linkedProjectTitle || "",
+            payout: Number(e.amount || 0),
+            status: e.status || "pending",
+            date: e.date || e.createdAt
+        }));
+    const totalEarnings = salaryEntries.filter((e)=>e.status !== "cancelled").reduce((s, e)=>s + e.payout, 0);
+    const projectPayout = new Map();
+    for (const e of salaryEntries){
+        if (!e.linkedProjectId || e.status === "cancelled") continue;
+        projectPayout.set(e.linkedProjectId, (projectPayout.get(e.linkedProjectId) || 0) + e.payout);
+    }
+    const earningsByProject = myProjects.map((p)=>{
+        const pid = String(p._id ?? p.id ?? "");
         const clientName = p.clientName || clients.find((c)=>String(c._id ?? c.id) === String(p.clientId ?? p.client))?.name || "-";
-        totalEarnings += payout;
-        earningsByProject.push({
+        return {
             title: p.title || "Untitled",
             client: clientName,
-            payout,
+            payout: projectPayout.get(pid) || 0,
             status: p.status || "BACKLOG",
             deadline: p.deadline || p.dueDate
-        });
-    }
+        };
+    });
     const projInProgress = myProjects.filter((p)=>p.status === "IN PROGRESS").length;
     const projCompleted = myProjects.filter((p)=>p.status === "COMPLETED").length;
     const joinedDate = user?.createdAt ? new Date(user.createdAt).toLocaleDateString("en-IN", {
@@ -2707,7 +2740,7 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 960,
+                        lineNumber: 1004,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2724,7 +2757,7 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                             className: "object-cover"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 970,
+                                            lineNumber: 1014,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -2732,18 +2765,18 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                             children: user?.name?.charAt(0).toUpperCase() ?? "U"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 975,
+                                            lineNumber: 1019,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 969,
+                                    lineNumber: 1013,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 968,
+                                lineNumber: 1012,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2757,7 +2790,7 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                                 children: user?.name || "Staff Member"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 983,
+                                                lineNumber: 1027,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2765,13 +2798,13 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                                 children: "Active"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 986,
+                                                lineNumber: 1030,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 982,
+                                        lineNumber: 1026,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2784,13 +2817,13 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 990,
+                                        lineNumber: 1034,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 981,
+                                lineNumber: 1025,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2824,14 +2857,14 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                                         className: "w-3 h-3"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 1022,
+                                                        lineNumber: 1066,
                                                         columnNumber: 19
                                                     }, this),
                                                     label
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 1021,
+                                                lineNumber: 1065,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2839,30 +2872,30 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                                 children: value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 1025,
+                                                lineNumber: 1069,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, label, true, {
                                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                        lineNumber: 1017,
+                                        lineNumber: 1061,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 996,
+                                lineNumber: 1040,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 967,
+                        lineNumber: 1011,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 959,
+                lineNumber: 1003,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2875,19 +2908,19 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                                 className: "w-3.5 h-3.5"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                lineNumber: 1047,
+                                lineNumber: 1091,
                                 columnNumber: 13
                             }, this),
                             label
                         ]
                     }, id, true, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1037,
+                        lineNumber: 1081,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 1035,
+                lineNumber: 1079,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2903,7 +2936,7 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                         projCompleted: projCompleted
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1056,
+                        lineNumber: 1100,
                         columnNumber: 11
                     }, this),
                     activeTab === "projects" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MyProjectsTab, {
@@ -2911,41 +2944,41 @@ function StaffDashboard({ user, projects, tasks, clients }) {
                         earningsByProject: earningsByProject
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1067,
+                        lineNumber: 1111,
                         columnNumber: 11
                     }, this),
                     activeTab === "tasks" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MyTasksTab, {
                         myTasks: myTasks
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1072,
+                        lineNumber: 1116,
                         columnNumber: 35
                     }, this),
                     activeTab === "earnings" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EarningsTab, {
-                        earningsByProject: earningsByProject,
+                        salaryEntries: salaryEntries,
                         totalEarnings: totalEarnings
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1074,
+                        lineNumber: 1118,
                         columnNumber: 11
                     }, this),
                     activeTab === "settings" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SettingsTab, {
                         user: user
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1079,
+                        lineNumber: 1123,
                         columnNumber: 38
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 1054,
+                lineNumber: 1098,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 957,
+        lineNumber: 1001,
         columnNumber: 5
     }, this);
 }
@@ -2960,7 +2993,6 @@ function DashboardPage() {
     const [invoices, setInvoices] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [expenses, setExpenses] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [clients, setClients] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [leads, setLeads] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [quotations, setQuotations] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [teamMembers, setTeamMembers] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [nesthrStats, setNesthrStats] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -2970,14 +3002,11 @@ function DashboardPage() {
             let mounted = true;
             async function load() {
                 try {
-                    const [projectsData, invoicesData, leadsData, quotationsData, expensesData, teamMembersData, tasksData, clientsList, nesthrRes] = await Promise.all([
+                    const [projectsData, invoicesData, quotationsData, expensesData, teamMembersData, tasksData, clientsList, nesthrRes] = await Promise.all([
                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/projects").then({
                             "DashboardPage.useEffect.load": (r)=>r.json()
                         }["DashboardPage.useEffect.load"]),
                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/invoices").then({
-                            "DashboardPage.useEffect.load": (r)=>r.json()
-                        }["DashboardPage.useEffect.load"]),
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/leads").then({
                             "DashboardPage.useEffect.load": (r)=>r.json()
                         }["DashboardPage.useEffect.load"]),
                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])("/api/quotations").then({
@@ -3005,7 +3034,6 @@ function DashboardPage() {
                     setProjects(Array.isArray(projectsData) ? projectsData : []);
                     setInvoices(Array.isArray(invoicesData) ? invoicesData : []);
                     setExpenses(Array.isArray(expensesData) ? expensesData : []);
-                    setLeads(Array.isArray(leadsData) ? leadsData : []);
                     setQuotations(Array.isArray(quotationsData) ? quotationsData : []);
                     setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
                     setTasks(Array.isArray(tasksData) ? tasksData : []);
@@ -3017,10 +3045,6 @@ function DashboardPage() {
                     const totalExpense = (expensesData || []).reduce({
                         "DashboardPage.useEffect.load.totalExpense": (s, ex)=>s + Number(ex.amount || 0)
                     }["DashboardPage.useEffect.load.totalExpense"], 0);
-                    const leadsCount = (Array.isArray(leadsData) ? leadsData : []).length;
-                    const newLeadsCount = (Array.isArray(leadsData) ? leadsData : []).filter({
-                        "DashboardPage.useEffect.load": (l)=>l.status === "NEW" || l.status === "new"
-                    }["DashboardPage.useEffect.load"]).length;
                     const activeProjectsCount = (projectsData || []).filter({
                         "DashboardPage.useEffect.load": (p)=>p.status === "IN PROGRESS"
                     }["DashboardPage.useEffect.load"]).length;
@@ -3054,12 +3078,6 @@ function DashboardPage() {
                             value: totalExpense,
                             change: "-0.8%",
                             changeType: "negative"
-                        },
-                        {
-                            name: "leads",
-                            value: leadsCount,
-                            change: `${newLeadsCount} new`,
-                            changeType: "positive"
                         },
                         {
                             name: "active projects",
@@ -3115,20 +3133,16 @@ function DashboardPage() {
             })["DashboardPage.useEffect"];
         }
     }["DashboardPage.useEffect"], []);
-    const leadsByStatus = leads.reduce((acc, lead)=>{
-        const key = lead.status ?? "NEW";
-        acc[key] = (acc[key] || 0) + 1;
-        return acc;
-    }, {});
     if (isStaff) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(StaffDashboard, {
             user: user,
             projects: projects,
             tasks: tasks,
-            clients: clients
+            clients: clients,
+            expenses: expenses
         }, void 0, false, {
             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-            lineNumber: 1250,
+            lineNumber: 1271,
             columnNumber: 7
         }, this);
     }
@@ -3142,7 +3156,7 @@ function DashboardPage() {
                         children: "DASHBOARD"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1262,
+                        lineNumber: 1284,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3150,13 +3164,13 @@ function DashboardPage() {
                         children: "Real-time pulse of your agency."
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                        lineNumber: 1263,
+                        lineNumber: 1285,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 1261,
+                lineNumber: 1283,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
@@ -3183,10 +3197,6 @@ function DashboardPage() {
                                 {
                                     name: "expense",
                                     icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingDown$3e$__["TrendingDown"]
-                                },
-                                {
-                                    name: "leads",
-                                    icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$target$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Target$3e$__["Target"]
                                 },
                                 {
                                     name: "active projects",
@@ -3216,13 +3226,13 @@ function DashboardPage() {
                                     iconVariant: i % 2 === 0 ? "primary" : "secondary"
                                 }, stat.name, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1289,
+                                    lineNumber: 1310,
                                     columnNumber: 17
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1270,
+                            lineNumber: 1292,
                             columnNumber: 11
                         }, this),
                         nesthrStats && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3233,7 +3243,7 @@ function DashboardPage() {
                                     children: "NESTHR — SAAS OVERVIEW"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1307,
+                                    lineNumber: 1328,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3271,18 +3281,18 @@ function DashboardPage() {
                                             iconVariant: i % 2 === 0 ? "primary" : "secondary"
                                         }, label, false, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1317,
+                                            lineNumber: 1338,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1310,
+                                    lineNumber: 1331,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1306,
+                            lineNumber: 1327,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$dashboard$2f$trends$2d$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TrendsSection"], {
@@ -3290,7 +3300,7 @@ function DashboardPage() {
                             clients: clients
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1323,
+                            lineNumber: 1344,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$dashboard$2f$team$2d$members$2d$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TeamMembersSection"], {
@@ -3298,244 +3308,171 @@ function DashboardPage() {
                             projects: projects
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1324,
+                            lineNumber: 1345,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "grid grid-cols-1 lg:grid-cols-3 gap-8",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                                    className: "lg:col-span-2 border-2 border-black",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                                    className: "text-2xl font-black tracking-tighter",
-                                                    children: "Recent Invoices"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1329,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
-                                                    children: "A quick look at the latest billing activity."
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1332,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1328,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHeader"], {
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                                    children: "Invoice ID"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1340,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                                    children: "Client"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1341,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                                    children: "Amount"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1342,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                                    className: "text-right",
-                                                                    children: "Status"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                    lineNumber: 1343,
-                                                                    columnNumber: 23
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 1339,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 1338,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
-                                                        children: invoices.slice(0, 6).map((invoice)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                                        className: "font-bold",
-                                                                        children: invoice.id ?? invoice._id
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1349,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                                        children: invoice.clientName || invoice.client || clients.find((c)=>String(c.id ?? c._id) === String(invoice.clientId))?.name || "-"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1352,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                                        children: [
-                                                                            "₹",
-                                                                            Number(invoice.amount || 0).toLocaleString()
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1362,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                                        className: "text-right font-bold",
-                                                                        children: invoice.status
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                        lineNumber: 1365,
-                                                                        columnNumber: 25
-                                                                    }, this)
-                                                                ]
-                                                            }, invoice.id ?? invoice._id, true, {
-                                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 1348,
-                                                                columnNumber: 23
-                                                            }, this))
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                        lineNumber: 1346,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
+                            className: "grid grid-cols-1 gap-8",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                className: "border-2 border-black",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
+                                                className: "text-2xl font-black tracking-tighter",
+                                                children: "Recent Invoices"
+                                            }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                lineNumber: 1337,
+                                                lineNumber: 1350,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
+                                                children: "A quick look at the latest billing activity."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                lineNumber: 1353,
                                                 columnNumber: 17
                                             }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1336,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1327,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                                    className: "border-2 border-black",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                        lineNumber: 1349,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                                    className: "text-2xl font-black tracking-tighter",
-                                                    children: "Leads Pipeline"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHeader"], {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                                children: "Invoice ID"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                lineNumber: 1361,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                                children: "Client"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                lineNumber: 1362,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                                children: "Amount"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                lineNumber: 1363,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                                className: "text-right",
+                                                                children: "Status"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                lineNumber: 1364,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                        lineNumber: 1360,
+                                                        columnNumber: 21
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1376,
-                                                    columnNumber: 17
+                                                    lineNumber: 1359,
+                                                    columnNumber: 19
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
-                                                    children: "Current status of all leads."
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
+                                                    children: invoices.slice(0, 6).map((invoice)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                                    className: "font-bold",
+                                                                    children: invoice.id ?? invoice._id
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                    lineNumber: 1370,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                                    children: invoice.clientName || invoice.client || clients.find((c)=>String(c.id ?? c._id) === String(invoice.clientId))?.name || "-"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                    lineNumber: 1373,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                                    children: [
+                                                                        "₹",
+                                                                        Number(invoice.amount || 0).toLocaleString()
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                    lineNumber: 1383,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                                    className: "text-right font-bold",
+                                                                    children: invoice.status
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                                    lineNumber: 1386,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, invoice.id ?? invoice._id, true, {
+                                                            fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                                            lineNumber: 1369,
+                                                            columnNumber: 23
+                                                        }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1379,
-                                                    columnNumber: 17
+                                                    lineNumber: 1367,
+                                                    columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1375,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
-                                            className: "space-y-4",
-                                            children: Object.entries(leadsByStatus).map(([status, count])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex justify-between items-center bg-muted p-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "font-bold text-muted-foreground text-lg",
-                                                            children: status
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 1387,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "font-black text-3xl",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AnimatedNumber, {
-                                                                value: Number(count),
-                                                                duration: 700
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                                lineNumber: 1391,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                            lineNumber: 1390,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, status, true, {
-                                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                                    lineNumber: 1383,
-                                                    columnNumber: 19
-                                                }, this))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                            lineNumber: 1381,
-                                            columnNumber: 15
+                                            lineNumber: 1358,
+                                            columnNumber: 17
                                         }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                                    lineNumber: 1374,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                        lineNumber: 1357,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
+                                lineNumber: 1348,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                            lineNumber: 1326,
+                            lineNumber: 1347,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                    lineNumber: 1269,
+                    lineNumber: 1291,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-                lineNumber: 1268,
+                lineNumber: 1290,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/dashboard/page.tsx",
-        lineNumber: 1260,
+        lineNumber: 1282,
         columnNumber: 5
     }, this);
 }
-_s3(DashboardPage, "qwLhSlJLYEKHQ8WQU4kJd+XO4XE=", false, function() {
+_s3(DashboardPage, "4cw84xaKlFRrqVtN3EUuWj2OOmk=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]
     ];

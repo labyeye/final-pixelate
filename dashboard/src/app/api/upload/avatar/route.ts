@@ -35,9 +35,9 @@ export async function POST(request: Request) {
       );
     }
 
-    if (file.size > 3 * 1024 * 1024) {
+    if (file.size > 15 * 1024 * 1024) {
       return NextResponse.json(
-        { error: "Image must be under 3MB" },
+        { error: "Image must be under 15MB" },
         { status: 400, headers: corsHeaders },
       );
     }

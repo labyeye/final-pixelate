@@ -33,6 +33,8 @@ import {
 } from "@/components/ui/select";
 import type { TeamMember } from "@/lib/data";
 import { Textarea } from "../ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { compressImage } from "@/lib/compress-image";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name is required." }),
@@ -97,6 +99,10 @@ export function AddMemberDialog({
   onCreated,
   children,
 }: AddMemberDialogProps) {
+  const { toast } = useToast();
+  const [avatar, setAvatar] = React.useState((initialValues as any)?.avatar ?? "");
+  const [uploading, setUploading] = React.useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -110,6 +116,33 @@ export function AddMemberDialog({
     },
   });
 
+  async function handleAvatarUpload(file: File) {
+    setUploading(true);
+    try {
+      const compressed = await compressImage(file);
+      const formData = new FormData();
+      formData.append("file", compressed);
+      const res = await apiFetch("/api/upload/avatar", {
+        method: "POST",
+        body: formData,
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Upload failed");
+      }
+      const { url } = await res.json();
+      setAvatar(url);
+      toast({ title: "Photo Uploaded", description: "Photo will be saved with this member." });
+    } catch (e: any) {
+      toast({
+        title: "Upload Failed",
+        description: e.message || "Something went wrong",
+        variant: "destructive",
+      });
+    }
+    setUploading(false);
+  }
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.debug("AddMemberDialog onSubmit values:", values);
 
@@ -121,6 +154,7 @@ export function AddMemberDialog({
       phone: values.phone,
       address: values.address,
       role: values.role,
+      avatar,
       pan: values.pan,
       aadhar: values.aadhar,
       secondaryPhone: values.secondaryPhone,
@@ -210,8 +244,13 @@ export function AddMemberDialog({
     }
 
     form.reset();
+    setAvatar("");
     setIsOpen(false);
   }
+
+  React.useEffect(() => {
+    setAvatar((initialValues as any)?.avatar ?? "");
+  }, [initialValues]);
 
   React.useEffect(() => {
     if (initialValues) {
@@ -256,6 +295,41 @@ export function AddMemberDialog({
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <div className="space-y-2">
+              <FormLabel>Photo</FormLabel>
+              <div className="flex items-center gap-4">
+                {avatar ? (
+                  <img
+                    src={avatar}
+                    alt="avatar"
+                    className="h-16 w-16 rounded-full object-cover border-2 border-black"
+                  />
+                ) : (
+                  <div className="h-16 w-16 rounded-full bg-gray-200 border-2 border-black" />
+                )}
+                <Button
+                  type="button"
+                  variant="outline"
+                  disabled={uploading}
+                  onClick={() =>
+                    document.getElementById("add-member-avatar-upload")?.click()
+                  }
+                >
+                  {uploading ? "Uploading..." : "Upload Photo"}
+                </Button>
+                <input
+                  id="add-member-avatar-upload"
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) handleAvatarUpload(file);
+                    e.target.value = "";
+                  }}
+                />
+              </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <FormField
                 control={form.control}

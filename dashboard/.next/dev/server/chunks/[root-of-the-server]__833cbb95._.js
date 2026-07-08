@@ -420,7 +420,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
     }
     const LABELS = {
         invoices: "Invoice",
-        leads: "Lead",
         clients: "Client",
         quotations: "Quotation",
         projects: "Project",

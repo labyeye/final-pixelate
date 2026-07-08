@@ -45,9 +45,9 @@ export async function POST(request: Request) {
       );
     }
 
-    if (file.size > 5 * 1024 * 1024) {
+    if (file.size > 15 * 1024 * 1024) {
       return NextResponse.json(
-        { error: "File size must be less than 5MB" },
+        { error: "File size must be less than 15MB" },
         { status: 400, headers: corsHeaders },
       );
     }

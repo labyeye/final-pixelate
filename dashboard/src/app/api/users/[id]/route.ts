@@ -82,15 +82,6 @@ export async function DELETE(request: Request, context: RouteContext) {
         }
       }
 
-      const leadsCol = await svc.getCollection("leads");
-      const assignedToFilters: any[] = [{ assignedTo: id }];
-      if (ObjectId.isValid(id))
-        assignedToFilters.push({ assignedTo: new ObjectId(id) });
-      await leadsCol.updateMany(
-        { $or: assignedToFilters },
-        { $unset: { assignedTo: "", assignedToName: "" } },
-      );
-
       const quotationsCol = await svc.getCollection("quotations");
       const authorIds: any[] = [id];
       if (ObjectId.isValid(id)) authorIds.push(new ObjectId(id));

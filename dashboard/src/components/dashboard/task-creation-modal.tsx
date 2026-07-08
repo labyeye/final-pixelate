@@ -5,10 +5,9 @@ import {
   Flag,
   Layout,
   Plus,
-  Smile,
   User,
   Briefcase,
-  Check,
+  Link as LinkIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -29,6 +28,7 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { apiFetch } from "@/lib/api-fetch";
 
 export function TaskCreationModal() {
   const [open, setOpen] = useState(false);
@@ -38,6 +38,7 @@ export function TaskCreationModal() {
   const [priority, setPriority] = useState("medium");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState<Date | undefined>(undefined);
+  const [assetLink, setAssetLink] = useState("");
 
   const [selectedProjectId, setSelectedProjectId] = useState<string>("none");
   const [selectedAssigneeId, setSelectedAssigneeId] = useState<string>("none");
@@ -50,9 +51,9 @@ export function TaskCreationModal() {
   useEffect(() => {
     if (open) {
       Promise.all([
-        fetch("/api/projects").then((res) => res.json()),
-        fetch("/api/users").then((res) => res.json()),
-        fetch("/api/clients").then((res) => res.json()),
+        apiFetch("/api/projects").then((res) => res.json()),
+        apiFetch("/api/users").then((res) => res.json()),
+        apiFetch("/api/clients").then((res) => res.json()),
       ])
         .then(([projectsData, usersData, clientsData]) => {
           setProjects(Array.isArray(projectsData) ? projectsData : []);
@@ -91,10 +92,11 @@ export function TaskCreationModal() {
         assigneeId: selectedAssigneeId !== "none" ? selectedAssigneeId : null,
         assigneeName: assignee?.name || null,
         assigneeAvatar: assignee?.avatar || null,
+        assetLink: assetLink || null,
         tags: [],
       };
 
-      const res = await fetch("/api/tasks", {
+      const res = await apiFetch("/api/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -110,6 +112,7 @@ export function TaskCreationModal() {
         setSelectedProjectId("none");
         setSelectedAssigneeId("none");
         setDueDate(undefined);
+        setAssetLink("");
 
         window.dispatchEvent(new Event("task:created"));
       }
@@ -125,72 +128,53 @@ export function TaskCreationModal() {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="gap-2 border-dashed border-2 hover:border-solid w-full"
+          className="gap-2 border-2 border-black font-bold rounded-none hover:bg-black hover:text-white w-full"
         >
           <Plus className="w-4 h-4" />
           New Task
         </Button>
       </DialogTrigger>
-      {}
-      <DialogContent className="sm:max-w-[700px] p-0 gap-0 overflow-hidden shadow-2xl border-none">
-        {}
-        <div className="h-32 bg-gradient-to-r from-pink-100 to-blue-100 w-full opacity-30" />
+      <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto p-0 gap-0 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-none">
+        <div className="px-8 py-6 border-b-4 border-black">
+          <h2 className="text-2xl font-black tracking-tighter uppercase">
+            New Task
+          </h2>
+        </div>
 
-        <div className="px-8 pb-8 -mt-8 relative z-10 bg-background pt-6 rounded-t-3xl">
-          {}
-          <div className="mb-6 group cursor-pointer inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <Smile className="w-6 h-6" />
-            <span className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-              Add Icon
-            </span>
-          </div>
-
-          {}
+        <div className="px-8 py-6 space-y-6">
           <Input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="text-4xl font-bold border-none shadow-none px-0 focus-visible:ring-0 placeholder:text-muted-foreground/40 h-auto py-2"
-            placeholder="Untitled"
+            className="text-2xl font-black border-2 border-black rounded-none h-14 px-3 placeholder:text-muted-foreground/40"
+            placeholder="Task title"
             autoFocus
           />
 
-          {}
-          <div className="grid gap-3 mt-6 mb-8 text-sm">
-            {}
-            <div className="flex items-center gap-4 group">
-              <div className="w-32 flex items-center gap-2 text-muted-foreground">
-                <Layout className="w-4 h-4" />
-                <span>Status</span>
-              </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-1.5">
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                <Layout className="w-3.5 h-3.5" />
+                Status
+              </label>
               <Select value={status} onValueChange={setStatus}>
-                <SelectTrigger className="w-[200px] h-8 border-none shadow-none hover:bg-muted/50 focus:ring-0 px-2 rounded font-medium text-foreground">
+                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="not-started">
-                    <span className="inline-block w-2 h-2 rounded-full bg-slate-300 mr-2" />
-                    Not Started
-                  </SelectItem>
-                  <SelectItem value="in-progress">
-                    <span className="inline-block w-2 h-2 rounded-full bg-blue-400 mr-2" />
-                    In Progress
-                  </SelectItem>
-                  <SelectItem value="done">
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-400 mr-2" />
-                    Done
-                  </SelectItem>
+                  <SelectItem value="not-started">Not Started</SelectItem>
+                  <SelectItem value="in-progress">In Progress</SelectItem>
+                  <SelectItem value="done">Done</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
-            {}
-            <div className="flex items-center gap-4 group">
-              <div className="w-32 flex items-center gap-2 text-muted-foreground">
-                <Flag className="w-4 h-4" />
-                <span>Priority</span>
-              </div>
+            <div className="space-y-1.5">
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                <Flag className="w-3.5 h-3.5" />
+                Priority
+              </label>
               <Select value={priority} onValueChange={setPriority}>
-                <SelectTrigger className="w-[200px] h-8 border-none shadow-none hover:bg-muted/50 focus:ring-0 px-2 rounded font-medium text-foreground">
+                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -201,21 +185,20 @@ export function TaskCreationModal() {
               </Select>
             </div>
 
-            {}
-            <div className="flex items-center gap-4 group">
-              <div className="w-32 flex items-center gap-2 text-muted-foreground">
-                <User className="w-4 h-4" />
-                <span>Assignee</span>
-              </div>
+            <div className="space-y-1.5">
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                <User className="w-3.5 h-3.5" />
+                Assignee
+              </label>
               <Select
                 value={selectedAssigneeId}
                 onValueChange={setSelectedAssigneeId}
               >
-                <SelectTrigger className="w-[200px] h-8 border-none shadow-none hover:bg-muted/50 focus:ring-0 px-2 rounded font-medium text-foreground">
-                  <SelectValue placeholder="Empty" />
+                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                  <SelectValue placeholder="Unassigned" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="none">Empty</SelectItem>
+                  <SelectItem value="none">Unassigned</SelectItem>
                   {staffMembers.map((user) => (
                     <SelectItem
                       key={user.id || user._id}
@@ -236,21 +219,20 @@ export function TaskCreationModal() {
               </Select>
             </div>
 
-            {}
-            <div className="flex items-center gap-4 group">
-              <div className="w-32 flex items-center gap-2 text-muted-foreground">
-                <Briefcase className="w-4 h-4" />
-                <span>Project</span>
-              </div>
+            <div className="space-y-1.5">
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                <Briefcase className="w-3.5 h-3.5" />
+                Project
+              </label>
               <Select
                 value={selectedProjectId}
                 onValueChange={setSelectedProjectId}
               >
-                <SelectTrigger className="w-[200px] h-8 border-none shadow-none hover:bg-muted/50 focus:ring-0 px-2 rounded font-medium text-foreground">
-                  <SelectValue placeholder="Empty" />
+                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                  <SelectValue placeholder="None" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="none">Empty</SelectItem>
+                  <SelectItem value="none">None</SelectItem>
                   {projects.map((p) => {
                     const client = clients.find(
                       (c) =>
@@ -269,22 +251,21 @@ export function TaskCreationModal() {
               </Select>
             </div>
 
-            {}
-            <div className="flex items-center gap-4 group">
-              <div className="w-32 flex items-center gap-2 text-muted-foreground">
-                <CalendarIcon className="w-4 h-4" />
-                <span>Due Date</span>
-              </div>
+            <div className="space-y-1.5">
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                <CalendarIcon className="w-3.5 h-3.5" />
+                Due Date
+              </label>
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
-                    variant={"ghost"}
+                    variant="outline"
                     className={cn(
-                      "w-[200px] justify-start text-left font-normal h-8 px-2 hover:bg-muted/50",
-                      !dueDate && "text-muted-foreground",
+                      "w-full justify-start text-left font-bold border-2 border-black rounded-none h-10",
+                      !dueDate && "text-muted-foreground font-normal",
                     )}
                   >
-                    {dueDate ? format(dueDate, "PPP") : <span>Empty</span>}
+                    {dueDate ? format(dueDate, "PPP") : <span>Pick a date</span>}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
@@ -297,21 +278,36 @@ export function TaskCreationModal() {
                 </PopoverContent>
               </Popover>
             </div>
+
+            <div className="space-y-1.5">
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                <LinkIcon className="w-3.5 h-3.5" />
+                Asset Link
+              </label>
+              <Input
+                value={assetLink}
+                onChange={(e) => setAssetLink(e.target.value)}
+                placeholder="Drive / Figma / brief link"
+                className="border-2 border-black rounded-none h-10 font-medium"
+              />
+            </div>
           </div>
 
-          <div className="h-[1px] bg-border w-full mb-6" />
+          <div className="space-y-1.5">
+            <label className="text-xs font-black uppercase tracking-wider text-muted-foreground">
+              Description
+            </label>
+            <Textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="min-h-[140px] border-2 border-black rounded-none resize-none text-base leading-relaxed"
+              placeholder="What needs to be done..."
+            />
+          </div>
 
-          {}
-          <Textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="min-h-[200px] border-none shadow-none resize-none focus-visible:ring-0 p-0 text-lg leading-relaxed text-muted-foreground"
-            placeholder="Press space for commands..."
-          />
-
-          <div className="flex justify-end pt-4">
+          <div className="flex justify-end pt-2">
             <Button
-              className="font-bold"
+              className="font-black border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
               onClick={handleSave}
               disabled={loading || !title}
             >

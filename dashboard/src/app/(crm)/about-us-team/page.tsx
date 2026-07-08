@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { SuccessModal } from "@/components/ui/success-modal";
+import { compressImage } from "@/lib/compress-image";
 
 interface AboutTeamMember {
   _id?: string;
@@ -285,11 +286,11 @@ export default function AboutUsTeamPage() {
                     onChange={async (e) => {
                       const file = e.target.files?.[0];
                       if (file) {
-                        const formDataUpload = new FormData();
-                        formDataUpload.append("file", file);
-
                         try {
                           setUploading(true);
+                          const compressed = await compressImage(file);
+                          const formDataUpload = new FormData();
+                          formDataUpload.append("file", compressed);
                           const res = await apiFetch("/api/upload", {
                             method: "POST",
                             body: formDataUpload,

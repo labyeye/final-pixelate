@@ -10,7 +10,6 @@ import WhatsAppTemplatesScreen from '../screens/marketing/WhatsAppTemplatesScree
 import WhatsAppWebhookScreen from '../screens/marketing/WhatsAppWebhookScreen';
 import SocialMediaPlannerScreen from '../screens/marketing/SocialMediaPlannerScreen';
 import SocialMediaCalendarScreen from '../screens/marketing/SocialMediaCalendarScreen';
-import SocialMediaManagerScreen from '../screens/marketing/SocialMediaManagerScreen';
 import BlogsScreen from '../screens/marketing/BlogsScreen';
 import BlogDetailScreen from '../screens/marketing/BlogDetailScreen';
 import NewsletterScreen from '../screens/marketing/NewsletterScreen';
@@ -85,11 +84,6 @@ const MoreStack = () => (
       name="SocialMediaCalendar"
       component={SocialMediaCalendarScreen}
       options={{ title: 'CONTENT CALENDAR' }}
-    />
-    <Stack.Screen
-      name="SocialMediaManager"
-      component={SocialMediaManagerScreen}
-      options={{ title: 'SM MANAGER' }}
     />
     <Stack.Screen
       name="Blogs"

@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/use-auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Camera, Loader2 } from "lucide-react";
+import { compressImage } from "@/lib/compress-image";
 import {
   Select,
   SelectContent,
@@ -61,8 +62,9 @@ export default function ProfilePage() {
     setUploading(true);
     try {
       const token = localStorage.getItem("auth_token") || "";
+      const compressed = await compressImage(file);
       const form = new FormData();
-      form.append("file", file);
+      form.append("file", compressed);
 
       const uploadRes = await fetch("/api/upload/avatar", {
         method: "POST",

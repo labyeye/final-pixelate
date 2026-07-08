@@ -125,22 +125,6 @@
       "namedRegex": "^/api/journey/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
-      "page": "/api/leads/[id]",
-      "regex": "^/api/leads/([^/]+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPid": "nxtPid"
-      },
-      "namedRegex": "^/api/leads/(?<nxtPid>[^/]+?)(?:/)?$"
-    },
-    {
-      "page": "/api/leads/[id]/activity",
-      "regex": "^/api/leads/([^/]+?)/activity(?:/)?$",
-      "routeKeys": {
-        "nxtPid": "nxtPid"
-      },
-      "namedRegex": "^/api/leads/(?<nxtPid>[^/]+?)/activity(?:/)?$"
-    },
-    {
       "page": "/api/onboarding/[id]",
       "regex": "^/api/onboarding/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -219,14 +203,6 @@
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/api/social\\-media\\-posts/(?<nxtPid>[^/]+?)(?:/)?$"
-    },
-    {
-      "page": "/api/social-media-tasks/[id]",
-      "regex": "^/api/social\\-media\\-tasks/([^/]+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPid": "nxtPid"
-      },
-      "namedRegex": "^/api/social\\-media\\-tasks/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
       "page": "/api/support/[hrmsTicketId]/status",
@@ -331,14 +307,6 @@
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/clients/(?<nxtPid>[^/]+?)(?:/)?$"
-    },
-    {
-      "page": "/leads/[id]",
-      "regex": "^/leads/([^/]+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPid": "nxtPid"
-      },
-      "namedRegex": "^/leads/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
       "page": "/quotations/[id]/view",
@@ -449,12 +417,6 @@
       "namedRegex": "^/api/careers(?:/)?$"
     },
     {
-      "page": "/api/client-leads/sync",
-      "regex": "^/api/client\\-leads/sync(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/client\\-leads/sync(?:/)?$"
-    },
-    {
       "page": "/api/clients",
       "regex": "^/api/clients(?:/)?$",
       "routeKeys": {},
@@ -501,24 +463,6 @@
       "regex": "^/api/expenses(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/expenses(?:/)?$"
-    },
-    {
-      "page": "/api/fb-ads-connection",
-      "regex": "^/api/fb\\-ads\\-connection(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/fb\\-ads\\-connection(?:/)?$"
-    },
-    {
-      "page": "/api/fb-ads-connection/forms",
-      "regex": "^/api/fb\\-ads\\-connection/forms(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/fb\\-ads\\-connection/forms(?:/)?$"
-    },
-    {
-      "page": "/api/fb-ads-connection/sync",
-      "regex": "^/api/fb\\-ads\\-connection/sync(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/fb\\-ads\\-connection/sync(?:/)?$"
     },
     {
       "page": "/api/generate-payment-receipt",
@@ -575,22 +519,10 @@
       "namedRegex": "^/api/journey/backfill(?:/)?$"
     },
     {
-      "page": "/api/leads",
-      "regex": "^/api/leads(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/leads(?:/)?$"
-    },
-    {
       "page": "/api/me",
       "regex": "^/api/me(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/me(?:/)?$"
-    },
-    {
-      "page": "/api/meta-leads",
-      "regex": "^/api/meta\\-leads(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/meta\\-leads(?:/)?$"
     },
     {
       "page": "/api/nda-approvals",
@@ -645,12 +577,6 @@
       "regex": "^/api/photos(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/photos(?:/)?$"
-    },
-    {
-      "page": "/api/pixy-lead",
-      "regex": "^/api/pixy\\-lead(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/pixy\\-lead(?:/)?$"
     },
     {
       "page": "/api/projects",
@@ -777,12 +703,6 @@
       "regex": "^/api/social\\-media\\-posts(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/social\\-media\\-posts(?:/)?$"
-    },
-    {
-      "page": "/api/social-media-tasks",
-      "regex": "^/api/social\\-media\\-tasks(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/social\\-media\\-tasks(?:/)?$"
     },
     {
       "page": "/api/support-tickets",
@@ -965,12 +885,6 @@
       "namedRegex": "^/client/development(?:/)?$"
     },
     {
-      "page": "/client/leads",
-      "regex": "^/client/leads(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/client/leads(?:/)?$"
-    },
-    {
       "page": "/client/planner",
       "regex": "^/client/planner(?:/)?$",
       "routeKeys": {},
@@ -1091,12 +1005,6 @@
       "namedRegex": "^/journey(?:/)?$"
     },
     {
-      "page": "/leads",
-      "regex": "^/leads(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/leads(?:/)?$"
-    },
-    {
       "page": "/login",
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
@@ -1191,12 +1099,6 @@
       "regex": "^/social\\-media\\-calendar(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/social\\-media\\-calendar(?:/)?$"
-    },
-    {
-      "page": "/social-media-manager",
-      "regex": "^/social\\-media\\-manager(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/social\\-media\\-manager(?:/)?$"
     },
     {
       "page": "/social-media-planner",

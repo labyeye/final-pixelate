@@ -249,6 +249,7 @@ function StaffPermissions() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-4">
               {navGroups.map((group) => {
                 if (group.items.length === 0) return null;
+                if (group.title === "Nest HR") return null;
                 return (
                   <div key={group.title} className="space-y-3">
                     <h4 className="text-xs font-black text-muted-foreground uppercase tracking-widest">
