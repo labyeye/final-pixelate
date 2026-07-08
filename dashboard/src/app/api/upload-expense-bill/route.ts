@@ -36,12 +36,13 @@ export async function POST(request: Request) {
     const originalName = file.name.replace(/\s+/g, "-").toLowerCase();
     const filename = `${timestamp}-${originalName}`;
 
-    // cwd() = dashboard folder, go up one level to reach project root, then into website
+    // Save inside the dashboard app's own public/ dir so it's served from
+    // the same origin (backend.pixelatenest.com) that generated it — the
+    // separate `website` app does not share a filesystem in production.
     const uploadDir = join(
       process.cwd(),
-      "..",
-      "website",
-      "assets",
+      "public",
+      "uploads",
       "expense-bills",
     );
 
@@ -53,8 +54,8 @@ export async function POST(request: Request) {
     const filePath = join(uploadDir, filename);
     await writeFile(filePath, buffer);
 
-    // URL served from website root (pixelatenest.com/assets/expense-bills/...)
-    const url = `/assets/expense-bills/${filename}`;
+    // Served from this app's own origin (e.g. backend.pixelatenest.com/uploads/expense-bills/...)
+    const url = `/uploads/expense-bills/${filename}`;
 
     return NextResponse.json({ success: true, url, filename, filePath });
   } catch (error: any) {

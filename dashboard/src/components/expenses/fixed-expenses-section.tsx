@@ -64,7 +64,11 @@ function monthOptions() {
 
 function billHref(url: string) {
   if (!url) return "#";
-  return url.startsWith("http") ? url : `https://www.pixelatenest.com${url}`;
+  if (url.startsWith("http")) return url;
+  // New uploads live in this app's own public/ dir — same-origin, no prefix needed.
+  if (url.startsWith("/uploads/")) return url;
+  // Legacy bills saved under the separate website app's /assets/ path.
+  return `https://www.pixelatenest.com${url}`;
 }
 
 function AddFixedExpenseDialog({ onCreated }: { onCreated: () => void }) {

@@ -90,6 +90,15 @@ function getPaymentLabel(value: string | undefined) {
   return PAYMENT_METHODS.find((p) => p.value === value)?.label || value;
 }
 
+function billHref(url: string) {
+  if (!url) return "#";
+  if (url.startsWith("http")) return url;
+  // New uploads live in this app's own public/ dir — same-origin, no prefix needed.
+  if (url.startsWith("/uploads/")) return url;
+  // Legacy bills saved under the separate website app's /assets/ path.
+  return `https://www.pixelatenest.com${url}`;
+}
+
 function CategoryCell({ category }: { category: string }) {
   const known = EXPENSE_CATEGORIES.find((c) => c.value === category);
   if (known)
@@ -512,7 +521,7 @@ export default function ExpensesPage() {
                                     {e.category === "inventory" &&
                                       e.billUrl && (
                                         <a
-                                          href={`https://www.pixelatenest.com${e.billUrl}`}
+                                          href={billHref(e.billUrl)}
                                           target="_blank"
                                           rel="noopener noreferrer"
                                           title="View Inventory Bill PDF"
@@ -677,7 +686,7 @@ export default function ExpensesPage() {
                               <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-1">
                                 {e.category === "inventory" && e.billUrl && (
                                   <a
-                                    href={`https://www.pixelatenest.com${e.billUrl}`}
+                                    href={billHref(e.billUrl)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                   >

@@ -3,7 +3,9 @@
     "allow": [
       "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff --stat website/index.html)",
       "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff website/index.html)",
-      "Bash(mkdir -p \"d:/projects/final-pixelate/dashboard/src/app/api/fixed-expenses/[id]/payment\")"
+      "Bash(mkdir -p \"d:/projects/final-pixelate/dashboard/src/app/api/fixed-expenses/[id]/payment\")",
+      "Bash(grep -n 'pixelatenest.com${e.billUrl}\\\\|pixelatenest.com${' \"d:/projects/final-pixelate/dashboard/src/app/\\(crm\\)/expenses/page.tsx\")",
+      "Bash(grep -n 'pixelatenest.com${e.billUrl}' \"d:/projects/final-pixelate/dashboard/src/app/\\(crm\\)/expenses/page.tsx\")"
     ],
     "additionalDirectories": [
       "d:\\projects\\final-pixelate\\dashboard\\src\\app\\api\\fixed-expenses\\[id]"
