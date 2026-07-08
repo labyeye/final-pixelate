@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff --stat website/index.html)",
-      "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff website/index.html)"
+      "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff website/index.html)",
+      "Bash(mkdir -p \"d:/projects/final-pixelate/dashboard/src/app/api/fixed-expenses/[id]/payment\")"
+    ],
+    "additionalDirectories": [
+      "d:\\projects\\final-pixelate\\dashboard\\src\\app\\api\\fixed-expenses\\[id]"
     ]
   }
 }

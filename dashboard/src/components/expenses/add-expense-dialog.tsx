@@ -38,21 +38,37 @@ import {
   FileUp,
   X,
   FileText,
+  Package,
+  Building2,
+  Laptop,
+  Megaphone,
+  Zap,
+  Plane,
+  Wrench,
+  UserCog,
+  Scale,
+  UtensilsCrossed,
+  MoreHorizontal,
+  type LucideIcon,
 } from "lucide-react";
 
-export const EXPENSE_CATEGORIES = [
-  { value: "salary", label: "💼 Salary & Payroll" },
-  { value: "inventory", label: "📦 Inventory & Stock" },
-  { value: "office", label: "🏢 Office & Rent" },
-  { value: "software", label: "💻 Software & Subscriptions" },
-  { value: "marketing", label: "📣 Marketing & Ads" },
-  { value: "utilities", label: "⚡ Utilities & Bills" },
-  { value: "travel", label: "✈️ Travel & Transport" },
-  { value: "equipment", label: "🛠️ Equipment & Hardware" },
-  { value: "freelancer", label: "👨‍💻 Freelancer & Contractor" },
-  { value: "legal", label: "⚖️ Legal & Compliance" },
-  { value: "food", label: "🍽️ Food & Entertainment" },
-  { value: "miscellaneous", label: "📋 Miscellaneous" },
+export const EXPENSE_CATEGORIES: {
+  value: string;
+  label: string;
+  icon: LucideIcon;
+}[] = [
+  { value: "salary", label: "Salary & Payroll", icon: Briefcase },
+  { value: "inventory", label: "Inventory & Stock", icon: Package },
+  { value: "office", label: "Office & Rent", icon: Building2 },
+  { value: "software", label: "Software & Subscriptions", icon: Laptop },
+  { value: "marketing", label: "Marketing & Ads", icon: Megaphone },
+  { value: "utilities", label: "Utilities & Bills", icon: Zap },
+  { value: "travel", label: "Travel & Transport", icon: Plane },
+  { value: "equipment", label: "Equipment & Hardware", icon: Wrench },
+  { value: "freelancer", label: "Freelancer & Contractor", icon: UserCog },
+  { value: "legal", label: "Legal & Compliance", icon: Scale },
+  { value: "food", label: "Food & Entertainment", icon: UtensilsCrossed },
+  { value: "miscellaneous", label: "Miscellaneous", icon: MoreHorizontal },
 ];
 
 export const PAYMENT_METHODS = [
@@ -289,7 +305,7 @@ export function AddExpenseDialog({
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-black">
-            {isEdit ? "✏️ Edit Expense" : "➕ Add New Expense"}
+            {isEdit ? "Edit Expense" : "Add New Expense"}
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -367,7 +383,10 @@ export function AddExpenseDialog({
                       <SelectContent>
                         {EXPENSE_CATEGORIES.map((c) => (
                           <SelectItem key={c.value} value={c.value}>
-                            {c.label}
+                            <span className="flex items-center gap-2">
+                              <c.icon className="h-4 w-4" />
+                              {c.label}
+                            </span>
                           </SelectItem>
                         ))}
                       </SelectContent>

@@ -52,8 +52,11 @@ export default function TasksPage() {
   };
 
   useEffect(() => {
-    const storedUserId =
-      typeof window !== "undefined" ? sessionStorage.getItem("userId") : null;
+    if (!user) return;
+    const isAdmin = user.role === "admin";
+    const storedUserId = isAdmin
+      ? null
+      : String(user.id ?? (user as any)._id ?? "") || null;
     setUserId(storedUserId);
     fetchTasks(storedUserId);
 
@@ -62,7 +65,7 @@ export default function TasksPage() {
     };
     window.addEventListener("task:created", handler);
     return () => window.removeEventListener("task:created", handler);
-  }, []);
+  }, [user]);
 
   const filteredTasks = tasks.filter((t) =>
     t.title.toLowerCase().includes(searchQuery.toLowerCase()),

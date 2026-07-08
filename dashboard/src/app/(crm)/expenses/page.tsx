@@ -31,6 +31,7 @@ import AddExpenseDialog, {
   EXPENSE_CATEGORIES,
   PAYMENT_METHODS,
 } from "@/components/expenses/add-expense-dialog";
+import { FixedExpensesSection } from "@/components/expenses/fixed-expenses-section";
 import { StatCard } from "@/components/ui/stat-card";
 import {
   TrendingUp,
@@ -44,6 +45,8 @@ import {
   CheckCircle2,
   XCircle,
   FileText,
+  LayoutGrid,
+  Repeat,
 } from "lucide-react";
 import {
   AlertDialog,
@@ -89,7 +92,13 @@ function getPaymentLabel(value: string | undefined) {
 
 function CategoryCell({ category }: { category: string }) {
   const known = EXPENSE_CATEGORIES.find((c) => c.value === category);
-  if (known) return <span className="text-sm">{known.label}</span>;
+  if (known)
+    return (
+      <span className="inline-flex items-center gap-1.5 text-sm">
+        <known.icon className="h-3.5 w-3.5 text-muted-foreground" />
+        {known.label}
+      </span>
+    );
 
   return (
     <span className="text-sm px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border">
@@ -246,28 +255,72 @@ export default function ExpensesPage() {
 
       {}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard icon={Wallet} label="TOTAL PAID" value={`₹${stats.total.toLocaleString()}`} sub={`${stats.count} entries`} iconVariant="primary" />
-        <StatCard icon={CalendarDays} label="THIS MONTH" value={`₹${stats.thisMonthTotal.toLocaleString()}`} sub="paid expenses" iconVariant="secondary" />
-        <StatCard icon={AlertCircle} label="PENDING" value={`₹${stats.pendingTotal.toLocaleString()}`} sub="to be paid" iconVariant="primary" />
-        <StatCard icon={TrendingUp} label="TOP CATEGORY" value={stats.topCategory ? getCategoryLabel(stats.topCategory[0]).split(" ").slice(1).join(" ") || getCategoryLabel(stats.topCategory[0]) : "—"} sub={stats.topCategory ? `₹${Number(stats.topCategory[1]).toLocaleString()}` : "No data"} iconVariant="secondary" />
+        <StatCard
+          icon={Wallet}
+          label="TOTAL PAID"
+          value={`₹${stats.total.toLocaleString()}`}
+          sub={`${stats.count} entries`}
+          iconVariant="primary"
+        />
+        <StatCard
+          icon={CalendarDays}
+          label="THIS MONTH"
+          value={`₹${stats.thisMonthTotal.toLocaleString()}`}
+          sub="paid expenses"
+          iconVariant="secondary"
+        />
+        <StatCard
+          icon={AlertCircle}
+          label="PENDING"
+          value={`₹${stats.pendingTotal.toLocaleString()}`}
+          sub="to be paid"
+          iconVariant="primary"
+        />
+        <StatCard
+          icon={TrendingUp}
+          label="TOP CATEGORY"
+          value={
+            stats.topCategory
+              ? getCategoryLabel(stats.topCategory[0])
+                  .split(" ")
+                  .slice(1)
+                  .join(" ") || getCategoryLabel(stats.topCategory[0])
+              : "—"
+          }
+          sub={
+            stats.topCategory
+              ? `₹${Number(stats.topCategory[1]).toLocaleString()}`
+              : "No data"
+          }
+          iconVariant="secondary"
+        />
       </div>
 
       {}
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <div className="overflow-x-auto pb-1">
-          <TabsList className="inline-flex h-auto gap-1 bg-transparent p-0 flex-wrap">
+        <div className="overflow-x-auto pb-1 -mx-1 px-1">
+          <TabsList className="flex h-auto w-max gap-1.5 bg-transparent p-0">
             <TabsTrigger
               value="all"
-              className="border-2 border-black data-[state=active]:bg-black data-[state=active]:text-white rounded-lg px-3 py-1.5 text-sm font-bold"
+              className="shrink-0 flex items-center gap-1.5 border-black data-[state=active]:bg-black data-[state=active]:text-white rounded-lg px-3 py-1.5 text-sm font-bold whitespace-nowrap"
             >
+              <LayoutGrid className="h-3.5 w-3.5" />
               All
+            </TabsTrigger>
+            <TabsTrigger
+              value="fixed"
+              className="shrink-0 flex items-center gap-1.5 border-black data-[state=active]:bg-black data-[state=active]:text-white rounded-lg px-3 py-1.5 text-sm font-bold whitespace-nowrap"
+            >
+              <Repeat className="h-3.5 w-3.5" />
+              Fixed Expenses
             </TabsTrigger>
             {EXPENSE_CATEGORIES.map((cat) => (
               <TabsTrigger
                 key={cat.value}
                 value={cat.value}
-                className="border-2 border-black data-[state=active]:bg-black data-[state=active]:text-white rounded-lg px-3 py-1.5 text-sm font-bold whitespace-nowrap"
+                className="shrink-0 flex items-center gap-1.5 border-black data-[state=active]:bg-black data-[state=active]:text-white rounded-lg px-3 py-1.5 text-sm font-bold whitespace-nowrap"
               >
+                <cat.icon className="h-3.5 w-3.5" />
                 {cat.label}
               </TabsTrigger>
             ))}
@@ -291,9 +344,9 @@ export default function ExpensesPage() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="paid">✅ Paid</SelectItem>
-              <SelectItem value="pending">⏳ Pending</SelectItem>
-              <SelectItem value="cancelled">❌ Cancelled</SelectItem>
+              <SelectItem value="paid">Paid</SelectItem>
+              <SelectItem value="pending">Pending</SelectItem>
+              <SelectItem value="cancelled">Cancelled</SelectItem>
             </SelectContent>
           </Select>
           <Select value={filterMonth} onValueChange={setFilterMonth}>
@@ -317,6 +370,11 @@ export default function ExpensesPage() {
             </SelectContent>
           </Select>
         </div>
+
+        {}
+        <TabsContent value="fixed" className="mt-4">
+          <FixedExpensesSection />
+        </TabsContent>
 
         {}
         {(["all", ...EXPENSE_CATEGORIES.map((c) => c.value)] as string[]).map(
@@ -353,88 +411,85 @@ export default function ExpensesPage() {
                     </div>
                   ) : (
                     <>
-                    <div className="hidden md:block overflow-x-auto">
-                      <Table>
-                        <TableHeader>
-                          <TableRow className="bg-muted/50">
-                            <TableHead className="font-black">Title</TableHead>
-                            <TableHead className="font-black">
-                              Category
-                            </TableHead>
-                            <TableHead className="font-black">Vendor</TableHead>
-                            <TableHead className="font-black">
-                              Payment
-                            </TableHead>
-                            <TableHead className="font-black">Status</TableHead>
-                            <TableHead className="font-black text-right">
-                              Amount
-                            </TableHead>
-                            <TableHead className="font-black text-right">
-                              Date
-                            </TableHead>
-                            <TableHead className="font-black text-center">
-                              Actions
-                            </TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {filtered.map((e) => (
-                            <TableRow
-                              key={e._id ?? e.id}
-                              className="hover:bg-muted/30 transition-colors"
-                            >
-                              <TableCell>
-                                <div className="font-bold">{e.title}</div>
-                                {e.staffName && (
-                                  <div className="text-xs text-blue-600 font-semibold">
-                                    Staff: {e.staffName}
-                                  </div>
-                                )}
-                                {e.linkedProjectTitle && (
-                                  <div className="text-xs text-purple-600 font-semibold">
-                                    Project: {e.linkedProjectTitle}
-                                  </div>
-                                )}
-                                {e.reference && (
-                                  <div className="text-xs text-muted-foreground">
-                                    Ref: {e.reference}
-                                  </div>
-                                )}
-                                {e.note && (
-                                  <div className="text-xs text-muted-foreground italic truncate max-w-[180px]">
-                                    {e.note}
-                                  </div>
-                                )}
-                              </TableCell>
-                              <TableCell>
-                                <CategoryCell category={e.category} />
-                              </TableCell>
-                              <TableCell className="text-sm text-muted-foreground">
-                                {e.vendor || "—"}
-                              </TableCell>
-                              <TableCell className="text-sm">
-                                {getPaymentLabel(e.paymentMethod) || "—"}
-                              </TableCell>
-                              <TableCell>
-                                <StatusBadge status={e.status || "paid"} />
-                              </TableCell>
-                              <TableCell className="text-right">
-                                <span className="font-black text-base">
-                                  ₹{Number(e.amount || 0).toLocaleString()}
-                                </span>
-                              </TableCell>
-                              <TableCell className="text-right text-sm text-muted-foreground whitespace-nowrap">
-                                {e.date
-                                  ? new Date(e.date).toLocaleDateString(
-                                      "en-IN",
-                                      {
-                                        day: "2-digit",
-                                        month: "short",
-                                        year: "numeric",
-                                      },
-                                    )
-                                  : e.createdAt
-                                    ? new Date(e.createdAt).toLocaleDateString(
+                      <div className="hidden md:block overflow-x-auto">
+                        <Table>
+                          <TableHeader>
+                            <TableRow className="bg-muted/50">
+                              <TableHead className="font-black">
+                                Title
+                              </TableHead>
+                              <TableHead className="font-black">
+                                Category
+                              </TableHead>
+                              <TableHead className="font-black">
+                                Vendor
+                              </TableHead>
+                              <TableHead className="font-black">
+                                Payment
+                              </TableHead>
+                              <TableHead className="font-black">
+                                Status
+                              </TableHead>
+                              <TableHead className="font-black text-right">
+                                Amount
+                              </TableHead>
+                              <TableHead className="font-black text-right">
+                                Date
+                              </TableHead>
+                              <TableHead className="font-black text-center">
+                                Actions
+                              </TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {filtered.map((e) => (
+                              <TableRow
+                                key={e._id ?? e.id}
+                                className="hover:bg-muted/30 transition-colors"
+                              >
+                                <TableCell>
+                                  <div className="font-bold">{e.title}</div>
+                                  {e.staffName && (
+                                    <div className="text-xs text-blue-600 font-semibold">
+                                      Staff: {e.staffName}
+                                    </div>
+                                  )}
+                                  {e.linkedProjectTitle && (
+                                    <div className="text-xs text-purple-600 font-semibold">
+                                      Project: {e.linkedProjectTitle}
+                                    </div>
+                                  )}
+                                  {e.reference && (
+                                    <div className="text-xs text-muted-foreground">
+                                      Ref: {e.reference}
+                                    </div>
+                                  )}
+                                  {e.note && (
+                                    <div className="text-xs text-muted-foreground italic truncate max-w-[180px]">
+                                      {e.note}
+                                    </div>
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  <CategoryCell category={e.category} />
+                                </TableCell>
+                                <TableCell className="text-sm text-muted-foreground">
+                                  {e.vendor || "—"}
+                                </TableCell>
+                                <TableCell className="text-sm">
+                                  {getPaymentLabel(e.paymentMethod) || "—"}
+                                </TableCell>
+                                <TableCell>
+                                  <StatusBadge status={e.status || "paid"} />
+                                </TableCell>
+                                <TableCell className="text-right">
+                                  <span className="font-black text-base">
+                                    ₹{Number(e.amount || 0).toLocaleString()}
+                                  </span>
+                                </TableCell>
+                                <TableCell className="text-right text-sm text-muted-foreground whitespace-nowrap">
+                                  {e.date
+                                    ? new Date(e.date).toLocaleDateString(
                                         "en-IN",
                                         {
                                           day: "2-digit",
@@ -442,147 +497,252 @@ export default function ExpensesPage() {
                                           year: "numeric",
                                         },
                                       )
-                                    : "—"}
-                              </TableCell>
-                              <TableCell>
-                                <div className="flex items-center justify-center gap-1">
-                                  {e.category === "inventory" && e.billUrl && (
-                                    <a
-                                      href={`https://www.pixelatenest.com${e.billUrl}`}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      title="View Inventory Bill PDF"
-                                    >
-                                      <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className="h-8 w-8 hover:bg-blue-50 hover:text-blue-600 text-blue-500"
-                                      >
-                                        <FileText className="h-4 w-4" />
-                                      </Button>
-                                    </a>
-                                  )}
-                                  <AddExpenseDialog
-                                    onCreated={load}
-                                    editData={e}
-                                    editId={e._id?.toString() || e.id}
-                                    trigger={
-                                      <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className="h-8 w-8 hover:bg-primary/10 hover:text-primary"
-                                      >
-                                        <Pencil className="h-4 w-4" />
-                                      </Button>
-                                    }
-                                  />
-                                  <AlertDialog>
-                                    <AlertDialogTrigger asChild>
-                                      <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"
-                                      >
-                                        <Trash2 className="h-4 w-4" />
-                                      </Button>
-                                    </AlertDialogTrigger>
-                                    <AlertDialogContent>
-                                      <AlertDialogHeader>
-                                        <AlertDialogTitle>
-                                          Delete Expense?
-                                        </AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                          Are you sure you want to delete{" "}
-                                          <strong>&quot;{e.title}&quot;</strong>
-                                          ? This action cannot be undone.
-                                        </AlertDialogDescription>
-                                      </AlertDialogHeader>
-                                      <AlertDialogFooter>
-                                        <AlertDialogCancel>
-                                          Cancel
-                                        </AlertDialogCancel>
-                                        <AlertDialogAction
-                                          className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
-                                          onClick={() =>
-                                            handleDelete(
-                                              e._id?.toString() || e.id,
-                                            )
-                                          }
+                                    : e.createdAt
+                                      ? new Date(
+                                          e.createdAt,
+                                        ).toLocaleDateString("en-IN", {
+                                          day: "2-digit",
+                                          month: "short",
+                                          year: "numeric",
+                                        })
+                                      : "—"}
+                                </TableCell>
+                                <TableCell>
+                                  <div className="flex items-center justify-center gap-1">
+                                    {e.category === "inventory" &&
+                                      e.billUrl && (
+                                        <a
+                                          href={`https://www.pixelatenest.com${e.billUrl}`}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          title="View Inventory Bill PDF"
                                         >
-                                          Delete
-                                        </AlertDialogAction>
-                                      </AlertDialogFooter>
-                                    </AlertDialogContent>
-                                  </AlertDialog>
-                                </div>
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div>
+                                          <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            className="h-8 w-8 hover:bg-blue-50 hover:text-blue-600 text-blue-500"
+                                          >
+                                            <FileText className="h-4 w-4" />
+                                          </Button>
+                                        </a>
+                                      )}
+                                    <AddExpenseDialog
+                                      onCreated={load}
+                                      editData={e}
+                                      editId={e._id?.toString() || e.id}
+                                      trigger={
+                                        <Button
+                                          variant="ghost"
+                                          size="icon"
+                                          className="h-8 w-8 hover:bg-primary/10 hover:text-primary"
+                                        >
+                                          <Pencil className="h-4 w-4" />
+                                        </Button>
+                                      }
+                                    />
+                                    <AlertDialog>
+                                      <AlertDialogTrigger asChild>
+                                        <Button
+                                          variant="ghost"
+                                          size="icon"
+                                          className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"
+                                        >
+                                          <Trash2 className="h-4 w-4" />
+                                        </Button>
+                                      </AlertDialogTrigger>
+                                      <AlertDialogContent>
+                                        <AlertDialogHeader>
+                                          <AlertDialogTitle>
+                                            Delete Expense?
+                                          </AlertDialogTitle>
+                                          <AlertDialogDescription>
+                                            Are you sure you want to delete{" "}
+                                            <strong>
+                                              &quot;{e.title}&quot;
+                                            </strong>
+                                            ? This action cannot be undone.
+                                          </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter>
+                                          <AlertDialogCancel>
+                                            Cancel
+                                          </AlertDialogCancel>
+                                          <AlertDialogAction
+                                            className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
+                                            onClick={() =>
+                                              handleDelete(
+                                                e._id?.toString() || e.id,
+                                              )
+                                            }
+                                          >
+                                            Delete
+                                          </AlertDialogAction>
+                                        </AlertDialogFooter>
+                                      </AlertDialogContent>
+                                    </AlertDialog>
+                                  </div>
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
 
-                    {/* Mobile cards */}
-                    <div className="md:hidden space-y-3 mt-3">
-                      {filtered.map((e) => {
-                        const eid = e._id?.toString() || e.id;
-                        return (
-                          <div key={eid} className="border-2 border-black bg-white">
-                            <div className="divide-y divide-gray-100">
-                              <div className="px-3 py-2">
-                                <div className="font-bold text-sm">{e.title}</div>
-                                {e.staffName && <div className="text-xs text-blue-600 font-semibold">Staff: {e.staffName}</div>}
-                                {e.linkedProjectTitle && <div className="text-xs text-purple-600 font-semibold">Project: {e.linkedProjectTitle}</div>}
-                                {e.note && <div className="text-xs text-muted-foreground italic">{e.note}</div>}
+                      {/* Mobile cards */}
+                      <div className="md:hidden space-y-3 mt-3">
+                        {filtered.map((e) => {
+                          const eid = e._id?.toString() || e.id;
+                          return (
+                            <div
+                              key={eid}
+                              className="border-2 border-black bg-white"
+                            >
+                              <div className="divide-y divide-gray-100">
+                                <div className="px-3 py-2">
+                                  <div className="font-bold text-sm">
+                                    {e.title}
+                                  </div>
+                                  {e.staffName && (
+                                    <div className="text-xs text-blue-600 font-semibold">
+                                      Staff: {e.staffName}
+                                    </div>
+                                  )}
+                                  {e.linkedProjectTitle && (
+                                    <div className="text-xs text-purple-600 font-semibold">
+                                      Project: {e.linkedProjectTitle}
+                                    </div>
+                                  )}
+                                  {e.note && (
+                                    <div className="text-xs text-muted-foreground italic">
+                                      {e.note}
+                                    </div>
+                                  )}
+                                </div>
+                                <div className="flex justify-between items-center px-3 py-2">
+                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">
+                                    Amount
+                                  </span>
+                                  <span className="font-black text-base">
+                                    ₹{Number(e.amount || 0).toLocaleString()}
+                                  </span>
+                                </div>
+                                <div className="flex justify-between items-center px-3 py-2">
+                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">
+                                    Category
+                                  </span>
+                                  <CategoryCell category={e.category} />
+                                </div>
+                                {e.vendor && (
+                                  <div className="flex justify-between items-center px-3 py-2">
+                                    <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">
+                                      Vendor
+                                    </span>
+                                    <span className="text-sm text-right flex-1">
+                                      {e.vendor}
+                                    </span>
+                                  </div>
+                                )}
+                                <div className="flex justify-between items-center px-3 py-2">
+                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">
+                                    Status
+                                  </span>
+                                  <StatusBadge status={e.status || "paid"} />
+                                </div>
+                                <div className="flex justify-between items-center px-3 py-2">
+                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">
+                                    Date
+                                  </span>
+                                  <span className="text-xs text-muted-foreground">
+                                    {e.date
+                                      ? new Date(e.date).toLocaleDateString(
+                                          "en-IN",
+                                          {
+                                            day: "2-digit",
+                                            month: "short",
+                                            year: "numeric",
+                                          },
+                                        )
+                                      : e.createdAt
+                                        ? new Date(
+                                            e.createdAt,
+                                          ).toLocaleDateString("en-IN", {
+                                            day: "2-digit",
+                                            month: "short",
+                                            year: "numeric",
+                                          })
+                                        : "—"}
+                                  </span>
+                                </div>
                               </div>
-                              <div className="flex justify-between items-center px-3 py-2">
-                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Amount</span>
-                                <span className="font-black text-base">₹{Number(e.amount || 0).toLocaleString()}</span>
-                              </div>
-                              <div className="flex justify-between items-center px-3 py-2">
-                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Category</span>
-                                <CategoryCell category={e.category} />
-                              </div>
-                              {e.vendor && <div className="flex justify-between items-center px-3 py-2">
-                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Vendor</span>
-                                <span className="text-sm text-right flex-1">{e.vendor}</span>
-                              </div>}
-                              <div className="flex justify-between items-center px-3 py-2">
-                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Status</span>
-                                <StatusBadge status={e.status || "paid"} />
-                              </div>
-                              <div className="flex justify-between items-center px-3 py-2">
-                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Date</span>
-                                <span className="text-xs text-muted-foreground">{e.date ? new Date(e.date).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : e.createdAt ? new Date(e.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—"}</span>
+                              <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-1">
+                                {e.category === "inventory" && e.billUrl && (
+                                  <a
+                                    href={`https://www.pixelatenest.com${e.billUrl}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-8 w-8 hover:bg-blue-50 hover:text-blue-600 text-blue-500"
+                                    >
+                                      <FileText className="h-4 w-4" />
+                                    </Button>
+                                  </a>
+                                )}
+                                <AddExpenseDialog
+                                  onCreated={load}
+                                  editData={e}
+                                  editId={eid}
+                                  trigger={
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-8 w-8"
+                                    >
+                                      <Pencil className="h-4 w-4" />
+                                    </Button>
+                                  }
+                                />
+                                <AlertDialog>
+                                  <AlertDialogTrigger asChild>
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"
+                                    >
+                                      <Trash2 className="h-4 w-4" />
+                                    </Button>
+                                  </AlertDialogTrigger>
+                                  <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                      <AlertDialogTitle>
+                                        Delete Expense?
+                                      </AlertDialogTitle>
+                                      <AlertDialogDescription>
+                                        Are you sure you want to delete{" "}
+                                        <strong>&quot;{e.title}&quot;</strong>?
+                                        This action cannot be undone.
+                                      </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                      <AlertDialogCancel>
+                                        Cancel
+                                      </AlertDialogCancel>
+                                      <AlertDialogAction
+                                        className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
+                                        onClick={() => handleDelete(eid)}
+                                      >
+                                        Delete
+                                      </AlertDialogAction>
+                                    </AlertDialogFooter>
+                                  </AlertDialogContent>
+                                </AlertDialog>
                               </div>
                             </div>
-                            <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex items-center gap-1">
-                              {e.category === "inventory" && e.billUrl && (
-                                <a href={`https://www.pixelatenest.com${e.billUrl}`} target="_blank" rel="noopener noreferrer">
-                                  <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-600 text-blue-500"><FileText className="h-4 w-4" /></Button>
-                                </a>
-                              )}
-                              <AddExpenseDialog onCreated={load} editData={e} editId={eid} trigger={<Button variant="ghost" size="icon" className="h-8 w-8"><Pencil className="h-4 w-4" /></Button>} />
-                              <AlertDialog>
-                                <AlertDialogTrigger asChild>
-                                  <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"><Trash2 className="h-4 w-4" /></Button>
-                                </AlertDialogTrigger>
-                                <AlertDialogContent>
-                                  <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete Expense?</AlertDialogTitle>
-                                    <AlertDialogDescription>Are you sure you want to delete <strong>&quot;{e.title}&quot;</strong>? This action cannot be undone.</AlertDialogDescription>
-                                  </AlertDialogHeader>
-                                  <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction className="bg-destructive hover:bg-destructive/90 text-destructive-foreground" onClick={() => handleDelete(eid)}>Delete</AlertDialogAction>
-                                  </AlertDialogFooter>
-                                </AlertDialogContent>
-                              </AlertDialog>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                          );
+                        })}
+                      </div>
                     </>
                   )}
                 </CardContent>

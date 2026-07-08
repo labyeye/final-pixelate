@@ -857,6 +857,33 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/api/fixed-expenses/[id]/payment/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fixed-expenses/[id]/payment">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/fixed-expenses/[id]/payment/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/fixed-expenses/[id]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fixed-expenses/[id]">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/fixed-expenses/[id]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/fixed-expenses/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fixed-expenses">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/fixed-expenses/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/api/generate-payment-receipt/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/generate-payment-receipt">> = Specific

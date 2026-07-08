@@ -93,6 +93,22 @@
       "namedRegex": "^/api/expenses/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/fixed-expenses/[id]",
+      "regex": "^/api/fixed\\-expenses/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/fixed\\-expenses/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/fixed-expenses/[id]/payment",
+      "regex": "^/api/fixed\\-expenses/([^/]+?)/payment(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/fixed\\-expenses/(?<nxtPid>[^/]+?)/payment(?:/)?$"
+    },
+    {
       "page": "/api/hrms-offers/[id]",
       "regex": "^/api/hrms\\-offers/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -463,6 +479,12 @@
       "regex": "^/api/expenses(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/expenses(?:/)?$"
+    },
+    {
+      "page": "/api/fixed-expenses",
+      "regex": "^/api/fixed\\-expenses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/fixed\\-expenses(?:/)?$"
     },
     {
       "page": "/api/generate-payment-receipt",
