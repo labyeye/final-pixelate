@@ -5,7 +5,16 @@
       "Bash(git -C \"c:/Users/labhb/Desktop/projects/final-pixelate\" diff website/index.html)",
       "Bash(mkdir -p \"d:/projects/final-pixelate/dashboard/src/app/api/fixed-expenses/[id]/payment\")",
       "Bash(grep -n 'pixelatenest.com${e.billUrl}\\\\|pixelatenest.com${' \"d:/projects/final-pixelate/dashboard/src/app/\\(crm\\)/expenses/page.tsx\")",
-      "Bash(grep -n 'pixelatenest.com${e.billUrl}' \"d:/projects/final-pixelate/dashboard/src/app/\\(crm\\)/expenses/page.tsx\")"
+      "Bash(grep -n 'pixelatenest.com${e.billUrl}' \"d:/projects/final-pixelate/dashboard/src/app/\\(crm\\)/expenses/page.tsx\")",
+      "Bash(python3 -)",
+      "Bash(node -e ' *)",
+      "Bash(node scratch_check.js)",
+      "Bash(node scripts/add-sports-nav.js)",
+      "Bash(awk 'NR>=602 && NR<=790' \"industries/utilities.html\")",
+      "Skill(seo-audit)",
+      "Skill(seo-audit:*)",
+      "Bash(grep -n 'href=\"\\\\.\\\\./\\\\|src=\"\\\\.\\\\./' locations/bihar/araria/products/attendance-management-software.html)",
+      "Bash(node scripts/build-sports-page.js)"
     ],
     "additionalDirectories": [
       "d:\\projects\\final-pixelate\\dashboard\\src\\app\\api\\fixed-expenses\\[id]"
