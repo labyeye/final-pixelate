@@ -147,7 +147,7 @@ export default function TasksPage() {
           <div className="flex items-center gap-2">
             {}
             <div className="w-auto">
-              <TaskCreationModal />
+              <TaskCreationModal actor={actor} />
             </div>
             <Button variant="ghost" size="icon" className="h-8 w-8">
               <MoreHorizontal className="w-4 h-4" />

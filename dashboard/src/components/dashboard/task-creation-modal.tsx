@@ -30,7 +30,11 @@ import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { apiFetch } from "@/lib/api-fetch";
 
-export function TaskCreationModal() {
+export function TaskCreationModal({
+  actor,
+}: {
+  actor?: { id: string; name: string } | null;
+} = {}) {
   const [open, setOpen] = useState(false);
 
   const [title, setTitle] = useState("");
@@ -93,6 +97,7 @@ export function TaskCreationModal() {
         assigneeName: assignee?.name || null,
         assigneeAvatar: assignee?.avatar || null,
         assetLink: assetLink || null,
+        createdBy: actor?.id || null,
         tags: [],
       };
 

@@ -11,12 +11,28 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { cn } from "@/lib/utils";
+import {
   Calendar as CalendarIcon,
   Link as LinkIcon,
   User,
   Briefcase,
   ExternalLink,
   MessageSquareText,
+  Pencil,
+  X,
 } from "lucide-react";
 import { apiFetch } from "@/lib/api-fetch";
 import { Task, TaskStatus, TaskUpdate } from "@/lib/task-models";
@@ -91,15 +107,63 @@ export function TaskDetailModal({
   const [completedLink, setCompletedLink] = useState("");
   const [saving, setSaving] = useState(false);
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [savingEdit, setSavingEdit] = useState(false);
+  const [editTitle, setEditTitle] = useState("");
+  const [editDescription, setEditDescription] = useState("");
+  const [editPriority, setEditPriority] = useState("medium");
+  const [editDueDate, setEditDueDate] = useState<Date | undefined>(undefined);
+  const [editAssetLink, setEditAssetLink] = useState("");
+  const [editProjectId, setEditProjectId] = useState("none");
+  const [editAssigneeId, setEditAssigneeId] = useState("none");
+  const [projects, setProjects] = useState<any[]>([]);
+  const [staffMembers, setStaffMembers] = useState<any[]>([]);
+  const [clients, setClients] = useState<any[]>([]);
+
   useEffect(() => {
     if (task) {
       setSelectedStatus(task.status);
       setRemark("");
       setCompletedLink(task.completedLink || "");
+      setIsEditing(false);
     }
   }, [task?.id, open]);
 
+  useEffect(() => {
+    if (isEditing && task) {
+      setEditTitle(task.title || "");
+      setEditDescription(task.description || "");
+      setEditPriority(task.priority || "medium");
+      setEditDueDate(task.dueDate ? new Date(task.dueDate) : undefined);
+      setEditAssetLink(task.assetLink || "");
+      setEditProjectId(task.projectId || "none");
+      setEditAssigneeId(task.assigneeId || "none");
+
+      Promise.all([
+        apiFetch("/api/projects").then((res) => res.json()),
+        apiFetch("/api/users").then((res) => res.json()),
+        apiFetch("/api/clients").then((res) => res.json()),
+      ])
+        .then(([projectsData, usersData, clientsData]) => {
+          setProjects(Array.isArray(projectsData) ? projectsData : []);
+          const staff = Array.isArray(usersData)
+            ? usersData.filter(
+                (u: any) => u.role === "staff" || u.role === "admin",
+              )
+            : [];
+          setStaffMembers(staff);
+          setClients(Array.isArray(clientsData) ? clientsData : []);
+        })
+        .catch((err) => console.error("Failed to load options", err));
+    }
+  }, [isEditing, task?.id]);
+
   const role = actor?.role || "staff";
+  const isOwner = !!(
+    actor &&
+    task?.createdBy &&
+    String(actor.id) === String(task.createdBy)
+  );
   const options = useMemo(
     () => (task ? nextStatusOptions(task.status, role) : []),
     [task, role],
@@ -143,6 +207,54 @@ export function TaskDetailModal({
     }
   };
 
+  const handleEditSubmit = async () => {
+    if (!editTitle.trim()) return;
+    setSavingEdit(true);
+    try {
+      const project = projects.find(
+        (p) => (p.id || p._id) === editProjectId,
+      );
+      const assignee = staffMembers.find(
+        (u) => (u.id || u._id) === editAssigneeId,
+      );
+
+      const body: any = {
+        title: editTitle.trim(),
+        description: editDescription,
+        priority: editPriority,
+        dueDate: editDueDate,
+        assetLink: editAssetLink || null,
+        projectId: editProjectId !== "none" ? editProjectId : null,
+        projectTitle: editProjectId !== "none" ? project?.title || null : null,
+        assigneeId: editAssigneeId !== "none" ? editAssigneeId : null,
+        assigneeName: editAssigneeId !== "none" ? assignee?.name || null : null,
+        assigneeAvatar:
+          editAssigneeId !== "none" ? assignee?.avatar || null : null,
+        isFullEdit: true,
+        requesterId: actor?.id ?? null,
+      };
+
+      const id = task.id ?? (task as any)._id;
+      const res = await apiFetch(`/api/tasks/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (res.ok) {
+        const updated = await res.json();
+        onUpdated(updated);
+        setIsEditing(false);
+      } else {
+        const err = await res.json().catch(() => ({}));
+        alert(err?.error || "Failed to update task");
+      }
+    } catch (e) {
+      console.error("Failed to edit task", e);
+    } finally {
+      setSavingEdit(false);
+    }
+  };
+
   const updates: TaskUpdate[] = [...(task.updates || [])].sort(
     (a, b) => new Date(b.at).getTime() - new Date(a.at).getTime(),
   );
@@ -161,8 +273,173 @@ export function TaskDetailModal({
               {task.title}
             </h2>
           </div>
+          {isOwner && (
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="gap-1.5 border-2 border-black rounded-none shrink-0 mr-8"
+              onClick={() => setIsEditing((v) => !v)}
+            >
+              {isEditing ? (
+                <>
+                  <X className="w-3.5 h-3.5" /> Cancel
+                </>
+              ) : (
+                <>
+                  <Pencil className="w-3.5 h-3.5" /> Edit Task
+                </>
+              )}
+            </Button>
+          )}
         </div>
 
+        {isEditing ? (
+          <div className="px-8 py-6 space-y-4">
+            <div className="space-y-1.5">
+              <label className="text-xs font-black uppercase tracking-wider text-muted-foreground">
+                Title
+              </label>
+              <Input
+                value={editTitle}
+                onChange={(e) => setEditTitle(e.target.value)}
+                className="border-2 border-black rounded-none h-11 font-bold"
+              />
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-1.5">
+                <label className="text-xs font-black uppercase tracking-wider text-muted-foreground">
+                  Priority
+                </label>
+                <Select value={editPriority} onValueChange={setEditPriority}>
+                  <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="low">Low</SelectItem>
+                    <SelectItem value="medium">Medium</SelectItem>
+                    <SelectItem value="high">High</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                  <User className="w-3.5 h-3.5" />
+                  Assignee
+                </label>
+                <Select value={editAssigneeId} onValueChange={setEditAssigneeId}>
+                  <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                    <SelectValue placeholder="Unassigned" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">Unassigned</SelectItem>
+                    {staffMembers.map((u) => (
+                      <SelectItem key={u.id || u._id} value={u.id || u._id}>
+                        {u.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                  <Briefcase className="w-3.5 h-3.5" />
+                  Project
+                </label>
+                <Select value={editProjectId} onValueChange={setEditProjectId}>
+                  <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                    <SelectValue placeholder="None" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">None</SelectItem>
+                    {projects.map((p) => {
+                      const client = clients.find(
+                        (c) =>
+                          String(c.id || c._id) ===
+                          String(p.clientId || p.client),
+                      );
+                      const clientName = client?.name || p.clientName || "";
+                      return (
+                        <SelectItem key={p.id || p._id} value={p.id || p._id}>
+                          {p.title} {clientName ? `(${clientName})` : ""}
+                        </SelectItem>
+                      );
+                    })}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                  <CalendarIcon className="w-3.5 h-3.5" />
+                  Due Date
+                </label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-bold border-2 border-black rounded-none h-10",
+                        !editDueDate && "text-muted-foreground font-normal",
+                      )}
+                    >
+                      {editDueDate ? (
+                        format(editDueDate, "PPP")
+                      ) : (
+                        <span>Pick a date</span>
+                      )}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={editDueDate}
+                      onSelect={setEditDueDate}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-muted-foreground">
+                <LinkIcon className="w-3.5 h-3.5" />
+                Asset Link
+              </label>
+              <Input
+                value={editAssetLink}
+                onChange={(e) => setEditAssetLink(e.target.value)}
+                placeholder="Drive / Figma / brief link"
+                className="border-2 border-black rounded-none h-10"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-black uppercase tracking-wider text-muted-foreground">
+                Description
+              </label>
+              <Textarea
+                value={editDescription}
+                onChange={(e) => setEditDescription(e.target.value)}
+                className="min-h-[120px] border-2 border-black rounded-none resize-none"
+              />
+            </div>
+
+            <div className="flex justify-end pt-1">
+              <Button
+                className="font-black border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+                onClick={handleEditSubmit}
+                disabled={savingEdit || !editTitle.trim()}
+              >
+                {savingEdit ? "Saving..." : "Save Changes"}
+              </Button>
+            </div>
+          </div>
+        ) : (
         <div className="px-8 py-6 space-y-6">
           {task.description && (
             <p className="text-sm text-muted-foreground whitespace-pre-wrap">
@@ -332,6 +609,7 @@ export function TaskDetailModal({
             </div>
           )}
         </div>
+        )}
       </DialogContent>
     </Dialog>
   );

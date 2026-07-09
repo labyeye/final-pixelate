@@ -31,7 +31,19 @@ export async function PUT(
       );
     }
 
-    const { remark, byId, byName, logUpdate, ...rest } = body;
+    const { remark, byId, byName, logUpdate, isFullEdit, requesterId, ...rest } =
+      body;
+
+    if (
+      isFullEdit &&
+      task.createdBy &&
+      String(task.createdBy) !== String(requesterId)
+    ) {
+      return NextResponse.json(
+        { error: "Only the task owner can edit this task" },
+        { status: 403 },
+      );
+    }
 
     const updateData: any = {
       ...rest,
