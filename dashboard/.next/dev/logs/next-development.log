@@ -1,47 +1,45 @@
-[00:00:01.931] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.174] Server  LOG      ✓ Ready in 1590ms
-[00:00:09.503] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:24.891] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__8a859f11._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.900] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.914] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_425f06b9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.916] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.917] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.919] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.919] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.920] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.921] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:24.922] Server  ERROR   NestHR stats error: TypeError: fetch failed
-[00:00:35.600] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__8a859f11._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.601] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.601] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_425f06b9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.601] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.602] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.602] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.602] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.603] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.603] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:35.603] Server  ERROR   NestHR stats error: TypeError: fetch failed
-[00:02:57.229] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:57.230] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:03:12.466] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__8a859f11._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.467] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.467] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_425f06b9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.467] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.468] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.468] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.468] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.469] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.469] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.470] Server  ERROR   NestHR stats error: Error: NestHR returned non-JSON response (404): <!DOCTYPE html><!--7l_qAxIeIW_n0RkxQpR0k--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/
-[00:03:12.488] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__8a859f11._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.488] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.489] Server  ERROR   D:\projects\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_425f06b9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.489] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.489] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.489] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.489] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.490] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.490] Server  ERROR   D:\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:03:12.490] Server  ERROR   NestHR stats error: Error: NestHR returned non-JSON response (404): <!DOCTYPE html><!--7l_qAxIeIW_n0RkxQpR0k--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/
-[00:04:19.382] Server  LOG      ✓ Compiled in 92ms
-[00:04:24.793] Server  LOG      ✓ Compiled in 83ms
+[00:00:01.250] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.456] Server  LOG      ✓ Ready in 1052ms
+[00:00:03.906] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:51.446] Server  LOG      ✓ Compiled in 128ms
+[00:01:58.573] Server  LOG      ✓ Compiled in 141ms
+[00:02:03.552] Server  LOG      ✓ Compiled in 101ms
+[00:02:08.556] Server  LOG      ✓ Compiled in 107ms
+[00:02:14.967] Server  LOG      ✓ Compiled in 93ms
+[00:02:15.070] Browser ERROR   ./src/app/(crm)/enquiries/page.tsx:402:18
+Parsing ecmascript source code failed
+  400 |                     </TableCell>
+  401 |                   </TableRow>
+> 402 |                 ))}
+      |                  ^
+  403 |               </TableBody>
+  404 |             </Table>
+  405 |           </div>
+
+Expected '</', got ')'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(crm)/enquiries/page.tsx [Client Component Browser]
+    ./src/app/(crm)/enquiries/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(crm)/enquiries/page.tsx [Client Component SSR]
+    ./src/app/(crm)/enquiries/page.tsx [Server Component]
+[00:02:35.784] Server  LOG      ✓ Compiled in 88ms
+[00:02:41.163] Server  LOG      ✓ Compiled in 87ms
+[00:07:32.471] Server  LOG      ✓ Compiled in 82ms
+[00:07:37.290] Server  LOG      ✓ Compiled in 93ms
+[00:07:42.652] Server  LOG      ✓ Compiled in 92ms
+[00:07:47.320] Server  LOG      ✓ Compiled in 95ms
+[00:07:57.114] Server  LOG      ✓ Compiled in 89ms
+[00:17:06.432] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:06.432] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:15.584] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:15.584] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:22.838] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:22.838] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:28.943] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:28.943] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:42.739] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:17:42.739] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

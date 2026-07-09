@@ -1,3 +1,21 @@
+// NestLeads lead-capture integration
+const NESTLEADS_URL = "https://leads-backend.pixelatenest.com/api/public/leads";
+const NESTLEADS_API_KEY =
+  "nlk_live_b8b13ecdbff388b870f47ecc1b2ba45c04cfa397854337cf149c1c96817b52a9";
+
+function sendToNestLeads(data) {
+  try {
+    fetch(NESTLEADS_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-Key": NESTLEADS_API_KEY,
+      },
+      body: JSON.stringify(data),
+    }).catch(() => {});
+  } catch (_) {}
+}
+
 async function handleFormSubmit(e) {
   e.preventDefault();
   const t = e.target,
@@ -62,6 +80,21 @@ window.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contactForm");
   if (!contactForm) return;
 
+  // Show/hide the Product dropdown when "Products" is picked as the service
+  const serviceSelect = contactForm.querySelector("#service");
+  const productField = contactForm.querySelector("#product-field");
+  const productSelect = contactForm.querySelector("#product");
+  if (serviceSelect && productField) {
+    const toggleProductField = () => {
+      const isProducts = serviceSelect.value === "products";
+      productField.style.display = isProducts ? "" : "none";
+      if (productSelect) productSelect.required = isProducts;
+      if (!isProducts && productSelect) productSelect.value = "";
+    };
+    serviceSelect.addEventListener("change", toggleProductField);
+    toggleProductField();
+  }
+
   const submitBtn = contactForm.querySelector(
     'button[type="submit"], input[type="submit"]',
   );
@@ -90,11 +123,31 @@ window.addEventListener("DOMContentLoaded", () => {
       phone: fd.get("phone") || fd.get("Phone"),
       subject: fd.get("subject") || fd.get("Enter-your-subject"),
       projectType: fd.get("service") || fd.get("field"),
+      product: fd.get("product") || null,
+      state: fd.get("state") || null,
       message: fd.get("message") || fd.get("Message"),
       budget: fd.get("budget") || null,
       selectedPlan: fd.get("selected-plan") || null,
       source: "contact-page",
     };
+
+    // Whatever the user picked — a service (e.g. "Web Development") or,
+    // when "Products" is selected, the specific product (e.g. "NestHR") —
+    // send that as the "product" field to NestLeads.
+    const isProducts = serviceSelect && serviceSelect.value === "products";
+    const nestLeadsProduct =
+      isProducts && productSelect && productSelect.selectedOptions[0]
+        ? productSelect.selectedOptions[0].text
+        : serviceSelect && serviceSelect.selectedOptions[0]
+          ? serviceSelect.selectedOptions[0].text
+          : null;
+
+    sendToNestLeads({
+      name: data.name,
+      phone: data.phone,
+      location: data.state,
+      product: nestLeadsProduct,
+    });
 
     try {
       const API_BASE =

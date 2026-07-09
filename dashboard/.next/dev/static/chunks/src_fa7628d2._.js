@@ -471,6 +471,7 @@ function EnquiriesPage() {
     _s();
     const [items, setItems] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [successMessage, setSuccessMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [selectedIds, setSelectedIds] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(new Set());
     // Filter state
     const [search, setSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [filterStatus, setFilterStatus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
@@ -511,6 +512,46 @@ function EnquiriesPage() {
             showSuccess("Enquiry deleted!");
         } catch (e) {
             console.error("Failed to delete enquiry", e);
+        }
+    };
+    const toggleSelect = (id)=>{
+        setSelectedIds((prev)=>{
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
+    const toggleSelectAll = (ids)=>{
+        setSelectedIds((prev)=>{
+            const allSelected = ids.length > 0 && ids.every((id)=>prev.has(id));
+            return allSelected ? new Set() : new Set(ids);
+        });
+    };
+    const deleteSelected = async ()=>{
+        if (selectedIds.size === 0) return;
+        if (!window.confirm(`Are you sure you want to delete ${selectedIds.size} enquir${selectedIds.size === 1 ? "y" : "ies"}?`)) return;
+        const ids = Array.from(selectedIds);
+        try {
+            const results = await Promise.all(ids.map((id)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/api/enquiries?id=${encodeURIComponent(id)}`, {
+                    method: "DELETE"
+                }).then((res)=>({
+                        id,
+                        ok: res.ok
+                    })).catch(()=>({
+                        id,
+                        ok: false
+                    }))));
+            const deletedIds = new Set(results.filter((r)=>r.ok).map((r)=>r.id));
+            setItems((prev)=>prev.filter((p)=>!deletedIds.has(String(p._id || p.id))));
+            setSelectedIds((prev)=>{
+                const next = new Set(prev);
+                deletedIds.forEach((id)=>next.delete(id));
+                return next;
+            });
+            showSuccess(`${deletedIds.size} enquir${deletedIds.size === 1 ? "y" : "ies"} deleted!`);
+        } catch (e) {
+            console.error("Failed to delete selected enquiries", e);
         }
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
@@ -579,7 +620,7 @@ function EnquiriesPage() {
                 "EnquiriesPage.useMemo[filtered].out": (i)=>{
                     const q = search.toLowerCase();
                     if (q) {
-                        const hay = `${i.name || ""} ${i.email || ""} ${i.phone || ""} ${i.subject || ""} ${i.message || ""}`.toLowerCase();
+                        const hay = `${i.name || ""} ${i.email || ""} ${i.phone || ""} ${i.subject || ""} ${i.message || ""} ${i.state || ""} ${i.product || ""}`.toLowerCase();
                         if (!hay.includes(q)) return false;
                     }
                     if (filterStatus !== "all" && (i.status || "pending") !== filterStatus) return false;
@@ -631,7 +672,7 @@ function EnquiriesPage() {
                 message: successMessage
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                lineNumber: 160,
+                lineNumber: 202,
                 columnNumber: 26
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -641,7 +682,7 @@ function EnquiriesPage() {
                         children: "Enquiries"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 162,
+                        lineNumber: 204,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -649,13 +690,13 @@ function EnquiriesPage() {
                         children: "All contact form submissions saved from the website."
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 163,
+                        lineNumber: 205,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                lineNumber: 161,
+                lineNumber: 203,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -669,7 +710,7 @@ function EnquiriesPage() {
                         iconVariant: "primary"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 169,
+                        lineNumber: 211,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$stat$2d$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StatCard"], {
@@ -680,7 +721,7 @@ function EnquiriesPage() {
                         iconVariant: "secondary"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 170,
+                        lineNumber: 212,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$stat$2d$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StatCard"], {
@@ -691,7 +732,7 @@ function EnquiriesPage() {
                         iconVariant: "primary"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 171,
+                        lineNumber: 213,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$stat$2d$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StatCard"], {
@@ -707,13 +748,13 @@ function EnquiriesPage() {
                         iconVariant: "secondary"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 172,
+                        lineNumber: 214,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                lineNumber: 168,
+                lineNumber: 210,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -731,7 +772,7 @@ function EnquiriesPage() {
                                         children: "Search"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 181,
+                                        lineNumber: 223,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -742,13 +783,13 @@ function EnquiriesPage() {
                                         className: "border-2 border-black rounded px-3 py-2 text-sm w-full"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 182,
+                                        lineNumber: 224,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 180,
+                                lineNumber: 222,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -758,7 +799,7 @@ function EnquiriesPage() {
                                         children: "Status"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 193,
+                                        lineNumber: 235,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -771,7 +812,7 @@ function EnquiriesPage() {
                                                 children: "All Statuses"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 199,
+                                                lineNumber: 241,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -779,7 +820,7 @@ function EnquiriesPage() {
                                                 children: "Pending"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 200,
+                                                lineNumber: 242,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -787,7 +828,7 @@ function EnquiriesPage() {
                                                 children: "Confirmation"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 201,
+                                                lineNumber: 243,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -795,19 +836,19 @@ function EnquiriesPage() {
                                                 children: "Rejected"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 202,
+                                                lineNumber: 244,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 194,
+                                        lineNumber: 236,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 192,
+                                lineNumber: 234,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -817,7 +858,7 @@ function EnquiriesPage() {
                                         children: "Project Type"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 208,
+                                        lineNumber: 250,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -830,7 +871,7 @@ function EnquiriesPage() {
                                                 children: "All Types"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 214,
+                                                lineNumber: 256,
                                                 columnNumber: 17
                                             }, this),
                                             projectTypes.map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -838,19 +879,19 @@ function EnquiriesPage() {
                                                     children: t
                                                 }, t, false, {
                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 215,
+                                                    lineNumber: 257,
                                                     columnNumber: 42
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 209,
+                                        lineNumber: 251,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 207,
+                                lineNumber: 249,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -860,7 +901,7 @@ function EnquiriesPage() {
                                         children: "Month"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 221,
+                                        lineNumber: 263,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -873,7 +914,7 @@ function EnquiriesPage() {
                                                 children: "All Time"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 227,
+                                                lineNumber: 269,
                                                 columnNumber: 17
                                             }, this),
                                             months.map((m)=>{
@@ -887,20 +928,20 @@ function EnquiriesPage() {
                                                     children: label
                                                 }, m, false, {
                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 231,
+                                                    lineNumber: 273,
                                                     columnNumber: 26
                                                 }, this);
                                             })
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 222,
+                                        lineNumber: 264,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 220,
+                                lineNumber: 262,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -910,7 +951,7 @@ function EnquiriesPage() {
                                         children: "Sort By"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 238,
+                                        lineNumber: 280,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -928,24 +969,24 @@ function EnquiriesPage() {
                                                         col: col
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 247,
+                                                        lineNumber: 289,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, col, true, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 241,
+                                                lineNumber: 283,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 239,
+                                        lineNumber: 281,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 237,
+                                lineNumber: 279,
                                 columnNumber: 13
                             }, this),
                             (search || filterStatus !== "all" || filterProjectType !== "all" || filterMonth !== "all") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -959,7 +1000,7 @@ function EnquiriesPage() {
                                 children: "Clear Filters"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 255,
+                                lineNumber: 297,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -971,23 +1012,36 @@ function EnquiriesPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 263,
+                                lineNumber: 305,
                                 columnNumber: 13
+                            }, this),
+                            selectedIds.size > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: deleteSelected,
+                                className: "border-2 border-black rounded px-3 py-2 text-xs font-black bg-red-600 text-white hover:bg-red-700 self-end",
+                                children: [
+                                    "Delete Selected (",
+                                    selectedIds.size,
+                                    ")"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                lineNumber: 310,
+                                columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 178,
+                        lineNumber: 220,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                    lineNumber: 177,
+                    lineNumber: 219,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                lineNumber: 176,
+                lineNumber: 218,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -999,7 +1053,7 @@ function EnquiriesPage() {
                                 children: "All Enquiries"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 272,
+                                lineNumber: 323,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -1015,13 +1069,13 @@ function EnquiriesPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 273,
+                                lineNumber: 324,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 271,
+                        lineNumber: 322,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1034,6 +1088,23 @@ function EnquiriesPage() {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                        className: "w-8",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "checkbox",
+                                                            checked: filtered.length > 0 && filtered.every((it)=>selectedIds.has(String(it._id || it.id))),
+                                                            onChange: ()=>toggleSelectAll(filtered.map((it)=>String(it._id || it.id))),
+                                                            "aria-label": "Select all"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                            lineNumber: 335,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                        lineNumber: 334,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         className: "cursor-pointer select-none",
                                                         onClick: ()=>toggleSort("name"),
                                                         children: [
@@ -1042,55 +1113,69 @@ function EnquiriesPage() {
                                                                 col: "name"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 284,
+                                                                lineNumber: 343,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 283,
+                                                        lineNumber: 342,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Email"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 286,
+                                                        lineNumber: 345,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Phone"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 346,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Subject"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 288,
+                                                        lineNumber: 347,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Project Type"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 289,
+                                                        lineNumber: 348,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                        children: "Product"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                        lineNumber: 349,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                        children: "State"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                        lineNumber: 350,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Message"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 290,
+                                                        lineNumber: 351,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Budget"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 291,
+                                                        lineNumber: 352,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1102,13 +1187,13 @@ function EnquiriesPage() {
                                                                 col: "status"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 293,
+                                                                lineNumber: 354,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 292,
+                                                        lineNumber: 353,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1120,79 +1205,111 @@ function EnquiriesPage() {
                                                                 col: "createdAt"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 296,
+                                                                lineNumber: 357,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 295,
+                                                        lineNumber: 356,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 282,
+                                                lineNumber: 333,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                            lineNumber: 281,
+                                            lineNumber: 332,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
                                             children: [
                                                 filtered.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                        colSpan: 9,
+                                                        colSpan: 12,
                                                         className: "text-center text-muted-foreground py-8",
                                                         children: "No enquiries match your filters."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 303,
+                                                        lineNumber: 364,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 302,
+                                                    lineNumber: 363,
                                                     columnNumber: 19
                                                 }, this),
-                                                filtered.map((it)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
+                                                filtered.map((it)=>{
+                                                    const id = String(it._id || it.id);
+                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
                                                         children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                    type: "checkbox",
+                                                                    checked: selectedIds.has(id),
+                                                                    onChange: ()=>toggleSelect(id),
+                                                                    "aria-label": `Select ${it.name || id}`
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                    lineNumber: 374,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                lineNumber: 373,
+                                                                columnNumber: 21
+                                                            }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 className: "font-bold",
                                                                 children: it.name || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 310,
+                                                                lineNumber: 381,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: it.email || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 311,
+                                                                lineNumber: 382,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: it.phone || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 312,
+                                                                lineNumber: 383,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: it.subject || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 313,
+                                                                lineNumber: 384,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: it.projectType || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 314,
+                                                                lineNumber: 385,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                                children: it.product || "-"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                lineNumber: 386,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                                children: it.state || "-"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                lineNumber: 387,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1202,14 +1319,14 @@ function EnquiriesPage() {
                                                                 children: it.message || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 315,
+                                                                lineNumber: 388,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: it.budget || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 316,
+                                                                lineNumber: 389,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1225,7 +1342,7 @@ function EnquiriesPage() {
                                                                             children: "Pending"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                            lineNumber: 323,
+                                                                            lineNumber: 396,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1233,7 +1350,7 @@ function EnquiriesPage() {
                                                                             children: "Confirmation"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                            lineNumber: 324,
+                                                                            lineNumber: 397,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1241,18 +1358,18 @@ function EnquiriesPage() {
                                                                             children: "Rejected"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                            lineNumber: 325,
+                                                                            lineNumber: 398,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 318,
+                                                                    lineNumber: 391,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 317,
+                                                                lineNumber: 390,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1262,45 +1379,46 @@ function EnquiriesPage() {
                                                                         children: it.createdAt ? new Date(it.createdAt).toLocaleString() : "-"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                        lineNumber: 329,
+                                                                        lineNumber: 402,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                        onClick: ()=>deleteItem(String(it._id || it.id)),
+                                                                        onClick: ()=>deleteItem(id),
                                                                         className: "ml-2 text-sm text-red-600 hover:underline",
                                                                         children: "Delete"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                        lineNumber: 330,
+                                                                        lineNumber: 403,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 328,
+                                                                lineNumber: 401,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
-                                                    }, String(it._id || it.id), true, {
+                                                    }, id, true, {
                                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 309,
+                                                        lineNumber: 372,
                                                         columnNumber: 19
-                                                    }, this))
+                                                    }, this);
+                                                })
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                            lineNumber: 300,
+                                            lineNumber: 361,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                    lineNumber: 280,
+                                    lineNumber: 331,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 279,
+                                lineNumber: 330,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1311,7 +1429,26 @@ function EnquiriesPage() {
                                         children: "No enquiries match your filters."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 341,
+                                        lineNumber: 415,
+                                        columnNumber: 15
+                                    }, this),
+                                    filtered.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "flex items-center gap-2 text-xs font-black uppercase tracking-widest",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "checkbox",
+                                                checked: filtered.every((it)=>selectedIds.has(String(it._id || it.id))),
+                                                onChange: ()=>toggleSelectAll(filtered.map((it)=>String(it._id || it.id)))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                lineNumber: 419,
+                                                columnNumber: 17
+                                            }, this),
+                                            "Select All"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                        lineNumber: 418,
                                         columnNumber: 15
                                     }, this),
                                     filtered.map((it)=>{
@@ -1327,10 +1464,37 @@ function EnquiriesPage() {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     className: "text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]",
+                                                                    children: "Select"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                    lineNumber: 433,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                    type: "checkbox",
+                                                                    checked: selectedIds.has(id),
+                                                                    onChange: ()=>toggleSelect(id),
+                                                                    "aria-label": `Select ${it.name || id}`
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                    lineNumber: 434,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                            lineNumber: 432,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex justify-between items-start px-3 py-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]",
                                                                     children: "Name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 349,
+                                                                    lineNumber: 442,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1338,13 +1502,13 @@ function EnquiriesPage() {
                                                                     children: it.name || "-"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 350,
+                                                                    lineNumber: 443,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 348,
+                                                            lineNumber: 441,
                                                             columnNumber: 21
                                                         }, this),
                                                         it.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1355,7 +1519,7 @@ function EnquiriesPage() {
                                                                     children: "Email"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 353,
+                                                                    lineNumber: 446,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1363,13 +1527,13 @@ function EnquiriesPage() {
                                                                     children: it.email
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 354,
+                                                                    lineNumber: 447,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 352,
+                                                            lineNumber: 445,
                                                             columnNumber: 34
                                                         }, this),
                                                         it.phone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1380,7 +1544,7 @@ function EnquiriesPage() {
                                                                     children: "Phone"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 357,
+                                                                    lineNumber: 450,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1388,13 +1552,13 @@ function EnquiriesPage() {
                                                                     children: it.phone
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 358,
+                                                                    lineNumber: 451,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 356,
+                                                            lineNumber: 449,
                                                             columnNumber: 34
                                                         }, this),
                                                         it.subject && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1405,7 +1569,7 @@ function EnquiriesPage() {
                                                                     children: "Subject"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 361,
+                                                                    lineNumber: 454,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1413,13 +1577,13 @@ function EnquiriesPage() {
                                                                     children: it.subject
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 362,
+                                                                    lineNumber: 455,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 360,
+                                                            lineNumber: 453,
                                                             columnNumber: 36
                                                         }, this),
                                                         it.projectType && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1430,7 +1594,7 @@ function EnquiriesPage() {
                                                                     children: "Project"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 365,
+                                                                    lineNumber: 458,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1438,14 +1602,64 @@ function EnquiriesPage() {
                                                                     children: it.projectType
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 366,
+                                                                    lineNumber: 459,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 364,
+                                                            lineNumber: 457,
                                                             columnNumber: 40
+                                                        }, this),
+                                                        it.product && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex justify-between items-start px-3 py-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]",
+                                                                    children: "Product"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                    lineNumber: 462,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-sm text-right flex-1",
+                                                                    children: it.product
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                    lineNumber: 463,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                            lineNumber: 461,
+                                                            columnNumber: 36
+                                                        }, this),
+                                                        it.state && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex justify-between items-start px-3 py-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]",
+                                                                    children: "State"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                    lineNumber: 466,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-sm text-right flex-1",
+                                                                    children: it.state
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                                    lineNumber: 467,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
+                                                            lineNumber: 465,
+                                                            columnNumber: 34
                                                         }, this),
                                                         it.budget && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex justify-between items-start px-3 py-2",
@@ -1455,7 +1669,7 @@ function EnquiriesPage() {
                                                                     children: "Budget"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 369,
+                                                                    lineNumber: 470,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1463,13 +1677,13 @@ function EnquiriesPage() {
                                                                     children: it.budget
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 370,
+                                                                    lineNumber: 471,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 368,
+                                                            lineNumber: 469,
                                                             columnNumber: 35
                                                         }, this),
                                                         it.message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1480,7 +1694,7 @@ function EnquiriesPage() {
                                                                     children: "Message"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 373,
+                                                                    lineNumber: 474,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1488,13 +1702,13 @@ function EnquiriesPage() {
                                                                     children: it.message
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 374,
+                                                                    lineNumber: 475,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 372,
+                                                            lineNumber: 473,
                                                             columnNumber: 36
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1505,7 +1719,7 @@ function EnquiriesPage() {
                                                                     children: "Date"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 377,
+                                                                    lineNumber: 478,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1513,19 +1727,19 @@ function EnquiriesPage() {
                                                                     children: it.createdAt ? new Date(it.createdAt).toLocaleDateString("en-IN") : "-"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 378,
+                                                                    lineNumber: 479,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 376,
+                                                            lineNumber: 477,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 347,
+                                                    lineNumber: 431,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1543,7 +1757,7 @@ function EnquiriesPage() {
                                                                     children: "Pending"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 387,
+                                                                    lineNumber: 488,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1551,7 +1765,7 @@ function EnquiriesPage() {
                                                                     children: "Confirmation"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 388,
+                                                                    lineNumber: 489,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1559,13 +1773,13 @@ function EnquiriesPage() {
                                                                     children: "Rejected"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                                    lineNumber: 389,
+                                                                    lineNumber: 490,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 382,
+                                                            lineNumber: 483,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1574,48 +1788,48 @@ function EnquiriesPage() {
                                                             children: "Delete"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 391,
+                                                            lineNumber: 492,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 381,
+                                                    lineNumber: 482,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, id, true, {
                                             fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                            lineNumber: 346,
+                                            lineNumber: 430,
                                             columnNumber: 17
                                         }, this);
                                     })
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 339,
+                                lineNumber: 413,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 277,
+                        lineNumber: 328,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-                lineNumber: 270,
+                lineNumber: 321,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/enquiries/page.tsx",
-        lineNumber: 159,
+        lineNumber: 201,
         columnNumber: 5
     }, this);
 }
-_s(EnquiriesPage, "PkU6cHXEXKX1TmD1lvVW06vPrT4=");
+_s(EnquiriesPage, "5RXkHMI5d74fLR/h0EfjeuxIT2Q=");
 _c = EnquiriesPage;
 var _c;
 __turbopack_context__.k.register(_c, "EnquiriesPage");

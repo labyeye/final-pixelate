@@ -27,6 +27,7 @@ type SortDir = "asc" | "desc";
 export default function EnquiriesPage() {
   const [items, setItems] = useState<any[]>([]);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   // Filter state
   const [search, setSearch] = useState("");
@@ -76,6 +77,47 @@ export default function EnquiriesPage() {
     }
   };
 
+  const toggleSelect = (id: string) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleSelectAll = (ids: string[]) => {
+    setSelectedIds((prev) => {
+      const allSelected = ids.length > 0 && ids.every((id) => prev.has(id));
+      return allSelected ? new Set() : new Set(ids);
+    });
+  };
+
+  const deleteSelected = async () => {
+    if (selectedIds.size === 0) return;
+    if (!window.confirm(`Are you sure you want to delete ${selectedIds.size} enquir${selectedIds.size === 1 ? "y" : "ies"}?`)) return;
+    const ids = Array.from(selectedIds);
+    try {
+      const results = await Promise.all(
+        ids.map((id) =>
+          apiFetch(`/api/enquiries?id=${encodeURIComponent(id)}`, { method: "DELETE" })
+            .then((res) => ({ id, ok: res.ok }))
+            .catch(() => ({ id, ok: false })),
+        ),
+      );
+      const deletedIds = new Set(results.filter((r) => r.ok).map((r) => r.id));
+      setItems((prev) => prev.filter((p) => !deletedIds.has(String(p._id || p.id))));
+      setSelectedIds((prev) => {
+        const next = new Set(prev);
+        deletedIds.forEach((id) => next.delete(id));
+        return next;
+      });
+      showSuccess(`${deletedIds.size} enquir${deletedIds.size === 1 ? "y" : "ies"} deleted!`);
+    } catch (e) {
+      console.error("Failed to delete selected enquiries", e);
+    }
+  };
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -119,7 +161,7 @@ export default function EnquiriesPage() {
     let out = items.filter((i) => {
       const q = search.toLowerCase();
       if (q) {
-        const hay = `${i.name || ""} ${i.email || ""} ${i.phone || ""} ${i.subject || ""} ${i.message || ""}`.toLowerCase();
+        const hay = `${i.name || ""} ${i.email || ""} ${i.phone || ""} ${i.subject || ""} ${i.message || ""} ${i.state || ""} ${i.product || ""}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       if (filterStatus !== "all" && (i.status || "pending") !== filterStatus) return false;
@@ -263,6 +305,15 @@ export default function EnquiriesPage() {
             <span className="self-end text-xs text-muted-foreground font-bold pb-2">
               {filtered.length} of {items.length}
             </span>
+
+            {selectedIds.size > 0 && (
+              <button
+                onClick={deleteSelected}
+                className="border-2 border-black rounded px-3 py-2 text-xs font-black bg-red-600 text-white hover:bg-red-700 self-end"
+              >
+                Delete Selected ({selectedIds.size})
+              </button>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -280,6 +331,14 @@ export default function EnquiriesPage() {
             <Table>
               <TableHeader>
                 <TableRow>
+                  <TableHead className="w-8">
+                    <input
+                      type="checkbox"
+                      checked={filtered.length > 0 && filtered.every((it) => selectedIds.has(String(it._id || it.id)))}
+                      onChange={() => toggleSelectAll(filtered.map((it) => String(it._id || it.id)))}
+                      aria-label="Select all"
+                    />
+                  </TableHead>
                   <TableHead className="cursor-pointer select-none" onClick={() => toggleSort("name")}>
                     Name<SortIcon col="name" />
                   </TableHead>
@@ -287,6 +346,8 @@ export default function EnquiriesPage() {
                   <TableHead>Phone</TableHead>
                   <TableHead>Subject</TableHead>
                   <TableHead>Project Type</TableHead>
+                  <TableHead>Product</TableHead>
+                  <TableHead>State</TableHead>
                   <TableHead>Message</TableHead>
                   <TableHead>Budget</TableHead>
                   <TableHead className="cursor-pointer select-none" onClick={() => toggleSort("status")}>
@@ -300,18 +361,30 @@ export default function EnquiriesPage() {
               <TableBody>
                 {filtered.length === 0 && (
                   <TableRow>
-                    <TableCell colSpan={9} className="text-center text-muted-foreground py-8">
+                    <TableCell colSpan={12} className="text-center text-muted-foreground py-8">
                       No enquiries match your filters.
                     </TableCell>
                   </TableRow>
                 )}
-                {filtered.map((it) => (
-                  <TableRow key={String(it._id || it.id)}>
+                {filtered.map((it) => {
+                  const id = String(it._id || it.id);
+                  return (
+                  <TableRow key={id}>
+                    <TableCell>
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.has(id)}
+                        onChange={() => toggleSelect(id)}
+                        aria-label={`Select ${it.name || id}`}
+                      />
+                    </TableCell>
                     <TableCell className="font-bold">{it.name || "-"}</TableCell>
                     <TableCell>{it.email || "-"}</TableCell>
                     <TableCell>{it.phone || "-"}</TableCell>
                     <TableCell>{it.subject || "-"}</TableCell>
                     <TableCell>{it.projectType || "-"}</TableCell>
+                    <TableCell>{it.product || "-"}</TableCell>
+                    <TableCell>{it.state || "-"}</TableCell>
                     <TableCell style={{ maxWidth: 300 }}>{it.message || "-"}</TableCell>
                     <TableCell>{it.budget || "-"}</TableCell>
                     <TableCell>
@@ -327,10 +400,11 @@ export default function EnquiriesPage() {
                     </TableCell>
                     <TableCell className="flex items-center gap-2">
                       <span>{it.createdAt ? new Date(it.createdAt).toLocaleString() : "-"}</span>
-                      <button onClick={() => deleteItem(String(it._id || it.id))} className="ml-2 text-sm text-red-600 hover:underline">Delete</button>
+                      <button onClick={() => deleteItem(id)} className="ml-2 text-sm text-red-600 hover:underline">Delete</button>
                     </TableCell>
                   </TableRow>
-                ))}
+                  );
+                })}
               </TableBody>
             </Table>
           </div>
@@ -340,11 +414,30 @@ export default function EnquiriesPage() {
             {filtered.length === 0 && (
               <p className="text-center text-muted-foreground py-8">No enquiries match your filters.</p>
             )}
+            {filtered.length > 0 && (
+              <label className="flex items-center gap-2 text-xs font-black uppercase tracking-widest">
+                <input
+                  type="checkbox"
+                  checked={filtered.every((it) => selectedIds.has(String(it._id || it.id)))}
+                  onChange={() => toggleSelectAll(filtered.map((it) => String(it._id || it.id)))}
+                />
+                Select All
+              </label>
+            )}
             {filtered.map((it) => {
               const id = String(it._id || it.id);
               return (
                 <div key={id} className="border-2 border-black bg-white">
                   <div className="divide-y divide-gray-100">
+                    <div className="flex justify-between items-start px-3 py-2">
+                      <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Select</span>
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.has(id)}
+                        onChange={() => toggleSelect(id)}
+                        aria-label={`Select ${it.name || id}`}
+                      />
+                    </div>
                     <div className="flex justify-between items-start px-3 py-2">
                       <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Name</span>
                       <span className="text-sm font-bold text-right flex-1">{it.name || "-"}</span>
@@ -364,6 +457,14 @@ export default function EnquiriesPage() {
                     {it.projectType && <div className="flex justify-between items-start px-3 py-2">
                       <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Project</span>
                       <span className="text-sm text-right flex-1">{it.projectType}</span>
+                    </div>}
+                    {it.product && <div className="flex justify-between items-start px-3 py-2">
+                      <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Product</span>
+                      <span className="text-sm text-right flex-1">{it.product}</span>
+                    </div>}
+                    {it.state && <div className="flex justify-between items-start px-3 py-2">
+                      <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">State</span>
+                      <span className="text-sm text-right flex-1">{it.state}</span>
                     </div>}
                     {it.budget && <div className="flex justify-between items-start px-3 py-2">
                       <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase min-w-[80px]">Budget</span>
