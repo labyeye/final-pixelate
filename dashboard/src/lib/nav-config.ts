@@ -315,6 +315,30 @@ export const navGroups = [
   },
 
   {
+    title: "Nest Leads",
+    items: [
+      {
+        href: "/nest-leads/invoices",
+        label: "NestLeads Invoices",
+        adminOnly: true,
+        icon: Receipt,
+      },
+    ],
+  },
+
+  {
+    title: "Nest Sports",
+    items: [
+      {
+        href: "/nest-sports/invoices",
+        label: "NestSports Invoices",
+        adminOnly: true,
+        icon: Receipt,
+      },
+    ],
+  },
+
+  {
     title: "HR & Support",
     items: [
       {

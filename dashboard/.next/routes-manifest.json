@@ -565,6 +565,30 @@
       "namedRegex": "^/api/nesthr\\-stats(?:/)?$"
     },
     {
+      "page": "/api/nestleads-invoices",
+      "regex": "^/api/nestleads\\-invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestleads\\-invoices(?:/)?$"
+    },
+    {
+      "page": "/api/nestleads-stats",
+      "regex": "^/api/nestleads\\-stats(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestleads\\-stats(?:/)?$"
+    },
+    {
+      "page": "/api/nestsports-invoices",
+      "regex": "^/api/nestsports\\-invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestsports\\-invoices(?:/)?$"
+    },
+    {
+      "page": "/api/nestsports-stats",
+      "regex": "^/api/nestsports\\-stats(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestsports\\-stats(?:/)?$"
+    },
+    {
       "page": "/api/newsletter",
       "regex": "^/api/newsletter(?:/)?$",
       "routeKeys": {},
@@ -1055,6 +1079,18 @@
       "regex": "^/nest\\-hr/subscriptions(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-hr/subscriptions(?:/)?$"
+    },
+    {
+      "page": "/nest-leads/invoices",
+      "regex": "^/nest\\-leads/invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-leads/invoices(?:/)?$"
+    },
+    {
+      "page": "/nest-sports/invoices",
+      "regex": "^/nest\\-sports/invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-sports/invoices(?:/)?$"
     },
     {
       "page": "/newsletter",

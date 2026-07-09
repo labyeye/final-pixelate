@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-sports/layout,_N_T_/(crm)/nest-sports/invoices/layout,_N_T_/(crm)/nest-sports/invoices/page,_N_T_/nest-sports/invoices"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-sports/invoices/__PAGE__",
+    "/!KGNybSk/nest-sports/invoices",
+    "/!KGNybSk/nest-sports",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

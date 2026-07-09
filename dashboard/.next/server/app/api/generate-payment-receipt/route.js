@@ -1,5 +1,5 @@
 var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/generate-payment-receipt/route.js")
-R.c("server/chunks/[root-of-the-server]__2e44cb70._.js")
+R.c("server/chunks/[root-of-the-server]__db309f6c._.js")
 R.c("server/chunks/_0f1a126f._.js")
 R.c("server/chunks/[root-of-the-server]__e7faf961._.js")
 R.c("server/chunks/_69059c6b._.js")
