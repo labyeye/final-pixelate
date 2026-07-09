@@ -192,8 +192,8 @@ export default function WhatsAppLogPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Sync failed");
       toast({
-        title: "Synced",
-        description: `${data.synced ?? 0} new messages pulled from webhook (${dates.from} → ${dates.to}).`,
+        title: "Synced from DB",
+        description: `${data.sent ?? 0} sent · ${data.received ?? 0} received · ${data.invoices ?? 0} invoices (${dates.from} → ${dates.to})`,
       });
       await fetchData();
     } catch (e: any) {
