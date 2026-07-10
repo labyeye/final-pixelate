@@ -109,10 +109,10 @@ export function AddMemberDialog({
       name: initialValues?.name ?? "",
       email: initialValues?.email ?? "",
       password: "",
-      loginRole: "staff",
+      loginRole: (initialValues as any)?.role ?? "staff",
       phone: initialValues?.phone ?? "",
       address: initialValues?.address ?? "",
-      role: initialValues?.role ?? "Web Developer",
+      role: (initialValues as any)?.jobRole ?? "Web Developer",
     },
   });
 
@@ -174,6 +174,9 @@ export function AddMemberDialog({
       if (onSave) {
         try {
           const updatePayload: any = { ...memberPayload };
+          if (!updatePayload.password) {
+            delete updatePayload.password;
+          }
           if (updatePayload.role) {
             updatePayload.jobRole = updatePayload.role;
             delete updatePayload.role;
@@ -257,11 +260,11 @@ export function AddMemberDialog({
       form.reset({
         name: initialValues.name ?? "",
         email: initialValues.email ?? "",
-        password: (initialValues as any).password ?? "",
-        loginRole: (initialValues as any).loginRole ?? "staff",
+        password: "",
+        loginRole: (initialValues as any).role ?? "staff",
         phone: initialValues.phone ?? "",
         address: initialValues.address ?? "",
-        role: initialValues.role ?? "Web Developer",
+        role: (initialValues as any).jobRole ?? "Web Developer",
         pan: initialValues.pan ?? undefined,
         aadhar: initialValues.aadhar ?? undefined,
         secondaryPhone: initialValues.secondaryPhone ?? undefined,

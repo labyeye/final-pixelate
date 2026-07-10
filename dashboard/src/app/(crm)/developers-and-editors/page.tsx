@@ -18,7 +18,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import EditUserDialog from "../../../components/developers-and-editors/edit-user-dialog";
 import { MoreVertical } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,7 +30,6 @@ export default function DevelopersAndEditorsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isUserDialogOpen, setIsUserDialogOpen] = useState(false);
   const [editingMember, setEditingMember] = useState<any | null>(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -354,18 +352,6 @@ export default function DevelopersAndEditorsPage() {
         })}
       </div>
 
-      {}
-      {editingMember && (
-        <EditUserDialog
-          isOpen={isEditDialogOpen}
-          setIsOpen={setIsEditDialogOpen}
-          initialValues={editingMember}
-          onSave={async (update) => {
-            const id = editingMember._id ?? editingMember.id;
-            await handleSaveUser(id, update as any);
-          }}
-        />
-      )}
     </div>
   );
 }
