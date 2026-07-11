@@ -257,17 +257,39 @@ async function PUT(req, { params }) {
                 status: 403
             });
         }
+        const { remark, byId, byName, logUpdate, isFullEdit, requesterId, ...rest } = body;
+        if (isFullEdit && task.createdBy && String(task.createdBy) !== String(requesterId)) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: "Only the task owner can edit this task"
+            }, {
+                status: 403
+            });
+        }
         const updateData = {
-            ...body,
+            ...rest,
             updatedAt: new Date()
         };
         delete updateData._id;
         delete updateData.id;
+        const updateOps = {
+            $set: updateData
+        };
+        if (logUpdate || remark) {
+            updateOps.$push = {
+                updates: {
+                    id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"]().toString(),
+                    status: updateData.status ?? task.status,
+                    remark: remark || "",
+                    completedLink: updateData.completedLink || null,
+                    byId: byId ?? userId ?? null,
+                    byName: byName ?? null,
+                    at: new Date()
+                }
+            };
+        }
         const result = await db.collection("tasks").findOneAndUpdate({
             _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
-        }, {
-            $set: updateData
-        }, {
+        }, updateOps, {
             returnDocument: "after"
         });
         if (!result) {
