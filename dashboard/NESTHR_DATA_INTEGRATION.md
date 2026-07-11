@@ -136,6 +136,46 @@ absent — but the closer the response matches this shape, the more complete the
 
 ---
 
+## 2b. Subscription write-back — CRM controls product access
+
+In addition to the read-only endpoints above, each product now exposes a
+**write** endpoint so the CRM can activate/extend/deactivate a client's
+subscription directly, instead of someone doing it by hand in that product's
+own admin panel.
+
+The dashboard calls this automatically:
+- On payment: `dashboard/src/app/api/payments/route.ts` calls it the moment an
+  invoice flips to `PAID`, passing the invoice's `renewalDate` (set on the
+  invoice form) so the product knows how long to extend access.
+- On expiry: a daily cron route,
+  `dashboard/src/app/api/cron/deactivate-expired-subscriptions/route.ts`,
+  scans invoices whose `renewalDate` has passed and deactivates the linked
+  client's product access. Point an external scheduler at this URL once a day
+  with `?secret=<CRON_SECRET>`.
+
+Both paths go through `dashboard/src/lib/product-sync.ts` →
+`syncClientSubscription(clientId, "activate" | "deactivate", renewalDate?)`,
+which looks up the client's `product` (`nesthr` | `nestleads` | `nestsports`)
+and `externalTenantId` fields (set on the client in the Clients UI) and calls
+the matching backend. **If a client has no `product`/`externalTenantId` set,
+this silently no-ops** — nothing breaks, it just doesn't sync.
+
+### Nest HR — `PATCH {NESTHR_BACKEND_URL}/api/crm/companies/:companyId/subscription`
+- Auth header: `x-api-key: <NESTHR_CRM_SECRET or NESTHR_STATS_SECRET>` (same secret as the read endpoints)
+- Body: `{ "status": "active" | "inactive" | "cancelled" | "pending_renewal", "paymentStatus"?: "completed" | "pending" | "failed", "renewalDate"?: "ISO date" }`
+- Implemented in `hrms/backend/controllers/crmController.js` (`updateCrmSubscription`) / `hrms/backend/routes/crmRoutes.js`. Updates the `Subscription` doc directly — the existing login gate in `authController.js` already enforces `status`/`paymentStatus`/`trialEndDate`, so no other change was needed on that side.
+
+### Nest Leads — `PATCH {NESTLEADS_BACKEND_URL}/internal/tenants/:tenantId/subscription`
+- Auth header: `x-api-key: <NESTLEADS_CRM_SECRET or NESTLEADS_STATS_SECRET>` — maps to a new `CRM_API_SECRET` env var on the Nest Leads backend.
+- Body: `{ "status": "active" | "suspended" | "cancelled", "renewalDate"?: "ISO date" }`
+- Implemented in `leads-pixelate/backend/controllers/crmController.js` / `routes/crmRoutes.js`, mounted at `/internal` in `server.js`. Updates `Tenant.status`/`planExpiresAt` and the linked `Subscription`.
+- Unlike Nest HR, Nest Leads previously had **no enforcement at all** — `middleware/auth.js`'s `protect()` now also checks the user's `Tenant.status`/`planExpiresAt` on every request (not just at login) and returns 403 if suspended/cancelled/expired. This makes deactivation take effect immediately, even for an already-logged-in session.
+
+### Nest Sports
+Not yet a real backend in this workspace — `product-sync.ts` has a code path for it (`NESTSPORTS_BACKEND_URL`/`NESTSPORTS_CRM_SECRET`) but it will just no-op until that product exists and implements the same contract.
+
+---
+
 ## 3. Environment variables (server-side only, never sent to the browser)
 
 ```

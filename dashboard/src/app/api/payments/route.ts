@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { requireAuth } from "@/lib/require-auth";
+import { syncClientSubscription } from "@/lib/product-sync";
 
 export async function POST(req: NextRequest) {
   const auth = requireAuth(req);
@@ -59,6 +60,14 @@ export async function POST(req: NextRequest) {
         } as any,
       },
     );
+
+    if (newStatus === "PAID" && invoice.clientId) {
+      await syncClientSubscription(
+        String(invoice.clientId),
+        "activate",
+        invoice.renewalDate ?? null,
+      );
+    }
 
     return NextResponse.json({ success: true, newStatus, newPaid });
   } catch (error: any) {

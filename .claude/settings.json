@@ -30,7 +30,9 @@
       "Bash(node \"/c/Users/labhb/AppData/Local/Temp/claude/d--projects-final-pixelate/db098673-4b70-402d-8e4e-f2fae055d577/scratchpad/update-pricing.js\")",
       "Bash(rm \"/c/Users/labhb/AppData/Local/Temp/claude/d--projects-final-pixelate/db098673-4b70-402d-8e4e-f2fae055d577/scratchpad/update-pricing.js\")",
       "Bash(sleep 3; cat /dev/null)",
-      "Read(//dev/**)"
+      "Read(//dev/**)",
+      "Bash(node -e \"require\\('./controllers/crmController.js'\\); require\\('./routes/crmRoutes.js'\\); console.log\\('hrms OK'\\)\")",
+      "Bash(node -e \"require\\('./controllers/crmController.js'\\); require\\('./routes/crmRoutes.js'\\); require\\('./middleware/auth.js'\\); console.log\\('leads-pixelate OK'\\)\")"
     ],
     "additionalDirectories": [
       "d:\\projects\\final-pixelate\\dashboard\\src\\app\\api\\fixed-expenses\\[id]",

@@ -84,6 +84,7 @@
   "/api/content-plans/[id]/route": "app/api/content-plans/[id]/route.js",
   "/api/content-plans/import/route": "app/api/content-plans/import/route.js",
   "/api/content-plans/route": "app/api/content-plans/route.js",
+  "/api/cron/deactivate-expired-subscriptions/route": "app/api/cron/deactivate-expired-subscriptions/route.js",
   "/api/cron/process-scheduled-posts/route": "app/api/cron/process-scheduled-posts/route.js",
   "/api/emi/[id]/route": "app/api/emi/[id]/route.js",
   "/api/emi/route": "app/api/emi/route.js",

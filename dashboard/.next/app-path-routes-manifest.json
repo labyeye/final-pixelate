@@ -84,6 +84,7 @@
   "/api/content-plans/[id]/route": "/api/content-plans/[id]",
   "/api/content-plans/import/route": "/api/content-plans/import",
   "/api/content-plans/route": "/api/content-plans",
+  "/api/cron/deactivate-expired-subscriptions/route": "/api/cron/deactivate-expired-subscriptions",
   "/api/cron/process-scheduled-posts/route": "/api/cron/process-scheduled-posts",
   "/api/emi/[id]/route": "/api/emi/[id]",
   "/api/emi/route": "/api/emi",

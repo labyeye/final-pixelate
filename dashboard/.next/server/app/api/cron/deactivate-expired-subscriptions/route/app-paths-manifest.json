@@ -1,0 +1,3 @@
+{
+  "/api/cron/deactivate-expired-subscriptions/route": "app/api/cron/deactivate-expired-subscriptions/route.js"
+}

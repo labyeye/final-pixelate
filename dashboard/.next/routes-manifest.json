@@ -451,6 +451,12 @@
       "namedRegex": "^/api/content\\-plans/import(?:/)?$"
     },
     {
+      "page": "/api/cron/deactivate-expired-subscriptions",
+      "regex": "^/api/cron/deactivate\\-expired\\-subscriptions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cron/deactivate\\-expired\\-subscriptions(?:/)?$"
+    },
+    {
       "page": "/api/cron/process-scheduled-posts",
       "regex": "^/api/cron/process\\-scheduled\\-posts(?:/)?$",
       "routeKeys": {},

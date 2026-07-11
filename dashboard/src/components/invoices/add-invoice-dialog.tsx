@@ -56,6 +56,7 @@ type AddFormValues = {
   clientId: string;
   invoiceDate: string;
   dueDate: string;
+  renewalDate: string;
   venueName: string;
   venueAddress: string;
   includeVenueName: boolean;
@@ -147,6 +148,7 @@ export function AddInvoiceDialog({
       clientId: "",
       invoiceDate: new Date().toISOString().slice(0, 10),
       dueDate: "",
+      renewalDate: "",
       venueName: "",
       venueAddress: "",
       includeVenueName: false,
@@ -212,6 +214,7 @@ export function AddInvoiceDialog({
         discount: discountAmt,
         hsnCode: primaryHsn,
         dueDate: values.dueDate || "",
+        renewalDate: values.renewalDate || null,
         applyGst: true,
         gstPercent: 18,
         tax,
@@ -407,6 +410,23 @@ export function AddInvoiceDialog({
                     <FormControl>
                       <Input type="date" {...field} />
                     </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                name="renewalDate"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subscription Renewal Date (optional)</FormLabel>
+                    <FormControl>
+                      <Input type="date" {...field} />
+                    </FormControl>
+                    <p className="text-xs text-muted-foreground">
+                      If this client is linked to a product, their access is
+                      extended to this date once the invoice is paid.
+                    </p>
                   </FormItem>
                 )}
               />

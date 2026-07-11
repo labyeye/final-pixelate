@@ -24,6 +24,13 @@ import {
   FormMessage,
   FormDescription,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import type { Client } from "@/lib/data";
 import { Switch } from "@/components/ui/switch";
 import React from "react";
@@ -54,6 +61,9 @@ const formSchema = z
       .min(6, "Password must be at least 6 characters.")
       .optional()
       .or(z.literal("")),
+
+    product: z.enum(["none", "nesthr", "nestleads", "nestsports"]).default("none"),
+    externalTenantId: z.string().optional().or(z.literal("")),
   })
   .refine(
     (data) => {
@@ -105,8 +115,12 @@ export function AddClientDialog({
       hasGst: initialValues?.hasGst ?? false,
       loginEmail: initialValues?.loginEmail ?? "",
       loginPassword: "",
+      product: (initialValues as any)?.product ?? "none",
+      externalTenantId: (initialValues as any)?.externalTenantId ?? "",
     },
   });
+
+  const product = form.watch("product");
 
   const hasGst = form.watch("hasGst");
 
@@ -126,6 +140,8 @@ export function AddClientDialog({
         gstAddress: initialValues.gstAddress ?? undefined,
         loginEmail: initialValues.loginEmail ?? "",
         loginPassword: "",
+        product: (initialValues as any).product ?? "none",
+        externalTenantId: (initialValues as any).externalTenantId ?? "",
       });
     }
   }, [initialValues]);
@@ -309,6 +325,70 @@ export function AddClientDialog({
                       </FormItem>
                     )}
                   />
+                </div>
+              </div>
+
+              <Separator className="border-t-2 border-black" />
+
+              {}
+              <div className="space-y-3">
+                <div>
+                  <h4 className="text-base font-bold">Product Subscription</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Link this client to the product they subscribe to, so paid
+                    invoices automatically activate/renew their access there.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 border-black rounded-lg p-4">
+                  <FormField
+                    control={form.control}
+                    name="product"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Product</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          value={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select a product" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="none">None</SelectItem>
+                            <SelectItem value="nesthr">Nest HR</SelectItem>
+                            <SelectItem value="nestleads">Nest Leads</SelectItem>
+                            <SelectItem value="nestsports">Nest Sports</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  {product !== "none" && (
+                    <FormField
+                      control={form.control}
+                      name="externalTenantId"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Tenant / Company ID</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="ID from the product's own database"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormDescription>
+                            The Company ID (Nest HR) or Tenant ID (Nest Leads)
+                            for this client in that product.
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
                 </div>
               </div>
 

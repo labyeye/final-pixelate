@@ -812,6 +812,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/cron/deactivate-expired-subscriptions/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/cron/deactivate-expired-subscriptions">> = Specific
+  const handler = {} as typeof import("../../src/app/api/cron/deactivate-expired-subscriptions/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/cron/process-scheduled-posts/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/cron/process-scheduled-posts">> = Specific
