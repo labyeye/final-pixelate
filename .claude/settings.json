@@ -28,7 +28,9 @@
       "Bash(python -c \"import xml.etree.ElementTree as ET; ET.parse\\('sitemap.xml'\\); print\\('sitemap.xml: valid XML'\\)\")",
       "Bash(python -)",
       "Bash(node \"/c/Users/labhb/AppData/Local/Temp/claude/d--projects-final-pixelate/db098673-4b70-402d-8e4e-f2fae055d577/scratchpad/update-pricing.js\")",
-      "Bash(rm \"/c/Users/labhb/AppData/Local/Temp/claude/d--projects-final-pixelate/db098673-4b70-402d-8e4e-f2fae055d577/scratchpad/update-pricing.js\")"
+      "Bash(rm \"/c/Users/labhb/AppData/Local/Temp/claude/d--projects-final-pixelate/db098673-4b70-402d-8e4e-f2fae055d577/scratchpad/update-pricing.js\")",
+      "Bash(sleep 3; cat /dev/null)",
+      "Read(//dev/**)"
     ],
     "additionalDirectories": [
       "d:\\projects\\final-pixelate\\dashboard\\src\\app\\api\\fixed-expenses\\[id]",

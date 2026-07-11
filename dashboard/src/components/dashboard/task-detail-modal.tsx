@@ -71,6 +71,9 @@ function nextStatusOptions(
         { value: "issues", label: "Send Back (Issues)" },
       ];
     }
+    if (current === "completed") {
+      return [keep, { value: "issues", label: "Send Back (Issues)" }];
+    }
     return [keep];
   }
 

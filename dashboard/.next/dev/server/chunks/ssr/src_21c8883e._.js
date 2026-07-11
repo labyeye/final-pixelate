@@ -1373,6 +1373,15 @@ function nextStatusOptions(current, role) {
                 }
             ];
         }
+        if (current === "completed") {
+            return [
+                keep,
+                {
+                    value: "issues",
+                    label: "Send Back (Issues)"
+                }
+            ];
+        }
         return [
             keep
         ];
@@ -1562,7 +1571,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     children: STATUS_LABEL[task.status]
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 267,
+                                    lineNumber: 270,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1570,13 +1579,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     children: task.title
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 272,
+                                    lineNumber: 275,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 266,
+                            lineNumber: 269,
                             columnNumber: 11
                         }, this),
                         isOwner && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1591,7 +1600,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                         className: "w-3.5 h-3.5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                        lineNumber: 286,
+                                        lineNumber: 289,
                                         columnNumber: 19
                                     }, this),
                                     " Cancel"
@@ -1602,7 +1611,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                         className: "w-3.5 h-3.5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                        lineNumber: 290,
+                                        lineNumber: 293,
                                         columnNumber: 19
                                     }, this),
                                     " Edit Task"
@@ -1610,13 +1619,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                             }, void 0, true)
                         }, void 0, false, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 277,
+                            lineNumber: 280,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                    lineNumber: 265,
+                    lineNumber: 268,
                     columnNumber: 9
                 }, this),
                 isEditing ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1630,7 +1639,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     children: "Title"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 300,
+                                    lineNumber: 303,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1639,13 +1648,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     className: "border-2 border-black rounded-none h-11 font-bold"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 303,
+                                    lineNumber: 306,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 299,
+                            lineNumber: 302,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1659,7 +1668,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             children: "Priority"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 312,
+                                            lineNumber: 315,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -1670,12 +1679,12 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     className: "border-2 border-black rounded-none h-10 font-bold",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                        lineNumber: 317,
+                                                        lineNumber: 320,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 316,
+                                                    lineNumber: 319,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1685,7 +1694,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: "Low"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 320,
+                                                            lineNumber: 323,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1693,7 +1702,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: "Medium"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 321,
+                                                            lineNumber: 324,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1701,25 +1710,25 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: "High"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 322,
+                                                            lineNumber: 325,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 319,
+                                                    lineNumber: 322,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 318,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 311,
+                                    lineNumber: 314,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1732,14 +1741,14 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 329,
+                                                    lineNumber: 332,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Assignee"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 331,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -1752,12 +1761,12 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                         placeholder: "Unassigned"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                        lineNumber: 334,
+                                                        lineNumber: 337,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 333,
+                                                    lineNumber: 336,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1767,7 +1776,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: "Unassigned"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 337,
+                                                            lineNumber: 340,
                                                             columnNumber: 21
                                                         }, this),
                                                         staffMembers.map((u)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1775,25 +1784,25 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                                 children: u.name
                                                             }, u.id || u._id, false, {
                                                                 fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                                lineNumber: 339,
+                                                                lineNumber: 342,
                                                                 columnNumber: 23
                                                             }, this))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 336,
+                                                    lineNumber: 339,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 332,
+                                            lineNumber: 335,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 327,
+                                    lineNumber: 330,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1806,14 +1815,14 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 349,
+                                                    lineNumber: 352,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Project"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 348,
+                                            lineNumber: 351,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -1826,12 +1835,12 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                         placeholder: "None"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                        lineNumber: 354,
+                                                        lineNumber: 357,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 353,
+                                                    lineNumber: 356,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1841,7 +1850,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: "None"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 357,
+                                                            lineNumber: 360,
                                                             columnNumber: 21
                                                         }, this),
                                                         projects.map((p)=>{
@@ -1856,26 +1865,26 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                                 ]
                                                             }, p.id || p._id, true, {
                                                                 fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                                lineNumber: 366,
+                                                                lineNumber: 369,
                                                                 columnNumber: 25
                                                             }, this);
                                                         })
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 356,
+                                                    lineNumber: 359,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 352,
+                                            lineNumber: 355,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 347,
+                                    lineNumber: 350,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1888,14 +1897,14 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 377,
+                                                    lineNumber: 380,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Due Date"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 376,
+                                            lineNumber: 379,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Popover"], {
@@ -1909,17 +1918,17 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: "Pick a date"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 392,
+                                                            lineNumber: 395,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                        lineNumber: 382,
+                                                        lineNumber: 385,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 381,
+                                                    lineNumber: 384,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -1932,30 +1941,30 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                         initialFocus: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                        lineNumber: 397,
+                                                        lineNumber: 400,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 396,
+                                                    lineNumber: 399,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 380,
+                                            lineNumber: 383,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 375,
+                                    lineNumber: 378,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 310,
+                            lineNumber: 313,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1968,14 +1977,14 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "w-3.5 h-3.5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 410,
+                                            lineNumber: 413,
                                             columnNumber: 17
                                         }, this),
                                         "Asset Link"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 409,
+                                    lineNumber: 412,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1985,13 +1994,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     className: "border-2 border-black rounded-none h-10"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 413,
+                                    lineNumber: 416,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 408,
+                            lineNumber: 411,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2002,7 +2011,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     children: "Description"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 422,
+                                    lineNumber: 425,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -2011,13 +2020,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     className: "min-h-[120px] border-2 border-black rounded-none resize-none"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 425,
+                                    lineNumber: 428,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 421,
+                            lineNumber: 424,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2029,18 +2038,18 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                 children: savingEdit ? "Saving..." : "Save Changes"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                lineNumber: 433,
+                                lineNumber: 436,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 432,
+                            lineNumber: 435,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                    lineNumber: 298,
+                    lineNumber: 301,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "px-8 py-6 space-y-6",
@@ -2050,7 +2059,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                             children: task.description
                         }, void 0, false, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 445,
+                            lineNumber: 448,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2063,7 +2072,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "w-4 h-4 text-muted-foreground"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 453,
+                                            lineNumber: 456,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Avatar"], {
@@ -2073,7 +2082,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     src: task.assigneeAvatar
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 455,
+                                                    lineNumber: 458,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -2081,13 +2090,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     children: task.assigneeName[0]
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 456,
+                                                    lineNumber: 459,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 454,
+                                            lineNumber: 457,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2095,13 +2104,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             children: task.assigneeName
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 460,
+                                            lineNumber: 463,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 452,
+                                    lineNumber: 455,
                                     columnNumber: 15
                                 }, this),
                                 task.projectTitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2111,7 +2120,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "w-4 h-4 text-muted-foreground"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 465,
+                                            lineNumber: 468,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2119,13 +2128,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             children: task.projectTitle
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 466,
+                                            lineNumber: 469,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 464,
+                                    lineNumber: 467,
                                     columnNumber: 15
                                 }, this),
                                 task.dueDate && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2135,7 +2144,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "w-4 h-4 text-muted-foreground"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 471,
+                                            lineNumber: 474,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2143,13 +2152,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(new Date(task.dueDate), "MMM d, yyyy")
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 472,
+                                            lineNumber: 475,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 470,
+                                    lineNumber: 473,
                                     columnNumber: 15
                                 }, this),
                                 task.assetLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2162,7 +2171,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 484,
+                                            lineNumber: 487,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2170,20 +2179,20 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             children: "Asset Link"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 485,
+                                            lineNumber: 488,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__["ExternalLink"], {
                                             className: "w-3 h-3"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 486,
+                                            lineNumber: 489,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 478,
+                                    lineNumber: 481,
                                     columnNumber: 15
                                 }, this),
                                 task.completedLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2196,7 +2205,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 496,
+                                            lineNumber: 499,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2204,26 +2213,26 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             children: "Completed Work"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 497,
+                                            lineNumber: 500,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__["ExternalLink"], {
                                             className: "w-3 h-3"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 498,
+                                            lineNumber: 501,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 490,
+                                    lineNumber: 493,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 450,
+                            lineNumber: 453,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2234,7 +2243,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     children: "Update Status"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 504,
+                                    lineNumber: 507,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2246,12 +2255,12 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             children: o.label
                                         }, o.value, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 509,
+                                            lineNumber: 512,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 507,
+                                    lineNumber: 510,
                                     columnNumber: 13
                                 }, this),
                                 requiresCompletedLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2264,14 +2273,14 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 527,
+                                                    lineNumber: 530,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Completed Work Link (required)"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 526,
+                                            lineNumber: 529,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2281,13 +2290,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "border-2 border-black rounded-none h-10"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 530,
+                                            lineNumber: 533,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 525,
+                                    lineNumber: 528,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2300,7 +2309,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 541,
+                                                    lineNumber: 544,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Remarks ",
@@ -2308,7 +2317,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 540,
+                                            lineNumber: 543,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -2318,13 +2327,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                             className: "min-h-[90px] border-2 border-black rounded-none resize-none"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 544,
+                                            lineNumber: 547,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 539,
+                                    lineNumber: 542,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2336,18 +2345,18 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                         children: saving ? "Saving..." : "Submit Update"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                        lineNumber: 553,
+                                        lineNumber: 556,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 552,
+                                    lineNumber: 555,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 503,
+                            lineNumber: 506,
                             columnNumber: 11
                         }, this),
                         updates.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2358,7 +2367,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                     children: "Update History"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 569,
+                                    lineNumber: 572,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2374,7 +2383,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: STATUS_LABEL[u.status]
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 579,
+                                                            lineNumber: 582,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2382,13 +2391,13 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(new Date(u.at), "MMM d, yyyy h:mm a")
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 584,
+                                                            lineNumber: 587,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 578,
+                                                    lineNumber: 581,
                                                     columnNumber: 21
                                                 }, this),
                                                 u.byName && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2396,7 +2405,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     children: u.byName
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 589,
+                                                    lineNumber: 592,
                                                     columnNumber: 23
                                                 }, this),
                                                 u.remark && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2404,7 +2413,7 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                     children: u.remark
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 592,
+                                                    lineNumber: 595,
                                                     columnNumber: 23
                                                 }, this),
                                                 u.completedLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2417,48 +2426,48 @@ function TaskDetailModal({ task, open, onOpenChange, actor, onUpdated }) {
                                                             className: "w-3 h-3"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                            lineNumber: 603,
+                                                            lineNumber: 606,
                                                             columnNumber: 25
                                                         }, this),
                                                         " Completed link"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                                    lineNumber: 597,
+                                                    lineNumber: 600,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, u.id, true, {
                                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                            lineNumber: 574,
+                                            lineNumber: 577,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                                    lineNumber: 572,
+                                    lineNumber: 575,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                            lineNumber: 568,
+                            lineNumber: 571,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-                    lineNumber: 443,
+                    lineNumber: 446,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-            lineNumber: 264,
+            lineNumber: 267,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/dashboard/task-detail-modal.tsx",
-        lineNumber: 263,
+        lineNumber: 266,
         columnNumber: 5
     }, this);
 }
