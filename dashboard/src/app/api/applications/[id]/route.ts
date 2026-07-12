@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise, { getDb } from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
+import { requireAuth } from "@/lib/require-auth";
 
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const auth = requireAuth(request);
+  if (auth.error) return auth.error;
   try {
     const { id } = await params;
     const body = await request.json();

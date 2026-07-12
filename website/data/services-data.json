@@ -348,6 +348,92 @@
         "starting": "₹20,000",
         "currency": "INR"
       }
+    },
+    {
+      "id": "digital-marketing",
+      "name": "Digital Marketing",
+      "slug": "digital-marketing",
+      "icon": "📈",
+      "tagline": "Data-Driven Growth Marketing That Converts",
+      "shortDescription": "Full-funnel digital marketing services including SEO, PPC, social media, and content marketing to grow traffic, leads, and revenue.",
+      "longDescription": "We run digital marketing programs built around measurable growth — search visibility, paid acquisition, content, and social channels working together instead of in silos. Every engagement starts with an audit, ships with monthly reporting, and is optimised toward the metrics that matter to your business: traffic, leads, and sales.",
+      "mainPage": "https://www.pixelatenest.com/services/digital-marketing.html",
+      "features": [
+        "Search Engine Optimization (SEO)",
+        "Pay-Per-Click Advertising (PPC)",
+        "Social Media Marketing",
+        "Content Marketing & Strategy",
+        "Email Marketing Automation",
+        "Conversion Rate Optimization (CRO)",
+        "Analytics & Performance Reporting",
+        "Online Reputation Management"
+      ],
+      "technologies": [
+        "Google Ads",
+        "Meta Ads Manager",
+        "Google Analytics 4",
+        "Google Tag Manager",
+        "SEMrush",
+        "Ahrefs",
+        "HubSpot",
+        "Mailchimp"
+      ],
+      "subServices": [
+        {
+          "name": "Search Engine Optimization (SEO)",
+          "description": "Technical audits, on-page optimization and link building to grow organic rankings and traffic.",
+          "icon": "🔍"
+        },
+        {
+          "name": "Pay-Per-Click Advertising (Google Ads)",
+          "description": "Search, display and shopping campaigns managed for lead volume and return on ad spend.",
+          "icon": "🎯"
+        },
+        {
+          "name": "Social Media Marketing",
+          "description": "Organic content, community management and paid social campaigns across Instagram, Facebook and LinkedIn.",
+          "icon": "📱"
+        },
+        {
+          "name": "Content Marketing & Strategy",
+          "description": "Blog, video and landing page content mapped to buyer intent and search demand.",
+          "icon": "✍️"
+        },
+        {
+          "name": "Email Marketing & Automation",
+          "description": "Newsletter, drip and lifecycle campaigns built to nurture leads and retain customers.",
+          "icon": "📧"
+        },
+        {
+          "name": "Influencer Marketing",
+          "description": "Creator sourcing, outreach and campaign management to extend brand reach and trust.",
+          "icon": "🤳"
+        },
+        {
+          "name": "Online Reputation Management (ORM)",
+          "description": "Review generation, response management and monitoring to protect and improve brand sentiment.",
+          "icon": "⭐"
+        },
+        {
+          "name": "Marketing Automation",
+          "description": "CRM and workflow automation that scores leads and routes them to sales at the right moment.",
+          "icon": "⚙️"
+        },
+        {
+          "name": "Analytics & Conversion Rate Optimization",
+          "description": "Funnel tracking, A/B testing and landing page optimization to lift conversion rates.",
+          "icon": "📊"
+        },
+        {
+          "name": "Branding & Creative Design",
+          "description": "Logo, brand identity and ad creative design consistent across every marketing channel.",
+          "icon": "🎨"
+        }
+      ],
+      "pricing": {
+        "starting": "₹15,000",
+        "currency": "INR"
+      }
     }
   ]
 }
