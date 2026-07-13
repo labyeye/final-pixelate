@@ -1,8 +1,17 @@
 {
-  "/(crm)/nest-hr/subscriptions/page": "app/(crm)/nest-hr/subscriptions/page.js",
-  "/(crm)/tasks/page": "app/(crm)/tasks/page.js",
-  "/api/nesthr-stats/route": "app/api/nesthr-stats/route.js",
-  "/api/settings/client-sidebar/route": "app/api/settings/client-sidebar/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/clients/[id]/route": "app/api/clients/[id]/route.js",
+  "/api/clients/route": "app/api/clients/route.js",
+  "/api/enquiries/route": "app/api/enquiries/route.js",
+  "/api/expenses/route": "app/api/expenses/route.js",
+  "/api/inventory/route": "app/api/inventory/route.js",
+  "/api/invoices/route": "app/api/invoices/route.js",
+  "/api/payments/route": "app/api/payments/route.js",
+  "/api/projects/route": "app/api/projects/route.js",
+  "/api/quotations/route": "app/api/quotations/route.js",
+  "/api/reports/route": "app/api/reports/route.js",
+  "/api/reviews/route": "app/api/reviews/route.js",
   "/api/tasks/route": "app/api/tasks/route.js",
-  "/api/users/route": "app/api/users/route.js"
+  "/api/whatsapp-templates/route": "app/api/whatsapp-templates/route.js",
+  "/api/whatsapp/messages/route": "app/api/whatsapp/messages/route.js"
 }

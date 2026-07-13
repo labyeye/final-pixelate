@@ -3,8 +3,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CRMStackParams } from './types';
 import { Colors, Typography } from '../theme';
 import CRMHomeScreen from '../screens/crm/CRMHomeScreen';
-import LeadsScreen from '../screens/crm/LeadsScreen';
-import LeadDetailScreen from '../screens/crm/LeadDetailScreen';
 import ClientsScreen from '../screens/crm/ClientsScreen';
 import ClientDetailScreen from '../screens/crm/ClientDetailScreen';
 import EnquiriesScreen from '../screens/crm/EnquiriesScreen';
@@ -29,16 +27,6 @@ const CRMStack = () => (
       name="CRMHome"
       component={CRMHomeScreen}
       options={{ title: 'CRM' }}
-    />
-    <Stack.Screen
-      name="Leads"
-      component={LeadsScreen}
-      options={{ title: 'LEADS' }}
-    />
-    <Stack.Screen
-      name="LeadDetail"
-      component={LeadDetailScreen}
-      options={{ title: 'LEAD DETAIL' }}
     />
     <Stack.Screen
       name="Clients"

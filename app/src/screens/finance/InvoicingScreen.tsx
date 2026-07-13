@@ -22,6 +22,9 @@ import {
   Input,
   EmptyState,
   LoadingSpinner,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
 import { FinanceStackParams } from '../../navigation/types';
@@ -29,19 +32,32 @@ import { format } from 'date-fns';
 
 type Nav = NativeStackNavigationProp<FinanceStackParams>;
 
+const FILTER_OPTIONS = ['all', 'paid', 'unpaid', 'partial', 'draft'].map(s => ({
+  label: s.toUpperCase(),
+  value: s,
+}));
+const SORT_OPTIONS = [
+  { label: 'Newest first', value: 'newest' },
+  { label: 'Amount high-low', value: 'amount' },
+  { label: 'Client A-Z', value: 'client' },
+];
+const EMPTY_FORM = {
+  clientName: '',
+  amount: '',
+  description: '',
+  dueDate: '',
+  status: 'unpaid',
+};
+
 const InvoicingScreen = () => {
   const navigation = useNavigation<Nav>();
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState('newest');
   const [showAdd, setShowAdd] = useState(false);
-  const [form, setForm] = useState({
-    clientName: '',
-    amount: '',
-    description: '',
-    dueDate: '',
-    status: 'unpaid',
-  });
+  const [editing, setEditing] = useState<any>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const { data: invoices = [], isLoading } = useQuery({
     queryKey: ['invoices'],
@@ -52,21 +68,77 @@ const InvoicingScreen = () => {
     mutationFn: (data: any) => invoicesAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['invoices'] });
-      setShowAdd(false);
-      setForm({
-        clientName: '',
-        amount: '',
-        description: '',
-        dueDate: '',
-        status: 'unpaid',
-      });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to create invoice'),
   });
 
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      invoicesAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['invoices'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update invoice'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => invoicesAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['invoices'] }),
+  });
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      clientName: item.clientName || '',
+      amount: String(item.total ?? item.amount ?? ''),
+      description: item.description || '',
+      dueDate: item.dueDate || '',
+      status: item.status || 'unpaid',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Invoice', `Remove INV-${item.invoiceNumber || ''}?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteMutation.mutate(String(item._id || item.id)),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.clientName.trim() || !form.amount) {
+      Alert.alert('Error', 'Client and amount required');
+      return;
+    }
+    const data = { ...form, total: Number(form.amount), amount: Number(form.amount) };
+    if (editing) {
+      updateMutation.mutate({ id: String(editing._id || editing.id), data });
+    } else {
+      addMutation.mutate(data);
+    }
+  };
+
   if (isLoading) return <LoadingSpinner />;
 
-  const filtered = Array.isArray(invoices)
+  let filtered = Array.isArray(invoices)
     ? invoices.filter((i: any) => {
         const ms =
           !search ||
@@ -77,10 +149,21 @@ const InvoicingScreen = () => {
       })
     : [];
 
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'client')
+      return (a.clientName || '').localeCompare(b.clientName || '');
+    if (sort === 'amount')
+      return (b.total || b.amount || 0) - (a.total || a.amount || 0);
+    const da = new Date(a.createdAt || 0).getTime();
+    const db = new Date(b.createdAt || 0).getTime();
+    return db - da;
+  });
+
   const totalFiltered = filtered.reduce(
     (s: number, i: any) => s + (i.total || i.amount || 0),
     0,
   );
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -98,45 +181,29 @@ const InvoicingScreen = () => {
           onChangeText={setSearch}
           placeholder="Search invoices..."
         />
-        <View style={styles.filterRow}>
-          {['all', 'paid', 'unpaid', 'partial', 'draft'].map(s => (
-            <TouchableOpacity
-              key={s}
-              style={[styles.chip, filter === s && styles.chipActive]}
-              onPress={() => setFilter(s)}
-            >
-              <Text
-                style={[styles.chipText, filter === s && styles.chipTextActive]}
-              >
-                {s.toUpperCase()}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+        <FilterChips options={FILTER_OPTIONS} value={filter} onChange={setFilter} />
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.count}>{filtered.length} INVOICES</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ CREATE</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ CREATE</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={item => String(item._id || item.id)}
           ListEmptyComponent={
             <EmptyState
               title="No Invoices"
               subtitle="Create your first invoice"
-              action={{
-                label: '+ Create Invoice',
-                onPress: () => setShowAdd(true),
-              }}
+              action={{ label: '+ Create Invoice', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => (
@@ -193,6 +260,12 @@ const InvoicingScreen = () => {
                     <StatusBadge status={item.status || 'unpaid'} />
                   </View>
                 </Row>
+                <Row justify="flex-end" style={{ marginTop: Spacing.sm }}>
+                  <RowActions
+                    onEdit={() => openEdit(item)}
+                    onDelete={() => confirmDelete(item)}
+                  />
+                </Row>
               </Card>
             </TouchableOpacity>
           )}
@@ -209,8 +282,10 @@ const InvoicingScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>CREATE INVOICE</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT INVOICE' : 'CREATE INVOICE'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
@@ -242,19 +317,9 @@ const InvoicingScreen = () => {
               placeholder="2025-02-28"
             />
             <Button
-              label={addMutation.isPending ? 'CREATING...' : 'CREATE INVOICE'}
-              onPress={() => {
-                if (!form.clientName.trim() || !form.amount) {
-                  Alert.alert('Error', 'Client and amount required');
-                  return;
-                }
-                addMutation.mutate({
-                  ...form,
-                  total: Number(form.amount),
-                  amount: Number(form.amount),
-                });
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'CREATE INVOICE'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}

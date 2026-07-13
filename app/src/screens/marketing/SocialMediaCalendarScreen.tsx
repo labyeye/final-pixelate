@@ -98,6 +98,7 @@ const SocialMediaCalendarScreen = () => {
         />
 
         <FlatList
+          style={{ flex: 1 }}
           data={monthDays.filter(d => getPostsForDay(d).length > 0)}
           keyExtractor={d => d.toISOString()}
           ListEmptyComponent={

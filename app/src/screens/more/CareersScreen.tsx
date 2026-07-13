@@ -50,6 +50,7 @@ const CareersScreen = () => {
         />
         <Text style={styles.count}>{filtered.length} JOB POSTINGS</Text>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

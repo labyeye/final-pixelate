@@ -76,6 +76,8 @@
   "/api/blogs/route": "/api/blogs",
   "/api/brand-guides/[id]/route": "/api/brand-guides/[id]",
   "/api/brand-guides/route": "/api/brand-guides",
+  "/api/campaigns/[id]/route": "/api/campaigns/[id]",
+  "/api/campaigns/route": "/api/campaigns",
   "/api/careers/[id]/route": "/api/careers/[id]",
   "/api/careers/route": "/api/careers",
   "/api/clients/[id]/meta-token/route": "/api/clients/[id]/meta-token",

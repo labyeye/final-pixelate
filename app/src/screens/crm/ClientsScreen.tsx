@@ -8,6 +8,7 @@ import {
   Modal,
   Alert,
   RefreshControl,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -22,24 +23,55 @@ import {
   Input,
   EmptyState,
   LoadingSpinner,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
 import { CRMStackParams } from '../../navigation/types';
 
 type Nav = NativeStackNavigationProp<CRMStackParams>;
 
+const CITY_ALL = { label: 'All', value: 'all' };
+const SORT_OPTIONS = [
+  { label: 'Newest first', value: 'newest' },
+  { label: 'Name A-Z', value: 'name' },
+];
+const PRODUCTS = [
+  { label: 'None', value: 'none' },
+  { label: 'Nest HR', value: 'nesthr' },
+  { label: 'Nest Leads', value: 'nestleads' },
+  { label: 'Nest Sports', value: 'nestsports' },
+];
+
+const EMPTY_FORM = {
+  name: '',
+  email: '',
+  phone: '',
+  address: '',
+  city: '',
+  state: '',
+  pin: '',
+  hasGst: false,
+  gstCompanyName: '',
+  gstNumber: '',
+  gstAddress: '',
+  loginEmail: '',
+  loginPassword: '',
+  product: 'none',
+  externalTenantId: '',
+};
+
 const ClientsScreen = () => {
   const navigation = useNavigation<Nav>();
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
+  const [cityFilter, setCityFilter] = useState('all');
+  const [sort, setSort] = useState('newest');
   const [showAdd, setShowAdd] = useState(false);
+  const [editing, setEditing] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    city: '',
-  });
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const {
     data: clients = [],
@@ -54,11 +86,85 @@ const ClientsScreen = () => {
     mutationFn: (data: any) => clientsAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['clients'] });
-      setShowAdd(false);
-      setForm({ name: '', email: '', phone: '', city: '' });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to add client'),
   });
+
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      clientsAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['clients'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update client'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => clientsAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['clients'] }),
+  });
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      name: item.name || '',
+      email: item.email || '',
+      phone: item.phone || '',
+      address: item.address || '',
+      city: item.city || '',
+      state: item.state || '',
+      pin: item.pin || '',
+      hasGst: !!item.hasGst,
+      gstCompanyName: item.gstCompanyName || '',
+      gstNumber: item.gstNumber || '',
+      gstAddress: item.gstAddress || '',
+      loginEmail: item.loginEmail || '',
+      loginPassword: '',
+      product: item.product || 'none',
+      externalTenantId: item.externalTenantId || '',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Client', `Remove "${item.name}"?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () =>
+          deleteMutation.mutate(String(item._id || item.id)),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.name.trim()) {
+      Alert.alert('Error', 'Name required');
+      return;
+    }
+    const data: any = { ...form };
+    if (editing && !data.loginPassword) delete data.loginPassword;
+    if (editing) {
+      updateMutation.mutate({ id: String(editing._id || editing.id), data });
+    } else {
+      addMutation.mutate(data);
+    }
+  };
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
@@ -66,15 +172,36 @@ const ClientsScreen = () => {
     setRefreshing(false);
   }, [refetch]);
 
-  const filtered = Array.isArray(clients)
+  const cityOptions = [
+    CITY_ALL,
+    ...Array.from(
+      new Set(
+        (Array.isArray(clients) ? clients : [])
+          .map((c: any) => c.city)
+          .filter(Boolean),
+      ),
+    ).map((c: any) => ({ label: c, value: c })),
+  ];
+
+  let filtered = Array.isArray(clients)
     ? clients.filter(
         (c: any) =>
-          !search ||
-          c.name?.toLowerCase().includes(search.toLowerCase()) ||
-          c.email?.toLowerCase().includes(search.toLowerCase()) ||
-          c.phone?.includes(search),
+          (!search ||
+            c.name?.toLowerCase().includes(search.toLowerCase()) ||
+            c.email?.toLowerCase().includes(search.toLowerCase()) ||
+            c.phone?.includes(search)) &&
+          (cityFilter === 'all' || c.city === cityFilter),
       )
     : [];
+
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'name') return (a.name || '').localeCompare(b.name || '');
+    const da = new Date(a.createdAt || 0).getTime();
+    const db = new Date(b.createdAt || 0).getTime();
+    return db - da;
+  });
+
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -86,20 +213,26 @@ const ClientsScreen = () => {
           onChangeText={setSearch}
           placeholder="Search clients..."
         />
+        <FilterChips
+          options={cityOptions}
+          value={cityFilter}
+          onChange={setCityFilter}
+        />
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.countLabel}>{filtered.length} CLIENTS</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ ADD</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ ADD</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={item => String(item._id || item.id)}
           refreshControl={
@@ -113,10 +246,7 @@ const ClientsScreen = () => {
             <EmptyState
               title="No Clients"
               subtitle="Add your first client"
-              action={{
-                label: '+ Add Client',
-                onPress: () => setShowAdd(true),
-              }}
+              action={{ label: '+ Add Client', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => (
@@ -152,6 +282,10 @@ const ClientsScreen = () => {
                       <Text style={styles.gstText}>GST</Text>
                     </View>
                   ) : null}
+                  <RowActions
+                    onEdit={() => openEdit(item)}
+                    onDelete={() => confirmDelete(item)}
+                  />
                 </Row>
               </Card>
             </TouchableOpacity>
@@ -170,12 +304,14 @@ const ClientsScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>ADD CLIENT</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT CLIENT' : 'ADD CLIENT'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
-          <View style={styles.modalContent}>
+          <ScrollView style={styles.modalContent} contentContainerStyle={{ paddingBottom: Spacing.xl }}>
             <Input
               label="NAME *"
               value={form.name}
@@ -198,26 +334,125 @@ const ClientsScreen = () => {
               keyboardType="phone-pad"
             />
             <Input
+              label="ADDRESS"
+              value={form.address}
+              onChangeText={v => setForm(p => ({ ...p, address: v }))}
+              placeholder="Street address"
+              multiline
+            />
+            <Input
               label="CITY"
               value={form.city}
               onChangeText={v => setForm(p => ({ ...p, city: v }))}
               placeholder="Mumbai"
             />
+            <Input
+              label="STATE"
+              value={form.state}
+              onChangeText={v => setForm(p => ({ ...p, state: v }))}
+              placeholder="Maharashtra"
+            />
+            <Input
+              label="PIN"
+              value={form.pin}
+              onChangeText={v => setForm(p => ({ ...p, pin: v }))}
+              placeholder="400001"
+              keyboardType="number-pad"
+            />
+
+            <Text style={styles.pickLabel}>PORTAL LOGIN</Text>
+            <Input
+              label="LOGIN EMAIL"
+              value={form.loginEmail}
+              onChangeText={v => setForm(p => ({ ...p, loginEmail: v }))}
+              placeholder="client@example.com"
+              keyboardType="email-address"
+              autoCapitalize="none"
+            />
+            <Input
+              label={editing ? 'NEW PASSWORD (leave blank to keep existing)' : 'PASSWORD'}
+              value={form.loginPassword}
+              onChangeText={v => setForm(p => ({ ...p, loginPassword: v }))}
+              placeholder="Min. 6 characters"
+              autoCapitalize="none"
+              secureTextEntry
+            />
+
+            <Text style={styles.pickLabel}>PRODUCT</Text>
+            <View style={styles.platformRow}>
+              {PRODUCTS.map(p => (
+                <TouchableOpacity
+                  key={p.value}
+                  style={[
+                    styles.platformChip,
+                    form.product === p.value && styles.platformChipActive,
+                  ]}
+                  onPress={() => setForm(prev => ({ ...prev, product: p.value }))}
+                >
+                  <Text
+                    style={[
+                      styles.platformChipText,
+                      form.product === p.value && styles.platformChipTextActive,
+                    ]}
+                  >
+                    {p.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            {form.product !== 'none' && (
+              <Input
+                label="TENANT / COMPANY ID"
+                value={form.externalTenantId}
+                onChangeText={v => setForm(p => ({ ...p, externalTenantId: v }))}
+                placeholder="ID from the product's own database"
+              />
+            )}
+
+            <Row justify="space-between" align="center" style={styles.gstToggleRow}>
+              <Text style={styles.pickLabel}>HAS GST</Text>
+              <TouchableOpacity
+                style={[styles.toggle, form.hasGst && styles.toggleActive]}
+                onPress={() => setForm(p => ({ ...p, hasGst: !p.hasGst }))}
+              >
+                <Text style={[styles.toggleText, form.hasGst && styles.toggleTextActive]}>
+                  {form.hasGst ? 'YES' : 'NO'}
+                </Text>
+              </TouchableOpacity>
+            </Row>
+            {form.hasGst && (
+              <>
+                <Input
+                  label="GST COMPANY NAME"
+                  value={form.gstCompanyName}
+                  onChangeText={v => setForm(p => ({ ...p, gstCompanyName: v }))}
+                  placeholder="Company name on GST"
+                />
+                <Input
+                  label="GST NUMBER"
+                  value={form.gstNumber}
+                  onChangeText={v => setForm(p => ({ ...p, gstNumber: v }))}
+                  placeholder="22AAAAA0000A1Z5"
+                  autoCapitalize="characters"
+                />
+                <Input
+                  label="GST ADDRESS"
+                  value={form.gstAddress}
+                  onChangeText={v => setForm(p => ({ ...p, gstAddress: v }))}
+                  placeholder="Registered GST address"
+                />
+              </>
+            )}
+
             <Button
-              label={addMutation.isPending ? 'ADDING...' : 'ADD CLIENT'}
-              onPress={() => {
-                if (!form.name.trim()) {
-                  Alert.alert('Error', 'Name required');
-                  return;
-                }
-                addMutation.mutate(form);
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'ADD CLIENT'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}
             />
-          </View>
+          </ScrollView>
         </SafeAreaView>
       </Modal>
     </SafeAreaView>
@@ -317,6 +552,53 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   modalContent: { padding: Spacing.base },
+  pickLabel: {
+    fontSize: Typography.sm,
+    fontWeight: Typography.black,
+    color: Colors.foreground,
+    letterSpacing: 0.5,
+    marginBottom: 8,
+    marginTop: Spacing.sm,
+  },
+  platformRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: Spacing.base,
+    flexWrap: 'wrap',
+  },
+  platformChip: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+  },
+  platformChipActive: {
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
+  },
+  platformChipText: {
+    fontSize: Typography.sm,
+    fontWeight: Typography.bold,
+    color: Colors.foreground,
+  },
+  platformChipTextActive: { color: Colors.white },
+  gstToggleRow: { marginTop: Spacing.sm, marginBottom: Spacing.sm },
+  toggle: {
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+  },
+  toggleActive: {
+    backgroundColor: Colors.success,
+    borderColor: Colors.success,
+  },
+  toggleText: {
+    fontSize: Typography.sm,
+    fontWeight: Typography.black,
+    color: Colors.foreground,
+  },
+  toggleTextActive: { color: Colors.white },
 });
 
 export default ClientsScreen;

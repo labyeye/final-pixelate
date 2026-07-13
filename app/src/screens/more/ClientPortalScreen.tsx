@@ -12,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, Row, LoadingSpinner, EmptyState, Divider } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
-import { projectsAPI, invoicesAPI, socialMediaAPI } from '../../api';
+import { projectsAPI, invoicesAPI, quotationsAPI, onboardingAPI, supportAPI } from '../../api';
 import apiClient from '../../api/client';
 import { useAuth } from '../../context/AuthContext';
 
@@ -44,6 +44,24 @@ const ClientPortalScreen = () => {
     enabled: !!clientId,
   });
 
+  const { data: allQuotations = [], isLoading: loadingQuotations, refetch: refetchQuotations } = useQuery({
+    queryKey: ['client-portal-quotations'],
+    queryFn: () => quotationsAPI.getAll().then(r => r.data),
+    enabled: !!user,
+  });
+
+  const { data: allOnboarding = [], isLoading: loadingOnboarding, refetch: refetchOnboarding } = useQuery({
+    queryKey: ['client-portal-onboarding'],
+    queryFn: () => onboardingAPI.getAll().then(r => r.data),
+    enabled: !!user,
+  });
+
+  const { data: allSupportTickets = [], isLoading: loadingSupport, refetch: refetchSupport } = useQuery({
+    queryKey: ['client-portal-support'],
+    queryFn: () => supportAPI.getAll().then(r => r.data),
+    enabled: !!user,
+  });
+
   const approvalMutation = useMutation({
     mutationFn: ({ postId, status }: { postId: string; status: string }) =>
       apiClient.put('/social-media-posts', { id: postId, approvalStatus: status }),
@@ -70,12 +88,33 @@ const ClientPortalScreen = () => {
     (p: any) => p.approvalStatus === 'Pending' || !p.approvalStatus,
   );
 
-  const isLoading = loadingProjects || loadingInvoices || loadingSocial;
+  const quotations = Array.isArray(allQuotations)
+    ? allQuotations.filter((q: any) => clientId && String(q.clientId) === String(clientId))
+    : [];
+
+  const onboardingItems = Array.isArray(allOnboarding)
+    ? allOnboarding.filter((o: any) => clientId && String(o.clientId) === String(clientId))
+    : [];
+
+  const supportTickets = Array.isArray(allSupportTickets)
+    ? allSupportTickets.filter((t: any) => clientId && String(t.clientId) === String(clientId))
+    : [];
+
+  const isLoading =
+    loadingProjects ||
+    loadingInvoices ||
+    loadingSocial ||
+    loadingQuotations ||
+    loadingOnboarding ||
+    loadingSupport;
 
   const handleRefresh = () => {
     refetchProjects();
     refetchInvoices();
     refetchSocial();
+    refetchQuotations();
+    refetchOnboarding();
+    refetchSupport();
   };
 
   if (!user) return <LoadingSpinner />;
@@ -268,6 +307,89 @@ const ClientPortalScreen = () => {
                 </Card>
               );
             })
+          )}
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>QUOTATIONS</Text>
+          {quotations.length === 0 ? (
+            <Card style={{ padding: Spacing.lg, alignItems: 'center' }}>
+              <Text style={styles.emptyText}>No quotations yet.</Text>
+            </Card>
+          ) : (
+            quotations.map((q: any) => (
+              <Card key={String(q._id || q.id)} style={styles.projectCard} shadow="sm">
+                <Row justify="space-between" align="center">
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.projectTitle}>
+                      {q.title || q.quotationNo || 'Quotation'}
+                    </Text>
+                    {q.status ? (
+                      <Text style={styles.projectMeta}>{q.status}</Text>
+                    ) : null}
+                  </View>
+                  {q.amount != null && (
+                    <Text style={styles.amountText}>
+                      Rs.{Number(q.amount).toLocaleString('en-IN')}
+                    </Text>
+                  )}
+                </Row>
+              </Card>
+            ))
+          )}
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>ONBOARDING</Text>
+          {onboardingItems.length === 0 ? (
+            <Card style={{ padding: Spacing.lg, alignItems: 'center' }}>
+              <Text style={styles.emptyText}>No onboarding activity yet.</Text>
+            </Card>
+          ) : (
+            onboardingItems.map((o: any) => (
+              <Card key={String(o._id || o.id)} style={styles.projectCard} shadow="sm">
+                <Text style={styles.projectTitle}>{o.title || 'Onboarding'}</Text>
+                {o.status ? (
+                  <Text style={styles.projectMeta}>{o.status}</Text>
+                ) : null}
+              </Card>
+            ))
+          )}
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>SUPPORT TICKETS</Text>
+          {supportTickets.length === 0 ? (
+            <Card style={{ padding: Spacing.lg, alignItems: 'center' }}>
+              <Text style={styles.emptyText}>No support tickets yet.</Text>
+            </Card>
+          ) : (
+            supportTickets.map((t: any) => (
+              <Card key={String(t._id || t.id)} style={styles.projectCard} shadow="sm">
+                <Row justify="space-between" align="center">
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.projectTitle}>{t.subject || 'Ticket'}</Text>
+                  </View>
+                  {t.status && (
+                    <View
+                      style={[
+                        styles.invoiceStatusBadge,
+                        {
+                          backgroundColor:
+                            t.status === 'resolved' || t.status === 'closed'
+                              ? Colors.success
+                              : Colors.warning,
+                        },
+                      ]}
+                    >
+                      <Text style={styles.invoiceStatusText}>
+                        {String(t.status).toUpperCase()}
+                      </Text>
+                    </View>
+                  )}
+                </Row>
+              </Card>
+            ))
           )}
         </View>
 

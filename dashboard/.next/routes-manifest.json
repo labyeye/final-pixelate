@@ -45,6 +45,14 @@
       "namedRegex": "^/api/brand\\-guides/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/campaigns/[id]",
+      "regex": "^/api/campaigns/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/campaigns/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/careers/[id]",
       "regex": "^/api/careers/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -425,6 +433,12 @@
       "regex": "^/api/brand\\-guides(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/brand\\-guides(?:/)?$"
+    },
+    {
+      "page": "/api/campaigns",
+      "regex": "^/api/campaigns(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/campaigns(?:/)?$"
     },
     {
       "page": "/api/careers",

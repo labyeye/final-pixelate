@@ -124,6 +124,7 @@ const SocialMediaPlannerScreen = () => {
         />
         <Text style={styles.count}>{filtered.length} POSTS</Text>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

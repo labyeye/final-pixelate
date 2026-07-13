@@ -1,172 +1,95 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Card, SectionHeader } from '../../components/common';
-import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
+import { Card, SectionHeader, Row } from '../../components/common';
+import { Colors, Typography, Spacing } from '../../theme';
 import { MoreStackParams } from '../../navigation/types';
+import {
+  MessageCircle,
+  Send,
+  BarChart3,
+  FileEdit,
+  Inbox,
+  CalendarDays,
+  CalendarRange,
+  PenLine,
+  Mail,
+  Megaphone,
+  Headphones,
+  Briefcase,
+  Users,
+  Code2,
+  Image as ImageIcon,
+  Camera,
+  Film,
+  User,
+  Settings as SettingsIcon,
+  KeyRound,
+  FolderOpen,
+  Trash2,
+  Zap,
+  ChevronRight,
+  LucideIcon,
+} from 'lucide-react-native';
 
 type Nav = NativeStackNavigationProp<MoreStackParams>;
 
-const SECTIONS = [
+type MoreItem = { label: string; icon: LucideIcon; route: string; color: string };
+
+const SECTIONS: { title: string; items: MoreItem[] }[] = [
   {
     title: 'WHATSAPP MARKETING',
     items: [
-      {
-        label: 'WhatsApp Inbox',
-        emoji: '\u{1F4AC}',
-        route: 'WhatsAppInbox',
-        color: '#25D366',
-      },
-      {
-        label: 'Bulk Messaging',
-        emoji: '\u{1F4E4}',
-        route: 'BulkMessaging',
-        color: '#128C7E',
-      },
-      {
-        label: 'Campaign Insights',
-        emoji: '\u{1F4CA}',
-        route: 'Campaigns',
-        color: '#075E54',
-      },
-      {
-        label: 'WA Templates',
-        emoji: '\u{1F4DD}',
-        route: 'WhatsAppTemplates',
-        color: '#25D366',
-      },
-      {
-        label: 'Delivery Log',
-        emoji: '\u{1F4E8}',
-        route: 'WhatsAppWebhook',
-        color: '#128C7E',
-      },
+      { label: 'WhatsApp Inbox', icon: MessageCircle, route: 'WhatsAppInbox', color: Colors.primary },
+      { label: 'Bulk Messaging', icon: Send, route: 'BulkMessaging', color: Colors.primary },
+      { label: 'Campaign Insights', icon: BarChart3, route: 'Campaigns', color: Colors.primary },
+      { label: 'WA Templates', icon: FileEdit, route: 'WhatsAppTemplates', color: Colors.primary },
+      { label: 'Delivery Log', icon: Inbox, route: 'WhatsAppWebhook', color: Colors.primary },
     ],
   },
   {
     title: 'SOCIAL MEDIA',
     items: [
-      {
-        label: 'Social Planner',
-        emoji: '\u{1F4C5}',
-        route: 'SocialMediaPlanner',
-        color: Colors.accent,
-      },
-      {
-        label: 'Content Calendar',
-        emoji: '\u{1F5D3}',
-        route: 'SocialMediaCalendar',
-        color: Colors.primary,
-      },
+      { label: 'Social Planner', icon: CalendarDays, route: 'SocialMediaPlanner', color: Colors.secondary },
+      { label: 'Content Calendar', icon: CalendarRange, route: 'SocialMediaCalendar', color: Colors.secondary },
     ],
   },
   {
     title: 'CONTENT',
     items: [
-      { label: 'Blogs', emoji: '✍️', route: 'Blogs', color: Colors.secondary },
-      {
-        label: 'Newsletter',
-        emoji: '\u{1F4E7}',
-        route: 'Newsletter',
-        color: Colors.accent,
-      },
-      {
-        label: 'Announcements',
-        emoji: '\u{1F4E2}',
-        route: 'Announcements',
-        color: Colors.warning,
-      },
+      { label: 'Blogs', icon: PenLine, route: 'Blogs', color: Colors.accent },
+      { label: 'Newsletter', icon: Mail, route: 'Newsletter', color: Colors.accent },
+      { label: 'Announcements', icon: Megaphone, route: 'Announcements', color: Colors.accent },
     ],
   },
   {
     title: 'SUPPORT & HR',
     items: [
-      {
-        label: 'Support Tickets',
-        emoji: '\u{1F3A7}',
-        route: 'Support',
-        color: Colors.primary,
-      },
-      { label: 'Careers', emoji: '\u{1F454}', route: 'Careers', color: Colors.accent },
-      {
-        label: 'About Us Team',
-        emoji: '\u{1F465}',
-        route: 'AboutTeam',
-        color: Colors.secondary,
-      },
-      {
-        label: 'Developers',
-        emoji: '\u{1F4BB}',
-        route: 'Developers',
-        color: Colors.gray700,
-      },
+      { label: 'Support Tickets', icon: Headphones, route: 'Support', color: Colors.warning },
+      { label: 'Careers', icon: Briefcase, route: 'Careers', color: Colors.warning },
+      { label: 'About Us Team', icon: Users, route: 'AboutTeam', color: Colors.warning },
+      { label: 'Developers', icon: Code2, route: 'Developers', color: Colors.warning },
     ],
   },
   {
     title: 'MEDIA',
     items: [
-      {
-        label: 'Work Gallery',
-        emoji: '\u{1F5BC}️',
-        route: 'WorkGallery',
-        color: Colors.secondary,
-      },
-      { label: 'Photos', emoji: '\u{1F4F7}', route: 'Photos', color: Colors.accent },
-      {
-        label: 'Reels',
-        emoji: '\u{1F3AC}',
-        route: 'Reels',
-        color: Colors.destructive,
-      },
+      { label: 'Work Gallery', icon: ImageIcon, route: 'WorkGallery', color: Colors.gray700 },
+      { label: 'Photos', icon: Camera, route: 'Photos', color: Colors.gray700 },
+      { label: 'Reels', icon: Film, route: 'Reels', color: Colors.gray700 },
     ],
   },
   {
     title: 'SYSTEM',
     items: [
-      {
-        label: 'Profile',
-        emoji: '\u{1F464}',
-        route: 'Profile',
-        color: Colors.primary,
-      },
-      {
-        label: 'Settings',
-        emoji: '⚙️',
-        route: 'Settings',
-        color: Colors.gray700,
-      },
-      {
-        label: 'Login Users',
-        emoji: '\u{1F511}',
-        route: 'Users',
-        color: Colors.primary,
-      },
-      {
-        label: 'Client Portal',
-        emoji: '\u{1F4C2}',
-        route: 'ClientPortal',
-        color: Colors.accent,
-      },
-      {
-        label: 'Trash',
-        emoji: '\u{1F5D1}️',
-        route: 'Trash',
-        color: Colors.destructive,
-      },
-      {
-        label: 'ERP Console',
-        emoji: '⚡',
-        route: 'ERPConsole',
-        color: Colors.gray900,
-      },
+      { label: 'Profile', icon: User, route: 'Profile', color: Colors.gray900 },
+      { label: 'Settings', icon: SettingsIcon, route: 'Settings', color: Colors.gray900 },
+      { label: 'Login Users', icon: KeyRound, route: 'Users', color: Colors.gray900 },
+      { label: 'Client Portal', icon: FolderOpen, route: 'ClientPortal', color: Colors.gray900 },
+      { label: 'Trash', icon: Trash2, route: 'Trash', color: Colors.destructive },
+      { label: 'ERP Console', icon: Zap, route: 'ERPConsole', color: Colors.gray900 },
     ],
   },
 ];
@@ -179,26 +102,27 @@ const MoreHomeScreen = () => {
       <ScrollView contentContainerStyle={styles.content}>
         {SECTIONS.map(section => (
           <View key={section.title}>
-            <SectionHeader
-              title={section.title}
-              style={{ marginTop: Spacing.lg }}
-            />
-            <View style={styles.grid}>
-              {section.items.map(item => (
-                <TouchableOpacity
-                  key={item.route}
-                  style={[
-                    styles.gridItem,
-                    { borderTopColor: item.color, borderTopWidth: 4 },
-                  ]}
-                  onPress={() => navigation.navigate(item.route as any)}
-                  activeOpacity={0.8}
+            <SectionHeader title={section.title} style={{ marginTop: Spacing.lg }} />
+            {section.items.map(item => (
+              <TouchableOpacity
+                key={item.route}
+                onPress={() => navigation.navigate(item.route as any)}
+                activeOpacity={0.85}
+              >
+                <Card
+                  style={[styles.row, { borderLeftColor: item.color, borderLeftWidth: 6 }]}
+                  shadow="sm"
                 >
-                  <Text style={styles.gridEmoji}>{item.emoji}</Text>
-                  <Text style={styles.gridLabel}>{item.label}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
+                  <Row justify="space-between" align="center">
+                    <Row align="center" gap={Spacing.md} style={{ flex: 1 }}>
+                      <item.icon size={22} color={item.color} />
+                      <Text style={styles.rowLabel}>{item.label}</Text>
+                    </Row>
+                    <ChevronRight size={20} color={item.color} />
+                  </Row>
+                </Card>
+              </TouchableOpacity>
+            ))}
           </View>
         ))}
         <View style={{ height: 24 }} />
@@ -210,23 +134,11 @@ const MoreHomeScreen = () => {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.background },
   content: { padding: Spacing.base },
-  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.sm },
-  gridItem: {
-    backgroundColor: Colors.white,
-    borderWidth: Border.widthBold,
-    borderColor: Colors.border,
-    padding: Spacing.md,
-    width: '47%',
-    alignItems: 'center',
-    ...Shadows.sm,
-  },
-  gridEmoji: { fontSize: 28, marginBottom: 8 },
-  gridLabel: {
-    fontSize: Typography.sm,
+  row: { marginBottom: Spacing.sm, padding: Spacing.md },
+  rowLabel: {
+    fontSize: Typography.base,
     fontWeight: Typography.black,
     color: Colors.foreground,
-    textAlign: 'center',
-    letterSpacing: 0.2,
   },
 });
 

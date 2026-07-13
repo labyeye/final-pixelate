@@ -31,6 +31,7 @@ const NewsletterScreen = () => {
         </Card>
         <SectionHeader title="SUBSCRIBER LIST" />
         <FlatList
+          style={{ flex: 1 }}
           data={items}
           keyExtractor={(item, i) => String(item._id || item.email || i)}
           ListEmptyComponent={

@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from '../../context/AuthContext';
 import { Card, Input, Button } from '../../components/common';
 import { Colors, Typography, Spacing, Shadows, Border } from '../../theme';
-const logopixel = require('../../components/images/logo-transparent.png');
+const logopixel = require('../../components/images/Logo_Color_Name_Large.png');
 const LoginScreen = () => {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
@@ -55,20 +55,15 @@ const LoginScreen = () => {
             <View style={styles.logoBox}>
               <Image source={logopixel} style={styles.logoLetter} />
             </View>
-            <View style={styles.logoTextBlock}>
-              <Text style={styles.logoTitle}>PIXELATE</Text>
-              <Text style={styles.logoSubtitle}>NEST</Text>
-            </View>
           </View>
 
           {}
-          <Card style={styles.card} shadow="lg">
-            <Text style={styles.cardTitle}>SIGN IN</Text>
+          <View style={styles.card}>
             <Input
               label="EMAIL"
               value={email}
               onChangeText={setEmail}
-              placeholder="admin@pixelatenest.com"
+              placeholder="Enter Your Email Address"
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
@@ -78,7 +73,7 @@ const LoginScreen = () => {
               label="PASSWORD"
               value={password}
               onChangeText={setPassword}
-              placeholder="••••••••"
+              placeholder="Enter Your Password"
               secureTextEntry={!showPassword}
               rightIcon={
                 <TouchableOpacity onPress={() => setShowPassword(v => !v)}>
@@ -95,9 +90,13 @@ const LoginScreen = () => {
               loading={loading}
               fullWidth
               size="lg"
-              style={{ marginTop: Spacing.sm }}
+              style={{
+                borderRadius: 50,
+                marginTop: 20,
+                backgroundColor: Colors.primary,
+              }}
             />
-          </Card>
+          </View>
 
           {}
           <Text style={styles.footer}>
@@ -135,21 +134,20 @@ const styles = StyleSheet.create({
   logoBlock: {
     flexDirection: 'column',
     alignItems: 'center',
-    marginBottom: Spacing.xl,
+    marginBottom: Spacing.lg,
     gap: Spacing.md,
   },
   logoBox: {
-    width: 100,
-    height: 100,
+    width: 230,
+    height: 90,
     backgroundColor: Colors.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
   logoLetter: {
-    width: 100,
-    height: 100,
+    width: 230,
+    height: 90,
   },
-  logoTextBlock: { gap: 10, flexDirection: 'row', alignItems: 'center' },
   logoTitle: {
     fontSize: Typography['3xl'],
     fontWeight: Typography.black,
@@ -173,10 +171,9 @@ const styles = StyleSheet.create({
     lineHeight: 28,
   },
   card: {
-    borderWidth: Border.widthBold,
-    borderColor: Colors.black,
-    padding: Spacing.xl,
-    ...Shadows.lg,
+    backgroundColor: Colors.white,
+    borderRadius: Border.radius,
+    padding: Spacing.md,
   },
   cardTitle: {
     fontSize: 30,

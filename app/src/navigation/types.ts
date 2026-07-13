@@ -25,8 +25,6 @@ export type HomeStackParams = {
 
 export type CRMStackParams = {
   CRMHome: undefined;
-  Leads: undefined;
-  LeadDetail: { id: string };
   Clients: undefined;
   ClientDetail: { id: string };
   Enquiries: undefined;

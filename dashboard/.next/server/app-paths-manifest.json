@@ -76,6 +76,8 @@
   "/api/blogs/route": "app/api/blogs/route.js",
   "/api/brand-guides/[id]/route": "app/api/brand-guides/[id]/route.js",
   "/api/brand-guides/route": "app/api/brand-guides/route.js",
+  "/api/campaigns/[id]/route": "app/api/campaigns/[id]/route.js",
+  "/api/campaigns/route": "app/api/campaigns/route.js",
   "/api/careers/[id]/route": "app/api/careers/[id]/route.js",
   "/api/careers/route": "app/api/careers/route.js",
   "/api/clients/[id]/meta-token/route": "app/api/clients/[id]/meta-token/route.js",

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Modal,
   Alert,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -20,21 +21,37 @@ import {
   EmptyState,
   LoadingSpinner,
   StatusBadge,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
+
+const EMPTY_FORM = {
+  itemName: '',
+  category: '',
+  quantityAvailable: '',
+  unit: 'pcs',
+  price: '',
+  vendorName: '',
+  vendorContact: '',
+  gstPercentage: '',
+};
+
+const SORT_OPTIONS = [
+  { label: 'Name A-Z', value: 'name' },
+  { label: 'Qty low-high', value: 'qty' },
+  { label: 'Price high-low', value: 'price' },
+];
 
 const InventoryScreen = () => {
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [sort, setSort] = useState('name');
   const [showAdd, setShowAdd] = useState(false);
-  const [form, setForm] = useState({
-    itemName: '',
-    category: '',
-    quantityAvailable: '',
-    unit: 'pcs',
-    price: '',
-    vendorName: '',
-  });
+  const [editing, setEditing] = useState<any>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const { data: inventory = [], isLoading } = useQuery({
     queryKey: ['inventory'],
@@ -45,29 +62,113 @@ const InventoryScreen = () => {
     mutationFn: (data: any) => inventoryAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['inventory'] });
-      setShowAdd(false);
-      setForm({
-        itemName: '',
-        category: '',
-        quantityAvailable: '',
-        unit: 'pcs',
-        price: '',
-        vendorName: '',
-      });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to add item'),
   });
 
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      inventoryAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['inventory'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update item'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => inventoryAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['inventory'] }),
+  });
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      itemName: item.itemName || '',
+      category: item.category || '',
+      quantityAvailable: String(item.quantityAvailable ?? ''),
+      unit: item.unit || 'pcs',
+      price: String(item.price ?? ''),
+      vendorName: item.vendorName || '',
+      vendorContact: item.vendorContact || '',
+      gstPercentage: item.gstPercentage != null ? String(item.gstPercentage) : '',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Item', `Remove "${item.itemName}" from inventory?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteMutation.mutate(item._id),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.itemName.trim()) {
+      Alert.alert('Error', 'Item name required');
+      return;
+    }
+    const data = {
+      ...form,
+      quantityAvailable: Number(form.quantityAvailable),
+      price: Number(form.price),
+      gstPercentage: form.gstPercentage ? Number(form.gstPercentage) : null,
+    };
+    if (editing) {
+      updateMutation.mutate({ id: editing._id, data });
+    } else {
+      addMutation.mutate(data);
+    }
+  };
+
   if (isLoading) return <LoadingSpinner />;
 
-  const filtered = Array.isArray(inventory)
+  const categoryOptions = [
+    { label: 'All', value: 'all' },
+    ...Array.from(
+      new Set(
+        (Array.isArray(inventory) ? inventory : [])
+          .map((i: any) => i.category)
+          .filter(Boolean),
+      ),
+    ).map((c: any) => ({ label: c, value: c })),
+  ];
+
+  let filtered = Array.isArray(inventory)
     ? inventory.filter(
         (i: any) =>
-          !search ||
-          i.itemName?.toLowerCase().includes(search.toLowerCase()) ||
-          i.category?.toLowerCase().includes(search.toLowerCase()),
+          (!search ||
+            i.itemName?.toLowerCase().includes(search.toLowerCase()) ||
+            i.category?.toLowerCase().includes(search.toLowerCase())) &&
+          (categoryFilter === 'all' || i.category === categoryFilter),
       )
     : [];
+
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'qty')
+      return Number(a.quantityAvailable || 0) - Number(b.quantityAvailable || 0);
+    if (sort === 'price') return Number(b.price || 0) - Number(a.price || 0);
+    return (a.itemName || '').localeCompare(b.itemName || '');
+  });
+
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -77,27 +178,33 @@ const InventoryScreen = () => {
           onChangeText={setSearch}
           placeholder="Search inventory..."
         />
+        <FilterChips
+          options={categoryOptions}
+          value={categoryFilter}
+          onChange={setCategoryFilter}
+        />
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.count}>{filtered.length} ITEMS</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ ADD</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ ADD</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={
             <EmptyState
               title="No Inventory"
               subtitle="Add your inventory items"
-              action={{ label: '+ Add Item', onPress: () => setShowAdd(true) }}
+              action={{ label: '+ Add Item', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => (
@@ -124,6 +231,12 @@ const InventoryScreen = () => {
                 </View>
                 <StatusBadge status={item.status || 'Available'} />
               </Row>
+              <Row justify="flex-end" style={{ marginTop: Spacing.sm }}>
+                <RowActions
+                  onEdit={() => openEdit(item)}
+                  onDelete={() => confirmDelete(item)}
+                />
+              </Row>
             </Card>
           )}
         />
@@ -139,12 +252,14 @@ const InventoryScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>ADD ITEM</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT ITEM' : 'ADD ITEM'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
-          <View style={styles.modalContent}>
+          <ScrollView style={styles.modalContent} contentContainerStyle={{ paddingBottom: Spacing.xl }}>
             <Input
               label="ITEM NAME *"
               value={form.itemName}
@@ -181,25 +296,28 @@ const InventoryScreen = () => {
               onChangeText={v => setForm(p => ({ ...p, vendorName: v }))}
               placeholder="Vendor name"
             />
+            <Input
+              label="VENDOR CONTACT"
+              value={form.vendorContact}
+              onChangeText={v => setForm(p => ({ ...p, vendorContact: v }))}
+              placeholder="Phone / email"
+            />
+            <Input
+              label="GST %"
+              value={form.gstPercentage}
+              onChangeText={v => setForm(p => ({ ...p, gstPercentage: v }))}
+              keyboardType="numeric"
+              placeholder="e.g. 18"
+            />
             <Button
-              label={addMutation.isPending ? 'ADDING...' : 'ADD ITEM'}
-              onPress={() => {
-                if (!form.itemName.trim()) {
-                  Alert.alert('Error', 'Item name required');
-                  return;
-                }
-                addMutation.mutate({
-                  ...form,
-                  quantityAvailable: Number(form.quantityAvailable),
-                  price: Number(form.price),
-                });
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'ADD ITEM'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}
             />
-          </View>
+          </ScrollView>
         </SafeAreaView>
       </Modal>
     </SafeAreaView>

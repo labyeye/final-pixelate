@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import api from '../../api/client';
+import { servicesAPI } from '../../api';
 import {
   Card,
   Row,
@@ -19,43 +19,132 @@ import {
   Input,
   EmptyState,
   LoadingSpinner,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
+
+const EMPTY_FORM = { name: '', description: '', price: '', category: '', hsnCode: '' };
+
+const SORT_OPTIONS = [
+  { label: 'Name A-Z', value: 'name' },
+  { label: 'Price high-low', value: 'price' },
+];
 
 const ServicesScreen = () => {
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [sort, setSort] = useState('name');
   const [showAdd, setShowAdd] = useState(false);
-  const [form, setForm] = useState({
-    name: '',
-    description: '',
-    price: '',
-    category: '',
-  });
+  const [editing, setEditing] = useState<any>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const { data: services = [], isLoading } = useQuery({
     queryKey: ['services'],
-    queryFn: () => api.get('/services').then(r => r.data),
+    queryFn: () => servicesAPI.getAll().then(r => r.data),
   });
 
   const addMutation = useMutation({
-    mutationFn: (data: any) => api.post('/services', data),
+    mutationFn: (data: any) => servicesAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['services'] });
-      setShowAdd(false);
-      setForm({ name: '', description: '', price: '', category: '' });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to add service'),
   });
 
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      servicesAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['services'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update service'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => servicesAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['services'] }),
+  });
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      name: item.name || '',
+      description: item.description || '',
+      price: String(item.price ?? ''),
+      category: item.category || '',
+      hsnCode: item.hsnCode || '',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Service', `Remove "${item.name}"?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteMutation.mutate(item._id),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.name.trim()) {
+      Alert.alert('Error', 'Name required');
+      return;
+    }
+    const data = { ...form, price: Number(form.price) };
+    if (editing) {
+      updateMutation.mutate({ id: editing._id, data });
+    } else {
+      addMutation.mutate(data);
+    }
+  };
+
   if (isLoading) return <LoadingSpinner />;
 
-  const filtered = Array.isArray(services)
+  const categoryOptions = [
+    { label: 'All', value: 'all' },
+    ...Array.from(
+      new Set(
+        (Array.isArray(services) ? services : [])
+          .map((s: any) => s.category)
+          .filter(Boolean),
+      ),
+    ).map((c: any) => ({ label: c, value: c })),
+  ];
+
+  let filtered = Array.isArray(services)
     ? services.filter(
         (s: any) =>
-          !search || s.name?.toLowerCase().includes(search.toLowerCase()),
+          (!search || s.name?.toLowerCase().includes(search.toLowerCase())) &&
+          (categoryFilter === 'all' || s.category === categoryFilter),
       )
     : [];
+
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'price') return Number(b.price || 0) - Number(a.price || 0);
+    return (a.name || '').localeCompare(b.name || '');
+  });
+
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -65,26 +154,33 @@ const ServicesScreen = () => {
           onChangeText={setSearch}
           placeholder="Search services..."
         />
+        <FilterChips
+          options={categoryOptions}
+          value={categoryFilter}
+          onChange={setCategoryFilter}
+        />
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.count}>{filtered.length} SERVICES</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ ADD</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ ADD</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={
             <EmptyState
               title="No Services"
               subtitle="Add services to your catalogue"
+              action={{ label: '+ Add Service', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => (
@@ -109,6 +205,12 @@ const ServicesScreen = () => {
                   </View>
                 ) : null}
               </Row>
+              <Row justify="flex-end" style={{ marginTop: Spacing.sm }}>
+                <RowActions
+                  onEdit={() => openEdit(item)}
+                  onDelete={() => confirmDelete(item)}
+                />
+              </Row>
             </Card>
           )}
         />
@@ -124,8 +226,10 @@ const ServicesScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>ADD SERVICE</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT SERVICE' : 'ADD SERVICE'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
@@ -155,16 +259,16 @@ const ServicesScreen = () => {
               onChangeText={v => setForm(p => ({ ...p, price: v }))}
               keyboardType="numeric"
             />
+            <Input
+              label="HSN/SAC CODE"
+              value={form.hsnCode}
+              onChangeText={v => setForm(p => ({ ...p, hsnCode: v }))}
+              placeholder="e.g. 998314"
+            />
             <Button
-              label={addMutation.isPending ? 'ADDING...' : 'ADD SERVICE'}
-              onPress={() => {
-                if (!form.name.trim()) {
-                  Alert.alert('Error', 'Name required');
-                  return;
-                }
-                addMutation.mutate({ ...form, price: Number(form.price) });
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'ADD SERVICE'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}

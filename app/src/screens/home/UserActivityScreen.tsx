@@ -37,6 +37,7 @@ const UserActivityScreen = () => {
         style={styles.header}
       />
       <FlatList
+        style={{ flex: 1 }}
         data={items}
         keyExtractor={(item, i) => item._id || String(i)}
         contentContainerStyle={styles.content}

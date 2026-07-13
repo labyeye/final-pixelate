@@ -265,6 +265,7 @@ const WhatsAppTemplatesScreen = () => {
         <Text style={styles.count}>{filtered.length} TEMPLATES</Text>
 
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item: any, i) => String(item._id || i)}
           ListEmptyComponent={

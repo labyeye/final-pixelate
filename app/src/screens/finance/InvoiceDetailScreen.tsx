@@ -9,7 +9,8 @@ import {
   Modal,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { invoicesAPI } from '../../api';
 import {
@@ -26,9 +27,11 @@ import { FinanceStackParams } from '../../navigation/types';
 import { format } from 'date-fns';
 
 type Route = RouteProp<FinanceStackParams, 'InvoiceDetail'>;
+type Nav = NativeStackNavigationProp<FinanceStackParams>;
 
 const InvoiceDetailScreen = () => {
   const { params } = useRoute<Route>();
+  const navigation = useNavigation<Nav>();
   const qc = useQueryClient();
   const [showPayment, setShowPayment] = useState(false);
   const [paymentAmount, setPaymentAmount] = useState('');
@@ -49,6 +52,22 @@ const InvoiceDetailScreen = () => {
     },
     onError: () => Alert.alert('Error', 'Failed to record payment'),
   });
+
+  const deleteMutation = useMutation({
+    mutationFn: () => invoicesAPI.delete(params.id),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['invoices'] });
+      navigation.goBack();
+    },
+    onError: () => Alert.alert('Error', 'Failed to delete invoice'),
+  });
+
+  const confirmDelete = () => {
+    Alert.alert('Delete Invoice', `Remove INV-${invoice?.invoiceNumber || ''}?`, [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Delete', style: 'destructive', onPress: () => deleteMutation.mutate() },
+    ]);
+  };
 
   if (isLoading) return <LoadingSpinner />;
   if (!invoice)
@@ -162,6 +181,22 @@ const InvoiceDetailScreen = () => {
             />
           </Card>
         )}
+
+        <Row gap={Spacing.sm} style={{ marginTop: Spacing.sm }}>
+          <Button
+            label="EDIT INVOICE"
+            variant="outline"
+            onPress={() => navigation.navigate('InvoiceForm', { id: params.id })}
+            style={{ flex: 1 }}
+          />
+          <Button
+            label="DELETE INVOICE"
+            variant="destructive"
+            onPress={confirmDelete}
+            loading={deleteMutation.isPending}
+            style={{ flex: 1 }}
+          />
+        </Row>
       </ScrollView>
 
       <Modal

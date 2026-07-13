@@ -34,6 +34,7 @@ const NDAApprovalScreen = () => {
         </View>
         <Text style={styles.count}>{items.length} RECORDS</Text>
         <FlatList
+          style={{ flex: 1 }}
           data={items}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

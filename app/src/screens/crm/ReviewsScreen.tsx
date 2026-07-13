@@ -19,19 +19,35 @@ import {
   Input,
   EmptyState,
   LoadingSpinner,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
+
+const PLATFORMS = ['Google', 'Facebook', 'Instagram', 'Other'];
+
+const PLATFORM_FILTERS = [
+  { label: 'All', value: 'all' },
+  ...PLATFORMS.map(p => ({ label: p, value: p })),
+];
+
+const SORT_OPTIONS = [
+  { label: 'Newest first', value: 'newest' },
+  { label: 'Highest rated', value: 'rating' },
+  { label: 'Name A-Z', value: 'name' },
+];
+
+const EMPTY_FORM = { name: '', review: '', rating: '5', platform: 'Google' };
 
 const ReviewsScreen = () => {
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
+  const [platformFilter, setPlatformFilter] = useState('all');
+  const [sort, setSort] = useState('newest');
   const [showAdd, setShowAdd] = useState(false);
-  const [form, setForm] = useState({
-    name: '',
-    review: '',
-    rating: '5',
-    platform: 'Google',
-  });
+  const [editing, setEditing] = useState<any>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const { data: reviews = [], isLoading } = useQuery({
     queryKey: ['reviews'],
@@ -42,20 +58,90 @@ const ReviewsScreen = () => {
     mutationFn: (data: any) => reviewsAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['reviews'] });
-      setShowAdd(false);
-      setForm({ name: '', review: '', rating: '5', platform: 'Google' });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to add review'),
   });
 
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      reviewsAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['reviews'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update review'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => reviewsAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['reviews'] }),
+  });
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      name: item.name || '',
+      review: item.review || '',
+      rating: String(item.rating || 5),
+      platform: item.platform || 'Google',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Review', `Remove review from "${item.name}"?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteMutation.mutate(item._id),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.name.trim() || !form.review.trim()) {
+      Alert.alert('Error', 'Name and review required');
+      return;
+    }
+    const data = { ...form, rating: Number(form.rating) };
+    if (editing) {
+      updateMutation.mutate({ id: editing._id, data });
+    } else {
+      addMutation.mutate(data);
+    }
+  };
+
   if (isLoading) return <LoadingSpinner />;
 
-  const filtered = Array.isArray(reviews)
+  let filtered = Array.isArray(reviews)
     ? reviews.filter(
         (r: any) =>
-          !search || r.name?.toLowerCase().includes(search.toLowerCase()),
+          (!search || r.name?.toLowerCase().includes(search.toLowerCase())) &&
+          (platformFilter === 'all' || r.platform === platformFilter),
       )
     : [];
+
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'name') return (a.name || '').localeCompare(b.name || '');
+    if (sort === 'rating') return Number(b.rating || 0) - Number(a.rating || 0);
+    const da = new Date(a.createdAt || 0).getTime();
+    const db = new Date(b.createdAt || 0).getTime();
+    return db - da;
+  });
 
   const avgRating =
     filtered.length > 0
@@ -64,6 +150,8 @@ const ReviewsScreen = () => {
           filtered.length
         ).toFixed(1)
       : '0.0';
+
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -87,31 +175,35 @@ const ReviewsScreen = () => {
           placeholder="Search reviews..."
         />
 
+        <FilterChips
+          options={PLATFORM_FILTERS}
+          value={platformFilter}
+          onChange={setPlatformFilter}
+        />
+
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.count}>{filtered.length} REVIEWS</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ ADD</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ ADD</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
 
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={
             <EmptyState
               title="No Reviews"
               subtitle="Add client reviews"
-              action={{
-                label: '+ Add Review',
-                onPress: () => setShowAdd(true),
-              }}
+              action={{ label: '+ Add Review', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => (
@@ -134,6 +226,12 @@ const ReviewsScreen = () => {
                   </Text>
                 </View>
               </Row>
+              <Row justify="flex-end" style={{ marginTop: Spacing.sm }}>
+                <RowActions
+                  onEdit={() => openEdit(item)}
+                  onDelete={() => confirmDelete(item)}
+                />
+              </Row>
             </Card>
           )}
         />
@@ -150,8 +248,10 @@ const ReviewsScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>ADD REVIEW</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT REVIEW' : 'ADD REVIEW'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
@@ -177,7 +277,7 @@ const ReviewsScreen = () => {
             />
             <Text style={styles.pickLabel}>PLATFORM</Text>
             <View style={styles.platformRow}>
-              {['Google', 'Facebook', 'Instagram', 'Other'].map(p => (
+              {PLATFORMS.map(p => (
                 <TouchableOpacity
                   key={p}
                   style={[
@@ -198,15 +298,9 @@ const ReviewsScreen = () => {
               ))}
             </View>
             <Button
-              label={addMutation.isPending ? 'ADDING...' : 'ADD REVIEW'}
-              onPress={() => {
-                if (!form.name.trim() || !form.review.trim()) {
-                  Alert.alert('Error', 'Name and review required');
-                  return;
-                }
-                addMutation.mutate({ ...form, rating: Number(form.rating) });
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'ADD REVIEW'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}

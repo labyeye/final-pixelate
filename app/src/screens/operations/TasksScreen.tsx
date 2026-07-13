@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   Modal,
   Alert,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { tasksAPI } from '../../api';
+import { tasksAPI, projectsAPI, teamAPI } from '../../api';
 import {
   Card,
   Row,
@@ -20,44 +21,87 @@ import {
   Input,
   EmptyState,
   LoadingSpinner,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
 
 const PRIORITY = ['low', 'medium', 'high', 'urgent'];
 const STATUS_OPTS = ['pending', 'in progress', 'completed', 'cancelled'];
+const FILTER_OPTIONS = [
+  { label: 'All', value: 'all' },
+  ...STATUS_OPTS.map(s => ({ label: s.toUpperCase(), value: s })),
+];
+const SORT_OPTIONS = [
+  { label: 'Newest first', value: 'newest' },
+  { label: 'Priority high-low', value: 'priority' },
+  { label: 'Title A-Z', value: 'title' },
+];
+const PRIORITY_RANK: Record<string, number> = {
+  urgent: 3,
+  high: 2,
+  medium: 1,
+  low: 0,
+};
+const EMPTY_FORM = {
+  title: '',
+  description: '',
+  priority: 'medium',
+  status: 'pending',
+  dueDate: '',
+  projectId: '',
+  projectTitle: '',
+  assigneeId: '',
+  assigneeName: '',
+};
 
 const TasksScreen = () => {
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState('newest');
   const [showAdd, setShowAdd] = useState(false);
-  const [form, setForm] = useState({
-    title: '',
-    description: '',
-    priority: 'medium',
-    status: 'pending',
-    assignedToName: '',
-  });
+  const [editing, setEditing] = useState<any>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const { data: tasks = [], isLoading } = useQuery({
     queryKey: ['tasks'],
     queryFn: () => tasksAPI.getAll().then(r => r.data),
   });
 
+  const { data: projects = [] } = useQuery({
+    queryKey: ['projects'],
+    queryFn: () => projectsAPI.getAll().then(r => r.data),
+  });
+
+  const { data: teamMembers = [] } = useQuery({
+    queryKey: ['team-members'],
+    queryFn: () => teamAPI.getAll().then(r => r.data),
+  });
+
   const addMutation = useMutation({
     mutationFn: (data: any) => tasksAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['tasks'] });
-      setShowAdd(false);
-      setForm({
-        title: '',
-        description: '',
-        priority: 'medium',
-        status: 'pending',
-        assignedToName: '',
-      });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to add task'),
+  });
+
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      tasksAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['tasks'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update task'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => tasksAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['tasks'] }),
   });
 
   const toggleMutation = useMutation({
@@ -66,7 +110,58 @@ const TasksScreen = () => {
     onSuccess: () => qc.invalidateQueries({ queryKey: ['tasks'] }),
   });
 
-  const filtered = Array.isArray(tasks)
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      title: item.title || '',
+      description: item.description || '',
+      priority: item.priority || 'medium',
+      status: item.status || 'pending',
+      dueDate: item.dueDate ? String(item.dueDate).slice(0, 10) : '',
+      projectId: item.projectId || '',
+      projectTitle: item.projectTitle || '',
+      assigneeId: item.assigneeId || '',
+      assigneeName: item.assigneeName || '',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Task', `Remove "${item.title}"?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteMutation.mutate(String(item._id || item.id)),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.title.trim()) {
+      Alert.alert('Error', 'Title required');
+      return;
+    }
+    if (editing) {
+      updateMutation.mutate({ id: String(editing._id || editing.id), data: form });
+    } else {
+      addMutation.mutate(form);
+    }
+  };
+
+  let filtered = Array.isArray(tasks)
     ? tasks.filter((t: any) => {
         const ms =
           !search || t.title?.toLowerCase().includes(search.toLowerCase());
@@ -75,6 +170,17 @@ const TasksScreen = () => {
       })
     : [];
 
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'title') return (a.title || '').localeCompare(b.title || '');
+    if (sort === 'priority')
+      return (
+        (PRIORITY_RANK[b.priority] ?? 0) - (PRIORITY_RANK[a.priority] ?? 0)
+      );
+    const da = new Date(a.createdAt || 0).getTime();
+    const db = new Date(b.createdAt || 0).getTime();
+    return db - da;
+  });
+
   const priorityColor = (p: string) =>
     ({
       urgent: Colors.destructive,
@@ -82,6 +188,8 @@ const TasksScreen = () => {
       medium: Colors.warning,
       low: Colors.success,
     })[p] || Colors.muted;
+
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -93,42 +201,33 @@ const TasksScreen = () => {
           onChangeText={setSearch}
           placeholder="Search tasks..."
         />
-        <View style={styles.filterRow}>
-          {['all', ...STATUS_OPTS].map(s => (
-            <TouchableOpacity
-              key={s}
-              style={[styles.chip, filter === s && styles.chipActive]}
-              onPress={() => setFilter(s)}
-            >
-              <Text
-                style={[styles.chipText, filter === s && styles.chipTextActive]}
-              >
-                {s.toUpperCase().slice(0, 7)}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+        <FilterChips
+          options={FILTER_OPTIONS}
+          value={filter}
+          onChange={setFilter}
+        />
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.count}>{filtered.length} TASKS</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ ADD</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ ADD</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={item => String(item._id || item.id)}
           ListEmptyComponent={
             <EmptyState
               title="No Tasks"
               subtitle="Create tasks for your team"
-              action={{ label: '+ Add Task', onPress: () => setShowAdd(true) }}
+              action={{ label: '+ Add Task', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => {
@@ -159,9 +258,14 @@ const TasksScreen = () => {
                         {item.description}
                       </Text>
                     ) : null}
-                    {item.assignedToName ? (
+                    {item.assigneeName ? (
                       <Text style={styles.assigned}>
-                        → {item.assignedToName}
+                        → {item.assigneeName}
+                      </Text>
+                    ) : null}
+                    {item.projectTitle ? (
+                      <Text style={styles.assigned}>
+                        # {item.projectTitle}
                       </Text>
                     ) : null}
                     <Row style={{ marginTop: 6 }} gap={8}>
@@ -178,6 +282,10 @@ const TasksScreen = () => {
                       <StatusBadge status={item.status || 'pending'} />
                     </Row>
                   </View>
+                  <RowActions
+                    onEdit={() => openEdit(item)}
+                    onDelete={() => confirmDelete(item)}
+                  />
                 </Row>
               </Card>
             );
@@ -195,12 +303,14 @@ const TasksScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>ADD TASK</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT TASK' : 'ADD TASK'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
-          <View style={styles.modalContent}>
+          <ScrollView style={styles.modalContent} contentContainerStyle={{ paddingBottom: Spacing.xl }}>
             <Input
               label="TASK TITLE *"
               value={form.title}
@@ -215,11 +325,60 @@ const TasksScreen = () => {
               multiline
             />
             <Input
-              label="ASSIGN TO"
-              value={form.assignedToName}
-              onChangeText={v => setForm(p => ({ ...p, assignedToName: v }))}
-              placeholder="Team member name"
+              label="DUE DATE"
+              value={form.dueDate}
+              onChangeText={v => setForm(p => ({ ...p, dueDate: v }))}
+              placeholder="YYYY-MM-DD"
             />
+            <Text style={styles.pickLabel}>PROJECT</Text>
+            <View style={styles.priorityRow}>
+              <TouchableOpacity
+                style={[styles.priChip, !form.projectId && styles.statusChipActive]}
+                onPress={() => setForm(p => ({ ...p, projectId: '', projectTitle: '' }))}
+              >
+                <Text style={[styles.priChipText, !form.projectId && styles.priChipTextActive]}>NONE</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.statusGrid}>
+              {(Array.isArray(projects) ? projects : []).map((proj: any) => {
+                const id = String(proj._id || proj.id);
+                const title = proj.name || proj.title || 'Untitled';
+                return (
+                  <TouchableOpacity
+                    key={id}
+                    style={[styles.statusChip, form.projectId === id && styles.statusChipActive]}
+                    onPress={() => setForm(p => ({ ...p, projectId: id, projectTitle: title }))}
+                  >
+                    <Text style={[styles.statusChipText, form.projectId === id && styles.statusChipTextActive]}>
+                      {title}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+            <Text style={styles.pickLabel}>ASSIGN TO</Text>
+            <View style={styles.statusGrid}>
+              <TouchableOpacity
+                style={[styles.statusChip, !form.assigneeId && styles.statusChipActive]}
+                onPress={() => setForm(p => ({ ...p, assigneeId: '', assigneeName: '' }))}
+              >
+                <Text style={[styles.statusChipText, !form.assigneeId && styles.statusChipTextActive]}>Unassigned</Text>
+              </TouchableOpacity>
+              {(Array.isArray(teamMembers) ? teamMembers : []).map((m: any) => {
+                const id = String(m._id || m.id);
+                return (
+                  <TouchableOpacity
+                    key={id}
+                    style={[styles.statusChip, form.assigneeId === id && styles.statusChipActive]}
+                    onPress={() => setForm(p => ({ ...p, assigneeId: id, assigneeName: m.name || '' }))}
+                  >
+                    <Text style={[styles.statusChipText, form.assigneeId === id && styles.statusChipTextActive]}>
+                      {m.name}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
             <Text style={styles.pickLabel}>PRIORITY</Text>
             <View style={styles.priorityRow}>
               {PRIORITY.map(p => (
@@ -246,20 +405,14 @@ const TasksScreen = () => {
               ))}
             </View>
             <Button
-              label={addMutation.isPending ? 'ADDING...' : 'ADD TASK'}
-              onPress={() => {
-                if (!form.title.trim()) {
-                  Alert.alert('Error', 'Title required');
-                  return;
-                }
-                addMutation.mutate(form);
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'ADD TASK'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}
             />
-          </View>
+          </ScrollView>
         </SafeAreaView>
       </Modal>
     </SafeAreaView>
@@ -390,6 +543,28 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     marginBottom: 8,
   },
+  statusGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginBottom: Spacing.base,
+  },
+  statusChip: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+  },
+  statusChipActive: {
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
+  },
+  statusChipText: {
+    fontSize: Typography.sm,
+    fontWeight: Typography.bold,
+    color: Colors.foreground,
+  },
+  statusChipTextActive: { color: Colors.white },
   priorityRow: { flexDirection: 'row', gap: 8, marginBottom: Spacing.base },
   priChip: {
     paddingHorizontal: 12,

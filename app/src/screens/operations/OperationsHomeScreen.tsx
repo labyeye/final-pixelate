@@ -14,48 +14,55 @@ import { projectsAPI, tasksAPI, inventoryAPI } from '../../api';
 import { Card, StatCard, SectionHeader, Row } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
 import { OperationsStackParams } from '../../navigation/types';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {
+  Briefcase,
+  ListChecks,
+  Map,
+  Package,
+  Settings,
+  Columns3,
+} from 'lucide-react-native';
 type Nav = NativeStackNavigationProp<OperationsStackParams>;
 
 const SECTIONS = [
   {
     label: 'PROJECTS',
-    icon: 'briefcase',
+    icon: Briefcase,
     route: 'Projects',
     color: Colors.primary,
     desc: 'Manage all projects',
   },
   {
     label: 'TASKS',
-    icon: 'tasks',
+    icon: ListChecks,
     route: 'Tasks',
     color: Colors.primary,
     desc: 'Track team tasks',
   },
   {
     label: 'JOURNEY',
-    icon: 'map',
+    icon: Map,
     route: 'Journey',
     color: Colors.primary,
     desc: 'Client journey timeline',
   },
   {
     label: 'INVENTORY',
-    icon: 'box',
+    icon: Package,
     route: 'Inventory',
     color: Colors.primary,
     desc: 'Stock and assets',
   },
   {
     label: 'SERVICES',
-    icon: 'cogs',
+    icon: Settings,
     route: 'Services',
     color: Colors.primary,
     desc: 'Service catalogue',
   },
   {
     label: 'TIMELINE',
-    icon: 'columns',
+    icon: Columns3,
     route: 'Timeline',
     color: Colors.secondary,
     desc: 'Project Kanban board',
@@ -132,7 +139,7 @@ const OperationsHomeScreen = () => {
             >
               <Row justify="space-between" align="center">
                 <Row align="center" gap={Spacing.md} style={{ flex: 1 }}>
-                  <Icon name={section.icon} size={28} color={section.color} />
+                  <section.icon size={28} color={section.color} />
                   <View>
                     <Text style={styles.sectionLabel}>{section.label}</Text>
                     <Text style={styles.sectionDesc}>{section.desc}</Text>

@@ -8,6 +8,7 @@ import {
   Modal,
   Alert,
   RefreshControl,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -23,6 +24,9 @@ import {
   Input,
   EmptyState,
   LoadingSpinner,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
 import { OperationsStackParams } from '../../navigation/types';
@@ -35,20 +39,34 @@ const STATUS_OPTS = [
   'on hold',
   'cancelled',
 ];
+const FILTER_OPTIONS = [
+  { label: 'All', value: 'all' },
+  ...STATUS_OPTS.map(s => ({ label: s.toUpperCase(), value: s })),
+];
+const SORT_OPTIONS = [
+  { label: 'Newest first', value: 'newest' },
+  { label: 'Name A-Z', value: 'name' },
+];
+const EMPTY_FORM = {
+  name: '',
+  clientId: '',
+  clientName: '',
+  status: 'active',
+  description: '',
+  amount: '',
+  deliveryDate: '',
+};
 
 const ProjectsScreen = () => {
   const navigation = useNavigation<Nav>();
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState('newest');
   const [showAdd, setShowAdd] = useState(false);
+  const [editing, setEditing] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);
-  const [form, setForm] = useState({
-    name: '',
-    clientName: '',
-    status: 'active',
-    description: '',
-  });
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const {
     data: projects = [],
@@ -59,15 +77,84 @@ const ProjectsScreen = () => {
     queryFn: () => projectsAPI.getAll().then(r => r.data),
   });
 
+  const { data: clients = [] } = useQuery({
+    queryKey: ['clients'],
+    queryFn: () => clientsAPI.getAll().then(r => r.data),
+  });
+
   const addMutation = useMutation({
     mutationFn: (data: any) => projectsAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['projects'] });
-      setShowAdd(false);
-      setForm({ name: '', clientName: '', status: 'active', description: '' });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to create project'),
   });
+
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      projectsAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['projects'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update project'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => projectsAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['projects'] }),
+  });
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      name: item.name || '',
+      clientId: item.clientId ? String(item.clientId) : '',
+      clientName: item.clientName || '',
+      status: item.status || 'active',
+      description: item.description || '',
+      amount: String(item.amount ?? ''),
+      deliveryDate: item.deliveryDate ? String(item.deliveryDate).slice(0, 10) : '',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Project', `Remove "${item.name}"?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteMutation.mutate(String(item._id || item.id)),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.name.trim()) {
+      Alert.alert('Error', 'Name required');
+      return;
+    }
+    const data = { ...form, amount: form.amount ? Number(form.amount) : 0 };
+    if (editing) {
+      updateMutation.mutate({ id: String(editing._id || editing.id), data });
+    } else {
+      addMutation.mutate(data);
+    }
+  };
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
@@ -75,7 +162,7 @@ const ProjectsScreen = () => {
     setRefreshing(false);
   }, [refetch]);
 
-  const filtered = Array.isArray(projects)
+  let filtered = Array.isArray(projects)
     ? projects.filter((p: any) => {
         const ms =
           !search ||
@@ -85,6 +172,15 @@ const ProjectsScreen = () => {
         return ms && mf;
       })
     : [];
+
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'name') return (a.name || '').localeCompare(b.name || '');
+    const da = new Date(a.createdAt || 0).getTime();
+    const db = new Date(b.createdAt || 0).getTime();
+    return db - da;
+  });
+
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -96,35 +192,22 @@ const ProjectsScreen = () => {
           onChangeText={setSearch}
           placeholder="Search projects..."
         />
-        <View style={styles.filterRow}>
-          {['all', ...STATUS_OPTS].map(s => (
-            <TouchableOpacity
-              key={s}
-              style={[styles.chip, filter === s && styles.chipActive]}
-              onPress={() => setFilter(s)}
-            >
-              <Text
-                style={[styles.chipText, filter === s && styles.chipTextActive]}
-              >
-                {s.toUpperCase().slice(0, 7)}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+        <FilterChips options={FILTER_OPTIONS} value={filter} onChange={setFilter} />
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.count}>{filtered.length} PROJECTS</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ ADD</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ ADD</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={item => String(item._id || item.id)}
           refreshControl={
@@ -138,10 +221,7 @@ const ProjectsScreen = () => {
             <EmptyState
               title="No Projects"
               subtitle="Create your first project"
-              action={{
-                label: '+ Add Project',
-                onPress: () => setShowAdd(true),
-              }}
+              action={{ label: '+ Add Project', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => (
@@ -174,6 +254,12 @@ const ProjectsScreen = () => {
                   </View>
                   <StatusBadge status={item.status || 'active'} />
                 </Row>
+                <Row justify="flex-end" style={{ marginTop: Spacing.sm }}>
+                  <RowActions
+                    onEdit={() => openEdit(item)}
+                    onDelete={() => confirmDelete(item)}
+                  />
+                </Row>
               </Card>
             </TouchableOpacity>
           )}
@@ -190,23 +276,56 @@ const ProjectsScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>NEW PROJECT</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT PROJECT' : 'NEW PROJECT'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
-          <View style={styles.modalContent}>
+          <ScrollView style={styles.modalContent} contentContainerStyle={{ paddingBottom: Spacing.xl }}>
             <Input
               label="PROJECT NAME *"
               value={form.name}
               onChangeText={v => setForm(p => ({ ...p, name: v }))}
               placeholder="e.g. Website Redesign"
             />
+            <Text style={styles.pickLabel}>CLIENT</Text>
+            <View style={styles.statusGrid}>
+              {(Array.isArray(clients) ? clients : []).map((c: any) => {
+                const id = String(c._id || c.id);
+                return (
+                  <TouchableOpacity
+                    key={id}
+                    style={[styles.statusChip, form.clientId === id && styles.statusChipActive]}
+                    onPress={() =>
+                      setForm(p => ({ ...p, clientId: id, clientName: c.name || '' }))
+                    }
+                  >
+                    <Text
+                      style={[
+                        styles.statusChipText,
+                        form.clientId === id && styles.statusChipTextActive,
+                      ]}
+                    >
+                      {c.name}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
             <Input
-              label="CLIENT NAME"
-              value={form.clientName}
-              onChangeText={v => setForm(p => ({ ...p, clientName: v }))}
-              placeholder="Client company"
+              label="AMOUNT (₹)"
+              value={form.amount}
+              onChangeText={v => setForm(p => ({ ...p, amount: v }))}
+              keyboardType="numeric"
+              placeholder="Project value"
+            />
+            <Input
+              label="DELIVERY DATE"
+              value={form.deliveryDate}
+              onChangeText={v => setForm(p => ({ ...p, deliveryDate: v }))}
+              placeholder="YYYY-MM-DD"
             />
             <Input
               label="DESCRIPTION"
@@ -238,20 +357,14 @@ const ProjectsScreen = () => {
               ))}
             </View>
             <Button
-              label={addMutation.isPending ? 'CREATING...' : 'CREATE PROJECT'}
-              onPress={() => {
-                if (!form.name.trim()) {
-                  Alert.alert('Error', 'Name required');
-                  return;
-                }
-                addMutation.mutate(form);
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'CREATE PROJECT'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}
             />
-          </View>
+          </ScrollView>
         </SafeAreaView>
       </Modal>
     </SafeAreaView>

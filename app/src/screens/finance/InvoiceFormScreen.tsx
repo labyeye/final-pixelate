@@ -15,6 +15,7 @@ import {
   Input,
   Button,
   Row,
+  Card,
   LoadingSpinner,
   Divider,
 } from '../../components/common';
@@ -26,6 +27,9 @@ type Route = RouteProp<FinanceStackParams, 'InvoiceForm'>;
 type Nav = NativeStackNavigationProp<FinanceStackParams>;
 
 const STATUS_OPTIONS = ['unpaid', 'partial', 'paid'];
+
+type LineItem = { description: string; quantity: string; rate: string };
+const emptyLineItem = (): LineItem => ({ description: '', quantity: '1', rate: '0' });
 
 const InvoiceFormScreen = () => {
   const { params } = useRoute<Route>();
@@ -41,8 +45,27 @@ const InvoiceFormScreen = () => {
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('unpaid');
   const [dueDate, setDueDate] = useState('');
+  const [lineItems, setLineItems] = useState<LineItem[]>([emptyLineItem()]);
+  const [applyGst, setApplyGst] = useState(true);
+  const [gstPercent, setGstPercent] = useState('18');
+  const [discount, setDiscount] = useState('0');
 
   const [showClientPicker, setShowClientPicker] = useState(false);
+
+  const addLineItem = () => setLineItems(r => [...r, emptyLineItem()]);
+  const removeLineItem = (idx: number) =>
+    setLineItems(r => r.filter((_, i) => i !== idx));
+  const updateLineItem = (idx: number, patch: Partial<LineItem>) =>
+    setLineItems(r => r.map((row, i) => (i === idx ? { ...row, ...patch } : row)));
+
+  const subtotal = lineItems.reduce(
+    (s, r) => s + Number(r.rate || 0) * Number(r.quantity || 0),
+    0,
+  );
+  const discountAmt = Math.max(0, Number(discount || 0));
+  const taxable = Math.max(0, subtotal - discountAmt);
+  const tax = applyGst ? (taxable * Number(gstPercent || 0)) / 100 : 0;
+  const computedTotal = taxable + tax;
 
   // Fetch clients to auto-fill or pick
   const { data: clients = [], isLoading: loadingClients } = useQuery({
@@ -67,6 +90,18 @@ const InvoiceFormScreen = () => {
       setDescription(invoice.description || '');
       setStatus(invoice.status || 'unpaid');
       setDueDate(invoice.dueDate ? invoice.dueDate.slice(0, 10) : '');
+      setApplyGst(invoice.applyGst !== undefined ? !!invoice.applyGst : true);
+      setGstPercent(invoice.gstPercent ? String(invoice.gstPercent) : '18');
+      setDiscount(invoice.discount ? String(invoice.discount) : '0');
+      if (Array.isArray(invoice.lineItems) && invoice.lineItems.length) {
+        setLineItems(
+          invoice.lineItems.map((li: any) => ({
+            description: li.description || '',
+            quantity: String(li.quantity ?? 1),
+            rate: String(li.price ?? li.rate ?? 0),
+          })),
+        );
+      }
     }
   }, [invoice, isEdit]);
 
@@ -96,16 +131,36 @@ const InvoiceFormScreen = () => {
       return;
     }
 
+    const hasLineItems = lineItems.some(
+      li => li.description.trim() && Number(li.rate) > 0,
+    );
+    const finalAmount = hasLineItems ? computedTotal : Number(amount);
+    const apiLineItems = hasLineItems
+      ? lineItems
+          .filter(li => li.description.trim())
+          .map(li => ({
+            description: li.description,
+            quantity: Number(li.quantity || 1),
+            price: Number(li.rate || 0),
+            amount: Number(li.rate || 0) * Number(li.quantity || 1),
+          }))
+      : undefined;
+
     const payload = {
       clientName,
       clientId: clientId || undefined,
       invoiceNumber: invoiceNumber ? Number(invoiceNumber) : undefined,
-      amount: Number(amount),
-      total: Number(amount),
+      amount: finalAmount,
+      total: finalAmount,
       paidAmount: Number(paidAmount),
       status,
       description,
       dueDate: dueDate || undefined,
+      lineItems: apiLineItems,
+      applyGst,
+      gstPercent: Number(gstPercent || 0),
+      tax: hasLineItems ? tax : undefined,
+      discount: hasLineItems ? discountAmt : undefined,
     };
 
     saveMutation.mutate(payload);
@@ -176,11 +231,88 @@ const InvoiceFormScreen = () => {
           keyboardType="numeric"
         />
 
+        <Text style={styles.sectionLabel}>LINE ITEMS</Text>
+        {lineItems.map((row, idx) => (
+          <Card key={idx} style={styles.lineItemCard}>
+            <Input
+              label="DESCRIPTION"
+              value={row.description}
+              onChangeText={v => updateLineItem(idx, { description: v })}
+              placeholder="e.g. Design and Development Services"
+            />
+            <Row gap={8}>
+              <View style={{ flex: 1 }}>
+                <Input
+                  label="QTY"
+                  value={row.quantity}
+                  onChangeText={v => updateLineItem(idx, { quantity: v })}
+                  keyboardType="numeric"
+                />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Input
+                  label="RATE (₹)"
+                  value={row.rate}
+                  onChangeText={v => updateLineItem(idx, { rate: v })}
+                  keyboardType="numeric"
+                />
+              </View>
+            </Row>
+            {lineItems.length > 1 && (
+              <Button
+                label="REMOVE ROW"
+                variant="outline"
+                size="sm"
+                onPress={() => removeLineItem(idx)}
+              />
+            )}
+          </Card>
+        ))}
+        <Button
+          label="+ ADD ROW"
+          variant="outline"
+          onPress={addLineItem}
+          style={{ marginBottom: Spacing.md }}
+        />
+
+        <Row gap={8}>
+          <View style={{ flex: 1 }}>
+            <Input
+              label="DISCOUNT (₹)"
+              value={discount}
+              onChangeText={setDiscount}
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Input
+              label="GST %"
+              value={gstPercent}
+              onChangeText={setGstPercent}
+              keyboardType="numeric"
+              editable={applyGst}
+            />
+          </View>
+        </Row>
+        <TouchableOpacity
+          style={[styles.statusChip, applyGst && styles.statusChipActive, { marginBottom: Spacing.md }]}
+          onPress={() => setApplyGst(!applyGst)}
+        >
+          <Text style={[styles.statusChipText, applyGst && styles.statusChipTextActive]}>
+            {applyGst ? 'GST APPLIED ✓' : 'APPLY GST'}
+          </Text>
+        </TouchableOpacity>
+        {subtotal > 0 ? (
+          <Text style={styles.computedTotal}>
+            Computed Total: ₹{computedTotal.toLocaleString('en-IN')}
+          </Text>
+        ) : null}
+
         <Input
           label="TOTAL AMOUNT (₹) *"
           value={amount}
           onChangeText={setAmount}
-          placeholder="e.g. 15000"
+          placeholder="e.g. 15000 (used if no line items)"
           keyboardType="numeric"
         />
 
@@ -318,6 +450,19 @@ const styles = StyleSheet.create({
   },
   statusChipTextActive: {
     color: Colors.white,
+  },
+  lineItemCard: {
+    padding: Spacing.sm,
+    marginBottom: Spacing.sm,
+    backgroundColor: Colors.white,
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+  },
+  computedTotal: {
+    fontSize: Typography.sm,
+    fontWeight: Typography.black,
+    color: Colors.primary,
+    marginBottom: Spacing.sm,
   },
 });
 

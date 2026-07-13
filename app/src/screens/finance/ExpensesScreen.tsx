@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Modal,
   Alert,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -19,31 +20,75 @@ import {
   Input,
   EmptyState,
   LoadingSpinner,
+  FilterChips,
+  SortButton,
+  RowActions,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border, Shadows } from '../../theme';
 import { format } from 'date-fns';
 
 const CATEGORIES = [
-  'Office',
-  'Software',
-  'Marketing',
-  'Travel',
-  'Utilities',
-  'Salaries',
-  'Other',
+  { value: 'salary', label: 'Salary & Payroll' },
+  { value: 'inventory', label: 'Inventory & Stock' },
+  { value: 'office', label: 'Office & Rent' },
+  { value: 'software', label: 'Software & Subscriptions' },
+  { value: 'marketing', label: 'Marketing & Ads' },
+  { value: 'utilities', label: 'Utilities & Bills' },
+  { value: 'travel', label: 'Travel & Transport' },
+  { value: 'equipment', label: 'Equipment & Hardware' },
+  { value: 'freelancer', label: 'Freelancer & Contractor' },
+  { value: 'legal', label: 'Legal & Compliance' },
+  { value: 'food', label: 'Food & Entertainment' },
+  { value: 'miscellaneous', label: 'Miscellaneous' },
 ];
+
+const PAYMENT_METHODS = [
+  { value: 'cash', label: 'Cash' },
+  { value: 'bank_transfer', label: 'Bank Transfer' },
+  { value: 'upi', label: 'UPI' },
+  { value: 'credit_card', label: 'Credit Card' },
+  { value: 'debit_card', label: 'Debit Card' },
+  { value: 'cheque', label: 'Cheque' },
+  { value: 'other', label: 'Other' },
+];
+
+const STATUSES = [
+  { value: 'paid', label: 'Paid' },
+  { value: 'pending', label: 'Pending' },
+  { value: 'cancelled', label: 'Cancelled' },
+];
+
+const CATEGORY_FILTERS = [
+  { label: 'All', value: 'all' },
+  ...CATEGORIES.map(c => ({ label: c.label, value: c.value })),
+];
+
+const SORT_OPTIONS = [
+  { label: 'Newest first', value: 'newest' },
+  { label: 'Amount high-low', value: 'amount' },
+  { label: 'Title A-Z', value: 'title' },
+];
+
+const EMPTY_FORM = {
+  title: '',
+  amount: '',
+  category: 'office',
+  paymentMethod: 'cash',
+  status: 'paid',
+  vendor: '',
+  reference: '',
+  date: '',
+  note: '',
+};
 
 const ExpensesScreen = () => {
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [sort, setSort] = useState('newest');
   const [showAdd, setShowAdd] = useState(false);
-  const [form, setForm] = useState({
-    title: '',
-    amount: '',
-    category: 'Office',
-    date: '',
-    notes: '',
-  });
+  const [editing, setEditing] = useState<any>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
 
   const { data: expenses = [], isLoading } = useQuery({
     queryKey: ['expenses'],
@@ -54,27 +99,98 @@ const ExpensesScreen = () => {
     mutationFn: (data: any) => expensesAPI.create(data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['expenses'] });
-      setShowAdd(false);
-      setForm({
-        title: '',
-        amount: '',
-        category: 'Office',
-        date: '',
-        notes: '',
-      });
+      closeForm();
     },
     onError: () => Alert.alert('Error', 'Failed to add expense'),
   });
 
+  const updateMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      expensesAPI.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['expenses'] });
+      closeForm();
+    },
+    onError: () => Alert.alert('Error', 'Failed to update expense'),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => expensesAPI.delete(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['expenses'] }),
+  });
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm(EMPTY_FORM);
+    setShowAdd(true);
+  };
+
+  const openEdit = (item: any) => {
+    setEditing(item);
+    setForm({
+      title: item.title || '',
+      amount: String(item.amount ?? ''),
+      category: item.category || 'office',
+      paymentMethod: item.paymentMethod || 'cash',
+      status: item.status || 'paid',
+      vendor: item.vendor || '',
+      reference: item.reference || '',
+      date: item.date || '',
+      note: item.note || '',
+    });
+    setShowAdd(true);
+  };
+
+  const closeForm = () => {
+    setShowAdd(false);
+    setEditing(null);
+    setForm(EMPTY_FORM);
+  };
+
+  const confirmDelete = (item: any) => {
+    Alert.alert('Delete Expense', `Remove "${item.title}"?`, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteMutation.mutate(item._id),
+      },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    if (!form.title.trim() || !form.amount) {
+      Alert.alert('Error', 'Title and amount required');
+      return;
+    }
+    const data = { ...form, amount: Number(form.amount) };
+    if (editing) {
+      updateMutation.mutate({ id: editing._id, data });
+    } else {
+      addMutation.mutate(data);
+    }
+  };
+
   if (isLoading) return <LoadingSpinner />;
 
-  const filtered = Array.isArray(expenses)
+  let filtered = Array.isArray(expenses)
     ? expenses.filter(
         (e: any) =>
-          !search || e.title?.toLowerCase().includes(search.toLowerCase()),
+          (!search || e.title?.toLowerCase().includes(search.toLowerCase())) &&
+          (categoryFilter === 'all' || e.category === categoryFilter),
       )
     : [];
+
+  filtered = [...filtered].sort((a: any, b: any) => {
+    if (sort === 'title') return (a.title || '').localeCompare(b.title || '');
+    if (sort === 'amount') return (b.amount || 0) - (a.amount || 0);
+    const da = new Date(a.date || a.createdAt || 0).getTime();
+    const db = new Date(b.date || b.createdAt || 0).getTime();
+    return db - da;
+  });
+
   const total = filtered.reduce((s: number, e: any) => s + (e.amount || 0), 0);
+  const saving = addMutation.isPending || updateMutation.isPending;
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -90,30 +206,33 @@ const ExpensesScreen = () => {
           onChangeText={setSearch}
           placeholder="Search expenses..."
         />
+        <FilterChips
+          options={CATEGORY_FILTERS}
+          value={categoryFilter}
+          onChange={setCategoryFilter}
+        />
         <Row
           justify="space-between"
           align="center"
           style={{ marginBottom: Spacing.sm }}
         >
           <Text style={styles.count}>{filtered.length} EXPENSES</Text>
-          <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => setShowAdd(true)}
-          >
-            <Text style={styles.addBtnText}>+ ADD</Text>
-          </TouchableOpacity>
+          <Row gap={8} align="center">
+            <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+            <TouchableOpacity style={styles.addBtn} onPress={openCreate}>
+              <Text style={styles.addBtnText}>+ ADD</Text>
+            </TouchableOpacity>
+          </Row>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={
             <EmptyState
               title="No Expenses"
               subtitle="Track your business expenses"
-              action={{
-                label: '+ Add Expense',
-                onPress: () => setShowAdd(true),
-              }}
+              action={{ label: '+ Add Expense', onPress: openCreate }}
             />
           }
           renderItem={({ item }) => (
@@ -138,13 +257,19 @@ const ExpensesScreen = () => {
                       )}
                     </Text>
                   ) : null}
-                  {item.notes ? (
-                    <Text style={styles.notes}>{item.notes}</Text>
+                  {item.note ? (
+                    <Text style={styles.notes}>{item.note}</Text>
                   ) : null}
                 </View>
                 <Text style={styles.amount}>
                   -₹{(item.amount || 0).toLocaleString('en-IN')}
                 </Text>
+              </Row>
+              <Row justify="flex-end" style={{ marginTop: Spacing.sm }}>
+                <RowActions
+                  onEdit={() => openEdit(item)}
+                  onDelete={() => confirmDelete(item)}
+                />
               </Row>
             </Card>
           )}
@@ -161,12 +286,14 @@ const ExpensesScreen = () => {
             align="center"
             style={styles.modalHeader}
           >
-            <Text style={styles.modalTitle}>ADD EXPENSE</Text>
-            <TouchableOpacity onPress={() => setShowAdd(false)}>
+            <Text style={styles.modalTitle}>
+              {editing ? 'EDIT EXPENSE' : 'ADD EXPENSE'}
+            </Text>
+            <TouchableOpacity onPress={closeForm}>
               <Text style={styles.modalClose}>✕ CANCEL</Text>
             </TouchableOpacity>
           </Row>
-          <View style={styles.modalContent}>
+          <ScrollView style={styles.modalContent} contentContainerStyle={{ paddingBottom: 40 }}>
             <Input
               label="TITLE *"
               value={form.title}
@@ -186,48 +313,98 @@ const ExpensesScreen = () => {
               placeholder="2025-02-01"
             />
             <Input
+              label="VENDOR / PAID TO"
+              value={form.vendor}
+              onChangeText={v => setForm(p => ({ ...p, vendor: v }))}
+              placeholder="e.g. Amazon, Employee Name..."
+            />
+            <Input
+              label="REFERENCE / INVOICE NO."
+              value={form.reference}
+              onChangeText={v => setForm(p => ({ ...p, reference: v }))}
+              placeholder="e.g. INV-001, TXN-9823..."
+            />
+            <Input
               label="NOTES"
-              value={form.notes}
-              onChangeText={v => setForm(p => ({ ...p, notes: v }))}
+              value={form.note}
+              onChangeText={v => setForm(p => ({ ...p, note: v }))}
               placeholder="Additional details..."
             />
             <Text style={styles.pickLabel}>CATEGORY</Text>
             <View style={styles.catGrid}>
               {CATEGORIES.map(c => (
                 <TouchableOpacity
-                  key={c}
+                  key={c.value}
                   style={[
                     styles.catChip,
-                    form.category === c && styles.catChipActive,
+                    form.category === c.value && styles.catChipActive,
                   ]}
-                  onPress={() => setForm(p => ({ ...p, category: c }))}
+                  onPress={() => setForm(p => ({ ...p, category: c.value }))}
                 >
                   <Text
                     style={[
                       styles.catChipText,
-                      form.category === c && styles.catChipTextActive,
+                      form.category === c.value && styles.catChipTextActive,
                     ]}
                   >
-                    {c}
+                    {c.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <Text style={styles.pickLabel}>PAYMENT METHOD</Text>
+            <View style={styles.catGrid}>
+              {PAYMENT_METHODS.map(m => (
+                <TouchableOpacity
+                  key={m.value}
+                  style={[
+                    styles.catChip,
+                    form.paymentMethod === m.value && styles.catChipActive,
+                  ]}
+                  onPress={() => setForm(p => ({ ...p, paymentMethod: m.value }))}
+                >
+                  <Text
+                    style={[
+                      styles.catChipText,
+                      form.paymentMethod === m.value && styles.catChipTextActive,
+                    ]}
+                  >
+                    {m.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <Text style={styles.pickLabel}>STATUS</Text>
+            <View style={styles.catGrid}>
+              {STATUSES.map(s => (
+                <TouchableOpacity
+                  key={s.value}
+                  style={[
+                    styles.catChip,
+                    form.status === s.value && styles.catChipActive,
+                  ]}
+                  onPress={() => setForm(p => ({ ...p, status: s.value }))}
+                >
+                  <Text
+                    style={[
+                      styles.catChipText,
+                      form.status === s.value && styles.catChipTextActive,
+                    ]}
+                  >
+                    {s.label}
                   </Text>
                 </TouchableOpacity>
               ))}
             </View>
             <Button
-              label={addMutation.isPending ? 'ADDING...' : 'ADD EXPENSE'}
-              onPress={() => {
-                if (!form.title.trim() || !form.amount) {
-                  Alert.alert('Error', 'Title and amount required');
-                  return;
-                }
-                addMutation.mutate({ ...form, amount: Number(form.amount) });
-              }}
-              loading={addMutation.isPending}
+              label={saving ? 'SAVING...' : editing ? 'SAVE CHANGES' : 'ADD EXPENSE'}
+              onPress={handleSubmit}
+              loading={saving}
               fullWidth
               size="lg"
               style={{ marginTop: Spacing.base }}
             />
-          </View>
+          </ScrollView>
         </SafeAreaView>
       </Modal>
     </SafeAreaView>

@@ -68,6 +68,7 @@ const WhatsAppInboxScreen = () => {
         />
         <Text style={styles.count}>{convList.length} CONVERSATIONS</Text>
         <FlatList
+          style={{ flex: 1 }}
           data={convList}
           keyExtractor={item => item.phone}
           ListEmptyComponent={

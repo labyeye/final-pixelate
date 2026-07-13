@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RouteProp, useRoute } from '@react-navigation/native';
-import { useQuery } from '@tanstack/react-query';
+import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { quotationsAPI } from '../../api';
 import {
   Card,
@@ -10,19 +11,39 @@ import {
   StatusBadge,
   Divider,
   LoadingSpinner,
+  Button,
 } from '../../components/common';
 import { Colors, Typography, Spacing } from '../../theme';
 import { FinanceStackParams } from '../../navigation/types';
 import { format } from 'date-fns';
 
 type Route = RouteProp<FinanceStackParams, 'QuotationDetail'>;
+type Nav = NativeStackNavigationProp<FinanceStackParams>;
 
 const QuotationDetailScreen = () => {
   const { params } = useRoute<Route>();
+  const navigation = useNavigation<Nav>();
+  const qc = useQueryClient();
   const { data: q, isLoading } = useQuery({
     queryKey: ['quotation', params.id],
     queryFn: () => quotationsAPI.getById(params.id).then(r => r.data),
   });
+
+  const deleteMutation = useMutation({
+    mutationFn: () => quotationsAPI.delete(params.id),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['quotations'] });
+      navigation.goBack();
+    },
+    onError: () => Alert.alert('Error', 'Failed to delete quotation'),
+  });
+
+  const confirmDelete = () => {
+    Alert.alert('Delete Quotation', `Remove QT-${q?.quotationNumber || ''}?`, [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Delete', style: 'destructive', onPress: () => deleteMutation.mutate() },
+    ]);
+  };
 
   if (isLoading) return <LoadingSpinner />;
   if (!q)
@@ -101,6 +122,22 @@ const QuotationDetailScreen = () => {
             <Text style={styles.notes}>{q.notes}</Text>
           </Card>
         ) : null}
+
+        <Row gap={Spacing.sm} style={{ marginTop: Spacing.sm }}>
+          <Button
+            label="EDIT QUOTATION"
+            variant="outline"
+            onPress={() => navigation.navigate('QuotationForm', { id: params.id })}
+            style={{ flex: 1 }}
+          />
+          <Button
+            label="DELETE QUOTATION"
+            variant="destructive"
+            onPress={confirmDelete}
+            loading={deleteMutation.isPending}
+            style={{ flex: 1 }}
+          />
+        </Row>
       </ScrollView>
     </SafeAreaView>
   );

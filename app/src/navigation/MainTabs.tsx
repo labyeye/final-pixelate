@@ -1,7 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  LayoutDashboard,
+  Users,
+  Briefcase,
+  Wallet,
+  MoreHorizontal,
+  LucideIcon,
+} from 'lucide-react-native';
 import { BottomTabParams } from './types';
 import { Colors, Typography, Border, Shadows } from '../theme';
 import HomeStack from './HomeStack';
@@ -14,19 +21,15 @@ const Tab = createBottomTabNavigator<BottomTabParams>();
 
 const TabIcon = ({
   label,
-  iconName,
+  Icon,
   focused,
 }: {
   label: string;
-  iconName: string;
+  Icon: LucideIcon;
   focused: boolean;
 }) => (
   <View style={[styles.tabItem, focused && styles.tabItemActive]}>
-    <Icon
-      name={iconName}
-      size={22}
-      color={focused ? Colors.primary : Colors.gray400}
-    />
+    <Icon size={22} color={focused ? Colors.primary : Colors.gray400} />
     <Text style={[styles.tabLabel, focused && styles.tabLabelActive]}>
       {label}
     </Text>
@@ -46,7 +49,7 @@ const MainTabs = () => (
       component={HomeStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="HOME" iconName="view-dashboard" focused={focused} />
+          <TabIcon label="HOME" Icon={LayoutDashboard} focused={focused} />
         ),
       }}
     />
@@ -55,7 +58,7 @@ const MainTabs = () => (
       component={CRMStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="CRM" iconName="account-group" focused={focused} />
+          <TabIcon label="CRM" Icon={Users} focused={focused} />
         ),
       }}
     />
@@ -64,7 +67,7 @@ const MainTabs = () => (
       component={OperationsStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="WORK" iconName="briefcase" focused={focused} />
+          <TabIcon label="WORK" Icon={Briefcase} focused={focused} />
         ),
       }}
     />
@@ -73,7 +76,7 @@ const MainTabs = () => (
       component={FinanceStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="FINANCE" iconName="wallet" focused={focused} />
+          <TabIcon label="FINANCE" Icon={Wallet} focused={focused} />
         ),
       }}
     />
@@ -82,11 +85,7 @@ const MainTabs = () => (
       component={MoreStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon
-            label="MORE"
-            iconName="dots-horizontal-circle"
-            focused={focused}
-          />
+          <TabIcon label="MORE" Icon={MoreHorizontal} focused={focused} />
         ),
       }}
     />

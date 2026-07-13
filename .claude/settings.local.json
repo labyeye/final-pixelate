@@ -29,7 +29,9 @@
       "Bash(curl -s --max-time 10 https://hrms-backend.pixelatenest.com/api/auth/login -X POST -H \"Content-Type: application/json\" -d '{\"test\": true}')",
       "Read(//Users/labh/Desktop/Projects/**)",
       "Bash(node -e ' *)",
-      "Bash(xargs grep -rL \"pagead2.googlesyndication.com\")"
+      "Bash(xargs grep -rL \"pagead2.googlesyndication.com\")",
+      "Bash(xargs -I{} sh -c 'echo ==={}===; cat {}')",
+      "Bash(xargs -I{} sh -c 'echo --{}--; cat {}')"
     ],
     "additionalDirectories": [
       "/Users/labh/Desktop/Projects/final-pixelate/dashboard/src/app/api/social-media-tasks",

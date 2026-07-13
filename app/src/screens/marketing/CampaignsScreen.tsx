@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery } from '@tanstack/react-query';
@@ -9,18 +9,38 @@ import {
   EmptyState,
   LoadingSpinner,
   SectionHeader,
+  SortButton,
 } from '../../components/common';
 import { Colors, Typography, Spacing, Border } from '../../theme';
 import { format } from 'date-fns';
 
+const SORT_OPTIONS = [
+  { label: 'Newest first', value: 'newest' },
+  { label: 'Most sent', value: 'sent' },
+  { label: 'Highest read rate', value: 'readRate' },
+];
+
 const CampaignsScreen = () => {
+  const [sort, setSort] = useState('newest');
   const { data: campaigns = [], isLoading } = useQuery({
     queryKey: ['campaigns'],
     queryFn: () => campaignsAPI.getAll().then(r => r.data),
   });
 
   if (isLoading) return <LoadingSpinner />;
-  const items = Array.isArray(campaigns) ? campaigns : [];
+  const readRate = (c: any) =>
+    (c.readCount || 0) / (c.sentCount || c.totalSent || 1);
+
+  const items = [...(Array.isArray(campaigns) ? campaigns : [])].sort(
+    (a: any, b: any) => {
+      if (sort === 'sent')
+        return (b.sentCount || b.totalSent || 0) - (a.sentCount || a.totalSent || 0);
+      if (sort === 'readRate') return readRate(b) - readRate(a);
+      const da = new Date(a.createdAt || 0).getTime();
+      const db = new Date(b.createdAt || 0).getTime();
+      return db - da;
+    },
+  );
 
   const totalSent = items.reduce(
     (s: number, c: any) => s + (c.sentCount || c.totalSent || 0),
@@ -53,12 +73,17 @@ const CampaignsScreen = () => {
           </View>
         </View>
 
-        <SectionHeader
-          title={`CAMPAIGNS (${items.length})`}
-          style={{ marginTop: Spacing.base }}
-        />
+        <Row
+          justify="space-between"
+          align="center"
+          style={{ marginTop: Spacing.base, marginBottom: Spacing.sm }}
+        >
+          <SectionHeader title={`CAMPAIGNS (${items.length})`} style={{ marginBottom: 0 }} />
+          <SortButton options={SORT_OPTIONS} value={sort} onChange={setSort} />
+        </Row>
 
         <FlatList
+          style={{ flex: 1 }}
           data={items}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

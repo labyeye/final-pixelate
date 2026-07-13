@@ -99,7 +99,11 @@ export const Spacing = {
 
 export const Border = {
   width: 2,
-  widthHeavy: 3,
+  widthHeavy: 2,
   widthBold: 2,
-  radius: 0,
+  'no-radius': 0,
+  'radius-sm': 4,
+  'radius-md': 8,
+  'radius-lg': 16,    
+  'radius-large': 50,
 };

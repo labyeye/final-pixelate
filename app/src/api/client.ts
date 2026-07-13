@@ -1,7 +1,9 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const BASE_URL = 'http://localhost:9002/api';
+const BASE_URL = __DEV__
+  ? 'http://192.168.1.131:9002/api'
+  : 'https://backend.pixelatenest.com/api';
 
 const apiClient = axios.create({
   baseURL: BASE_URL,

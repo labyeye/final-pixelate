@@ -72,6 +72,7 @@ const PhotosScreen = () => {
         ) : null}
         <Text style={styles.count}>{filtered.length} PHOTOS</Text>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

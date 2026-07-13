@@ -10,38 +10,31 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useQuery } from '@tanstack/react-query';
-import { leadsAPI, clientsAPI, enquiriesAPI, reviewsAPI } from '../../api';
+import { clientsAPI, enquiriesAPI, reviewsAPI } from '../../api';
 import { Card, StatCard, SectionHeader, Row } from '../../components/common';
 import { Colors, Typography, Spacing, Shadows, Border } from '../../theme';
 import { CRMStackParams } from '../../navigation/types';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Users, Mail, Star, ChevronRight } from 'lucide-react-native';
 type Nav = NativeStackNavigationProp<CRMStackParams>;
 
 const SECTIONS = [
   {
-    label: 'LEADS',
-    icon: 'bar-chart',
-    route: 'Leads',
-    color: Colors.primary,
-    desc: 'Track and manage leads',
-  },
-  {
     label: 'CLIENTS',
-    icon: 'users',
+    icon: Users,
     route: 'Clients',
     color: Colors.primary,
     desc: 'All your clients',
   },
   {
     label: 'ENQUIRIES',
-    icon: 'envelope',
+    icon: Mail,
     route: 'Enquiries',
     color: Colors.primary,
     desc: 'Website enquiries',
   },
   {
     label: 'REVIEWS',
-    icon: 'star',
+    icon: Star,
     route: 'Reviews',
     color: Colors.primary,
     desc: 'Client reviews',
@@ -50,10 +43,6 @@ const SECTIONS = [
 
 const CRMHomeScreen = () => {
   const navigation = useNavigation<Nav>();
-  const { data: leads = [] } = useQuery({
-    queryKey: ['leads'],
-    queryFn: () => leadsAPI.getAll().then(r => r.data),
-  });
   const { data: clients = [] } = useQuery({
     queryKey: ['clients'],
     queryFn: () => clientsAPI.getAll().then(r => r.data),
@@ -68,7 +57,6 @@ const CRMHomeScreen = () => {
   });
 
   const counts: Record<string, number> = {
-    Leads: Array.isArray(leads) ? leads.length : 0,
     Clients: Array.isArray(clients) ? clients.length : 0,
     Enquiries: Array.isArray(enquiries) ? enquiries.length : 0,
     Reviews: Array.isArray(reviews) ? reviews.length : 0,
@@ -80,26 +68,22 @@ const CRMHomeScreen = () => {
         <SectionHeader title="CRM OVERVIEW" />
         <View style={styles.statsRow}>
           <StatCard
-            label="LEADS"
-            value={counts.Leads}
-            accent={Colors.primary}
-          />
-          <StatCard
             label="CLIENTS"
             value={counts.Clients}
-            accent={Colors.secondary}
+            accent={Colors.primary}
           />
-        </View>
-        <View style={[styles.statsRow, { marginTop: Spacing.sm }]}>
           <StatCard
             label="ENQUIRIES"
             value={counts.Enquiries}
             accent={Colors.secondary}
           />
+        </View>
+        <View style={[styles.statsRow, { marginTop: Spacing.sm }]}>
           <StatCard
             label="REVIEWS"
             value={counts.Reviews}
             accent={Colors.primary}
+            style={{ flexBasis: '100%' }}
           />
         </View>
 
@@ -119,17 +103,13 @@ const CRMHomeScreen = () => {
             >
               <Row justify="space-between" align="center">
                 <View style={styles.sectionLeft}>
-                  <Icon name={section.icon} size={28} color={section.color} />
+                  <section.icon size={28} color={section.color} />
                   <View>
                     <Text style={styles.sectionLabel}>{section.label}</Text>
                     <Text style={styles.sectionDesc}>{section.desc}</Text>
                   </View>
                 </View>
-                <View
-                  style={[styles.countBadge, { backgroundColor: Colors.white }]}
-                >
-                  <Text style={styles.countText}>{counts[section.label]}</Text>
-                </View>
+                <ChevronRight size={20} color={section.color} />
               </Row>
             </Card>
           </TouchableOpacity>
@@ -150,7 +130,6 @@ const styles = StyleSheet.create({
     gap: Spacing.md,
     flex: 1,
   },
-  sectionEmoji: { fontSize: 28 },
   sectionLabel: {
     fontSize: Typography.lg,
     fontWeight: Typography.black,
@@ -161,20 +140,6 @@ const styles = StyleSheet.create({
     color: Colors.mutedForeground,
     fontWeight: Typography.medium,
     marginTop: 1,
-  },
-  countBadge: {
-    minWidth: 40,
-    height: 40,
-    borderWidth: Border.width,
-    borderColor: Colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 8,
-  },
-  countText: {
-    fontSize: Typography.lg,
-    fontWeight: Typography.black,
-    color: Colors.primary,
   },
 });
 

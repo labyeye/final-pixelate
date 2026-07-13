@@ -134,6 +134,7 @@ const WhatsAppWebhookScreen = () => {
         </Text>
 
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item: any, i) => String(item._id || i)}
           refreshControl={

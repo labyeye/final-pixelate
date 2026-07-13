@@ -102,7 +102,7 @@ const SupportScreen = () => {
               <Text
                 style={[styles.chipText, filter === s && styles.chipTextActive]}
               >
-                {s.toUpperCase().slice(0, 7)}
+                {s.toUpperCase()}
               </Text>
             </TouchableOpacity>
           ))}
@@ -121,6 +121,7 @@ const SupportScreen = () => {
           </TouchableOpacity>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={filtered}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

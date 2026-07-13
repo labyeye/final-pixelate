@@ -32,6 +32,7 @@ const ReelsScreen = () => {
       <View style={styles.container}>
         <Text style={styles.count}>{list.length} REEL COLLECTIONS</Text>
         <FlatList
+          style={{ flex: 1 }}
           data={list}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

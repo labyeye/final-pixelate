@@ -109,6 +109,7 @@ const AboutTeamScreen = () => {
           <Button label="+ ADD" onPress={openAdd} size="sm" />
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={list}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

@@ -7,9 +7,7 @@ export const authAPI = {
 };
 
 export const dashboardAPI = {
-  getStats: () => api.get('/dashboard/stats'),
   getReports: () => api.get('/reports'),
-  getAnalytics: () => api.get('/analytics'),
   getUserActivity: () => api.get('/user-activity'),
 };
 
@@ -23,6 +21,10 @@ export const leadsAPI = {
 
 export const enquiriesAPI = {
   getAll: () => api.get('/enquiries'),
+  // Backend only accepts status/budget updates via ?id= query param, not a path param.
+  update: (id: string, data: { status?: string; budget?: number }) =>
+    api.patch(`/enquiries?id=${id}`, data),
+  delete: (id: string) => api.delete(`/enquiries?id=${id}`),
 };
 
 export const clientsAPI = {
@@ -64,6 +66,15 @@ export const paymentsAPI = {
   getById: (id: string) => api.get(`/payments/${id}`),
   create: (data: any) => api.post('/payments', data),
   update: (id: string, data: any) => api.patch(`/payments/${id}`, data),
+  delete: (id: string) => api.delete(`/payments/${id}`),
+};
+
+export const servicesAPI = {
+  getAll: () => api.get('/services'),
+  getById: (id: string) => api.get(`/services/${id}`),
+  create: (data: any) => api.post('/services', data),
+  update: (id: string, data: any) => api.put(`/services/${id}`, data),
+  delete: (id: string) => api.delete(`/services/${id}`),
 };
 
 export const expensesAPI = {

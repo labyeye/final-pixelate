@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -92,6 +93,34 @@ const SettingsScreen = () => {
               <Text style={styles.statusText}>CONFIGURE</Text>
             </View>
           </Row>
+        </Card>
+
+        <SectionHeader title="LEGAL" style={{ marginTop: Spacing.base }} />
+        <Card style={styles.card}>
+          <TouchableOpacity
+            onPress={() =>
+              Linking.openURL(
+                'https://www.pixelatenest.com/legal/privacy-policy.html',
+              )
+            }
+          >
+            <Row justify="space-between" style={styles.field}>
+              <Text style={styles.fieldLabel}>Privacy Policy</Text>
+              <Text style={styles.fieldValue}>›</Text>
+            </Row>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              Linking.openURL(
+                'https://www.pixelatenest.com/legal/terms-of-service.html',
+              )
+            }
+          >
+            <Row justify="space-between" style={[styles.field, { borderBottomWidth: 0 }]}>
+              <Text style={styles.fieldLabel}>Terms of Service</Text>
+              <Text style={styles.fieldValue}>›</Text>
+            </Row>
+          </TouchableOpacity>
         </Card>
       </ScrollView>
     </SafeAreaView>

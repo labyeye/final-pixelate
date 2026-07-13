@@ -87,6 +87,7 @@ const WorkGalleryScreen = () => {
         </View>
         <Text style={styles.count}>{list.length} PROJECTS</Text>
         <FlatList
+          style={{ flex: 1 }}
           data={list}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={

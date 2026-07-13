@@ -20,55 +20,65 @@ import {
 import { Card, StatCard, SectionHeader, Row } from '../../components/common';
 import { Colors, Typography, Spacing, Border } from '../../theme';
 import { FinanceStackParams } from '../../navigation/types';
+import {
+  Receipt,
+  CreditCard,
+  TrendingDown,
+  CalendarClock,
+  FileText,
+  Rocket,
+  Lock,
+  ChevronRight,
+} from 'lucide-react-native';
 
 type Nav = NativeStackNavigationProp<FinanceStackParams>;
 
 const SECTIONS = [
   {
     label: 'INVOICING',
-    emoji: '🧾',
+    icon: Receipt,
     route: 'Invoicing',
     color: Colors.primary,
     desc: 'Create & manage invoices',
   },
   {
     label: 'PAYMENTS',
-    emoji: '💳',
+    icon: CreditCard,
     route: 'Payments',
     color: Colors.success,
     desc: 'Payment records',
   },
   {
     label: 'EXPENSES',
-    emoji: '💸',
+    icon: TrendingDown,
     route: 'Expenses',
     color: Colors.destructive,
     desc: 'Track all expenses',
   },
   {
     label: 'EMI TRACKER',
-    emoji: '📅',
+    icon: CalendarClock,
     route: 'EMITracker',
     color: Colors.warning,
     desc: 'Loan & EMI management',
   },
   {
     label: 'QUOTATIONS',
-    emoji: '📄',
+    icon: FileText,
     route: 'Quotations',
     color: Colors.accent,
     desc: 'Send quotations',
   },
   {
     label: 'ONBOARDING',
-    emoji: '🚀',
+    icon: Rocket,
     route: 'Onboarding',
     color: Colors.secondary,
     desc: 'Client onboarding docs',
   },
   {
     label: 'NDA APPROVAL',
-    emoji: '🔒',
+    icon: Lock,
     route: 'NDAApproval',
     color: Colors.gray700,
     desc: 'NDA approvals',
@@ -145,13 +155,13 @@ const FinanceHomeScreen = () => {
             >
               <Row justify="space-between" align="center">
                 <Row align="center" gap={Spacing.md} style={{ flex: 1 }}>
-                  <Text style={styles.sectionEmoji}>{section.emoji}</Text>
+                  <section.icon size={28} color={section.color} />
                   <View>
                     <Text style={styles.sectionLabel}>{section.label}</Text>
                     <Text style={styles.sectionDesc}>{section.desc}</Text>
                   </View>
                 </Row>
-                <Text style={styles.arrow}>→</Text>
+                <ChevronRight size={20} color={section.color} />
               </Row>
             </Card>
           </TouchableOpacity>
@@ -166,7 +176,6 @@ const styles = StyleSheet.create({
   content: { padding: Spacing.base, paddingBottom: 24 },
   statsRow: { flexDirection: 'row', gap: Spacing.sm },
   sectionCard: { marginBottom: Spacing.sm, padding: Spacing.md },
-  sectionEmoji: { fontSize: 28 },
   sectionLabel: {
     fontSize: Typography.lg,
     fontWeight: Typography.black,
@@ -177,11 +186,6 @@ const styles = StyleSheet.create({
     color: Colors.mutedForeground,
     fontWeight: Typography.medium,
     marginTop: 1,
-  },
-  arrow: {
-    fontSize: Typography.xl,
-    fontWeight: Typography.black,
-    color: Colors.mutedForeground,
   },
 });
 

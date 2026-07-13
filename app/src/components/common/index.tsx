@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode, useRef, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -6,13 +6,63 @@ import {
   TextInput,
   ActivityIndicator,
   StyleSheet,
+  Animated,
+  ScrollView,
+  Modal,
   ViewStyle,
   TextStyle,
   TextInputProps,
   TouchableOpacityProps,
   StyleProp,
 } from 'react-native';
+import { Search, Edit2, Trash2, ChevronDown, Check } from 'lucide-react-native';
 import { Colors, Typography, Shadows, Spacing, Border } from '../../theme';
+
+// Fades + rises on mount, and springs down slightly on press. Shared by
+// Card/StatCard so every screen using them gets it for free.
+const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
+
+const usePressScale = () => {
+  const scale = useRef(new Animated.Value(1)).current;
+  const onPressIn = () =>
+    Animated.spring(scale, {
+      toValue: 0.97,
+      useNativeDriver: true,
+      speed: 40,
+      bounciness: 0,
+    }).start();
+  const onPressOut = () =>
+    Animated.spring(scale, {
+      toValue: 1,
+      useNativeDriver: true,
+      speed: 30,
+      bounciness: 6,
+    }).start();
+  return { scale, onPressIn, onPressOut };
+};
+
+const useMountIn = (delay = 0) => {
+  const anim = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(anim, {
+      toValue: 1,
+      duration: 280,
+      delay,
+      useNativeDriver: true,
+    }).start();
+  }, [anim, delay]);
+  return {
+    opacity: anim,
+    transform: [
+      {
+        translateY: anim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [10, 0],
+        }),
+      },
+    ],
+  };
+};
 
 interface CardProps {
   children: ReactNode;
@@ -21,32 +71,54 @@ interface CardProps {
   borderColor?: string;
   padding?: number;
   onPress?: () => void;
+  animateIn?: boolean;
 }
-
-import { ReactNode } from 'react';
 
 export const Card = ({
   children,
   style,
-  shadow = 'md',
+  shadow = 'none',
   borderColor = Colors.border,
   padding = Spacing.base,
   onPress,
+  animateIn = false,
 }: CardProps) => {
   const shadowStyle = shadow !== 'none' ? Shadows[shadow] : {};
-  const content = (
+  const mountStyle = useMountIn();
+  const { scale, onPressIn, onPressOut } = usePressScale();
+
+  const inner = (
     <View style={[styles.card, { borderColor, padding }, shadowStyle, style]}>
       {children}
     </View>
   );
+
+  // mountStyle only carries opacity/transform; without re-applying the
+  // caller's layout style here too, this wrapper (the actual flex child in
+  // the parent row) has no flex/width and sizes to content instead of
+  // stretching evenly like its sibling cards.
+  const wrapperStyle = animateIn ? [style, mountStyle] : undefined;
+
   if (onPress) {
     return (
-      <TouchableOpacity onPress={onPress} activeOpacity={0.85}>
-        {content}
-      </TouchableOpacity>
+      <Animated.View style={wrapperStyle}>
+        <AnimatedTouchable
+          onPress={onPress}
+          onPressIn={onPressIn}
+          onPressOut={onPressOut}
+          activeOpacity={0.9}
+          style={{ transform: [{ scale }] }}
+        >
+          {inner}
+        </AnimatedTouchable>
+      </Animated.View>
     );
   }
-  return content;
+  return animateIn ? (
+    <Animated.View style={wrapperStyle}>{inner}</Animated.View>
+  ) : (
+    inner
+  );
 };
 
 interface ButtonProps extends TouchableOpacityProps {
@@ -73,8 +145,12 @@ export const Button = ({
   fullWidth = false,
   style,
   disabled,
+  onPressIn,
+  onPressOut,
   ...props
 }: ButtonProps) => {
+  const { scale, onPressIn: pressIn, onPressOut: pressOut } = usePressScale();
+
   const bg = {
     primary: Colors.primary,
     secondary: Colors.secondary,
@@ -93,8 +169,6 @@ export const Button = ({
     success: Colors.white,
   }[variant];
 
-  const borderColor = variant === 'outline' ? Colors.border : 'transparent';
-
   const padV = { sm: 8, md: 12, lg: 16 }[size];
   const padH = { sm: 12, md: 16, lg: 24 }[size];
   const fontSize = {
@@ -104,7 +178,7 @@ export const Button = ({
   }[size];
 
   return (
-    <TouchableOpacity
+    <AnimatedTouchable
       style={[
         styles.button,
         {
@@ -115,12 +189,20 @@ export const Button = ({
           paddingHorizontal: padH,
           width: fullWidth ? '100%' : undefined,
           opacity: disabled ? 0.6 : 1,
+          transform: [{ scale }],
         },
-        !disabled && variant !== 'ghost' && Shadows.sm,
         style as ViewStyle,
       ]}
       disabled={disabled || loading}
-      activeOpacity={0.8}
+      activeOpacity={0.85}
+      onPressIn={e => {
+        pressIn();
+        onPressIn?.(e);
+      }}
+      onPressOut={e => {
+        pressOut();
+        onPressOut?.(e);
+      }}
       {...props}
     >
       {loading ? (
@@ -133,7 +215,7 @@ export const Button = ({
           </Text>
         </View>
       )}
-    </TouchableOpacity>
+    </AnimatedTouchable>
   );
 };
 
@@ -284,6 +366,8 @@ interface StatCardProps {
   accent?: string;
   icon?: ReactNode;
   onPress?: () => void;
+  sub?: string;
+  style?: StyleProp<ViewStyle>;
 }
 
 export const StatCard = ({
@@ -292,17 +376,23 @@ export const StatCard = ({
   accent = Colors.primary,
   icon,
   onPress,
+  sub,
+  style,
 }: StatCardProps) => (
   <Card
-    style={[styles.statCard, { borderLeftColor: accent, borderLeftWidth: 4 }]}
-    shadow="md"
+    style={[styles.statCard, style]}
+    shadow="none"
     onPress={onPress}
+    animateIn
   >
-    <View style={styles.statCardHeader}>
-      {icon && <View style={styles.statCardIcon}>{icon}</View>}
-    </View>
-    <Text style={[styles.statCardValue, { color: accent }]}>{value}</Text>
+    {icon && (
+      <View style={[styles.statCardIconChip, { backgroundColor: accent }]}>
+        {icon}
+      </View>
+    )}
+    <Text style={styles.statCardValue}>{value}</Text>
     <Text style={styles.statCardLabel}>{label}</Text>
+    {sub ? <Text style={styles.statCardSub}>{sub}</Text> : null}
   </Card>
 );
 
@@ -351,8 +441,6 @@ export const ScreenTitle = ({
   </View>
 );
 
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 export const SearchBar = ({
   value,
   onChangeText,
@@ -363,12 +451,7 @@ export const SearchBar = ({
   placeholder?: string;
 }) => (
   <View style={styles.searchBar}>
-    <Icon
-      name="magnify"
-      size={18}
-      color={Colors.gray400}
-      style={styles.searchIcon}
-    />
+    <Search size={18} color={Colors.gray400} style={styles.searchIcon} />
     <TextInput
       style={styles.searchInput}
       value={value}
@@ -379,14 +462,149 @@ export const SearchBar = ({
   </View>
 );
 
+interface RowActionsProps {
+  onEdit?: () => void;
+  onDelete?: () => void;
+  style?: StyleProp<ViewStyle>;
+}
+
+export const RowActions = ({ onEdit, onDelete, style }: RowActionsProps) => (
+  <View style={[styles.rowActions, style]}>
+    {onEdit && (
+      <TouchableOpacity
+        style={styles.rowActionBtn}
+        onPress={onEdit}
+        hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+      >
+        <Edit2 size={15} color={Colors.primary} />
+      </TouchableOpacity>
+    )}
+    {onDelete && (
+      <TouchableOpacity
+        style={styles.rowActionBtn}
+        onPress={onDelete}
+        hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+      >
+        <Trash2 size={15} color={Colors.destructive} />
+      </TouchableOpacity>
+    )}
+  </View>
+);
+
+interface ChipOption {
+  label: string;
+  value: string;
+}
+
+interface FilterChipsProps {
+  options: ChipOption[];
+  value: string;
+  onChange: (value: string) => void;
+  style?: StyleProp<ViewStyle>;
+}
+
+export const FilterChips = ({
+  options,
+  value,
+  onChange,
+  style,
+}: FilterChipsProps) => (
+  <ScrollView
+    horizontal
+    showsHorizontalScrollIndicator={false}
+    style={style}
+    contentContainerStyle={styles.filterChipsContent}
+  >
+    {options.map(opt => {
+      const active = opt.value === value;
+      return (
+        <TouchableOpacity
+          key={opt.value}
+          style={[styles.filterChip, active && styles.filterChipActive]}
+          onPress={() => onChange(opt.value)}
+          activeOpacity={0.8}
+        >
+          <Text
+            style={[
+              styles.filterChipText,
+              active && styles.filterChipTextActive,
+            ]}
+          >
+            {opt.label}
+          </Text>
+        </TouchableOpacity>
+      );
+    })}
+  </ScrollView>
+);
+
+interface SortButtonProps {
+  options: ChipOption[];
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export const SortButton = ({ options, value, onChange }: SortButtonProps) => {
+  const [open, setOpen] = useState(false);
+  const current = options.find(o => o.value === value);
+
+  return (
+    <>
+      <TouchableOpacity
+        style={styles.sortBtn}
+        onPress={() => setOpen(true)}
+        activeOpacity={0.8}
+      >
+        <Text style={styles.sortBtnText}>{current?.label || 'Sort'}</Text>
+        <ChevronDown size={14} color={Colors.foreground} />
+      </TouchableOpacity>
+      <Modal visible={open} transparent animationType="fade">
+        <TouchableOpacity
+          style={styles.sortOverlay}
+          activeOpacity={1}
+          onPress={() => setOpen(false)}
+        >
+          <View style={styles.sortSheet}>
+            <Text style={styles.sortSheetTitle}>SORT BY</Text>
+            {options.map(opt => {
+              const active = opt.value === value;
+              return (
+                <TouchableOpacity
+                  key={opt.value}
+                  style={styles.sortOption}
+                  onPress={() => {
+                    onChange(opt.value);
+                    setOpen(false);
+                  }}
+                  activeOpacity={0.7}
+                >
+                  <Text
+                    style={[
+                      styles.sortOptionText,
+                      active && styles.sortOptionTextActive,
+                    ]}
+                  >
+                    {opt.label}
+                  </Text>
+                  {active && <Check size={16} color={Colors.primary} />}
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        </TouchableOpacity>
+      </Modal>
+    </>
+  );
+};
+
 const styles = StyleSheet.create({
   card: {
     backgroundColor: Colors.card,
     borderWidth: Border.width,
-    borderRadius: Border.radius,
+    borderRadius: Border['radius-lg'],
   },
   button: {
-    borderRadius: Border.radius,
+    borderRadius: Border['radius-lg'],
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: Border.width,
@@ -401,7 +619,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.bold,
     letterSpacing: 0.5,
   },
-  inputContainer: { marginBottom: Spacing.md },
+  inputContainer: { marginBottom: Spacing.md, borderRadius: 50 },
   inputLabel: {
     fontSize: Typography.sm,
     fontWeight: Typography.semiBold,
@@ -414,7 +632,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: Border.widthHeavy,
     borderColor: Colors.border,
-    borderRadius: Border.radius,
+    borderRadius: Border['radius-lg'],
     backgroundColor: Colors.background,
     paddingHorizontal: Spacing.md,
   },
@@ -437,16 +655,16 @@ const styles = StyleSheet.create({
   badge: {
     paddingHorizontal: 8,
     paddingVertical: 3,
-    borderRadius: Border.radius,
-    borderWidth: 1,
+    borderRadius: Border['radius-lg'],
+    borderWidth: 2,
     borderColor: Colors.border,
     alignSelf: 'flex-start',
   },
   badgeText: {
     fontSize: Typography.xs,
-    fontWeight: Typography.bold,
+    fontWeight: Typography.black,
     letterSpacing: 0.3,
-    textTransform: 'capitalize',
+    textTransform: 'uppercase',
   },
   emptyState: {
     flex: 1,
@@ -480,10 +698,11 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.md,
   },
   sectionHeaderTitle: {
-    fontSize: Typography.lg,
+    fontSize: Typography.xs,
     fontWeight: Typography.black,
-    color: Colors.foreground,
-    letterSpacing: -0.3,
+    color: Colors.mutedForeground,
+    textTransform: 'uppercase',
+    letterSpacing: 0.8,
   },
   sectionHeaderAction: {
     fontSize: Typography.sm,
@@ -494,24 +713,32 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 140,
   },
-  statCardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+  statCardIconChip: {
+    width: 36,
+    height: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: Border.width,
+    borderColor: Colors.border,
     marginBottom: Spacing.sm,
   },
-  statCardIcon: {},
   statCardValue: {
     fontSize: Typography['3xl'],
     fontWeight: Typography.black,
+    color: Colors.foreground,
     letterSpacing: -1,
   },
   statCardLabel: {
     fontSize: Typography.sm,
-    fontWeight: Typography.semiBold,
+    fontWeight: Typography.bold,
+    color: Colors.foreground,
+    marginTop: 2,
+  },
+  statCardSub: {
+    fontSize: Typography.xs,
+    fontWeight: Typography.medium,
     color: Colors.mutedForeground,
     marginTop: 2,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
   },
   divider: {
     height: 2,
@@ -536,11 +763,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: Border.widthHeavy,
     borderColor: Colors.border,
-    borderRadius: Border.radius,
+    borderRadius: Border['radius-lg'],
     backgroundColor: Colors.background,
     marginBottom: Spacing.base,
     paddingHorizontal: Spacing.md,
-    ...Shadows.sm,
   },
   searchIcon: { marginRight: 8 },
   searchInput: {
@@ -548,5 +774,97 @@ const styles = StyleSheet.create({
     fontSize: Typography.base,
     color: Colors.foreground,
     fontWeight: Typography.medium,
+  },
+
+  // RowActions
+  rowActions: { flexDirection: 'row', gap: 8 },
+  rowActionBtn: {
+    width: 28,
+    height: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+    backgroundColor: Colors.background,
+  },
+
+  // FilterChips
+  filterChipsContent: {
+    gap: 8,
+    paddingBottom: Spacing.sm,
+  },
+  filterChip: {
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+    backgroundColor: Colors.background,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  filterChipActive: {
+    backgroundColor: Colors.primary,
+  },
+  filterChipText: {
+    fontSize: Typography.xs,
+    fontWeight: Typography.bold,
+    color: Colors.foreground,
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  filterChipTextActive: { color: Colors.white },
+
+  // SortButton
+  sortBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+    backgroundColor: Colors.background,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    alignSelf: 'flex-start',
+  },
+  sortBtnText: {
+    fontSize: Typography.xs,
+    fontWeight: Typography.bold,
+    color: Colors.foreground,
+    textTransform: 'uppercase',
+  },
+  sortOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'flex-end',
+  },
+  sortSheet: {
+    backgroundColor: Colors.background,
+    borderTopWidth: Border.widthBold,
+    borderColor: Colors.border,
+    padding: Spacing.base,
+    paddingBottom: Spacing.xl,
+  },
+  sortSheetTitle: {
+    fontSize: Typography.xs,
+    fontWeight: Typography.black,
+    color: Colors.mutedForeground,
+    textTransform: 'uppercase',
+    letterSpacing: 0.8,
+    marginBottom: Spacing.sm,
+  },
+  sortOption: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderTopWidth: 1,
+    borderTopColor: Colors.gray200,
+  },
+  sortOptionText: {
+    fontSize: Typography.base,
+    fontWeight: Typography.medium,
+    color: Colors.foreground,
+  },
+  sortOptionTextActive: {
+    fontWeight: Typography.bold,
+    color: Colors.primary,
   },
 });

@@ -102,6 +102,7 @@ const UsersScreen = () => {
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
       <FlatList
+        style={{ flex: 1 }}
         contentContainerStyle={styles.content}
         data={arr}
         keyExtractor={(item: any, i) => String(item._id || item.id || i)}

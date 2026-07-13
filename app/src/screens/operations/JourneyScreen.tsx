@@ -68,6 +68,7 @@ const JourneyScreen = () => {
           </TouchableOpacity>
         </Row>
         <FlatList
+          style={{ flex: 1 }}
           data={items}
           keyExtractor={(item, i) => String(item._id || i)}
           ListEmptyComponent={
