@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/lib/require-auth";
+import getDb from "@/lib/mongodb";
 
 function sanitisePhone(raw: string): string {
   return raw.replace(/\D/g, "");
@@ -81,6 +82,24 @@ export async function POST(req: NextRequest) {
 
     const messageId = (data as any)?.messages?.[0]?.id ?? null;
     console.info(`[whatsapp/send-template] Sent "${templateName}" to ${digits}, wamid: ${messageId}`);
+
+    try {
+      const db = await getDb();
+      await db.collection("whatsapp_messages").insertOne({
+        phone: digits,
+        contactName: null,
+        messageType: "sent",
+        message: `WhatsApp message sent via template: ${templateName}`,
+        templateName,
+        status: "sent",
+        messageId,
+        timestamp: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      } as any);
+    } catch (dbError) {
+      console.error("[whatsapp/send-template] Failed to save message to log:", dbError);
+    }
 
     return NextResponse.json({ success: true, messageId, to: digits });
   } catch (err: any) {

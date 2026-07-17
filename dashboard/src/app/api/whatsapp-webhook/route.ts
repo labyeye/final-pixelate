@@ -156,6 +156,10 @@ function handleStatusUpdate(status: WAStatus) {
       console.info(
         `[WA Webhook] SENT      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`,
       );
+
+      logSentMessage(wamid, recipient_id, ts).catch((e) =>
+        console.error("[WA Webhook] DB insert failed for SENT:", e),
+      );
       break;
 
     case "delivered":
@@ -204,6 +208,26 @@ function handleStatusUpdate(status: WAStatus) {
   }
 }
 
+async function logSentMessage(wamid: string, recipientId: string, ts: string) {
+  const col = await getCollection("whatsapp_messages");
+  await col.updateOne(
+    { messageId: wamid },
+    {
+      $setOnInsert: {
+        phone: recipientId,
+        messageType: "sent",
+        message: "WhatsApp message sent",
+        status: "sent",
+        messageId: wamid,
+        timestamp: new Date(ts),
+        createdAt: new Date(),
+      },
+      $set: { updatedAt: new Date() },
+    },
+    { upsert: true },
+  );
+}
+
 async function updateInvoiceWhatsAppStatus(
   wamid: string,
   status: string,
@@ -234,7 +258,7 @@ async function handleInboundMessage(
   );
 
   try {
-    const db = await getDb();
+    const col = await getCollection("whatsapp_messages");
     const incomingMsg = {
       phone: msg.from,
       contactName: senderName,
@@ -247,7 +271,7 @@ async function handleInboundMessage(
       createdAt: new Date(),
       updatedAt: new Date(),
     };
-    await db.collection("whatsapp_messages").insertOne(incomingMsg as any);
+    await col.insertOne(incomingMsg as any);
     console.info(
       `[WA Webhook] ✅ Stored incoming message from ${msg.from} (${senderName}) in inbox`,
     );

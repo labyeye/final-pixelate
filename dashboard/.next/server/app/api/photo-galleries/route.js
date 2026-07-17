@@ -1,8 +1,8 @@
 var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/photo-galleries/route.js")
-R.c("server/chunks/[root-of-the-server]__65137dfc._.js")
-R.c("server/chunks/node_modules_semver_fa4af7f7._.js")
-R.c("server/chunks/[root-of-the-server]__e7faf961._.js")
-R.c("server/chunks/_69059c6b._.js")
-R.c("server/chunks/_next-internal_server_app_api_photo-galleries_route_actions_9e52e4c6.js")
-R.m(524384)
-module.exports=R.m(524384).exports
+R.c("server/chunks/[root-of-the-server]__2fa4a460._.js")
+R.c("server/chunks/c729b_semver_38dea314._.js")
+R.c("server/chunks/[root-of-the-server]__9f86b0ac._.js")
+R.c("server/chunks/Desktop_Projects_final-pixelate_dashboard_f97ec1a3._.js")
+R.c("server/chunks/09130_dashboard__next-internal_server_app_api_photo-galleries_route_actions_26ed63fc.js")
+R.m(117982)
+module.exports=R.m(117982).exports
