@@ -208,14 +208,15 @@ export default function WhatsAppLogPage() {
     return true;
   });
 
-  const counts = entries.reduce(
-    (acc, e) => {
-      const s = e.status ?? "sent";
-      acc[s] = (acc[s] ?? 0) + 1;
-      return acc;
-    },
-    {} as Record<string, number>,
-  );
+  // Cumulative milestone counts: once delivered/read, still counts as delivered
+  const counts = {
+    sent: entries.length,
+    delivered: entries.filter(
+      (e) => e.deliveredAt || e.status === "delivered" || e.status === "read",
+    ).length,
+    read: entries.filter((e) => e.readAt || e.status === "read").length,
+    failed: entries.filter((e) => e.failedAt || e.status === "failed").length,
+  };
 
   const repliedCount = entries.filter((e) => !!e.replyText).length;
 

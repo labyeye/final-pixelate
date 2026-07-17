@@ -14,13 +14,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { apiFetch } from "@/lib/api-fetch";
@@ -28,7 +21,6 @@ import { Ticket, Plus, RefreshCw } from "lucide-react";
 import { StatCard } from "@/components/ui/stat-card";
 
 type DiscountType = "bonus_months" | "flat_rate" | "percent_off";
-type Tier = "standard" | "whatsapp";
 
 interface OfferCode {
   _id: string;
@@ -38,7 +30,6 @@ interface OfferCode {
   bonusMonths?: number;
   flatRate?: number;
   percentOff?: number;
-  applicableTier?: Tier | null;
   maxUses: number;
   usedCount: number;
   isActive: boolean;
@@ -52,7 +43,7 @@ const DISCOUNT_LABELS: Record<DiscountType, string> = {
   percent_off: "Percent Off",
 };
 
-const TIER_PRICE: Record<Tier, number> = { standard: 150, whatsapp: 300 };
+const RATE_PER_STUDENT = 150;
 
 function formatValue(offer: OfferCode) {
   if (offer.discountType === "bonus_months") {
@@ -71,7 +62,6 @@ const emptyForm = {
   bonusMonths: "",
   flatRate: "",
   percentOff: "",
-  applicableTier: "any" as "any" | Tier,
   maxUses: "200",
   expiresAt: "",
 };
@@ -124,7 +114,6 @@ export default function NestSportsCouponsPage() {
       discountType: form.discountType,
       maxUses: form.maxUses ? Number(form.maxUses) : undefined,
       expiresAt: form.expiresAt || undefined,
-      applicableTier: form.applicableTier === "any" ? undefined : form.applicableTier,
     };
     if (form.discountType === "bonus_months") body.bonusMonths = Number(form.bonusMonths);
     if (form.discountType === "flat_rate") body.flatRate = Number(form.flatRate);
@@ -180,18 +169,26 @@ export default function NestSportsCouponsPage() {
 
   return (
     <div className="space-y-8 font-headline">
-      <header>
-        <h1 className="text-3xl font-black tracking-tighter">NEST SPORTS COUPONS</h1>
-        <p className="text-muted-foreground text-sm">
-          Manage discount coupons for Nest Sports subscriptions.
-        </p>
+      <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        <div>
+          <h1 className="text-3xl font-black tracking-tighter">NEST SPORTS COUPONS</h1>
+          <p className="text-muted-foreground text-sm">
+            Manage discount coupons for Nest Sports subscriptions.
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button size="sm" variant="outline" onClick={fetchCoupons} disabled={loading}>
+            <RefreshCw className={cn("w-4 h-4 mr-1", loading && "animate-spin")} />
+            Refresh
+          </Button>
+        </div>
       </header>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard icon={Ticket} label="TOTAL COUPONS" value={coupons.length} sub={`${coupons.length} records`} iconVariant="primary" />
         <StatCard icon={Ticket} label="ACTIVE" value={active.length} sub={`${active.length} live`} iconVariant="secondary" />
         <StatCard icon={Ticket} label="TOTAL REDEMPTIONS" value={totalUses} sub="across all coupons" iconVariant="primary" />
-        <StatCard icon={Ticket} label="PRICING" value="₹150 / ₹300" sub="Standard / WhatsApp per student/yr" iconVariant="secondary" />
+        <StatCard icon={Ticket} label="PRICING" value="₹150" sub="per student/year, all features" iconVariant="secondary" />
       </div>
 
       {/* Create form */}
@@ -274,7 +271,7 @@ export default function NestSportsCouponsPage() {
                 required
               />
               <p className="text-xs text-muted-foreground">
-                Standard ₹150 → ₹{form.flatRate || "?"}, WhatsApp ₹300 → ₹{form.flatRate || "?"} per student/year.
+                ₹{RATE_PER_STUDENT} → ₹{form.flatRate || "?"} per student/year.
               </p>
             </div>
           )}
@@ -292,23 +289,6 @@ export default function NestSportsCouponsPage() {
               />
             </div>
           )}
-
-          <div className="space-y-1">
-            <Label>Tier Restriction</Label>
-            <Select
-              value={form.applicableTier}
-              onValueChange={(v) => setForm((f) => ({ ...f, applicableTier: v as any }))}
-            >
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Tier</SelectItem>
-                <SelectItem value="standard">Standard (₹150/student/yr)</SelectItem>
-                <SelectItem value="whatsapp">WhatsApp (₹300/student/yr)</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
@@ -354,7 +334,6 @@ export default function NestSportsCouponsPage() {
               <TableHead className="text-sm font-bold">Code</TableHead>
               <TableHead className="text-sm font-bold">Type</TableHead>
               <TableHead className="text-sm font-bold">Value</TableHead>
-              <TableHead className="text-sm font-bold">Tier</TableHead>
               <TableHead className="text-sm font-bold">Used / Max</TableHead>
               <TableHead className="text-sm font-bold">Expires</TableHead>
               <TableHead className="text-right text-sm font-bold">Active</TableHead>
@@ -363,14 +342,14 @@ export default function NestSportsCouponsPage() {
           <TableBody>
             {loading && (
               <TableRow>
-                <TableCell colSpan={7} className="text-center py-10 text-muted-foreground font-bold">
+                <TableCell colSpan={6} className="text-center py-10 text-muted-foreground font-bold">
                   Loading coupons…
                 </TableCell>
               </TableRow>
             )}
             {!loading && coupons.length === 0 && (
               <TableRow>
-                <TableCell colSpan={7} className="text-center py-10 text-muted-foreground font-bold">
+                <TableCell colSpan={6} className="text-center py-10 text-muted-foreground font-bold">
                   No coupons yet.
                 </TableCell>
               </TableRow>
@@ -387,9 +366,6 @@ export default function NestSportsCouponsPage() {
                 </TableCell>
                 <TableCell className="text-sm py-2">{DISCOUNT_LABELS[offer.discountType]}</TableCell>
                 <TableCell className="text-sm py-2">{formatValue(offer)}</TableCell>
-                <TableCell className="text-sm py-2 capitalize">
-                  {offer.applicableTier ?? "Any"}
-                </TableCell>
                 <TableCell className="text-sm py-2">
                   {offer.usedCount} / {offer.maxUses}
                 </TableCell>
