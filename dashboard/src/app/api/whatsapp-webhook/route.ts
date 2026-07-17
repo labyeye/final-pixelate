@@ -172,6 +172,9 @@ function handleStatusUpdate(status: WAStatus) {
       }).catch((e) =>
         console.error("[WA Webhook] DB update failed for DELIVERED:", e),
       );
+      updateTemplateMessageStatus(wamid, "delivered", { deliveredAt: ts }).catch(
+        (e) => console.error("[WA Webhook] whatsapp_messages update failed for DELIVERED:", e),
+      );
       break;
 
     case "read":
@@ -183,6 +186,9 @@ function handleStatusUpdate(status: WAStatus) {
         whatsapp_read_at: ts,
       }).catch((e) =>
         console.error("[WA Webhook] DB update failed for READ:", e),
+      );
+      updateTemplateMessageStatus(wamid, "read", { readAt: ts }).catch(
+        (e) => console.error("[WA Webhook] whatsapp_messages update failed for READ:", e),
       );
       break;
 
@@ -203,6 +209,13 @@ function handleStatusUpdate(status: WAStatus) {
         whatsapp_fail_reason: errTitle ?? errData ?? "unknown",
       }).catch((e) =>
         console.error("[WA Webhook] DB update failed for FAILED:", e),
+      );
+      updateTemplateMessageStatus(wamid, "failed", {
+        failedAt: ts,
+        failCode: errCode,
+        failReason: errTitle ?? errData ?? "unknown",
+      }).catch(
+        (e) => console.error("[WA Webhook] whatsapp_messages update failed for FAILED:", e),
       );
       break;
   }
@@ -241,6 +254,22 @@ async function updateInvoiceWhatsAppStatus(
     );
   } catch (e) {
     console.error("[WA Webhook] updateInvoiceWhatsAppStatus error:", e);
+  }
+}
+
+async function updateTemplateMessageStatus(
+  wamid: string,
+  status: string,
+  extraFields: Record<string, any> = {},
+) {
+  try {
+    const col = await getCollection("whatsapp_messages");
+    await col.updateOne(
+      { messageId: wamid },
+      { $set: { status, updatedAt: new Date(), ...extraFields } },
+    );
+  } catch (e) {
+    console.error("[WA Webhook] updateTemplateMessageStatus error:", e);
   }
 }
 

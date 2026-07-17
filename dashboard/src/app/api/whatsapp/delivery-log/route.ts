@@ -146,6 +146,11 @@ export async function GET(req: NextRequest) {
       sentAt: m.timestamp?.toISOString?.() ?? m.timestamp,
       messageId: m.messageId,
       status: m.status ?? "sent",
+      deliveredAt: m.deliveredAt ?? undefined,
+      readAt: m.readAt ?? undefined,
+      failedAt: m.failedAt ?? undefined,
+      failCode: m.failCode ?? undefined,
+      failReason: m.failReason ?? undefined,
       replyText: m.phone ? receivedMap[m.phone]?.message : undefined,
       replyAt: m.phone
         ? receivedMap[m.phone]?.timestamp?.toISOString()
