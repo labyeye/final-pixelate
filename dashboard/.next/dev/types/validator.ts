@@ -1109,6 +1109,24 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/api/nestsports-offer-codes/[id]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/nestsports-offer-codes/[id]">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/nestsports-offer-codes/[id]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/nestsports-offer-codes/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/nestsports-offer-codes">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/nestsports-offer-codes/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/api/nestsports-stats/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/nestsports-stats">> = Specific

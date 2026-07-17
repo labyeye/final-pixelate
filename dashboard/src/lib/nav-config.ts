@@ -32,6 +32,7 @@ import {
   Palette,
   Tag,
   Send,
+  Ticket,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -334,6 +335,12 @@ export const navGroups = [
         label: "NestSports Invoices",
         adminOnly: true,
         icon: Receipt,
+      },
+      {
+        href: "/nest-sports/coupons",
+        label: "NestSports Coupons",
+        adminOnly: true,
+        icon: Ticket,
       },
     ],
   },
