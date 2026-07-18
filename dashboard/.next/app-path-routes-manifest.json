@@ -117,6 +117,7 @@
   "/api/nesthr-stats/route": "/api/nesthr-stats",
   "/api/nestleads-invoices/route": "/api/nestleads-invoices",
   "/api/nestleads-stats/route": "/api/nestleads-stats",
+  "/api/nestsports-companies/route": "/api/nestsports-companies",
   "/api/nestsports-invoices/route": "/api/nestsports-invoices",
   "/api/nestsports-offer-codes/[id]/route": "/api/nestsports-offer-codes/[id]",
   "/api/nestsports-offer-codes/route": "/api/nestsports-offer-codes",

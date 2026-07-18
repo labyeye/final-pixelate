@@ -605,6 +605,12 @@
       "namedRegex": "^/api/nestleads\\-stats(?:/)?$"
     },
     {
+      "page": "/api/nestsports-companies",
+      "regex": "^/api/nestsports\\-companies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestsports\\-companies(?:/)?$"
+    },
+    {
       "page": "/api/nestsports-invoices",
       "regex": "^/api/nestsports\\-invoices(?:/)?$",
       "routeKeys": {},

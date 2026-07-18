@@ -1109,6 +1109,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/nestsports-companies/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/nestsports-companies">> = Specific
+  const handler = {} as typeof import("../../src/app/api/nestsports-companies/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/nestsports-invoices/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/nestsports-invoices">> = Specific

@@ -34,8 +34,10 @@ import {
 import type { Client } from "@/lib/data";
 import { Switch } from "@/components/ui/switch";
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Separator } from "../ui/separator";
+import { apiFetch } from "@/lib/api-fetch";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z
   .object({
@@ -123,6 +125,74 @@ export function AddClientDialog({
   const product = form.watch("product");
 
   const hasGst = form.watch("hasGst");
+
+  const [showNestSportsCreate, setShowNestSportsCreate] = useState(false);
+  const [nsOwnerName, setNsOwnerName] = useState("");
+  const [nsOwnerEmail, setNsOwnerEmail] = useState("");
+  const [nsStudentCount, setNsStudentCount] = useState("");
+  const [nsEmployeeCount, setNsEmployeeCount] = useState("0");
+  const [nsWantsWhatsapp, setNsWantsWhatsapp] = useState(false);
+  const [nsBillingCycle, setNsBillingCycle] = useState<"monthly" | "yearly">("yearly");
+  const [nsOfferCode, setNsOfferCode] = useState("");
+  const [nsCreating, setNsCreating] = useState(false);
+  const [nsError, setNsError] = useState<string | null>(null);
+  const [nsResult, setNsResult] = useState<{
+    ownerEmail: string;
+    amount: number;
+    renewalDate: string;
+  } | null>(null);
+
+  async function handleCreateNestSportsSubscription() {
+    setNsError(null);
+    const name = form.getValues("name");
+    const email = form.getValues("email");
+    const phone = form.getValues("phone");
+    const ownerName = nsOwnerName.trim() || name;
+    const ownerEmail = nsOwnerEmail.trim() || email;
+    const count = Number(nsStudentCount);
+
+    if (!name || !email || !phone) {
+      setNsError("Fill in the client name, email and phone above first.");
+      return;
+    }
+    if (!count || count < 1) {
+      setNsError("Enter a valid student count.");
+      return;
+    }
+
+    setNsCreating(true);
+    try {
+      const res = await apiFetch("/api/nestsports-companies", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          companyName: name,
+          companyEmail: email,
+          companyPhone: phone,
+          ownerName,
+          ownerEmail,
+          studentCount: count,
+          employeeCount: Number(nsEmployeeCount) || 0,
+          wantsWhatsapp: nsWantsWhatsapp,
+          billingCycle: nsBillingCycle,
+          offerCode: nsOfferCode.trim() || undefined,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.message ?? data?.error ?? "Failed to create subscription");
+
+      form.setValue("externalTenantId", data.data.company._id);
+      setNsResult({
+        ownerEmail,
+        amount: data.data.amount,
+        renewalDate: data.data.renewalDate,
+      });
+    } catch (err: any) {
+      setNsError(err.message ?? "Failed to create subscription");
+    } finally {
+      setNsCreating(false);
+    }
+  }
 
   useEffect(() => {
     if (initialValues) {
@@ -390,6 +460,111 @@ export function AddClientDialog({
                     />
                   )}
                 </div>
+
+                {product === "nestsports" && (
+                  <div className="border-2 border-black rounded-lg p-4 space-y-3 bg-gray-50">
+                    <button
+                      type="button"
+                      className="text-sm font-bold underline"
+                      onClick={() => setShowNestSportsCreate((v) => !v)}
+                    >
+                      {showNestSportsCreate ? "Hide" : "Create a new NestSports subscription instead"}
+                    </button>
+
+                    {showNestSportsCreate && (
+                      <div className="space-y-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <div>
+                            <label className="text-sm font-bold block mb-1">Owner Name</label>
+                            <Input
+                              placeholder={form.getValues("name") || "Defaults to client name"}
+                              value={nsOwnerName}
+                              onChange={(e) => setNsOwnerName(e.target.value)}
+                            />
+                          </div>
+                          <div>
+                            <label className="text-sm font-bold block mb-1">Owner Email</label>
+                            <Input
+                              type="email"
+                              placeholder={form.getValues("email") || "Defaults to client email"}
+                              value={nsOwnerEmail}
+                              onChange={(e) => setNsOwnerEmail(e.target.value)}
+                            />
+                          </div>
+                          <div>
+                            <label className="text-sm font-bold block mb-1">Student Count</label>
+                            <Input
+                              type="number"
+                              min={1}
+                              value={nsStudentCount}
+                              onChange={(e) => setNsStudentCount(e.target.value)}
+                            />
+                          </div>
+                          <div>
+                            <label className="text-sm font-bold block mb-1">Employee Count</label>
+                            <Input
+                              type="number"
+                              min={0}
+                              value={nsEmployeeCount}
+                              onChange={(e) => setNsEmployeeCount(e.target.value)}
+                            />
+                          </div>
+                          <div>
+                            <label className="text-sm font-bold block mb-1">Billing Cycle</label>
+                            <Select
+                              value={nsBillingCycle}
+                              onValueChange={(v) => setNsBillingCycle(v as "monthly" | "yearly")}
+                            >
+                              <SelectTrigger>
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="monthly">Monthly</SelectItem>
+                                <SelectItem value="yearly">Yearly</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-bold block mb-1">Offer Code (optional)</label>
+                            <Input
+                              placeholder="e.g. LAUNCH50"
+                              value={nsOfferCode}
+                              onChange={(e) => setNsOfferCode(e.target.value)}
+                            />
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between rounded-lg border p-3 bg-white">
+                          <div>
+                            <div className="text-sm font-bold">WhatsApp Add-on</div>
+                            <div className="text-xs text-muted-foreground">₹300/unit/year instead of ₹150/unit/year</div>
+                          </div>
+                          <Switch checked={nsWantsWhatsapp} onCheckedChange={setNsWantsWhatsapp} />
+                        </div>
+
+                        {nsError && (
+                          <p className="text-sm font-bold text-destructive">{nsError}</p>
+                        )}
+                        {nsResult && (
+                          <p className="text-sm font-bold text-green-700">
+                            Subscription created — login emailed to {nsResult.ownerEmail}. Amount ₹
+                            {nsResult.amount}, renews {new Date(nsResult.renewalDate).toLocaleDateString()}.
+                          </p>
+                        )}
+
+                        <Button
+                          type="button"
+                          size="sm"
+                          disabled={nsCreating}
+                          onClick={handleCreateNestSportsSubscription}
+                          className="border-2 border-black font-bold"
+                        >
+                          {nsCreating && <Loader2 className="w-4 h-4 mr-1 animate-spin" />}
+                          Create Subscription
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
 
               <Separator className="border-t-2 border-black" />
