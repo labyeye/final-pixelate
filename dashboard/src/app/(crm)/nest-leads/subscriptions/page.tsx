@@ -1,0 +1,634 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { apiFetch } from "@/lib/api-fetch";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Building2,
+  Users,
+  TrendingUp,
+  AlertTriangle,
+  RefreshCw,
+  IndianRupee,
+  CheckCircle2,
+  Clock,
+  XCircle,
+  Activity,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { StatCard } from "@/components/ui/stat-card";
+
+// ── Types ──────────────────────────────────────────────────────────────────
+
+interface Stats {
+  success: boolean;
+  generatedAt: string;
+  overview: {
+    tenants: {
+      total: number;
+      active: number;
+      trial: number;
+      inactive: number;
+      newLast7Days: number;
+      newLast30Days: number;
+    };
+    subscriptions: {
+      total: number;
+      active: number;
+      trial: number;
+      cancelled: number;
+      pendingRenewal: number;
+      expiringIn7Days: number;
+      expiringIn30Days: number;
+      expired: number;
+    };
+    revenue: {
+      totalAllTime: number;
+      last30Days: number;
+      mrr: number;
+      arr: number;
+      byBillingCycle: {
+        monthly: { total: number; count: number };
+        yearly: { total: number; count: number };
+      };
+    };
+    teamMembers: {
+      total: number;
+      active: number;
+      avgPerTenant: number;
+      maxInOneTenant: number;
+    };
+    activity: {
+      leadsCapturedLast30Days: number;
+      campaignsLaunchedLast30Days: number;
+      quotationsCreatedLast30Days: number;
+    };
+    planBreakdown: { plan: string; billingCycle: string; count: number }[];
+  };
+  alerts: {
+    expiringIn7Days: AlertTenant[];
+    expiringIn30Days: AlertTenant[];
+    expired: AlertTenant[];
+    trialsActive: TrialTenant[];
+  };
+  tenants: Tenant[];
+}
+
+interface AlertTenant {
+  name: string;
+  email: string;
+  plan: string;
+  renewalDate: string;
+  lastLogin?: string;
+}
+
+interface TrialTenant {
+  name: string;
+  email: string;
+  trialEndDate: string;
+  activeTeamMembers: number;
+}
+
+interface Tenant {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  industry: string | null;
+  city: string | null;
+  state: string | null;
+  status: "active" | "trial" | "inactive";
+  lastLogin: string;
+  joinedAt: string;
+  activeTeamMembers: number;
+  loginUsers: number;
+  subscription: {
+    plan: string;
+    billingCycle: string;
+    status: string;
+    isTrial: boolean;
+    trialEndDate: string | null;
+    renewalDate: string;
+    maxTeamMembers: number;
+    currentTeamMemberCount: number;
+    amountPaid: number;
+    paymentStatus: string;
+    autoRenew: boolean;
+    expiringIn7Days: boolean;
+    expiringIn30Days: boolean;
+    isExpired: boolean;
+  };
+}
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+function fmt(n: number) {
+  return new Intl.NumberFormat("en-IN").format(n);
+}
+
+function fmtCurrency(n: number) {
+  return `₹${fmt(n)}`;
+}
+
+function fmtDate(d: string) {
+  if (!d) return "—";
+  return new Date(d).toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+}
+
+function statusBadge(status: string, extra?: boolean) {
+  if (extra) return <Badge className="bg-red-100 text-red-700 border-red-300 font-bold">EXPIRING</Badge>;
+  switch (status) {
+    case "active":
+      return <Badge className="bg-green-100 text-green-700 border-green-300 font-bold">ACTIVE</Badge>;
+    case "trial":
+      return <Badge className="bg-yellow-100 text-yellow-700 border-yellow-300 font-bold">TRIAL</Badge>;
+    case "inactive":
+      return <Badge className="bg-gray-100 text-gray-600 border-gray-300 font-bold">INACTIVE</Badge>;
+    case "cancelled":
+      return <Badge className="bg-red-100 text-red-700 border-red-300 font-bold">CANCELLED</Badge>;
+    case "pending_renewal":
+      return <Badge className="bg-orange-100 text-orange-700 border-orange-300 font-bold">PENDING RENEWAL</Badge>;
+    default:
+      return <Badge className="font-bold">{status.toUpperCase()}</Badge>;
+  }
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────
+
+export default function NestLeadsSubscriptionsPage() {
+  const [stats, setStats] = useState<Stats | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<"overview" | "tenants" | "alerts">("overview");
+
+  async function load() {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await apiFetch("/api/nestleads-stats");
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      if (!data.success) throw new Error(data.error ?? "Unknown error");
+      // Normalise — fill any missing sub-objects so the page never crashes on undefined
+      data.overview = data.overview ?? {};
+      data.overview.tenants = data.overview.tenants ?? {};
+      data.overview.subscriptions = data.overview.subscriptions ?? {};
+      data.overview.revenue = data.overview.revenue ?? {};
+      data.overview.revenue.byBillingCycle = data.overview.revenue.byBillingCycle ?? {};
+      data.overview.revenue.byBillingCycle.monthly = data.overview.revenue.byBillingCycle.monthly ?? { total: 0, count: 0 };
+      data.overview.revenue.byBillingCycle.yearly = data.overview.revenue.byBillingCycle.yearly ?? { total: 0, count: 0 };
+      data.overview.teamMembers = data.overview.teamMembers ?? {};
+      data.overview.activity = data.overview.activity ?? {};
+      data.overview.planBreakdown = data.overview.planBreakdown ?? [];
+      data.alerts = data.alerts ?? {};
+      data.alerts.expiringIn7Days = data.alerts.expiringIn7Days ?? [];
+      data.alerts.expiringIn30Days = data.alerts.expiringIn30Days ?? [];
+      data.alerts.expired = data.alerts.expired ?? [];
+      data.alerts.trialsActive = data.alerts.trialsActive ?? [];
+      data.tenants = data.tenants ?? [];
+      setStats(data);
+    } catch (e: any) {
+      setError(e.message ?? "Failed to load stats");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => { load(); }, []);
+
+  // ── Loading ──────────────────────────────────────────────────────────────
+  if (loading) {
+    return (
+      <div className="p-8 space-y-6">
+        <div className="flex items-center gap-3">
+          <Building2 className="w-8 h-8" />
+          <h1 className="text-4xl font-black tracking-tighter">NEST LEADS — SUBSCRIPTIONS</h1>
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="h-28 border-2 border-black rounded-md bg-muted animate-pulse" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // ── Error ────────────────────────────────────────────────────────────────
+  if (error || !stats) {
+    return (
+      <div className="p-8 space-y-4">
+        <h1 className="text-4xl font-black tracking-tighter">NEST LEADS — SUBSCRIPTIONS</h1>
+        <div className="border-2 border-red-400 bg-red-50 rounded-md p-6 flex flex-col gap-3 max-w-lg">
+          <p className="font-bold text-red-700 flex items-center gap-2">
+            <XCircle className="w-5 h-5" /> {error ?? "No data returned"}
+          </p>
+          <p className="text-sm text-red-600">
+            Make sure <code className="bg-red-100 px-1 rounded">NESTLEADS_BACKEND_URL</code> and{" "}
+            <code className="bg-red-100 px-1 rounded">NESTLEADS_STATS_SECRET</code> are set in{" "}
+            <code className="bg-red-100 px-1 rounded">.env</code>.
+          </p>
+          <Button onClick={load} size="sm" className="w-fit">Retry</Button>
+        </div>
+      </div>
+    );
+  }
+
+  const overview = stats.overview ?? {};
+  const alerts = stats.alerts ?? { expiringIn7Days: [], expiringIn30Days: [], expired: [], trialsActive: [] };
+  const tenants: Tenant[] = stats.tenants ?? [];
+  const ov = overview as Stats["overview"];
+
+  return (
+    <div className="p-6 md:p-8 space-y-8">
+
+      {/* ── Header ── */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <div className="flex items-center gap-3">
+            <Building2 className="w-8 h-8" />
+            <h1 className="text-4xl font-black tracking-tighter">NEST LEADS</h1>
+          </div>
+          <p className="text-sm text-muted-foreground font-bold mt-1">
+            Platform subscription snapshot · Last updated: {fmtDate(stats.generatedAt)}
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          {alerts.expiringIn7Days.length > 0 && (
+            <Badge className="bg-red-100 text-red-700 border-red-400 font-bold text-sm px-3 py-1 flex items-center gap-1">
+              <AlertTriangle className="w-3.5 h-3.5" />
+              {alerts.expiringIn7Days.length} expiring in 7 days
+            </Badge>
+          )}
+          <Button variant="outline" size="sm" onClick={load} className="border-2 border-black font-bold">
+            <RefreshCw className="w-4 h-4 mr-1" /> Refresh
+          </Button>
+        </div>
+      </div>
+
+      {/* ── Tabs ── */}
+      <div className="flex gap-2 border-b-2 border-black">
+        {(["overview", "tenants", "alerts"] as const).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`px-4 py-2 text-sm font-black uppercase tracking-wider border-2 rounded-t-md transition-all ${
+              activeTab === tab
+                ? "border-black border-b-white bg-white -mb-0.5"
+                : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {tab}
+            {tab === "alerts" && (alerts.expiringIn7Days.length + alerts.expired.length) > 0 && (
+              <span className="ml-2 bg-red-500 text-white text-xs rounded-full px-1.5">
+                {alerts.expiringIn7Days.length + alerts.expired.length}
+              </span>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* ══════════════════════════════════════════════════════════════════ */}
+      {/* OVERVIEW TAB                                                       */}
+      {/* ══════════════════════════════════════════════════════════════════ */}
+      {activeTab === "overview" && (
+        <div className="space-y-8">
+
+          {/* ── Revenue ── */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2">
+              <IndianRupee className="w-5 h-5" /> Revenue
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <StatCard icon={IndianRupee} label="ALL-TIME REVENUE" value={fmtCurrency(ov.revenue.totalAllTime)} sub="all paid invoices" iconVariant="primary" />
+              <StatCard icon={TrendingUp} label="LAST 30 DAYS" value={fmtCurrency(ov.revenue.last30Days)} sub="collected revenue" iconVariant="secondary" />
+              <StatCard icon={Activity} label="MRR" value={fmtCurrency(ov.revenue.mrr)} sub="monthly recurring" iconVariant="primary" />
+              <StatCard icon={CheckCircle2} label="ARR" value={fmtCurrency(ov.revenue.arr)} sub="annualised recurring" iconVariant="secondary" />
+            </div>
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <StatCard icon={Clock} label="MONTHLY PLANS" value={fmtCurrency(ov.revenue.byBillingCycle.monthly.total)} sub={`${ov.revenue.byBillingCycle.monthly.count} subscribers`} iconVariant="primary" />
+              <StatCard icon={Building2} label="YEARLY PLANS" value={fmtCurrency(ov.revenue.byBillingCycle.yearly.total)} sub={`${ov.revenue.byBillingCycle.yearly.count} subscribers`} iconVariant="secondary" />
+            </div>
+          </div>
+
+          {/* ── Tenants ── */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2">
+              <Building2 className="w-5 h-5" /> Tenants
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { label: "TOTAL TENANTS", value: fmt(ov.tenants.total), icon: Building2 },
+                { label: "ACTIVE", value: fmt(ov.tenants.active), icon: CheckCircle2 },
+                { label: "ON TRIAL", value: fmt(ov.tenants.trial), icon: Clock },
+                { label: "INACTIVE", value: fmt(ov.tenants.inactive), icon: XCircle },
+                { label: "NEW (7 DAYS)", value: fmt(ov.tenants.newLast7Days), icon: TrendingUp },
+                { label: "NEW (30 DAYS)", value: fmt(ov.tenants.newLast30Days), icon: Activity },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={value} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── Subscriptions ── */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5" /> Subscriptions
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { label: "ACTIVE", value: ov.subscriptions.active, icon: CheckCircle2 },
+                { label: "TRIAL", value: ov.subscriptions.trial, icon: Clock },
+                { label: "CANCELLED", value: ov.subscriptions.cancelled, icon: XCircle },
+                { label: "PENDING RENEWAL", value: ov.subscriptions.pendingRenewal, icon: AlertTriangle },
+                { label: "EXPIRING IN 7 DAYS", value: ov.subscriptions.expiringIn7Days, icon: AlertTriangle },
+                { label: "EXPIRING IN 30 DAYS", value: ov.subscriptions.expiringIn30Days, icon: Clock },
+                { label: "EXPIRED", value: ov.subscriptions.expired, icon: XCircle },
+                { label: "TOTAL", value: ov.subscriptions.total, icon: Activity },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={fmt(value)} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── Team Members ── */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2">
+              <Users className="w-5 h-5" /> Team Members Across Platform
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { label: "TOTAL TEAM MEMBERS", value: fmt(ov.teamMembers.total), icon: Users },
+                { label: "ACTIVE", value: fmt(ov.teamMembers.active), icon: CheckCircle2 },
+                { label: "AVG PER TENANT", value: String(ov.teamMembers.avgPerTenant), icon: Activity },
+                { label: "LARGEST TENANT", value: fmt(ov.teamMembers.maxInOneTenant), icon: Building2 },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={value} iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── Activity ── */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2">
+              <Activity className="w-5 h-5" /> Platform Activity (Last 30 Days)
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { label: "LEADS CAPTURED", value: ov.activity.leadsCapturedLast30Days, icon: TrendingUp },
+                { label: "CAMPAIGNS LAUNCHED", value: ov.activity.campaignsLaunchedLast30Days, icon: Activity },
+                { label: "QUOTATIONS CREATED", value: ov.activity.quotationsCreatedLast30Days, icon: IndianRupee },
+              ].map(({ label, value, icon }, i) => (
+                <StatCard key={label} icon={icon} label={label} value={fmt(value)} sub="last 30 days" iconVariant={i % 2 === 0 ? "primary" : "secondary"} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── Plan Breakdown ── */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2">
+              <TrendingUp className="w-5 h-5" /> Plan Breakdown
+            </h2>
+            <Card className="border-2 border-black">
+              <CardContent className="p-0">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="border-b-2 border-black bg-muted">
+                      <TableHead className="font-black text-xs uppercase tracking-widest">Plan</TableHead>
+                      <TableHead className="font-black text-xs uppercase tracking-widest">Billing Cycle</TableHead>
+                      <TableHead className="font-black text-xs uppercase tracking-widest text-right">Active Subscribers</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {ov.planBreakdown.map((row, i) => (
+                      <TableRow key={i} className="border-b border-black/10">
+                        <TableCell className="font-bold">{row.plan}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="font-bold capitalize border-black">
+                            {row.billingCycle}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-right font-black text-2xl">{row.count}</TableCell>
+                      </TableRow>
+                    ))}
+                    {ov.planBreakdown.length === 0 && (
+                      <TableRow>
+                        <TableCell colSpan={3} className="text-center text-muted-foreground py-8 font-semibold">No plan data</TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════════════ */}
+      {/* TENANTS TAB                                                        */}
+      {/* ══════════════════════════════════════════════════════════════════ */}
+      {activeTab === "tenants" && (
+        <div className="space-y-4">
+          <p className="text-sm font-bold text-muted-foreground">{tenants.length} tenants · newest first</p>
+          <Card className="border-2 border-black">
+            <CardContent className="p-0 overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow className="border-b-2 border-black bg-muted">
+                    <TableHead className="font-black text-xs uppercase tracking-widest">Tenant</TableHead>
+                    <TableHead className="font-black text-xs uppercase tracking-widest">Status</TableHead>
+                    <TableHead className="font-black text-xs uppercase tracking-widest">Plan</TableHead>
+                    <TableHead className="font-black text-xs uppercase tracking-widest">Cycle</TableHead>
+                    <TableHead className="font-black text-xs uppercase tracking-widest">Team</TableHead>
+                    <TableHead className="font-black text-xs uppercase tracking-widest">Renewal</TableHead>
+                    <TableHead className="font-black text-xs uppercase tracking-widest">Last Login</TableHead>
+                    <TableHead className="font-black text-xs uppercase tracking-widest text-right">Paid</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {tenants.map((t) => (
+                    <TableRow
+                      key={t.id}
+                      className={`border-b border-black/10 ${
+                        t.subscription.isExpired
+                          ? "bg-red-50"
+                          : t.subscription.expiringIn7Days
+                          ? "bg-orange-50"
+                          : ""
+                      }`}
+                    >
+                      <TableCell>
+                        <div>
+                          <p className="font-bold">{t.name}</p>
+                          <p className="text-xs text-muted-foreground">{t.email}</p>
+                          {t.city && (
+                            <p className="text-xs text-muted-foreground">{t.city}, {t.state}</p>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell>{statusBadge(t.status, t.subscription.expiringIn7Days)}</TableCell>
+                      <TableCell className="font-bold">{t.subscription.plan}</TableCell>
+                      <TableCell>
+                        <Badge variant="outline" className="font-bold capitalize border-black text-xs">
+                          {t.subscription.billingCycle}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        <span className="font-black">{t.activeTeamMembers}</span>
+                        <span className="text-muted-foreground text-xs"> / {t.subscription.maxTeamMembers}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span className={t.subscription.isExpired ? "text-red-600 font-black" : "font-semibold"}>
+                          {fmtDate(t.subscription.renewalDate)}
+                        </span>
+                        {t.subscription.isExpired && (
+                          <p className="text-xs text-red-500 font-bold">EXPIRED</p>
+                        )}
+                      </TableCell>
+                      <TableCell className="text-xs text-muted-foreground">{fmtDate(t.lastLogin)}</TableCell>
+                      <TableCell className="text-right font-black">{fmtCurrency(t.subscription.amountPaid)}</TableCell>
+                    </TableRow>
+                  ))}
+                  {tenants.length === 0 && (
+                    <TableRow>
+                      <TableCell colSpan={8} className="text-center py-12 text-muted-foreground font-semibold">No tenants found</TableCell>
+                    </TableRow>
+                  )}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════════════ */}
+      {/* ALERTS TAB                                                         */}
+      {/* ══════════════════════════════════════════════════════════════════ */}
+      {activeTab === "alerts" && (
+        <div className="space-y-8">
+
+          {/* Expiring in 7 days */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2 text-red-600">
+              <AlertTriangle className="w-5 h-5" /> Expiring in 7 Days ({alerts.expiringIn7Days.length})
+            </h2>
+            {alerts.expiringIn7Days.length === 0 ? (
+              <p className="text-sm text-muted-foreground font-semibold flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> None — all clear</p>
+            ) : (
+              <AlertTable rows={alerts.expiringIn7Days} />
+            )}
+          </div>
+
+          {/* Expiring in 30 days */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2 text-orange-600">
+              <Clock className="w-5 h-5" /> Expiring in 30 Days ({alerts.expiringIn30Days.length})
+            </h2>
+            {alerts.expiringIn30Days.length === 0 ? (
+              <p className="text-sm text-muted-foreground font-semibold flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> None</p>
+            ) : (
+              <AlertTable rows={alerts.expiringIn30Days} />
+            )}
+          </div>
+
+          {/* Expired */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2 text-red-700">
+              <XCircle className="w-5 h-5" /> Expired — Follow Up ({alerts.expired.length})
+            </h2>
+            {alerts.expired.length === 0 ? (
+              <p className="text-sm text-muted-foreground font-semibold flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> None</p>
+            ) : (
+              <AlertTable rows={alerts.expired} showLastLogin />
+            )}
+          </div>
+
+          {/* Active trials */}
+          <div>
+            <h2 className="text-xl font-black tracking-tighter mb-3 flex items-center gap-2 text-yellow-600">
+              <Clock className="w-5 h-5" /> Active Trials ({alerts.trialsActive.length})
+            </h2>
+            {alerts.trialsActive.length === 0 ? (
+              <p className="text-sm text-muted-foreground font-semibold">No active trials</p>
+            ) : (
+              <Card className="border-2 border-black">
+                <CardContent className="p-0">
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="border-b-2 border-black bg-muted">
+                        <TableHead className="font-black text-xs uppercase tracking-widest">Tenant</TableHead>
+                        <TableHead className="font-black text-xs uppercase tracking-widest">Email</TableHead>
+                        <TableHead className="font-black text-xs uppercase tracking-widest">Trial Ends</TableHead>
+                        <TableHead className="font-black text-xs uppercase tracking-widest text-right">Active Team</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {alerts.trialsActive.map((t, i) => (
+                        <TableRow key={i} className="border-b border-black/10 bg-yellow-50">
+                          <TableCell className="font-bold">{t.name}</TableCell>
+                          <TableCell className="text-sm text-muted-foreground">{t.email}</TableCell>
+                          <TableCell className="font-semibold">{fmtDate(t.trialEndDate)}</TableCell>
+                          <TableCell className="text-right font-black text-xl">{t.activeTeamMembers}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Alert table sub-component ──────────────────────────────────────────────
+
+function AlertTable({ rows, showLastLogin = false }: { rows: AlertTenant[]; showLastLogin?: boolean }) {
+  function fmtDate(d: string) {
+    if (!d) return "—";
+    return new Date(d).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+  }
+
+  return (
+    <Card className="border-2 border-black">
+      <CardContent className="p-0">
+        <Table>
+          <TableHeader>
+            <TableRow className="border-b-2 border-black bg-muted">
+              <TableHead className="font-black text-xs uppercase tracking-widest">Tenant</TableHead>
+              <TableHead className="font-black text-xs uppercase tracking-widest">Email</TableHead>
+              <TableHead className="font-black text-xs uppercase tracking-widest">Plan</TableHead>
+              <TableHead className="font-black text-xs uppercase tracking-widest">Renewal Date</TableHead>
+              {showLastLogin && <TableHead className="font-black text-xs uppercase tracking-widest">Last Login</TableHead>}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {rows.map((r, i) => (
+              <TableRow key={i} className="border-b border-black/10">
+                <TableCell className="font-bold">{r.name}</TableCell>
+                <TableCell className="text-sm text-muted-foreground">{r.email}</TableCell>
+                <TableCell className="font-semibold">{r.plan}</TableCell>
+                <TableCell className="font-semibold">{fmtDate(r.renewalDate)}</TableCell>
+                {showLastLogin && <TableCell className="text-xs text-muted-foreground">{fmtDate(r.lastLogin ?? "")}</TableCell>}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+}

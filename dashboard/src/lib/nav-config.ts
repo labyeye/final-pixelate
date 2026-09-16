@@ -319,6 +319,12 @@ export const navGroups = [
     title: "Nest Leads",
     items: [
       {
+        href: "/nest-leads/subscriptions",
+        label: "Subscriptions",
+        adminOnly: true,
+        icon: Building2,
+      },
+      {
         href: "/nest-leads/invoices",
         label: "NestLeads Invoices",
         adminOnly: true,

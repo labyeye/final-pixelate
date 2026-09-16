@@ -184,14 +184,17 @@ NESTHR_CRM_SECRET="..."     # used by /api/crm/invoices (falls back to STATS_SEC
 NESTHR_STATS_SECRET="..."   # used by /internal/stats
 ```
 
-For the two new integrations, the dashboard side is already scaffolded and just
-needs these filled in:
+**Nest Leads is now fully wired** (both the `leads-pixelate/backend` endpoints
+and this dashboard's `.env`) — `overview.teamMembers`/`overview.activity` use
+Nest Leads' own domain vocabulary (team members, leads captured, campaigns
+launched, quotations created) instead of the HR terms, since those fields
+don't apply 1:1. See `dashboard/src/app/(crm)/nest-leads/subscriptions/page.tsx`
+and `leads-pixelate/backend/routes/statsRoutes.js` / `crmInvoiceRoutes.js`.
+
+Nest Sports is still scaffolded but not implemented — it just needs these
+filled in once that backend exists:
 
 ```
-NESTLEADS_BACKEND_URL=""
-NESTLEADS_CRM_SECRET=""     # optional; falls back to NESTLEADS_STATS_SECRET
-NESTLEADS_STATS_SECRET=""
-
 NESTSPORTS_BACKEND_URL=""
 NESTSPORTS_CRM_SECRET=""    # optional; falls back to NESTSPORTS_STATS_SECRET
 NESTSPORTS_STATS_SECRET=""
