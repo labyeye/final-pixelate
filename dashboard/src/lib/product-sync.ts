@@ -25,7 +25,7 @@ function getProductConfig(product: string): ProductConfig | null {
     case "nestleads":
       return {
         backendUrl: process.env.NESTLEADS_BACKEND_URL ?? "",
-        secret: process.env.NESTLEADS_CRM_SECRET ?? process.env.NESTLEADS_STATS_SECRET ?? "",
+        secret: process.env.NESTLEADS_CRM_SECRET ?? process.env.NESTLEADS_SECRET ?? "",
         path: (tenantId) => `/internal/tenants/${tenantId}/subscription`,
         body: (status, renewalDate) => ({
           status: status === "activate" ? "active" : "suspended",

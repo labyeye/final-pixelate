@@ -166,7 +166,7 @@ this silently no-ops** — nothing breaks, it just doesn't sync.
 - Implemented in `hrms/backend/controllers/crmController.js` (`updateCrmSubscription`) / `hrms/backend/routes/crmRoutes.js`. Updates the `Subscription` doc directly — the existing login gate in `authController.js` already enforces `status`/`paymentStatus`/`trialEndDate`, so no other change was needed on that side.
 
 ### Nest Leads — `PATCH {NESTLEADS_BACKEND_URL}/internal/tenants/:tenantId/subscription`
-- Auth header: `x-api-key: <NESTLEADS_CRM_SECRET or NESTLEADS_STATS_SECRET>` — maps to a new `CRM_API_SECRET` env var on the Nest Leads backend.
+- Auth header: `x-api-key: <NESTLEADS_CRM_SECRET or NESTLEADS_SECRET>` — maps to the `NESTLEADS_SECRET` env var on the Nest Leads backend.
 - Body: `{ "status": "active" | "suspended" | "cancelled", "renewalDate"?: "ISO date" }`
 - Implemented in `leads-pixelate/backend/controllers/crmController.js` / `routes/crmRoutes.js`, mounted at `/internal` in `server.js`. Updates `Tenant.status`/`planExpiresAt` and the linked `Subscription`.
 - Unlike Nest HR, Nest Leads previously had **no enforcement at all** — `middleware/auth.js`'s `protect()` now also checks the user's `Tenant.status`/`planExpiresAt` on every request (not just at login) and returns 403 if suspended/cancelled/expired. This makes deactivation take effect immediately, even for an already-logged-in session.
@@ -316,6 +316,6 @@ Send me:
 2. The two secret values (or one, if reused for both endpoints)
 
 I'll drop them into `dashboard/.env` as `NESTLEADS_BACKEND_URL` /
-`NESTLEADS_CRM_SECRET` / `NESTLEADS_STATS_SECRET` (or the `NESTSPORTS_*` equivalents)
+`NESTLEADS_CRM_SECRET` / `NESTLEADS_SECRET` (or the `NESTSPORTS_*` equivalents)
 and the existing pages will start showing live data immediately — no further code
 changes required.

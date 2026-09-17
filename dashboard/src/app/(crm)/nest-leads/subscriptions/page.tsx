@@ -237,7 +237,7 @@ export default function NestLeadsSubscriptionsPage() {
           </p>
           <p className="text-sm text-red-600">
             Make sure <code className="bg-red-100 px-1 rounded">NESTLEADS_BACKEND_URL</code> and{" "}
-            <code className="bg-red-100 px-1 rounded">NESTLEADS_STATS_SECRET</code> are set in{" "}
+            <code className="bg-red-100 px-1 rounded">NESTLEADS_SECRET</code> are set in{" "}
             <code className="bg-red-100 px-1 rounded">.env</code>.
           </p>
           <Button onClick={load} size="sm" className="w-fit">Retry</Button>

@@ -52,7 +52,7 @@ export async function register() {
     {
       label: "Nest Leads",
       backendUrl: process.env.NESTLEADS_BACKEND_URL ?? "",
-      secret: process.env.NESTLEADS_STATS_SECRET ?? "",
+      secret: process.env.NESTLEADS_SECRET ?? "",
     },
   ];
 

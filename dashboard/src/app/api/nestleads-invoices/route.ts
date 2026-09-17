@@ -3,7 +3,7 @@ import { requireAuth } from "@/lib/require-auth";
 
 const NESTLEADS_URL = process.env.NESTLEADS_BACKEND_URL ?? "";
 const NESTLEADS_SECRET =
-  process.env.NESTLEADS_CRM_SECRET ?? process.env.NESTLEADS_STATS_SECRET ?? "";
+  process.env.NESTLEADS_CRM_SECRET ?? process.env.NESTLEADS_SECRET ?? "";
 
 export async function GET(request: NextRequest) {
   const auth = requireAuth(request);

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/lib/require-auth";
 
 const NESTLEADS_URL = process.env.NESTLEADS_BACKEND_URL ?? "";
-const NESTLEADS_SECRET = process.env.NESTLEADS_STATS_SECRET ?? "";
+const NESTLEADS_SECRET = process.env.NESTLEADS_SECRET ?? "";
 
 export async function GET(request: NextRequest) {
   const auth = requireAuth(request);
@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
   if (!NESTLEADS_URL || !NESTLEADS_SECRET) {
     return NextResponse.json(
-      { error: "Nest Leads not configured — add NESTLEADS_BACKEND_URL and NESTLEADS_STATS_SECRET to .env" },
+      { error: "Nest Leads not configured — add NESTLEADS_BACKEND_URL and NESTLEADS_SECRET to .env" },
       { status: 503 },
     );
   }

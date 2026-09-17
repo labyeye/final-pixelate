@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-leads/layout,_N_T_/(crm)/nest-leads/subscriptions/layout,_N_T_/(crm)/nest-leads/subscriptions/page,_N_T_/nest-leads/subscriptions"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-leads/subscriptions/__PAGE__",
+    "/!KGNybSk/nest-leads/subscriptions",
+    "/!KGNybSk/nest-leads",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

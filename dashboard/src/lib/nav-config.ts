@@ -330,6 +330,12 @@ export const navGroups = [
         adminOnly: true,
         icon: Receipt,
       },
+      {
+        href: "/nest-leads/offers",
+        label: "Offer Codes",
+        adminOnly: true,
+        icon: Tag,
+      },
     ],
   },
 

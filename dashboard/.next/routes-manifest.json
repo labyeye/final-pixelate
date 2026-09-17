@@ -149,6 +149,14 @@
       "namedRegex": "^/api/journey/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/nestleads-offers/[id]",
+      "regex": "^/api/nestleads\\-offers/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/nestleads\\-offers/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/nestsports-offer-codes/[id]",
       "regex": "^/api/nestsports\\-offer\\-codes/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -597,6 +605,12 @@
       "regex": "^/api/nestleads\\-invoices(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/nestleads\\-invoices(?:/)?$"
+    },
+    {
+      "page": "/api/nestleads-offers",
+      "regex": "^/api/nestleads\\-offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestleads\\-offers(?:/)?$"
     },
     {
       "page": "/api/nestleads-stats",
@@ -1125,6 +1139,18 @@
       "regex": "^/nest\\-leads/invoices(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-leads/invoices(?:/)?$"
+    },
+    {
+      "page": "/nest-leads/offers",
+      "regex": "^/nest\\-leads/offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-leads/offers(?:/)?$"
+    },
+    {
+      "page": "/nest-leads/subscriptions",
+      "regex": "^/nest\\-leads/subscriptions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-leads/subscriptions(?:/)?$"
     },
     {
       "page": "/nest-sports/coupons",
