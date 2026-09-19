@@ -32,10 +32,10 @@ function getProductConfig(product: string): ProductConfig | null {
           renewalDate: renewalDate ?? undefined,
         }),
       };
-    case "nestsports":
+    case "nestplay":
       return {
-        backendUrl: process.env.NESTSPORTS_BACKEND_URL ?? "",
-        secret: process.env.NESTSPORTS_CRM_SECRET ?? process.env.NESTSPORTS_STATS_SECRET ?? "",
+        backendUrl: process.env.NESTPLAY_BACKEND_URL ?? "",
+        secret: process.env.NESTPLAY_CRM_SECRET ?? process.env.NESTPLAY_STATS_SECRET ?? "",
         path: (tenantId) => `/api/crm/companies/${tenantId}/subscription`,
         body: (status, renewalDate) => ({
           status: status === "activate" ? "active" : "inactive",

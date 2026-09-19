@@ -64,7 +64,7 @@ const formSchema = z
       .optional()
       .or(z.literal("")),
 
-    product: z.enum(["none", "nesthr", "nestleads", "nestsports"]).default("none"),
+    product: z.enum(["none", "nesthr", "nestleads", "nestplay"]).default("none"),
     externalTenantId: z.string().optional().or(z.literal("")),
   })
   .refine(
@@ -126,7 +126,7 @@ export function AddClientDialog({
 
   const hasGst = form.watch("hasGst");
 
-  const [showNestSportsCreate, setShowNestSportsCreate] = useState(false);
+  const [showNestPlayCreate, setShowNestPlayCreate] = useState(false);
   const [nsOwnerName, setNsOwnerName] = useState("");
   const [nsOwnerEmail, setNsOwnerEmail] = useState("");
   const [nsStudentCount, setNsStudentCount] = useState("");
@@ -142,7 +142,7 @@ export function AddClientDialog({
     renewalDate: string;
   } | null>(null);
 
-  async function handleCreateNestSportsSubscription() {
+  async function handleCreateNestPlaySubscription() {
     setNsError(null);
     const name = form.getValues("name");
     const email = form.getValues("email");
@@ -162,7 +162,7 @@ export function AddClientDialog({
 
     setNsCreating(true);
     try {
-      const res = await apiFetch("/api/nestsports-companies", {
+      const res = await apiFetch("/api/nestplay-companies", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -430,7 +430,7 @@ export function AddClientDialog({
                             <SelectItem value="none">None</SelectItem>
                             <SelectItem value="nesthr">Nest HR</SelectItem>
                             <SelectItem value="nestleads">Nest Leads</SelectItem>
-                            <SelectItem value="nestsports">Nest Sports</SelectItem>
+                            <SelectItem value="nestplay">Nest Play</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -461,17 +461,17 @@ export function AddClientDialog({
                   )}
                 </div>
 
-                {product === "nestsports" && (
+                {product === "nestplay" && (
                   <div className="border-2 border-black rounded-lg p-4 space-y-3 bg-gray-50">
                     <button
                       type="button"
                       className="text-sm font-bold underline"
-                      onClick={() => setShowNestSportsCreate((v) => !v)}
+                      onClick={() => setShowNestPlayCreate((v) => !v)}
                     >
-                      {showNestSportsCreate ? "Hide" : "Create a new NestSports subscription instead"}
+                      {showNestPlayCreate ? "Hide" : "Create a new NestPlay subscription instead"}
                     </button>
 
-                    {showNestSportsCreate && (
+                    {showNestPlayCreate && (
                       <div className="space-y-3">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           <div>
@@ -555,7 +555,7 @@ export function AddClientDialog({
                           type="button"
                           size="sm"
                           disabled={nsCreating}
-                          onClick={handleCreateNestSportsSubscription}
+                          onClick={handleCreateNestPlaySubscription}
                           className="border-2 border-black font-bold"
                         >
                           {nsCreating && <Loader2 className="w-4 h-4 mr-1 animate-spin" />}

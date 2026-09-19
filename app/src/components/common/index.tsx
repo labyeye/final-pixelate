@@ -274,31 +274,31 @@ export const Badge = ({
 );
 
 const statusColors: Record<string, { bg: string; text: string }> = {
-  interested: { bg: Colors.primary, text: '#FFFFFF' },
-  active: { bg: Colors.primary, text: '#FFFFFF' },
-  completed: { bg: Colors.primary, text: '#FFFFFF' },
-  paid: { bg: Colors.primary, text: '#FFFFFF' },
-  approved: { bg: Colors.primary, text: '#FFFFFF' },
-  resolved: { bg: Colors.primary, text: '#FFFFFF' },
+  interested: { bg: Colors.primary, text: '#ffffff' },
+  active: { bg: Colors.primary, text: '#ffffff' },
+  completed: { bg: Colors.primary, text: '#ffffff' },
+  paid: { bg: Colors.primary, text: '#ffffff' },
+  approved: { bg: Colors.primary, text: '#ffffff' },
+  resolved: { bg: Colors.primary, text: '#ffffff' },
 
-  'in progress': { bg: Colors.accent, text: '#FFFFFF' },
-  called: { bg: Colors.accent, text: '#FFFFFF' },
-  open: { bg: Colors.accent, text: '#FFFFFF' },
+  'in progress': { bg: Colors.accent, text: '#ffffff' },
+  called: { bg: Colors.accent, text: '#ffffff' },
+  open: { bg: Colors.accent, text: '#ffffff' },
 
-  pending: { bg: Colors.warning, text: '#FFFFFF' },
-  partial: { bg: Colors.secondary, text: '#FFFFFF' },
-  'not called': { bg: Colors.warning, text: '#FFFFFF' },
-  'call back later': { bg: Colors.secondary, text: '#FFFFFF' },
-  'meeting booked': { bg: '#7C3AED', text: '#FFFFFF' },
+  pending: { bg: Colors.warning, text: '#ffffff' },
+  partial: { bg: Colors.secondary, text: '#ffffff' },
+  'not called': { bg: Colors.warning, text: '#ffffff' },
+  'call back later': { bg: Colors.secondary, text: '#ffffff' },
+  'meeting booked': { bg: '#7C3AED', text: '#ffffff' },
 
-  'not interested': { bg: Colors.destructive, text: '#FFFFFF' },
-  inactive: { bg: Colors.destructive, text: '#FFFFFF' },
-  cancelled: { bg: Colors.destructive, text: '#FFFFFF' },
-  unpaid: { bg: Colors.destructive, text: '#FFFFFF' },
-  rejected: { bg: Colors.destructive, text: '#FFFFFF' },
+  'not interested': { bg: Colors.destructive, text: '#ffffff' },
+  inactive: { bg: Colors.destructive, text: '#ffffff' },
+  cancelled: { bg: Colors.destructive, text: '#ffffff' },
+  unpaid: { bg: Colors.destructive, text: '#ffffff' },
+  rejected: { bg: Colors.destructive, text: '#ffffff' },
 
-  draft: { bg: Colors.gray700, text: '#FFFFFF' },
-  closed: { bg: Colors.gray600, text: '#FFFFFF' },
+  draft: { bg: Colors.gray700, text: '#ffffff' },
+  closed: { bg: Colors.gray600, text: '#ffffff' },
 };
 
 export const StatusBadge = ({ status }: { status: string }) => {

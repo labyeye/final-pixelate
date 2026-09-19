@@ -16,7 +16,7 @@ import { FileText, CheckCircle2, Clock, AlertCircle, RefreshCw } from "lucide-re
 import { StatCard } from "@/components/ui/stat-card";
 import { apiFetch } from "@/lib/api-fetch";
 
-interface NestSportsInvoice {
+interface NestPlayInvoice {
   invoiceNumber: string;
   clientName: string;
   clientEmail: string;
@@ -28,8 +28,8 @@ interface NestSportsInvoice {
   subscriptionPlan?: string;
 }
 
-export default function NestSportsInvoicesPage() {
-  const [invoices, setInvoices] = useState<NestSportsInvoice[]>([]);
+export default function NestPlayInvoicesPage() {
+  const [invoices, setInvoices] = useState<NestPlayInvoice[]>([]);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const { toast } = useToast();
@@ -39,8 +39,8 @@ export default function NestSportsInvoicesPage() {
     try {
       const url =
         statusFilter !== "all"
-          ? `/api/nestsports-invoices?status=${statusFilter}`
-          : `/api/nestsports-invoices`;
+          ? `/api/nestplay-invoices?status=${statusFilter}`
+          : `/api/nestplay-invoices`;
 
       const res = await apiFetch(url);
       if (!res.ok) {
@@ -50,10 +50,10 @@ export default function NestSportsInvoicesPage() {
       const data = await res.json();
       setInvoices(data.invoices ?? []);
     } catch (err: any) {
-      console.error("Failed to load Nest Sports invoices", err);
+      console.error("Failed to load Nest Play invoices", err);
       toast({
         title: "Fetch Failed",
-        description: err.message || "Could not load Nest Sports invoices.",
+        description: err.message || "Could not load Nest Play invoices.",
         variant: "destructive",
       });
     } finally {
@@ -101,7 +101,7 @@ export default function NestSportsInvoicesPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `nestsports-invoices-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `nestplay-invoices-${new Date().toISOString().slice(0, 10)}.csv`;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -122,9 +122,9 @@ export default function NestSportsInvoicesPage() {
     <div className="space-y-8 font-headline">
       <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <div>
-          <h1 className="text-3xl font-black tracking-tighter">NEST SPORTS INVOICES</h1>
+          <h1 className="text-3xl font-black tracking-tighter">NEST PLAY INVOICES</h1>
           <p className="text-muted-foreground text-sm">
-            Invoices generated from Nest Sports subscriptions.
+            Invoices generated from Nest Play subscriptions.
           </p>
         </div>
         <div className="flex items-center gap-2">

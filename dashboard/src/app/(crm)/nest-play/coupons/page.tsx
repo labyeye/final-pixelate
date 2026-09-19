@@ -66,7 +66,7 @@ const emptyForm = {
   expiresAt: "",
 };
 
-export default function NestSportsCouponsPage() {
+export default function NestPlayCouponsPage() {
   const [coupons, setCoupons] = useState<OfferCode[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -76,7 +76,7 @@ export default function NestSportsCouponsPage() {
   const fetchCoupons = async () => {
     setLoading(true);
     try {
-      const res = await apiFetch("/api/nestsports-offer-codes");
+      const res = await apiFetch("/api/nestplay-offer-codes");
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `Failed to fetch: ${res.status}`);
       setCoupons(data.data ?? []);
@@ -121,7 +121,7 @@ export default function NestSportsCouponsPage() {
 
     setSubmitting(true);
     try {
-      const res = await apiFetch("/api/nestsports-offer-codes", {
+      const res = await apiFetch("/api/nestplay-offer-codes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -148,7 +148,7 @@ export default function NestSportsCouponsPage() {
       prev.map((c) => (c._id === offer._id ? { ...c, isActive: next } : c)),
     );
     try {
-      const res = await apiFetch(`/api/nestsports-offer-codes/${offer._id}`, {
+      const res = await apiFetch(`/api/nestplay-offer-codes/${offer._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isActive: next }),
@@ -171,9 +171,9 @@ export default function NestSportsCouponsPage() {
     <div className="space-y-8 font-headline">
       <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <div>
-          <h1 className="text-3xl font-black tracking-tighter">NEST SPORTS COUPONS</h1>
+          <h1 className="text-3xl font-black tracking-tighter">NEST PLAY COUPONS</h1>
           <p className="text-muted-foreground text-sm">
-            Manage discount coupons for Nest Sports subscriptions.
+            Manage discount coupons for Nest Play subscriptions.
           </p>
         </div>
         <div className="flex items-center gap-2">

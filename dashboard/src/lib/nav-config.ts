@@ -340,17 +340,17 @@ export const navGroups = [
   },
 
   {
-    title: "Nest Sports",
+    title: "Nest Play",
     items: [
       {
-        href: "/nest-sports/invoices",
-        label: "NestSports Invoices",
+        href: "/nest-play/invoices",
+        label: "NestPlay Invoices",
         adminOnly: true,
         icon: Receipt,
       },
       {
-        href: "/nest-sports/coupons",
-        label: "NestSports Coupons",
+        href: "/nest-play/coupons",
+        label: "NestPlay Coupons",
         adminOnly: true,
         icon: Ticket,
       },

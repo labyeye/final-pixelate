@@ -1,8 +1,8 @@
-# How the CRM Dashboard Fetches NestHR Data (and how to plug in Nest Leads / Nest Sports)
+# How the CRM Dashboard Fetches NestHR Data (and how to plug in Nest Leads / Nest Play)
 
 This document explains exactly how the CRM dashboard pulls invoices and statistics
 from the **NestHR** backend today, so the same contract can be implemented on the
-**Nest Leads** and **Nest Sports** backends and wired up with zero code changes on
+**Nest Leads** and **Nest Play** backends and wired up with zero code changes on
 the dashboard side (the routes already exist and just need env vars).
 
 ---
@@ -155,7 +155,7 @@ The dashboard calls this automatically:
 
 Both paths go through `dashboard/src/lib/product-sync.ts` →
 `syncClientSubscription(clientId, "activate" | "deactivate", renewalDate?)`,
-which looks up the client's `product` (`nesthr` | `nestleads` | `nestsports`)
+which looks up the client's `product` (`nesthr` | `nestleads` | `nestplay`)
 and `externalTenantId` fields (set on the client in the Clients UI) and calls
 the matching backend. **If a client has no `product`/`externalTenantId` set,
 this silently no-ops** — nothing breaks, it just doesn't sync.
@@ -171,8 +171,8 @@ this silently no-ops** — nothing breaks, it just doesn't sync.
 - Implemented in `leads-pixelate/backend/controllers/crmController.js` / `routes/crmRoutes.js`, mounted at `/internal` in `server.js`. Updates `Tenant.status`/`planExpiresAt` and the linked `Subscription`.
 - Unlike Nest HR, Nest Leads previously had **no enforcement at all** — `middleware/auth.js`'s `protect()` now also checks the user's `Tenant.status`/`planExpiresAt` on every request (not just at login) and returns 403 if suspended/cancelled/expired. This makes deactivation take effect immediately, even for an already-logged-in session.
 
-### Nest Sports
-Not yet a real backend in this workspace — `product-sync.ts` has a code path for it (`NESTSPORTS_BACKEND_URL`/`NESTSPORTS_CRM_SECRET`) but it will just no-op until that product exists and implements the same contract.
+### Nest Play
+Not yet a real backend in this workspace — `product-sync.ts` has a code path for it (`NESTPLAY_BACKEND_URL`/`NESTPLAY_CRM_SECRET`) but it will just no-op until that product exists and implements the same contract.
 
 ---
 
@@ -191,27 +191,27 @@ launched, quotations created) instead of the HR terms, since those fields
 don't apply 1:1. See `dashboard/src/app/(crm)/nest-leads/subscriptions/page.tsx`
 and `leads-pixelate/backend/routes/statsRoutes.js` / `crmInvoiceRoutes.js`.
 
-Nest Sports is still scaffolded but not implemented — it just needs these
+Nest Play is still scaffolded but not implemented — it just needs these
 filled in once that backend exists:
 
 ```
-NESTSPORTS_BACKEND_URL=""
-NESTSPORTS_CRM_SECRET=""    # optional; falls back to NESTSPORTS_STATS_SECRET
-NESTSPORTS_STATS_SECRET=""
+NESTPLAY_BACKEND_URL=""
+NESTPLAY_CRM_SECRET=""    # optional; falls back to NESTPLAY_STATS_SECRET
+NESTPLAY_STATS_SECRET=""
 ```
 
 Dashboard routes already wired to these vars:
 - `dashboard/src/app/api/nestleads-invoices/route.ts` → calls `{NESTLEADS_BACKEND_URL}/api/crm/invoices`
 - `dashboard/src/app/api/nestleads-stats/route.ts` → calls `{NESTLEADS_BACKEND_URL}/internal/stats`
-- `dashboard/src/app/api/nestsports-invoices/route.ts` → calls `{NESTSPORTS_BACKEND_URL}/api/crm/invoices`
-- `dashboard/src/app/api/nestsports-stats/route.ts` → calls `{NESTSPORTS_BACKEND_URL}/internal/stats`
+- `dashboard/src/app/api/nestplay-invoices/route.ts` → calls `{NESTPLAY_BACKEND_URL}/api/crm/invoices`
+- `dashboard/src/app/api/nestplay-stats/route.ts` → calls `{NESTPLAY_BACKEND_URL}/internal/stats`
 
 Once the backend team implements the two endpoints below and you hand me the URL +
 secret, I just drop the values into `.env` — no further code changes needed.
 
 ---
 
-## 4. Prompt to hand to the Nest Leads / Nest Sports backend project
+## 4. Prompt to hand to the Nest Leads / Nest Play backend project
 
 Copy everything in the box below into the other project's AI assistant (or give it to
 the backend dev directly).
@@ -316,6 +316,6 @@ Send me:
 2. The two secret values (or one, if reused for both endpoints)
 
 I'll drop them into `dashboard/.env` as `NESTLEADS_BACKEND_URL` /
-`NESTLEADS_CRM_SECRET` / `NESTLEADS_SECRET` (or the `NESTSPORTS_*` equivalents)
+`NESTLEADS_CRM_SECRET` / `NESTLEADS_SECRET` (or the `NESTPLAY_*` equivalents)
 and the existing pages will start showing live data immediately — no further code
 changes required.

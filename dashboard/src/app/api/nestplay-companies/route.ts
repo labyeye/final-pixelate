@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/lib/require-auth";
 
-const NESTSPORTS_URL = process.env.NESTSPORTS_BACKEND_URL ?? "";
-const NESTSPORTS_SECRET =
-  process.env.NESTSPORTS_CRM_SECRET ?? process.env.NESTSPORTS_STATS_SECRET ?? "";
+const NESTPLAY_URL = process.env.NESTPLAY_BACKEND_URL ?? "";
+const NESTPLAY_SECRET =
+  process.env.NESTPLAY_CRM_SECRET ?? process.env.NESTPLAY_STATS_SECRET ?? "";
 
 function unconfigured() {
   return NextResponse.json(
-    { error: "Not configured — add NESTSPORTS_BACKEND_URL and NESTSPORTS_CRM_SECRET to .env" },
+    { error: "Not configured — add NESTPLAY_BACKEND_URL and NESTPLAY_CRM_SECRET to .env" },
     { status: 503 },
   );
 }
@@ -15,15 +15,15 @@ function unconfigured() {
 export async function POST(request: NextRequest) {
   const auth = requireAuth(request);
   if (auth.error) return auth.error;
-  if (!NESTSPORTS_URL || !NESTSPORTS_SECRET) return unconfigured();
+  if (!NESTPLAY_URL || !NESTPLAY_SECRET) return unconfigured();
 
   try {
     const body = await request.json();
-    const res = await fetch(`${NESTSPORTS_URL}/api/crm/companies`, {
+    const res = await fetch(`${NESTPLAY_URL}/api/crm/companies`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": NESTSPORTS_SECRET,
+        "x-api-key": NESTPLAY_SECRET,
       },
       body: JSON.stringify(body),
     });
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     if (!res.ok) throw new Error(data?.message ?? `Failed to create subscription (${res.status})`);
     return NextResponse.json(data, { status: res.status });
   } catch (e: any) {
-    console.error("Nest Sports company create error:", e);
+    console.error("Nest Play company create error:", e);
     return NextResponse.json({ error: e.message ?? "Failed to create subscription" }, { status: 500 });
   }
 }

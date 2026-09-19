@@ -45,9 +45,9 @@ export async function register() {
       secret: process.env.NESTHR_STATS_SECRET ?? "",
     },
     {
-      label: "Nest Sports",
-      backendUrl: process.env.NESTSPORTS_BACKEND_URL ?? "",
-      secret: process.env.NESTSPORTS_STATS_SECRET ?? "",
+      label: "Nest Play",
+      backendUrl: process.env.NESTPLAY_BACKEND_URL ?? "",
+      secret: process.env.NESTPLAY_STATS_SECRET ?? "",
     },
     {
       label: "Nest Leads",
