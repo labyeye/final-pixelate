@@ -7,6 +7,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const clientId = searchParams.get("clientId");
+    const source = searchParams.get("source"); // "hrms" | "nestleads" — the product a ticket came from
 
     const auth = request.headers.get("authorization") || "";
     const token = auth.replace("Bearer ", "");
@@ -24,6 +25,8 @@ export async function GET(request: NextRequest) {
         filter = { clientId };
       }
     }
+
+    if (source) filter.source = source;
 
     const tickets = await col.find(filter).sort({ createdAt: -1 }).toArray();
     return NextResponse.json(tickets);

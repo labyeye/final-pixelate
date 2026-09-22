@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-hr/layout,_N_T_/(crm)/nest-hr/support/layout,_N_T_/(crm)/nest-hr/support/page,_N_T_/nest-hr/support"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-hr/support/__PAGE__",
+    "/!KGNybSk/nest-hr/support",
+    "/!KGNybSk/nest-hr",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

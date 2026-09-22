@@ -902,6 +902,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/nest-hr/support": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/nest-hr/support",
+      "dataRoute": "/nest-hr/support.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/nest-leads/invoices": {
       "experimentalBypassFor": [
         {
@@ -977,7 +1002,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/nest-sports/coupons": {
+    "/nest-leads/support": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -990,8 +1015,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/nest-sports/coupons",
-      "dataRoute": "/nest-sports/coupons.rsc",
+      "srcRoute": "/nest-leads/support",
+      "dataRoute": "/nest-leads/support.rsc",
       "prefetchDataRoute": null,
       "allowHeader": [
         "host",
@@ -1002,7 +1027,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/nest-sports/invoices": {
+    "/nest-play/coupons": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -1015,8 +1040,33 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/nest-sports/invoices",
-      "dataRoute": "/nest-sports/invoices.rsc",
+      "srcRoute": "/nest-play/coupons",
+      "dataRoute": "/nest-play/coupons.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/nest-play/invoices": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/nest-play/invoices",
+      "dataRoute": "/nest-play/invoices.rsc",
       "prefetchDataRoute": null,
       "allowHeader": [
         "host",

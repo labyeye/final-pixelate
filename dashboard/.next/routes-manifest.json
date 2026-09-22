@@ -157,12 +157,12 @@
       "namedRegex": "^/api/nestleads\\-offers/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
-      "page": "/api/nestsports-offer-codes/[id]",
-      "regex": "^/api/nestsports\\-offer\\-codes/([^/]+?)(?:/)?$",
+      "page": "/api/nestplay-offer-codes/[id]",
+      "regex": "^/api/nestplay\\-offer\\-codes/([^/]+?)(?:/)?$",
       "routeKeys": {
         "nxtPid": "nxtPid"
       },
-      "namedRegex": "^/api/nestsports\\-offer\\-codes/(?<nxtPid>[^/]+?)(?:/)?$"
+      "namedRegex": "^/api/nestplay\\-offer\\-codes/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
       "page": "/api/onboarding/[id]",
@@ -601,6 +601,12 @@
       "namedRegex": "^/api/nesthr\\-stats(?:/)?$"
     },
     {
+      "page": "/api/nestleads/support-tickets",
+      "regex": "^/api/nestleads/support\\-tickets(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestleads/support\\-tickets(?:/)?$"
+    },
+    {
       "page": "/api/nestleads-invoices",
       "regex": "^/api/nestleads\\-invoices(?:/)?$",
       "routeKeys": {},
@@ -619,28 +625,28 @@
       "namedRegex": "^/api/nestleads\\-stats(?:/)?$"
     },
     {
-      "page": "/api/nestsports-companies",
-      "regex": "^/api/nestsports\\-companies(?:/)?$",
+      "page": "/api/nestplay-companies",
+      "regex": "^/api/nestplay\\-companies(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/api/nestsports\\-companies(?:/)?$"
+      "namedRegex": "^/api/nestplay\\-companies(?:/)?$"
     },
     {
-      "page": "/api/nestsports-invoices",
-      "regex": "^/api/nestsports\\-invoices(?:/)?$",
+      "page": "/api/nestplay-invoices",
+      "regex": "^/api/nestplay\\-invoices(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/api/nestsports\\-invoices(?:/)?$"
+      "namedRegex": "^/api/nestplay\\-invoices(?:/)?$"
     },
     {
-      "page": "/api/nestsports-offer-codes",
-      "regex": "^/api/nestsports\\-offer\\-codes(?:/)?$",
+      "page": "/api/nestplay-offer-codes",
+      "regex": "^/api/nestplay\\-offer\\-codes(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/api/nestsports\\-offer\\-codes(?:/)?$"
+      "namedRegex": "^/api/nestplay\\-offer\\-codes(?:/)?$"
     },
     {
-      "page": "/api/nestsports-stats",
-      "regex": "^/api/nestsports\\-stats(?:/)?$",
+      "page": "/api/nestplay-stats",
+      "regex": "^/api/nestplay\\-stats(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/api/nestsports\\-stats(?:/)?$"
+      "namedRegex": "^/api/nestplay\\-stats(?:/)?$"
     },
     {
       "page": "/api/newsletter",
@@ -1135,6 +1141,12 @@
       "namedRegex": "^/nest\\-hr/subscriptions(?:/)?$"
     },
     {
+      "page": "/nest-hr/support",
+      "regex": "^/nest\\-hr/support(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-hr/support(?:/)?$"
+    },
+    {
       "page": "/nest-leads/invoices",
       "regex": "^/nest\\-leads/invoices(?:/)?$",
       "routeKeys": {},
@@ -1153,16 +1165,22 @@
       "namedRegex": "^/nest\\-leads/subscriptions(?:/)?$"
     },
     {
-      "page": "/nest-sports/coupons",
-      "regex": "^/nest\\-sports/coupons(?:/)?$",
+      "page": "/nest-leads/support",
+      "regex": "^/nest\\-leads/support(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/nest\\-sports/coupons(?:/)?$"
+      "namedRegex": "^/nest\\-leads/support(?:/)?$"
     },
     {
-      "page": "/nest-sports/invoices",
-      "regex": "^/nest\\-sports/invoices(?:/)?$",
+      "page": "/nest-play/coupons",
+      "regex": "^/nest\\-play/coupons(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/nest\\-sports/invoices(?:/)?$"
+      "namedRegex": "^/nest\\-play/coupons(?:/)?$"
+    },
+    {
+      "page": "/nest-play/invoices",
+      "regex": "^/nest\\-play/invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-play/invoices(?:/)?$"
     },
     {
       "page": "/newsletter",

@@ -312,6 +312,12 @@ export const navGroups = [
         adminOnly: true,
         icon: Tag,
       },
+      {
+        href: "/nest-hr/support",
+        label: "Support",
+        adminOnly: true,
+        icon: Headphones,
+      },
     ],
   },
 
@@ -335,6 +341,12 @@ export const navGroups = [
         label: "Offer Codes",
         adminOnly: true,
         icon: Tag,
+      },
+      {
+        href: "/nest-leads/support",
+        label: "Support",
+        adminOnly: true,
+        icon: Headphones,
       },
     ],
   },
