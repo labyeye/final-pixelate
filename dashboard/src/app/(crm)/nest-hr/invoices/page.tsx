@@ -124,7 +124,7 @@ export default function NestHRInvoicesPage() {
         <div>
           <h1 className="text-3xl font-black tracking-tighter">NESTHR INVOICES</h1>
           <p className="text-muted-foreground text-sm">
-            Invoices generated from NestHR subscriptions (KHT/HR/…).
+            Invoices generated from NestHR subscriptions (INV-HRMS-…).
           </p>
         </div>
         <div className="flex items-center gap-2">
