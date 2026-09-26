@@ -4891,6 +4891,22 @@
             budget: formData.get("budget"),
           };
 
+          // NestLeads lead capture (fire-and-forget)
+          fetch("https://leads-backend.pixelatenest.com/api/public/leads", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-API-Key":
+                "nlk_live_e21bbff6128b87b1878ee90c3e1ea7a3af1983707ce2765c21fc2a96c94a584f",
+            },
+            body: JSON.stringify({
+              name: data.name,
+              phone: data.phone,
+              email: data.email,
+              product: data.projectType,
+            }),
+          }).catch(function () {});
+
           try {
             const API_BASE = "https://backend.pixelatenest.com" || "";
 
