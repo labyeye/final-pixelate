@@ -4942,3 +4942,12 @@ video {
     height: 240px;
   }
 }
+
+/* Desktop: keep mega-menu icons hidden even when FontAwesome loads after this file */
+@media (min-width: 992px) {
+  .products-mega-card-icon,
+  .services-mega-card-icon,
+  .about-mega-card-icon {
+    display: none !important;
+  }
+}
