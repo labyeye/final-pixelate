@@ -1,0 +1,524 @@
+{
+  "redirects": [
+    {
+      "source": "/counter-billing-bihar/counter-billing-sharif.html",
+      "destination": "/locations/counter-billing-bihar/counter-billing-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar/:splat*",
+      "destination": "/locations/counter-billing-bihar/:splat*",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar.html",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/school-crm-bihar/:splat*",
+      "destination": "/locations/school-crm-bihar/:splat*",
+      "statusCode": 301
+    },
+    {
+      "source": "/school-crm-bihar",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/factory-management-bihar/:splat*",
+      "destination": "/locations/factory-management-bihar/:splat*",
+      "statusCode": 301
+    },
+    {
+      "source": "/factory-management-bihar",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/school-crm-muzaffarpur",
+      "destination": "/locations/school-crm-muzaffarpur.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/about.html",
+      "destination": "/pages/about.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/about",
+      "destination": "/pages/about.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/pages/contact.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact",
+      "destination": "/pages/contact.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/pricing.html",
+      "destination": "/pages/pricing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pages/pricing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers.html",
+      "destination": "/pages/careers.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers",
+      "destination": "/pages/careers.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/team-leadership.html",
+      "destination": "/pages/team-leadership.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/team-leadership",
+      "destination": "/pages/team-leadership.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/technologies.html",
+      "destination": "/pages/technologies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/technologies",
+      "destination": "/pages/technologies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/photography.html",
+      "destination": "/pages/photography.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/photography",
+      "destination": "/pages/photography.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/location.html",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations.html",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/blogs.html",
+      "destination": "/blog/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/blogs",
+      "destination": "/blog/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog-post",
+      "destination": "/blog/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog-post.html",
+      "destination": "/blog/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/legal/privacy-policy.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/legal/privacy-policy.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-of-service.html",
+      "destination": "/legal/terms-of-service.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/legal/terms-of-service.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/cookie-policy.html",
+      "destination": "/legal/cookie-policy.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/cookie-policy",
+      "destination": "/legal/cookie-policy.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/refund-policy.html",
+      "destination": "/legal/refund-policy.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/refund-policy",
+      "destination": "/legal/refund-policy.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/software-dev.html.html",
+      "destination": "/services/software-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/software-dev.html",
+      "destination": "/services/software-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/software-dev",
+      "destination": "/services/software-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/app-dev.html",
+      "destination": "/services/app-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/app-dev",
+      "destination": "/services/app-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/appdev.html",
+      "destination": "/services/app-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/appdev",
+      "destination": "/services/app-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/webdev.html",
+      "destination": "/services/web-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/webdev",
+      "destination": "/services/web-development.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/video-ed.html",
+      "destination": "/services/video-editing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/video-ed",
+      "destination": "/services/video-editing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/videoediting.html",
+      "destination": "/services/video-editing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/videoediting",
+      "destination": "/services/video-editing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/hosting-maintenance",
+      "destination": "/services/hosting-maintenance.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/services.html",
+      "destination": "/services/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services-uiux.html",
+      "destination": "/services/uiux-branding.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services-digital.html",
+      "destination": "/services/digital-marketing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services.html",
+      "destination": "/services/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services",
+      "destination": "/services/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/video-editing/",
+      "destination": "/services/detailed/video-editing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/video-editing",
+      "destination": "/services/detailed/video-editing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/app-development/",
+      "destination": "/services/detailed/app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/app-development",
+      "destination": "/services/detailed/app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/web-development/",
+      "destination": "/services/detailed/web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/web-development",
+      "destination": "/services/detailed/web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/software-development/",
+      "destination": "/services/detailed/software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/software-development",
+      "destination": "/services/detailed/software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/detailed-services/:splat*",
+      "destination": "/services/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/state.html",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/state",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-ecommerce.html",
+      "destination": "/industries/ecommerce.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-ecommerce",
+      "destination": "/industries/ecommerce.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-logistics.html",
+      "destination": "/industries/logistics.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-logistics",
+      "destination": "/industries/logistics.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-manufacturing.html",
+      "destination": "/industries/manufacturing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-manufacturing",
+      "destination": "/industries/manufacturing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-travel.html",
+      "destination": "/industries/travel.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-travel",
+      "destination": "/industries/travel.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-realestate.html",
+      "destination": "/industries/real-estate.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-realestate",
+      "destination": "/industries/real-estate.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-retail.html",
+      "destination": "/industries/ecommerce.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-retail",
+      "destination": "/industries/ecommerce.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-education.html",
+      "destination": "/industries/education.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-education",
+      "destination": "/industries/education.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-healthcare.html",
+      "destination": "/industries/education.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-healthcare",
+      "destination": "/industries/education.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-finance",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-media",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/search",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/:state/:city/:page([^/]+-software)\\.html",
+      "destination": "/locations/:state/:city/products/:page.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/:state/:city/:page(app-development|digital-marketing|hosting-maintenance|software-development|uiux-branding|video-editing|web-development)\\.html",
+      "destination": "/locations/:state/:city/services/:page.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/:state([a-z-]+)",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/:state([a-z-]+)/",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/:state([a-z-]+)/:city([a-z-]+)",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/:state([a-z-]+)/:city([a-z-]+)/",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/states",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/states/",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/states/:state([a-z-]+)",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/states/:state([a-z-]+)/",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/hosting-maintenance.html",
+      "destination": "/services/hosting-maintenance.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/video-ed.html.html",
+      "destination": "/services/video-editing.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-Counter.html",
+      "destination": "/products/counter-billing-software.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industry-counter.html",
+      "destination": "/products/counter-billing-software.html",
+      "statusCode": 301
+    }
+  ]
+}
