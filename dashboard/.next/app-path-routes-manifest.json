@@ -180,6 +180,7 @@
   "/api/upload-whatsapp-media/route": "/api/upload-whatsapp-media",
   "/api/upload/avatar/route": "/api/upload/avatar",
   "/api/upload/route": "/api/upload",
+  "/api/upload/team-image/route": "/api/upload/team-image",
   "/api/user-activity/route": "/api/user-activity",
   "/api/users/[id]/change-password/route": "/api/users/[id]/change-password",
   "/api/users/[id]/route": "/api/users/[id]",

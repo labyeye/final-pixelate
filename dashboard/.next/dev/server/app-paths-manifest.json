@@ -1,20 +1,9 @@
 {
-  "/(crm)/dashboard/page": "app/(crm)/dashboard/page.js",
-  "/(crm)/reels/page": "app/(crm)/reels/page.js",
-  "/(crm)/work-gallery/page": "app/(crm)/work-gallery/page.js",
-  "/api/auth/login/route": "app/api/auth/login/route.js",
-  "/api/clients/route": "app/api/clients/route.js",
-  "/api/expenses/route": "app/api/expenses/route.js",
-  "/api/invoices/route": "app/api/invoices/route.js",
-  "/api/nesthr-stats/route": "app/api/nesthr-stats/route.js",
-  "/api/projects/route": "app/api/projects/route.js",
-  "/api/quotations/route": "app/api/quotations/route.js",
-  "/api/reels/[id]/route": "app/api/reels/[id]/route.js",
-  "/api/reels/route": "app/api/reels/route.js",
+  "/(crm)/about-us-team/page": "app/(crm)/about-us-team/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/about-team/route": "app/api/about-team/route.js",
   "/api/settings/client-sidebar/route": "app/api/settings/client-sidebar/route.js",
-  "/api/tasks/route": "app/api/tasks/route.js",
-  "/api/users/route": "app/api/users/route.js",
-  "/api/work-gallery/route": "app/api/work-gallery/route.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js"
+  "/api/upload/route": "app/api/upload/route.js",
+  "/api/upload/team-image/route": "app/api/upload/team-image/route.js",
+  "/api/users/route": "app/api/users/route.js"
 }

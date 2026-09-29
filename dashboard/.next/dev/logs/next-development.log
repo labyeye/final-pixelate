@@ -1,60 +1,25 @@
-[00:00:10.485] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:12.061] Server  LOG     — Checking connected product backends —
-[00:00:12.115] Server  LOG     ⚠️  Nest Play not configured — missing backend URL or secret
-[00:00:12.115] Server  LOG     ⚠️  Nest Leads not configured — missing backend URL or secret
-[00:00:12.189] Server  LOG     ❌ Nest HR responded with 404 (https://backend.pixelatenest.com)
-[00:00:12.206] Server  LOG      ✓ Ready in 8.2s
-[00:00:15.228] Server  LOG      ○ Compiling / ...
-[00:00:22.621] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:03.464] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__8a859f11._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.483] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.501] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_425f06b9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.506] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.508] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.509] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.510] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.512] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.512] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.518] Server  ERROR   NestHR stats error: TypeError: fetch failed
-[00:01:03.580] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__8a859f11._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.581] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.581] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_425f06b9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.582] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.582] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.583] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.583] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.583] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.584] Server  ERROR   D:\projects\Pixelate Nest\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:03.584] Server  ERROR   NestHR stats error: Error: NestHR returned non-JSON response (404): <!DOCTYPE html><!--h47ZnKNwwHPVymZYeaNbr--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/
-[00:01:22.843] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:01:24.437] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:02:37.737] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:38.928] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:02:40.579] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:02:42.316] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:04:14.602] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:04:16.366] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:04:36.487] Server  LOG      ✓ Compiled in 1069ms
-[00:06:43.273] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:43.273] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:27.919] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:07:29.942] Server  DEBUG   [api/work-gallery] GET items count: 27 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[00:09:41.481] Server  LOG      ✓ Compiled in 289ms
-[00:11:34.918] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:11:34.926] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:00.943] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:00.944] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:25:54.884] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:25:54.885] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:26:00.108] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:26:00.108] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:28:56.385] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:28:56.385] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:59.493] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:59.494] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:33:02.625] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:33:02.625] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:38:19.088] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:38:19.088] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:41:27.731] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:41:27.731] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:02.800] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.256] Server  LOG     — Checking connected product backends —
+[00:00:03.290] Server  LOG     ⚠️  Nest Play not configured — missing backend URL or secret
+[00:00:03.290] Server  LOG     ⚠️  Nest Leads not configured — missing backend URL or secret
+[00:00:03.333] Server  LOG     ❌ Nest HR responded with 404 (https://backend.pixelatenest.com)
+[00:00:03.345] Server  LOG      ✓ Ready in 2.5s
+[00:00:06.362] Server  LOG      ○ Compiling /about-us-team ...
+[00:00:07.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.941] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:11.941] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:16.853] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:16.853] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:38.167] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:29.031] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:37.105] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:42.011] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:02:42.011] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:01.920] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:01.920] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:33.674] Server  LOG      ✓ Compiled in 162ms
+[00:03:43.415] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:09.019] Server  LOG      ✓ Compiled in 168ms
+[00:05:57.867] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:00.331] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:00.331] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

@@ -847,6 +847,12 @@
       "namedRegex": "^/api/upload/avatar(?:/)?$"
     },
     {
+      "page": "/api/upload/team-image",
+      "regex": "^/api/upload/team\\-image(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/upload/team\\-image(?:/)?$"
+    },
+    {
       "page": "/api/upload-brand-guide-pdf",
       "regex": "^/api/upload\\-brand\\-guide\\-pdf(?:/)?$",
       "routeKeys": {},

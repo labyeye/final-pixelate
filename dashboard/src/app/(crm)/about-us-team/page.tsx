@@ -25,7 +25,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { SuccessModal } from "@/components/ui/success-modal";
-import { compressImage } from "@/lib/compress-image";
 
 interface AboutTeamMember {
   _id?: string;
@@ -41,9 +40,40 @@ interface AboutTeamMember {
   order: number;
 }
 
+// New uploads are absolute URLs; older records hold paths relative to the
+// public website (e.g. "./assets/images/about/x.webp").
+function resolveImageUrl(url: string) {
+  if (!url) return "";
+  if (/^https?:\/\//.test(url) || url.startsWith("/uploads/")) return url;
+  return `https://www.pixelatenest.com/${url.replace(/^\.?\//, "")}`;
+}
+
+function TeamAvatar({ url, name, size }: { url: string; name: string; size: string }) {
+  const [failed, setFailed] = useState(false);
+  useEffect(() => setFailed(false), [url]);
+  const src = resolveImageUrl(url);
+  if (!src || failed) {
+    return (
+      <div className={`${size} rounded-full bg-muted text-muted-foreground flex items-center justify-center text-xs font-semibold shrink-0`}>
+        {name?.trim().slice(0, 2).toUpperCase() || "?"}
+      </div>
+    );
+  }
+  return (
+    <img
+      src={src}
+      alt={name}
+      loading="lazy"
+      className={`${size} rounded-full object-cover border shrink-0`}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 export default function AboutUsTeamPage() {
   const [members, setMembers] = useState<AboutTeamMember[]>([]);
   const [loading, setLoading] = useState(false);
+  const [fetching, setFetching] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingMember, setEditingMember] = useState<AboutTeamMember | null>(
@@ -77,10 +107,12 @@ export default function AboutUsTeamPage() {
 
   const fetchMembers = async () => {
     try {
-      setLoading(true);
-      const res = await apiFetch("/api/about-team");
-      if (!res.ok) throw new Error("Failed to fetch team members");
-      const data = await res.json();
+      setFetching(true);
+      const res = await apiFetch("/api/about-team", { cache: "no-store" });
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !Array.isArray(data)) {
+        throw new Error(data?.error || "Failed to fetch team members");
+      }
       setMembers(data);
     } catch (error: any) {
       toast({
@@ -89,7 +121,7 @@ export default function AboutUsTeamPage() {
         variant: "destructive",
       });
     } finally {
-      setLoading(false);
+      setFetching(false);
     }
   };
 
@@ -288,10 +320,10 @@ export default function AboutUsTeamPage() {
                       if (file) {
                         try {
                           setUploading(true);
-                          const compressed = await compressImage(file);
+                          // Server converts to WebP; send the original for best quality.
                           const formDataUpload = new FormData();
-                          formDataUpload.append("file", compressed);
-                          const res = await apiFetch("/api/upload", {
+                          formDataUpload.append("file", file);
+                          const res = await apiFetch("/api/upload/team-image", {
                             method: "POST",
                             body: formDataUpload,
                           });
@@ -302,7 +334,7 @@ export default function AboutUsTeamPage() {
                           }
 
                           const data = await res.json();
-                          setFormData({ ...formData, imageUrl: data.url });
+                          setFormData((prev) => ({ ...prev, imageUrl: data.url }));
 
                           toast({
                             title: "Success",
@@ -325,18 +357,11 @@ export default function AboutUsTeamPage() {
                   />
                   {formData.imageUrl && (
                     <div className="mt-2">
-                      <img
-                        src={formData.imageUrl}
-                        alt="Preview"
-                        className="h-24 w-24 rounded-lg object-cover border-2"
-                        onError={(e) => {
-                          e.currentTarget.src = "/placeholder-avatar.png";
-                        }}
-                      />
+                      <TeamAvatar url={formData.imageUrl} name={formData.name} size="h-24 w-24" />
                     </div>
                   )}
                   <p className="text-sm text-muted-foreground">
-                    Upload an image (max 5MB) or enter a path manually
+                    Upload an image (max 15MB) — it is converted to WebP automatically
                   </p>
                 </div>
 
@@ -418,7 +443,7 @@ export default function AboutUsTeamPage() {
           </Dialog>
         </CardHeader>
         <CardContent>
-          {loading && !members.length ? (
+          {fetching && !members.length ? (
             <div className="text-center py-10">Loading...</div>
           ) : (
             <>
@@ -443,16 +468,16 @@ export default function AboutUsTeamPage() {
                       members.map((member) => (
                         <TableRow key={member._id}>
                           <TableCell>{member.order}</TableCell>
-                          <TableCell>{member.imageUrl ? <img src={member.imageUrl} alt={member.name} className="h-10 w-10 rounded-full object-cover" /> : <div className="h-10 w-10 rounded-full bg-gray-200" />}</TableCell>
+                          <TableCell><TeamAvatar url={member.imageUrl} name={member.name} size="h-10 w-10" /></TableCell>
                           <TableCell className="font-medium">{member.name}</TableCell>
                           <TableCell>{member.designation}</TableCell>
                           <TableCell>{member.phone || "-"}</TableCell>
                           <TableCell>
                             <div className="flex gap-1">
-                              {member.socialLinks.instagram && <span title="Instagram">📷</span>}
-                              {member.socialLinks.linkedin && <span title="LinkedIn">💼</span>}
-                              {member.socialLinks.facebook && <span title="Facebook">📘</span>}
-                              {!member.socialLinks.instagram && !member.socialLinks.linkedin && !member.socialLinks.facebook && "-"}
+                              {member.socialLinks?.instagram && <span title="Instagram">📷</span>}
+                              {member.socialLinks?.linkedin && <span title="LinkedIn">💼</span>}
+                              {member.socialLinks?.facebook && <span title="Facebook">📘</span>}
+                              {!member.socialLinks?.instagram && !member.socialLinks?.linkedin && !member.socialLinks?.facebook && "-"}
                             </div>
                           </TableCell>
                           <TableCell className="text-right">
@@ -475,7 +500,7 @@ export default function AboutUsTeamPage() {
                   <div key={member._id} className="border-2 border-black bg-white">
                     <div className="divide-y divide-gray-100">
                       <div className="px-3 py-3 flex items-center gap-3">
-                        {member.imageUrl ? <img src={member.imageUrl} alt={member.name} className="h-12 w-12 rounded-full object-cover border-2 border-black shrink-0" /> : <div className="h-12 w-12 rounded-full bg-gray-200 shrink-0" />}
+                        <TeamAvatar url={member.imageUrl} name={member.name} size="h-12 w-12" />
                         <div>
                           <div className="font-black text-base">{member.name}</div>
                           <div className="text-xs text-muted-foreground">{member.designation}</div>
@@ -487,9 +512,9 @@ export default function AboutUsTeamPage() {
                         <span className="text-sm">{member.phone}</span>
                       </div>}
                       <div className="px-3 py-2 flex gap-2">
-                        {member.socialLinks.instagram && <span title="Instagram">📷</span>}
-                        {member.socialLinks.linkedin && <span title="LinkedIn">💼</span>}
-                        {member.socialLinks.facebook && <span title="Facebook">📘</span>}
+                        {member.socialLinks?.instagram && <span title="Instagram">📷</span>}
+                        {member.socialLinks?.linkedin && <span title="LinkedIn">💼</span>}
+                        {member.socialLinks?.facebook && <span title="Facebook">📘</span>}
                       </div>
                     </div>
                     <div className="border-t-2 border-black bg-gray-50 px-3 py-2 flex gap-2">

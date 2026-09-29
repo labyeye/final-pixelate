@@ -1676,6 +1676,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/api/upload/team-image/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/upload/team-image">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/upload/team-image/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/api/user-activity/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/user-activity">> = Specific

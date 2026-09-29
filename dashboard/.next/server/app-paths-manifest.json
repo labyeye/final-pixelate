@@ -180,6 +180,7 @@
   "/api/upload-whatsapp-media/route": "app/api/upload-whatsapp-media/route.js",
   "/api/upload/avatar/route": "app/api/upload/avatar/route.js",
   "/api/upload/route": "app/api/upload/route.js",
+  "/api/upload/team-image/route": "app/api/upload/team-image/route.js",
   "/api/user-activity/route": "app/api/user-activity/route.js",
   "/api/users/[id]/change-password/route": "app/api/users/[id]/change-password/route.js",
   "/api/users/[id]/route": "app/api/users/[id]/route.js",

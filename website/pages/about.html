@@ -1678,6 +1678,11 @@
               container.innerHTML = "";
               members.forEach((member) => {
                 const socialLinks = [];
+                const imageUrl =
+                  typeof member.imageUrl === "string" &&
+                  /^https:\/\//i.test(member.imageUrl)
+                    ? member.imageUrl
+                    : "";
 
                 if (
                   member.socialLinks?.instagram &&
@@ -1727,16 +1732,18 @@
                       
                       <a href="#" class="final-team-card">
                         <span class="final-team-image-wrapper">
-                          <img
-                            src="${
-                              member.imageUrl ||
-                              "./assets/images/about/default.webp"
-                            }"
+                          ${
+                            imageUrl
+                              ? `<img
+                            src="${imageUrl}"
                             loading="lazy"
                             alt="${member.name}"
                             class="final-team-image"
-                            onerror="this.src='./assets/images/about/default.webp'"
+                            onerror="this.hidden=true; this.nextElementSibling.hidden=false"
                           />
+                          <span class="final-team-image-missing" hidden>Image is not there</span>`
+                              : `<span class="final-team-image-missing">Image is not there</span>`
+                          }
                         </span>
                         
                         

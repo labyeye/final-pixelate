@@ -531,9 +531,45 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$s
 ;
 ;
 ;
+// New uploads are absolute URLs; older records hold paths relative to the
+// public website (e.g. "./assets/images/about/x.webp").
+function resolveImageUrl(url) {
+    if (!url) return "";
+    if (/^https?:\/\//.test(url) || url.startsWith("/uploads/")) return url;
+    return `https://www.pixelatenest.com/${url.replace(/^\.?\//, "")}`;
+}
+function TeamAvatar({ url, name, size }) {
+    const [failed, setFailed] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>setFailed(false), [
+        url
+    ]);
+    const src = resolveImageUrl(url);
+    if (!src || failed) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: `${size} rounded-full bg-muted text-muted-foreground flex items-center justify-center text-xs font-semibold shrink-0`,
+            children: name?.trim().slice(0, 2).toUpperCase() || "?"
+        }, void 0, false, {
+            fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
+            lineNumber: 57,
+            columnNumber: 7
+        }, this);
+    }
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+        src: src,
+        alt: name,
+        loading: "lazy",
+        className: `${size} rounded-full object-cover border shrink-0`,
+        onError: ()=>setFailed(true)
+    }, void 0, false, {
+        fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
+        lineNumber: 63,
+        columnNumber: 5
+    }, this);
+}
 function AboutUsTeamPage() {
     const [members, setMembers] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [fetching, setFetching] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [uploading, setUploading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [dialogOpen, setDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [editingMember, setEditingMember] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -561,10 +597,14 @@ function AboutUsTeamPage() {
     }, []);
     const fetchMembers = async ()=>{
         try {
-            setLoading(true);
-            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])("/api/about-team");
-            if (!res.ok) throw new Error("Failed to fetch team members");
-            const data = await res.json();
+            setFetching(true);
+            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])("/api/about-team", {
+                cache: "no-store"
+            });
+            const data = await res.json().catch(()=>null);
+            if (!res.ok || !Array.isArray(data)) {
+                throw new Error(data?.error || "Failed to fetch team members");
+            }
             setMembers(data);
         } catch (error) {
             toast({
@@ -573,7 +613,7 @@ function AboutUsTeamPage() {
                 variant: "destructive"
             });
         } finally{
-            setLoading(false);
+            setFetching(false);
         }
     };
     const handleSubmit = async (e)=>{
@@ -653,7 +693,7 @@ function AboutUsTeamPage() {
                 message: successMessage
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                lineNumber: 178,
+                lineNumber: 211,
                 columnNumber: 26
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -665,7 +705,7 @@ function AboutUsTeamPage() {
                                 children: "About Us - Team Management"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                lineNumber: 181,
+                                lineNumber: 214,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -684,19 +724,19 @@ function AboutUsTeamPage() {
                                                     className: "mr-2 h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                    lineNumber: 190,
+                                                    lineNumber: 223,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Add Team Member"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                            lineNumber: 184,
+                                            lineNumber: 217,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                        lineNumber: 183,
+                                        lineNumber: 216,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -707,12 +747,12 @@ function AboutUsTeamPage() {
                                                     children: editingMember ? "Edit Team Member" : "Add New Team Member"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                    lineNumber: 196,
+                                                    lineNumber: 229,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                lineNumber: 195,
+                                                lineNumber: 228,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -730,7 +770,7 @@ function AboutUsTeamPage() {
                                                                         children: "Name *"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 203,
+                                                                        lineNumber: 236,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -743,13 +783,13 @@ function AboutUsTeamPage() {
                                                                         required: true
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 204,
+                                                                        lineNumber: 237,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 202,
+                                                                lineNumber: 235,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -760,7 +800,7 @@ function AboutUsTeamPage() {
                                                                         children: "Designation *"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 214,
+                                                                        lineNumber: 247,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -773,19 +813,19 @@ function AboutUsTeamPage() {
                                                                         required: true
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 215,
+                                                                        lineNumber: 248,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 213,
+                                                                lineNumber: 246,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 201,
+                                                        lineNumber: 234,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -799,7 +839,7 @@ function AboutUsTeamPage() {
                                                                         children: "Phone"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 231,
+                                                                        lineNumber: 264,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -812,13 +852,13 @@ function AboutUsTeamPage() {
                                                                         placeholder: "+91 84069 12345"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 232,
+                                                                        lineNumber: 265,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 230,
+                                                                lineNumber: 263,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -829,7 +869,7 @@ function AboutUsTeamPage() {
                                                                         children: "Display Order"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 242,
+                                                                        lineNumber: 275,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -842,19 +882,19 @@ function AboutUsTeamPage() {
                                                                             })
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 243,
+                                                                        lineNumber: 276,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 241,
+                                                                lineNumber: 274,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 229,
+                                                        lineNumber: 262,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -865,7 +905,7 @@ function AboutUsTeamPage() {
                                                                 children: "Team Member Photo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 258,
+                                                                lineNumber: 291,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -882,7 +922,7 @@ function AboutUsTeamPage() {
                                                                         className: "flex-1"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 260,
+                                                                        lineNumber: 293,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -893,13 +933,13 @@ function AboutUsTeamPage() {
                                                                         children: uploading ? "Uploading..." : "Upload Image"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 269,
+                                                                        lineNumber: 302,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 259,
+                                                                lineNumber: 292,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -910,11 +950,12 @@ function AboutUsTeamPage() {
                                                                 onChange: async (e)=>{
                                                                     const file = e.target.files?.[0];
                                                                     if (file) {
-                                                                        const formDataUpload = new FormData();
-                                                                        formDataUpload.append("file", file);
                                                                         try {
                                                                             setUploading(true);
-                                                                            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])("/api/upload", {
+                                                                            // Server converts to WebP; send the original for best quality.
+                                                                            const formDataUpload = new FormData();
+                                                                            formDataUpload.append("file", file);
+                                                                            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2d$fetch$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])("/api/upload/team-image", {
                                                                                 method: "POST",
                                                                                 body: formDataUpload
                                                                             });
@@ -923,10 +964,10 @@ function AboutUsTeamPage() {
                                                                                 throw new Error(errorData.error || "Upload failed");
                                                                             }
                                                                             const data = await res.json();
-                                                                            setFormData({
-                                                                                ...formData,
-                                                                                imageUrl: data.url
-                                                                            });
+                                                                            setFormData((prev)=>({
+                                                                                    ...prev,
+                                                                                    imageUrl: data.url
+                                                                                }));
                                                                             toast({
                                                                                 title: "Success",
                                                                                 description: "Image uploaded successfully"
@@ -945,40 +986,37 @@ function AboutUsTeamPage() {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 280,
+                                                                lineNumber: 313,
                                                                 columnNumber: 19
                                                             }, this),
                                                             formData.imageUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "mt-2",
-                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                                    src: formData.imageUrl,
-                                                                    alt: "Preview",
-                                                                    className: "h-24 w-24 rounded-lg object-cover border-2",
-                                                                    onError: (e)=>{
-                                                                        e.currentTarget.src = "/placeholder-avatar.png";
-                                                                    }
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TeamAvatar, {
+                                                                    url: formData.imageUrl,
+                                                                    name: formData.name,
+                                                                    size: "h-24 w-24"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                    lineNumber: 327,
+                                                                    lineNumber: 360,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 326,
+                                                                lineNumber: 359,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "text-sm text-muted-foreground",
-                                                                children: "Upload an image (max 5MB) or enter a path manually"
+                                                                children: "Upload an image (max 15MB) — it is converted to WebP automatically"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 337,
+                                                                lineNumber: 363,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 257,
+                                                        lineNumber: 290,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -989,7 +1027,7 @@ function AboutUsTeamPage() {
                                                                 children: "Social Links (Optional)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 343,
+                                                                lineNumber: 369,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1000,7 +1038,7 @@ function AboutUsTeamPage() {
                                                                         children: "Instagram"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 348,
+                                                                        lineNumber: 374,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1016,13 +1054,13 @@ function AboutUsTeamPage() {
                                                                         placeholder: "https://instagram.com/username"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 349,
+                                                                        lineNumber: 375,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 347,
+                                                                lineNumber: 373,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1033,7 +1071,7 @@ function AboutUsTeamPage() {
                                                                         children: "LinkedIn"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 366,
+                                                                        lineNumber: 392,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1049,13 +1087,13 @@ function AboutUsTeamPage() {
                                                                         placeholder: "https://linkedin.com/in/username"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 367,
+                                                                        lineNumber: 393,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 365,
+                                                                lineNumber: 391,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1066,7 +1104,7 @@ function AboutUsTeamPage() {
                                                                         children: "Facebook"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 384,
+                                                                        lineNumber: 410,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1082,19 +1120,19 @@ function AboutUsTeamPage() {
                                                                         placeholder: "https://facebook.com/username"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 385,
+                                                                        lineNumber: 411,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 383,
+                                                                lineNumber: 409,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 342,
+                                                        lineNumber: 368,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -1106,7 +1144,7 @@ function AboutUsTeamPage() {
                                                                 children: "Cancel"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 403,
+                                                                lineNumber: 429,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1119,46 +1157,46 @@ function AboutUsTeamPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 410,
+                                                                lineNumber: 436,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 402,
+                                                        lineNumber: 428,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                lineNumber: 200,
+                                                lineNumber: 233,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                        lineNumber: 194,
+                                        lineNumber: 227,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                lineNumber: 182,
+                                lineNumber: 215,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                        lineNumber: 180,
+                        lineNumber: 213,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
-                        children: loading && !members.length ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: fetching && !members.length ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "text-center py-10",
                             children: "Loading..."
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                            lineNumber: 421,
+                            lineNumber: 447,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
@@ -1173,42 +1211,42 @@ function AboutUsTeamPage() {
                                                             children: "Order"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                            lineNumber: 429,
+                                                            lineNumber: 455,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                             children: "Image"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                            lineNumber: 430,
+                                                            lineNumber: 456,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                             children: "Name"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                            lineNumber: 431,
+                                                            lineNumber: 457,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                             children: "Designation"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                            lineNumber: 432,
+                                                            lineNumber: 458,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                             children: "Phone"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                            lineNumber: 433,
+                                                            lineNumber: 459,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                             children: "Social Links"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                            lineNumber: 434,
+                                                            lineNumber: 460,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1216,18 +1254,18 @@ function AboutUsTeamPage() {
                                                             children: "Actions"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                            lineNumber: 435,
+                                                            lineNumber: 461,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                    lineNumber: 428,
+                                                    lineNumber: 454,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                lineNumber: 427,
+                                                lineNumber: 453,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1238,12 +1276,12 @@ function AboutUsTeamPage() {
                                                         children: "No team members added yet."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 440,
+                                                        lineNumber: 466,
                                                         columnNumber: 33
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                    lineNumber: 440,
+                                                    lineNumber: 466,
                                                     columnNumber: 23
                                                 }, this) : members.map((member)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
                                                         children: [
@@ -1251,28 +1289,22 @@ function AboutUsTeamPage() {
                                                                 children: member.order
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 444,
+                                                                lineNumber: 470,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                                children: member.imageUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                                    src: member.imageUrl,
-                                                                    alt: member.name,
-                                                                    className: "h-10 w-10 rounded-full object-cover"
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TeamAvatar, {
+                                                                    url: member.imageUrl,
+                                                                    name: member.name,
+                                                                    size: "h-10 w-10"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                    lineNumber: 445,
-                                                                    columnNumber: 57
-                                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "h-10 w-10 rounded-full bg-gray-200"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                    lineNumber: 445,
-                                                                    columnNumber: 155
+                                                                    lineNumber: 471,
+                                                                    columnNumber: 38
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 445,
+                                                                lineNumber: 471,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1280,61 +1312,61 @@ function AboutUsTeamPage() {
                                                                 children: member.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 446,
+                                                                lineNumber: 472,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: member.designation
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 447,
+                                                                lineNumber: 473,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: member.phone || "-"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 448,
+                                                                lineNumber: 474,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                     className: "flex gap-1",
                                                                     children: [
-                                                                        member.socialLinks.instagram && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        member.socialLinks?.instagram && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                             title: "Instagram",
                                                                             children: "📷"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                            lineNumber: 451,
-                                                                            columnNumber: 64
+                                                                            lineNumber: 477,
+                                                                            columnNumber: 65
                                                                         }, this),
-                                                                        member.socialLinks.linkedin && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        member.socialLinks?.linkedin && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                             title: "LinkedIn",
                                                                             children: "💼"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                            lineNumber: 452,
-                                                                            columnNumber: 63
+                                                                            lineNumber: 478,
+                                                                            columnNumber: 64
                                                                         }, this),
-                                                                        member.socialLinks.facebook && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        member.socialLinks?.facebook && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                             title: "Facebook",
                                                                             children: "📘"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                            lineNumber: 453,
-                                                                            columnNumber: 63
+                                                                            lineNumber: 479,
+                                                                            columnNumber: 64
                                                                         }, this),
-                                                                        !member.socialLinks.instagram && !member.socialLinks.linkedin && !member.socialLinks.facebook && "-"
+                                                                        !member.socialLinks?.instagram && !member.socialLinks?.linkedin && !member.socialLinks?.facebook && "-"
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                    lineNumber: 450,
+                                                                    lineNumber: 476,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 449,
+                                                                lineNumber: 475,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1350,12 +1382,12 @@ function AboutUsTeamPage() {
                                                                                 className: "h-4 w-4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                                lineNumber: 459,
+                                                                                lineNumber: 485,
                                                                                 columnNumber: 100
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                            lineNumber: 459,
+                                                                            lineNumber: 485,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1366,45 +1398,45 @@ function AboutUsTeamPage() {
                                                                                 className: "h-4 w-4 text-red-500"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                                lineNumber: 460,
+                                                                                lineNumber: 486,
                                                                                 columnNumber: 120
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                            lineNumber: 460,
+                                                                            lineNumber: 486,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                    lineNumber: 458,
+                                                                    lineNumber: 484,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 457,
+                                                                lineNumber: 483,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, member._id, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 443,
+                                                        lineNumber: 469,
                                                         columnNumber: 25
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                lineNumber: 438,
+                                                lineNumber: 464,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                        lineNumber: 426,
+                                        lineNumber: 452,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                    lineNumber: 425,
+                                    lineNumber: 451,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1415,7 +1447,7 @@ function AboutUsTeamPage() {
                                             children: "No team members added yet."
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                            lineNumber: 472,
+                                            lineNumber: 498,
                                             columnNumber: 42
                                         }, this),
                                         members.map((member)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1427,20 +1459,14 @@ function AboutUsTeamPage() {
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "px-3 py-3 flex items-center gap-3",
                                                                 children: [
-                                                                    member.imageUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                                        src: member.imageUrl,
-                                                                        alt: member.name,
-                                                                        className: "h-12 w-12 rounded-full object-cover border-2 border-black shrink-0"
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TeamAvatar, {
+                                                                        url: member.imageUrl,
+                                                                        name: member.name,
+                                                                        size: "h-12 w-12"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 477,
-                                                                        columnNumber: 44
-                                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "h-12 w-12 rounded-full bg-gray-200 shrink-0"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 477,
-                                                                        columnNumber: 173
+                                                                        lineNumber: 503,
+                                                                        columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         children: [
@@ -1449,7 +1475,7 @@ function AboutUsTeamPage() {
                                                                                 children: member.name
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                                lineNumber: 479,
+                                                                                lineNumber: 505,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1457,13 +1483,13 @@ function AboutUsTeamPage() {
                                                                                 children: member.designation
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                                lineNumber: 480,
+                                                                                lineNumber: 506,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 478,
+                                                                        lineNumber: 504,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1474,13 +1500,13 @@ function AboutUsTeamPage() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 482,
+                                                                        lineNumber: 508,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 476,
+                                                                lineNumber: 502,
                                                                 columnNumber: 23
                                                             }, this),
                                                             member.phone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1491,7 +1517,7 @@ function AboutUsTeamPage() {
                                                                         children: "Phone"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 485,
+                                                                        lineNumber: 511,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1499,52 +1525,52 @@ function AboutUsTeamPage() {
                                                                         children: member.phone
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 486,
+                                                                        lineNumber: 512,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 484,
+                                                                lineNumber: 510,
                                                                 columnNumber: 40
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "px-3 py-2 flex gap-2",
                                                                 children: [
-                                                                    member.socialLinks.instagram && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    member.socialLinks?.instagram && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         title: "Instagram",
                                                                         children: "📷"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 489,
-                                                                        columnNumber: 58
+                                                                        lineNumber: 515,
+                                                                        columnNumber: 59
                                                                     }, this),
-                                                                    member.socialLinks.linkedin && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    member.socialLinks?.linkedin && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         title: "LinkedIn",
                                                                         children: "💼"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 490,
-                                                                        columnNumber: 57
+                                                                        lineNumber: 516,
+                                                                        columnNumber: 58
                                                                     }, this),
-                                                                    member.socialLinks.facebook && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    member.socialLinks?.facebook && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         title: "Facebook",
                                                                         children: "📘"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 491,
-                                                                        columnNumber: 57
+                                                                        lineNumber: 517,
+                                                                        columnNumber: 58
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 488,
+                                                                lineNumber: 514,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 475,
+                                                        lineNumber: 501,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1560,14 +1586,14 @@ function AboutUsTeamPage() {
                                                                         className: "h-3 w-3 mr-1"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 495,
+                                                                        lineNumber: 521,
                                                                         columnNumber: 140
                                                                     }, this),
                                                                     "Edit"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 495,
+                                                                lineNumber: 521,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1580,51 +1606,51 @@ function AboutUsTeamPage() {
                                                                         className: "h-3 w-3 mr-1"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                        lineNumber: 496,
+                                                                        lineNumber: 522,
                                                                         columnNumber: 150
                                                                     }, this),
                                                                     "Delete"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                                lineNumber: 496,
+                                                                lineNumber: 522,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                        lineNumber: 494,
+                                                        lineNumber: 520,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, member._id, true, {
                                                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                                lineNumber: 474,
+                                                lineNumber: 500,
                                                 columnNumber: 19
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                                    lineNumber: 471,
+                                    lineNumber: 497,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                        lineNumber: 419,
+                        lineNumber: 445,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-                lineNumber: 179,
+                lineNumber: 212,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/about-us-team/page.tsx",
-        lineNumber: 177,
+        lineNumber: 210,
         columnNumber: 5
     }, this);
 }
