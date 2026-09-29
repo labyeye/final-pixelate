@@ -583,7 +583,7 @@ const styles = StyleSheet.create({
     fontSize: Typography['2xl'],
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
     marginBottom: Spacing.sm,
   },
   accessDeniedText: {

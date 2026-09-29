@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MoreStackParams } from './types';
-import { Colors, Typography } from '../theme';
+import { stackScreenOptions } from '../theme';
 import MoreHomeScreen from '../screens/more/MoreHomeScreen';
 import WhatsAppInboxScreen from '../screens/marketing/WhatsAppInboxScreen';
 import BulkMessagingScreen from '../screens/marketing/BulkMessagingScreen';
@@ -29,156 +29,186 @@ import TrashScreen from '../screens/more/TrashScreen';
 import ERPConsoleScreen from '../screens/more/ERPConsoleScreen';
 import UsersScreen from '../screens/more/UsersScreen';
 import ClientPortalScreen from '../screens/more/ClientPortalScreen';
+import BrandGuideScreen from '../screens/more/BrandGuideScreen';
+import WhatsAppSendScreen from '../screens/marketing/WhatsAppSendScreen';
+import ProductSubscriptionsScreen from '../screens/products/ProductSubscriptionsScreen';
+import ProductInvoicesScreen from '../screens/products/ProductInvoicesScreen';
+import ProductOffersScreen from '../screens/products/ProductOffersScreen';
+import ProductSupportScreen from '../screens/products/ProductSupportScreen';
+import { PRODUCT_NAME } from '../screens/products/shared';
 
 const Stack = createNativeStackNavigator<MoreStackParams>();
 
 const MoreStack = () => (
   <Stack.Navigator
-    screenOptions={{
-      headerStyle: { backgroundColor: Colors.primary },
-      headerTintColor: Colors.white,
-      headerTitleStyle: {
-        fontWeight: Typography.black,
-        fontSize: Typography.lg,
-      },
-      headerShadowVisible: false,
-      contentStyle: { backgroundColor: Colors.background },
-    }}
+    screenOptions={stackScreenOptions}
   >
     <Stack.Screen
       name="MoreHome"
       component={MoreHomeScreen}
-      options={{ title: 'MORE' }}
+      options={{ title: 'More' }}
     />
     <Stack.Screen
       name="WhatsAppInbox"
       component={WhatsAppInboxScreen}
-      options={{ title: 'WHATSAPP INBOX' }}
+      options={{ title: 'WhatsApp Inbox' }}
     />
     <Stack.Screen
       name="BulkMessaging"
       component={BulkMessagingScreen}
-      options={{ title: 'BULK MESSAGING' }}
+      options={{ title: 'Bulk Messaging' }}
     />
     <Stack.Screen
       name="Campaigns"
       component={CampaignsScreen}
-      options={{ title: 'CAMPAIGNS' }}
+      options={{ title: 'Campaigns' }}
     />
     <Stack.Screen
       name="WhatsAppTemplates"
       component={WhatsAppTemplatesScreen}
-      options={{ title: 'WA TEMPLATES' }}
+      options={{ title: 'WA Templates' }}
     />
     <Stack.Screen
       name="WhatsAppWebhook"
       component={WhatsAppWebhookScreen}
-      options={{ title: 'WA DELIVERY LOG' }}
+      options={{ title: 'WA Delivery Log' }}
     />
     <Stack.Screen
       name="SocialMediaPlanner"
       component={SocialMediaPlannerScreen}
-      options={{ title: 'SOCIAL MEDIA' }}
+      options={{ title: 'Social Media' }}
     />
     <Stack.Screen
       name="SocialMediaCalendar"
       component={SocialMediaCalendarScreen}
-      options={{ title: 'CONTENT CALENDAR' }}
+      options={{ title: 'Content Calendar' }}
     />
     <Stack.Screen
       name="Blogs"
       component={BlogsScreen}
-      options={{ title: 'BLOGS' }}
+      options={{ title: 'Blogs' }}
     />
     <Stack.Screen
       name="BlogDetail"
       component={BlogDetailScreen}
-      options={{ title: 'BLOG' }}
+      options={{ title: 'Blog' }}
     />
     <Stack.Screen
       name="Newsletter"
       component={NewsletterScreen}
-      options={{ title: 'NEWSLETTER' }}
+      options={{ title: 'Newsletter' }}
     />
     <Stack.Screen
       name="Announcements"
       component={AnnouncementsScreen}
-      options={{ title: 'ANNOUNCEMENTS' }}
+      options={{ title: 'Announcements' }}
     />
     <Stack.Screen
       name="Support"
       component={SupportScreen}
-      options={{ title: 'SUPPORT' }}
+      options={{ title: 'Support' }}
     />
     <Stack.Screen
       name="SupportDetail"
       component={SupportDetailScreen}
-      options={{ title: 'TICKET' }}
+      options={{ title: 'Ticket' }}
     />
     <Stack.Screen
       name="Settings"
       component={SettingsScreen}
-      options={{ title: 'SETTINGS' }}
+      options={{ title: 'Settings' }}
     />
     <Stack.Screen
       name="Profile"
       component={ProfileScreen}
-      options={{ title: 'PROFILE' }}
+      options={{ title: 'Profile' }}
     />
     <Stack.Screen
       name="Careers"
       component={CareersScreen}
-      options={{ title: 'CAREERS' }}
+      options={{ title: 'Careers' }}
     />
     <Stack.Screen
       name="CareerDetail"
       component={CareerDetailScreen}
-      options={{ title: 'JOB POSTING' }}
+      options={{ title: 'Job Posting' }}
     />
     <Stack.Screen
       name="AboutTeam"
       component={AboutTeamScreen}
-      options={{ title: 'ABOUT US TEAM' }}
+      options={{ title: 'About Us Team' }}
     />
     <Stack.Screen
       name="Developers"
       component={DevelopersScreen}
-      options={{ title: 'DEVELOPERS' }}
+      options={{ title: 'Developers' }}
     />
     <Stack.Screen
       name="WorkGallery"
       component={WorkGalleryScreen}
-      options={{ title: 'WORK GALLERY' }}
+      options={{ title: 'Work Gallery' }}
     />
     <Stack.Screen
       name="Photos"
       component={PhotosScreen}
-      options={{ title: 'PHOTOS' }}
+      options={{ title: 'Photos' }}
     />
     <Stack.Screen
       name="Reels"
       component={ReelsScreen}
-      options={{ title: 'REELS' }}
+      options={{ title: 'Reels' }}
     />
     <Stack.Screen
       name="Trash"
       component={TrashScreen}
-      options={{ title: 'TRASH' }}
+      options={{ title: 'Trash' }}
     />
     <Stack.Screen
       name="ERPConsole"
       component={ERPConsoleScreen}
-      options={{ title: 'ERP CONSOLE' }}
+      options={{ title: 'ERP Console' }}
     />
     <Stack.Screen
       name="Users"
       component={UsersScreen}
-      options={{ title: 'LOGIN USERS' }}
+      options={{ title: 'Login Users' }}
     />
     <Stack.Screen
       name="ClientPortal"
       component={ClientPortalScreen}
-      options={{ title: 'CLIENT PORTAL' }}
+      options={{ title: 'Client Portal' }}
+    />
+    <Stack.Screen
+      name="BrandGuide"
+      component={BrandGuideScreen}
+      options={{ title: 'Brand Guides' }}
+    />
+    <Stack.Screen
+      name="WhatsAppSend"
+      component={WhatsAppSendScreen}
+      options={{ title: 'Send WhatsApp' }}
+    />
+    <Stack.Screen
+      name="ProductSubscriptions"
+      component={ProductSubscriptionsScreen}
+      options={({ route }) => ({ title: `${PRODUCT_NAME[route.params.product]} Subscriptions` })}
+    />
+    <Stack.Screen
+      name="ProductInvoices"
+      component={ProductInvoicesScreen}
+      options={({ route }) => ({ title: `${PRODUCT_NAME[route.params.product]} Invoices` })}
+    />
+    <Stack.Screen
+      name="ProductOffers"
+      component={ProductOffersScreen}
+      options={({ route }) => ({
+        title: `${PRODUCT_NAME[route.params.product]} ${route.params.product === 'play' ? 'Coupons' : 'Offer Codes'}`,
+      })}
+    />
+    <Stack.Screen
+      name="ProductSupport"
+      component={ProductSupportScreen}
+      options={({ route }) => ({ title: `${PRODUCT_NAME[route.params.product]} Support` })}
     />
   </Stack.Navigator>
 );

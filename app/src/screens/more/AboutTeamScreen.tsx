@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     height: 44,
     backgroundColor: Colors.primary,
     borderWidth: Border.width,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -317,7 +317,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xl,
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   modalClose: {
     fontSize: Typography.xl,

@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.sm,
     fontWeight: Typography.black,
     color: Colors.white,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   infoBannerSub: {
     fontSize: Typography.sm,

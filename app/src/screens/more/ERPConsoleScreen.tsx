@@ -73,7 +73,7 @@ const ERPConsoleScreen = () => {
                 styles.chip,
                 filter === t && {
                   backgroundColor: EVENT_COLORS[t] || Colors.primary,
-                  borderColor: Colors.black,
+                  borderColor: Colors.border,
                 },
               ]}
               onPress={() => setFilter(t)}
@@ -166,14 +166,14 @@ const styles = StyleSheet.create({
     padding: Spacing.md,
     marginBottom: Spacing.sm,
     borderLeftColor: Colors.primary,
-    borderLeftWidth: 6,
+    borderLeftWidth: 3,
   },
   dot: {
     width: 8,
     height: 8,
     backgroundColor: Colors.success,
     borderWidth: 1,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
   },
   consoleTitle: {
     fontSize: Typography.sm,
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderWidth: Border.width,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
   },
   typeText: {
     fontSize: Typography.xs,

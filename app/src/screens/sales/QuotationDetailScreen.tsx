@@ -59,7 +59,7 @@ const QuotationDetailScreen = () => {
         <Card
           style={[
             styles.heroCard,
-            { borderLeftColor: Colors.accent, borderLeftWidth: 6 },
+            { borderLeftColor: Colors.accent, borderLeftWidth: 3 },
           ]}
           shadow="lg"
         >
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   client: {
     fontSize: Typography['2xl'],
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1.5,
+    letterSpacing: 0.3,
   },
   totalAmount: {
     fontSize: Typography['3xl'],

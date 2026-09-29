@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
     marginBottom: Spacing.sm,
   },
   pickerTrigger: {

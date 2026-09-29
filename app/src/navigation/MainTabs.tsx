@@ -29,7 +29,7 @@ const TabIcon = ({
   focused: boolean;
 }) => (
   <View style={[styles.tabItem, focused && styles.tabItemActive]}>
-    <Icon size={22} color={focused ? Colors.primary : Colors.gray400} />
+    <Icon size={20} color={focused ? Colors.primary : Colors.gray400} />
     <Text style={[styles.tabLabel, focused && styles.tabLabelActive]}>
       {label}
     </Text>
@@ -49,7 +49,7 @@ const MainTabs = () => (
       component={HomeStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="HOME" Icon={LayoutDashboard} focused={focused} />
+          <TabIcon label="Home" Icon={LayoutDashboard} focused={focused} />
         ),
       }}
     />
@@ -67,7 +67,7 @@ const MainTabs = () => (
       component={OperationsStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="WORK" Icon={Briefcase} focused={focused} />
+          <TabIcon label="Work" Icon={Briefcase} focused={focused} />
         ),
       }}
     />
@@ -76,7 +76,7 @@ const MainTabs = () => (
       component={FinanceStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="FINANCE" Icon={Wallet} focused={focused} />
+          <TabIcon label="Finance" Icon={Wallet} focused={focused} />
         ),
       }}
     />
@@ -85,7 +85,7 @@ const MainTabs = () => (
       component={MoreStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="MORE" Icon={MoreHorizontal} focused={focused} />
+          <TabIcon label="More" Icon={MoreHorizontal} focused={focused} />
         ),
       }}
     />
@@ -95,12 +95,12 @@ const MainTabs = () => (
 const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: Colors.white,
-    borderTopWidth: Border.widthBold,
+    borderTopWidth: Border.width,
     borderTopColor: Colors.border,
-    height: 72,
-    paddingBottom: 8,
+    height: 64,
+    paddingBottom: 6,
     paddingTop: 4,
-    ...Shadows.lg,
+    ...Shadows.sm,
   },
   tabItem: {
     alignItems: 'center',
@@ -110,17 +110,12 @@ const styles = StyleSheet.create({
     borderRadius: Border.radius,
     minWidth: 58,
   },
-  tabItemActive: {
-    backgroundColor: Colors.white,
-    borderWidth: Border.width,
-    borderColor: Colors.white,
-  },
+  tabItemActive: {},
   tabLabel: {
-    fontSize: 8,
-    fontWeight: Typography.bold,
+    fontSize: 10,
+    fontWeight: Typography.medium,
     color: Colors.gray400,
     marginTop: 3,
-    letterSpacing: 0.5,
   },
   tabLabelActive: { color: Colors.primary },
 });

@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderWidth: Border.width,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -158,13 +158,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderWidth: Border.width,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
   },
   roleText: {
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.white,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
 });
 

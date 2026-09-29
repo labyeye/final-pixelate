@@ -1175,6 +1175,10 @@ body {
   width: 1rem;
 }
 
+.w-40 {
+  width: 10rem;
+}
+
 .w-44 {
   width: 11rem;
 }
@@ -1425,6 +1429,10 @@ body {
 
 .flex-1 {
   flex: 1;
+}
+
+.flex-none {
+  flex: none;
 }
 
 .flex-shrink-0, .shrink-0 {
@@ -2943,6 +2951,11 @@ body {
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
 }
 
 .bg-slate-50 {

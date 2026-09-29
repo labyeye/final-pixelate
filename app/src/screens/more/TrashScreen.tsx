@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderWidth: Border.width,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     marginBottom: 4,
   },
   collectionText: {

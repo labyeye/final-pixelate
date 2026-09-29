@@ -324,7 +324,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xl,
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   modalClose: {
     fontSize: Typography.sm,

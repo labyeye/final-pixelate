@@ -1,3 +1,5 @@
+import type { Product } from '../api';
+
 export type RootStackParams = {
   Auth: undefined;
   Main: undefined;
@@ -88,9 +90,9 @@ export type MoreStackParams = {
   Users: undefined;
   ClientPortal: undefined;
   BrandGuide: undefined;
-  BrandGuideForm: { id?: string };
-  NestHR: undefined;
-  HRSubscriptions: undefined;
-  HRInvoices: undefined;
-  HROffers: undefined;
+  WhatsAppSend: undefined;
+  ProductSubscriptions: { product: 'hr' | 'leads' };
+  ProductInvoices: { product: Product };
+  ProductOffers: { product: Product };
+  ProductSupport: { product: 'hr' | 'leads' };
 };

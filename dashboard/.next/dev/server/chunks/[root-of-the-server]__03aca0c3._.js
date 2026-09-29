@@ -920,6 +920,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$palette$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Palette$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/palette.js [app-route] (ecmascript) <export default as Palette>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$tag$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Tag$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/tag.js [app-route] (ecmascript) <export default as Tag>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-route] (ecmascript) <export default as Send>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ticket$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Ticket$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/ticket.js [app-route] (ecmascript) <export default as Ticket>");
 ;
 const defaultStaffAllowed = [
     "/dashboard",
@@ -1191,6 +1192,12 @@ const navGroups = [
                 label: "Offer Codes",
                 adminOnly: true,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$tag$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Tag$3e$__["Tag"]
+            },
+            {
+                href: "/nest-hr/support",
+                label: "Support",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$headphones$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Headphones$3e$__["Headphones"]
             }
         ]
     },
@@ -1198,21 +1205,45 @@ const navGroups = [
         title: "Nest Leads",
         items: [
             {
+                href: "/nest-leads/subscriptions",
+                label: "Subscriptions",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2d$2$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Building2$3e$__["Building2"]
+            },
+            {
                 href: "/nest-leads/invoices",
                 label: "NestLeads Invoices",
                 adminOnly: true,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__["Receipt"]
+            },
+            {
+                href: "/nest-leads/offers",
+                label: "Offer Codes",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$tag$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Tag$3e$__["Tag"]
+            },
+            {
+                href: "/nest-leads/support",
+                label: "Support",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$headphones$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Headphones$3e$__["Headphones"]
             }
         ]
     },
     {
-        title: "Nest Sports",
+        title: "Nest Play",
         items: [
             {
-                href: "/nest-sports/invoices",
-                label: "NestSports Invoices",
+                href: "/nest-play/invoices",
+                label: "NestPlay Invoices",
                 adminOnly: true,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__["Receipt"]
+            },
+            {
+                href: "/nest-play/coupons",
+                label: "NestPlay Coupons",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ticket$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Ticket$3e$__["Ticket"]
             }
         ]
     },

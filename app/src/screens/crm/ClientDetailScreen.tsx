@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
     height: 72,
     backgroundColor: Colors.primary,
     borderWidth: Border.widthBold,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -400,7 +400,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1.5,
+    letterSpacing: 0.3,
   },
   field: {
     paddingVertical: 8,
@@ -443,7 +443,7 @@ const styles = StyleSheet.create({
     fontSize: Typography['2xl'],
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   modalClose: {
     fontSize: Typography.sm,

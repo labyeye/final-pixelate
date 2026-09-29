@@ -40,6 +40,7 @@ const formSchema = z.object({
     "software-development",
     "app-development",
     "video-editing",
+    "digital-marketing",
     "photography",
     "none",
   ]),
@@ -293,6 +294,7 @@ export default function WorkGalleryPage() {
                   </option>
                   <option value="app-development">App Development</option>
                   <option value="video-editing">Video Editing</option>
+                  <option value="digital-marketing">Digital Marketing</option>
                   <option value="photography">Photography</option>
                 </select>
               </div>

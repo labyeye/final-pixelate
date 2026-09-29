@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     padding: Spacing.xl,
     marginBottom: Spacing.base,
     backgroundColor: Colors.primary,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     alignItems: 'center',
   },
   statsValue: {
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.black,
     color: Colors.white,
     opacity: 0.8,
-    letterSpacing: 2,
+    letterSpacing: 0.3,
     marginTop: 4,
   },
   card: { marginBottom: Spacing.sm, padding: Spacing.md },

@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: Spacing.md,
     borderWidth: Border.widthBold,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     alignItems: 'center',
   },
   statValue: {
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.black,
     color: Colors.white,
     opacity: 0.8,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
     marginTop: 2,
   },
   card: { marginBottom: Spacing.sm, padding: Spacing.md },

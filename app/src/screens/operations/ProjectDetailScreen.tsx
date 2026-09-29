@@ -74,7 +74,7 @@ const ProjectDetailScreen = () => {
         <Card
           style={[
             styles.heroCard,
-            { borderLeftColor: Colors.primary, borderLeftWidth: 6 },
+            { borderLeftColor: Colors.primary, borderLeftWidth: 3 },
           ]}
           shadow="lg"
         >
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1.5,
+    letterSpacing: 0.3,
   },
   detailRow: {
     paddingVertical: 8,
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xl,
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   modalClose: {
     fontSize: Typography.xl,

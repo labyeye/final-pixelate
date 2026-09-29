@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   infoBanner: {
     padding: Spacing.md,
     borderLeftColor: Colors.primary,
-    borderLeftWidth: 6,
+    borderLeftWidth: 3,
   },
   infoBannerText: {
     fontSize: Typography.base,

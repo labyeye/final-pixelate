@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   addBtn: {
     backgroundColor: Colors.secondary,
     borderWidth: Border.widthBold,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     paddingHorizontal: 14,
     paddingVertical: 6,
     ...Shadows.sm,
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   client: {
     fontSize: Typography.base,

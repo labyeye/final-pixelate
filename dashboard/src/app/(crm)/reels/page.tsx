@@ -14,7 +14,22 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SuccessModal } from "@/components/ui/success-modal";
 import { useToast } from "@/hooks/use-toast";
-import { Youtube, Film, Play, PlusCircle, Trash2, Video } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Youtube,
+  Film,
+  Play,
+  PlusCircle,
+  Trash2,
+  Video,
+  Megaphone,
+} from "lucide-react";
 
 type ReelEntry = { thumbnailBase64?: string; link?: string; title?: string };
 type CinematicEntry = {
@@ -219,6 +234,75 @@ export default function ReelsPage() {
 
   const reelItems = items.filter((i) => !i.category || i.category === "reel");
   const cinematicItems = items.filter((i) => i.category === "cinematic");
+  const marketingItems = items.filter(
+    (i) => i.category === "digital-marketing",
+  );
+
+  const [dmOpen, setDmOpen] = useState(false);
+  const [dmEditId, setDmEditId] = useState<string | null>(null);
+  const [dmBrand, setDmBrand] = useState("");
+  const [dmEntries, setDmEntries] = useState<ReelEntry[]>([]);
+
+  // legacy docs saved a single `link` instead of `entries`
+  const dmEntriesOf = (it: any): ReelEntry[] =>
+    it?.entries?.length ? it.entries : it?.link ? [{ link: it.link }] : [];
+
+  const openDm = (it?: any) => {
+    setDmEditId(it ? String(it._id ?? it.id) : null);
+    setDmBrand(it?.brandName || "");
+    setDmEntries(it ? dmEntriesOf(it) : [{ link: "", thumbnailBase64: "" }]);
+    setDmOpen(true);
+  };
+
+  const setDmEntry = (idx: number, patch: Partial<ReelEntry>) =>
+    setDmEntries((prev) =>
+      prev.map((e, i) => (i === idx ? { ...e, ...patch } : e)),
+    );
+
+  const saveDm = async () => {
+    const entries = dmEntries
+      .map((e) => ({ ...e, link: (e.link || "").trim() }))
+      .filter((e) => e.link || e.thumbnailBase64);
+    if (!dmBrand.trim() || !entries.length) {
+      toast({
+        title: "Add company name and at least one reel",
+        variant: "destructive",
+      });
+      return;
+    }
+    if (entries.some((e) => !/^https?:\/\//.test(e.link))) {
+      toast({ title: "Every reel needs a valid link", variant: "destructive" });
+      return;
+    }
+    const payload = {
+      category: "digital-marketing",
+      brandName: dmBrand.trim(),
+      entries,
+      link: null,
+    };
+    try {
+      const res = await apiFetch(
+        dmEditId ? `/api/reels/${dmEditId}` : "/api/reels",
+        {
+          method: dmEditId ? "PUT" : "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
+      );
+      if (!res.ok) throw new Error("Save failed");
+      const saved = await res.json();
+      setItems((prev) =>
+        dmEditId
+          ? prev.map((i) => (String(i._id ?? i.id) === dmEditId ? saved : i))
+          : [saved, ...prev],
+      );
+      setDmOpen(false);
+      showSuccess(dmEditId ? "Updated!" : "Saved!");
+    } catch (e) {
+      console.error(e);
+      toast({ title: "Save Failed", variant: "destructive" });
+    }
+  };
 
   return (
     <div className="space-y-8">
@@ -227,8 +311,8 @@ export default function ReelsPage() {
       <header>
         <h1 className="text-4xl font-black">Reels Management</h1>
         <p className="text-muted-foreground">
-          Manage reel thumbnails and cinematic video showcases for the Video
-          Editing page.
+          Manage reel thumbnails and cinematic videos for the Video Editing
+          page, and client reels for the Digital Marketing page.
         </p>
       </header>
 
@@ -506,6 +590,159 @@ export default function ReelsPage() {
           </form>
         </CardContent>
       </Card>
+
+      {/* ── Digital Marketing reels (website: /services/digital-marketing) ── */}
+      <section className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-black flex items-center gap-2">
+            <Megaphone className="h-5 w-5" /> Digital Marketing Reels
+          </h2>
+          <Button className="gap-2" onClick={() => openDm()}>
+            <PlusCircle className="h-4 w-4" /> Add Company
+          </Button>
+        </div>
+        {marketingItems.length === 0 ? (
+          <p className="text-sm text-muted-foreground">
+            No reels yet. They show in &quot;See Our Work in Action&quot; on
+            the Digital Marketing page.
+          </p>
+        ) : (
+          <div className="space-y-2">
+            {marketingItems.map((it) => (
+              <div
+                key={String(it._id ?? it.id)}
+                className="border-2 border-black p-3 rounded-lg flex items-center gap-4"
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="font-bold">{it.brandName || "Untitled"}</div>
+                  <div className="flex gap-2 mt-2 overflow-x-auto">
+                    {dmEntriesOf(it).map((e, idx) =>
+                      e.thumbnailBase64 ? (
+                        <img
+                          key={idx}
+                          src={e.thumbnailBase64}
+                          alt={`Reel ${idx + 1}`}
+                          className="h-20 w-12 object-cover rounded border flex-none"
+                        />
+                      ) : (
+                        <div
+                          key={idx}
+                          className="h-20 w-12 rounded border bg-gray-100 flex-none flex items-center justify-center"
+                        >
+                          <Video className="h-4 w-4 text-gray-400" />
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </div>
+                <Button size="sm" onClick={() => openDm(it)}>
+                  Edit
+                </Button>
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  onClick={() => deleteItem(String(it._id ?? it.id))}
+                >
+                  Delete
+                </Button>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <Dialog open={dmOpen} onOpenChange={setDmOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>
+              {dmEditId ? "Edit" : "Add"} Digital Marketing Reels
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium">Company Name</label>
+              <Input
+                value={dmBrand}
+                onChange={(e) => setDmBrand(e.target.value)}
+                placeholder="e.g. Kalahanu Bothra Group"
+                className="mt-1"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="block text-sm font-medium">Reels</label>
+              {dmEntries.map((e, idx) => (
+                <div
+                  key={idx}
+                  className="border rounded-lg p-3 flex gap-3 items-start"
+                >
+                  {e.thumbnailBase64 ? (
+                    <img
+                      src={e.thumbnailBase64}
+                      alt={`Reel ${idx + 1}`}
+                      className="h-24 w-14 object-cover rounded border flex-none"
+                    />
+                  ) : (
+                    <div className="h-24 w-14 rounded border bg-gray-100 flex-none" />
+                  )}
+                  <div className="flex-1 space-y-2">
+                    <Input
+                      value={e.link || ""}
+                      onChange={(ev) => setDmEntry(idx, { link: ev.target.value })}
+                      placeholder="Instagram Reel / YouTube Short link"
+                    />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="text-sm"
+                      onChange={async (ev) =>
+                        setDmEntry(idx, {
+                          thumbnailBase64: await toBase64(
+                            ev.target.files?.[0] ?? null,
+                          ),
+                        })
+                      }
+                    />
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="text-red-500 hover:bg-red-50"
+                    onClick={() =>
+                      setDmEntries((prev) => prev.filter((_, i) => i !== idx))
+                    }
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                </div>
+              ))}
+              <Button
+                type="button"
+                variant="outline"
+                className="gap-2 w-full border-dashed"
+                onClick={() =>
+                  setDmEntries((prev) => [
+                    ...prev,
+                    { link: "", thumbnailBase64: "" },
+                  ])
+                }
+              >
+                <PlusCircle className="h-4 w-4" /> Add Reel
+              </Button>
+              <p className="text-xs text-muted-foreground">
+                Upload a cover image (9:16) for each reel. YouTube links get
+                an automatic cover if you skip it.
+              </p>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="ghost" onClick={() => setDmOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={saveDm}>{dmEditId ? "Update" : "Save"}</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* ── Reel items list ── */}
       {reelItems.length > 0 && (

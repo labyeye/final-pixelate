@@ -273,16 +273,46 @@ export const brandGuideAPI = {
   sendWhatsApp: (data: any) => api.post('/send-brand-guide-whatsapp', data),
 };
 
-export const nestHRAPI = {
-  getStats: () => api.get('/nesthr-stats'),
-  getInvoices: (status?: string) =>
+// Nest products (HR / Leads / Play) are sold from this CRM; each one has the
+// same set of admin endpoints under a product-specific prefix.
+export type Product = 'hr' | 'leads' | 'play';
+
+const PRODUCT_PATHS: Record<
+  Product,
+  { stats?: string; invoices: string; offers: string; support?: string }
+> = {
+  hr: { stats: 'nesthr-stats', invoices: 'nesthr-invoices', offers: 'hrms-offers', support: 'hrms' },
+  leads: { stats: 'nestleads-stats', invoices: 'nestleads-invoices', offers: 'nestleads-offers', support: 'nestleads' },
+  play: { invoices: 'nestplay-invoices', offers: 'nestplay-offer-codes' },
+};
+
+export const productsAPI = {
+  getStats: (p: Product) => api.get(`/${PRODUCT_PATHS[p].stats}`),
+  getInvoices: (p: Product, status = 'all') =>
     api.get(
-      status && status !== 'all'
-        ? `/nesthr-invoices?status=${status}`
-        : '/nesthr-invoices',
+      `/${PRODUCT_PATHS[p].invoices}${status !== 'all' ? `?status=${status}` : ''}`,
     ),
-  getOffers: () => api.get('/hrms-offers'),
-  createOffer: (data: any) => api.post('/hrms-offers', data),
-  updateOffer: (id: string, data: any) => api.put(`/hrms-offers/${id}`, data),
-  deleteOffer: (id: string) => api.delete(`/hrms-offers/${id}`),
+  getOffers: (p: Product) => api.get(`/${PRODUCT_PATHS[p].offers}`),
+  getOffer: (p: Product, id: string) =>
+    api.get(`/${PRODUCT_PATHS[p].offers}/${id}`),
+  createOffer: (p: Product, data: any) =>
+    api.post(`/${PRODUCT_PATHS[p].offers}`, data),
+  updateOffer: (p: Product, id: string, data: any) =>
+    api.patch(`/${PRODUCT_PATHS[p].offers}/${id}`, data),
+  deleteOffer: (p: Product, id: string) =>
+    api.delete(`/${PRODUCT_PATHS[p].offers}/${id}`),
+  getTickets: (p: Product) =>
+    api.get(`/support-tickets?source=${PRODUCT_PATHS[p].support}`),
+  updateTicket: (id: string, data: any) =>
+    api.patch(`/support-tickets/${id}`, data),
+};
+
+export const whatsappSendAPI = {
+  getApprovedTemplates: () => api.get('/whatsapp-templates?status=APPROVED'),
+  sendTemplate: (data: {
+    phone: string;
+    templateName: string;
+    templateLang: string;
+    components: any[];
+  }) => api.post('/whatsapp/send-template', data),
 };

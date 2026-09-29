@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
   addBtn: {
     backgroundColor: Colors.secondary,
     borderWidth: Border.widthBold,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     paddingHorizontal: 14,
     paddingVertical: 6,
     ...Shadows.sm,
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
     fontSize: Typography['2xl'],
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   modalClose: {
     fontSize: Typography.sm,

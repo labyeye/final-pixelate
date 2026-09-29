@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   whatsappBadge: {
     backgroundColor: '#25D366',
     borderWidth: Border.widthBold,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     paddingHorizontal: 12,
     paddingVertical: 6,
     alignSelf: 'flex-start',
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.sm,
     fontWeight: Typography.black,
     color: Colors.white,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   count: {
     fontSize: Typography.sm,

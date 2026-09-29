@@ -35,7 +35,7 @@
 
     <meta
       property="og:title"
-      content="Best Digital Marketing Agency in Bihar, Patna & Muzaffarpur � Pixelate Nest"
+      content="Best Digital Marketing Agency in Bihar, Patna & Muzaffarpur – Pixelate Nest"
     />
     <meta
       property="og:description"
@@ -372,6 +372,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "A full audit of your website, ads and competitors, a prioritised action plan, and the first round of on-page fixes, content or campaign setup depending on your chosen plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Nest Leads really included in every plan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every plan includes a Nest Leads lead management account for as long as your plan is active: Starter plan with Starter, Growth with Growth, Pro with Professional. Leads from your ads, website and social media are captured automatically, assigned to your team and followed up on WhatsApp from your own business number."
             }
           }
         ]
@@ -1513,12 +1521,8 @@
         </div>
       </section>
 
-      <!-- REELS / SHORTS CAROUSEL -->
-      <!-- To swap in real content: replace the YouTube video ID in each
-           iframe src (…/embed/VIDEO_ID) and the Instagram permalink in each
-           blockquote's data-instgrm-permalink + href. Add/remove .reel-card
-           blocks as needed; the track scrolls horizontally on its own. -->
-      <section class="reels-section" aria-labelledby="reels-headline">
+      <!-- REELS / SHORTS — managed from dashboard: Reels → "Digital Marketing Reels". -->
+      <section class="reels-section" id="reels-section" aria-labelledby="reels-headline" hidden>
         <div class="container">
           <h2 id="reels-headline" class="h2-text" style="text-align: center">
             See Our Work in Action
@@ -1529,59 +1533,79 @@
           >
             Reels and Shorts from campaigns we've run.
           </p>
-          <div class="reels-track">
-            <div class="reel-card">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="YouTube Short"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="reel-card">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="YouTube Short"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="reel-card">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/PLACEHOLDER/"
-                data-instgrm-version="14"
-                style="margin: 0; width: 100%; height: 100%"
-              >
-                <a
-                  href="https://www.instagram.com/reel/PLACEHOLDER/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View reel on Instagram</a
-                >
-              </blockquote>
-            </div>
-            <div class="reel-card">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/PLACEHOLDER/"
-                data-instgrm-version="14"
-                style="margin: 0; width: 100%; height: 100%"
-              >
-                <a
-                  href="https://www.instagram.com/reel/PLACEHOLDER/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View reel on Instagram</a
-                >
-              </blockquote>
-            </div>
-          </div>
+          <div id="reels-list"></div>
         </div>
       </section>
-      <script async src="https://www.instagram.com/embed.js"></script>
+      <script>
+        (async function () {
+          function ytId(url) {
+            var m = url.match(
+              /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/,
+            );
+            return m ? m[1] : "";
+          }
+          function esc(t) {
+            var d = document.createElement("div");
+            d.textContent = t;
+            return d.innerHTML;
+          }
+          try {
+            var res = await fetch(
+              "https://backend.pixelatenest.com/api/reels",
+              { cache: "no-cache" },
+            );
+            if (!res.ok) return;
+            var items = await res.json();
+            var list = document.getElementById("reels-list");
+            (items || [])
+              .filter(function (i) { return i.category === "digital-marketing"; })
+              .forEach(function (it) {
+                var entries = (it.entries && it.entries.length
+                  ? it.entries
+                  : it.link ? [{ link: it.link }] : []
+                ).filter(function (e) { return /^https?:\/\//.test(e.link || ""); });
+                if (!entries.length) return;
+
+                var group = document.createElement("div");
+                group.className = "reels-group";
+                group.innerHTML =
+                  (it.brandName ? '<h3 class="reels-brand">' + esc(it.brandName) + "</h3>" : "") +
+                  '<div class="reels-row">' +
+                  '<button class="reels-nav prev" type="button" aria-label="Previous">&#8249;</button>' +
+                  '<div class="reels-track"></div>' +
+                  '<button class="reels-nav next" type="button" aria-label="Next">&#8250;</button>' +
+                  "</div>";
+                var track = group.querySelector(".reels-track");
+
+                entries.forEach(function (e) {
+                  var id = ytId(e.link);
+                  var thumb = e.thumbnailBase64 || e.thumbnail ||
+                    (id ? "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg" : "");
+                  var a = document.createElement("a");
+                  a.className = "reel-card";
+                  a.href = e.link;
+                  a.target = "_blank";
+                  a.rel = "noopener noreferrer";
+                  a.setAttribute("aria-label", "Watch " + (it.brandName || "reel"));
+                  a.innerHTML =
+                    (thumb ? '<img loading="lazy" alt="" src="' + esc(thumb) + '" />' : "") +
+                    '<span class="reel-play" aria-hidden="true"></span>';
+                  track.appendChild(a);
+                });
+
+                group.querySelector(".prev").onclick = function () {
+                  track.scrollBy({ left: -track.clientWidth * 0.8, behavior: "smooth" });
+                };
+                group.querySelector(".next").onclick = function () {
+                  track.scrollBy({ left: track.clientWidth * 0.8, behavior: "smooth" });
+                };
+                list.appendChild(group);
+              });
+            if (list.children.length)
+              document.getElementById("reels-section").hidden = false;
+          } catch (e) {}
+        })();
+      </script>
 
       <!-- RESULTS / STATS SECTION -->
       <section class="section" style="padding: 60px 0; background: #f6f9ff">
@@ -1879,10 +1903,12 @@
               </h2>
               <p
                 class="p-text-01 text-white-60"
-                style="max-width: 700px; margin: 0 auto"
+                style="max-width: 760px; margin: 0 auto"
               >
-                Transparent, flexible packages for startups and growth-stage
-                businesses. Contact us for custom enterprise plans.
+                Market-rate monthly plans with no setup fee. Every plan comes
+                with <strong>Nest Leads</strong>, our lead management software,
+                so every enquiry from your ads, website and social media lands
+                in one place and gets followed up.
               </p>
             </div>
 
@@ -1892,7 +1918,7 @@
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
                 gap: 24px;
-                max-width: 1200px;
+                max-width: 1280px;
                 margin: 0 auto;
               "
             >
@@ -1901,25 +1927,48 @@
                   <h3 class="pricing-title">Starter</h3>
                   <div class="price-tag">
                     <span class="currency">₹</span>
-                    <span class="amount">15,000</span>
+                    <span class="amount">14,999</span>
                   </div>
                   <p class="price-subtitle">/month</p>
                 </div>
                 <div class="card-body">
                   <div class="delivery-info">
-                    <i class="fas fa-clock"></i><span>Monthly plan</span>
+                    <i class="fas fa-gift"></i
+                    ><span>Nest Leads Starter included (₹2,999/mo value)</span>
                   </div>
                   <div class="best-for">
-                    <strong>Best For:</strong> Early-stage startups & local
-                    businesses
+                    <strong>Best For:</strong> Local shops, clinics, coaching
+                    and new businesses
                   </div>
                   <ul class="benefits-list">
-                    <li><i class="fas fa-check"></i> Full SEO & GBP audit</li>
                     <li>
-                      <i class="fas fa-check"></i> 4 SEO blog posts / month
+                      <i class="fas fa-check"></i> Instagram + Facebook
+                      management
                     </li>
-                    <li><i class="fas fa-check"></i> On-page optimization</li>
-                    <li><i class="fas fa-check"></i> Monthly reporting call</li>
+                    <li>
+                      <i class="fas fa-check"></i> 12 posts / month (8 creatives
+                      + 4 reels)
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Google Business Profile setup
+                      & 4 GBP posts
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Local SEO for 5 keywords
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Meta Ads management (ad spend
+                      up to ₹25,000)
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> WhatsApp Business setup +
+                      1 broadcast / month
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Nest Leads CRM: 2,000
+                      leads/month, auto lead capture from Meta
+                    </li>
+                    <li><i class="fas fa-check"></i> Monthly report</li>
                   </ul>
                   <a
                     href="https://www.pixelatenest.com/pages/contact.html"
@@ -1935,32 +1984,115 @@
                   <h3 class="pricing-title">Growth</h3>
                   <div class="price-tag">
                     <span class="currency">₹</span>
-                    <span class="amount">30,000</span>
+                    <span class="amount">29,999</span>
                   </div>
                   <p class="price-subtitle">/month</p>
                 </div>
                 <div class="card-body">
                   <div class="delivery-info">
-                    <i class="fas fa-clock"></i><span>Monthly plan</span>
+                    <i class="fas fa-gift"></i
+                    ><span>Nest Leads Growth included (₹5,999/mo value)</span>
                   </div>
                   <div class="best-for">
-                    <strong>Best For:</strong> Growing businesses ready to scale
+                    <strong>Best For:</strong> Growing businesses that want a
+                    steady flow of leads
                   </div>
                   <ul class="benefits-list">
                     <li>
-                      <i class="fas fa-check"></i> Full technical & on-page SEO
+                      <i class="fas fa-check"></i> 3 platforms (Instagram,
+                      Facebook + LinkedIn or YouTube)
                     </li>
                     <li>
-                      <i class="fas fa-check"></i> 8 content pieces / month
+                      <i class="fas fa-check"></i> 20 posts / month (12
+                      creatives + 8 reels)
                     </li>
                     <li>
-                      <i class="fas fa-check"></i> Google & Meta Ads management
-                      (ad spend excluded)
+                      <i class="fas fa-check"></i> SEO for 15 keywords + 4 blogs
+                      / month
                     </li>
                     <li>
-                      <i class="fas fa-check"></i> Social media management
+                      <i class="fas fa-check"></i> Google + Meta Ads management
+                      (ad spend up to ₹1,00,000)
                     </li>
-                    <li><i class="fas fa-check"></i> Bi-weekly reports</li>
+                    <li>
+                      <i class="fas fa-check"></i> 1 high-converting landing
+                      page
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> WhatsApp campaigns 2 / month
+                      with brochure sending
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Nest Leads CRM: 10,000
+                      leads/month + AI Social Autopilot
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Bi-weekly report + monthly
+                      strategy call
+                    </li>
+                  </ul>
+                  <a
+                    href="https://www.pixelatenest.com/pages/contact.html"
+                    class="card-cta-btn"
+                    >Get Started <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+
+              <div class="pricing-card liquid-glass">
+                <div class="featured-badge">Best Value</div>
+                <div class="card-header">
+                  <h3 class="pricing-title">Pro</h3>
+                  <div class="price-tag">
+                    <span class="currency">₹</span>
+                    <span class="amount">59,999</span>
+                  </div>
+                  <p class="price-subtitle">/month</p>
+                </div>
+                <div class="card-body">
+                  <div class="delivery-info">
+                    <i class="fas fa-gift"></i
+                    ><span
+                      >Nest Leads Professional included (₹9,999/mo value)</span
+                    >
+                  </div>
+                  <div class="best-for">
+                    <strong>Best For:</strong> Brands, real estate, education
+                    and multi-city businesses
+                  </div>
+                  <ul class="benefits-list">
+                    <li>
+                      <i class="fas fa-check"></i> 4 platforms incl. YouTube
+                      Shorts
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> 30 posts / month (15
+                      creatives + 15 reels)
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Technical + on-page SEO for
+                      30 keywords + 8 blogs / month
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Google, Meta & YouTube Ads
+                      (ad spend up to ₹3,00,000)
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> 2 landing pages + monthly
+                      A/B testing
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Weekly WhatsApp campaigns &
+                      lead nurturing
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Nest Leads CRM: 50,000
+                      leads/month, 100 team members
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Dedicated account manager +
+                      weekly report
+                    </li>
                   </ul>
                   <a
                     href="https://www.pixelatenest.com/pages/contact.html"
@@ -1974,13 +2106,15 @@
                 <div class="card-header">
                   <h3 class="pricing-title">Enterprise</h3>
                   <div class="price-tag">
-                    <span class="currency">Custom</span>
+                    <span class="currency">₹</span>
+                    <span class="amount">1 Lakh+</span>
                   </div>
-                  <p class="price-subtitle">Custom plans</p>
+                  <p class="price-subtitle">/month, custom plan</p>
                 </div>
                 <div class="card-body">
                   <div class="delivery-info">
-                    <i class="fas fa-clock"></i><span>Custom delivery</span>
+                    <i class="fas fa-gift"></i
+                    ><span>Nest Leads Enterprise included</span>
                   </div>
                   <div class="best-for">
                     <strong>Best For:</strong> Large teams & multi-location
@@ -1988,16 +2122,24 @@
                   </div>
                   <ul class="benefits-list">
                     <li>
-                      <i class="fas fa-check"></i> Dedicated account manager &
-                      specialists
+                      <i class="fas fa-check"></i> Dedicated team: strategist,
+                      designers, ads & SEO specialists
                     </li>
                     <li>
-                      <i class="fas fa-check"></i> Multi-channel campaigns (SEO
-                      + PPC + Social + Email)
+                      <i class="fas fa-check"></i> Unlimited platforms & custom
+                      content volume
                     </li>
                     <li>
-                      <i class="fas fa-check"></i> Custom CRO experiments & A/B
-                      testing
+                      <i class="fas fa-check"></i> Ad spend above ₹3,00,000 /
+                      month
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Monthly video shoot & brand
+                      films
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Custom Nest Leads setup,
+                      integrations & training
                     </li>
                     <li>
                       <i class="fas fa-check"></i> Weekly dashboards & strategy
@@ -2012,6 +2154,16 @@
                 </div>
               </div>
             </div>
+
+            <p
+              class="p-text-01 text-white-60"
+              style="text-align: center; max-width: 900px; margin: 28px auto 0; font-size: 14px"
+            >
+              Ad spend is paid directly to Google/Meta and is not part of the
+              fee. Spend above your plan's limit is managed at 12% of the extra
+              spend. GST extra as applicable. Pay yearly and get 2 months free.
+              SEO results need a 3-month minimum.
+            </p>
           </div>
         </section>
 
@@ -2127,6 +2279,21 @@
                   content or campaign setup depending on your chosen plan.
                 </div>
               </div>
+
+              <div class="faq-item" aria-expanded="false">
+                <button
+                  type="button"
+                  class="faq-question"
+                  aria-controls="df7"
+                  aria-expanded="false"
+                >
+                  <span>Is Nest Leads really included in every plan?</span>
+                  <span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div id="df7" class="faq-answer">
+                  Yes. Every plan includes a Nest Leads lead management account for as long as your plan is active: Starter plan with Starter, Growth with Growth, Pro with Professional. Leads from your ads, website and social media are captured automatically, assigned to your team and followed up on WhatsApp from your own business number.
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -2225,31 +2392,31 @@
                       class="star"
                       data-value="1"
                       style="color: #fbbf24; transition: color 0.2s"
-                      >?</span
+                      >★</span
                     >
                     <span
                       class="star"
                       data-value="2"
                       style="color: #fbbf24; transition: color 0.2s"
-                      >?</span
+                      >★</span
                     >
                     <span
                       class="star"
                       data-value="3"
                       style="color: #fbbf24; transition: color 0.2s"
-                      >?</span
+                      >★</span
                     >
                     <span
                       class="star"
                       data-value="4"
                       style="color: #fbbf24; transition: color 0.2s"
-                      >?</span
+                      >★</span
                     >
                     <span
                       class="star"
                       data-value="5"
                       style="color: #d1d5db; transition: color 0.2s"
-                      >?</span
+                      >★</span
                     >
                   </div>
                   <p class="p-text-03">
@@ -2279,7 +2446,7 @@
                         class="fas fa-map-marker-alt"
                         style="margin-right: 8px"
                       ></i
-                      >Muzaffarpur, Bihar, India � Serving clients across India
+                      >Muzaffarpur, Bihar, India • Serving clients across India
                       & globally
                     </p>
                   </div>
@@ -2503,7 +2670,7 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  � 2026 Kalahanu Tech Studios LLP. All Rights Reserved. |
+                  © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. |
                   Crafted with
                   <i class="fas fa-heart" style="color: #e74c3c"></i> in India
                 </div>

@@ -41,7 +41,7 @@ const CareerDetailScreen = () => {
         <Card
           style={[
             styles.heroCard,
-            { borderLeftColor: Colors.secondary, borderLeftWidth: 6 },
+            { borderLeftColor: Colors.secondary, borderLeftWidth: 3 },
           ]}
           shadow="lg"
         >
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1.5,
+    letterSpacing: 0.3,
   },
   desc: {
     fontSize: Typography.sm,

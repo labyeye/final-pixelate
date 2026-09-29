@@ -90,7 +90,7 @@ const InvoiceDetailScreen = () => {
             {
               borderLeftColor:
                 invoice.status === 'paid' ? Colors.success : Colors.destructive,
-              borderLeftWidth: 6,
+              borderLeftWidth: 3,
             },
           ]}
           shadow="lg"
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1.5,
+    letterSpacing: 0.3,
   },
   clientName: {
     fontSize: Typography['2xl'],
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
     textAlign: 'center',
   },
   amountValue: {
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1.5,
+    letterSpacing: 0.3,
   },
   description: {
     fontSize: Typography.sm,
@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xl,
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   modalClose: {
     fontSize: Typography.xl,

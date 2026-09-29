@@ -338,14 +338,14 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.sm,
     padding: Spacing.md,
     backgroundColor: Colors.primary,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
   },
   summaryLabel: {
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.white,
     opacity: 0.8,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   summaryValue: {
     fontSize: Typography['3xl'],
@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
   addBtn: {
     backgroundColor: Colors.secondary,
     borderWidth: Border.widthBold,
-    borderColor: Colors.black,
+    borderColor: Colors.border,
     paddingHorizontal: 14,
     paddingVertical: 6,
     ...Shadows.sm,
@@ -401,7 +401,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.xs,
     fontWeight: Typography.black,
     color: Colors.mutedForeground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   clientName: {
     fontSize: Typography.base,
@@ -425,7 +425,7 @@ const styles = StyleSheet.create({
     fontSize: Typography['2xl'],
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: 1,
+    letterSpacing: 0.3,
   },
   modalClose: {
     fontSize: Typography.sm,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CRMStackParams } from './types';
-import { Colors, Typography } from '../theme';
+import { stackScreenOptions } from '../theme';
 import CRMHomeScreen from '../screens/crm/CRMHomeScreen';
 import ClientsScreen from '../screens/crm/ClientsScreen';
 import ClientDetailScreen from '../screens/crm/ClientDetailScreen';
@@ -12,16 +12,7 @@ const Stack = createNativeStackNavigator<CRMStackParams>();
 
 const CRMStack = () => (
   <Stack.Navigator
-    screenOptions={{
-      headerStyle: { backgroundColor: Colors.primary },
-      headerTintColor: Colors.white,
-      headerTitleStyle: {
-        fontWeight: Typography.black,
-        fontSize: Typography.lg,
-      },
-      headerShadowVisible: false,
-      contentStyle: { backgroundColor: Colors.background },
-    }}
+    screenOptions={stackScreenOptions}
   >
     <Stack.Screen
       name="CRMHome"
@@ -31,22 +22,22 @@ const CRMStack = () => (
     <Stack.Screen
       name="Clients"
       component={ClientsScreen}
-      options={{ title: 'CLIENTS' }}
+      options={{ title: 'Clients' }}
     />
     <Stack.Screen
       name="ClientDetail"
       component={ClientDetailScreen}
-      options={{ title: 'CLIENT DETAIL' }}
+      options={{ title: 'Client Detail' }}
     />
     <Stack.Screen
       name="Enquiries"
       component={EnquiriesScreen}
-      options={{ title: 'ENQUIRIES' }}
+      options={{ title: 'Enquiries' }}
     />
     <Stack.Screen
       name="Reviews"
       component={ReviewsScreen}
-      options={{ title: 'REVIEWS' }}
+      options={{ title: 'Reviews' }}
     />
   </Stack.Navigator>
 );

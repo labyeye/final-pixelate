@@ -133,7 +133,7 @@ const OperationsHomeScreen = () => {
             <Card
               style={[
                 styles.sectionCard,
-                { borderLeftColor: section.color, borderLeftWidth: 6 },
+                { borderLeftColor: section.color, borderLeftWidth: 3 },
               ]}
               shadow="md"
             >

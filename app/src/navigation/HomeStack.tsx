@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeStackParams } from './types';
-import { Colors, Typography, Border } from '../theme';
+import { stackScreenOptions } from '../theme';
 import DashboardScreen from '../screens/home/DashboardScreen';
 import AnalyticsScreen from '../screens/home/AnalyticsScreen';
 import ReportsScreen from '../screens/home/ReportsScreen';
@@ -12,41 +12,32 @@ const Stack = createNativeStackNavigator<HomeStackParams>();
 
 const HomeStack = () => (
   <Stack.Navigator
-    screenOptions={{
-      headerStyle: { backgroundColor: Colors.primary },
-      headerTintColor: Colors.white,
-      headerTitleStyle: {
-        fontWeight: Typography.black,
-        fontSize: Typography.lg,
-      },
-      headerShadowVisible: false,
-      contentStyle: { backgroundColor: Colors.background },
-    }}
+    screenOptions={stackScreenOptions}
   >
     <Stack.Screen
       name="Dashboard"
       component={DashboardScreen}
-      options={{ title: 'PIXELATE NEST' }}
+      options={{ title: 'Pixelate Nest' }}
     />
     <Stack.Screen
       name="Analytics"
       component={AnalyticsScreen}
-      options={{ title: 'ANALYTICS' }}
+      options={{ title: 'Analytics' }}
     />
     <Stack.Screen
       name="Reports"
       component={ReportsScreen}
-      options={{ title: 'REPORTS' }}
+      options={{ title: 'Reports' }}
     />
     <Stack.Screen
       name="UserActivity"
       component={UserActivityScreen}
-      options={{ title: 'USER ACTIVITY' }}
+      options={{ title: 'User Activity' }}
     />
     <Stack.Screen
       name="Profile"
       component={ProfileScreen}
-      options={{ title: 'PROFILE' }}
+      options={{ title: 'Profile' }}
     />
   </Stack.Navigator>
 );

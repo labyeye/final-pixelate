@@ -154,7 +154,7 @@ export const Button = ({
   const bg = {
     primary: Colors.primary,
     secondary: Colors.secondary,
-    outline: Colors.background,
+    outline: Colors.card,
     ghost: 'transparent',
     destructive: Colors.destructive,
     success: Colors.success,
@@ -169,12 +169,12 @@ export const Button = ({
     success: Colors.white,
   }[variant];
 
-  const padV = { sm: 8, md: 12, lg: 16 }[size];
-  const padH = { sm: 12, md: 16, lg: 24 }[size];
+  const padV = { sm: 7, md: 10, lg: 13 }[size];
+  const padH = { sm: 12, md: 16, lg: 20 }[size];
   const fontSize = {
     sm: Typography.sm,
     md: Typography.base,
-    lg: Typography.lg,
+    lg: Typography.md,
   }[size];
 
   return (
@@ -274,12 +274,12 @@ export const Badge = ({
 );
 
 const statusColors: Record<string, { bg: string; text: string }> = {
-  interested: { bg: Colors.primary, text: '#ffffff' },
-  active: { bg: Colors.primary, text: '#ffffff' },
-  completed: { bg: Colors.primary, text: '#ffffff' },
-  paid: { bg: Colors.primary, text: '#ffffff' },
-  approved: { bg: Colors.primary, text: '#ffffff' },
-  resolved: { bg: Colors.primary, text: '#ffffff' },
+  interested: { bg: Colors.success, text: '#ffffff' },
+  active: { bg: Colors.success, text: '#ffffff' },
+  completed: { bg: Colors.success, text: '#ffffff' },
+  paid: { bg: Colors.success, text: '#ffffff' },
+  approved: { bg: Colors.success, text: '#ffffff' },
+  resolved: { bg: Colors.success, text: '#ffffff' },
 
   'in progress': { bg: Colors.accent, text: '#ffffff' },
   called: { bg: Colors.accent, text: '#ffffff' },
@@ -297,17 +297,30 @@ const statusColors: Record<string, { bg: string; text: string }> = {
   unpaid: { bg: Colors.destructive, text: '#ffffff' },
   rejected: { bg: Colors.destructive, text: '#ffffff' },
 
+  new: { bg: Colors.accent, text: '#ffffff' },
+  trial: { bg: Colors.warning, text: '#ffffff' },
+  exhausted: { bg: Colors.secondary, text: '#ffffff' },
+  expiring: { bg: Colors.secondary, text: '#ffffff' },
+  overdue: { bg: Colors.destructive, text: '#ffffff' },
+  expired: { bg: Colors.destructive, text: '#ffffff' },
+
   draft: { bg: Colors.gray700, text: '#ffffff' },
   closed: { bg: Colors.gray600, text: '#ffffff' },
 };
 
 export const StatusBadge = ({ status }: { status: string }) => {
   const s = (status || '').toLowerCase();
-  const colors = statusColors[s] || {
-    bg: Colors.muted,
-    text: Colors.foreground,
-  };
-  return <Badge label={status} color={colors.bg} textColor={colors.text} />;
+  const mapped = statusColors[s];
+  const colors = mapped || { bg: Colors.muted, text: Colors.gray700 };
+  // Tinted pill: 12% of the status colour behind text in the full colour.
+  const tinted = !!mapped && colors.bg.startsWith('#') && colors.bg.length === 7;
+  return (
+    <Badge
+      label={status}
+      color={tinted ? `${colors.bg}1F` : colors.bg}
+      textColor={tinted ? colors.bg : colors.text}
+    />
+  );
 };
 
 interface EmptyStateProps {
@@ -604,7 +617,7 @@ const styles = StyleSheet.create({
     borderRadius: Border['radius-lg'],
   },
   button: {
-    borderRadius: Border['radius-lg'],
+    borderRadius: Border['radius-md'],
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: Border.width,
@@ -617,7 +630,6 @@ const styles = StyleSheet.create({
   buttonIcon: { marginRight: 4 },
   buttonText: {
     fontWeight: Typography.bold,
-    letterSpacing: 0.5,
   },
   inputContainer: { marginBottom: Spacing.md, borderRadius: 50 },
   inputLabel: {
@@ -633,7 +645,7 @@ const styles = StyleSheet.create({
     borderWidth: Border.widthHeavy,
     borderColor: Colors.border,
     borderRadius: Border['radius-lg'],
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.card,
     paddingHorizontal: Spacing.md,
   },
   inputIcon: { marginRight: Spacing.sm },
@@ -655,16 +667,13 @@ const styles = StyleSheet.create({
   badge: {
     paddingHorizontal: 8,
     paddingVertical: 3,
-    borderRadius: Border['radius-lg'],
-    borderWidth: 2,
-    borderColor: Colors.border,
+    borderRadius: 999,
     alignSelf: 'flex-start',
   },
   badgeText: {
     fontSize: Typography.xs,
-    fontWeight: Typography.black,
-    letterSpacing: 0.3,
-    textTransform: 'uppercase',
+    fontWeight: Typography.semiBold,
+    textTransform: 'capitalize',
   },
   emptyState: {
     flex: 1,
@@ -673,7 +682,7 @@ const styles = StyleSheet.create({
     padding: Spacing['2xl'],
   },
   emptyStateTitle: {
-    fontSize: Typography.xl,
+    fontSize: Typography.lg,
     fontWeight: Typography.black,
     color: Colors.foreground,
     textAlign: 'center',
@@ -714,24 +723,23 @@ const styles = StyleSheet.create({
     minWidth: 140,
   },
   statCardIconChip: {
-    width: 36,
-    height: 36,
+    width: 32,
+    height: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: Border.width,
-    borderColor: Colors.border,
+    borderRadius: Border['radius-md'],
     marginBottom: Spacing.sm,
   },
   statCardValue: {
-    fontSize: Typography['3xl'],
+    fontSize: Typography['2xl'],
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: -1,
+    letterSpacing: -0.5,
   },
   statCardLabel: {
     fontSize: Typography.sm,
-    fontWeight: Typography.bold,
-    color: Colors.foreground,
+    fontWeight: Typography.medium,
+    color: Colors.mutedForeground,
     marginTop: 2,
   },
   statCardSub: {
@@ -741,16 +749,16 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   divider: {
-    height: 2,
+    height: StyleSheet.hairlineWidth,
     backgroundColor: Colors.border,
     marginVertical: Spacing.md,
   },
   screenTitle: { marginBottom: Spacing.base },
   screenTitleText: {
-    fontSize: Typography['3xl'],
+    fontSize: Typography['2xl'],
     fontWeight: Typography.black,
     color: Colors.foreground,
-    letterSpacing: -1,
+    letterSpacing: -0.3,
   },
   screenSubtitle: {
     fontSize: Typography.base,
@@ -764,12 +772,13 @@ const styles = StyleSheet.create({
     borderWidth: Border.widthHeavy,
     borderColor: Colors.border,
     borderRadius: Border['radius-lg'],
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.card,
     marginBottom: Spacing.base,
     paddingHorizontal: Spacing.md,
   },
   searchIcon: { marginRight: 8 },
   searchInput: {
+    flex: 1,
     paddingVertical: 10,
     fontSize: Typography.base,
     color: Colors.foreground,
@@ -785,7 +794,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: Border.width,
     borderColor: Colors.border,
-    backgroundColor: Colors.background,
+    borderRadius: Border['radius-md'],
+    backgroundColor: Colors.card,
   },
 
   // FilterChips
@@ -796,19 +806,19 @@ const styles = StyleSheet.create({
   filterChip: {
     borderWidth: Border.width,
     borderColor: Colors.border,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.card,
+    borderRadius: 999,
     paddingHorizontal: 12,
     paddingVertical: 6,
   },
   filterChipActive: {
     backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
   },
   filterChipText: {
-    fontSize: Typography.xs,
-    fontWeight: Typography.bold,
+    fontSize: Typography.sm,
+    fontWeight: Typography.medium,
     color: Colors.foreground,
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
   },
   filterChipTextActive: { color: Colors.white },
 
@@ -819,16 +829,16 @@ const styles = StyleSheet.create({
     gap: 4,
     borderWidth: Border.width,
     borderColor: Colors.border,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.card,
+    borderRadius: 999,
     paddingHorizontal: 10,
     paddingVertical: 6,
     alignSelf: 'flex-start',
   },
   sortBtnText: {
-    fontSize: Typography.xs,
-    fontWeight: Typography.bold,
+    fontSize: Typography.sm,
+    fontWeight: Typography.medium,
     color: Colors.foreground,
-    textTransform: 'uppercase',
   },
   sortOverlay: {
     flex: 1,
@@ -836,7 +846,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   sortSheet: {
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.card,
+    borderTopLeftRadius: Border['radius-lg'],
+    borderTopRightRadius: Border['radius-lg'],
     borderTopWidth: Border.widthBold,
     borderColor: Colors.border,
     padding: Spacing.base,
