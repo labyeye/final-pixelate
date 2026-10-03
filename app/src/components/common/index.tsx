@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useEffect, useState } from 'react';
+import React, { ReactNode, ReactElement, cloneElement, isValidElement, useRef, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -391,23 +391,42 @@ export const StatCard = ({
   onPress,
   sub,
   style,
-}: StatCardProps) => (
-  <Card
-    style={[styles.statCard, style]}
-    shadow="none"
-    onPress={onPress}
-    animateIn
-  >
-    {icon && (
-      <View style={[styles.statCardIconChip, { backgroundColor: accent }]}>
-        {icon}
+}: StatCardProps) => {
+  const isHex = /^#[0-9A-Fa-f]{6}$/.test(accent);
+  const tint = isHex ? `${accent}1A` : Colors.muted;
+  return (
+    <Card
+      style={[styles.statCard, style]}
+      shadow="none"
+      onPress={onPress}
+      animateIn
+    >
+      <View style={styles.statCardRow}>
+        {icon && (
+          <View
+            style={[
+              styles.statCardIconChip,
+              { backgroundColor: tint, borderColor: accent },
+            ]}
+          >
+            {isValidElement(icon)
+              ? cloneElement(icon as ReactElement<any>, { color: accent })
+              : icon}
+          </View>
+        )}
+        <View style={styles.statCardBody}>
+          <Text style={styles.statCardLabel} numberOfLines={1}>
+            {label}
+          </Text>
+          <Text style={styles.statCardValue} numberOfLines={1}>
+            {value}
+          </Text>
+          {sub ? <Text style={styles.statCardSub}>{sub}</Text> : null}
+        </View>
       </View>
-    )}
-    <Text style={styles.statCardValue}>{value}</Text>
-    <Text style={styles.statCardLabel}>{label}</Text>
-    {sub ? <Text style={styles.statCardSub}>{sub}</Text> : null}
-  </Card>
-);
+    </Card>
+  );
+};
 
 export const Divider = ({ style }: { style?: StyleProp<ViewStyle> }) => (
   <View style={[styles.divider, style]} />
@@ -721,14 +740,23 @@ const styles = StyleSheet.create({
   statCard: {
     flex: 1,
     minWidth: 140,
+    borderWidth: 2,
+    borderColor: '#0A0A0A',
+    borderRadius: 8,
+    borderRightWidth: 5,
+    borderBottomWidth: 5,
+    borderRightColor: '#0A0A0A',
+    borderBottomColor: '#0A0A0A',
   },
+  statCardRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  statCardBody: { flex: 1, minWidth: 0 },
   statCardIconChip: {
-    width: 32,
-    height: 32,
+    width: 38,
+    height: 38,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: Border['radius-md'],
-    marginBottom: Spacing.sm,
+    borderWidth: 2,
+    borderRadius: 8,
   },
   statCardValue: {
     fontSize: Typography['2xl'],
@@ -737,10 +765,11 @@ const styles = StyleSheet.create({
     letterSpacing: -0.5,
   },
   statCardLabel: {
-    fontSize: Typography.sm,
-    fontWeight: Typography.medium,
+    fontSize: Typography.xs,
+    fontWeight: Typography.bold,
     color: Colors.mutedForeground,
-    marginTop: 2,
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
   },
   statCardSub: {
     fontSize: Typography.xs,

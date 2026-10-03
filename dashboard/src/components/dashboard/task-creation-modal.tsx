@@ -133,13 +133,13 @@ export function TaskCreationModal({
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="gap-2 border-2 border-black font-bold rounded-none hover:bg-black hover:text-white w-full"
+          className="gap-2 border-2 border-black font-bold rounded-lg hover:bg-black hover:text-white w-full"
         >
           <Plus className="w-4 h-4" />
           New Task
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto p-0 gap-0 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-none">
+      <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto p-0 gap-0 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-lg">
         <div className="px-8 py-6 border-b-4 border-black">
           <h2 className="text-2xl font-black tracking-tighter uppercase">
             New Task
@@ -150,7 +150,7 @@ export function TaskCreationModal({
           <Input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="text-2xl font-black border-2 border-black rounded-none h-14 px-3 placeholder:text-muted-foreground/40"
+            className="text-2xl font-black border-2 border-black rounded-lg h-14 px-3 placeholder:text-muted-foreground/40"
             placeholder="Task title"
             autoFocus
           />
@@ -162,7 +162,7 @@ export function TaskCreationModal({
                 Status
               </label>
               <Select value={status} onValueChange={setStatus}>
-                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                <SelectTrigger className="border-2 border-black rounded-lg h-10 font-bold">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -179,7 +179,7 @@ export function TaskCreationModal({
                 Priority
               </label>
               <Select value={priority} onValueChange={setPriority}>
-                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                <SelectTrigger className="border-2 border-black rounded-lg h-10 font-bold">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -199,7 +199,7 @@ export function TaskCreationModal({
                 value={selectedAssigneeId}
                 onValueChange={setSelectedAssigneeId}
               >
-                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                <SelectTrigger className="border-2 border-black rounded-lg h-10 font-bold">
                   <SelectValue placeholder="Unassigned" />
                 </SelectTrigger>
                 <SelectContent>
@@ -233,7 +233,7 @@ export function TaskCreationModal({
                 value={selectedProjectId}
                 onValueChange={setSelectedProjectId}
               >
-                <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                <SelectTrigger className="border-2 border-black rounded-lg h-10 font-bold">
                   <SelectValue placeholder="None" />
                 </SelectTrigger>
                 <SelectContent>
@@ -266,7 +266,7 @@ export function TaskCreationModal({
                   <Button
                     variant="outline"
                     className={cn(
-                      "w-full justify-start text-left font-bold border-2 border-black rounded-none h-10",
+                      "w-full justify-start text-left font-bold border-2 border-black rounded-lg h-10",
                       !dueDate && "text-muted-foreground font-normal",
                     )}
                   >
@@ -293,7 +293,7 @@ export function TaskCreationModal({
                 value={assetLink}
                 onChange={(e) => setAssetLink(e.target.value)}
                 placeholder="Drive / Figma / brief link"
-                className="border-2 border-black rounded-none h-10 font-medium"
+                className="border-2 border-black rounded-lg h-10 font-medium"
               />
             </div>
           </div>
@@ -305,14 +305,14 @@ export function TaskCreationModal({
             <Textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="min-h-[140px] border-2 border-black rounded-none resize-none text-base leading-relaxed"
+              className="min-h-[140px] border-2 border-black rounded-lg resize-none text-base leading-relaxed"
               placeholder="What needs to be done..."
             />
           </div>
 
           <div className="flex justify-end pt-2">
             <Button
-              className="font-black border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+              className="font-black border-2 border-black rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
               onClick={handleSave}
               disabled={loading || !title}
             >

@@ -128,7 +128,7 @@ export default function InventoryModal({
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-2 border-black rounded-none"
+                        className="border-2 border-black rounded-lg"
                         {...field}
                       />
                     </FormControl>
@@ -145,7 +145,7 @@ export default function InventoryModal({
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-2 border-black rounded-none"
+                        className="border-2 border-black rounded-lg"
                         {...field}
                       />
                     </FormControl>
@@ -167,7 +167,7 @@ export default function InventoryModal({
                     <FormControl>
                       <Input
                         type="number"
-                        className="border-2 border-black rounded-none"
+                        className="border-2 border-black rounded-lg"
                         {...field}
                       />
                     </FormControl>
@@ -184,7 +184,7 @@ export default function InventoryModal({
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-2 border-black rounded-none"
+                        className="border-2 border-black rounded-lg"
                         {...field}
                       />
                     </FormControl>
@@ -202,7 +202,7 @@ export default function InventoryModal({
                     <FormControl>
                       <Input
                         type="number"
-                        className="border-2 border-black rounded-none"
+                        className="border-2 border-black rounded-lg"
                         {...field}
                       />
                     </FormControl>
@@ -223,7 +223,7 @@ export default function InventoryModal({
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-2 border-black rounded-none"
+                        className="border-2 border-black rounded-lg"
                         {...field}
                       />
                     </FormControl>
@@ -243,7 +243,7 @@ export default function InventoryModal({
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-2 border-black rounded-none"
+                        className="border-2 border-black rounded-lg"
                         {...field}
                       />
                     </FormControl>
@@ -276,7 +276,7 @@ export default function InventoryModal({
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className="border-2 border-black rounded-none"
+                            className="border-2 border-black rounded-lg"
                             {...field}
                           />
                         </FormControl>
@@ -294,7 +294,7 @@ export default function InventoryModal({
                         <FormControl>
                           <Input
                             type="number"
-                            className="border-2 border-black rounded-none"
+                            className="border-2 border-black rounded-lg"
                             {...field}
                           />
                         </FormControl>
@@ -308,7 +308,7 @@ export default function InventoryModal({
             <DialogFooter>
               <Button
                 type="submit"
-                className="w-full h-11 text-base font-black tracking-widest rounded-none"
+                className="w-full h-11 text-base font-black tracking-widest rounded-lg"
               >
                 {editItem ? "Update Item" : "Add Item"}
               </Button>

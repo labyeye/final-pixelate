@@ -264,7 +264,7 @@ export function TaskDetailModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[640px] max-h-[90vh] overflow-y-auto p-0 gap-0 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-none">
+      <DialogContent className="sm:max-w-[640px] max-h-[90vh] overflow-y-auto p-0 gap-0 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-lg">
         <div className="px-8 py-6 border-b-4 border-black flex items-start justify-between gap-4">
           <div>
             <span
@@ -281,7 +281,7 @@ export function TaskDetailModal({
               type="button"
               variant="outline"
               size="sm"
-              className="gap-1.5 border-2 border-black rounded-none shrink-0 mr-8"
+              className="gap-1.5 border-2 border-black rounded-lg shrink-0 mr-8"
               onClick={() => setIsEditing((v) => !v)}
             >
               {isEditing ? (
@@ -306,7 +306,7 @@ export function TaskDetailModal({
               <Input
                 value={editTitle}
                 onChange={(e) => setEditTitle(e.target.value)}
-                className="border-2 border-black rounded-none h-11 font-bold"
+                className="border-2 border-black rounded-lg h-11 font-bold"
               />
             </div>
 
@@ -316,7 +316,7 @@ export function TaskDetailModal({
                   Priority
                 </label>
                 <Select value={editPriority} onValueChange={setEditPriority}>
-                  <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                  <SelectTrigger className="border-2 border-black rounded-lg h-10 font-bold">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -333,7 +333,7 @@ export function TaskDetailModal({
                   Assignee
                 </label>
                 <Select value={editAssigneeId} onValueChange={setEditAssigneeId}>
-                  <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                  <SelectTrigger className="border-2 border-black rounded-lg h-10 font-bold">
                     <SelectValue placeholder="Unassigned" />
                   </SelectTrigger>
                   <SelectContent>
@@ -353,7 +353,7 @@ export function TaskDetailModal({
                   Project
                 </label>
                 <Select value={editProjectId} onValueChange={setEditProjectId}>
-                  <SelectTrigger className="border-2 border-black rounded-none h-10 font-bold">
+                  <SelectTrigger className="border-2 border-black rounded-lg h-10 font-bold">
                     <SelectValue placeholder="None" />
                   </SelectTrigger>
                   <SelectContent>
@@ -385,7 +385,7 @@ export function TaskDetailModal({
                     <Button
                       variant="outline"
                       className={cn(
-                        "w-full justify-start text-left font-bold border-2 border-black rounded-none h-10",
+                        "w-full justify-start text-left font-bold border-2 border-black rounded-lg h-10",
                         !editDueDate && "text-muted-foreground font-normal",
                       )}
                     >
@@ -417,7 +417,7 @@ export function TaskDetailModal({
                 value={editAssetLink}
                 onChange={(e) => setEditAssetLink(e.target.value)}
                 placeholder="Drive / Figma / brief link"
-                className="border-2 border-black rounded-none h-10"
+                className="border-2 border-black rounded-lg h-10"
               />
             </div>
 
@@ -428,13 +428,13 @@ export function TaskDetailModal({
               <Textarea
                 value={editDescription}
                 onChange={(e) => setEditDescription(e.target.value)}
-                className="min-h-[120px] border-2 border-black rounded-none resize-none"
+                className="min-h-[120px] border-2 border-black rounded-lg resize-none"
               />
             </div>
 
             <div className="flex justify-end pt-1">
               <Button
-                className="font-black border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+                className="font-black border-2 border-black rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
                 onClick={handleEditSubmit}
                 disabled={savingEdit || !editTitle.trim()}
               >
@@ -534,7 +534,7 @@ export function TaskDetailModal({
                   value={completedLink}
                   onChange={(e) => setCompletedLink(e.target.value)}
                   placeholder="Link to the finished work"
-                  className="border-2 border-black rounded-none h-10"
+                  className="border-2 border-black rounded-lg h-10"
                 />
               </div>
             )}
@@ -548,13 +548,13 @@ export function TaskDetailModal({
                 value={remark}
                 onChange={(e) => setRemark(e.target.value)}
                 placeholder="What did you do / what's the status..."
-                className="min-h-[90px] border-2 border-black rounded-none resize-none"
+                className="min-h-[90px] border-2 border-black rounded-lg resize-none"
               />
             </div>
 
             <div className="flex justify-end pt-1">
               <Button
-                className="font-black border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+                className="font-black border-2 border-black rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
                 onClick={handleSubmit}
                 disabled={
                   saving ||
