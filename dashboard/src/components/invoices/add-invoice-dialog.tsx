@@ -184,7 +184,7 @@ export function AddInvoiceDialog({
       );
 
       const apiLineItems = lineItems.map((r) => ({
-        description: r.serviceName || r.description || "Professional Services",
+        description: r.description || "Professional Services",
         hsnCode: r.hsnCode || "998314",
         quantity: Number(r.quantity || 1),
         price: Number(r.rate || 0),
@@ -207,8 +207,7 @@ export function AddInvoiceDialog({
           selectedClient?.gstin ||
           selectedClient?.gstNumber ||
           "",
-        title:
-          lineItems[0]?.serviceName || lineItems[0]?.description || "Invoice",
+        title: lineItems[0]?.description || "Invoice",
         lineItems: apiLineItems,
         amount: subtotal,
         discount: discountAmt,
