@@ -3205,7 +3205,6 @@ li {
   --radius: 6px;
   --transition: 220ms ease;
 }
-body,
 html {
   overflow-x: hidden;
 }

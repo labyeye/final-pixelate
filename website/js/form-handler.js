@@ -153,7 +153,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const API_BASE =
         window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
           ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
-          : "";
+          : "https://backend.pixelatenest.com";
 
       const res = await fetch(API_BASE + "/api/enquiries", {
         method: "POST",

@@ -474,7 +474,7 @@ offerings-container .offer-card {
 }
 @media (min-width: 1000px) {
   .offerings-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   .offer-card {
     padding: 18px;

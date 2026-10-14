@@ -23,48 +23,14 @@
   padding: 50px 20px 50px 20px;
   background-color: #fff;
 }
-@media screen and (min-width: 480px) {
-  .visit-button {
-    display: inline-block;
-    position: absolute;
-    left: 16px;
-    bottom: -8px;
-    width: calc(50% - 20px);
-    padding: 10px 12px;
-    background: #044bab;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    font-size: 10px;
-  }
-  .details-button {
-    display: inline-block;
-    position: absolute;
-    right: 16px;
-    bottom: -8px;
-    width: calc(50% - 20px);
-    padding: 10px 12px;
-    background: 0 0;
-    color: #044bab;
-    border: 2px solid rgba(4, 75, 171, 0.12);
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    font-size: 10px;
-  }
-}
 @media (min-width: 768px) {
   .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1550px) {
   .portfolio-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 .portfolio-card {
@@ -116,6 +82,12 @@
   padding: 0;
   color: #fff;
   transform: none;
+}
+@media (min-width: 1024px) {
+  .portfolio-overlay {
+    flex: 1 1 52% !important;
+    padding-right: 18px !important;
+  }
 }
 .portfolio-card > * {
   position: relative;
@@ -249,6 +221,7 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: stretch !important;
+  height: auto !important;
   gap: 14px !important;
   padding: 14px !important;
   background: linear-gradient(
@@ -536,7 +509,7 @@
 }
 @media (min-width: 1000px) {
   .offerings-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .offer-card {
     padding: 18px;
