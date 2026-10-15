@@ -560,13 +560,13 @@ details.faq-item[open] .faq-answer {
   .pn-pricing-card strong {
     font-size: 20px;
   }
-  
-.pn-price {
-  font-size: 36px !important;
-  font-weight: 800;
-  color: var(--primary-900);
-  margin: 4px 0 12px;
-}
+
+  .pn-price {
+    font-size: 36px !important;
+    font-weight: 800;
+    color: var(--primary-900);
+    margin: 4px 0 12px;
+  }
   .pn-price-period {
     font-size: 15px;
   }

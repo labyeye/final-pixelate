@@ -1427,12 +1427,12 @@
                 </div>
                 <div class="offer-title">LinkedIn Marketing</div>
                 <div class="offer-desc">
-                  If your customers are other businesses, LinkedIn is where
-                  the real conversations happen. We build up your company
-                  page, share content that actually gets read by people who
-                  matter, and run campaigns aimed straight at the job titles
-                  and industries you sell to. It's slower than social media,
-                  but the leads are usually worth a lot more.
+                  If your customers are other businesses, LinkedIn is where the
+                  real conversations happen. We build up your company page,
+                  share content that actually gets read by people who matter,
+                  and run campaigns aimed straight at the job titles and
+                  industries you sell to. It's slower than social media, but the
+                  leads are usually worth a lot more.
                 </div>
                 <div class="offer-actions">
                   <a
@@ -1455,10 +1455,10 @@
                 <div class="offer-desc">
                   Video builds trust faster than almost anything else, and
                   YouTube is where people go looking for it. We set up and
-                  optimize your channel, title and tag every video so it
-                  gets found, and run YouTube ads when you want faster reach.
-                  Whether it's product demos or customer stories, we make
-                  sure the right people are watching them.
+                  optimize your channel, title and tag every video so it gets
+                  found, and run YouTube ads when you want faster reach. Whether
+                  it's product demos or customer stories, we make sure the right
+                  people are watching them.
                 </div>
                 <div class="offer-actions">
                   <a
@@ -1479,12 +1479,12 @@
                 </div>
                 <div class="offer-title">WhatsApp Marketing</div>
                 <div class="offer-desc">
-                  Your customers already have WhatsApp open all day, so why
-                  make them fill out a form instead? We set up your WhatsApp
-                  Business account, send offers and updates as broadcasts,
-                  and set up automated replies so no one is left waiting. It
-                  becomes a place customers can ask questions, get support
-                  and actually buy, without ever leaving the chat.
+                  Your customers already have WhatsApp open all day, so why make
+                  them fill out a form instead? We set up your WhatsApp Business
+                  account, send offers and updates as broadcasts, and set up
+                  automated replies so no one is left waiting. It becomes a
+                  place customers can ask questions, get support and actually
+                  buy, without ever leaving the chat.
                 </div>
                 <div class="offer-actions">
                   <a
@@ -1505,12 +1505,12 @@
                 </div>
                 <div class="offer-title">Email Marketing</div>
                 <div class="offer-desc">
-                  A lead that doesn't buy today isn't lost, it's just not
-                  ready yet, and email is how we stay in front of them until
-                  they are. We write newsletters people actually open, set
-                  up automatic follow-ups for new leads, and send timely
-                  offers to past customers so they come back and buy again.
-                  It's one of the cheapest channels you have.
+                  A lead that doesn't buy today isn't lost, it's just not ready
+                  yet, and email is how we stay in front of them until they are.
+                  We write newsletters people actually open, set up automatic
+                  follow-ups for new leads, and send timely offers to past
+                  customers so they come back and buy again. It's one of the
+                  cheapest channels you have.
                 </div>
                 <div class="offer-actions">
                   <a
@@ -1526,7 +1526,12 @@
       </section>
 
       <!-- REELS / SHORTS — managed from dashboard: Reels → "Digital Marketing Reels". -->
-      <section class="reels-section" id="reels-section" aria-labelledby="reels-headline" hidden>
+      <section
+        class="reels-section"
+        id="reels-section"
+        aria-labelledby="reels-headline"
+        hidden
+      >
         <div class="container">
           <h2 id="reels-headline" class="h2-text" style="text-align: center">
             See Our Work in Action
@@ -1562,18 +1567,27 @@
             var items = await res.json();
             var list = document.getElementById("reels-list");
             (items || [])
-              .filter(function (i) { return i.category === "digital-marketing"; })
+              .filter(function (i) {
+                return i.category === "digital-marketing";
+              })
               .forEach(function (it) {
-                var entries = (it.entries && it.entries.length
-                  ? it.entries
-                  : it.link ? [{ link: it.link }] : []
-                ).filter(function (e) { return /^https?:\/\//.test(e.link || ""); });
+                var entries = (
+                  it.entries && it.entries.length
+                    ? it.entries
+                    : it.link
+                      ? [{ link: it.link }]
+                      : []
+                ).filter(function (e) {
+                  return /^https?:\/\//.test(e.link || "");
+                });
                 if (!entries.length) return;
 
                 var group = document.createElement("div");
                 group.className = "reels-group";
                 group.innerHTML =
-                  (it.brandName ? '<h3 class="reels-brand">' + esc(it.brandName) + "</h3>" : "") +
+                  (it.brandName
+                    ? '<h3 class="reels-brand">' + esc(it.brandName) + "</h3>"
+                    : "") +
                   '<div class="reels-row">' +
                   '<button class="reels-nav prev" type="button" aria-label="Previous">&#8249;</button>' +
                   '<div class="reels-track"></div>' +
@@ -1583,25 +1597,40 @@
 
                 entries.forEach(function (e) {
                   var id = ytId(e.link);
-                  var thumb = e.thumbnailBase64 || e.thumbnail ||
-                    (id ? "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg" : "");
+                  var thumb =
+                    e.thumbnailBase64 ||
+                    e.thumbnail ||
+                    (id
+                      ? "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg"
+                      : "");
                   var a = document.createElement("a");
                   a.className = "reel-card";
                   a.href = e.link;
                   a.target = "_blank";
                   a.rel = "noopener noreferrer";
-                  a.setAttribute("aria-label", "Watch " + (it.brandName || "reel"));
+                  a.setAttribute(
+                    "aria-label",
+                    "Watch " + (it.brandName || "reel"),
+                  );
                   a.innerHTML =
-                    (thumb ? '<img loading="lazy" alt="" src="' + esc(thumb) + '" />' : "") +
+                    (thumb
+                      ? '<img loading="lazy" alt="" src="' + esc(thumb) + '" />'
+                      : "") +
                     '<span class="reel-play" aria-hidden="true"></span>';
                   track.appendChild(a);
                 });
 
                 group.querySelector(".prev").onclick = function () {
-                  track.scrollBy({ left: -track.clientWidth * 0.8, behavior: "smooth" });
+                  track.scrollBy({
+                    left: -track.clientWidth * 0.8,
+                    behavior: "smooth",
+                  });
                 };
                 group.querySelector(".next").onclick = function () {
-                  track.scrollBy({ left: track.clientWidth * 0.8, behavior: "smooth" });
+                  track.scrollBy({
+                    left: track.clientWidth * 0.8,
+                    behavior: "smooth",
+                  });
                 };
                 list.appendChild(group);
               });
@@ -1965,8 +1994,8 @@
                       up to ₹25,000)
                     </li>
                     <li>
-                      <i class="fas fa-check"></i> WhatsApp Business setup +
-                      1 broadcast / month
+                      <i class="fas fa-check"></i> WhatsApp Business setup + 1
+                      broadcast / month
                     </li>
                     <li>
                       <i class="fas fa-check"></i> Nest Leads CRM: 2,000
@@ -2082,8 +2111,8 @@
                       (ad spend up to ₹3,00,000)
                     </li>
                     <li>
-                      <i class="fas fa-check"></i> 2 landing pages + monthly
-                      A/B testing
+                      <i class="fas fa-check"></i> 2 landing pages + monthly A/B
+                      testing
                     </li>
                     <li>
                       <i class="fas fa-check"></i> Weekly WhatsApp campaigns &
@@ -2161,7 +2190,12 @@
 
             <p
               class="p-text-01 text-white-60"
-              style="text-align: center; max-width: 900px; margin: 28px auto 0; font-size: 14px"
+              style="
+                text-align: center;
+                max-width: 900px;
+                margin: 28px auto 0;
+                font-size: 14px;
+              "
             >
               Ad spend is paid directly to Google/Meta and is not part of the
               fee. Spend above your plan's limit is managed at 12% of the extra
@@ -2295,7 +2329,12 @@
                   <span class="chev" aria-hidden="true">▾</span>
                 </button>
                 <div id="df7" class="faq-answer">
-                  Yes. Every plan includes a Nest Leads lead management account for as long as your plan is active: Starter plan with Starter, Growth with Growth, Pro with Professional. Leads from your ads, website and social media are captured automatically, assigned to your team and followed up on WhatsApp from your own business number.
+                  Yes. Every plan includes a Nest Leads lead management account
+                  for as long as your plan is active: Starter plan with Starter,
+                  Growth with Growth, Pro with Professional. Leads from your
+                  ads, website and social media are captured automatically,
+                  assigned to your team and followed up on WhatsApp from your
+                  own business number.
                 </div>
               </div>
             </div>

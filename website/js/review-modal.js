@@ -35,7 +35,11 @@
   const stars = [1, 2, 3, 4, 5]
     .map(
       (n) =>
-        '<svg class="modal-star" data-rating="' + n + '" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' + STAR + "</svg>",
+        '<svg class="modal-star" data-rating="' +
+        n +
+        '" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+        STAR +
+        "</svg>",
     )
     .join("");
 
@@ -49,8 +53,10 @@
     '<div class="form-group"><label for="reviewEmail">Email Address *</label><input type="email" id="reviewEmail" name="email" required placeholder="john@example.com" /></div></div>' +
     '<div class="form-row"><div class="form-group"><label for="reviewBrand">Your Brand/Company *</label><input type="text" id="reviewBrand" name="brand" required placeholder="Company Name" /></div>' +
     '<div class="form-group"><label for="reviewWorkDone">What Service Did We Provide? *</label><select id="reviewWorkDone" name="workDone" required><option value="">Select a service...</option>' +
-    "<option>Video Editing</option><option>Web Development</option><option>App Development</option><option>Software Development</option><option>Digital Marketing</option><option value=\"UI/UX Design\">UI/UX Design</option><option>Other</option></select></div></div>" +
-    '<div class="form-group"><label>Your Rating *</label><div class="modal-stars" id="modalStars">' + stars + '</div><input type="hidden" id="reviewRating" name="rating" /></div>' +
+    '<option>Video Editing</option><option>Web Development</option><option>App Development</option><option>Software Development</option><option>Digital Marketing</option><option value="UI/UX Design">UI/UX Design</option><option>Other</option></select></div></div>' +
+    '<div class="form-group"><label>Your Rating *</label><div class="modal-stars" id="modalStars">' +
+    stars +
+    '</div><input type="hidden" id="reviewRating" name="rating" /></div>' +
     '<div class="form-group"><label for="reviewMessage">Your Testimonial *</label><textarea id="reviewMessage" name="message" required rows="5" placeholder="Tell us about your experience working with Pixelate Nest..."></textarea></div>' +
     '<div class="form-actions"><button type="button" class="btn-secondary" id="cancelReview">Cancel</button><button type="submit" class="btn-primary" id="submitReview">Submit Review</button></div>' +
     '<div class="form-message" id="formMessage"></div></form></div></div>';
@@ -71,204 +77,206 @@
   function boot() {
     ensureModal();
 
-  const reviewModal = document.getElementById("reviewModal");
-  const closeModalBtn = document.getElementById("closeModal");
-  const cancelReviewBtn = document.getElementById("cancelReview");
-  const reviewForm = document.getElementById("reviewForm");
-  const footerStars = document.getElementById("footer-review-stars");
-  const modalStars = document.querySelectorAll(".modal-star");
-  const reviewRatingInput = document.getElementById("reviewRating");
-  const formMessage = document.getElementById("formMessage");
+    const reviewModal = document.getElementById("reviewModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const cancelReviewBtn = document.getElementById("cancelReview");
+    const reviewForm = document.getElementById("reviewForm");
+    const footerStars = document.getElementById("footer-review-stars");
+    const modalStars = document.querySelectorAll(".modal-star");
+    const reviewRatingInput = document.getElementById("reviewRating");
+    const formMessage = document.getElementById("formMessage");
 
-  if (!reviewModal || !footerStars) return;
+    if (!reviewModal || !footerStars) return;
 
-  let selectedRating = 0;
+    let selectedRating = 0;
 
-  if (footerStars) {
-    footerStars.addEventListener("click", (e) => {
-      if (e.target.classList.contains("star")) {
-        openModal();
-      }
-    });
-
-    const footerStarElements = footerStars.querySelectorAll(".star");
-    footerStarElements.forEach((star) => {
-      star.addEventListener("mouseenter", function () {
-        const hoverValue = this.getAttribute("data-value");
-        updateFooterStarDisplay(hoverValue);
+    if (footerStars) {
+      footerStars.addEventListener("click", (e) => {
+        if (e.target.classList.contains("star")) {
+          openModal();
+        }
       });
 
-      star.addEventListener("click", function () {
-        openModal();
-      });
-    });
+      const footerStarElements = footerStars.querySelectorAll(".star");
+      footerStarElements.forEach((star) => {
+        star.addEventListener("mouseenter", function () {
+          const hoverValue = this.getAttribute("data-value");
+          updateFooterStarDisplay(hoverValue);
+        });
 
-    footerStars.addEventListener("mouseleave", () => {
-      updateFooterStarDisplay(0);
-    });
-  }
-
-  if (modalStars.length) {
-    modalStars.forEach((star) => {
-      star.addEventListener("click", function () {
-        selectedRating = parseInt(this.getAttribute("data-rating"), 10);
-        reviewRatingInput.value = selectedRating;
-        updateModalStarDisplay();
+        star.addEventListener("click", function () {
+          openModal();
+        });
       });
 
-      star.addEventListener("mouseenter", function () {
-        const hoverValue = parseInt(this.getAttribute("data-rating"), 10);
-        updateModalStarPreview(hoverValue);
+      footerStars.addEventListener("mouseleave", () => {
+        updateFooterStarDisplay(0);
       });
-    });
-
-    document.getElementById("modalStars").addEventListener("mouseleave", () => {
-      updateModalStarDisplay();
-    });
-  }
-
-  function openModal() {
-    if (reviewModal) {
-      reviewModal.classList.add("active");
-      reviewModal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-
-      const firstInput = reviewForm.querySelector("input");
-      if (firstInput) firstInput.focus();
     }
-  }
 
-  function closeModal() {
-    if (reviewModal) {
-      reviewModal.classList.remove("active");
-      reviewModal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+    if (modalStars.length) {
+      modalStars.forEach((star) => {
+        star.addEventListener("click", function () {
+          selectedRating = parseInt(this.getAttribute("data-rating"), 10);
+          reviewRatingInput.value = selectedRating;
+          updateModalStarDisplay();
+        });
+
+        star.addEventListener("mouseenter", function () {
+          const hoverValue = parseInt(this.getAttribute("data-rating"), 10);
+          updateModalStarPreview(hoverValue);
+        });
+      });
+
+      document
+        .getElementById("modalStars")
+        .addEventListener("mouseleave", () => {
+          updateModalStarDisplay();
+        });
     }
-  }
 
-  function updateFooterStarDisplay(rating) {
-    const stars = footerStars.querySelectorAll(".star");
-    stars.forEach((star) => {
-      const value = parseInt(star.getAttribute("data-value"), 10);
-      star.style.color = value <= rating ? "#fbbf24" : "#d1d5db";
-    });
-  }
+    function openModal() {
+      if (reviewModal) {
+        reviewModal.classList.add("active");
+        reviewModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
 
-  function updateModalStarDisplay() {
-    if (!modalStars.length) return;
-    modalStars.forEach((star) => {
-      const rating = parseInt(star.getAttribute("data-rating"), 10);
-      if (rating <= selectedRating) {
-        star.style.fill = "#FFD700";
-        star.style.stroke = "#FFD700";
-      } else {
-        star.style.fill = "none";
-        star.style.stroke = "#FFD700";
+        const firstInput = reviewForm.querySelector("input");
+        if (firstInput) firstInput.focus();
       }
-    });
-  }
+    }
 
-  function updateModalStarPreview(hoverValue) {
-    if (!modalStars.length) return;
-    modalStars.forEach((star) => {
-      const rating = parseInt(star.getAttribute("data-rating"), 10);
-      if (rating <= hoverValue) {
-        star.style.fill = "#FFD700";
-        star.style.stroke = "#FFD700";
-        star.style.opacity = "1";
-      } else {
-        star.style.fill = "none";
-        star.style.stroke = "#FFD700";
-        star.style.opacity = "0.5";
+    function closeModal() {
+      if (reviewModal) {
+        reviewModal.classList.remove("active");
+        reviewModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
       }
-    });
-  }
+    }
 
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", closeModal);
-  }
+    function updateFooterStarDisplay(rating) {
+      const stars = footerStars.querySelectorAll(".star");
+      stars.forEach((star) => {
+        const value = parseInt(star.getAttribute("data-value"), 10);
+        star.style.color = value <= rating ? "#fbbf24" : "#d1d5db";
+      });
+    }
 
-  if (cancelReviewBtn) {
-    cancelReviewBtn.addEventListener("click", closeModal);
-  }
+    function updateModalStarDisplay() {
+      if (!modalStars.length) return;
+      modalStars.forEach((star) => {
+        const rating = parseInt(star.getAttribute("data-rating"), 10);
+        if (rating <= selectedRating) {
+          star.style.fill = "#FFD700";
+          star.style.stroke = "#FFD700";
+        } else {
+          star.style.fill = "none";
+          star.style.stroke = "#FFD700";
+        }
+      });
+    }
 
-  if (reviewModal) {
-    reviewModal.addEventListener("click", (e) => {
-      if (e.target === reviewModal) {
+    function updateModalStarPreview(hoverValue) {
+      if (!modalStars.length) return;
+      modalStars.forEach((star) => {
+        const rating = parseInt(star.getAttribute("data-rating"), 10);
+        if (rating <= hoverValue) {
+          star.style.fill = "#FFD700";
+          star.style.stroke = "#FFD700";
+          star.style.opacity = "1";
+        } else {
+          star.style.fill = "none";
+          star.style.stroke = "#FFD700";
+          star.style.opacity = "0.5";
+        }
+      });
+    }
+
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener("click", closeModal);
+    }
+
+    if (cancelReviewBtn) {
+      cancelReviewBtn.addEventListener("click", closeModal);
+    }
+
+    if (reviewModal) {
+      reviewModal.addEventListener("click", (e) => {
+        if (e.target === reviewModal) {
+          closeModal();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        reviewModal &&
+        reviewModal.classList.contains("active")
+      ) {
         closeModal();
       }
     });
-  }
 
-  document.addEventListener("keydown", (e) => {
-    if (
-      e.key === "Escape" &&
-      reviewModal &&
-      reviewModal.classList.contains("active")
-    ) {
-      closeModal();
-    }
-  });
+    if (reviewForm) {
+      reviewForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-  if (reviewForm) {
-    reviewForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      if (!selectedRating) {
-        alert("Please select a rating");
-        return;
-      }
-
-      const formData = {
-        name: document.getElementById("reviewName").value,
-        email: document.getElementById("reviewEmail").value,
-        brand: document.getElementById("reviewBrand").value,
-        workDone: document.getElementById("reviewWorkDone").value,
-        rating: selectedRating,
-        message: document.getElementById("reviewMessage").value,
-        timestamp: new Date().toISOString(),
-      };
-
-      try {
-        const API_BASE =
-          window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
-            ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
-            : "https://backend.pixelatenest.com";
-
-        const response = await fetch((API_BASE || "") + "/api/reviews", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-
-        if (response.ok) {
-          showMessage(
-            "Thank you for your review! We appreciate your feedback.",
-            "success",
-          );
-          reviewForm.reset();
-          selectedRating = 0;
-          updateModalStarDisplay();
-          setTimeout(closeModal, 2000);
-        } else {
-          showMessage("Error submitting review. Please try again.", "error");
+        if (!selectedRating) {
+          alert("Please select a rating");
+          return;
         }
-      } catch (err) {
-        showMessage(
-          "Could not reach the server. Please check your connection and try again.",
-          "error",
-        );
-      }
-    });
-  }
 
-  function showMessage(message, type) {
-    if (formMessage) {
-      formMessage.textContent = message;
-      formMessage.className = "form-message " + type;
-      formMessage.style.display = "block";
+        const formData = {
+          name: document.getElementById("reviewName").value,
+          email: document.getElementById("reviewEmail").value,
+          brand: document.getElementById("reviewBrand").value,
+          workDone: document.getElementById("reviewWorkDone").value,
+          rating: selectedRating,
+          message: document.getElementById("reviewMessage").value,
+          timestamp: new Date().toISOString(),
+        };
+
+        try {
+          const API_BASE =
+            window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
+              ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
+              : "https://backend.pixelatenest.com";
+
+          const response = await fetch((API_BASE || "") + "/api/reviews", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+
+          if (response.ok) {
+            showMessage(
+              "Thank you for your review! We appreciate your feedback.",
+              "success",
+            );
+            reviewForm.reset();
+            selectedRating = 0;
+            updateModalStarDisplay();
+            setTimeout(closeModal, 2000);
+          } else {
+            showMessage("Error submitting review. Please try again.", "error");
+          }
+        } catch (err) {
+          showMessage(
+            "Could not reach the server. Please check your connection and try again.",
+            "error",
+          );
+        }
+      });
     }
-  }
+
+    function showMessage(message, type) {
+      if (formMessage) {
+        formMessage.textContent = message;
+        formMessage.className = "form-message " + type;
+        formMessage.style.display = "block";
+      }
+    }
   }
 
   if (document.readyState === "loading") {

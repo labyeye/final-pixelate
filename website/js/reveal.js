@@ -1,9 +1,16 @@
 // Fade-up on scroll for common page components. Stagger = position inside parent.
 (function () {
   var SEL = [
-    ".offerings-headline", ".offerings-sub", ".offer-card",
-    ".portfolio-heading", ".portfolio-grid", ".hero", ".faq-item",
-    ".cta-section", ".footer-top", ".footer-wrap",
+    ".offerings-headline",
+    ".offerings-sub",
+    ".offer-card",
+    ".portfolio-heading",
+    ".portfolio-grid",
+    ".hero",
+    ".faq-item",
+    ".cta-section",
+    ".footer-top",
+    ".footer-wrap",
   ].join(",");
   var els = document.querySelectorAll(SEL);
   if (!("IntersectionObserver" in window)) return;
