@@ -1429,8 +1429,111 @@
       }
     </style>
 
+    <style>
+      .pn-carousel-wrap {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 40px 0;
+      }
+      .pn-carousel {
+        --pn-w: 270px;
+        --pn-h: 480px;
+        position: relative;
+        display: block;
+        height: calc(var(--pn-h) + 20px);
+        perspective: 1600px;
+        touch-action: pan-y;
+        user-select: none;
+      }
+      .pn-carousel .portfolio-card {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: var(--pn-w);
+        height: var(--pn-h);
+        margin: 0 0 0 calc(var(--pn-w) / -2);
+        border-radius: 18px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.7s cubic-bezier(0.22, 0.8, 0.25, 1),
+          opacity 0.7s ease;
+        will-change: transform;
+      }
+      .pn-carousel .portfolio-image-wrapper,
+      .pn-carousel .portfolio-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+      }
+      .pn-carousel .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 8px;
+        padding: 20px;
+        background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.85));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      .pn-carousel .portfolio-card.is-active:hover .portfolio-overlay,
+      .pn-carousel .portfolio-card.is-active:focus-within .portfolio-overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .pn-carousel .portfolio-desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .pn-carousel .portfolio-tags {
+        display: none;
+      }
+      .pn-carousel .portfolio-buttons-container {
+        display: flex;
+        gap: 10px;
+      }
+      .pn-carousel-btn {
+        position: absolute;
+        top: 50%;
+        z-index: 100;
+        width: 44px;
+        height: 44px;
+        margin-top: -22px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.85);
+        color: #1a3c8f;
+        font-size: 22px;
+        cursor: pointer;
+      }
+      .pn-carousel-btn.prev {
+        left: 16px;
+      }
+      .pn-carousel-btn.next {
+        right: 16px;
+      }
+      @media (max-width: 767px) {
+        .pn-carousel {
+          --pn-w: 180px;
+          --pn-h: 320px;
+        }
+      }
+    </style>
+
     <section class="hero">
-      <div id="portfolio-grid" class="portfolio-grid"></div>
+      <div class="pn-carousel-wrap">
+        <div id="portfolio-grid" class="portfolio-grid pn-carousel"></div>
+        <button class="pn-carousel-btn prev" aria-label="Previous project">&#8249;</button>
+        <button class="pn-carousel-btn next" aria-label="Next project">&#8250;</button>
+      </div>
 
       <script>
         const CACHE_KEY = "appdev_gallery_cache";
@@ -1624,6 +1727,75 @@
             card.appendChild(overlay);
             grid.appendChild(card);
           }
+          initCarousel(grid);
+        }
+
+        // 3D coverflow: offsets/scales per distance from the active card
+        const PN_X = [0, 1.0, 1.3, 1.55, 1.75, 1.9, 2.02];
+        const PN_S = [1, 0.85, 0.72, 0.6, 0.5, 0.4, 0.33];
+        let pnActive = 0;
+        let pnTimer;
+
+        function initCarousel(grid) {
+          const cards = [...grid.children];
+          const n = cards.length;
+          const wrap = grid.parentElement;
+          pnActive = 0;
+
+          function layout() {
+            const w = cards[0].offsetWidth;
+            cards.forEach((c, i) => {
+              let d = (((i - pnActive + n / 2) % n) + n) % n - n / 2;
+              d = Math.round(d);
+              const a = Math.abs(d);
+              const s = Math.sign(d);
+              c.classList.toggle("is-active", d === 0);
+              if (a >= PN_X.length) {
+                c.style.opacity = 0;
+                c.style.pointerEvents = "none";
+                c.style.transform = `translateX(${s * PN_X[6] * w}px) scale(0.3)`;
+                return;
+              }
+              c.style.pointerEvents = "";
+              c.style.opacity = 1 - a * 0.1;
+              c.style.zIndex = 50 - a;
+              c.style.transform = `translateX(${s * PN_X[a] * w}px) rotateY(${-s * 28 * Math.min(a, 1)}deg) scale(${PN_S[a]})`;
+            });
+          }
+          const go = (to) => {
+            pnActive = (to + n) % n;
+            layout();
+          };
+          const restart = () => {
+            clearInterval(pnTimer);
+            if (n > 1) pnTimer = setInterval(() => go(pnActive + 1), 4000);
+          };
+
+          cards.forEach((c, i) =>
+            c.addEventListener("click", () => {
+              if (!c.classList.contains("is-active")) {
+                go(i);
+                restart();
+              }
+            }),
+          );
+          wrap.querySelector(".prev").onclick = () => (go(pnActive - 1), restart());
+          wrap.querySelector(".next").onclick = () => (go(pnActive + 1), restart());
+          wrap.onmouseenter = () => clearInterval(pnTimer);
+          wrap.onmouseleave = restart;
+
+          let x0 = null;
+          grid.onpointerdown = (e) => (x0 = e.clientX);
+          grid.onpointerup = (e) => {
+            if (x0 !== null && Math.abs(e.clientX - x0) > 40) {
+              go(pnActive + (e.clientX < x0 ? 1 : -1));
+              restart();
+            }
+            x0 = null;
+          };
+          window.addEventListener("resize", layout);
+          layout();
+          restart();
         }
 
         loadGallery();
