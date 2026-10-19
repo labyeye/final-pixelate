@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/counter-billing-what-is.png"
+      href="../assets/images/products/counter-billing-details/counter-billing-person.webp"
       as="image"
     />
     <link
@@ -581,48 +581,46 @@
 
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">Counter Billing</span>
-              <h1>
-                Fast Counter Billing Software for Retail Shops &amp; Stores
-              </h1>
-              <p>
-                Generate bills in seconds, manage inventory in real time, track
-                daily sales, apply discounts, and print GST receipts — all from
-                one simple counter billing system. Works online and offline, on
-                any device.
-              </p>
+              <span class="nh-hs-tag">Counter Billing Software</span>
+              <h1>Fast Counter Billing Software<br />for Retail Shops &amp; Stores</h1>
+              <p>Generate bills in seconds, scan barcodes, accept cash, card and UPI, and keep stock and GST reports up to date automatically. Pixelate Nest Counter Billing runs the checkout counter of your shop — even when the internet is down.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/counter-billing-what-is.png"
-                alt="Counter Billing Software Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/counter-billing-details/counter-billing-person.webp"
+                alt="Counter Billing Software"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/counter-billing-what-is.png"
-                  alt="Counter Billing Demo"
+                  src="../assets/images/products/counter-billing-details/dashboard.webp"
+                  alt="Counter Billing Software Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -634,111 +632,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>
-                    See how our Counter Billing Software works in 60 seconds
-                  </p>
+                  <p>See how Counter Billing speeds up your shop in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About the Software</span>
-              <h2>Bill faster, sell more, manage smarter — from one counter</h2>
-              <p>
-                Our Counter Billing Software by Pixelate Nest is a complete
-                point-of-sale and inventory management system for retail shops,
-                medical stores, grocery stores, and general merchants. It's
-                designed to be fast, simple, and accurate — even for shopkeepers
-                with no technical background. Works fully offline with sync when
-                internet is available.
-              </p>
+              <span class="nh-about-tag">About Counter Billing</span>
+              <h2>One platform to run your entire billing counter</h2>
+              <p>Counter Billing by Pixelate Nest is a fast point-of-sale and inventory system for retail shops, stores and supermarkets. Billing, barcode scanning, stock, customers, discounts, GST and sales reports are connected, so every sale updates your inventory and books the moment the bill is printed.</p>
               <div class="nh-about-highlights">
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon"><i class="fas fa-bolt"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Bill in Under 10 Seconds</strong
-                    ><span
-                      >Search products by name or barcode and generate a
-                      GST-compliant bill instantly.</span
-                    >
+                    <strong>Billing in Seconds</strong>
+                    <span>Scan, add and print — queues at your counter get shorter from day one.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon"><i class="fas fa-wifi"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Works Offline Too</strong
-                    ><span
-                      >Keep billing even when the internet goes down — data
-                      syncs automatically when reconnected.</span
-                    >
+                    <strong>Works Offline</strong>
+                    <span>Keep billing without internet; bills sync automatically when you are back online.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-boxes"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-boxes-stacked"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Live Inventory Tracking</strong
-                    ><span
-                      >Stock levels update in real time with every sale — get
-                      low-stock alerts before you run out.</span
-                    >
+                    <strong>Live Stock Updates</strong>
+                    <span>Every bill reduces stock, and low-stock items are flagged before you run out.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-chart-bar"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-file-invoice"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Daily Sales Reports</strong
-                    ><span
-                      >Know your best-selling items, daily revenue, and profit
-                      margin at the end of every day.</span
-                    >
+                    <strong>GST Ready</strong>
+                    <span>GST-compliant invoices and tax reports generated without extra work.</span>
                   </div>
                 </div>
               </div>
@@ -747,32 +728,56 @@
         </div>
       </section>
 
-      <!-- SCREENSHOTS -->
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Everything at your counter,<br /><span class="nh-accent"
-              >in one powerful screen</span
-            >
+            Everything your counter needs,<br /><span class="nh-accent">in one fast screen</span>
           </h2>
-          <p class="nh-section-sub">
-            From billing to inventory, payments to reports — everything a retail
-            shop needs in one simple software.
-          </p>
+          <p class="nh-section-sub">See the billing screen, inventory, customers and reports your team will use every day.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/counter-billing-what-is.png',
+                  '../assets/images/products/counter-billing-details/dashboard.webp',
+                  'Sales Dashboard',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/counter-billing-details/dashboard.webp"
+                  alt="Sales Dashboard"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Sales Dashboard</p>
+                <span>Today's sales, top items, payment modes and low-stock alerts.</span>
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.1s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/counter-billing-details/billing.webp',
                   'Billing Screen',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/counter-billing-what-is.png"
+                  src="../assets/images/products/counter-billing-details/billing.webp"
                   alt="Billing Screen"
                   loading="lazy"
                   width="400"
@@ -785,26 +790,23 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Fast Billing Screen</p>
-                <span
-                  >Add items by name or barcode, apply discounts, generate GST
-                  bill in seconds.</span
-                >
+                <p>Billing Screen</p>
+                <span>Scan or search items, apply discounts and print the bill in seconds.</span>
               </div>
             </div>
             <div
               class="nh-method-card slide-up"
-              style="transition-delay: 0.1s"
+              style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/counter-billing-features.png',
+                  '../assets/images/products/counter-billing-details/inventory.webp',
                   'Inventory Management',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/counter-billing-features.png"
+                  src="../assets/images/products/counter-billing-details/inventory.webp"
                   alt="Inventory Management"
                   loading="lazy"
                   width="400"
@@ -818,25 +820,22 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Inventory Management</p>
-                <span
-                  >Real-time stock tracking, low-stock alerts, and purchase
-                  order management.</span
-                >
+                <span>Stock levels, purchase entries, batches and reorder alerts.</span>
               </div>
             </div>
             <div
               class="nh-method-card slide-up"
-              style="transition-delay: 0.2s"
+              style="transition-delay: 0.3s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/counter-billing-benefits.png',
+                  '../assets/images/products/counter-billing-details/customers.webp',
                   'Customer Management',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/counter-billing-benefits.png"
+                  src="../assets/images/products/counter-billing-details/customers.webp"
                   alt="Customer Management"
                   loading="lazy"
                   width="400"
@@ -850,25 +849,22 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Customer Management</p>
-                <span
-                  >Save customer details, track purchase history, and manage
-                  loyalty points.</span
-                >
+                <span>Customer history, loyalty and outstanding balances in one place.</span>
               </div>
             </div>
             <div
               class="nh-method-card slide-up"
-              style="transition-delay: 0.3s"
+              style="transition-delay: 0.4s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/counter-billing-why.png',
+                  '../assets/images/products/counter-billing-details/gst-reports.webp',
                   'GST Reports',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/counter-billing-why.png"
+                  src="../assets/images/products/counter-billing-details/gst-reports.webp"
                   alt="GST Reports"
                   loading="lazy"
                   width="400"
@@ -881,43 +877,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>GST Compliance</p>
-                <span
-                  >Auto GST calculation, GSTR-1 ready reports, and HSN code
-                  management.</span
-                >
-              </div>
-            </div>
-            <div
-              class="nh-method-card slide-up"
-              style="transition-delay: 0.4s"
-              onclick="
-                nhDashOpen(
-                  '../assets/images/products/counter-billing-advantage.png',
-                  'Sales Analytics',
-                )
-              "
-            >
-              <div class="nh-method-card-img-wrap">
-                <img
-                  src="../assets/images/products/counter-billing-advantage.png"
-                  alt="Sales Analytics"
-                  loading="lazy"
-                  width="400"
-                  height="260"
-                />
-                <div class="nh-method-card-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="nh-method-card-body">
-                <p>Sales Analytics</p>
-                <span
-                  >Daily, weekly, and monthly sales reports with profit and loss
-                  breakdown.</span
-                >
+                <p>GST Reports</p>
+                <span>Tax-wise sales summary ready for your accountant.</span>
               </div>
             </div>
             <div
@@ -925,15 +886,15 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/counter-billing-industries.png',
-                  'Payment Management',
+                  '../assets/images/products/counter-billing-details/sales-reports.webp',
+                  'Sales Reports',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/counter-billing-industries.png"
-                  alt="Payment Management"
+                  src="../assets/images/products/counter-billing-details/sales-reports.webp"
+                  alt="Sales Reports"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -945,14 +906,13 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Multi-Payment Support</p>
-                <span
-                  >Accept cash, card, UPI, credit — all tracked separately in
-                  one place.</span
-                >
+                <p>Sales Reports</p>
+                <span>Daily, item-wise and cashier-wise sales analysis.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
           <div
             class="nh-dash-modal-backdrop"
             id="nhDashBackdrop"
@@ -964,8 +924,9 @@
                 onclick="nhDashClose(null, true)"
                 aria-label="Close"
               >
-                &times;</button
-              ><img id="nhDashModalImg" src="" alt="" />
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
             </div>
           </div>
           <script>
@@ -976,9 +937,9 @@
               document.getElementById("nhDashBackdrop").classList.add("active");
               document.body.style.overflow = "hidden";
             }
-            function nhDashClose(e, f) {
+            function nhDashClose(e, force) {
               if (
-                f ||
+                force ||
                 (e && e.target === document.getElementById("nhDashBackdrop"))
               ) {
                 document
@@ -994,13 +955,14 @@
         </div>
       </section>
 
-      <!-- NSF ROWS -->
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/counter-billing-features.png"
-              alt="Instant Billing"
+              src="../assets/images/products/counter-billing-details/billing.webp"
+              alt="Quick Billing"
               loading="lazy"
               width="640"
               height="480"
@@ -1008,71 +970,52 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Instant billing with barcode support<span
-                >Serve customers 3x faster</span
-              >
+              Bill faster than the customer can queue<span>Barcode scan to printed bill</span>
             </h2>
-            <p>
-              Scan barcodes, select items by name, apply discounts and taxes —
-              and print a GST bill in under 10 seconds. No training needed.
-              Works on touch screens, tablets, and regular computers.
-            </p>
+            <p>Scan a barcode or search by name and the item is on the bill. Quantities, discounts and taxes are calculated instantly, and the bill prints on a thermal printer or goes out by WhatsApp or SMS.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Barcode scanner and touchscreen support
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Barcode scanner and quick-search support
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                GST calculation with multiple tax slabs
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Hold and resume bills during rush hours
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Thermal printer and A4 receipt printing
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Thermal printer and A4 invoice formats
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Quick
-                discount and offer application
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Share bills on WhatsApp or SMS
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              Real-time inventory management<span
-                >Never run out of stock unaware</span
-              >
+              Stock that updates itself<span>Know what to reorder before you run out</span>
             </h2>
-            <p>
-              Every sale automatically updates your stock. Get low-stock alerts,
-              manage purchase orders, track supplier payments, and maintain
-              complete inventory history — all without a separate system.
-            </p>
+            <p>Every sale reduces stock automatically and every purchase adds to it. Low-stock and expiry alerts keep shelves full, and stock reports show exactly what is selling and what is stuck.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                stock deduction on every sale
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Automatic stock reduction on every bill
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Low-stock alerts via SMS or dashboard
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Low-stock and expiry alerts
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Purchase order and supplier management
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Purchase entry with supplier details
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Multi-warehouse and godown support
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Item, category and batch-wise stock reports
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/counter-billing-benefits.png"
+              src="../assets/images/products/counter-billing-details/inventory.webp"
               alt="Inventory Management"
               loading="lazy"
               width="640"
@@ -1081,98 +1024,81 @@
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/counter-billing-why.png"
-              alt="GST Compliance"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-          <div class="nsf-content slide-right">
-            <h2>
-              GST billing &amp; compliance reports<span
-                >Stay compliant without the headache</span
-              >
-            </h2>
-            <p>
-              Generate GST-compliant invoices automatically. Export GSTR-1,
-              GSTR-2, and GSTR-3B reports ready for filing. Manage HSN codes,
-              tax slabs, and e-way bills from one screen.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                GSTR-1, GSTR-2, GSTR-3B reports
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >HSN/SAC code management
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Multiple GST rate support
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>E-way
-                bill generation
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-content slide-right">
-            <h2>
-              Customer management &amp; loyalty<span
-                >Turn buyers into regulars</span
-              >
-            </h2>
-            <p>
-              Save customer profiles, track purchase history, manage credit
-              accounts, and run loyalty point programs — so your best customers
-              keep coming back.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Customer database with purchase history
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Credit and khata management
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Loyalty points and reward programs
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>SMS
-                bill and offer alerts to customers
-              </li>
-            </ul>
-          </div>
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/counter-billing-advantage.png"
+              src="../assets/images/products/counter-billing-details/customers.webp"
               alt="Customer Management"
               loading="lazy"
               width="640"
               height="480"
             />
           </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Know your regulars<span>History, dues and loyalty in one profile</span>
+            </h2>
+            <p>Save customers at billing time and build a purchase history automatically. Track outstanding balances, reward repeat buyers and send offers to customers who have not visited in a while.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Customer profile with full purchase history
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Outstanding balance tracking
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Loyalty points and special pricing
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Offer messages on WhatsApp and SMS
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              Run offers without calculator errors<span>Rules applied at the counter automatically</span>
+            </h2>
+            <p>Set item-wise, category-wise or bill-wise discounts and run festival offers or combo deals. The system applies them automatically, so cashiers cannot make mistakes or give unauthorised discounts.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Percentage and flat discounts
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Combo and festival offers with date range
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Discount limits per cashier role
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Approval for manual price changes
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/counter-billing-details/gst-reports.webp"
+              alt="Discounts &amp; Offers"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/counter-billing-industries.png"
-              alt="Sales Reports"
+              src="../assets/images/products/counter-billing-details/sales-reports.webp"
+              alt="Sales &amp; GST Reports"
               loading="lazy"
               width="640"
               height="480"
@@ -1180,245 +1106,185 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Daily sales reports &amp; analytics<span
-                >Know your shop's performance every day</span
-              >
+              Close the day in minutes<span>Reports your accountant will love</span>
             </h2>
-            <p>
-              See today's sales, best-selling products, payment method
-              breakdown, and profit/loss — all on a clean dashboard. Export to
-              Excel for your accountant with one click.
-            </p>
+            <p>Daily sales, item-wise performance, payment modes and GST summaries are ready the moment the day ends. Export to Excel for your accountant and stop retyping bills into Tally.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Daily, weekly, monthly sales reports
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Day-end summary by payment mode
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Profit and loss with gross margin
+                <span class="nsf-check"><i class="fas fa-check"></i></span>GST-wise sales and tax reports
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Best-selling product analytics
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Cashier and counter-wise reports
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >One-click Excel export for accounting
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Export to Excel and PDF
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- FEATURES -->
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 powerful features built for
-            <span class="nh-accent">fast retail billing</span>
+            Everything you need to
+            <span class="nh-accent">bill faster and sell smarter</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Everything a retail shop needs — billing, inventory, GST, customers,
-            and reports — in one system.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">9+ modules built to take the stress out of the billing counter.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-receipt"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-cash-register"></i></div>
               <h3>Quick Billing</h3>
-              <p>
-                Generate GST bills in seconds with barcode scanning, product
-                search, and one-tap printing.
-              </p>
+              <p>Fast billing screen with barcode scanning, quick search and instant totals.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-boxes"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-boxes-stacked"></i></div>
               <h3>Inventory Management</h3>
-              <p>
-                Live stock tracking, low-stock alerts, purchase orders, and
-                complete inventory history.
-              </p>
+              <p>Live stock, purchases, batches and low-stock alerts.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
               <div class="nh-feat-icon"><i class="fas fa-users"></i></div>
               <h3>Customer Management</h3>
-              <p>
-                Customer database, purchase history, credit accounts, and
-                loyalty point programs.
-              </p>
+              <p>Customer profiles, purchase history, dues and loyalty.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
               <div class="nh-feat-icon"><i class="fas fa-percent"></i></div>
               <h3>Discounts &amp; Offers</h3>
-              <p>
-                Apply item-level or bill-level discounts, seasonal schemes, and
-                combo offers instantly.
-              </p>
+              <p>Item, category and bill-level discounts with combo offers.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-file-invoice"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-file-invoice-dollar"></i></div>
               <h3>GST Reports</h3>
-              <p>
-                Auto GSTR-1, GSTR-2, GSTR-3B reports with HSN codes — ready for
-                CA filing.
-              </p>
+              <p>GST-compliant invoices and tax summaries for filing.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
               <div class="nh-feat-icon"><i class="fas fa-chart-line"></i></div>
               <h3>Sales Reports</h3>
-              <p>
-                Daily, weekly, monthly sales, profit/loss, and best-seller
-                reports. Export to Excel.
-              </p>
+              <p>Daily, item-wise, cashier-wise and payment-mode analysis.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-credit-card"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-wallet"></i></div>
               <h3>Multi-Payment</h3>
-              <p>
-                Accept cash, card, UPI, and credit — all tracked separately with
-                end-of-day reconciliation.
-              </p>
+              <p>Cash, card, UPI and split payments on a single bill.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
               <div class="nh-feat-icon"><i class="fas fa-barcode"></i></div>
               <h3>Barcode Scanner</h3>
-              <p>
-                Works with USB barcode scanners and mobile camera scanning for
-                fast item lookup.
-              </p>
+              <p>Plug-and-play scanner support and barcode label printing.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
               <div class="nh-feat-icon"><i class="fas fa-wifi"></i></div>
               <h3>Offline Mode</h3>
-              <p>
-                Keep billing during internet downtime — all data syncs
-                automatically when back online.
-              </p>
+              <p>Keep billing without internet and sync automatically later.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INDUSTRIES -->
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Works for every type of
-            <span class="nh-accent">retail shop and store</span>
+            Built for every kind of shop,
+            <span class="nh-accent">customised for your counter</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            From kirana stores to multi-counter supermarkets — our billing
-            software adapts to your shop type.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">Counter Billing adapts to 10+ retail businesses — from a single counter to a growing chain.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-store"></i><span>Kirana Stores</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
               <i class="fas fa-pills"></i><span>Medical Stores</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-basket"></i><span>Grocery Shops</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-cart-shopping"></i><span>Grocery Shops</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-plug"></i><span>Electronics</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-tv"></i><span>Electronics</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-tshirt"></i><span>Clothing &amp; Garments</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-shirt"></i><span>Clothing &amp; Garments</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-tools"></i><span>Hardware Stores</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-screwdriver-wrench"></i><span>Hardware Stores</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-pencil-ruler"></i><span>Stationery</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-pen"></i><span>Stationery</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-birthday-cake"></i><span>Bakery &amp; Food</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-bread-slice"></i><span>Bakery &amp; Food</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-cart"></i><span>Supermarkets</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-basket-shopping"></i><span>Supermarkets</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
               <i class="fas fa-gem"></i><span>Jewellery</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CHOOSE -->
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
-            Why shops choose
+            Why shop owners choose
             <span class="nh-accent">our Counter Billing Software</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >Simple enough for the counter staff, powerful enough for the owner.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-bolt"></i><strong>3x Faster Billing</strong>
-              <p>
-                Bill customers 3x faster than manual methods. No queue, no
-                errors, no calculation mistakes.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-bolt"></i>
+              <strong>Faster Checkout</strong>
+              <p>Shorter queues and happier customers from the very first day.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-ban"></i><strong>Zero Billing Errors</strong>
-              <p>
-                Auto-calculation eliminates manual mistakes. Every bill is
-                accurate and GST-compliant.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-ban"></i>
+              <strong>Fewer Billing Errors</strong>
+              <p>Automatic totals, taxes and discounts remove manual mistakes.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-wifi"></i><strong>Works Offline</strong>
-              <p>
-                Internet gone? No problem. Keep billing in offline mode — data
-                syncs when you're back online.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-boxes-stacked"></i>
+              <strong>Stock Under Control</strong>
+              <p>Know what is selling, what is stuck and what to order next.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-mobile-alt"></i
-              ><strong>Works on Any Device</strong>
-              <p>
-                Use on a desktop PC, touch screen POS terminal, laptop, or
-                tablet — no special hardware needed.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-wifi"></i>
+              <strong>Never Stops Billing</strong>
+              <p>Offline mode keeps the counter open when the internet is not.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rupee-sign"></i
-              ><strong>Affordable for Small Shops</strong>
-              <p>
-                Pricing designed for small and medium retailers — no expensive
-                subscription or per-bill charges.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-file-invoice"></i>
+              <strong>GST Compliant</strong>
+              <p>Invoices and reports that match what your accountant needs.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rocket"></i><strong>Ready in 2 Hours</strong>
-              <p>
-                Add your products, set up GST, and start billing the same day.
-                No technical skills needed.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-lock"></i>
+              <strong>Safe &amp; Backed Up</strong>
+              <p>Your data is stored securely and backed up automatically.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-file-invoice-dollar"></i
-              ><strong>CA-Ready Reports</strong>
-              <p>
-                GST and sales reports in the exact format your chartered
-                accountant needs for tax filing.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Quick Setup</strong>
+              <p>Import items from Excel and start billing the same day.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-headset"></i><strong>Local Support</strong>
-              <p>
-                Reach our support team in Hindi or English — phone, WhatsApp, or
-                email — anytime you need help.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — real help, fast responses.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+<!-- TESTIMONIALS -->
       <section class="nh-testi-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">What shop owners are saying</h2>

@@ -829,6 +829,18 @@
       "namedRegex": "^/api/team\\-members(?:/)?$"
     },
     {
+      "page": "/api/telemetry",
+      "regex": "^/api/telemetry(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/telemetry(?:/)?$"
+    },
+    {
+      "page": "/api/telemetry/report",
+      "regex": "^/api/telemetry/report(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/telemetry/report(?:/)?$"
+    },
+    {
       "page": "/api/trash",
       "regex": "^/api/trash(?:/)?$",
       "routeKeys": {},
@@ -1199,6 +1211,12 @@
       "regex": "^/onboarding(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/onboarding(?:/)?$"
+    },
+    {
+      "page": "/performance",
+      "regex": "^/performance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/performance(?:/)?$"
     },
     {
       "page": "/photo-galleries",

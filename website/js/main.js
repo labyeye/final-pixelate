@@ -29,8 +29,6 @@ function gtag() {
     hideDecimalForWholeNumbers: !1,
   }),
   (window.dataLayer = window.dataLayer || []),
-  gtag("js", new Date()),
-  gtag("config", "G-T64KPYDX6P"),
   (async function () {
     try {
       const e = await fetch(

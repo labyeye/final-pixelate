@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/transport-mgmt-what-is.png"
+      href="../assets/images/products/transport-details/transport-person.webp"
       as="image"
     />
     <link
@@ -551,49 +551,46 @@
 
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">Transport Management</span>
-              <h1>
-                Smart Transport Management Software for Schools &amp; Businesses
-              </h1>
-              <p>
-                Plan routes, track vehicles, manage drivers, alert parents on
-                student pickup and drop, monitor fuel, schedule maintenance, and
-                analyse fleet performance — all from one powerful transport
-                management dashboard. Built for school buses, corporate fleets,
-                and logistics companies.
-              </p>
+              <span class="nh-hs-tag">NestTransport – Transport Management</span>
+              <h1>NestTransport: Smart Fleet<br />&amp; Transport Management</h1>
+              <p>NestTransport by Pixelate Nest helps schools, institutions and fleet operators manage vehicles, drivers, routes and daily trips from one dashboard. Track buses live, record every boarding, keep documents and maintenance on schedule, and bill transport fees — with a mobile app for drivers and attendants.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/transport-mgmt-what-is.png"
-                alt="Transport Management Software Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/transport-details/transport-person.webp"
+                alt="NestTransport Management Software"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/transport-mgmt-what-is.png"
-                  alt="Transport Management Demo"
+                  src="../assets/images/products/transport-details/dashboard.webp"
+                  alt="NestTransport Management Software Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -605,114 +602,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>
-                    See how our Transport Management Software works in 60
-                    seconds
-                  </p>
+                  <p>See how NestTransport runs your fleet in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About the Software</span>
-              <h2>Complete fleet visibility — from route to driver to fuel</h2>
-              <p>
-                Our Transport Management Software by Pixelate Nest gives
-                schools, colleges, corporate offices, and logistics businesses
-                complete control over their vehicle fleet. Plan optimised
-                routes, assign drivers, track vehicle location, alert parents on
-                student safety, manage fuel logs, schedule maintenance, and get
-                fleet performance analytics — all in real time.
-              </p>
+              <span class="nh-about-tag">About NestTransport</span>
+              <h2>One platform to run your entire fleet</h2>
+              <p>NestTransport is a cloud-based transport management platform for school buses, staff shuttles and small fleets. Vehicles, drivers, routes and stops, scheduled trips, passenger manifests, live GPS tracking, maintenance, fuel, documents and optional fee billing are all connected — so dispatchers always know what is moving, what is late and what needs attention.</p>
               <div class="nh-about-highlights">
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-map-marked-alt"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>Live Vehicle Tracking</strong>
+                    <span>Watch vehicles move on the map in real time from GPS trackers or the driver's phone.</span>
+                  </div>
+                </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon"><i class="fas fa-route"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Smart Route Planning</strong
-                    ><span
-                      >Optimise bus routes to reduce travel time, fuel costs,
-                      and overlap between trips.</span
-                    >
+                    <strong>Routes, Stops &amp; Trips</strong>
+                    <span>Build ordered routes on a map, generate daily trips and avoid clashes of vehicle or driver.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                  </div>
+                  <div class="nh-hl-icon"><i class="fas fa-mobile-alt"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Live Vehicle Tracking</strong
-                    ><span
-                      >Track every vehicle on a live map — school admin,
-                      parents, and managers always know where the bus is.</span
-                    >
+                    <strong>Driver &amp; Attendant App</strong>
+                    <span>Trips, boarding, delays, breakdowns and emergencies reported from the phone — even offline.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-bell"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-shield-alt"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Parent Safety Alerts</strong
-                    ><span
-                      >Auto SMS to parents when their child boards or exits the
-                      school bus — peace of mind guaranteed.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-gas-pump"></i></div>
-                  <div class="nh-hl-text">
-                    <strong>Fuel &amp; Maintenance Tracking</strong
-                    ><span
-                      >Log fuel refills, track mileage, and schedule maintenance
-                      to reduce vehicle downtime.</span
-                    >
+                    <strong>Secure by Design</strong>
+                    <span>Every organisation's data is isolated, with role-based permissions and a full audit log.</span>
                   </div>
                 </div>
               </div>
@@ -721,33 +698,28 @@
         </div>
       </section>
 
-      <!-- SCREENSHOTS -->
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Complete fleet management,<br /><span class="nh-accent"
-              >in one powerful dashboard</span
-            >
+            Complete control of your fleet,<br /><span class="nh-accent">from one screen</span>
           </h2>
-          <p class="nh-section-sub">
-            Routes, drivers, tracking, safety alerts, fuel, and analytics —
-            every transport function in one system.
-          </p>
+          <p class="nh-section-sub">Real screens from NestTransport — see how dispatchers manage vehicles, routes, trips and live tracking.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/transport-mgmt-what-is.png',
-                  'Fleet Dashboard',
+                  '../assets/images/products/transport-details/dashboard.webp',
+                  'Live Dashboard',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/transport-mgmt-what-is.png"
-                  alt="Fleet Dashboard"
+                  src="../assets/images/products/transport-details/dashboard.webp"
+                  alt="Live Dashboard"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -759,11 +731,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Fleet Dashboard</p>
-                <span
-                  >Live overview of all vehicles, active trips, driver status,
-                  and fleet alerts.</span
-                >
+                <p>Live Dashboard</p>
+                <span>Active trips, vehicle status, delays and document expiries at a glance.</span>
               </div>
             </div>
             <div
@@ -771,15 +740,15 @@
               style="transition-delay: 0.1s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/transport-mgmt-features.png',
-                  'Route Planning',
+                  '../assets/images/products/transport-details/vehicles.webp',
+                  'Vehicle Management',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/transport-mgmt-features.png"
-                  alt="Route Planning"
+                  src="../assets/images/products/transport-details/vehicles.webp"
+                  alt="Vehicle Management"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -791,11 +760,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Route Planning</p>
-                <span
-                  >Plan and optimise routes with stop management and ETA
-                  calculation.</span
-                >
+                <p>Vehicle Management</p>
+                <span>Registration, capacity, status, assigned driver and document validity.</span>
               </div>
             </div>
             <div
@@ -803,15 +769,15 @@
               style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/transport-mgmt-benefits.png',
-                  'Driver Management',
+                  '../assets/images/products/transport-details/routes.webp',
+                  'Routes &amp; Stops',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/transport-mgmt-benefits.png"
-                  alt="Driver Management"
+                  src="../assets/images/products/transport-details/routes.webp"
+                  alt="Routes &amp; Stops"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -823,11 +789,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Driver Management</p>
-                <span
-                  >Driver profiles, licence tracking, trip assignment, and
-                  performance logs.</span
-                >
+                <p>Routes &amp; Stops</p>
+                <span>Draw ordered stops on a map and reuse routes across daily trips.</span>
               </div>
             </div>
             <div
@@ -835,15 +798,15 @@
               style="transition-delay: 0.3s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/transport-mgmt-why.png',
-                  'Student Safety',
+                  '../assets/images/products/transport-details/trips.webp',
+                  'Trips &amp; Dispatch',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/transport-mgmt-why.png"
-                  alt="Student Safety"
+                  src="../assets/images/products/transport-details/trips.webp"
+                  alt="Trips &amp; Dispatch"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -855,11 +818,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Student Safety Alerts</p>
-                <span
-                  >Auto SMS to parents when student boards or exits the school
-                  bus.</span
-                >
+                <p>Trips &amp; Dispatch</p>
+                <span>Schedule trips, assign driver and attendant, and track each trip's status.</span>
               </div>
             </div>
             <div
@@ -867,15 +827,15 @@
               style="transition-delay: 0.4s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/transport-mgmt-advantage.png',
-                  'Fuel Management',
+                  '../assets/images/products/transport-details/tracking.webp',
+                  'Live Tracking',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/transport-mgmt-advantage.png"
-                  alt="Fuel Management"
+                  src="../assets/images/products/transport-details/tracking.webp"
+                  alt="Live Tracking"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -887,11 +847,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Fuel Management</p>
-                <span
-                  >Fuel logs, mileage per vehicle, and cost analysis to reduce
-                  fuel wastage.</span
-                >
+                <p>Live Tracking</p>
+                <span>Real-time vehicle positions on the map for the trips running right now.</span>
               </div>
             </div>
             <div
@@ -899,15 +856,15 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/transport-mgmt-industries.png',
-                  'Fleet Analytics',
+                  '../assets/images/products/transport-details/reports.webp',
+                  'Reports &amp; Analytics',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/transport-mgmt-industries.png"
-                  alt="Fleet Analytics"
+                  src="../assets/images/products/transport-details/reports.webp"
+                  alt="Reports &amp; Analytics"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -919,14 +876,13 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Fleet Analytics</p>
-                <span
-                  >Vehicle utilisation, trip history, maintenance due alerts,
-                  and cost reports.</span
-                >
+                <p>Reports &amp; Analytics</p>
+                <span>Trip, utilisation, fuel, maintenance and fee reports with CSV export.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
           <div
             class="nh-dash-modal-backdrop"
             id="nhDashBackdrop"
@@ -938,8 +894,9 @@
                 onclick="nhDashClose(null, true)"
                 aria-label="Close"
               >
-                &times;</button
-              ><img id="nhDashModalImg" src="" alt="" />
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
             </div>
           </div>
           <script>
@@ -950,9 +907,9 @@
               document.getElementById("nhDashBackdrop").classList.add("active");
               document.body.style.overflow = "hidden";
             }
-            function nhDashClose(e, f) {
+            function nhDashClose(e, force) {
               if (
-                f ||
+                force ||
                 (e && e.target === document.getElementById("nhDashBackdrop"))
               ) {
                 document
@@ -968,13 +925,14 @@
         </div>
       </section>
 
-      <!-- NSF ROWS -->
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/transport-mgmt-features.png"
-              alt="Route Planning"
+              src="../assets/images/products/transport-details/vehicles.webp"
+              alt="Fleet Management"
               loading="lazy"
               width="640"
               height="480"
@@ -982,420 +940,321 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Smart route planning &amp; optimisation<span
-                >Reduce travel time and fuel cost</span
-              >
+              Every vehicle and driver in order<span>Documents never expire unnoticed</span>
             </h2>
-            <p>
-              Plan bus routes with stops, timing, and pickup points. The system
-              optimises routes to minimise travel time and fuel consumption —
-              reducing operational costs while improving punctuality.
-            </p>
+            <p>Keep a clean register of vehicles, drivers, attendants and dispatchers. Insurance, fitness and licence documents are tracked with expiry dates and reminders, and vehicles under maintenance are blocked from trips automatically.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Map-based route planning with stops
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Vehicle registry with status and driver assignment
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>ETA
-                calculation and schedule management
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Document upload, verification and expiry alerts
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Passenger assignment per stop
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Driver, attendant and dispatcher profiles
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Route
-                overlap detection and optimisation
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-content slide-right">
-            <h2>
-              Student safety &amp; parent alerts<span
-                >Parents always know where their child is</span
-              >
-            </h2>
-            <p>
-              When a student boards or exits the bus, parents receive an instant
-              SMS or WhatsApp notification. School admin can see all students on
-              board in real time — eliminating safety concerns completely.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>RFID
-                or QR-based student boarding tracking
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Instant SMS/WhatsApp alerts to parents
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Real-time headcount per vehicle
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Late
-                bus delay notifications to parents
-              </li>
-            </ul>
-          </div>
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/transport-mgmt-benefits.png"
-              alt="Student Safety"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/transport-mgmt-why.png"
-              alt="Driver Management"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-          <div class="nsf-content slide-right">
-            <h2>
-              Driver management &amp; compliance<span
-                >Know your drivers, track their trips</span
-              >
-            </h2>
-            <p>
-              Maintain complete driver profiles — licence, experience, contact
-              details, and trip history. Track licence expiry, police
-              verification status, and assign drivers to specific vehicles and
-              routes.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Driver profile with licence and documents
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Licence expiry alerts and renewal reminders
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Trip
-                assignment and daily schedule
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Driver performance and trip history
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-content slide-right">
-            <h2>
-              Fuel management &amp; cost control<span
-                >Cut fuel costs by up to 30%</span
-              >
-            </h2>
-            <p>
-              Log every fuel refill, track mileage per vehicle, and get
-              cost-per-km analytics. Identify high-consumption vehicles, detect
-              fuel pilferage, and set alerts when fuel consumption deviates from
-              the norm.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Fuel
-                fill log with quantity and cost
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Mileage and cost-per-km reports
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Fuel
-                efficiency comparison by vehicle
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Deviation alerts for unusual consumption
-              </li>
-            </ul>
-          </div>
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/transport-mgmt-advantage.png"
-              alt="Fuel Management"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/transport-mgmt-industries.png"
-              alt="Maintenance Management"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-          <div class="nsf-content slide-right">
-            <h2>
-              Vehicle maintenance scheduling<span
-                >Zero unexpected breakdowns</span
-              >
-            </h2>
-            <p>
-              Schedule and track all vehicle maintenance — oil change, tyre
-              replacement, service dates, and fitness certificate renewals. Get
-              alerts before due dates so maintenance never gets missed.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Service schedule and maintenance log
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Pre-due alerts for service and fitness certificates
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Maintenance cost per vehicle reports
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Spare
-                parts and repair history
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Vehicles taken out of service during maintenance
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- FEATURES -->
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              Plan routes once, run them every day<span>Ordered stops on an interactive map</span>
+            </h2>
+            <p>Build routes visually with ordered stops, then duplicate, activate or archive them as your service changes. Each trip keeps a snapshot of the route plan it ran on, so history never changes retroactively.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Map editor for ordered stops
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Route versioning with duplicate and archive
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Distance and time entered per route
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Same route reused across recurring trips
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/transport-details/routes.webp"
+              alt="Routes &amp; Stops"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/transport-details/trips.webp"
+              alt="Trips &amp; Dispatch"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Dispatch without double-booking<span>Smart checks on every assignment</span>
+            </h2>
+            <p>Create trips one by one or generate them from recurring schedules. The system checks that the vehicle, driver and attendant are free and available before a trip is confirmed, and handles replacements when plans change.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Numbered trips with a clear status flow
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Overlap checks for vehicle, driver and attendant
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Recurring schedules with safe bulk generation
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Replace a driver or vehicle mid-plan
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              See every bus on the map<span>GPS from trackers or the driver's phone</span>
+            </h2>
+            <p>Positions stream in live from supported GPS devices or from the driver's phone during an active trip. Duplicate and out-of-order pings are filtered, so the map stays accurate and the trip history stays clean.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Real-time map for running trips
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Generic GPS tracker integration with per-device keys
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Driver-phone location limited to the active trip
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Boarding and drop-off events logged on every trip
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/transport-details/tracking.webp"
+              alt="Live Tracking"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/transport-details/reports.webp"
+              alt="Reports &amp; Billing"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Know your costs, collect your fees<span>Reports that export, invoices that reconcile</span>
+            </h2>
+            <p>Fourteen built-in reports cover trips, utilisation, delays, fuel, maintenance, expenses and document expiry. Switch on the optional billing module to charge transport fees by route, stop or flat plan.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>14 reports with CSV export
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Fuel logs with measured efficiency
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Maintenance and expense tracking with approvals
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Fee plans, invoices, part payments and receipts
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 powerful modules for
-            <span class="nh-accent">complete fleet management</span>
+            Everything you need to
+            <span class="nh-accent">run a safer, more efficient fleet</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Routes, drivers, tracking, student safety, fuel, and maintenance —
-            all managed from one platform.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">Core modules built for school transport and fleet operators.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-route"></i></div>
-              <h3>Route Planning</h3>
-              <p>
-                Map-based route creation, stop management, schedule planning,
-                and route optimisation.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <h3>Vehicle Tracking</h3>
-              <p>
-                Live GPS-based vehicle tracking on map — visible to admin,
-                parents, and managers in real time.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-user-shield"></i></div>
-              <h3>Driver Management</h3>
-              <p>
-                Driver profiles, licence tracking, trip assignment, compliance
-                alerts, and performance monitoring.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-child"></i></div>
-              <h3>Student Safety</h3>
-              <p>
-                RFID/QR boarding tracking with instant parent SMS/WhatsApp
-                alerts at every pickup and drop.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-gas-pump"></i></div>
-              <h3>Fuel Management</h3>
-              <p>
-                Fuel logs, mileage tracking, cost-per-km analysis, and pilferage
-                detection alerts.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-tools"></i></div>
-              <h3>Maintenance Scheduling</h3>
-              <p>
-                Service schedule management, maintenance history, pre-due
-                alerts, and cost tracking per vehicle.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
               <div class="nh-feat-icon"><i class="fas fa-bus"></i></div>
-              <h3>Trip Scheduling</h3>
-              <p>
-                Daily trip planning, driver assignment, vehicle allocation, and
-                trip completion tracking.
-              </p>
+              <h3>Vehicle Management</h3>
+              <p>Fleet register with capacity, status, driver assignment and archive safeguards.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-id-badge"></i></div>
+              <h3>Drivers &amp; Attendants</h3>
+              <p>Profiles, roles and availability for drivers, attendants and dispatchers.</p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-route"></i></div>
+              <h3>Routes &amp; Stops</h3>
+              <p>Ordered stops on a map, route versions and reusable plans.</p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-calendar-check"></i></div>
+              <h3>Trips &amp; Schedules</h3>
+              <p>One-off and recurring trips with vehicle and driver availability checks.</p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-location-crosshairs"></i></div>
+              <h3>Live GPS Tracking</h3>
+              <p>Real-time positions from GPS devices or driver phones with live map updates.</p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
+              <div class="nh-feat-icon"><i class="fas fa-users-line"></i></div>
+              <h3>Passenger Manifests</h3>
+              <p>Boarding, drop-off and missing-passenger tracking on every trip.</p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-wrench"></i></div>
+              <h3>Maintenance &amp; Fuel</h3>
+              <p>Service lifecycle, fuel logs, expense approvals and cost per vehicle.</p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
               <div class="nh-feat-icon"><i class="fas fa-bell"></i></div>
-              <h3>Parent Notifications</h3>
-              <p>
-                Automated SMS/WhatsApp for bus delays, student boarding, and
-                route changes.
-              </p>
+              <h3>Alerts &amp; Notifications</h3>
+              <p>In-app alerts, email, SMS and WhatsApp with delivery log and retry.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-chart-bar"></i></div>
-              <h3>Fleet Analytics</h3>
-              <p>
-                Vehicle utilisation, trip history, fuel cost reports, and
-                maintenance due summaries.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <h3>Fee Billing</h3>
+              <p>Route, stop or flat fee plans with invoices, part payments and refunds.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INDUSTRIES -->
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Built for every type of
-            <span class="nh-accent">fleet operator</span>
+            Built for every kind of fleet,
+            <span class="nh-accent">customised for how you operate</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            From school buses to logistics fleets — our transport software
-            adapts to your operation.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">NestTransport adapts to institutions and operators with fleets of any size.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-school"></i><span>School Buses</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-school"></i><span>Schools</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-university"></i><span>College Transport</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-graduation-cap"></i><span>Colleges &amp; Universities</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-briefcase"></i><span>Corporate Fleets</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-building"></i><span>Corporate Staff Transport</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-truck"></i><span>Logistics Companies</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-hospital"></i><span>Hospitals</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-map"></i><span>Tour Operators</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-bus"></i><span>Private Bus Operators</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-bus"></i><span>City Transport</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-van-shuttle"></i><span>Shuttle Services</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-bag"></i
-              ><span>E-Commerce Delivery</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-hotel"></i><span>Hotels &amp; Resorts</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-ambulance"></i><span>Healthcare Fleet</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-industry"></i><span>Factories &amp; Plants</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-hard-hat"></i><span>Construction</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-child"></i><span>Pre-Schools &amp; Day Care</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-industry"></i><span>Manufacturing</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-truck"></i><span>Small Logistics Fleets</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CHOOSE -->
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
-            Why fleet operators choose
-            <span class="nh-accent">our Transport Software</span>
+            Why operators choose
+            <span class="nh-accent">NestTransport</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >Built around the real daily work of dispatchers, drivers and school administrators.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-shield-alt"></i
-              ><strong>Student Safety First</strong>
-              <p>
-                Parents get instant alerts at every boarding and drop — school
-                transport has never been this transparent.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-eye"></i>
+              <strong>Full Visibility</strong>
+              <p>Know which vehicles are moving, delayed or idle without making a single call.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rupee-sign"></i><strong>30% Fuel Savings</strong>
-              <p>
-                Optimised routes, fuel tracking, and mileage analytics reduce
-                fuel costs significantly.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-triangle-exclamation"></i>
+              <strong>Safer Trips</strong>
+              <p>Delay, breakdown, incident and emergency reports reach dispatch instantly.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-map-marker-alt"></i
-              ><strong>Live Tracking</strong>
-              <p>
-                Know where every vehicle is at any moment — on a live map
-                accessible by admin and parents.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-file-shield"></i>
+              <strong>Always Compliant</strong>
+              <p>Document expiry tracking keeps insurance, fitness and licences up to date.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-ban"></i><strong>Zero Missed Maintenance</strong>
-              <p>
-                Maintenance alerts before due dates prevent breakdowns and keep
-                vehicles in peak condition.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-wifi"></i>
+              <strong>Works with Weak Network</strong>
+              <p>The driver app queues actions offline and replays them safely when signal returns.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-mobile-alt"></i
-              ><strong>Mobile App Access</strong>
-              <p>
-                Transport managers and drivers operate from the mobile app — no
-                paperwork, no phone calls.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-indian-rupee-sign"></i>
+              <strong>Lower Running Costs</strong>
+              <p>Fuel, maintenance and expense reports show exactly where money goes.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-clock"></i><strong>Better Punctuality</strong>
-              <p>
-                Optimised routes and live tracking help maintain schedules and
-                reduce late arrivals.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-lock"></i>
+              <strong>Tenant-Isolated Security</strong>
+              <p>Each organisation's data is separate, with role-level permissions and audit logs.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-file-alt"></i><strong>Compliance Reports</strong>
-              <p>
-                Licence validity, fitness certificates, and insurance records
-                managed with pre-expiry alerts.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-plug"></i>
+              <strong>Open Integrations</strong>
+              <p>Connect GPS trackers, SMTP, SMS, WhatsApp and Razorpay when you are ready.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-headset"></i><strong>Dedicated Support</strong>
-              <p>
-                Local support team in Hindi and English — reachable by call,
-                WhatsApp, or email.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — real help, fast responses.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+<!-- TESTIMONIALS -->
       <section class="nh-testi-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">

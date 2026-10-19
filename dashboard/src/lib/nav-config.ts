@@ -86,6 +86,12 @@ export const navGroups = [
         icon: Activity,
       },
       {
+        href: "/performance",
+        label: "App Performance",
+        adminOnly: true,
+        icon: Zap,
+      },
+      {
         href: "/erp-console",
         label: "ERP Console",
         adminOnly: true,

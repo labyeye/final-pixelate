@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/fmcg-what-is.png"
+      href="../assets/images/products/fmcg-details/fmcg-person.webp"
       as="image"
     />
     <link
@@ -551,50 +551,46 @@
 
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">FMCG &amp; Wholesale</span>
-              <h1>
-                FMCG Retail &amp; Wholesale Software for Distributors and
-                Dealers
-              </h1>
-              <p>
-                Manage your entire FMCG distribution business — orders,
-                inventory, distributor network, route sales, beat planning,
-                schemes, returns, and sales analytics — all from one powerful
-                platform. Built for FMCG distributors, wholesalers, and retail
-                chains that want to 2x their sales efficiency.
-              </p>
+              <span class="nh-hs-tag">FMCG Retail &amp; Wholesale</span>
+              <h1>FMCG Retail &amp; Wholesale Software<br />for Distributors and Dealers</h1>
+              <p>Manage orders, stock, schemes, beats and your distributor network from one platform. Pixelate Nest FMCG software gives distributors, wholesalers and dealers real-time visibility from the warehouse to the retail counter.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/fmcg-what-is.png"
-                alt="FMCG Distribution Software Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/fmcg-details/fmcg-person.webp"
+                alt="FMCG Retail and Wholesale Software"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/fmcg-what-is.png"
-                  alt="FMCG Software Demo"
+                  src="../assets/images/products/fmcg-details/dashboard.webp"
+                  alt="FMCG Retail and Wholesale Software Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -606,118 +602,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>
-                    See how our FMCG &amp; Wholesale Software works in 60
-                    seconds
-                  </p>
+                  <p>See how our FMCG software runs distribution in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About the Software</span>
-              <h2>
-                End-to-end FMCG distribution management — from order to delivery
-              </h2>
-              <p>
-                Our FMCG Retail and Wholesale Software by Pixelate Nest is a
-                comprehensive distribution management platform built for Indian
-                FMCG businesses. Manage orders from your entire retailer
-                network, track real-time inventory across warehouses, plan
-                salesman beats, apply schemes and discounts, handle returns, and
-                get full sales analytics — all in one system.
-              </p>
+              <span class="nh-about-tag">About FMCG Software</span>
+              <h2>One platform to run your entire distribution chain</h2>
+              <p>Our FMCG Retail and Wholesale Software is built for distributors, wholesalers and dealers who handle high-volume, fast-moving stock. Orders, billing, multi-warehouse inventory, schemes, returns, beat planning, sales targets and outstanding collections are connected, so field teams and the back office always work from the same numbers.</p>
               <div class="nh-about-highlights">
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-clipboard-list"></i>
-                  </div>
+                  <div class="nh-hl-icon"><i class="fas fa-clipboard-list"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Smart Order Management</strong
-                    ><span
-                      >Salesmen take orders on mobile, orders flow instantly to
-                      warehouse — zero paperwork, faster dispatch.</span
-                    >
+                    <strong>Order to Delivery</strong>
+                    <span>Capture orders in the field, bill from the warehouse and track delivery status.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-boxes"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-warehouse"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Real-Time Inventory</strong
-                    ><span
-                      >Track stock across multiple warehouses in real time — no
-                      overselling, no stock-out surprises.</span
-                    >
+                    <strong>Multi-Warehouse Stock</strong>
+                    <span>Batch and expiry-wise stock across godowns with transfers between them.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-map"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-gift"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Beat Planning</strong
-                    ><span
-                      >Assign salesman routes by area and day — maximise visits,
-                      reduce travel, increase order coverage.</span
-                    >
+                    <strong>Schemes &amp; Discounts</strong>
+                    <span>Run trade schemes, slab discounts and free-goods offers without manual calculation.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-chart-line"></i>
-                  </div>
+                  <div class="nh-hl-icon"><i class="fas fa-route"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Sales Analytics</strong
-                    ><span
-                      >Product-wise, salesman-wise, area-wise, and time-based
-                      sales reports — make data-driven decisions.</span
-                    >
+                    <strong>Beat Planning</strong>
+                    <span>Plan salesman beats and visits so every outlet is covered on time.</span>
                   </div>
                 </div>
               </div>
@@ -726,33 +698,28 @@
         </div>
       </section>
 
-      <!-- SCREENSHOTS -->
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Every distribution function managed,<br /><span class="nh-accent"
-              >in one connected platform</span
-            >
+            Everything your distribution needs,<br /><span class="nh-accent">in one smart dashboard</span>
           </h2>
-          <p class="nh-section-sub">
-            Orders, inventory, beat planning, schemes, returns, and analytics —
-            all seamlessly connected for FMCG businesses.
-          </p>
+          <p class="nh-section-sub">See the order, stock, scheme and outstanding screens your sales and warehouse teams will use.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/fmcg-what-is.png',
-                  'FMCG Dashboard',
+                  '../assets/images/products/fmcg-details/dashboard.webp',
+                  'Sales Dashboard',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/fmcg-what-is.png"
-                  alt="FMCG Dashboard"
+                  src="../assets/images/products/fmcg-details/dashboard.webp"
+                  alt="Sales Dashboard"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -764,11 +731,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Distribution Dashboard</p>
-                <span
-                  >Live orders, stock levels, salesman activity, and daily sales
-                  summary at a glance.</span
-                >
+                <p>Sales Dashboard</p>
+                <span>Primary and secondary sales, targets, stock and outstanding at a glance.</span>
               </div>
             </div>
             <div
@@ -776,14 +740,14 @@
               style="transition-delay: 0.1s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/fmcg-features.png',
+                  '../assets/images/products/fmcg-details/orders.webp',
                   'Order Management',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/fmcg-features.png"
+                  src="../assets/images/products/fmcg-details/orders.webp"
                   alt="Order Management"
                   loading="lazy"
                   width="400"
@@ -797,10 +761,7 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Order Management</p>
-                <span
-                  >Mobile ordering by salesman with instant warehouse
-                  notification and dispatch.</span
-                >
+                <span>Field and counter orders from capture through billing and delivery.</span>
               </div>
             </div>
             <div
@@ -808,15 +769,15 @@
               style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/fmcg-benefits.png',
-                  'Inventory Control',
+                  '../assets/images/products/fmcg-details/inventory.webp',
+                  'Warehouse Inventory',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/fmcg-benefits.png"
-                  alt="Inventory Control"
+                  src="../assets/images/products/fmcg-details/inventory.webp"
+                  alt="Warehouse Inventory"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -828,11 +789,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Inventory Control</p>
-                <span
-                  >Real-time stock across warehouses with reorder alerts and
-                  batch/expiry tracking.</span
-                >
+                <p>Warehouse Inventory</p>
+                <span>Batch, expiry and multi-warehouse stock with transfers.</span>
               </div>
             </div>
             <div
@@ -840,14 +798,43 @@
               style="transition-delay: 0.3s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/fmcg-why.png',
+                  '../assets/images/products/fmcg-details/schemes.webp',
+                  'Schemes &amp; Discounts',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/fmcg-details/schemes.webp"
+                  alt="Schemes &amp; Discounts"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Schemes &amp; Discounts</p>
+                <span>Slab, free-goods and trade schemes applied automatically.</span>
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.4s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/fmcg-details/beats.webp',
                   'Beat Planning',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/fmcg-why.png"
+                  src="../assets/images/products/fmcg-details/beats.webp"
                   alt="Beat Planning"
                   loading="lazy"
                   width="400"
@@ -861,42 +848,7 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Beat Planning</p>
-                <span
-                  >Route-based salesman scheduling with area assignment and
-                  outlet visit tracking.</span
-                >
-              </div>
-            </div>
-            <div
-              class="nh-method-card slide-up"
-              style="transition-delay: 0.4s"
-              onclick="
-                nhDashOpen(
-                  '../assets/images/products/fmcg-advantage.png',
-                  'Schemes and Discounts',
-                )
-              "
-            >
-              <div class="nh-method-card-img-wrap">
-                <img
-                  src="../assets/images/products/fmcg-advantage.png"
-                  alt="Schemes and Discounts"
-                  loading="lazy"
-                  width="400"
-                  height="260"
-                />
-                <div class="nh-method-card-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="nh-method-card-body">
-                <p>Schemes &amp; Discounts</p>
-                <span
-                  >Product-wise, slab-based, and seasonal scheme management with
-                  auto-apply on orders.</span
-                >
+                <span>Salesman beats, outlet visits and route coverage.</span>
               </div>
             </div>
             <div
@@ -904,14 +856,14 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/fmcg-industries.png',
+                  '../assets/images/products/fmcg-details/analytics.webp',
                   'Sales Analytics',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/fmcg-industries.png"
+                  src="../assets/images/products/fmcg-details/analytics.webp"
                   alt="Sales Analytics"
                   loading="lazy"
                   width="400"
@@ -925,13 +877,12 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Sales Analytics</p>
-                <span
-                  >Product, salesman, area, brand, and time-based sales reports
-                  with Excel export.</span
-                >
+                <span>Brand, SKU, area and salesman-wise performance reports.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
           <div
             class="nh-dash-modal-backdrop"
             id="nhDashBackdrop"
@@ -943,8 +894,9 @@
                 onclick="nhDashClose(null, true)"
                 aria-label="Close"
               >
-                &times;</button
-              ><img id="nhDashModalImg" src="" alt="" />
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
             </div>
           </div>
           <script>
@@ -955,9 +907,9 @@
               document.getElementById("nhDashBackdrop").classList.add("active");
               document.body.style.overflow = "hidden";
             }
-            function nhDashClose(e, f) {
+            function nhDashClose(e, force) {
               if (
-                f ||
+                force ||
                 (e && e.target === document.getElementById("nhDashBackdrop"))
               ) {
                 document
@@ -973,12 +925,13 @@
         </div>
       </section>
 
-      <!-- NSF ROWS -->
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/fmcg-features.png"
+              src="../assets/images/products/fmcg-details/orders.webp"
               alt="Order Management"
               loading="lazy"
               width="640"
@@ -987,73 +940,52 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Mobile-first order management<span
-                >Orders from field to warehouse instantly</span
-              >
+              From order to invoice without re-entry<span>Field and counter orders in one flow</span>
             </h2>
-            <p>
-              Your salesman takes orders on the mobile app while visiting
-              outlets — orders reach the warehouse instantly for processing. No
-              phone calls, no manual entry, no delays. From order to dispatch in
-              minutes.
-            </p>
+            <p>Salesmen capture orders at the outlet and the back office converts them into invoices with a click. Pending, billed and delivered orders are always visible, so nothing is lost between the field and the godown.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Mobile order taking by salesman
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Order capture from the field and the counter
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Instant warehouse notification
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Order to invoice conversion
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Order
-                status tracking for salesman
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Pending and delivered order tracking
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Credit limit check per retailer
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Salesman-wise order summaries
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              Real-time inventory control<span
-                >Never oversell or run out of stock</span
-              >
+              Stock you can trust<span>Batches, expiry and multiple warehouses</span>
             </h2>
-            <p>
-              Track stock across all your warehouses in real time — when a
-              salesman places an order, stock is reserved instantly. Set reorder
-              alerts, track batch numbers and expiry dates, and prevent
-              stock-out situations proactively.
-            </p>
+            <p>Track every SKU by batch and expiry across all godowns. Stock transfers, damage entries and reorder alerts keep inventory accurate and stop expiry write-offs before they happen.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Multi-warehouse stock tracking
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Batch and expiry-wise tracking
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Batch
-                number and expiry tracking
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Stock transfer between warehouses
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Reorder level alerts per product
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Reorder level alerts
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Stock
-                transfer between warehouses
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Damage and expiry reports
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/fmcg-benefits.png"
+              src="../assets/images/products/fmcg-details/inventory.webp"
               alt="Inventory Control"
               loading="lazy"
               width="640"
@@ -1062,12 +994,13 @@
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/fmcg-why.png"
-              alt="Beat Planning"
+              src="../assets/images/products/fmcg-details/schemes.webp"
+              alt="Schemes &amp; Discounts"
               loading="lazy"
               width="640"
               height="480"
@@ -1075,74 +1008,53 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Beat planning &amp; route sales<span
-                >Maximum outlets, minimum travel</span
-              >
+              Offers applied right, every time<span>Trade schemes without manual maths</span>
             </h2>
-            <p>
-              Plan salesman beats by area and day — each salesman knows exactly
-              which outlets to visit and in what order. Track daily visit
-              completion, orders per beat, and productivity per salesman.
-              Increase outlet coverage without adding headcount.
-            </p>
+            <p>Set up quantity slab discounts, free goods and period schemes once. The software applies them at billing and reports scheme cost, so you know exactly what each promotion is costing.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Area
-                and day-wise beat assignment
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Slab, free-goods and value-based schemes
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Outlet visit checkin and checkout
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Scheme validity by date and brand
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Salesman productivity per beat
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Automatic application at billing
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Missed outlet alerts to manager
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Scheme cost and uptake reports
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              Schemes, discounts &amp; promotions<span
-                >Auto-apply the right scheme on every order</span
-              >
+              Cover every outlet, hit every target<span>Plan visits and measure achievement</span>
             </h2>
-            <p>
-              Create and manage complex scheme structures — slab discounts,
-              buy-x-get-y, seasonal offers, and retailer-specific discounts. The
-              system auto-applies the right scheme when the salesman places the
-              order — no manual calculations, no errors.
-            </p>
+            <p>Assign outlets to salesmen by beat and day, set monthly targets and compare achievement against plan. Managers see who is on track and which outlets have not ordered recently.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Slab-based and flat discount schemes
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Beat and outlet assignment
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Buy-X-Get-Y and free goods schemes
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Salesman-wise targets and achievement
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Date-range and product-specific offers
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Outlets not ordered recently
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Scheme performance reports
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Visit and order reports
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/fmcg-advantage.png"
-              alt="Schemes and Discounts"
+              src="../assets/images/products/fmcg-details/beats.webp"
+              alt="Beat Planning &amp; Targets"
               loading="lazy"
               width="640"
               height="480"
@@ -1150,11 +1062,12 @@
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/fmcg-industries.png"
+              src="../assets/images/products/fmcg-details/analytics.webp"
               alt="Sales Analytics"
               loading="lazy"
               width="640"
@@ -1163,254 +1076,185 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Deep sales analytics &amp; reporting<span
-                >Know what's selling, where, and by whom</span
-              >
+              Decisions backed by numbers<span>See what sells, where and to whom</span>
             </h2>
-            <p>
-              Get product-wise, salesman-wise, area-wise, and brand-wise sales
-              analytics. Compare performance by period, track target vs.
-              achievement per salesman, and export any report to Excel in one
-              click. Make decisions based on data, not guesswork.
-            </p>
+            <p>Analyse sales by brand, SKU, area, salesman and customer. Outstanding ageing, returns and margin reports help you decide what to push, what to stock and whom to follow up with.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Product and brand-wise sales reports
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Brand, SKU and area-wise sales
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Salesman target vs. achievement
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Outstanding and ageing reports
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Area-wise and outlet-wise performance
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Returns and margin analysis
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Monthly, weekly, daily comparison reports
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Excel and PDF export
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- FEATURES -->
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 powerful modules to
+            Everything you need to
             <span class="nh-accent">scale your FMCG business</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Everything FMCG distributors need — orders, inventory, routes,
-            schemes, returns, and analytics in one platform.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">9+ modules built for high-volume distribution.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-clipboard-list"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-clipboard-list"></i></div>
               <h3>Order Management</h3>
-              <p>
-                Mobile order taking by salesman with instant warehouse flow,
-                credit check, and status tracking.
-              </p>
+              <p>Field and counter orders from capture to delivery.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-boxes"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-boxes-stacked"></i></div>
               <h3>Inventory Control</h3>
-              <p>
-                Real-time multi-warehouse stock, batch tracking, expiry alerts,
-                and reorder management.
-              </p>
+              <p>Batch, expiry and stock across all godowns.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-network-wired"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-network-wired"></i></div>
               <h3>Distributor Network</h3>
-              <p>
-                Manage your entire distributor and dealer network — orders,
-                credits, and performance in one view.
-              </p>
+              <p>Dealers, sub-dealers and outlets with credit and pricing.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-map"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-route"></i></div>
               <h3>Beat Planning</h3>
-              <p>
-                Area-wise salesman beat assignment, outlet visit tracking, and
-                daily route completion reports.
-              </p>
+              <p>Salesman beats, outlet assignment and visit coverage.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-undo-alt"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-rotate-left"></i></div>
               <h3>Returns Management</h3>
-              <p>
-                Handle damaged, expired, or rejected goods returns with stock
-                credit and reason tracking.
-              </p>
+              <p>Sales returns, damage and expiry returns with credit notes.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-tags"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
+              <div class="nh-feat-icon"><i class="fas fa-gift"></i></div>
               <h3>Schemes &amp; Discounts</h3>
-              <p>
-                Create complex scheme structures that auto-apply when conditions
-                are met on orders.
-              </p>
+              <p>Slab, free-goods and period schemes applied automatically.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-calendar-check"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-bullseye"></i></div>
               <h3>Sales Target Tracking</h3>
-              <p>
-                Assign monthly targets per salesman, track daily achievement,
-                and get gap alerts automatically.
-              </p>
+              <p>Targets and achievement by salesman, brand and area.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-chart-column"></i></div>
               <h3>Sales Analytics</h3>
-              <p>
-                Product, salesman, area, brand, and time-based sales reports
-                with Excel export.
-              </p>
+              <p>SKU, brand, area and customer-wise performance reports.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
               <div class="nh-feat-icon"><i class="fas fa-warehouse"></i></div>
               <h3>Multi-Warehouse</h3>
-              <p>
-                Manage inventory across multiple godowns and warehouses with
-                inter-warehouse transfers.
-              </p>
+              <p>Several godowns with transfers and consolidated stock.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INDUSTRIES -->
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Built for every
-            <span class="nh-accent">FMCG and distribution business</span>
+            Built for every distribution business,
+            <span class="nh-accent">customised for your supply chain</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            From small FMCG distributors to large wholesale chains — our
-            software scales with your business.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">FMCG software adapts to distributors and dealers across 10+ product categories.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-truck"></i><span>FMCG Distributors</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-store"></i><span>Wholesalers</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-warehouse"></i><span>Wholesalers</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-cart"></i
-              ><span>Retailers &amp; Chains</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-basket-shopping"></i><span>Supermarkets</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-bag"></i><span>Supermarkets</span>
-            </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
               <i class="fas fa-pills"></i><span>Pharma Distribution</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
               <i class="fas fa-utensils"></i><span>Food &amp; Beverage</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-pump-soap"></i><span>Personal Care</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-home"></i><span>Home Care</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-house"></i><span>Home Care</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-seedling"></i><span>Agriculture Products</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-wheat-awn"></i><span>Agriculture Products</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
               <i class="fas fa-industry"></i><span>Manufacturers</span>
+            </div>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-store"></i><span>Retail Dealers</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CHOOSE -->
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
-            Why FMCG businesses choose
+            Why distributors choose
             <span class="nh-accent">our distribution software</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >Built for the speed and scale of fast-moving goods.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-mobile-alt"></i
-              ><strong>Mobile-First Salesmen</strong>
-              <p>
-                Salesman app works offline too — orders sync when connectivity
-                is restored. No paperwork in the field.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-bolt"></i>
+              <strong>Faster Order Cycle</strong>
+              <p>Orders reach the warehouse the same day they are taken.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-tachometer-alt"></i
-              ><strong>2x Sales Efficiency</strong>
-              <p>
-                Beat planning maximises outlet visits per day — same team,
-                double the coverage and orders.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-boxes-stacked"></i>
+              <strong>Accurate Stock</strong>
+              <p>Batch and expiry tracking cuts losses and stock-outs.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-ban"></i><strong>Zero Stock Surprises</strong>
-              <p>
-                Real-time inventory with reorder alerts means you always know
-                what's available before taking orders.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-gift"></i>
+              <strong>Scheme Clarity</strong>
+              <p>Know exactly what every scheme costs and returns.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-tags"></i
-              ><strong>Auto Scheme Application</strong>
-              <p>
-                Complex schemes apply automatically — no errors, no disputes, no
-                manual calculations in the field.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-indian-rupee-sign"></i>
+              <strong>Better Collections</strong>
+              <p>Outstanding ageing and reminders speed up payments.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-chart-bar"></i
-              ><strong>Data-Driven Decisions</strong>
-              <p>
-                Know your top products, top salesmen, best performing areas, and
-                slow-moving stock at any time.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-map-location-dot"></i>
+              <strong>Field Visibility</strong>
+              <p>See beat coverage and salesman performance daily.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-warehouse"></i
-              ><strong>Multi-Warehouse Ready</strong>
-              <p>
-                Manage multiple godowns from one dashboard — stock transfers,
-                balances, and dispatch all centralised.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-layer-group"></i>
+              <strong>One Source of Truth</strong>
+              <p>Sales, stock and accounts share a single database.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-file-invoice"></i
-              ><strong>GST-Ready Invoicing</strong>
-              <p>
-                Auto-generate GST-compliant invoices for every dispatch — no
-                separate billing software needed.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Quick Setup</strong>
+              <p>Import items, parties and opening stock from Excel.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-headset"></i><strong>Local Support</strong>
-              <p>
-                Hindi and English support — call, WhatsApp, or email. Setup
-                training included at no extra cost.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — real help, fast responses.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+<!-- TESTIMONIALS -->
       <section class="nh-testi-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">

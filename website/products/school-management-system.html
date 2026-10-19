@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/school-mgmt-what-is.png"
+      href="../assets/images/products/school-details/school-person.webp"
       as="image"
     />
     <link
@@ -636,46 +636,46 @@
 
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">School Management</span>
-              <h1>Complete School Management System for Modern Institutions</h1>
-              <p>
-                From admissions and fee collection to attendance, academics,
-                library, and transport — manage your entire school from one
-                powerful cloud-based dashboard. Save hours of admin work every
-                day and keep parents, teachers, and management always in sync.
-              </p>
+              <span class="nh-hs-tag">School Management System</span>
+              <h1>Complete School Management<br />System for Modern Institutions</h1>
+              <p>Admissions, attendance, fees, exams, timetable, library, transport and parent communication — run your entire school from one cloud dashboard. Nine role-based logins keep principals, teachers, accountants, parents and students working from the same data, with WhatsApp alerts going out automatically.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/school-mgmt-what-is.png"
-                alt="School Management System Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/school-details/school-person.webp"
+                alt="School Management System"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/school-mgmt-what-is.png"
-                  alt="School Management Demo"
+                  src="../assets/images/products/school-details/dashboard.webp"
+                  alt="School Management System Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -687,115 +687,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>
-                    See how our School Management System works in 60 seconds
-                  </p>
+                  <p>See how our School Management System works in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
               <span class="nh-about-tag">About the Software</span>
               <h2>One platform to run your entire school — digitally</h2>
-              <p>
-                Our School Management System by Pixelate Nest is a comprehensive
-                ERP for schools, colleges, and coaching institutes. It
-                streamlines admissions, fee collection, attendance, timetabling,
-                academics, library, transport, staff payroll, and parent
-                communication — all from one cloud dashboard on mobile and
-                desktop.
-              </p>
+              <p>Our School Management System by Pixelate Nest is a complete ERP and CRM for schools, colleges and coaching institutes. Student and staff records, daily attendance, leave, exams and report cards, fee collection, expenses, timetables, notices and WhatsApp messaging all live in one cloud platform — with a separate, focused dashboard for each of nine roles.</p>
               <div class="nh-about-highlights">
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-cloud"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-user-shield"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Cloud-Based &amp; Always Accessible</strong
-                    ><span
-                      >Access school data and reports from anywhere — office,
-                      home, or on the go.</span
-                    >
+                    <strong>9 Role-Based Dashboards</strong>
+                    <span>Super admin, principal, teacher, student, parent, accountant, exam head and IT staff each see only what they need.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-rupee-sign"></i>
-                  </div>
+                  <div class="nh-hl-icon"><i class="fas fa-rupee-sign"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Automated Fee Management</strong
-                    ><span
-                      >Collect fees online, generate receipts, send reminders —
-                      zero manual effort.</span
-                    >
+                    <strong>Automated Fee Management</strong>
+                    <span>Invoices, partial payments, due dates and overdue status are calculated for you — balances never go out of sync.</span>
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-comment-dots"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>WhatsApp Automation</strong>
+                    <span>15 ready templates for fee reminders, absence alerts, exam schedules, results, notices and transport delays.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon"><i class="fas fa-users"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Parent &amp; Student Portal</strong
-                    ><span
-                      >Parents track attendance, results, fee dues, and
-                      communicate with teachers instantly.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                  </div>
-                  <div class="nh-hl-text">
-                    <strong>Mobile App for Teachers</strong
-                    ><span
-                      >Mark attendance, upload marks, and communicate from the
-                      mobile app in seconds.</span
-                    >
+                    <strong>Parent &amp; Student Portal</strong>
+                    <span>Parents follow attendance, results, fee dues and leave requests — with sibling switching in one login.</span>
                   </div>
                 </div>
               </div>
@@ -804,32 +783,27 @@
         </div>
       </section>
 
-      <!-- SCREENSHOTS -->
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Everything your school needs,<br /><span class="nh-accent"
-              >in one smart dashboard</span
-            >
+            Everything your school needs,<br /><span class="nh-accent">in one smart dashboard</span>
           </h2>
-          <p class="nh-section-sub">
-            From admissions to results, fees to transport — all from a single
-            interface built for school administrators.
-          </p>
+          <p class="nh-section-sub">From admissions to results and fees to WhatsApp alerts — see the real screens your admin, teachers and parents will use every day.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/school-mgmt-what-is.png',
+                  '../assets/images/products/school-details/dashboard.webp',
                   'Admin Dashboard',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/school-mgmt-what-is.png"
+                  src="../assets/images/products/school-details/dashboard.webp"
                   alt="Admin Dashboard"
                   loading="lazy"
                   width="400"
@@ -843,10 +817,7 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Admin Dashboard</p>
-                <span
-                  >Complete overview of school activity, attendance, fees, and
-                  alerts.</span
-                >
+                <span>School-wide view of enrolment, attendance, fees and alerts at a glance.</span>
               </div>
             </div>
             <div
@@ -854,15 +825,15 @@
               style="transition-delay: 0.1s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/school-mgmt-features.png',
-                  'Admission Management',
+                  '../assets/images/products/school-details/students.webp',
+                  'Student Management',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/school-mgmt-features.png"
-                  alt="Admission Management"
+                  src="../assets/images/products/school-details/students.webp"
+                  alt="Student Management"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -874,11 +845,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Admission &amp; Enrolment</p>
-                <span
-                  >Digital admission forms, document upload, and class
-                  assignment.</span
-                >
+                <p>Student Management</p>
+                <span>Full student profiles with guardians, class, documents and history in one place.</span>
               </div>
             </div>
             <div
@@ -886,46 +854,14 @@
               style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/school-mgmt-benefits.png',
-                  'Fee Management',
-                )
-              "
-            >
-              <div class="nh-method-card-img-wrap">
-                <img
-                  src="../assets/images/products/school-mgmt-benefits.png"
-                  alt="Fee Management"
-                  loading="lazy"
-                  width="400"
-                  height="260"
-                />
-                <div class="nh-method-card-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="nh-method-card-body">
-                <p>Fee Collection</p>
-                <span
-                  >Online and offline fee collection with automated receipts and
-                  reminders.</span
-                >
-              </div>
-            </div>
-            <div
-              class="nh-method-card slide-up"
-              style="transition-delay: 0.3s"
-              onclick="
-                nhDashOpen(
-                  '../assets/images/products/school-mgmt-why.png',
+                  '../assets/images/products/school-details/attendance.webp',
                   'Attendance Tracking',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/school-mgmt-why.png"
+                  src="../assets/images/products/school-details/attendance.webp"
                   alt="Attendance Tracking"
                   loading="lazy"
                   width="400"
@@ -939,10 +875,36 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Attendance Tracking</p>
-                <span
-                  >Daily attendance with auto SMS alerts to parents on
-                  absence.</span
-                >
+                <span>Class-wise daily attendance with present, absent, late and leave states.</span>
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.3s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/school-details/fees.webp',
+                  'Fee Collection',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/school-details/fees.webp"
+                  alt="Fee Collection"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Fee Collection</p>
+                <span>Invoices, partial payments, receipts and overdue tracking per student.</span>
               </div>
             </div>
             <div
@@ -950,15 +912,15 @@
               style="transition-delay: 0.4s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/school-mgmt-advantage.png',
-                  'Exam Management',
+                  '../assets/images/products/school-details/exams.webp',
+                  'Exams &amp; Results',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/school-mgmt-advantage.png"
-                  alt="Exam Management"
+                  src="../assets/images/products/school-details/exams.webp"
+                  alt="Exams &amp; Results"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -970,11 +932,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Exam &amp; Results</p>
-                <span
-                  >Schedule exams, enter marks, generate report cards
-                  automatically.</span
-                >
+                <p>Exams &amp; Results</p>
+                <span>Exam schedules, marks entry, grading scales and printable report cards.</span>
               </div>
             </div>
             <div
@@ -982,15 +941,15 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/school-mgmt-industries.png',
-                  'Transport & Library',
+                  '../assets/images/products/school-details/whatsapp.webp',
+                  'WhatsApp Communication',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/school-mgmt-industries.png"
-                  alt="Transport and Library"
+                  src="../assets/images/products/school-details/whatsapp.webp"
+                  alt="WhatsApp Communication"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -1002,14 +961,13 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Transport &amp; Library</p>
-                <span
-                  >Route management, bus tracking, and digital library
-                  cataloguing.</span
-                >
+                <p>WhatsApp Communication</p>
+                <span>Template-based alerts to parents for fees, absence, results and notices.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
           <div
             class="nh-dash-modal-backdrop"
             id="nhDashBackdrop"
@@ -1021,8 +979,9 @@
                 onclick="nhDashClose(null, true)"
                 aria-label="Close"
               >
-                &times;</button
-              ><img id="nhDashModalImg" src="" alt="" />
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
             </div>
           </div>
           <script>
@@ -1033,9 +992,9 @@
               document.getElementById("nhDashBackdrop").classList.add("active");
               document.body.style.overflow = "hidden";
             }
-            function nhDashClose(e, f) {
+            function nhDashClose(e, force) {
               if (
-                f ||
+                force ||
                 (e && e.target === document.getElementById("nhDashBackdrop"))
               ) {
                 document
@@ -1051,13 +1010,14 @@
         </div>
       </section>
 
-      <!-- NSF ROWS -->
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/school-mgmt-features.png"
-              alt="Admission Management"
+              src="../assets/images/products/school-details/students.webp"
+              alt="Student Management"
               loading="lazy"
               width="640"
               height="480"
@@ -1065,421 +1025,321 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Admission &amp; enrolment management<span
-                >Go paperless from day one</span
-              >
+              Complete student records<span>Every detail, one searchable profile</span>
             </h2>
-            <p>
-              Replace manual forms with a digital end-to-end process — from
-              online inquiry to document verification, class assignment, and fee
-              collection. Reduce admission chaos and give parents a smooth
-              onboarding experience.
-            </p>
+            <p>Replace paper files and scattered spreadsheets with a single student profile. Guardians, class and section, roll number, health details and documents stay together — and sibling accounts link to one parent login.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Online admission forms with document upload
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Detailed profile with academic, personal and guardian tabs
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Application tracking and status updates
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Attendance, marks and fee history on the same record
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Automatic class and roll number assignment
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Parents linked to multiple children automatically
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Student ID card generation
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-content slide-right">
-            <h2>
-              Fee management &amp; online payments<span
-                >Collect fees without chasing parents</span
-              >
-            </h2>
-            <p>
-              Set fee structures, generate invoices, accept online payments, and
-              send automatic reminders for dues — all from the dashboard. No
-              more manual fee registers or lost receipts.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Custom fee structures by class and category
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Online payment integration (UPI, card, net banking)
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                SMS reminders for pending dues
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Digital receipts and financial reports
-              </li>
-            </ul>
-          </div>
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/school-mgmt-benefits.png"
-              alt="Fee Management"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/school-mgmt-why.png"
-              alt="Attendance System"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-          <div class="nsf-content slide-right">
-            <h2>
-              Smart attendance &amp; parent alerts<span
-                >Parents always know</span
-              >
-            </h2>
-            <p>
-              Teachers mark attendance on the mobile app and parents receive
-              instant SMS or WhatsApp alerts when their child is absent. Monthly
-              attendance reports are auto-generated for every student.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Mobile app attendance for teachers
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Instant SMS/WhatsApp alerts to parents
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Monthly and termly attendance reports
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Biometric integration support
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-content slide-right">
-            <h2>
-              Exam management &amp; report cards<span
-                >No more manual mark sheets</span
-              >
-            </h2>
-            <p>
-              Schedule exams, enter marks subject-wise, calculate grades
-              automatically, and generate printable report cards — all in
-              minutes. Teachers save hours; parents get results instantly.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Exam
-                scheduling and hall ticket generation
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Subject-wise marks entry with grade calculation
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                report card generation and printing
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Merit
-                list and class rank analytics
-              </li>
-            </ul>
-          </div>
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/school-mgmt-advantage.png"
-              alt="Exam Management"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/school-mgmt-industries.png"
-              alt="Staff Management"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-          <div class="nsf-content slide-right">
-            <h2>
-              Staff payroll &amp; HR management<span
-                >Run your school workforce with ease</span
-              >
-            </h2>
-            <p>
-              Manage teacher and staff records, calculate salaries, generate pay
-              slips, and track leave — all within the same system. No more
-              separate Excel sheets for HR.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Staff
-                profile and qualification records
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Salary calculation and payslip generation
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Leave
-                management and approval workflow
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Timetable and subject assignment
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Login credentials created when a student is admitted
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- FEATURES -->
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              Attendance that parents see instantly<span>Know who is in class, today</span>
+            </h2>
+            <p>Teachers mark class attendance in seconds and the system takes care of the rest. Duplicate entries are blocked, leave requests feed straight into the register, and absent students trigger an alert to their parents.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Present, absent, late and leave states per student
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Staff attendance alongside student attendance
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Leave requests approved by teacher or principal
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Biometric device logs visible to IT staff
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/school-details/attendance.webp"
+              alt="Attendance Tracking"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/school-details/fees.webp"
+              alt="Fee Collection"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Fees without the chasing<span>Invoices, balances and receipts handled</span>
+            </h2>
+            <p>Generate invoices per student, accept full or partial payments, and let the system work out the balance and status — paid, partial, unpaid or overdue — every time a payment is recorded.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Invoice numbering and line-item fee breakup
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Partial payments with automatic balance update
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Overdue status calculated from due date
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Expense vouchers with approval for school outflows
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              From exam schedule to report card<span>Marks, grades and GPA calculated for you</span>
+            </h2>
+            <p>Set up exams, enter marks class by class and publish results. Grade boundaries and GPA come from your own grading scale, so every result card is consistent and parents see only their own child's results.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Mid-term, unit test, semester and annual exams
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Configurable grading scale with GPA and remarks
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Batch marks entry for teachers
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Class performance reports for the exam head
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/school-details/exams.webp"
+              alt="Exams &amp; Results"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/school-details/whatsapp.webp"
+              alt="WhatsApp Communication"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Reach every parent in seconds<span>Send the right message automatically</span>
+            </h2>
+            <p>Fifteen pre-built WhatsApp templates cover the messages a school sends every week — fee reminders, absence alerts, exam dates, results, holidays and PTA meetings. Pick an audience, send, and track the campaign.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Fee reminder and attendance alert templates
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Exam schedule and result-declared messages
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Transport delay and holiday announcements
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Notices targeted by audience and priority
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 powerful modules built for
-            <span class="nh-accent">complete school management</span>
+            Everything your school needs to
+            <span class="nh-accent">run smarter, every single day</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Everything your school needs — admissions to alumni — in one
-            integrated platform.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">Core modules built for Indian schools — covering the classroom, the office and the school gate.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-user-plus"></i></div>
-              <h3>Admission Management</h3>
-              <p>
-                Digital admission forms, document upload, status tracking, and
-                class assignment — fully paperless.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-user-graduate"></i></div>
+              <h3>Student Management</h3>
+              <p>Complete student registry with guardians, documents, class assignment and a detailed multi-tab profile.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-rupee-sign"></i></div>
-              <h3>Fee Management</h3>
-              <p>
-                Online fee collection, custom fee structures, automated
-                reminders, digital receipts, and financial reports.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+              <h3>Staff &amp; HR</h3>
+              <p>Teacher and staff records, assigned classes, leave and payroll history in one directory.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-calendar-check"></i>
-              </div>
-              <h3>Attendance Tracking</h3>
-              <p>
-                Mobile app attendance marking with instant parent SMS/WhatsApp
-                alerts and monthly reports.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-clipboard-check"></i></div>
+              <h3>Attendance</h3>
+              <p>Daily class attendance for students and staff, with leave integration and parent alerts.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-book-open"></i></div>
-              <h3>Academic Records</h3>
-              <p>
-                Subject-wise marks, grade sheets, report card generation, and
-                academic performance analytics.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <h3>Fees &amp; Invoices</h3>
+              <p>Fee plans, invoices, partial payments, balances and overdue tracking with a full ledger.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-users"></i></div>
-              <h3>Parent Portal</h3>
-              <p>
-                Parents track attendance, fees, results, timetables, and
-                communicate with teachers — all from their phone.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-pen-fancy"></i></div>
+              <h3>Exams &amp; Grading</h3>
+              <p>Exam scheduling, marks entry, grading scales, GPA and class-wise result reports.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-book"></i></div>
-              <h3>Library Management</h3>
-              <p>
-                Book cataloguing, issue and return tracking, fine calculation,
-                and overdue notifications.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
+              <div class="nh-feat-icon"><i class="fas fa-calendar-alt"></i></div>
+              <h3>Timetable &amp; Academics</h3>
+              <p>Class timetables, lesson planning, homework, classwork and teacher diaries.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-comment-dots"></i></div>
+              <h3>WhatsApp &amp; Notices</h3>
+              <p>Circulars, reminders and 15 WhatsApp templates sent by audience and priority.</p>
+            </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
               <div class="nh-feat-icon"><i class="fas fa-bus"></i></div>
-              <h3>Transport Management</h3>
-              <p>
-                Route planning, vehicle assignment, driver records, and live
-                tracking for school buses.
-              </p>
+              <h3>Transport, Library &amp; Hostel</h3>
+              <p>Bus routes, library issue and return, hostel allocation and health clinic records.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-user-tie"></i></div>
-              <h3>Staff &amp; Payroll</h3>
-              <p>
-                Employee records, salary processing, payslip generation, leave
-                management, and timetable assignment.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-clock"></i></div>
-              <h3>Timetable Management</h3>
-              <p>
-                Auto-generate class timetables, manage subject assignments, and
-                avoid scheduling conflicts.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-user-lock"></i></div>
+              <h3>Roles, Permissions &amp; Audit</h3>
+              <p>Page-level permissions, user management and an audit log of every important action.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INDUSTRIES -->
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Built for every type of
-            <span class="nh-accent">educational institution</span>
+            Built for every kind of institution,
+            <span class="nh-accent">customised for your school</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Our platform adapts to the unique structure and management needs of
-            schools, colleges, and institutes.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">The School Management System adapts to the way different institutions run — from a single school to a multi-branch group.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-school"></i><span>Schools &amp; K-12</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-school"></i><span>Primary Schools</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-university"></i><span>Colleges</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-graduation-cap"></i><span>Secondary Schools</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-chalkboard-teacher"></i
-              ><span>Coaching Centres</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-building-columns"></i><span>Colleges</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-graduation-cap"></i><span>Universities</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-book-reader"></i><span>Coaching Institutes</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-child"></i><span>Montessori</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-child"></i><span>Pre-Schools</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-hand-holding-heart"></i
-              ><span>Special Education</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-bed"></i><span>Residential Schools</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-laptop"></i><span>E-Learning</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-music"></i><span>Music &amp; Arts Academies</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-certificate"></i
-              ><span>Skill &amp; Vocational</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-laptop-code"></i><span>Computer Institutes</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-mosque"></i><span>Madrasa</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-language"></i><span>Language Schools</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-building"></i><span>Training Institutes</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-sitemap"></i><span>Multi-Branch School Groups</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CHOOSE -->
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
             Why schools choose
-            <span class="nh-accent">our Management System</span>
+            <span class="nh-accent">our School Management System</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >More than a fee register — a complete system for administrators, teachers and parents.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-clock"></i><strong>Save 4+ Hours Daily</strong>
-              <p>
-                Automate attendance, fee reminders, report cards — give staff
-                time to focus on students.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-bolt"></i>
+              <strong>Less Admin Work</strong>
+              <p>Attendance, fees and report cards run on their own so staff can focus on teaching.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-ban"></i><strong>Zero Paperwork</strong>
-              <p>
-                Completely eliminate paper registers, fee chalans, and mark
-                sheets. Everything digital.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-user-shield"></i>
+              <strong>Right Access for Everyone</strong>
+              <p>Nine roles with permission control — nobody sees data they should not.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-mobile-alt"></i
-              ><strong>Mobile App Access</strong>
-              <p>
-                Parents, teachers, and admins all have their own mobile app to
-                stay connected in real time.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-layer-group"></i>
+              <strong>One Source of Truth</strong>
+              <p>Students, staff, fees and exams share a single database — no duplicate entry.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-shield-alt"></i
-              ><strong>Secure &amp; Reliable</strong>
-              <p>
-                Encrypted, backed up daily, hosted on secure cloud
-                infrastructure with 99.9% uptime.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-comment-dots"></i>
+              <strong>Parents Stay Informed</strong>
+              <p>Absence, fees and results reach parents on WhatsApp the moment they happen.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rupee-sign"></i
-              ><strong>Affordable Pricing</strong>
-              <p>
-                Transparent pricing. Designed for schools from 100 to 10,000
-                students — no hidden costs.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-mobile-alt"></i>
+              <strong>Works on Any Device</strong>
+              <p>Responsive on phones, tablets and desktops for staff and parents alike.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rocket"></i><strong>Fast Setup</strong>
-              <p>
-                Get your school live in 48 hours. Data migration, training, and
-                onboarding support included.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-history"></i>
+              <strong>Audit Trail</strong>
+              <p>Every sensitive action is logged with user, module and time for accountability.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-plug"></i><strong>Fully Integrated</strong>
-              <p>
-                Admissions, fees, academics, library, transport, and payroll all
-                connected — no double entry.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Quick Onboarding</strong>
+              <p>Import your student and staff data and go live without disrupting the term.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-headset"></i><strong>Dedicated Support</strong>
-              <p>
-                Our local support team speaks Hindi and English — reachable by
-                call, WhatsApp, or email.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — help in your language, fast.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+<!-- TESTIMONIALS -->
       <section class="nh-testi-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">

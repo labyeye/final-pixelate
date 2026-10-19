@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/library-mgmt-what-is.png"
+      href="../assets/images/products/library-details/library-person.webp"
       as="image"
     />
     <link
@@ -551,50 +551,46 @@
 
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">Library Management</span>
-              <h1>
-                Digital Library Management Software for Schools &amp;
-                Institutions
-              </h1>
-              <p>
-                Catalogue your entire book collection, manage member borrowing,
-                track issue and return with barcode scanning, auto-calculate
-                overdue fines, and get complete library analytics — all from one
-                simple cloud-based dashboard. Say goodbye to manual registers
-                forever.
-              </p>
+              <span class="nh-hs-tag">Library Management Software</span>
+              <h1>Digital Library Management<br />Software for Schools &amp; Institutions</h1>
+              <p>Catalogue books, issue and return in seconds, calculate fines automatically and send overdue alerts. Pixelate Nest Library Management turns a paper register into a searchable, barcode-ready digital library.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/library-mgmt-what-is.png"
-                alt="Library Management Software Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/library-details/library-person.webp"
+                alt="Library Management Software"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/library-mgmt-what-is.png"
-                  alt="Library Management Demo"
+                  src="../assets/images/products/library-details/dashboard.webp"
+                  alt="Library Management Software Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -606,113 +602,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>
-                    See how our Library Management Software works in 60 seconds
-                  </p>
+                  <p>See how Library Management works in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About the Software</span>
-              <h2>
-                A fully digital library — catalogued, tracked, and automated
-              </h2>
-              <p>
-                Our Library Management Software by Pixelate Nest is a complete
-                digital solution for school libraries, college libraries, public
-                libraries, corporate libraries, and research institutions. It
-                automates book cataloguing, member management, issue/return
-                tracking, fine calculation, and reporting — eliminating paper
-                registers, manual tracking, and errors completely.
-              </p>
+              <span class="nh-about-tag">About Library Management</span>
+              <h2>One platform to digitise your entire library</h2>
+              <p>Library Management Software by Pixelate Nest helps schools, colleges and institutions manage books, members and circulation. Cataloguing, barcode or QR scanning, issue and return, reservations, fines and reports sit in one system that librarians can learn in an afternoon.</p>
               <div class="nh-about-highlights">
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-book"></i></div>
-                  <div class="nh-hl-text">
-                    <strong>Complete Book Cataloguing</strong
-                    ><span
-                      >Add books with ISBN, author, publisher, category, and
-                      location. Search in seconds.</span
-                    >
-                  </div>
-                </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon"><i class="fas fa-barcode"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Barcode &amp; QR Scanning</strong
-                    ><span
-                      >Issue and return books with barcode or QR scanning — the
-                      whole process takes under 10 seconds.</span
-                    >
+                    <strong>Barcode &amp; QR Scanning</strong>
+                    <span>Issue and return books with a single scan and keep the catalogue accurate.</span>
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-magnifying-glass"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>Instant Search</strong>
+                    <span>Find any book by title, author, subject or ISBN in a moment.</span>
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-hourglass-half"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>Automatic Fines</strong>
+                    <span>Due dates, overdue days and fines are calculated without a calculator.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon"><i class="fas fa-bell"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Auto Overdue Alerts</strong
-                    ><span
-                      >SMS or WhatsApp alerts sent automatically to members with
-                      overdue books — no manual follow-up.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-chart-bar"></i></div>
-                  <div class="nh-hl-text">
-                    <strong>Library Analytics</strong
-                    ><span
-                      >Know which books are most popular, busiest borrow
-                      periods, and member engagement reports.</span
-                    >
+                    <strong>Overdue Alerts</strong>
+                    <span>Reminders reach members before and after the due date.</span>
                   </div>
                 </div>
               </div>
@@ -721,32 +698,27 @@
         </div>
       </section>
 
-      <!-- SCREENSHOTS -->
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Every library function automated,<br /><span class="nh-accent"
-              >in one smart system</span
-            >
+            Everything your library needs,<br /><span class="nh-accent">in one smart dashboard</span>
           </h2>
-          <p class="nh-section-sub">
-            From cataloguing to member management, issue/return to overdue fines
-            — everything digital and effortless.
-          </p>
+          <p class="nh-section-sub">See the catalogue, circulation, member and report screens your librarian will use every day.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/library-mgmt-what-is.png',
+                  '../assets/images/products/library-details/dashboard.webp',
                   'Library Dashboard',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/library-mgmt-what-is.png"
+                  src="../assets/images/products/library-details/dashboard.webp"
                   alt="Library Dashboard"
                   loading="lazy"
                   width="400"
@@ -760,10 +732,7 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Library Dashboard</p>
-                <span
-                  >Live overview of books issued, overdue, returned, and library
-                  activity today.</span
-                >
+                <span>Books issued, due today, overdue and most-borrowed titles.</span>
               </div>
             </div>
             <div
@@ -771,14 +740,14 @@
               style="transition-delay: 0.1s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/library-mgmt-features.png',
+                  '../assets/images/products/library-details/catalogue.webp',
                   'Book Catalogue',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/library-mgmt-features.png"
+                  src="../assets/images/products/library-details/catalogue.webp"
                   alt="Book Catalogue"
                   loading="lazy"
                   width="400"
@@ -791,11 +760,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Book Cataloguing</p>
-                <span
-                  >Add books with ISBN, author, publisher, genre, and rack
-                  location.</span
-                >
+                <p>Book Catalogue</p>
+                <span>Searchable catalogue with categories, copies and shelf location.</span>
               </div>
             </div>
             <div
@@ -803,46 +769,14 @@
               style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/library-mgmt-benefits.png',
-                  'Issue and Return',
-                )
-              "
-            >
-              <div class="nh-method-card-img-wrap">
-                <img
-                  src="../assets/images/products/library-mgmt-benefits.png"
-                  alt="Issue and Return"
-                  loading="lazy"
-                  width="400"
-                  height="260"
-                />
-                <div class="nh-method-card-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="nh-method-card-body">
-                <p>Issue &amp; Return</p>
-                <span
-                  >Barcode and QR scanning for fast book issue and return —
-                  under 10 seconds.</span
-                >
-              </div>
-            </div>
-            <div
-              class="nh-method-card slide-up"
-              style="transition-delay: 0.3s"
-              onclick="
-                nhDashOpen(
-                  '../assets/images/products/library-mgmt-why.png',
+                  '../assets/images/products/library-details/members.webp',
                   'Member Management',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/library-mgmt-why.png"
+                  src="../assets/images/products/library-details/members.webp"
                   alt="Member Management"
                   loading="lazy"
                   width="400"
@@ -856,10 +790,36 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Member Management</p>
-                <span
-                  >Student and staff member profiles with borrow history and ID
-                  card generation.</span
-                >
+                <span>Students, staff and public members with borrowing limits.</span>
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.3s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/library-details/issue-return.webp',
+                  'Issue &amp; Return',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/library-details/issue-return.webp"
+                  alt="Issue &amp; Return"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Issue &amp; Return</p>
+                <span>Scan to issue, return or renew a book in seconds.</span>
               </div>
             </div>
             <div
@@ -867,15 +827,15 @@
               style="transition-delay: 0.4s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/library-mgmt-advantage.png',
-                  'Overdue and Fines',
+                  '../assets/images/products/library-details/fines.webp',
+                  'Fines &amp; Overdue',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/library-mgmt-advantage.png"
-                  alt="Overdue and Fines"
+                  src="../assets/images/products/library-details/fines.webp"
+                  alt="Fines &amp; Overdue"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -887,11 +847,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Overdue &amp; Fines</p>
-                <span
-                  >Auto fine calculation per day with SMS alerts sent to members
-                  for overdue books.</span
-                >
+                <p>Fines &amp; Overdue</p>
+                <span>Overdue list, fine calculation and receipt of payments.</span>
               </div>
             </div>
             <div
@@ -899,15 +856,15 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/library-mgmt-industries.png',
-                  'Library Reports',
+                  '../assets/images/products/library-details/reports.webp',
+                  'Reports &amp; Analytics',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/library-mgmt-industries.png"
-                  alt="Library Reports"
+                  src="../assets/images/products/library-details/reports.webp"
+                  alt="Reports &amp; Analytics"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -919,14 +876,13 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Library Reports</p>
-                <span
-                  >Most issued books, active members, fine collection, and
-                  inventory reports.</span
-                >
+                <p>Reports &amp; Analytics</p>
+                <span>Circulation, popular titles, member activity and stock reports.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
           <div
             class="nh-dash-modal-backdrop"
             id="nhDashBackdrop"
@@ -938,8 +894,9 @@
                 onclick="nhDashClose(null, true)"
                 aria-label="Close"
               >
-                &times;</button
-              ><img id="nhDashModalImg" src="" alt="" />
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
             </div>
           </div>
           <script>
@@ -950,9 +907,9 @@
               document.getElementById("nhDashBackdrop").classList.add("active");
               document.body.style.overflow = "hidden";
             }
-            function nhDashClose(e, f) {
+            function nhDashClose(e, force) {
               if (
-                f ||
+                force ||
                 (e && e.target === document.getElementById("nhDashBackdrop"))
               ) {
                 document
@@ -968,12 +925,13 @@
         </div>
       </section>
 
-      <!-- NSF ROWS -->
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/library-mgmt-features.png"
+              src="../assets/images/products/library-details/catalogue.webp"
               alt="Book Cataloguing"
               loading="lazy"
               width="640"
@@ -982,72 +940,53 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Complete book cataloguing<span>Find any book in seconds</span>
+              Every book, findable in seconds<span>Catalogue that grows with your collection</span>
             </h2>
-            <p>
-              Add your entire book collection with ISBN, author, publisher,
-              edition, category, rack number, and quantity. Import via Excel or
-              ISBN scanner. Students and staff can search the catalogue online
-              anytime.
-            </p>
+            <p>Add books one by one or import your whole collection from Excel. Each title carries author, publisher, ISBN, category, shelf location and number of copies, with barcode labels you can print yourself.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >ISBN-based book entry and import
+                <span class="nsf-check"><i class="fas fa-check"></i></span>ISBN, author, publisher and category fields
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Category, genre, and rack location tagging
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Multiple copies per title with accession numbers
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Online OPAC catalogue for member search
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Shelf and rack location
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Multiple copies tracking per title
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Barcode and QR label printing
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              Fast issue &amp; return with barcode<span
-                >10 seconds per transaction</span
-              >
+              Circulation without the paper register<span>Scan the book, scan the member, done</span>
             </h2>
-            <p>
-              Scan the member's card and book barcode — that's it. The system
-              records the issue, sets the due date, and updates availability
-              instantly. Return works the same way, with automatic fine
-              calculation for overdue books.
-            </p>
+            <p>Issue, return and renew books with a barcode scan. The system checks borrowing limits and due dates for each member type and keeps a complete history of every book and every reader.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Barcode and QR code scanning
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Barcode and QR based circulation
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                due date calculation by member type
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Borrowing limits by member type
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Instant availability update on return
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Renewals and reservations
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Book
-                reservation and hold management
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Complete issue history per book and member
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/library-mgmt-benefits.png"
-              alt="Issue and Return"
+              src="../assets/images/products/library-details/issue-return.webp"
+              alt="Issue &amp; Return"
               loading="lazy"
               width="640"
               height="480"
@@ -1055,11 +994,12 @@
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/library-mgmt-why.png"
+              src="../assets/images/products/library-details/members.webp"
               alt="Member Management"
               loading="lazy"
               width="640"
@@ -1068,332 +1008,253 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Member management &amp; ID cards<span
-                >Every member tracked, every borrow recorded</span
-              >
+              Know every reader<span>Students, staff and visitors in one list</span>
             </h2>
-            <p>
-              Maintain complete profiles for all library members — students,
-              staff, or public. Track their active borrows, history, fine
-              balance, and membership status. Generate member ID cards with
-              barcode or QR code.
-            </p>
+            <p>Register students, teachers and public members with their class, department and membership validity. Import existing student lists and give each member a library card with a barcode.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Member profile with photo and contact
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Student, staff and public member types
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Complete borrow history per member
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Class and department details
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Member ID card with barcode/QR
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Membership validity and renewal
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Membership expiry and renewal management
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-content slide-right">
-            <h2>
-              Overdue fines &amp; automated alerts<span
-                >No manual follow-up needed</span
-              >
-            </h2>
-            <p>
-              The system automatically calculates overdue fines per day based on
-              your library's fine policy. SMS or WhatsApp alerts go out to
-              members automatically when books are overdue — librarians don't
-              have to chase anyone.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Configurable fine rate per day
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                SMS/WhatsApp overdue alerts
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Fine
-                collection and receipt generation
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Fine
-                waiver and discount for special cases
-              </li>
-            </ul>
-          </div>
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/library-mgmt-advantage.png"
-              alt="Overdue Fines"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/library-mgmt-industries.png"
-              alt="Library Reports"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-          <div class="nsf-content slide-right">
-            <h2>
-              Library analytics &amp; reports<span
-                >Know your library inside out</span
-              >
-            </h2>
-            <p>
-              See which books are most borrowed, who the most active readers
-              are, fine collection totals, and inventory status — all from the
-              analytics dashboard. Export any report to Excel in one click.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Most
-                borrowed books and authors
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Active vs inactive member reports
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Fine
-                collection and pending dues report
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Book
-                inventory and stock verification
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Library card with barcode
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- FEATURES -->
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              Get books back on time<span>Automatic fines and gentle reminders</span>
+            </h2>
+            <p>Overdue fines are calculated by day based on rules you set, with waivers when needed. Members get alerts before and after due dates by SMS, WhatsApp or email.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Configurable fine per day by member type
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Fine waiver with approval
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Due-soon and overdue reminders
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Overdue list for the librarian
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/library-details/fines.webp"
+              alt="Fines &amp; Alerts"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/library-details/reports.webp"
+              alt="Reports &amp; Analytics"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              See how your library is used<span>Circulation insights that guide purchases</span>
+            </h2>
+            <p>See the most-borrowed titles, member activity, category-wise circulation and books that never move. Use real data to decide what to buy, what to retire and which classes read the most.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Most borrowed and never borrowed titles
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Member-wise and class-wise activity
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Stock and missing book reports
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Export to Excel and PDF
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 features to
-            <span class="nh-accent">completely digitise your library</span>
+            Everything you need to
+            <span class="nh-accent">run a modern digital library</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Everything from cataloguing to analytics — all in one platform that
-            eliminates manual library work.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">9+ modules built to make library work simple.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
               <div class="nh-feat-icon"><i class="fas fa-book"></i></div>
               <h3>Book Cataloguing</h3>
-              <p>
-                Add books by ISBN, author, publisher, genre, and rack location.
-                Import thousands via Excel.
-              </p>
+              <p>Searchable catalogue with ISBN, category, copies and shelf location.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-users"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-id-card"></i></div>
               <h3>Member Management</h3>
-              <p>
-                Member profiles, borrow history, membership status, and ID card
-                generation with barcode/QR.
-              </p>
+              <p>Students, staff and public members with limits and validity.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-book-reader"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
               <h3>Issue &amp; Return</h3>
-              <p>
-                Barcode/QR scanning for instant issue and return with auto due
-                date and availability update.
-              </p>
+              <p>Scan-based circulation with renewals and history.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-exclamation-triangle"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-indian-rupee-sign"></i></div>
               <h3>Fine Calculation</h3>
-              <p>
-                Auto overdue fine calculation per day with configurable fine
-                rates and waiver options.
-              </p>
+              <p>Automatic overdue fines with waiver and receipts.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-search"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-magnifying-glass"></i></div>
               <h3>Search &amp; Discovery</h3>
-              <p>
-                OPAC online catalogue so members can search availability before
-                visiting the library.
-              </p>
+              <p>Find books by title, author, subject or ISBN instantly.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
               <div class="nh-feat-icon"><i class="fas fa-barcode"></i></div>
-              <h3>Barcode/QR Scanning</h3>
-              <p>
-                USB scanner and mobile camera support for fast book and member
-                card scanning.
-              </p>
+              <h3>Barcode / QR Scanning</h3>
+              <p>Print labels and scan for circulation and stock-taking.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
               <div class="nh-feat-icon"><i class="fas fa-bell"></i></div>
               <h3>Overdue Alerts</h3>
-              <p>
-                Automatic SMS and WhatsApp reminders sent to members when books
-                become overdue.
-              </p>
+              <p>Automatic reminders by SMS, WhatsApp and email.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
               <div class="nh-feat-icon"><i class="fas fa-bookmark"></i></div>
               <h3>Book Reservation</h3>
-              <p>
-                Members can reserve books currently issued — get notified
-                automatically when it's returned.
-              </p>
+              <p>Members can reserve a book that is currently issued out.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-chart-pie"></i></div>
               <h3>Reports &amp; Analytics</h3>
-              <p>
-                Borrowing trends, popular books, member activity, fine
-                collection — export all to Excel.
-              </p>
+              <p>Circulation, popular titles, members and stock reports.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INDUSTRIES -->
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Built for every type of
-            <span class="nh-accent">library and knowledge centre</span>
+            Built for every kind of library,
+            <span class="nh-accent">customised for your collection</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            From small school libraries to large public and corporate libraries
-            — our software scales with you.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">Library Management adapts to 10+ kinds of institutions and collections.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-school"></i><span>School Libraries</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-university"></i><span>College Libraries</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-graduation-cap"></i><span>College Libraries</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-graduation-cap"></i
-              ><span>University Libraries</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-landmark"></i><span>Public Libraries</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-building"></i><span>Public Libraries</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-building"></i><span>Corporate Libraries</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-briefcase"></i><span>Corporate Libraries</span>
-            </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
               <i class="fas fa-flask"></i><span>Research Institutes</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-users"></i><span>Community Centres</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-people-roof"></i><span>Community Centres</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
               <i class="fas fa-hand-holding-heart"></i><span>NGOs</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-landmark"></i><span>Government Offices</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-building-columns"></i><span>Government Offices</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-book-open"></i><span>Digital Archives</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
+              <i class="fas fa-box-archive"></i><span>Digital Archives</span>
+            </div>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-book-open-reader"></i><span>Coaching Centres</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CHOOSE -->
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
-            Why libraries choose
-            <span class="nh-accent">our Management Software</span>
+            Why institutions choose
+            <span class="nh-accent">our Library Management Software</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >Simple for librarians, useful for students, clear for management.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-ban"></i><strong>No More Paper Registers</strong>
-              <p>
-                Completely eliminate manual issue registers, catalogue cards,
-                and fine ledgers. 100% digital.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-bolt"></i>
+              <strong>Faster Circulation</strong>
+              <p>Scan-based issue and return takes seconds, not minutes.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-bolt"></i><strong>10-Second Transactions</strong>
-              <p>
-                Scan and issue — the entire issue/return process takes under 10
-                seconds per book.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-ban"></i>
+              <strong>Fewer Lost Books</strong>
+              <p>Complete history shows who has which book and for how long.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-bell"></i><strong>Zero Manual Follow-Up</strong>
-              <p>
-                Overdue alerts go automatically via SMS — librarians never have
-                to chase members for books.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-indian-rupee-sign"></i>
+              <strong>Automatic Fines</strong>
+              <p>No manual calculations or disputes over overdue days.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-search"></i><strong>Easy Book Discovery</strong>
-              <p>
-                Online OPAC lets students search book availability from their
-                phone before visiting the library.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-magnifying-glass"></i>
+              <strong>Easy Discovery</strong>
+              <p>Students find the book they need without asking.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-cloud"></i><strong>Cloud-Based Access</strong>
-              <p>
-                Access library data from any device — school laptop, home, or
-                mobile — 24/7.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-cloud"></i>
+              <strong>Cloud Access</strong>
+              <p>Access the library data from anywhere with automatic backups.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rocket"></i><strong>Quick Setup</strong>
-              <p>
-                Import your book list via Excel or ISBN and go live in under a
-                day — no complex configuration.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-lock"></i>
+              <strong>Role-Based Access</strong>
+              <p>Librarians, assistants and admins get the right permissions.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rupee-sign"></i
-              ><strong>Affordable for All</strong>
-              <p>
-                Priced for small school libraries and large institutional
-                libraries — scales without extra cost.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Quick Setup</strong>
+              <p>Import books and members from Excel and go live fast.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-headset"></i><strong>Local Support</strong>
-              <p>
-                Dedicated support in Hindi and English — call, WhatsApp, or
-                email anytime.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — real help, fast responses.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+<!-- TESTIMONIALS -->
       <section class="nh-testi-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">What librarians are saying</h2>

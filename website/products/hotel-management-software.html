@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/hotel-mgmt-what-is.png"
+      href="../assets/images/products/hotel-details/hotel-person.webp"
       as="image"
     />
     <link
@@ -551,48 +551,46 @@
 
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">Hotel Management</span>
-              <h1>
-                Complete Hotel Management Software for Seamless Hospitality
-              </h1>
-              <p>
-                From room reservations and check-in to housekeeping, restaurant
-                billing, staff management, and financial reports — run your
-                entire hotel from one smart cloud dashboard. Reduce manual
-                errors, improve guest experience, and increase occupancy.
-              </p>
+              <span class="nh-hs-tag">Hotel Management Software</span>
+              <h1>Complete Hotel Management<br />Software for Seamless Hospitality</h1>
+              <p>Manage reservations, check-in and check-out, housekeeping, restaurant billing, staff and revenue from one platform. Pixelate Nest Hotel Management gives hotels, resorts and guest houses a front desk that never misses a booking.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/hotel-mgmt-what-is.png"
-                alt="Hotel Management Software Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/hotel-details/hotel-person.webp"
+                alt="Hotel Management Software"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/hotel-mgmt-what-is.png"
-                  alt="Hotel Management Demo"
+                  src="../assets/images/products/hotel-details/dashboard.webp"
+                  alt="Hotel Management Software Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -604,116 +602,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>
-                    See how our Hotel Management Software works in 60 seconds
-                  </p>
+                  <p>See how Hotel Management runs your property in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About the Software</span>
-              <h2>
-                One system to manage your entire hotel — front desk to back
-                office
-              </h2>
-              <p>
-                Our Hotel Management Software by Pixelate Nest is a
-                comprehensive Property Management System (PMS) for hotels,
-                resorts, guest houses, service apartments, and lodges. It
-                manages room reservations, check-in/check-out, housekeeping,
-                restaurant POS, staff, inventory, billing, and analytics — all
-                in one cloud-based platform accessible from any device.
-              </p>
+              <span class="nh-about-tag">About Hotel Management</span>
+              <h2>One platform to run your entire property</h2>
+              <p>Hotel Management Software by Pixelate Nest connects your front desk, rooms, housekeeping, restaurant, billing and staff in one cloud system. Real-time room availability, guest history, automated invoicing and revenue analytics help you fill more rooms and serve every guest better.</p>
               <div class="nh-about-highlights">
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-bed"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-calendar-check"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Real-Time Room Management</strong
-                    ><span
-                      >See room availability, status, and reservations at a
-                      glance — no overbooking ever.</span
-                    >
+                    <strong>Live Reservations</strong>
+                    <span>A visual room chart with real-time availability prevents double bookings.</span>
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-bell-concierge"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>Smooth Front Desk</strong>
+                    <span>Fast check-in, check-out and guest folio billing with all charges in one place.</span>
+                  </div>
+                </div>
+                <div class="nh-about-highlight">
+                  <div class="nh-hl-icon"><i class="fas fa-broom"></i></div>
+                  <div class="nh-hl-text">
+                    <strong>Housekeeping Tracking</strong>
+                    <span>Room status and cleaning tasks update instantly between front desk and housekeeping.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon"><i class="fas fa-utensils"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Integrated Restaurant POS</strong
-                    ><span
-                      >Restaurant orders, room service, and bar billing — all
-                      connected to the guest folio.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-globe"></i></div>
-                  <div class="nh-hl-text">
-                    <strong>Online Booking Integration</strong
-                    ><span
-                      >Connect to OTAs like MakeMyTrip, Booking.com, and your
-                      own website for instant reservations.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                  </div>
-                  <div class="nh-hl-text">
-                    <strong>Automated Billing &amp; Invoicing</strong
-                    ><span
-                      >One-click checkout with consolidated guest bill — rooms,
-                      restaurant, and services combined.</span
-                    >
+                    <strong>Restaurant POS</strong>
+                    <span>Room service and restaurant orders post to the guest folio automatically.</span>
                   </div>
                 </div>
               </div>
@@ -722,33 +698,28 @@
         </div>
       </section>
 
-      <!-- SCREENSHOTS -->
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Every hotel operation managed,<br /><span class="nh-accent"
-              >from one smart dashboard</span
-            >
+            Everything your property needs,<br /><span class="nh-accent">in one smart dashboard</span>
           </h2>
-          <p class="nh-section-sub">
-            Front desk, housekeeping, restaurant, staff, and finance — all
-            connected and visible from one screen.
-          </p>
+          <p class="nh-section-sub">See the room chart, reservation, housekeeping and billing screens your team will use every day.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/hotel-mgmt-what-is.png',
-                  'Reservation Dashboard',
+                  '../assets/images/products/hotel-details/dashboard.webp',
+                  'Property Dashboard',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/hotel-mgmt-what-is.png"
-                  alt="Reservation Dashboard"
+                  src="../assets/images/products/hotel-details/dashboard.webp"
+                  alt="Property Dashboard"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -760,11 +731,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Reservation Dashboard</p>
-                <span
-                  >Live room availability, check-in/out schedule, and booking
-                  calendar in one view.</span
-                >
+                <p>Property Dashboard</p>
+                <span>Occupancy, arrivals, departures and revenue at a glance.</span>
               </div>
             </div>
             <div
@@ -772,15 +740,15 @@
               style="transition-delay: 0.1s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/hotel-mgmt-features.png',
-                  'Check-In Management',
+                  '../assets/images/products/hotel-details/room-chart.webp',
+                  'Room Chart',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/hotel-mgmt-features.png"
-                  alt="Check-In Management"
+                  src="../assets/images/products/hotel-details/room-chart.webp"
+                  alt="Room Chart"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -792,11 +760,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Check-In &amp; Check-Out</p>
-                <span
-                  >Fast digital check-in with ID verification, room assignment,
-                  and key issuance.</span
-                >
+                <p>Room Chart</p>
+                <span>Visual calendar of room availability and bookings.</span>
               </div>
             </div>
             <div
@@ -804,14 +769,43 @@
               style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/hotel-mgmt-benefits.png',
+                  '../assets/images/products/hotel-details/reservations.webp',
+                  'Reservations',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/hotel-details/reservations.webp"
+                  alt="Reservations"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>Reservations</p>
+                <span>Create and manage bookings from walk-in, phone and online.</span>
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.3s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/hotel-details/housekeeping.webp',
                   'Housekeeping',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/hotel-mgmt-benefits.png"
+                  src="../assets/images/products/hotel-details/housekeeping.webp"
                   alt="Housekeeping"
                   loading="lazy"
                   width="400"
@@ -824,43 +818,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Housekeeping Management</p>
-                <span
-                  >Assign rooms to housekeeping staff, track cleaning status,
-                  and manage maintenance.</span
-                >
-              </div>
-            </div>
-            <div
-              class="nh-method-card slide-up"
-              style="transition-delay: 0.3s"
-              onclick="
-                nhDashOpen(
-                  '../assets/images/products/hotel-mgmt-why.png',
-                  'Restaurant POS',
-                )
-              "
-            >
-              <div class="nh-method-card-img-wrap">
-                <img
-                  src="../assets/images/products/hotel-mgmt-why.png"
-                  alt="Restaurant POS"
-                  loading="lazy"
-                  width="400"
-                  height="260"
-                />
-                <div class="nh-method-card-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="nh-method-card-body">
-                <p>Restaurant &amp; Room Service</p>
-                <span
-                  >POS for restaurant, bar, and room service — all linked to
-                  guest folio automatically.</span
-                >
+                <p>Housekeeping</p>
+                <span>Room status board and cleaning assignments.</span>
               </div>
             </div>
             <div
@@ -868,14 +827,14 @@
               style="transition-delay: 0.4s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/hotel-mgmt-advantage.png',
+                  '../assets/images/products/hotel-details/billing.webp',
                   'Guest Billing',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/hotel-mgmt-advantage.png"
+                  src="../assets/images/products/hotel-details/billing.webp"
                   alt="Guest Billing"
                   loading="lazy"
                   width="400"
@@ -889,10 +848,7 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Guest Billing</p>
-                <span
-                  >Consolidated guest folio with all charges — one-click
-                  checkout with GST invoice.</span
-                >
+                <span>Itemised folios with room, food and extra charges.</span>
               </div>
             </div>
             <div
@@ -900,15 +856,15 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/hotel-mgmt-industries.png',
-                  'Hotel Analytics',
+                  '../assets/images/products/hotel-details/reports.webp',
+                  'Revenue Reports',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/hotel-mgmt-industries.png"
-                  alt="Hotel Analytics"
+                  src="../assets/images/products/hotel-details/reports.webp"
+                  alt="Revenue Reports"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -920,14 +876,13 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Revenue Analytics</p>
-                <span
-                  >Occupancy rate, ADR, RevPAR, and revenue reports — daily,
-                  monthly, and annual.</span
-                >
+                <p>Revenue Reports</p>
+                <span>Occupancy, ADR, RevPAR and revenue analytics.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
           <div
             class="nh-dash-modal-backdrop"
             id="nhDashBackdrop"
@@ -939,8 +894,9 @@
                 onclick="nhDashClose(null, true)"
                 aria-label="Close"
               >
-                &times;</button
-              ><img id="nhDashModalImg" src="" alt="" />
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
             </div>
           </div>
           <script>
@@ -951,9 +907,9 @@
               document.getElementById("nhDashBackdrop").classList.add("active");
               document.body.style.overflow = "hidden";
             }
-            function nhDashClose(e, f) {
+            function nhDashClose(e, force) {
               if (
-                f ||
+                force ||
                 (e && e.target === document.getElementById("nhDashBackdrop"))
               ) {
                 document
@@ -969,12 +925,13 @@
         </div>
       </section>
 
-      <!-- NSF ROWS -->
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/hotel-mgmt-features.png"
+              src="../assets/images/products/hotel-details/reservations.webp"
               alt="Room Reservation"
               loading="lazy"
               width="640"
@@ -983,420 +940,321 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Room reservation &amp; booking management<span
-                >No more overbooking</span
-              >
+              Never lose a booking again<span>Walk-in, phone and online in one calendar</span>
             </h2>
-            <p>
-              Manage walk-in and advance reservations on a live booking
-              calendar. See room availability instantly, assign rooms, and send
-              booking confirmations via SMS or email — all from the front desk
-              screen.
-            </p>
+            <p>Create and modify bookings in seconds with rooms, rates and guest details in one form. A live room chart shows availability, so double bookings are prevented and last-minute rooms get sold.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Live
-                booking calendar with drag-and-drop
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Visual room availability chart
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Walk-in and advance reservation management
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Walk-in, phone and online bookings
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                booking confirmation via SMS/email
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Rate plans, taxes and advance payments
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>OTA
-                channel integration (MakeMyTrip, Booking.com)
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Booking confirmations on WhatsApp and email
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              Housekeeping &amp; room status management<span
-                >Clean rooms, happy guests</span
-              >
+              A front desk that moves at guest speed<span>Guest ID, folio and payment handled together</span>
             </h2>
-            <p>
-              Assign housekeeping tasks to staff from the dashboard. Track
-              cleaning status of every room in real time — dirty, clean,
-              inspected, or maintenance. Reduce gaps between checkout and
-              check-in.
-            </p>
+            <p>Check guests in with ID details and room allocation, post charges during the stay, and check out with a clear itemised invoice. Guest history is saved, so repeat visitors are recognised instantly.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Room
-                status board (Dirty/Clean/Inspected)
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Guest registration with ID capture
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Housekeeping task assignment to staff
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Room allocation and changes
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Maintenance request tracking
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Itemised guest folio and GST invoice
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Mobile app for housekeeping staff
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Repeat guest history and preferences
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/hotel-mgmt-benefits.png"
+              src="../assets/images/products/hotel-details/room-chart.webp"
+              alt="Check-In &amp; Check-Out"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/hotel-details/housekeeping.webp"
               alt="Housekeeping"
               loading="lazy"
               width="640"
               height="480"
             />
           </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/hotel-mgmt-why.png"
-              alt="Restaurant POS"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
           <div class="nsf-content slide-right">
             <h2>
-              Restaurant POS &amp; room service<span
-                >All charges go to one guest bill</span
-              >
+              Rooms ready when guests arrive<span>Live status between desk and housekeeping</span>
             </h2>
-            <p>
-              Restaurant, bar, and room service orders are all linked to the
-              guest's folio automatically. At checkout, all charges are
-              consolidated into one invoice — no manual tracking or missed
-              charges.
-            </p>
+            <p>Housekeeping staff see which rooms to clean first, update status as they go, and the front desk sees it live. Maintenance issues are logged against the room so nothing is forgotten.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Table
-                and room service order management
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Clean, dirty, occupied and out-of-order status
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                posting to guest folio
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Task assignment to housekeeping staff
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>KOT
-                (Kitchen Order Ticket) printing
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Maintenance issue logging per room
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Bar
-                and minibar inventory tracking
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-content slide-right">
-            <h2>
-              Guest billing &amp; checkout<span>One click, one bill</span>
-            </h2>
-            <p>
-              Generate a consolidated guest bill with room charges, restaurant,
-              services, and taxes in one click. Accept cash, card, UPI, or
-              corporate payments. Print or email GST-compliant receipts
-              instantly.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Consolidated guest folio at checkout
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>GST
-                invoice with auto tax calculation
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Multi-payment mode acceptance
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Corporate account and company billing
-              </li>
-            </ul>
-          </div>
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/hotel-mgmt-advantage.png"
-              alt="Guest Billing"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="nsf-section">
-        <div class="nsf-row">
-          <div class="nsf-img-box slide-left">
-            <img
-              src="../assets/images/products/hotel-mgmt-industries.png"
-              alt="Hotel Analytics"
-              loading="lazy"
-              width="640"
-              height="480"
-            />
-          </div>
-          <div class="nsf-content slide-right">
-            <h2>
-              Revenue &amp; occupancy analytics<span
-                >Know your hotel's performance daily</span
-              >
-            </h2>
-            <p>
-              Track occupancy rate, Average Daily Rate (ADR), RevPAR, and
-              revenue by room type, period, or channel. Make smarter pricing and
-              staffing decisions with real data at your fingertips.
-            </p>
-            <ul class="nsf-bullets">
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Occupancy rate and room night reports
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>ADR,
-                RevPAR, and revenue analytics
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Booking source analysis (walk-in vs OTA)
-              </li>
-              <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Monthly and annual P&amp;L reports
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Linen and amenity tracking
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- FEATURES -->
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-content slide-right">
+            <h2>
+              All charges on a single bill<span>Rooms, food and extras together</span>
+            </h2>
+            <p>Restaurant, room service, laundry and other extras post directly to the guest's folio. Accept advance, part and final payments in cash, card or UPI and generate GST-compliant invoices.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Restaurant POS linked to the room folio
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Advance, part and final payments
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>GST invoice and payment receipts
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Corporate billing and city ledger
+              </li>
+            </ul>
+          </div>
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/hotel-details/billing.webp"
+              alt="Billing &amp; Restaurant"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/hotel-details/reports.webp"
+              alt="Revenue Analytics"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Know what drives your revenue<span>Occupancy and rate insights you can act on</span>
+            </h2>
+            <p>Track occupancy, average daily rate and revenue per available room by day, month and room type. Compare booking sources and staff performance to price smarter and promote better.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Occupancy, ADR and RevPAR reports
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Booking source analysis
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Day-end and night-audit reports
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Export to Excel and PDF
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 powerful modules for
-            <span class="nh-accent">complete hotel management</span>
+            Everything you need to
+            <span class="nh-accent">run a better hospitality business</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Front desk, housekeeping, restaurant, staff, and finance —
-            everything connected in one platform.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">9+ modules built for hotels, resorts and guest houses.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-calendar-alt"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-calendar-check"></i></div>
               <h3>Room Reservation</h3>
-              <p>
-                Live booking calendar, advance and walk-in reservations, OTA
-                integration, and booking confirmations.
-              </p>
+              <p>Real-time availability, rate plans and booking management.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-sign-in-alt"></i></div>
-              <h3>Check-In/Check-Out</h3>
-              <p>
-                Fast digital check-in with ID verification, room assignment, and
-                one-click checkout with consolidated bill.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-door-open"></i></div>
+              <h3>Check-In / Check-Out</h3>
+              <p>Fast guest registration, room allocation and checkout billing.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
               <div class="nh-feat-icon"><i class="fas fa-broom"></i></div>
               <h3>Housekeeping</h3>
-              <p>
-                Room status tracking, housekeeping task assignment, maintenance
-                requests, and mobile app for staff.
-              </p>
+              <p>Room status board, task assignment and maintenance logging.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
               <div class="nh-feat-icon"><i class="fas fa-utensils"></i></div>
               <h3>Restaurant POS</h3>
-              <p>
-                Restaurant, bar, and room service orders linked to guest folio
-                with KOT printing and inventory tracking.
-              </p>
+              <p>Dine-in and room-service orders linked to guest folios.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-file-invoice-dollar"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-file-invoice-dollar"></i></div>
               <h3>Billing &amp; Invoicing</h3>
-              <p>
-                Consolidated guest bill with GST invoice, multi-payment support,
-                and corporate account management.
-              </p>
+              <p>Itemised folios, advance payments and GST invoices.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-users-cog"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
+              <div class="nh-feat-icon"><i class="fas fa-users-gear"></i></div>
               <h3>Staff Management</h3>
-              <p>
-                Employee records, shift scheduling, attendance tracking, and
-                payroll for hotel staff.
-              </p>
+              <p>Staff roles, shifts and attendance for every department.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
               <div class="nh-feat-icon"><i class="fas fa-globe"></i></div>
               <h3>Online Booking</h3>
-              <p>
-                Website booking integration, OTA channel manager, and online
-                payment gateway support.
-              </p>
+              <p>Booking engine for your website and channel connections.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-boxes"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-boxes-stacked"></i></div>
               <h3>Inventory Control</h3>
-              <p>
-                Manage hotel supplies, amenities, restaurant stock, and minibar
-                inventory with auto-reorder alerts.
-              </p>
+              <p>Kitchen, linen and amenity stock with usage tracking.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-chart-line"></i></div>
               <h3>Revenue Analytics</h3>
-              <p>
-                Occupancy rate, ADR, RevPAR, booking source reports, and monthly
-                P&amp;L — all in real time.
-              </p>
+              <p>Occupancy, ADR, RevPAR and booking-source reports.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INDUSTRIES -->
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Built for every type of
-            <span class="nh-accent">hospitality property</span>
+            Built for every kind of stay,
+            <span class="nh-accent">customised for your property</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            From boutique hotels to large resorts — our software adapts to every
-            property size and type.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">Hotel Management adapts to 10+ types of hospitality businesses.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-hotel"></i><span>Hotels</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
               <i class="fas fa-umbrella-beach"></i><span>Resorts</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-home"></i><span>Guest Houses</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-house"></i><span>Guest Houses</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
               <i class="fas fa-building"></i><span>Service Apartments</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-moon"></i><span>Motels</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-car"></i><span>Motels</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-star"></i><span>Boutique Hotels</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
+              <i class="fas fa-gem"></i><span>Boutique Hotels</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-bed"></i><span>B&amp;B &amp; Lodges</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-mug-saucer"></i><span>B&amp;B &amp; Lodges</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-school"></i><span>Hostels</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-bed"></i><span>Hostels</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
               <i class="fas fa-spa"></i><span>Wellness Retreats</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-ring"></i><span>Banquet Halls</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-champagne-glasses"></i><span>Banquet Halls</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CHOOSE -->
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
-            Why hotels choose
-            <span class="nh-accent">our Management Software</span>
+            Why hoteliers choose
+            <span class="nh-accent">our Hotel Management Software</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >From the first enquiry to the final invoice, one connected system.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-ban"></i><strong>Zero Overbooking</strong>
-              <p>
-                Live room availability prevents double bookings — across
-                walk-in, phone, and online channels.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-ban"></i>
+              <strong>No Double Bookings</strong>
+              <p>A live room chart keeps every reservation accurate.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-clock"></i><strong>Faster Check-In</strong>
-              <p>
-                Reduce check-in time from 10 minutes to under 2 — guests get to
-                their rooms faster.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-bolt"></i>
+              <strong>Faster Front Desk</strong>
+              <p>Quick check-in and checkout shorten guest wait times.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-chart-line"></i><strong>Higher Revenue</strong>
-              <p>
-                Smart upselling, room upgrade prompts, and occupancy analytics
-                help you earn more per room.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-layer-group"></i>
+              <strong>One Connected System</strong>
+              <p>Rooms, restaurant, billing and housekeeping share the same data.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-smile"></i
-              ><strong>Better Guest Experience</strong>
-              <p>
-                Faster service, no billing errors, and personalised guest
-                records — guests come back.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-chart-line"></i>
+              <strong>Smarter Pricing</strong>
+              <p>Occupancy and ADR reports help you price rooms with confidence.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-mobile-alt"></i><strong>Mobile Access</strong>
-              <p>
-                Managers and staff access the system from mobile — check room
-                status, assign tasks, and review reports.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-cloud"></i>
+              <strong>Cloud Access</strong>
+              <p>Manage your property from anywhere with secure backups.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-globe"></i><strong>OTA Integration</strong>
-              <p>
-                Connect to MakeMyTrip, Booking.com, and OYO — bookings sync
-                automatically to your front desk.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-lock"></i>
+              <strong>Secure Guest Data</strong>
+              <p>Role-based access protects guest and financial information.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-check-circle"></i
-              ><strong>GST Compliant Billing</strong>
-              <p>
-                Every guest invoice is GST-compliant — no manual calculation, no
-                compliance risk.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Quick Onboarding</strong>
+              <p>Add rooms and rates, train staff and go live in days.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-headset"></i><strong>Dedicated Support</strong>
-              <p>
-                Local support team available by call, WhatsApp, or email — in
-                Hindi and English.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — real help, fast responses.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+<!-- TESTIMONIALS -->
       <section class="nh-testi-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">

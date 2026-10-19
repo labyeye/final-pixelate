@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/gst-billing-what-is.png"
+      href="../assets/images/products/gst-billing-details/gst-billing-person.webp"
       as="image"
     />
     <link
@@ -561,46 +561,46 @@
 
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">GST Billing</span>
-              <h1>Simplified GST Billing Software for Indian Businesses</h1>
-              <p>
-                Generate GST-compliant invoices, file GSTR returns, manage e-way
-                bills, track expenses, and reconcile payments — all from one
-                powerful cloud platform. Built for traders, manufacturers,
-                service providers, and retailers across India.
-              </p>
+              <span class="nh-hs-tag">GST Billing Software</span>
+              <h1>Simplified GST Billing Software<br />for Indian Businesses</h1>
+              <p>Create GST-compliant invoices, track customer and supplier ledgers, generate e-way bills and keep your returns data ready for filing. Pixelate Nest GST Billing makes tax compliance simple for traders, wholesalers, manufacturers and service providers.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/gst-billing-what-is.png"
-                alt="GST Billing Software Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/gst-billing-details/gst-billing-person.webp"
+                alt="GST Billing Software"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/gst-billing-what-is.png"
-                  alt="GST Billing Demo"
+                  src="../assets/images/products/gst-billing-details/dashboard.webp"
+                  alt="GST Billing Software Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -612,114 +612,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>
-                    See how our GST Billing Software simplifies compliance in 60
-                    seconds
-                  </p>
+                  <p>See how GST Billing simplifies compliance in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About the Software</span>
-              <h2>GST compliance made simple — for every Indian business</h2>
-              <p>
-                Our GST Billing Software by Pixelate Nest is a complete
-                accounting and invoicing platform designed for traders,
-                retailers, manufacturers, and service providers in India. It
-                automates GST invoice generation, GSTR filing, e-way bill
-                creation, ledger management, and bank reconciliation — so you
-                spend less time on paperwork and more on growing your business.
-              </p>
+              <span class="nh-about-tag">About GST Billing</span>
+              <h2>One platform for invoicing, accounts and GST</h2>
+              <p>GST Billing by Pixelate Nest is an accounting and invoicing platform built for Indian businesses. Invoices, credit and debit notes, e-way bills, ledgers, expenses, bank reconciliation and GSTR-ready reports sit in one system, across multiple branches, with data your accountant can use directly.</p>
               <div class="nh-about-highlights">
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-file-invoice"></i>
-                  </div>
+                  <div class="nh-hl-icon"><i class="fas fa-file-invoice"></i></div>
                   <div class="nh-hl-text">
-                    <strong>100% GST-Compliant Invoices</strong
-                    ><span
-                      >Generate B2B, B2C, proforma, credit notes, and debit
-                      notes — all GST-compliant instantly.</span
-                    >
+                    <strong>GST-Compliant Invoices</strong>
+                    <span>Correct CGST, SGST and IGST on every invoice, with HSN codes and place of supply.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-sync-alt"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-truck-fast"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Auto GSTR Filing Reports</strong
-                    ><span
-                      >GSTR-1, GSTR-2, GSTR-3B, and GSTR-9 reports
-                      auto-generated and ready to file.</span
-                    >
+                    <strong>E-Way Bill Support</strong>
+                    <span>Generate e-way bill details directly from the invoice, with no re-entry.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-truck"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-book"></i></div>
                   <div class="nh-hl-text">
-                    <strong>E-Way Bill Generation</strong
-                    ><span
-                      >Generate and manage e-way bills directly from the billing
-                      screen — no separate portal needed.</span
-                    >
+                    <strong>Complete Accounts</strong>
+                    <span>Customer and supplier ledgers, expenses and bank reconciliation in the same system.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-cloud"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-building"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Cloud-Based &amp; Multi-Device</strong
-                    ><span
-                      >Access your accounts from anywhere — desktop, mobile, or
-                      tablet — with real-time sync.</span
-                    >
+                    <strong>Multi-Branch Ready</strong>
+                    <span>Manage several branches and GST registrations from one login.</span>
                   </div>
                 </div>
               </div>
@@ -728,33 +708,28 @@
         </div>
       </section>
 
-      <!-- SCREENSHOTS -->
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Complete GST billing &amp; accounting,<br /><span class="nh-accent"
-              >in one smart dashboard</span
-            >
+            Everything your accounts need,<br /><span class="nh-accent">in one clear dashboard</span>
           </h2>
-          <p class="nh-section-sub">
-            From invoice generation to GSTR filing — manage your entire business
-            finances from one platform.
-          </p>
+          <p class="nh-section-sub">See the invoicing screen, ledgers and GST reports your team will use every day.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/gst-billing-what-is.png',
-                  'GST Invoice',
+                  '../assets/images/products/gst-billing-details/dashboard.webp',
+                  'Business Dashboard',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/gst-billing-what-is.png"
-                  alt="GST Invoice"
+                  src="../assets/images/products/gst-billing-details/dashboard.webp"
+                  alt="Business Dashboard"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -766,11 +741,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>GST Invoice Generation</p>
-                <span
-                  >Create B2B, B2C, and service invoices with correct GST rates
-                  automatically.</span
-                >
+                <p>Business Dashboard</p>
+                <span>Sales, purchases, receivables, payables and tax liability at a glance.</span>
               </div>
             </div>
             <div
@@ -778,15 +750,15 @@
               style="transition-delay: 0.1s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/gst-billing-features.png',
-                  'GSTR Reports',
+                  '../assets/images/products/gst-billing-details/invoice.webp',
+                  'GST Invoicing',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/gst-billing-features.png"
-                  alt="GSTR Reports"
+                  src="../assets/images/products/gst-billing-details/invoice.webp"
+                  alt="GST Invoicing"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -798,11 +770,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>GSTR Filing Reports</p>
-                <span
-                  >Auto-generated GSTR-1, GSTR-3B reports ready for CA or direct
-                  GST portal upload.</span
-                >
+                <p>GST Invoicing</p>
+                <span>Professional invoices with HSN, tax split and place of supply.</span>
               </div>
             </div>
             <div
@@ -810,15 +779,44 @@
               style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/gst-billing-benefits.png',
-                  'Ledger Management',
+                  '../assets/images/products/gst-billing-details/gstr-reports.webp',
+                  'GST Returns Data',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/gst-billing-benefits.png"
-                  alt="Ledger Management"
+                  src="../assets/images/products/gst-billing-details/gstr-reports.webp"
+                  alt="GST Returns Data"
+                  loading="lazy"
+                  width="400"
+                  height="260"
+                />
+                <div class="nh-method-card-zoom">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div class="nh-method-card-body">
+                <p>GST Returns Data</p>
+                <span>GSTR-1 and GSTR-3B ready data with invoice-level detail.</span>
+              </div>
+            </div>
+            <div
+              class="nh-method-card slide-up"
+              style="transition-delay: 0.3s"
+              onclick="
+                nhDashOpen(
+                  '../assets/images/products/gst-billing-details/ledger.webp',
+                  'Customer Ledger',
+                )
+              "
+            >
+              <div class="nh-method-card-img-wrap">
+                <img
+                  src="../assets/images/products/gst-billing-details/ledger.webp"
+                  alt="Customer Ledger"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -831,25 +829,22 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Customer Ledger</p>
-                <span
-                  >Track outstanding receivables, payments received, and credit
-                  notes per customer.</span
-                >
+                <span>Outstanding, ageing and payment history per customer.</span>
               </div>
             </div>
             <div
               class="nh-method-card slide-up"
-              style="transition-delay: 0.3s"
+              style="transition-delay: 0.4s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/gst-billing-why.png',
+                  '../assets/images/products/gst-billing-details/eway-bill.webp',
                   'E-Way Bill',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/gst-billing-why.png"
+                  src="../assets/images/products/gst-billing-details/eway-bill.webp"
                   alt="E-Way Bill"
                   loading="lazy"
                   width="400"
@@ -863,42 +858,7 @@
               </div>
               <div class="nh-method-card-body">
                 <p>E-Way Bill</p>
-                <span
-                  >Generate e-way bills from billing screen — no separate GST
-                  portal login needed.</span
-                >
-              </div>
-            </div>
-            <div
-              class="nh-method-card slide-up"
-              style="transition-delay: 0.4s"
-              onclick="
-                nhDashOpen(
-                  '../assets/images/products/gst-billing-advantage.png',
-                  'Expense Tracking',
-                )
-              "
-            >
-              <div class="nh-method-card-img-wrap">
-                <img
-                  src="../assets/images/products/gst-billing-advantage.png"
-                  alt="Expense Tracking"
-                  loading="lazy"
-                  width="400"
-                  height="260"
-                />
-                <div class="nh-method-card-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="nh-method-card-body">
-                <p>Expense Tracking</p>
-                <span
-                  >Record business expenses, categorise them, and track your
-                  P&amp;L in real time.</span
-                >
+                <span>E-way bill details prepared from the invoice in one click.</span>
               </div>
             </div>
             <div
@@ -906,14 +866,14 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/gst-billing-industries.png',
+                  '../assets/images/products/gst-billing-details/reports.webp',
                   'Financial Reports',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/gst-billing-industries.png"
+                  src="../assets/images/products/gst-billing-details/reports.webp"
                   alt="Financial Reports"
                   loading="lazy"
                   width="400"
@@ -927,13 +887,12 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Financial Reports</p>
-                <span
-                  >Profit &amp; Loss, Balance Sheet, Trial Balance, and cash
-                  flow reports — export to Excel.</span
-                >
+                <span>Profit and loss, balance sheet, day book and expense reports.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
           <div
             class="nh-dash-modal-backdrop"
             id="nhDashBackdrop"
@@ -945,8 +904,9 @@
                 onclick="nhDashClose(null, true)"
                 aria-label="Close"
               >
-                &times;</button
-              ><img id="nhDashModalImg" src="" alt="" />
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
             </div>
           </div>
           <script>
@@ -957,9 +917,9 @@
               document.getElementById("nhDashBackdrop").classList.add("active");
               document.body.style.overflow = "hidden";
             }
-            function nhDashClose(e, f) {
+            function nhDashClose(e, force) {
               if (
-                f ||
+                force ||
                 (e && e.target === document.getElementById("nhDashBackdrop"))
               ) {
                 document
@@ -975,13 +935,14 @@
         </div>
       </section>
 
-      <!-- NSF ROWS -->
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/gst-billing-features.png"
-              alt="GST Invoice Generation"
+              src="../assets/images/products/gst-billing-details/invoice.webp"
+              alt="GST Invoicing"
               loading="lazy"
               width="640"
               height="480"
@@ -989,70 +950,53 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              GST invoice generation<span>100% compliant, every time</span>
+              Invoices that are right the first time<span>Tax split calculated automatically</span>
             </h2>
-            <p>
-              Create professional GST invoices for B2B, B2C, export, or service
-              transactions. Apply the correct CGST, SGST, IGST rates
-              automatically based on transaction type. Share via PDF, WhatsApp,
-              or email instantly.
-            </p>
+            <p>Create tax invoices, bills of supply and quotations in seconds. The software picks CGST, SGST or IGST from the place of supply and applies the right rate for every item, with HSN or SAC codes on the invoice.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>B2B,
-                B2C, proforma, and tax invoices
+                <span class="nsf-check"><i class="fas fa-check"></i></span>CGST, SGST and IGST calculated automatically
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                GST rate selection by HSN/SAC code
+                <span class="nsf-check"><i class="fas fa-check"></i></span>HSN and SAC codes per item
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Credit note and debit note generation
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Quotations converted to invoices in one click
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Share
-                via PDF, WhatsApp, or email
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Share invoices as PDF on WhatsApp and email
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              GSTR filing reports<span>CA-ready reports in one click</span>
+              Returns data ready before the due date<span>No more month-end reconciliation panic</span>
             </h2>
-            <p>
-              No more manual data entry for GST filing. Our software
-              auto-generates GSTR-1, GSTR-2, GSTR-3B, and GSTR-9 reports from
-              your transactions — in the exact JSON or Excel format required for
-              portal upload or CA submission.
-            </p>
+            <p>Sales and purchase data flows into GSTR-1 and GSTR-3B ready reports with invoice-level detail. Spot mismatches early and hand your accountant clean data instead of a pile of bills.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >GSTR-1, GSTR-2, GSTR-3B auto-generation
+                <span class="nsf-check"><i class="fas fa-check"></i></span>GSTR-1 and GSTR-3B ready reports
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>JSON
-                and Excel export for GST portal
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Input tax credit tracking
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Annual GSTR-9 reconciliation
+                <span class="nsf-check"><i class="fas fa-check"></i></span>HSN-wise summary
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>ITC
-                claim tracking and mismatches
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Export to Excel and JSON for filing
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/gst-billing-benefits.png"
-              alt="GSTR Reports"
+              src="../assets/images/products/gst-billing-details/gstr-reports.webp"
+              alt="GST Returns"
               loading="lazy"
               width="640"
               height="480"
@@ -1060,12 +1004,13 @@
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/gst-billing-why.png"
-              alt="E-Way Bill"
+              src="../assets/images/products/gst-billing-details/ledger.webp"
+              alt="Ledgers &amp; Credit Control"
               loading="lazy"
               width="640"
               height="480"
@@ -1073,72 +1018,53 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              E-way bill generation<span
-                >No separate portal. No extra login.</span
-              >
+              Know who owes you, and how long<span>Receivables and payables tracked live</span>
             </h2>
-            <p>
-              Generate and manage e-way bills directly from within your billing
-              screen. Our software connects to the NIC e-way bill portal via API
-              — so you never have to log in separately or re-enter data.
-            </p>
+            <p>Each customer and supplier gets a ledger with every invoice, payment and note. Ageing reports and payment reminders help you collect faster and avoid cash-flow surprises.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Direct e-way bill generation from invoice
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Customer and supplier ledgers
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>NIC
-                portal API integration
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Receivable and payable ageing
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>E-way
-                bill extension and cancellation
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Payment reminders on WhatsApp and SMS
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Bulk
-                e-way bill generation for distributors
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Credit limits per customer
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              Customer &amp; supplier ledger<span
-                >Know who owes you — and who you owe</span
-              >
+              Dispatch without paperwork delays<span>E-way bill and notes from the same invoice</span>
             </h2>
-            <p>
-              Maintain complete ledgers for every customer and supplier. Track
-              outstanding receivables, payments received, credit notes, and
-              advance payments — with automatic ageing reports.
-            </p>
+            <p>Prepare e-way bill details directly from a sales invoice, and handle sales returns and price adjustments with credit and debit notes that update tax and ledgers correctly.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Customer and supplier ledger management
+                <span class="nsf-check"><i class="fas fa-check"></i></span>E-way bill details from the invoice
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Outstanding receivables and payables
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Credit and debit notes linked to the original bill
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Payment reminders and follow-up alerts
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Tax-correct handling of returns
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Ageing analysis reports
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Transporter and vehicle details stored
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/gst-billing-advantage.png"
-              alt="Ledger Management"
+              src="../assets/images/products/gst-billing-details/eway-bill.webp"
+              alt="E-Way Bills &amp; Notes"
               loading="lazy"
               width="640"
               height="480"
@@ -1146,11 +1072,12 @@
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/gst-billing-industries.png"
+              src="../assets/images/products/gst-billing-details/reports.webp"
               alt="Financial Reports"
               loading="lazy"
               width="640"
@@ -1159,249 +1086,185 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Financial reports &amp; accounting<span
-                >Know your business numbers — always</span
-              >
+              Understand your business in real time<span>Profit, expenses and bank in one place</span>
             </h2>
-            <p>
-              Get P&amp;L, Balance Sheet, Trial Balance, and cash flow reports
-              at the click of a button. Share with your CA, use for bank loan
-              applications, or analyse business performance anytime.
-            </p>
+            <p>Track expenses, reconcile your bank statement and view profit and loss, balance sheet and day book reports whenever you need them. Multi-branch businesses can compare branches side by side.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Profit &amp; Loss and Balance Sheet
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Profit and loss, balance sheet, day book
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Trial
-                Balance and day book
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Expense tracking by category
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Cash
-                and bank reconciliation
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Bank reconciliation
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Excel
-                export for CA and auditors
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Branch-wise and consolidated reports
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- FEATURES -->
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 powerful features for
-            <span class="nh-accent">complete GST compliance</span>
+            Everything you need to
+            <span class="nh-accent">stay GST compliant, effortlessly</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Everything an Indian business needs — invoicing, GSTR filing, e-way
-            bills, and accounting — in one platform.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">9+ modules built to simplify invoicing, accounts and tax.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-file-invoice"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-file-invoice"></i></div>
               <h3>GST Invoice</h3>
-              <p>
-                B2B, B2C, proforma, and service invoices with auto GST
-                calculation and PDF/WhatsApp sharing.
-              </p>
+              <p>Tax invoices, bills of supply and quotations with correct tax splits.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-sync-alt"></i></div>
-              <h3>GSTR Filing</h3>
-              <p>
-                Auto-generated GSTR-1, GSTR-3B, and GSTR-9 reports in JSON and
-                Excel — ready for filing.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-file-lines"></i></div>
+              <h3>GSTR Filing Data</h3>
+              <p>GSTR-1 and GSTR-3B ready reports with invoice-level detail.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-truck"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-truck-fast"></i></div>
               <h3>E-Way Bill</h3>
-              <p>
-                Generate and manage e-way bills directly from billing —
-                connected to NIC portal via API.
-              </p>
+              <p>Prepare e-way bill details directly from invoices.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-exchange-alt"></i>
-              </div>
-              <h3>Credit/Debit Notes</h3>
-              <p>
-                Issue and track credit and debit notes with proper GST
-                adjustment and customer ledger updates.
-              </p>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-rotate-left"></i></div>
+              <h3>Credit &amp; Debit Notes</h3>
+              <p>Returns and adjustments that update tax and ledgers correctly.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-book"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-address-book"></i></div>
               <h3>Customer Ledger</h3>
-              <p>
-                Complete ledger for every customer — outstanding, payments,
-                advances, and ageing analysis.
-              </p>
+              <p>Ledgers, ageing and reminders for customers and suppliers.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-wallet"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
+              <div class="nh-feat-icon"><i class="fas fa-receipt"></i></div>
               <h3>Expense Tracking</h3>
-              <p>
-                Record and categorise all business expenses with input tax
-                credit tracking.
-              </p>
+              <p>Categorised expenses with attachments and monthly summary.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-university"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-building-columns"></i></div>
               <h3>Bank Reconciliation</h3>
-              <p>
-                Match bank statements with your records automatically — no
-                manual cross-checking.
-              </p>
+              <p>Match bank entries with books and spot differences quickly.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
               <div class="nh-feat-icon"><i class="fas fa-chart-pie"></i></div>
               <h3>Financial Reports</h3>
-              <p>
-                P&amp;L, Balance Sheet, Trial Balance, and cash flow — with
-                one-click Excel export.
-              </p>
+              <p>Profit and loss, balance sheet, day book and tax summaries.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-store"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-sitemap"></i></div>
               <h3>Multi-Branch</h3>
-              <p>
-                Manage billing and reporting across multiple branches or
-                locations from one account.
-              </p>
+              <p>Several branches and GST registrations under one login.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INDUSTRIES -->
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Built for every
-            <span class="nh-accent">GST-registered business in India</span>
+            Built for every GST-registered business,
+            <span class="nh-accent">customised for your trade</span>
           </h2>
-          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">
-            Our GST software adapts to the unique billing and compliance needs
-            of 10+ business types.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">GST Billing adapts to the invoicing needs of 10+ industries across India.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-store"></i><span>Retail Traders</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
               <i class="fas fa-industry"></i><span>Manufacturers</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-exchange-alt"></i><span>Wholesalers</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-warehouse"></i><span>Wholesalers</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
               <i class="fas fa-laptop-code"></i><span>IT &amp; Services</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-cart"></i><span>E-Commerce</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-cart-shopping"></i><span>E-Commerce</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-hospital"></i><span>Healthcare</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
               <i class="fas fa-graduation-cap"></i><span>Education</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-hard-hat"></i><span>Construction</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-helmet-safety"></i><span>Construction</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
               <i class="fas fa-truck"></i><span>Logistics</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
               <i class="fas fa-utensils"></i><span>Restaurants</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CHOOSE -->
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
             Why businesses choose
             <span class="nh-accent">our GST Billing Software</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >Compliance, accounts and invoicing without the complexity.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-check-circle"></i
-              ><strong>100% GST Compliant</strong>
-              <p>
-                Every invoice auto-calculates correct CGST, SGST, and IGST — no
-                errors, no notices.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-circle-check"></i>
+              <strong>Always Compliant</strong>
+              <p>Tax rules built in, so every invoice is correct the first time.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-clock"></i><strong>Save Hours on Filing</strong>
-              <p>
-                GSTR reports are auto-generated. What used to take 3 days takes
-                3 minutes.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-clock"></i>
+              <strong>Save Hours Every Month</strong>
+              <p>Returns data is ready without manual reconciliation.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-cloud"></i><strong>Cloud Access Anywhere</strong>
-              <p>
-                Access accounts from desktop, mobile, or tablet — no software
-                installation needed.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-handshake"></i>
+              <strong>Accountant Friendly</strong>
+              <p>Clean exports and reports your CA can use directly.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-file-export"></i
-              ><strong>CA-Ready Reports</strong>
-              <p>
-                Export P&amp;L, Balance Sheet, and GSTR reports in exact format
-                your CA needs.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-coins"></i>
+              <strong>Better Cash Flow</strong>
+              <p>Ageing and reminders help you collect faster.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-building"></i
-              ><strong>Multi-Branch Support</strong>
-              <p>
-                Manage multiple shops or branches from one central account with
-                consolidated reports.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-cloud"></i>
+              <strong>Cloud Access</strong>
+              <p>Work from the office, home or on the road with automatic backups.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-rocket"></i><strong>Quick Setup</strong>
-              <p>
-                Import your products, set GST rates, and start billing — all in
-                under 2 hours.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-lock"></i>
+              <strong>Secure Data</strong>
+              <p>Role-based access and secure storage for sensitive financial data.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-shield-alt"></i
-              ><strong>Secure &amp; Backed Up</strong>
-              <p>
-                All your financial data is encrypted and backed up daily on
-                secure cloud servers.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Quick Setup</strong>
+              <p>Import parties and items from Excel and start invoicing today.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-headset"></i
-              ><strong>Local Expert Support</strong>
-              <p>
-                Our team understands GST and can help resolve billing or
-                compliance questions directly.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — real help, fast responses.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+<!-- TESTIMONIALS -->
       <section class="nh-testi-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">

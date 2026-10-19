@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="../css/pages/product-nh.css" />
     <link
       rel="preload"
-      href="../assets/images/products/kirana-mgmt-what-is.png"
+      href="../assets/images/products/kirana-details/kirana-person.webp"
       as="image"
     />
     <link
@@ -554,45 +554,46 @@
         </section>
         <section class="home-hero-v1 nh-hero-split">
           <div class="nh-hs-inner">
+            <!-- LEFT: Text -->
             <div class="nh-hs-left slide-left">
-              <span class="nh-hs-tag">Kirana Store Software</span>
-              <h1>Kirana Store Billing &amp; Management Software</h1>
-              <p>
-                Manage your kirana store effortlessly â€” fast counter billing,
-                inventory tracking, udhar/credit management, WhatsApp bill
-                sharing, GST invoicing, barcode scanning, and daily sales
-                reports â€” all from one simple platform. Built for kirana shops
-                and small retailers across India.
-              </p>
+              <span class="nh-hs-tag">Kirana Store Billing</span>
+              <h1>Kirana Store Billing<br />&amp; Management Software</h1>
+              <p>Bill faster, track stock, manage udhar (credit) and send bills on WhatsApp — all from one simple app made for kirana and grocery stores. Built for the way Indian neighbourhood shops actually work.</p>
               <a
                 href="https://www.pixelatenest.com/pages/contact.html"
                 class="nh-hs-cta"
                 >Explore Now</a
               >
             </div>
+
+            <!-- RIGHT: hero visual (cards & circle are baked into the image) -->
             <div class="nh-hs-right slide-right">
               <img
-                src="../assets/images/products/kirana-mgmt-what-is.png"
-                alt="Kirana Store Billing Software Dashboard"
-                class="nh-hs-dashboard"
+                src="../assets/images/products/kirana-details/kirana-person.webp"
+                alt="Kirana Store Billing Software"
+                class="nh-hs-person"
                 loading="eager"
                 fetchpriority="high"
-                width="520"
-                height="400"
+                width="720"
+                height="680"
               />
             </div>
           </div>
         </section>
       </div>
+
+      <!-- ========== REDESIGNED PRODUCT SECTIONS ========== -->
+      <!-- SECTION: About -->
       <section class="nh-about-section">
         <div class="nh-container">
           <div class="nh-about-row">
             <div class="nh-about-right slide-right">
+              <!-- YouTube Short Card -->
               <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
                 <img
                   class="nh-yt-thumb"
-                  src="../assets/images/products/kirana-mgmt-what-is.png"
-                  alt="Kirana Store Software Demo"
+                  src="../assets/images/products/kirana-details/dashboard.webp"
+                  alt="Kirana Store Billing Software Demo"
                   style="object-fit: cover"
                 />
                 <div class="nh-yt-card-overlay">
@@ -604,116 +605,94 @@
                 </div>
                 <div class="nh-yt-card-label">
                   <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>See how our Kirana Store Software works in 60 seconds</p>
+                  <p>See how Kirana billing simplifies your shop in 60 seconds</p>
                 </div>
               </div>
-              <div
-                class="nh-yt-modal-backdrop"
-                id="nhYtModalBackdrop"
-                onclick="nhCloseYtModal(event)"
-              >
-                <div class="nh-yt-modal" id="nhYtModal">
-                  <button
-                    class="nh-yt-modal-close"
-                    onclick="nhCloseYtModal(null, true)"
-                    aria-label="Close"
-                  >
-                    &times;</button
-                  ><iframe
-                    id="nhYtIframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="nh-yt-modal-backdrop"
+              id="nhYtModalBackdrop"
+              onclick="nhCloseYtModal(event)"
+            >
+              <div class="nh-yt-modal" id="nhYtModal">
+                <button
+                  class="nh-yt-modal-close"
+                  onclick="nhCloseYtModal(null, true)"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <iframe
+                  id="nhYtIframe"
+                  src=""
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <script>
-                var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-                function nhOpenYtModal() {
-                  document.getElementById("nhYtIframe").src =
-                    "https://www.youtube.com/embed/" +
-                    NH_YT_ID +
-                    "?autoplay=1&rel=0";
+            </div>
+
+            <script>
+              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
+              function nhOpenYtModal() {
+                document.getElementById("nhYtIframe").src =
+                  "https://www.youtube.com/embed/" +
+                  NH_YT_ID +
+                  "?autoplay=1&rel=0";
+                document
+                  .getElementById("nhYtModalBackdrop")
+                  .classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function nhCloseYtModal(e, force) {
+                if (
+                  force ||
+                  (e &&
+                    e.target === document.getElementById("nhYtModalBackdrop"))
+                ) {
+                  document.getElementById("nhYtIframe").src = "";
                   document
                     .getElementById("nhYtModalBackdrop")
-                    .classList.add("active");
-                  document.body.style.overflow = "hidden";
+                    .classList.remove("active");
+                  document.body.style.overflow = "";
                 }
-                function nhCloseYtModal(e, f) {
-                  if (
-                    f ||
-                    (e &&
-                      e.target === document.getElementById("nhYtModalBackdrop"))
-                  ) {
-                    document.getElementById("nhYtIframe").src = "";
-                    document
-                      .getElementById("nhYtModalBackdrop")
-                      .classList.remove("active");
-                    document.body.style.overflow = "";
-                  }
-                }
-                document.addEventListener("keydown", function (e) {
-                  if (e.key === "Escape") nhCloseYtModal(null, true);
-                });
-              </script>
-            </div>
+              }
+              document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") nhCloseYtModal(null, true);
+              });
+            </script>
             <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About the Software</span>
-              <h2>
-                End-to-end kirana store management â€” from billing to profit
-                tracking
-              </h2>
-              <p>
-                Our Kirana Store Billing and Management Software by Pixelate
-                Nest is built for kirana shops and small retail stores across
-                India. Speed up billing with barcode scanning, track inventory
-                automatically, manage customer credit (udhar), share bills on
-                WhatsApp, file GST, and get daily sales and profit reports â€”
-                all from one easy-to-use system.
-              </p>
+              <span class="nh-about-tag">About Kirana Billing</span>
+              <h2>One app to run your entire kirana store</h2>
+              <p>Kirana Store Billing by Pixelate Nest is a simple, fast billing and management app for kirana shops, grocery and general stores. Counter billing, inventory, udhar management, purchases and GST invoicing work together, so you always know your stock, your credit and your profit.</p>
               <div class="nh-about-highlights">
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-cash-register"></i>
-                  </div>
+                  <div class="nh-hl-icon"><i class="fas fa-book-open"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Fast Counter Billing</strong
-                    ><span
-                      >Bill a customer in under 10 seconds with barcode scan â€”
-                      print or share on WhatsApp instantly.</span
-                    >
+                    <strong>Udhar Management</strong>
+                    <span>Track what every customer owes, record part payments and send reminders.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-boxes"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-comment-dots"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Inventory Management</strong
-                    ><span
-                      >Auto stock deduction on each sale, low stock alerts,
-                      expiry tracking, and purchase management.</span
-                    >
+                    <strong>WhatsApp Bills</strong>
+                    <span>Send bills and payment reminders to customers on WhatsApp in one tap.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-hand-holding-usd"></i>
-                  </div>
+                  <div class="nh-hl-icon"><i class="fas fa-barcode"></i></div>
                   <div class="nh-hl-text">
-                    <strong>Udhar / Credit Book</strong
-                    ><span
-                      >Record customer credit digitally, track pending payments,
-                      and send WhatsApp reminders automatically.</span
-                    >
+                    <strong>Barcode Scanning</strong>
+                    <span>Scan items with a USB scanner or phone camera for quick billing.</span>
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fab fa-whatsapp"></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-language"></i></div>
                   <div class="nh-hl-text">
-                    <strong>WhatsApp Billing</strong
-                    ><span
-                      >Share GST-compliant bills to customers on WhatsApp in one
-                      tap â€” no paper needed.</span
-                    >
+                    <strong>Simple to Use</strong>
+                    <span>Easy screens designed for shop owners and counter staff.</span>
                   </div>
                 </div>
               </div>
@@ -721,32 +700,29 @@
           </div>
         </div>
       </section>
+
+      <!-- SECTION: Screens -->
       <section class="nh-methods-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Every kirana function managed,<br /><span class="nh-accent"
-              >in one connected platform</span
-            >
+            Everything your kirana needs,<br /><span class="nh-accent">in one simple app</span>
           </h2>
-          <p class="nh-section-sub">
-            Billing, inventory, udhar, WhatsApp, GST, and daily reports â€” all
-            seamlessly connected for kirana shops.
-          </p>
+          <p class="nh-section-sub">See the billing, stock, udhar and reports screens you will use every day.</p>
           <div class="nh-methods-grid">
             <div
               class="nh-method-card slide-up"
               style="transition-delay: 0s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/kirana-mgmt-what-is.png',
-                  'Store Dashboard',
+                  '../assets/images/products/kirana-details/dashboard.webp',
+                  'Shop Dashboard',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/kirana-mgmt-what-is.png"
-                  alt="Store Dashboard"
+                  src="../assets/images/products/kirana-details/dashboard.webp"
+                  alt="Shop Dashboard"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -758,11 +734,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Store Dashboard</p>
-                <span
-                  >Live sales, stock levels, pending udhar, and today's billing
-                  summary at a glance.</span
-                >
+                <p>Shop Dashboard</p>
+                <span>Today's sales, credit given, stock alerts and profit snapshot.</span>
               </div>
             </div>
             <div
@@ -770,14 +743,14 @@
               style="transition-delay: 0.1s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/kirana-mgmt-features.png',
+                  '../assets/images/products/kirana-details/billing.webp',
                   'Counter Billing',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/kirana-mgmt-features.png"
+                  src="../assets/images/products/kirana-details/billing.webp"
                   alt="Counter Billing"
                   loading="lazy"
                   width="400"
@@ -791,10 +764,7 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Counter Billing</p>
-                <span
-                  >Barcode scan billing in under 10 seconds â€” print or
-                  WhatsApp the bill instantly.</span
-                >
+                <span>Scan or search items and print or share the bill in seconds.</span>
               </div>
             </div>
             <div
@@ -802,15 +772,15 @@
               style="transition-delay: 0.2s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/kirana-mgmt-benefits.png',
-                  'Inventory Management',
+                  '../assets/images/products/kirana-details/inventory.webp',
+                  'Stock Management',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/kirana-mgmt-benefits.png"
-                  alt="Inventory Management"
+                  src="../assets/images/products/kirana-details/inventory.webp"
+                  alt="Stock Management"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -822,11 +792,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Inventory Management</p>
-                <span
-                  >Auto stock deduction on sales, low stock alerts, and expiry
-                  date tracking.</span
-                >
+                <p>Stock Management</p>
+                <span>Stock levels, expiry and low-stock alerts for every item.</span>
               </div>
             </div>
             <div
@@ -834,15 +801,15 @@
               style="transition-delay: 0.3s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/kirana-mgmt-why.png',
-                  'Udhar Credit Book',
+                  '../assets/images/products/kirana-details/udhar.webp',
+                  'Udhar Ledger',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/kirana-mgmt-why.png"
-                  alt="Udhar Credit Book"
+                  src="../assets/images/products/kirana-details/udhar.webp"
+                  alt="Udhar Ledger"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -854,11 +821,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>Udhar / Credit Book</p>
-                <span
-                  >Digital khata for every customer â€” track balances and send
-                  WhatsApp reminders.</span
-                >
+                <p>Udhar Ledger</p>
+                <span>Customer-wise credit, payments received and pending dues.</span>
               </div>
             </div>
             <div
@@ -866,15 +830,15 @@
               style="transition-delay: 0.4s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/kirana-mgmt-advantage.png',
-                  'WhatsApp Billing',
+                  '../assets/images/products/kirana-details/purchases.webp',
+                  'Purchase Entry',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/kirana-mgmt-advantage.png"
-                  alt="WhatsApp Billing"
+                  src="../assets/images/products/kirana-details/purchases.webp"
+                  alt="Purchase Entry"
                   loading="lazy"
                   width="400"
                   height="260"
@@ -886,11 +850,8 @@
                 </div>
               </div>
               <div class="nh-method-card-body">
-                <p>WhatsApp Billing</p>
-                <span
-                  >Share GST-compliant digital bills on WhatsApp in one tap â€”
-                  paperless and instant.</span
-                >
+                <p>Purchase Entry</p>
+                <span>Record supplier purchases and update stock automatically.</span>
               </div>
             </div>
             <div
@@ -898,14 +859,14 @@
               style="transition-delay: 0.5s"
               onclick="
                 nhDashOpen(
-                  '../assets/images/products/kirana-mgmt-industries.png',
+                  '../assets/images/products/kirana-details/reports.webp',
                   'Sales Reports',
                 )
               "
             >
               <div class="nh-method-card-img-wrap">
                 <img
-                  src="../assets/images/products/kirana-mgmt-industries.png"
+                  src="../assets/images/products/kirana-details/reports.webp"
                   alt="Sales Reports"
                   loading="lazy"
                   width="400"
@@ -919,81 +880,61 @@
               </div>
               <div class="nh-method-card-body">
                 <p>Sales Reports</p>
-                <span
-                  >Daily, weekly, and monthly sales and profit reports with
-                  product-wise breakdown.</span
-                >
+                <span>Daily sales, profit and GST reports at a tap.</span>
               </div>
             </div>
           </div>
+
+          <!-- Dashboard preview modal -->
+          <div
+            class="nh-dash-modal-backdrop"
+            id="nhDashBackdrop"
+            onclick="nhDashClose(event)"
+          >
+            <div class="nh-dash-modal">
+              <button
+                class="nh-dash-modal-close"
+                onclick="nhDashClose(null, true)"
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <img id="nhDashModalImg" src="" alt="" />
+            </div>
+          </div>
+          <script>
+            function nhDashOpen(src, alt) {
+              var img = document.getElementById("nhDashModalImg");
+              img.src = src;
+              img.alt = alt;
+              document.getElementById("nhDashBackdrop").classList.add("active");
+              document.body.style.overflow = "hidden";
+            }
+            function nhDashClose(e, force) {
+              if (
+                force ||
+                (e && e.target === document.getElementById("nhDashBackdrop"))
+              ) {
+                document
+                  .getElementById("nhDashBackdrop")
+                  .classList.remove("active");
+                document.body.style.overflow = "";
+              }
+            }
+            document.addEventListener("keydown", function (e) {
+              if (e.key === "Escape") nhDashClose(null, true);
+            });
+          </script>
         </div>
       </section>
-      <div
-        id="nhDashModal"
-        style="
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.85);
-          z-index: 9999;
-          align-items: center;
-          justify-content: center;
-        "
-        onclick="nhDashClose(event)"
-      >
-        <button
-          onclick="nhDashClose(null, true)"
-          style="
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-          "
-        >
-          &times;</button
-        ><img
-          id="nhDashImg"
-          src=""
-          alt=""
-          style="
-            max-width: 90%;
-            max-height: 85vh;
-            border-radius: 8px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-          "
-        />
-      </div>
-      <script>
-        function nhDashOpen(s, t) {
-          var m = document.getElementById("nhDashModal");
-          document.getElementById("nhDashImg").src = s;
-          document.getElementById("nhDashImg").alt = t;
-          m.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        }
-        function nhDashClose(e, f) {
-          if (f || (e && e.target === document.getElementById("nhDashModal"))) {
-            document.getElementById("nhDashModal").style.display = "none";
-            document.getElementById("nhDashImg").src = "";
-            document.body.style.overflow = "";
-          }
-        }
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") nhDashClose(null, true);
-        });
-      </script>
+
+      <!-- ===== FEATURE DETAIL SECTIONS ===== -->
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/kirana-mgmt-features.png"
+              src="../assets/images/products/kirana-details/billing.webp"
               alt="Counter Billing"
               loading="lazy"
               width="640"
@@ -1002,70 +943,53 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Fast counter billing<span
-                >Bill a customer in under 10 seconds</span
-              >
+              Billing that keeps up with your rush hour<span>Scan, bill and share on WhatsApp</span>
             </h2>
-            <p>
-              Your customer walks in, you scan the barcode, and the bill is
-              ready in under 10 seconds. Print it, or share it on WhatsApp
-              instantly. No queue, no waiting, no manual errors.
-            </p>
+            <p>Scan a barcode or search by name and add items to the bill instantly. Accept cash, UPI or card, print the receipt, or send the bill straight to the customer's WhatsApp.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Barcode scanner support
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Barcode scanner and quick item search
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Search product by name or barcode
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Cash, UPI, card and split payments
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Multiple payment modes (cash, UPI, card)
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Print or share bills on WhatsApp
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Print
-                or WhatsApp bill instantly
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Hold bills and resume later
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              Inventory management<span>Never run out of stock again</span>
+              Never run out of fast-moving items<span>Stock and expiry always visible</span>
             </h2>
-            <p>
-              Every sale automatically deducts from your stock. Get low stock
-              alerts before items run out. Track expiry dates on perishables so
-              nothing goes to waste.
-            </p>
+            <p>Every bill reduces stock and every purchase adds to it. See low-stock and near-expiry items on the dashboard so you reorder in time and avoid dead stock.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Auto
-                stock deduction on each sale
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Automatic stock update on every bill
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Low
-                stock alerts per product
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Low-stock and expiry alerts
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Expiry date tracking for perishables
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Item, brand and category-wise stock
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Purchase and reorder management
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Easy item import from Excel
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/kirana-mgmt-benefits.png"
-              alt="Inventory Management"
+              src="../assets/images/products/kirana-details/inventory.webp"
+              alt="Inventory Control"
               loading="lazy"
               width="640"
               height="480"
@@ -1073,12 +997,13 @@
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/kirana-mgmt-why.png"
-              alt="Udhar Credit Book"
+              src="../assets/images/products/kirana-details/udhar.webp"
+              alt="Udhar Management"
               loading="lazy"
               width="640"
               height="480"
@@ -1086,72 +1011,53 @@
           </div>
           <div class="nsf-content slide-right">
             <h2>
-              Udhar / credit book management<span
-                >Digital khata for every customer</span
-              >
+              Credit that you can actually track<span>Know who owes what, every day</span>
             </h2>
-            <p>
-              Replace your physical khata with a digital udhar book. Track how
-              much every customer owes you, record payments, and send WhatsApp
-              reminders automatically â€” recover dues faster.
-            </p>
+            <p>Record credit sales against a customer in one tap and note every part payment. Send a WhatsApp reminder when dues build up, and see total outstanding at a glance.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Record customer credit (udhar) digitally
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Customer-wise udhar ledger
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Track
-                pending payments per customer
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Part payments and settlements
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >WhatsApp reminder to customers
+                <span class="nsf-check"><i class="fas fa-check"></i></span>WhatsApp payment reminders
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span>Full
-                payment history per customer
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Credit limit per customer
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="nsf-section">
         <div class="nsf-row">
           <div class="nsf-content slide-right">
             <h2>
-              GST billing &amp; daily sales reports<span
-                >File GST, know your profit daily</span
-              >
+              Keep your supplier accounts clean<span>Purchases update your stock and your books</span>
             </h2>
-            <p>
-              Generate GST-compliant invoices with one click. Get daily, weekly,
-              and monthly sales reports. Know which products are your best
-              sellers and what your profit margin is â€” every day.
-            </p>
+            <p>Enter supplier bills, update stock and prices automatically, and see what you owe each supplier. Compare purchase and selling price to see your true margin.</p>
             <ul class="nsf-bullets">
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >GST-compliant invoice generation
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Supplier-wise purchase entry
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Daily, weekly, and monthly sales reports
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Automatic cost and stock update
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Product-wise and category-wise sales
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Supplier dues tracking
               </li>
               <li>
-                <span class="nsf-check"><i class="fas fa-check"></i></span
-                >Profit margin tracking per product
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Margin visibility per item
               </li>
             </ul>
           </div>
           <div class="nsf-img-box slide-left">
             <img
-              src="../assets/images/products/kirana-mgmt-advantage.png"
-              alt="GST Billing Reports"
+              src="../assets/images/products/kirana-details/purchases.webp"
+              alt="Purchases &amp; Suppliers"
               loading="lazy"
               width="640"
               height="480"
@@ -1159,214 +1065,193 @@
           </div>
         </div>
       </div>
+
+      <div class="nsf-section">
+        <div class="nsf-row">
+          <div class="nsf-img-box slide-left">
+            <img
+              src="../assets/images/products/kirana-details/reports.webp"
+              alt="Reports &amp; GST"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+          <div class="nsf-content slide-right">
+            <h2>
+              Know your profit, file with ease<span>Daily numbers without a calculator</span>
+            </h2>
+            <p>See daily sales, profit, top-selling items and payment mode summaries. GST invoicing and tax reports are ready for your accountant whenever you need them.</p>
+            <ul class="nsf-bullets">
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Daily sales and profit report
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Top-selling and slow-moving items
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>GST invoices and tax reports
+              </li>
+              <li>
+                <span class="nsf-check"><i class="fas fa-check"></i></span>Export to Excel and PDF
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: Key Features -->
       <section class="nh-features-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            9 powerful modules to
+            Everything you need to
             <span class="nh-accent">modernise your kirana store</span>
           </h2>
-          <p class="nh-section-sub">
-            Everything kirana shop owners need â€” billing, inventory, udhar,
-            WhatsApp, GST, and analytics.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">9+ features built for neighbourhood shops.</p>
           <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-cash-register"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-cash-register"></i></div>
               <h3>Counter Billing</h3>
-              <p>
-                Barcode-scan billing in under 10 seconds â€” print receipt or
-                share on WhatsApp instantly.
-              </p>
+              <p>Fast billing with barcode scan, quick search and instant totals.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-boxes"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-boxes-stacked"></i></div>
               <h3>Inventory Control</h3>
-              <p>
-                Auto stock deduction on every sale with low stock alerts and
-                expiry date tracking.
-              </p>
+              <p>Live stock with low-stock and expiry alerts.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-hand-holding-usd"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
+              <div class="nh-feat-icon"><i class="fas fa-book-open"></i></div>
               <h3>Udhar Management</h3>
-              <p>
-                Digital khata for every customer â€” record credit, track dues,
-                send WhatsApp reminders.
-              </p>
+              <p>Customer credit ledger with part payments and reminders.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
+              <div class="nh-feat-icon"><i class="fas fa-comment-dots"></i></div>
               <h3>WhatsApp Billing</h3>
-              <p>
-                Share GST invoices on WhatsApp in one tap â€” paperless,
-                instant, professional.
-              </p>
+              <p>Send bills and reminders on WhatsApp in one tap.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon">
-                <i class="fas fa-file-invoice-dollar"></i>
-              </div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
+              <div class="nh-feat-icon"><i class="fas fa-file-invoice"></i></div>
               <h3>GST Invoicing</h3>
-              <p>
-                Auto-generate GST-compliant invoices for every sale â€” no
-                separate billing software needed.
-              </p>
+              <p>GST-compliant invoices with correct tax split.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
               <div class="nh-feat-icon"><i class="fas fa-barcode"></i></div>
               <h3>Barcode Scanning</h3>
-              <p>
-                Works with any USB or Bluetooth barcode scanner â€” fast,
-                accurate, and error-free billing.
-              </p>
+              <p>USB scanner and phone camera support.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-truck"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0s">
+              <div class="nh-feat-icon"><i class="fas fa-truck-ramp-box"></i></div>
               <h3>Purchase Management</h3>
-              <p>
-                Record purchases from suppliers, update stock automatically, and
-                track supplier dues.
-              </p>
+              <p>Supplier bills, stock update and supplier dues.</p>
             </div>
-            <div class="nh-feat-card slide-up">
-              <div class="nh-feat-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
+              <div class="nh-feat-icon"><i class="fas fa-chart-line"></i></div>
               <h3>Sales Reports</h3>
-              <p>
-                Daily, weekly, monthly sales and profit reports with
-                product-wise and category-wise breakdown.
-              </p>
+              <p>Daily sales, profit and item-wise reports.</p>
             </div>
-            <div class="nh-feat-card slide-up">
+            <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
               <div class="nh-feat-icon"><i class="fas fa-wallet"></i></div>
               <h3>Multi-Payment Modes</h3>
-              <p>
-                Accept cash, UPI (PhonePe, GPay, Paytm), card, and credit â€”
-                all tracked automatically.
-              </p>
+              <p>Cash, UPI, card and split payment on one bill.</p>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- SECTION: Industries We Serve -->
       <section class="nh-industries-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up">
-            Built for every
-            <span class="nh-accent">kirana and retail store</span>
+            Built for every neighbourhood shop,
+            <span class="nh-accent">customised for your store</span>
           </h2>
-          <p class="nh-section-sub">
-            From small kirana shops to growing grocery chains across India.
-          </p>
+          <p class="nh-section-sub slide-up" style="transition-delay: 0.1s">Kirana billing adapts to 8+ kinds of small retail stores.</p>
           <div class="nh-industries-grid">
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-store"></i><span>Kirana Shops</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-basket"></i><span>Grocery Stores</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-cart-shopping"></i><span>Grocery Stores</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-shopping-cart"></i><span>General Stores</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-shop"></i><span>General Stores</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.21s">
               <i class="fas fa-box"></i><span>Provision Stores</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-store-alt"></i><span>Supermarkets</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.28s">
+              <i class="fas fa-basket-shopping"></i><span>Supermarkets</span>
             </div>
-            <div class="nh-industry-item slide-up">
+            <div class="nh-industry-item slide-up" style="transition-delay: 0s">
               <i class="fas fa-pills"></i><span>Medical Shops</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-pencil-alt"></i><span>Stationery Shops</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.07s">
+              <i class="fas fa-pen"></i><span>Stationery Shops</span>
             </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-bread-slice"></i
-              ><span>Bakery &amp; Confectionery</span>
-            </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-spa"></i><span>Cosmetic Shops</span>
-            </div>
-            <div class="nh-industry-item slide-up">
-              <i class="fas fa-glass-whiskey"></i
-              ><span>Dairy &amp; Milk Shops</span>
+            <div class="nh-industry-item slide-up" style="transition-delay: 0.14s">
+              <i class="fas fa-spray-can"></i><span>Cosmetic Shops</span>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- SECTION: Why Choose -->
       <section class="nh-why-section">
         <div class="nh-container">
           <h2 class="nh-section-title slide-up" style="text-align: center">
-            Why kirana store owners choose
-            <span class="nh-accent">our billing software</span>
+            Why shop owners choose
+            <span class="nh-accent">our Kirana Billing Software</span>
           </h2>
+          <p
+            class="nh-section-sub slide-up"
+            style="transition-delay: 0.1s; text-align: center"
+          >Simple, fast and made for the way your shop works.</p>
           <div class="nh-why-grid">
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-bolt"></i><strong>Bill in 10 Seconds</strong>
-              <p>
-                Barcode scan billing cuts billing time from 5 minutes to 10
-                seconds â€” shorter queues, faster sales.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-bolt"></i>
+              <strong>Faster Billing</strong>
+              <p>Serve more customers in less time at your counter.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-boxes"></i><strong>Auto Stock Update</strong>
-              <p>
-                Every sale auto-deducts from inventory â€” always know what you
-                have without counting manually.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-book-open"></i>
+              <strong>Credit Under Control</strong>
+              <p>No more paper udhar registers or forgotten dues.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-hand-holding-usd"></i
-              ><strong>Digital Udhar Book</strong>
-              <p>
-                Replace your paper khata â€” digital records, auto reminders,
-                70% better recovery of dues.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-boxes-stacked"></i>
+              <strong>Stock Visibility</strong>
+              <p>Know what is running low before a customer asks.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fab fa-whatsapp"></i><strong>WhatsApp Bills</strong>
-              <p>
-                Customers get professional GST bills on WhatsApp instantly â€”
-                builds trust and saves paper.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-comment-dots"></i>
+              <strong>Connected Customers</strong>
+              <p>Send bills and reminders on the app customers already use.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-file-invoice-dollar"></i
-              ><strong>GST Ready</strong>
-              <p>
-                Auto-generate GST invoices for every sale â€” stay compliant,
-                file returns easily.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0s">
+              <i class="fas fa-file-invoice"></i>
+              <strong>GST Ready</strong>
+              <p>Invoices and reports that satisfy compliance without hassle.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-shield-alt"></i><strong>No Data Loss</strong>
-              <p>
-                All data backed up on cloud â€” even if your device is lost,
-                your data is always safe.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
+              <i class="fas fa-mobile-alt"></i>
+              <strong>Works on Phone &amp; PC</strong>
+              <p>Use it on a mobile, tablet or computer — your choice.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-chart-line"></i
-              ><strong>Daily Profit Report</strong>
-              <p>
-                Know exactly how much you earned and spent today â€” make
-                smarter buying decisions.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
+              <i class="fas fa-rocket"></i>
+              <strong>Start in an Hour</strong>
+              <p>Add your items and start billing the same day.</p>
             </div>
-            <div class="nh-why-card slide-up">
-              <i class="fas fa-graduation-cap"></i
-              ><strong>Free Setup Training</strong>
-              <p>
-                Our team sets up and trains your staff in person or on video
-                call â€” no tech skills needed.
-              </p>
+            <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
+              <i class="fas fa-headset"></i>
+              <strong>Dedicated Support</strong>
+              <p>Real people on call, email and chat — help in your language.</p>
             </div>
           </div>
         </div>
       </section>
-      <section class="nh-stats-section">
+
+<section class="nh-stats-section">
         <div class="nh-container">
           <div class="nh-stats-grid">
             <div class="nh-stat-item slide-up">
