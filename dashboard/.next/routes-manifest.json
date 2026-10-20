@@ -117,14 +117,6 @@
       "namedRegex": "^/api/fixed\\-expenses/(?<nxtPid>[^/]+?)/payment(?:/)?$"
     },
     {
-      "page": "/api/hrms-manage/[...path]",
-      "regex": "^/api/hrms\\-manage/(.+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPpath": "nxtPpath"
-      },
-      "namedRegex": "^/api/hrms\\-manage/(?<nxtPpath>.+?)(?:/)?$"
-    },
-    {
       "page": "/api/hrms-offers/[id]",
       "regex": "^/api/hrms\\-offers/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -203,6 +195,15 @@
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/api/photos/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/product-accounts/[product]/[[...path]]",
+      "regex": "^/api/product\\-accounts/([^/]+?)(?:/(.+?))?(?:/)?$",
+      "routeKeys": {
+        "nxtPproduct": "nxtPproduct",
+        "nxtPpath": "nxtPpath"
+      },
+      "namedRegex": "^/api/product\\-accounts/(?<nxtPproduct>[^/]+?)(?:/(?<nxtPpath>.+?))?(?:/)?$"
     },
     {
       "page": "/api/projects/[id]",
@@ -547,12 +548,6 @@
       "regex": "^/api/hrms/support\\-tickets(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/hrms/support\\-tickets(?:/)?$"
-    },
-    {
-      "page": "/api/hrms-accounts",
-      "regex": "^/api/hrms\\-accounts(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/hrms\\-accounts(?:/)?$"
     },
     {
       "page": "/api/hrms-offers",
@@ -1161,10 +1156,46 @@
       "namedRegex": "^/nda\\-approval(?:/)?$"
     },
     {
+      "page": "/nest-care/accounts",
+      "regex": "^/nest\\-care/accounts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-care/accounts(?:/)?$"
+    },
+    {
+      "page": "/nest-care/metrics",
+      "regex": "^/nest\\-care/metrics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-care/metrics(?:/)?$"
+    },
+    {
+      "page": "/nest-gym/accounts",
+      "regex": "^/nest\\-gym/accounts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-gym/accounts(?:/)?$"
+    },
+    {
+      "page": "/nest-gym/metrics",
+      "regex": "^/nest\\-gym/metrics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-gym/metrics(?:/)?$"
+    },
+    {
+      "page": "/nest-hr/accounts",
+      "regex": "^/nest\\-hr/accounts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-hr/accounts(?:/)?$"
+    },
+    {
       "page": "/nest-hr/invoices",
       "regex": "^/nest\\-hr/invoices(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-hr/invoices(?:/)?$"
+    },
+    {
+      "page": "/nest-hr/metrics",
+      "regex": "^/nest\\-hr/metrics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-hr/metrics(?:/)?$"
     },
     {
       "page": "/nest-hr/offers",
@@ -1185,10 +1216,22 @@
       "namedRegex": "^/nest\\-hr/support(?:/)?$"
     },
     {
+      "page": "/nest-leads/accounts",
+      "regex": "^/nest\\-leads/accounts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-leads/accounts(?:/)?$"
+    },
+    {
       "page": "/nest-leads/invoices",
       "regex": "^/nest\\-leads/invoices(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-leads/invoices(?:/)?$"
+    },
+    {
+      "page": "/nest-leads/metrics",
+      "regex": "^/nest\\-leads/metrics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-leads/metrics(?:/)?$"
     },
     {
       "page": "/nest-leads/offers",
@@ -1209,6 +1252,12 @@
       "namedRegex": "^/nest\\-leads/support(?:/)?$"
     },
     {
+      "page": "/nest-play/accounts",
+      "regex": "^/nest\\-play/accounts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-play/accounts(?:/)?$"
+    },
+    {
       "page": "/nest-play/coupons",
       "regex": "^/nest\\-play/coupons(?:/)?$",
       "routeKeys": {},
@@ -1219,6 +1268,12 @@
       "regex": "^/nest\\-play/invoices(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-play/invoices(?:/)?$"
+    },
+    {
+      "page": "/nest-play/metrics",
+      "regex": "^/nest\\-play/metrics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-play/metrics(?:/)?$"
     },
     {
       "page": "/newsletter",
@@ -1243,12 +1298,6 @@
       "regex": "^/photo\\-galleries(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/photo\\-galleries(?:/)?$"
-    },
-    {
-      "page": "/product-metrics",
-      "regex": "^/product\\-metrics(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/product\\-metrics(?:/)?$"
     },
     {
       "page": "/profile",

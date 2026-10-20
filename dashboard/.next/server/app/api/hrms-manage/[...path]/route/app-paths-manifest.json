@@ -1,3 +1,0 @@
-{
-  "/api/hrms-manage/[...path]/route": "app/api/hrms-manage/[...path]/route.js"
-}

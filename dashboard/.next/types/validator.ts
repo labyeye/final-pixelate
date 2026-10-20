@@ -353,10 +353,64 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/nest-care/accounts/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-care/accounts">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-care/accounts/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(crm)/nest-care/metrics/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-care/metrics">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-care/metrics/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(crm)/nest-gym/accounts/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-gym/accounts">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-gym/accounts/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(crm)/nest-gym/metrics/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-gym/metrics">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-gym/metrics/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(crm)/nest-hr/accounts/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-hr/accounts">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-hr/accounts/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/nest-hr/invoices/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/nest-hr/invoices">> = Specific
   const handler = {} as typeof import("../../src/app/(crm)/nest-hr/invoices/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(crm)/nest-hr/metrics/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-hr/metrics">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-hr/metrics/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -389,10 +443,28 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/nest-leads/accounts/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-leads/accounts">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-leads/accounts/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/nest-leads/invoices/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/nest-leads/invoices">> = Specific
   const handler = {} as typeof import("../../src/app/(crm)/nest-leads/invoices/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(crm)/nest-leads/metrics/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-leads/metrics">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-leads/metrics/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -425,6 +497,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/nest-play/accounts/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-play/accounts">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-play/accounts/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/nest-play/coupons/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/nest-play/coupons">> = Specific
@@ -438,6 +519,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/nest-play/invoices">> = Specific
   const handler = {} as typeof import("../../src/app/(crm)/nest-play/invoices/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(crm)/nest-play/metrics/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-play/metrics">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-play/metrics/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -474,15 +564,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/photo-galleries">> = Specific
   const handler = {} as typeof import("../../src/app/(crm)/photo-galleries/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/(crm)/product-metrics/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/product-metrics">> = Specific
-  const handler = {} as typeof import("../../src/app/(crm)/product-metrics/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -1010,24 +1091,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../src/app/api/hrms-accounts/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/hrms-accounts">> = Specific
-  const handler = {} as typeof import("../../src/app/api/hrms-accounts/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../src/app/api/hrms-manage/[...path]/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/hrms-manage/[...path]">> = Specific
-  const handler = {} as typeof import("../../src/app/api/hrms-manage/[...path]/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../src/app/api/hrms-offers/[id]/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/hrms-offers/[id]">> = Specific
@@ -1338,6 +1401,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/photos">> = Specific
   const handler = {} as typeof import("../../src/app/api/photos/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/product-accounts/[product]/[[...path]]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/product-accounts/[product]/[[...path]]">> = Specific
+  const handler = {} as typeof import("../../src/app/api/product-accounts/[product]/[[...path]]/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

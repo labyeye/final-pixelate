@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-play/layout,_N_T_/(crm)/nest-play/metrics/layout,_N_T_/(crm)/nest-play/metrics/page,_N_T_/nest-play/metrics"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-play/metrics/__PAGE__",
+    "/!KGNybSk/nest-play/metrics",
+    "/!KGNybSk/nest-play",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

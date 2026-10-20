@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-gym/layout,_N_T_/(crm)/nest-gym/accounts/layout,_N_T_/(crm)/nest-gym/accounts/page,_N_T_/nest-gym/accounts"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-gym/accounts/__PAGE__",
+    "/!KGNybSk/nest-gym/accounts",
+    "/!KGNybSk/nest-gym",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

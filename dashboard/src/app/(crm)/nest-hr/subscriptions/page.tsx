@@ -26,8 +26,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/ui/stat-card";
-import { ManageNestHrCompany } from "@/components/manage-nesthr-company";
-import { CreateNestHrAccount } from "@/components/create-nesthr-account";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -274,7 +272,6 @@ export default function NestHRSubscriptionsPage() {
               {alerts.expiringIn7Days.length} expiring in 7 days
             </Badge>
           )}
-          <CreateNestHrAccount onCreated={load} />
           <Button variant="outline" size="sm" onClick={load} className="border-2 border-black font-bold">
             <RefreshCw className="w-4 h-4 mr-1" /> Refresh
           </Button>
@@ -458,7 +455,6 @@ export default function NestHRSubscriptionsPage() {
                     <TableHead className="font-black text-xs uppercase tracking-widest">Renewal</TableHead>
                     <TableHead className="font-black text-xs uppercase tracking-widest">Last Login</TableHead>
                     <TableHead className="font-black text-xs uppercase tracking-widest text-right">Paid</TableHead>
-                    <TableHead />
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -503,12 +499,11 @@ export default function NestHRSubscriptionsPage() {
                       </TableCell>
                       <TableCell className="text-xs text-muted-foreground">{fmtDate(t.lastLogin)}</TableCell>
                       <TableCell className="text-right font-black">{fmtCurrency(t.subscription.amountPaid)}</TableCell>
-                      <TableCell><ManageNestHrCompany companyId={t.id} name={t.name} onChanged={load} /></TableCell>
                     </TableRow>
                   ))}
                   {tenants.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={9} className="text-center py-12 text-muted-foreground font-semibold">No tenants found</TableCell>
+                      <TableCell colSpan={8} className="text-center py-12 text-muted-foreground font-semibold">No tenants found</TableCell>
                     </TableRow>
                   )}
                 </TableBody>

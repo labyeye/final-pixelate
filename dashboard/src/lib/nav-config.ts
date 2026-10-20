@@ -1,4 +1,5 @@
 import {
+  Settings2,
   LayoutDashboard,
   BarChart as BarChartIcon,
   Activity,
@@ -298,18 +299,6 @@ export const navGroups = [
   },
 
   {
-    title: "Product Metrics",
-    items: [
-      {
-        href: "/product-metrics",
-        label: "Live Metrics",
-        adminOnly: true,
-        icon: Activity,
-      },
-    ],
-  },
-
-  {
     title: "Nest HR",
     items: [
       {
@@ -317,6 +306,18 @@ export const navGroups = [
         label: "Subscriptions",
         adminOnly: true,
         icon: Building2,
+      },
+      {
+        href: "/nest-hr/accounts",
+        label: "Accounts & Control",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-hr/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
       },
       {
         href: "/nest-hr/invoices",
@@ -349,6 +350,18 @@ export const navGroups = [
         icon: Building2,
       },
       {
+        href: "/nest-leads/accounts",
+        label: "Accounts & Control",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-leads/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+      {
         href: "/nest-leads/invoices",
         label: "NestLeads Invoices",
         adminOnly: true,
@@ -373,6 +386,12 @@ export const navGroups = [
     title: "Nest Play",
     items: [
       {
+        href: "/nest-play/accounts",
+        label: "Subscriptions & Accounts",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
         href: "/nest-play/invoices",
         label: "NestPlay Invoices",
         adminOnly: true,
@@ -383,6 +402,48 @@ export const navGroups = [
         label: "NestPlay Coupons",
         adminOnly: true,
         icon: Ticket,
+      },
+      {
+        href: "/nest-play/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+    ],
+  },
+
+  {
+    title: "Nest Gym",
+    items: [
+      {
+        href: "/nest-gym/accounts",
+        label: "Subscriptions & Accounts",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-gym/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+    ],
+  },
+
+  {
+    title: "Nest Care",
+    items: [
+      {
+        href: "/nest-care/accounts",
+        label: "Subscriptions & Accounts",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-care/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
       },
     ],
   },
