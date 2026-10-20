@@ -24,7 +24,7 @@ const LoginScreen = () => {
 
   const handleLogin = async () => {
     if (!email.trim() || !password.trim()) {
-      Alert.alert('Error', 'Please enter email and password');
+      Alert.alert('Error', 'Please Enter Email address and password');
       return;
     }
     setLoading(true);
@@ -63,7 +63,7 @@ const LoginScreen = () => {
               label="EMAIL"
               value={email}
               onChangeText={setEmail}
-              placeholder="Enter Your Email Address"
+              placeholder="Enter Email address"
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}

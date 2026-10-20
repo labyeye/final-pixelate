@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/ui/stat-card";
+import { CreateNestHrAccount } from "@/components/create-nesthr-account";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -272,6 +273,7 @@ export default function NestHRSubscriptionsPage() {
               {alerts.expiringIn7Days.length} expiring in 7 days
             </Badge>
           )}
+          <CreateNestHrAccount onCreated={load} />
           <Button variant="outline" size="sm" onClick={load} className="border-2 border-black font-bold">
             <RefreshCw className="w-4 h-4 mr-1" /> Refresh
           </Button>

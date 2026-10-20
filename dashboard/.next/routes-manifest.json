@@ -541,6 +541,12 @@
       "namedRegex": "^/api/hrms/support\\-tickets(?:/)?$"
     },
     {
+      "page": "/api/hrms-accounts",
+      "regex": "^/api/hrms\\-accounts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/hrms\\-accounts(?:/)?$"
+    },
+    {
       "page": "/api/hrms-offers",
       "regex": "^/api/hrms\\-offers(?:/)?$",
       "routeKeys": {},
