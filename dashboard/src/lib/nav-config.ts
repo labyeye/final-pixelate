@@ -298,6 +298,18 @@ export const navGroups = [
   },
 
   {
+    title: "Product Metrics",
+    items: [
+      {
+        href: "/product-metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+    ],
+  },
+
+  {
     title: "Nest HR",
     items: [
       {

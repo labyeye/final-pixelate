@@ -117,6 +117,14 @@
       "namedRegex": "^/api/fixed\\-expenses/(?<nxtPid>[^/]+?)/payment(?:/)?$"
     },
     {
+      "page": "/api/hrms-manage/[...path]",
+      "regex": "^/api/hrms\\-manage/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPpath": "nxtPpath"
+      },
+      "namedRegex": "^/api/hrms\\-manage/(?<nxtPpath>.+?)(?:/)?$"
+    },
+    {
       "page": "/api/hrms-offers/[id]",
       "regex": "^/api/hrms\\-offers/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -691,6 +699,12 @@
       "namedRegex": "^/api/photos(?:/)?$"
     },
     {
+      "page": "/api/product-metrics",
+      "regex": "^/api/product\\-metrics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/product\\-metrics(?:/)?$"
+    },
+    {
       "page": "/api/projects",
       "regex": "^/api/projects(?:/)?$",
       "routeKeys": {},
@@ -1229,6 +1243,12 @@
       "regex": "^/photo\\-galleries(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/photo\\-galleries(?:/)?$"
+    },
+    {
+      "page": "/product-metrics",
+      "regex": "^/product\\-metrics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/product\\-metrics(?:/)?$"
     },
     {
       "page": "/profile",
