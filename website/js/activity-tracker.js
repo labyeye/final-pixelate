@@ -12,7 +12,10 @@
   };
   var setChoice = function (v) {
     document.cookie =
-      CK + "=" + v + ";path=/;max-age=31536000;SameSite=Lax" +
+      CK +
+      "=" +
+      v +
+      ";path=/;max-age=31536000;SameSite=Lax" +
       (location.protocol === "https:" ? ";Secure" : "");
   };
   var ls = function (k, v) {
@@ -170,9 +173,9 @@
     d.setAttribute("role", "dialog");
     d.setAttribute("aria-label", "Cookie consent");
     d.innerHTML =
-      "<p>We use cookies and similar tech to count visitors and improve this site. If you accept, we record your IP address, approximate location, pages visited and device details for 90 days. Reject keeps tracking off. <a href=\"" +
+      '<p>We use cookies and similar tech to count visitors and improve this site. If you accept, we record your IP address, approximate location, pages visited and device details for 90 days. Reject keeps tracking off. <a href="' +
       POLICY +
-      "\">Cookie Policy</a></p><div class=\"pn-b\"><button type=\"button\" class=\"pn-n\">Reject</button><button type=\"button\" class=\"pn-y\">Accept</button></div>";
+      '">Cookie Policy</a></p><div class="pn-b"><button type="button" class="pn-n">Reject</button><button type="button" class="pn-y">Accept</button></div>';
     d.querySelector(".pn-y").onclick = function () {
       choose("granted");
     };
@@ -195,7 +198,7 @@
   function init() {
     var c = cookie(CK);
     if (c === "granted" || c === "denied") apply(c === "granted");
-    else apply(false), banner();
+    else (apply(false), banner());
   }
   if (document.body) init();
   else document.addEventListener("DOMContentLoaded", init);

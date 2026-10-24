@@ -199,6 +199,17 @@
         border: 1px solid #d0b8f5;
       }
 
+      .pp-tab-logo-text.nestplay {
+        background: #fff1e6;
+        color: #c2410c;
+        border: 1px solid #fed7aa;
+      }
+      .pp-tab-logo-text.nestgym {
+        background: #e6f0ff;
+        color: #044bab;
+        border: 1px solid #bcd3f7;
+      }
+
       .pp-sidebar-divider {
         border: none;
         border-top: 1px solid #eee;
@@ -1085,8 +1096,8 @@
                   >
                     <p class="hero-subheadline">
                       Learn how Pixelate Nest collects, uses, and protects your
-                      personal information across our products — NestHR and
-                      NestLeads.
+                      personal information across our products — NestHR,
+                      NestLeads, NestPlay and NestGym.
                     </p>
                   </div>
                 </div>
@@ -1136,6 +1147,20 @@
         />
         NestLeads
       </button>
+      <button
+        class="pp-mobile-tab-btn"
+        onclick="switchTab('nestplay')"
+        role="tab"
+      >
+        NestPlay
+      </button>
+      <button
+        class="pp-mobile-tab-btn"
+        onclick="switchTab('nestgym')"
+        role="tab"
+      >
+        NestGym
+      </button>
     </div>
 
     <!-- ── Main body: sidebar + content ── -->
@@ -1181,6 +1206,24 @@
             alt="Nest Leads Logo"
             class="pp-tab-logo"
           />
+        </div>
+
+        <div
+          class="pp-tab"
+          onclick="switchTab('nestplay')"
+          tabindex="0"
+          role="tab"
+        >
+          <span class="pp-tab-logo-text nestplay">NestPlay</span>
+        </div>
+
+        <div
+          class="pp-tab"
+          onclick="switchTab('nestgym')"
+          tabindex="0"
+          role="tab"
+        >
+          <span class="pp-tab-logo-text nestgym">NestGym</span>
         </div>
 
         <hr class="pp-sidebar-divider" />
@@ -1266,7 +1309,9 @@
               The date and time of your visit, the pages you view and how long
               you stay
             </li>
-            <li>Referral source (how you found our website) and campaign tags</li>
+            <li>
+              Referral source (how you found our website) and campaign tags
+            </li>
             <li>
               Device information (browser, operating system, device type, screen
               size, language and time zone)
@@ -1275,9 +1320,7 @@
               A random visitor ID and session ID stored in your browser so we
               can count returning visitors
             </li>
-            <li>
-              Technical errors (crash reports) from the pages you open
-            </li>
+            <li>Technical errors (crash reports) from the pages you open</li>
             <li>
               Cookie data (see our
               <a href="https://www.pixelatenest.com/legal/cookie-policy.html"
@@ -1320,8 +1363,8 @@
               <strong>Third parties:</strong> we do not sell or rent this data
               and we do not hand your form details to advertisers or other
               companies. Only infrastructure and email providers that deliver
-              our service process it on our behalf. Our Meta Pixel receives
-              only an anonymous "lead submitted" event, not what you typed.
+              our service process it on our behalf. Our Meta Pixel receives only
+              an anonymous "lead submitted" event, not what you typed.
             </li>
             <li>
               <strong>How long:</strong> up to 2 years from submission, then it
@@ -1376,12 +1419,8 @@
             providing services:
           </p>
           <ul>
-            <li>
-              <strong>Google Analytics</strong> — website analytics
-            </li>
-            <li>
-              <strong>Meta Pixel</strong> — advertising and remarketing
-            </li>
+            <li><strong>Google Analytics</strong> — website analytics</li>
+            <li><strong>Meta Pixel</strong> — advertising and remarketing</li>
             <li>
               <strong>Email service providers</strong> — for communication
             </li>
@@ -2411,6 +2450,275 @@
             Website: <a href="https://www.pixelatenest.com">pixelatenest.com</a>
           </p>
         </div>
+        <!-- ═══ NESTPLAY ═══ -->
+        <div id="panel-nestplay" class="pp-panel">
+          <h1>NestPlay Privacy Policy</h1>
+          <div class="pp-meta">
+            Effective: October 25, 2026 &nbsp;·&nbsp; Last Updated: October 25,
+            2026
+          </div>
+          <p>
+            Pixelate Nest (operated by Kalahanu Tech Studios LLP) provides
+            NestPlay, a cloud platform that sports academies, clubs and coaching
+            centres use to manage students, attendance, fees, batches, events,
+            staff and payroll. This policy explains what data NestPlay handles,
+            why, and your rights.
+          </p>
+
+          <h2>1. Who is responsible for the data</h2>
+          <p>
+            Each academy that uses NestPlay decides which student and staff data
+            it records. For that data the <strong>academy</strong> is the data
+            fiduciary (controller) and <strong>Pixelate Nest</strong> acts as
+            its processor. For academy owner accounts, billing and website
+            activity, Pixelate Nest is the controller.
+          </p>
+
+          <h2>2. Data we handle</h2>
+          <ul>
+            <li>
+              <strong>Academy account:</strong> owner name, email, phone,
+              password (stored only as a salted hash), academy name and
+              address.
+            </li>
+            <li>
+              <strong>Students:</strong> name, date of birth, gender, sport and
+              batch, photo (optional), attendance, fee and payment records,
+              event participation and notes entered by the academy.
+            </li>
+            <li>
+              <strong>Parents / guardians:</strong> name, phone number and
+              email, used to share fee reminders, attendance and reports, and
+              for the parent login.
+            </li>
+            <li>
+              <strong>Staff and coaches:</strong> name, contact details,
+              attendance, leave, loans and payroll records entered by the
+              academy.
+            </li>
+            <li>
+              <strong>Technical data:</strong> IP address, device and browser
+              type, and security and audit logs.
+            </li>
+          </ul>
+
+          <h2>3. Children's data</h2>
+          <p>
+            Many students are under 18. Their data is added by the academy,
+            which must have the consent of a parent or guardian before doing
+            so. We use children's data only to provide the service. We do not
+            show advertising to children, do not profile them, and do not use
+            their data for marketing.
+          </p>
+
+          <h2>4. How we use data</h2>
+          <ul>
+            <li>To run the features the academy turns on (attendance, fees,
+              events, reports, parent app)</li>
+            <li>To send OTPs, fee links and notifications the academy asks for</li>
+            <li>To secure accounts, prevent fraud and fix problems</li>
+            <li>To bill the academy for NestPlay</li>
+          </ul>
+
+          <h2>5. Sharing and service providers</h2>
+          <p>
+            We do not sell personal data and we do not share it for advertising.
+            We use a small number of service providers who process data only to
+            deliver NestPlay:
+          </p>
+          <ul>
+            <li>
+              <strong>Payment gateway (Razorpay):</strong> processes fee and
+              subscription payments. Card and UPI details go to the gateway and
+              are never stored by us.
+            </li>
+            <li>
+              <strong>WhatsApp Business (Meta):</strong> delivers OTPs, fee
+              links and notifications when the academy uses WhatsApp
+              messaging.
+            </li>
+            <li>
+              <strong>Cloud hosting and email providers:</strong> store and
+              deliver the service.
+            </li>
+          </ul>
+          <p>
+            We may disclose data if the law requires it or to protect our
+            rights and users.
+          </p>
+
+          <h2>6. Security</h2>
+          <p>
+            Data is encrypted in transit (HTTPS). Passwords are hashed, accounts
+            lock after repeated wrong attempts, access is limited by role, each
+            academy can only see its own data, and important actions are
+            logged.
+          </p>
+
+          <h2>7. Retention and deletion</h2>
+          <ul>
+            <li>Data is kept while the academy's account is active.</li>
+            <li>
+              After an account is closed, data is deleted within 90 days,
+              except records we must keep by law (for example invoices).
+            </li>
+            <li>
+              Academies can delete or export student and staff records from the
+              app. Parents and students can ask the academy, or us, to correct
+              or delete their data.
+            </li>
+          </ul>
+
+          <h2>8. Your rights</h2>
+          <p>
+            You may ask to access, correct, delete or export your personal data,
+            and to withdraw consent. For student data, contact your academy
+            first; you can also write to us at
+            <a href="mailto:support@pixelatenest.com">support@pixelatenest.com</a>
+            and we will respond within 30 days.
+          </p>
+
+          <h2>9. Changes and contact</h2>
+          <p>
+            We will post any update on this page with a new date. Questions:
+            <a href="mailto:support@pixelatenest.com">support@pixelatenest.com</a>,
+            Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar 842001.
+          </p>
+        </div>
+
+        <!-- ═══ NESTGYM ═══ -->
+        <div id="panel-nestgym" class="pp-panel">
+          <h1>NestGym Privacy Policy</h1>
+          <div class="pp-meta">
+            Effective: October 25, 2026 &nbsp;·&nbsp; Last Updated: October 25,
+            2026
+          </div>
+          <p>
+            Pixelate Nest (operated by Kalahanu Tech Studios LLP) provides
+            NestGym, a cloud platform that gyms and fitness studios use to
+            manage members, memberships, billing, trainers, classes and sales.
+            This policy explains what data NestGym handles, why, and your
+            rights.
+          </p>
+
+          <h2>1. Who is responsible for the data</h2>
+          <p>
+            Each gym decides which member and staff data it records. For that
+            data the <strong>gym</strong> is the data fiduciary (controller) and
+            <strong>Pixelate Nest</strong> is its processor. For gym owner
+            accounts, NestGym subscription billing and website activity,
+            Pixelate Nest is the controller.
+          </p>
+
+          <h2>2. Data we handle</h2>
+          <ul>
+            <li>
+              <strong>Gym account:</strong> owner name, email, phone, password
+              (stored only as a salted hash), gym name and branches.
+            </li>
+            <li>
+              <strong>Members:</strong> name, phone, email, date of birth,
+              gender, address, photo, emergency contact, fitness goal and source
+              of enquiry.
+            </li>
+            <li>
+              <strong>Health and fitness information:</strong> body measurements,
+              workout and diet plans and notes entered by the gym or trainer.
+              This is sensitive. It is visible only to the gym's authorised
+              staff and to the member in their own portal.
+            </li>
+            <li>
+              <strong>Memberships and payments:</strong> plans, invoices, dues,
+              payment and refund records, personal-training packages, locker and
+              class bookings. Card and UPI details are handled by the payment
+              gateway and are never stored by us.
+            </li>
+            <li>
+              <strong>Staff:</strong> name, role, contact details and activity
+              logs.
+            </li>
+            <li>
+              <strong>Technical data:</strong> IP address, device and browser
+              type, and security and audit logs.
+            </li>
+          </ul>
+
+          <h2>3. How we use data</h2>
+          <ul>
+            <li>To run the features the gym uses (memberships, invoices,
+              classes, reports, member portal)</li>
+            <li>To send OTPs, payment links and notices the gym asks for</li>
+            <li>To secure accounts, prevent fraud and fix problems</li>
+            <li>To bill the gym for NestGym</li>
+          </ul>
+          <p>
+            We do not sell member data, use it for advertising or share it with
+            other gyms.
+          </p>
+
+          <h2>4. Service providers</h2>
+          <ul>
+            <li>
+              <strong>Payment gateway (Razorpay):</strong> processes membership
+              and subscription payments.
+            </li>
+            <li>
+              <strong>WhatsApp Business (Meta):</strong> delivers OTPs and
+              payment links when the gym uses WhatsApp messaging.
+            </li>
+            <li>
+              <strong>Cloud hosting and email providers:</strong> store and
+              deliver the service.
+            </li>
+          </ul>
+          <p>
+            We may disclose data if the law requires it or to protect our
+            rights and users.
+          </p>
+
+          <h2>5. Security</h2>
+          <p>
+            Data is encrypted in transit (HTTPS). Passwords are hashed, accounts
+            lock after repeated wrong attempts and unlock with a WhatsApp OTP,
+            each gym can only see its own data, access is limited by role and
+            branch, and important actions are logged.
+          </p>
+
+          <h2>6. Retention and deletion</h2>
+          <ul>
+            <li>Data is kept while the gym's account is active.</li>
+            <li>
+              After an account is closed, data is deleted within 90 days, except
+              records we must keep by law (for example invoices).
+            </li>
+            <li>
+              A member who leaves can ask the gym, or us, to delete their
+              personal data. Invoices may be kept for tax purposes.
+            </li>
+          </ul>
+
+          <h2>7. Your rights</h2>
+          <p>
+            You may ask to access, correct, delete or export your personal data,
+            and to withdraw consent. Members should contact their gym first; you
+            can also write to us at
+            <a href="mailto:support@pixelatenest.com">support@pixelatenest.com</a>
+            and we will respond within 30 days.
+          </p>
+
+          <h2>8. Children</h2>
+          <p>
+            Members under 18 should be registered by a parent or guardian, and
+            the gym is responsible for obtaining that consent.
+          </p>
+
+          <h2>9. Changes and contact</h2>
+          <p>
+            We will post any update on this page with a new date. Questions:
+            <a href="mailto:support@pixelatenest.com">support@pixelatenest.com</a>,
+            Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar 842001.
+          </p>
+        </div>
       </main>
     </div>
 
@@ -2685,7 +2993,7 @@
     <script src="../js/quick-contact-buttons.js"></script>
 
     <script>
-      var TAB_INDEX = { overall: 0, nesthr: 1, nestleads: 2 };
+      var TAB_INDEX = { overall: 0, nesthr: 1, nestleads: 2, nestplay: 3, nestgym: 4 };
 
       function switchTab(id) {
         // panels
@@ -2711,9 +3019,8 @@
         document.querySelectorAll(".pp-hero-badge").forEach(function (b) {
           b.classList.remove("active");
         });
-        document
-          .querySelectorAll(".pp-hero-badge")
-          [TAB_INDEX[id]].classList.add("active");
+        var badge = document.querySelectorAll(".pp-hero-badge")[TAB_INDEX[id]];
+        if (badge) badge.classList.add("active");
 
         window.scrollTo(0, 0);
       }

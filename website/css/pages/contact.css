@@ -326,7 +326,7 @@ select.text-field-v5 {
     padding: 28px 20px;
   }
   .form-grid {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
   .form-actions {
