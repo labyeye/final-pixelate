@@ -105,8 +105,37 @@ window.addEventListener("DOMContentLoaded", () => {
     ".form-error-message, .w-form-fail",
   );
 
+  // Fresh math captcha on load and after every attempt.
+  // ponytail: client-side only; add Turnstile/reCAPTCHA + server verify for real bot protection.
+  const capQ = contactForm.querySelector("#captcha-q");
+  const capIn = contactForm.querySelector("#captcha");
+  let capAns = 0;
+  const newCaptcha = () => {
+    const a = 1 + Math.floor(Math.random() * 9);
+    const b = 1 + Math.floor(Math.random() * 9);
+    capAns = a + b;
+    capQ.textContent = a + " + " + b;
+    capIn.value = "";
+  };
+  newCaptcha();
+  contactForm
+    .querySelector("#captcha-refresh")
+    .addEventListener("click", newCaptcha);
+
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    const hp = contactForm.querySelector("#hp-website");
+    if (hp && hp.value) return; // bot filled the honeypot
+    if (!contactForm.querySelector("#consent").checked) {
+      alert("Please accept the Terms & Conditions and Privacy Policy.");
+      return;
+    }
+    if (parseInt(capIn.value, 10) !== capAns) {
+      alert("Captcha answer is wrong. Please try the new question.");
+      newCaptcha();
+      return;
+    }
 
     if (submitBtn) {
       if (submitBtn.tagName === "INPUT") submitBtn.value = "Sending...";
@@ -179,6 +208,7 @@ window.addEventListener("DOMContentLoaded", () => {
     } catch (_) {
       if (errorEl) errorEl.style.display = "block";
     } finally {
+      newCaptcha();
       if (submitBtn) {
         if (submitBtn.tagName === "INPUT") submitBtn.value = "Send Message";
         else submitBtn.textContent = "Send Message";

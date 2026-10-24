@@ -957,9 +957,33 @@
             </div>
           </div>
         </section>
+        <section class="home-hero-v1">
+          <div class="container">
+            <div class="home-hero-v1-wrap">
+              <div class="hero-v1-content">
+                <div class="hero-v1-title-wrap">
+                  <div class="hero-trust-badge">
+                    <div class="trust-avatars"><img src="../assets/images/homescreen/customer/customer1.webp" alt="Satisfied Pixelate Nest client" class="trust-avatar" width="40" height="40" /><img src="../assets/images/homescreen/customer/customer2.webp" alt="Satisfied Pixelate Nest client" class="trust-avatar" width="40" height="40" /><img src="../assets/images/homescreen/customer/customer3.webp" alt="Satisfied Pixelate Nest client" class="trust-avatar" width="40" height="40" /><img src="../assets/images/homescreen/customer/customer4.webp" alt="Satisfied Pixelate Nest client" class="trust-avatar" width="40" height="40" /></div>
+                    <div class="trust-text">TRUSTED BY <span class="trust-number">20+</span> DELIGHTED CUSTOMERS</div>
+                  </div>
+                  <div class="heading-wrap hero-v1-heading">
+                    <h1 class="h1 hero-heading hero-main-title">Let's Talk About Your <i style="font-weight: 100">Project</i></h1>
+                  </div>
+                  <div class="sub-heading-wrap">
+                    <p class="hero-subheadline">Tell us what you need — web, app, software or video. Our team replies within one business day.</p>
+                  </div>
+                  <div class="hero-cta-wrap">
+                    <a href="#contactForm" class="hero-cta-button">Send a Message <span class="cta-arrow">&rarr;</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       <div class="contact-wrap">
         <div class="contact-bottom">
+          <div class="contact-left">
           <div class="contact-cards">
             <div class="contact-card">
               <div class="contact-card-icon">
@@ -968,7 +992,6 @@
               <div class="contact-card-content">
                 <div class="contact-card-title">Email Us</div>
                 <div class="contact-card-text">
-                  Drop us an email anytime<br />
                   <a href="mailto:support@pixelatenest.com"
                     >support@pixelatenest.com</a
                   >
@@ -983,7 +1006,6 @@
               <div class="contact-card-content">
                 <div class="contact-card-title">Call Us</div>
                 <div class="contact-card-text">
-                  Mon-Sat from 9am to 6pm<br />
                   <a href="tel:+918406912345">+91-84069-12345</a>
                 </div>
               </div>
@@ -1008,9 +1030,6 @@
               </div>
               <div class="contact-card-content">
                 <div class="contact-card-title">Follow Us</div>
-                <div class="contact-card-text">
-                  Connect with us on social media
-                </div>
                 <div class="social-links">
                   <a
                     href="https://www.instagram.com/pixelate.nest/"
@@ -1040,6 +1059,20 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="contact-map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.086318651575!2d85.3861634769135!3d26.12872839333906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed1135dfaf1cd5%3A0x7e4c957d563dd2f0!2sKalahanu%20Tech%20Studios%20LLP!5e0!3m2!1sen!2sin!4v1774911745773!5m2!1sen!2sin"
+              width="600"
+              height="100%"
+              style="border: 0; width: 100%; height: 100%; display: block"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Kalahanu Tech Studios LLP on Google Maps"
+            ></iframe>
+          </div>
           </div>
 
           <div class="contact-form-section">
@@ -1074,14 +1107,17 @@
                   </div>
 
                   <div class="form-field">
-                    <label for="phone" class="form-label">Phone</label>
+                    <label for="phone" class="form-label">Phone *</label>
                     <input
                       type="tel"
                       class="text-field-v5 w-input"
-                      maxlength="256"
+                      maxlength="20"
+                      minlength="10"
+                      pattern="[+0-9][0-9 \-]{8,18}"
                       name="phone"
                       placeholder="+91 98765 43210"
                       id="phone"
+                      required
                     />
                   </div>
 
@@ -1219,6 +1255,23 @@
                     </select>
                   </div>
 
+                  <div class="form-field">
+                    <label for="budget" class="form-label">Budget *</label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      class="text-field-v5 w-select"
+                      required
+                    >
+                      <option value="">Select your budget</option>
+                      <option value="Below ₹25,000">Below ₹25,000</option>
+                      <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000</option>
+                      <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
+                      <option value="₹1,00,000 - ₹5,00,000">₹1,00,000 - ₹5,00,000</option>
+                      <option value="Above ₹5,00,000">Above ₹5,00,000</option>
+                    </select>
+                  </div>
+
                   <div class="form-field full-span">
                     <label for="message" class="form-label">Message *</label>
                     <textarea
@@ -1230,6 +1283,77 @@
                       required
                     ></textarea>
                   </div>
+                </div>
+
+                <div class="consent-box">
+                  <label class="consent-check">
+                    <input type="checkbox" id="consent" name="consent" required />
+                    <span
+                      >I agree to the
+                      <a
+                        href="https://www.pixelatenest.com/legal/terms-of-service.html"
+                        target="_blank"
+                        rel="noopener"
+                        >Terms &amp; Conditions</a
+                      >
+                      and
+                      <a
+                        href="https://www.pixelatenest.com/legal/privacy-policy.html"
+                        target="_blank"
+                        rel="noopener"
+                        >Privacy Policy</a
+                      >. *</span
+                    >
+                  </label>
+                </div>
+
+                <div class="captcha-box">
+                  <label for="captcha" class="form-label"
+                    >Verify you are human: what is
+                    <strong id="captcha-q"></strong>? *</label
+                  >
+                  <div class="captcha-row">
+                    <input
+                      type="text"
+                      inputmode="numeric"
+                      autocomplete="off"
+                      class="text-field-v5 w-input"
+                      id="captcha"
+                      name="captcha"
+                      maxlength="3"
+                      required
+                    />
+                    <button
+                      type="button"
+                      id="captcha-refresh"
+                      class="captcha-refresh"
+                      aria-label="New question"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M21 12a9 9 0 1 1-3-6.7L21 8" />
+                        <path d="M21 3v5h-5" />
+                      </svg>
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    name="website"
+                    id="hp-website"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                    style="position: absolute; left: -9999px"
+                  />
                 </div>
 
                 <div class="form-actions">
@@ -1261,143 +1385,8 @@
           </div>
         </div>
       </div>
-      <section class="contact-map-section" aria-labelledby="visit-office-map">
-        <h2 id="visit-office-map" class="contact-form-heading">
-          Find Us on Google Maps
-        </h2>
-        <div
-          class="contact-map-embed"
-          style="
-            width: 90%;
-            height: 500px;
-            margin: 0 auto 32px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-          "
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.086318651575!2d85.3861634769135!3d26.12872839333906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed1135dfaf1cd5%3A0x7e4c957d563dd2f0!2sKalahanu%20Tech%20Studios%20LLP!5e0!3m2!1sen!2sin!4v1774911745773!5m2!1sen!2sin"
-            width="600"
-            height="100%"
-            style="border: 0; width: 100%; height: 100%; display: block"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Kalahanu Tech Studios LLP on Google Maps"
-          ></iframe>
-        </div>
-      </section>
 
-      <section style="background: white; padding: 60px 24px">
-        <div style="max-width: 900px; margin: 0 auto">
-          <h2
-            style="
-              font-size: 1.8rem;
-              font-weight: 700;
-              color: var(--primary-900);
-              margin-bottom: 16px;
-            "
-          >
-            How Can We Help You?
-          </h2>
-          <p
-            style="
-              color: var(--primary-700);
-              line-height: 1.8;
-              margin-bottom: 32px;
-            "
-          >
-            Whether you have a project in mind, a question about our services,
-            or just want to explore what Pixelate Nest can do for your business
-            — we are here to help. Our team of web developers, app developers,
-            video editors, and digital marketers work with startups, small
-            businesses, and enterprises across India and globally. Reach out and
-            let us start a conversation about your goals.
-          </p>
-          <h3
-            style="
-              font-size: 1.4rem;
-              font-weight: 600;
-              color: var(--primary-900);
-              margin-bottom: 16px;
-            "
-          >
-            What Happens Next?
-          </h3>
-          <ol
-            style="
-              color: var(--primary-700);
-              line-height: 2;
-              padding-left: 24px;
-              margin-bottom: 32px;
-            "
-          >
-            <li>
-              <strong>We Review:</strong> Our team reviews your enquiry within
-              one business day.
-            </li>
-            <li>
-              <strong>We Respond:</strong> You receive a detailed response or a
-              call to discuss your requirements. We typically respond within 24
-              business hours.
-            </li>
-            <li>
-              <strong>We Plan:</strong> Together, we define scope, timelines,
-              and a clear action plan to get your project started.
-            </li>
-          </ol>
-          <h3
-            style="
-              font-size: 1.4rem;
-              font-weight: 600;
-              color: var(--primary-900);
-              margin-bottom: 16px;
-            "
-          >
-            Frequently Asked Questions
-          </h3>
-          <div
-            style="
-              color: var(--primary-700);
-              line-height: 1.8;
-              margin-bottom: 16px;
-            "
-          >
-            <p>
-              <strong>What information should I provide?</strong><br />Please
-              include details about your project — the type of service you need
-              (web development, app, video editing, etc.), your budget range,
-              and your expected timeline. The more detail you provide, the
-              faster we can give you an accurate estimate.
-            </p>
-          </div>
-          <div
-            style="
-              color: var(--primary-700);
-              line-height: 1.8;
-              margin-bottom: 16px;
-            "
-          >
-            <p>
-              <strong>Do you work with clients outside India?</strong><br />Yes,
-              absolutely. We work with clients across India, the United States,
-              the United Kingdom, Australia, and Singapore. All communication
-              and project management is handled digitally, making location no
-              barrier.
-            </p>
-          </div>
-          <div style="color: var(--primary-700); line-height: 1.8">
-            <p>
-              <strong>What is the minimum project size you accept?</strong
-              ><br />We work with projects of all sizes — from a simple landing
-              page to a full-scale enterprise application. We are happy to
-              discuss your requirements regardless of scale.
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       <section class="footer">
         <div class="container">
