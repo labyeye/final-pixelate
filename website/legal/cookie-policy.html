@@ -856,7 +856,7 @@
 
     <main class="legal-main">
       <p class="legal-meta">
-        Last updated: April 2026 &nbsp;|&nbsp; Pixelate Nest (Kalahanu Tech
+        Last updated: October 2026 &nbsp;|&nbsp; Pixelate Nest (Kalahanu Tech
         Studios LLP)
       </p>
 
@@ -925,15 +925,29 @@
         2. Analytics &amp; Performance Cookies
       </h3>
       <p>
-        We use Google Analytics to collect anonymous information about how
-        visitors use our site — such as which pages are visited most often and
-        how users navigate between pages. This helps us improve the structure
-        and content of our website. The data collected is aggregated and does
-        not identify individual visitors.
+        We use Google Analytics, and <strong>only after you click "Accept"</strong>
+        on our cookie banner, our own visitor analytics, to understand how
+        visitors use our site — such as how many people visit, when they visit,
+        where they come from and which pages they view. This helps us improve
+        the structure and content of our website.
+      </p>
+      <p>
+        Our own visitor analytics records your <strong>IP address</strong>, the
+        approximate location derived from it (country, state/region, city), the
+        time of your visit, the pages you view, your referral source, and device
+        details (browser, operating system, device type, screen size, language,
+        time zone). It stores two identifiers in your browser's local storage:
+        a random visitor ID (<code>pixelate_user_id</code>) and a session ID
+        (<code>pixelate_sid</code>). This data is kept on our own servers for
+        <strong>90 days</strong> and then deleted automatically. We do not sell
+        it or use it to identify you by name.
       </p>
       <ul style="margin: 12px 0 12px 20px; padding: 0">
         <li>Google Analytics (_ga, _gid, _gat cookies)</li>
         <li>Google Tag Manager</li>
+        <li>
+          Pixelate Nest visitor analytics (pixelate_user_id, pixelate_sid)
+        </li>
       </ul>
 
       <h3
@@ -1026,6 +1040,26 @@
       <p>You can control and manage cookies in several ways:</p>
       <ul style="margin: 12px 0 12px 20px; padding: 0">
         <li>
+          <strong>Our cookie banner:</strong> analytics and tracking start only
+          if you accept. You can change your mind at any time:
+          <button
+            type="button"
+            onclick="window.pnCookieSettings && window.pnCookieSettings()"
+            style="
+              background: #0547ab;
+              color: #fff;
+              border: 0;
+              border-radius: 8px;
+              padding: 6px 14px;
+              font-weight: 600;
+              cursor: pointer;
+              margin-left: 6px;
+            "
+          >
+            Cookie settings
+          </button>
+        </li>
+        <li>
           <strong>Browser settings:</strong> Most browsers allow you to refuse
           or delete cookies through their settings. Note that disabling certain
           cookies may affect the functionality of our website.
@@ -1062,6 +1096,34 @@
           portal.
         </li>
       </ul>
+
+      <h2
+        style="
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-top: 36px;
+          margin-bottom: 12px;
+          color: #fff;
+        "
+      >
+        Your Consent
+      </h2>
+      <p>
+        When you first visit our website we show a cookie banner. Analytics and
+        tracking (including collection of your IP address and approximate
+        location) run <strong>only if you click "Accept"</strong>. If you click
+        "Reject" or do not respond, our own analytics stay off and we tell Google
+        Analytics that analytics storage is denied. Strictly necessary storage
+        needed to remember your choice is still used. Your choice is saved in
+        your browser for 12 months, after which we ask again. You can withdraw
+        consent at any time using the "Cookie settings" button above; withdrawing
+        stops further tracking, and you may email us to have earlier data
+        deleted (see our
+        <a href="https://www.pixelatenest.com/legal/privacy-policy.html"
+          style="color: #7eb8f7"
+          >Privacy Policy</a
+        >).
+      </p>
 
       <h2
         style="
@@ -1718,5 +1780,6 @@
         });
       })();
     </script>
-  </body>
+      <script src="/js/activity-tracker.js" defer></script>
+</body>
 </html>

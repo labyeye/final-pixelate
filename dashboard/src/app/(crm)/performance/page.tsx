@@ -318,6 +318,46 @@ export default function PerformancePage() {
               </Table>
             </CardContent>
           </Card>
+          {scope === "web" && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Website visitors</CardTitle>
+                <CardDescription>
+                  Only visitors who accepted cookies. IP + location kept 90 days. Top: {(d.countries || []).map((c: any) => `${c.name} (${c.visits})`).join(", ") || "-"} | Cities: {(d.cities || []).map((c: any) => `${c.name} (${c.visits})`).join(", ") || "-"}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Time</TableHead>
+                      <TableHead>IP</TableHead>
+                      <TableHead>Location</TableHead>
+                      <TableHead>Page</TableHead>
+                      <TableHead>Came from</TableHead>
+                      <TableHead>Device</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {(d.visitors || []).length ? (
+                      d.visitors.map((v: any, i: number) => (
+                        <TableRow key={i}>
+                          <TableCell className="whitespace-nowrap text-xs">{new Date(v.ts).toLocaleString()}</TableCell>
+                          <TableCell className="font-mono text-xs">{v.ip}</TableCell>
+                          <TableCell>{[v.city, v.region, v.country].filter(Boolean).join(", ") || "-"}</TableCell>
+                          <TableCell className="break-all">{v.page || "-"}</TableCell>
+                          <TableCell className="max-w-xs break-all text-xs">{v.ref || "Direct"}</TableCell>
+                          <TableCell>{[v.device, v.os].filter(Boolean).join(" / ") || "-"}</TableCell>
+                        </TableRow>
+                      ))
+                    ) : (
+                      <Empty cols={6} />
+                    )}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+          )}
         </>
       )}
     </div>

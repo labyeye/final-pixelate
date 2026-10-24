@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import geoip from "geoip-lite";
 import { getDb } from "@/lib/mongodb";
 
 // Public ingest for web + mobile telemetry (page views, heartbeats, crashes).
@@ -10,6 +11,29 @@ const CORS = {
 const TYPES = new Set(["page", "ping", "crash"]);
 const PLATFORMS = new Set(["web", "android", "ios"]);
 const s = (v: unknown, n: number) => (typeof v === "string" ? v.slice(0, n) : "");
+
+const safeDecode = (v: string) => {
+  try {
+    return decodeURIComponent(v);
+  } catch {
+    return v;
+  }
+};
+
+// Visitor IP + approximate location, only ever attached to web events the browser
+// flagged consent:true (cookie banner "Accept"). CDN geo headers win over the local DB.
+function visitor(req: NextRequest) {
+  const h = req.headers;
+  const ip = (h.get("x-forwarded-for")?.split(",")[0] || h.get("x-real-ip") || "").trim().slice(0, 64);
+  let country = h.get("cf-ipcountry") || h.get("x-vercel-ip-country") || "";
+  let region = h.get("x-vercel-ip-country-region") || "";
+  let city = h.get("x-vercel-ip-city") || "";
+  if (ip && !city) {
+    const g = geoip.lookup(ip);
+    if (g) ({ country, region, city } = { country: g.country, region: g.region, city: g.city });
+  }
+  return { ip, country: s(country, 2), region: s(region, 40), city: s(safeDecode(city), 60) };
+}
 
 let indexed = false;
 async function ensureIndexes(col: any) {
@@ -32,6 +56,7 @@ export async function POST(req: NextRequest) {
     const list = (Array.isArray(body?.events) ? body.events : []).slice(0, 25);
 
     const now = new Date();
+    const geo = visitor(req);
     const docs = list
       .filter((e: any) => TYPES.has(e?.type) && PLATFORMS.has(e?.platform) && e?.sid && e?.uid)
       .map((e: any) => ({
@@ -47,6 +72,17 @@ export async function POST(req: NextRequest) {
         stack: s(e.stack, 2000),
         fatal: !!e.fatal,
         ts: now,
+        // consented web visitors only
+        ...(e.type === "page" && e.consent === true && e.platform === "web"
+          ? {
+              ...geo,
+              ref: s(e.ref, 300),
+              qs: s(e.qs, 300),
+              lang: s(e.lang, 20),
+              tz: s(e.tz, 60),
+              screen: s(e.screen, 16),
+            }
+          : {}),
       }));
 
     if (docs.length) {

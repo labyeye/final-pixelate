@@ -118,6 +118,27 @@ export async function GET(req: NextRequest) {
         .toArray(),
     ]);
 
+  // Consented web visitors (IP + location are only stored on those page events).
+  const visits = { ...base, type: "page", ip: { $exists: true } };
+  const top = (f: string) => [
+    { $match: { ...visits, [f]: { $ne: "" } } },
+    { $group: { _id: `$${f}`, visits: { $sum: 1 }, users: { $addToSet: "$uid" } } },
+    { $project: { _id: 0, name: "$_id", visits: 1, users: size("users") } },
+    { $sort: { visits: -1 } },
+    { $limit: 10 },
+  ];
+  const [visitors, countries, cities] = platform === "web"
+    ? await Promise.all([
+        col
+          .find(visits, { projection: { _id: 0, ip: 1, city: 1, region: 1, country: 1, page: 1, ref: 1, device: 1, os: 1, ts: 1 } })
+          .sort({ ts: -1 })
+          .limit(50)
+          .toArray(),
+        agg(top("country")),
+        agg(top("city")),
+      ])
+    : [[], [], []];
+
   const t = totals[0] || { users: 0, sessions: 0, pageViews: 0, crashes: 0 };
   const c = crashed[0] || { users: 0, sessions: 0 };
   const pct = (bad: number, all: number) => (all ? +(100 - (bad / all) * 100).toFixed(2) : 100);
@@ -132,6 +153,6 @@ export async function GET(req: NextRequest) {
       crashFreeUsers: pct(c.users, t.users),
       crashedUsers: c.users,
     },
-    pages, crashes, versions, os, devices, daily, recent,
+    pages, crashes, versions, os, devices, daily, recent, visitors, countries, cities,
   });
 }

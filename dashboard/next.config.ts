@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
 
   serverExternalPackages: [
     "mongodb",
+    "geoip-lite",
     "mongodb-client-encryption",
     "@mongodb-js/zstd",
     "aws4",

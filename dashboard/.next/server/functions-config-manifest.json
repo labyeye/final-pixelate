@@ -1,10 +1,10 @@
 {
   "version": 1,
   "functions": {
-    "/api/cron/process-scheduled-posts": {
+    "/api/cron/deactivate-expired-subscriptions": {
       "maxDuration": 300
     },
-    "/api/cron/deactivate-expired-subscriptions": {
+    "/api/cron/process-scheduled-posts": {
       "maxDuration": 300
     }
   }
