@@ -64,6 +64,11 @@
   color: #fff;
   font-weight: 600;
 }
+.info-grid {
+  flex-direction: row;
+  flex:1;
+  display:flex;
+}
 @keyframes fadeIn {
   to {
     opacity: 1;

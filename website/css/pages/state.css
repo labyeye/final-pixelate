@@ -1889,3 +1889,12 @@ body.modal-open {
     width: 100%;
   }
 }
+
+/* city-page links */
+.mzp-areas .area h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.mzp-areas .area h3 a:hover {
+  text-decoration: underline;
+}

@@ -968,7 +968,7 @@
                     </li>
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/blog/index.html"
+                        href="https://www.pixelatenest.com/blog/"
                         class="nav-link w-inline-block"
                         ><span class="nav-link-text">Blogs</span></a
                       >
@@ -1531,8 +1531,12 @@
     <section class="hero">
       <div class="pn-carousel-wrap">
         <div id="portfolio-grid" class="portfolio-grid pn-carousel"></div>
-        <button class="pn-carousel-btn prev" aria-label="Previous project">&#8249;</button>
-        <button class="pn-carousel-btn next" aria-label="Next project">&#8250;</button>
+        <button class="pn-carousel-btn prev" aria-label="Previous project">
+          &#8249;
+        </button>
+        <button class="pn-carousel-btn next" aria-label="Next project">
+          &#8250;
+        </button>
       </div>
 
       <script>
@@ -1745,7 +1749,7 @@
           function layout() {
             const w = cards[0].offsetWidth;
             cards.forEach((c, i) => {
-              let d = (((i - pnActive + n / 2) % n) + n) % n - n / 2;
+              let d = ((((i - pnActive + n / 2) % n) + n) % n) - n / 2;
               d = Math.round(d);
               const a = Math.abs(d);
               const s = Math.sign(d);
@@ -1779,8 +1783,14 @@
               }
             }),
           );
-          wrap.querySelector(".prev").onclick = () => (go(pnActive - 1), restart());
-          wrap.querySelector(".next").onclick = () => (go(pnActive + 1), restart());
+          wrap.querySelector(".prev").onclick = () => (
+            go(pnActive - 1),
+            restart()
+          );
+          wrap.querySelector(".next").onclick = () => (
+            go(pnActive + 1),
+            restart()
+          );
           wrap.onmouseenter = () => clearInterval(pnTimer);
           wrap.onmouseleave = restart;
 
@@ -2100,7 +2110,7 @@
                     <div class="footer-link-text">Contact Us</div>
                   </a>
                   <a
-                    href="https://www.pixelatenest.com/blog/index.html"
+                    href="https://www.pixelatenest.com/blog/"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Blog</div>

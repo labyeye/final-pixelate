@@ -1574,7 +1574,7 @@
               </div>
               <div class="service-item">
                 <img
-                  src="../../assets/images/services/uiux.webp"
+                  src="../../assets/images/services/uiux.png"
                   alt="UI/UX Design Services"
                   loading="lazy"
                   width="400"
@@ -1789,7 +1789,7 @@
                 font-weight: 600;
               "
             >
-              4.9/5 Rating by 170+
+              4.9/5 Rating by 50+
               <span style="color: var(--primary-900)"
                 >Clients on Google, Glassdoor, Cluth & GoodFirms</span
               >
@@ -1912,7 +1912,7 @@
                 </div>
               </div>
               <p style="font-size: 14px; color: #666; margin: 0">
-                <strong>Trusted by 170+ Satisfied Clients</strong><br />
+                <strong>Trusted by 50+ Satisfied Clients</strong><br />
                 From startups to enterprises, our work speaks for itself
               </p>
             </div>
@@ -2263,7 +2263,7 @@
             <div class="services-grid">
               <div class="service-item">
                 <img
-                  src="../../assets/images/industries/ecommerce.webp"
+                  src="../../assets/images/industries/ecommerce.png"
                   alt="Ecommerce &amp; Multivendor Website Development Services by Pixelate Nest"
                   loading="lazy"
                   width="400"
@@ -2289,7 +2289,7 @@
               </div>
               <div class="service-item">
                 <img
-                  src="../../assets/images/industries/education.webp"
+                  src="../../assets/images/industries/education.png"
                   alt="Education Industry Software Solutions by Pixelate Nest"
                   loading="lazy"
                   width="400"
@@ -2316,7 +2316,7 @@
               </div>
               <div class="service-item">
                 <img
-                  src="../../assets/images/industries/manufacture.webp"
+                  src="../../assets/images/industries/manufacture.png"
                   alt="Manufacturing Business Software Solutions by Pixelate Nest"
                   loading="lazy"
                   width="400"
@@ -2343,7 +2343,7 @@
               </div>
               <div class="service-item">
                 <img
-                  src="../../assets/images/industries/realestate.webp"
+                  src="../../assets/images/industries/realestate.png"
                   alt="Real Estate Software and Website Development Services"
                   loading="lazy"
                   width="400"
@@ -2370,7 +2370,7 @@
               </div>
               <div class="service-item">
                 <img
-                  src="../../assets/images/industries/transport.webp"
+                  src="../../assets/images/industries/transport.png"
                   alt="Transportation and Logistics Software Solutions"
                   loading="lazy"
                   width="400"
@@ -2395,7 +2395,7 @@
               </div>
               <div class="service-item">
                 <img
-                  src="../../assets/images/industries/travel.webp"
+                  src="../../assets/images/industries/travel.png"
                   alt="Travel and Tourism Website Development Services"
                   loading="lazy"
                   width="400"

@@ -22,17 +22,51 @@
   }
 
   var ua = navigator.userAgent;
-  var browser = /Edg\//.test(ua) ? "Edge" : /OPR\//.test(ua) ? "Opera" : /Chrome\//.test(ua) ? "Chrome" : /Firefox\//.test(ua) ? "Firefox" : /Safari\//.test(ua) ? "Safari" : "Other";
-  var os = /Android/.test(ua) ? "Android" : /iPhone|iPad/.test(ua) ? "iOS" : /Windows/.test(ua) ? "Windows" : /Mac OS/.test(ua) ? "macOS" : /Linux/.test(ua) ? "Linux" : "Other";
+  var browser = /Edg\//.test(ua)
+    ? "Edge"
+    : /OPR\//.test(ua)
+      ? "Opera"
+      : /Chrome\//.test(ua)
+        ? "Chrome"
+        : /Firefox\//.test(ua)
+          ? "Firefox"
+          : /Safari\//.test(ua)
+            ? "Safari"
+            : "Other";
+  var os = /Android/.test(ua)
+    ? "Android"
+    : /iPhone|iPad/.test(ua)
+      ? "iOS"
+      : /Windows/.test(ua)
+        ? "Windows"
+        : /Mac OS/.test(ua)
+          ? "macOS"
+          : /Linux/.test(ua)
+            ? "Linux"
+            : "Other";
   var kind = /Mobi|Android|iPhone/.test(ua) ? "Mobile" : "Desktop";
 
   function send(type, extra) {
-    var e = { sid: sid, uid: uid, platform: "web", type: type, v: "web", device: browser + " " + kind, os: os, page: pagePath() };
+    var e = {
+      sid: sid,
+      uid: uid,
+      platform: "web",
+      type: type,
+      v: "web",
+      device: browser + " " + kind,
+      os: os,
+      page: pagePath(),
+    };
     for (var k in extra) e[k] = extra[k];
     var body = JSON.stringify({ events: [e] });
     // text/plain avoids a CORS preflight; sendBeacon survives page unload.
     if (!(navigator.sendBeacon && navigator.sendBeacon(URL, body))) {
-      fetch(URL, { method: "POST", body: body, keepalive: true, headers: { "Content-Type": "text/plain" } }).catch(function () {});
+      fetch(URL, {
+        method: "POST",
+        body: body,
+        keepalive: true,
+        headers: { "Content-Type": "text/plain" },
+      }).catch(function () {});
     }
   }
   function pagePath() {
@@ -47,12 +81,20 @@
   // Rate-limit crash reports so one broken loop can't flood the API.
   var sent = 0;
   function crash(msg, stack) {
-    if (sent++ < 5) send("crash", { msg: String(msg), stack: String(stack || "") });
+    if (sent++ < 5)
+      send("crash", { msg: String(msg), stack: String(stack || "") });
   }
   window.addEventListener("error", function (ev) {
     // Ignore cross-origin "Script error." (no useful info) and resource load errors.
     if (!ev.message || ev.message === "Script error.") return;
-    crash(ev.message + " @" + (ev.filename || "").split("/").pop() + ":" + ev.lineno, ev.error && ev.error.stack);
+    crash(
+      ev.message +
+        " @" +
+        (ev.filename || "").split("/").pop() +
+        ":" +
+        ev.lineno,
+      ev.error && ev.error.stack,
+    );
   });
   window.addEventListener("unhandledrejection", function (ev) {
     var r = ev.reason;

@@ -1,15 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-T64KPYDX6P');
-</script>
+      gtag("config", "G-T64KPYDX6P");
+    </script>
     <meta charset="utf-8" />
     <title id="meta-title">
       Mobile App Development in Rajouri | Pixelate Nest
@@ -219,7 +224,8 @@
         src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-  </head>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Should I build an Android app, an iOS app, or both?", "acceptedAnswer": {"@type": "Answer", "text": "Most businesses in Rajouri start with Android because most of their customers use it, then add iOS if needed. A cross-platform build can cover both at a lower combined cost."}}, {"@type": "Question", "name": "Can the app connect to my existing billing or inventory software?", "acceptedAnswer": {"@type": "Answer", "text": "Usually yes, through APIs. We check your current system during discovery and tell you what can be connected."}}, {"@type": "Question", "name": "Do you help publish the app on Google Play and the App Store?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We prepare the store listing, screenshots and builds, and guide you through the review process."}}]}</script>
+</head>
 
   <body>
     <div id="announcement-bar" class="announcement-bar">
@@ -336,7 +342,7 @@
                       </li>
                       <li class="nav-item">
                         <a
-                          href="https://www.pixelatenest.com/blog/index.html"
+                          href="https://www.pixelatenest.com/blog/"
                           class="nav-link w-inline-block"
                           ><span class="nav-link-text">Blogs</span></a
                         >
@@ -918,479 +924,565 @@
           </div>
         </div>
         <style>
-      .pn-grid-loader {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 60px 20px;
-        width: 100%;
-        grid-column: 1/-1;
-      }
-      .pn-grid-loader-ring {
-        position: relative;
-        width: 120px;
-        height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .pn-grid-loader-ring svg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        animation: pn-grid-spin 1.6s linear infinite;
-      }
-      .pn-grid-loader-track {
-        fill: none;
-        stroke: rgba(0, 0, 0, 0.08);
-        stroke-width: 5;
-      }
-      .pn-grid-loader-arc {
-        fill: none;
-        stroke: #1a3c8f;
-        stroke-width: 5;
-        stroke-linecap: round;
-        stroke-dasharray: 339.292;
-        stroke-dashoffset: 254;
-      }
-      .pn-grid-loader-logo {
-        width: 62px;
-        height: 62px;
-        object-fit: contain;
-        position: relative;
-        z-index: 1;
-        animation: pn-grid-pulse 1.6s ease-in-out infinite;
-      }
-      @keyframes pn-grid-spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes pn-grid-pulse {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(0.9);
-          opacity: 0.75;
-        }
-      }
-      .pn-grid-loader-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-      }
-      .pn-loading-text {
-        font-size: 0.95rem;
-        font-weight: 500;
-        color: #1a3c8f;
-        letter-spacing: 0.04em;
-      }
-      .pn-loading-text::after {
-        content: "";
-        animation: pn-dots 1.5s steps(3, end) infinite;
-      }
-      @keyframes pn-dots {
-        0% {
-          content: ".";
-        }
-        33% {
-          content: "..";
-        }
-        66% {
-          content: "...";
-        }
-        100% {
-          content: "";
-        }
-      }
-    </style>
+          .pn-grid-loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            width: 100%;
+            grid-column: 1/-1;
+          }
+          .pn-grid-loader-ring {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .pn-grid-loader-ring svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            animation: pn-grid-spin 1.6s linear infinite;
+          }
+          .pn-grid-loader-track {
+            fill: none;
+            stroke: rgba(0, 0, 0, 0.08);
+            stroke-width: 5;
+          }
+          .pn-grid-loader-arc {
+            fill: none;
+            stroke: #1a3c8f;
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-dasharray: 339.292;
+            stroke-dashoffset: 254;
+          }
+          .pn-grid-loader-logo {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            animation: pn-grid-pulse 1.6s ease-in-out infinite;
+          }
+          @keyframes pn-grid-spin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          @keyframes pn-grid-pulse {
+            0%,
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
+            50% {
+              transform: scale(0.9);
+              opacity: 0.75;
+            }
+          }
+          .pn-grid-loader-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+          }
+          .pn-loading-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1a3c8f;
+            letter-spacing: 0.04em;
+          }
+          .pn-loading-text::after {
+            content: "";
+            animation: pn-dots 1.5s steps(3, end) infinite;
+          }
+          @keyframes pn-dots {
+            0% {
+              content: ".";
+            }
+            33% {
+              content: "..";
+            }
+            66% {
+              content: "...";
+            }
+            100% {
+              content: "";
+            }
+          }
+        </style>
         <style>
-      .pn-carousel-wrap {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        padding: 40px 0;
-      }
-      .pn-carousel {
-        --pn-w: 270px;
-        --pn-h: 480px;
-        position: relative;
-        display: block;
-        height: calc(var(--pn-h) + 20px);
-        perspective: 1600px;
-        touch-action: pan-y;
-        user-select: none;
-      }
-      .pn-carousel .portfolio-card {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        width: var(--pn-w);
-        height: var(--pn-h);
-        margin: 0 0 0 calc(var(--pn-w) / -2);
-        border-radius: 18px;
-        overflow: hidden;
-        cursor: pointer;
-        transition:
-          transform 0.7s cubic-bezier(0.22, 0.8, 0.25, 1),
-          opacity 0.7s ease;
-        will-change: transform;
-      }
-      .pn-carousel .portfolio-image-wrapper,
-      .pn-carousel .portfolio-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        pointer-events: none;
-      }
-      .pn-carousel .portfolio-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        gap: 8px;
-        padding: 20px;
-        background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.85));
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-      }
-      .pn-carousel .portfolio-card.is-active:hover .portfolio-overlay,
-      .pn-carousel .portfolio-card.is-active:focus-within .portfolio-overlay {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .pn-carousel .portfolio-desc {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .pn-carousel .portfolio-tags {
-        display: none;
-      }
-      .pn-carousel .portfolio-buttons-container {
-        display: flex;
-        gap: 10px;
-      }
-      .pn-carousel-btn {
-        position: absolute;
-        top: 50%;
-        z-index: 100;
-        width: 44px;
-        height: 44px;
-        margin-top: -22px;
-        border: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.85);
-        color: #1a3c8f;
-        font-size: 22px;
-        cursor: pointer;
-      }
-      .pn-carousel-btn.prev {
-        left: 16px;
-      }
-      .pn-carousel-btn.next {
-        right: 16px;
-      }
-      @media (max-width: 767px) {
-        .pn-carousel {
-          --pn-w: 180px;
-          --pn-h: 320px;
-        }
-      }
-    </style>
+          .pn-carousel-wrap {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+          }
+          .pn-carousel {
+            --pn-w: 270px;
+            --pn-h: 480px;
+            position: relative;
+            display: block;
+            height: calc(var(--pn-h) + 20px);
+            perspective: 1600px;
+            touch-action: pan-y;
+            user-select: none;
+          }
+          .pn-carousel .portfolio-card {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: var(--pn-w);
+            height: var(--pn-h);
+            margin: 0 0 0 calc(var(--pn-w) / -2);
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            transition:
+              transform 0.7s cubic-bezier(0.22, 0.8, 0.25, 1),
+              opacity 0.7s ease;
+            will-change: transform;
+          }
+          .pn-carousel .portfolio-image-wrapper,
+          .pn-carousel .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+          }
+          .pn-carousel .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 8px;
+            padding: 20px;
+            background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.85));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+          }
+          .pn-carousel .portfolio-card.is-active:hover .portfolio-overlay,
+          .pn-carousel
+            .portfolio-card.is-active:focus-within
+            .portfolio-overlay {
+            opacity: 1;
+            pointer-events: auto;
+          }
+          .pn-carousel .portfolio-desc {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          .pn-carousel .portfolio-tags {
+            display: none;
+          }
+          .pn-carousel .portfolio-buttons-container {
+            display: flex;
+            gap: 10px;
+          }
+          .pn-carousel-btn {
+            position: absolute;
+            top: 50%;
+            z-index: 100;
+            width: 44px;
+            height: 44px;
+            margin-top: -22px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            color: #1a3c8f;
+            font-size: 22px;
+            cursor: pointer;
+          }
+          .pn-carousel-btn.prev {
+            left: 16px;
+          }
+          .pn-carousel-btn.next {
+            right: 16px;
+          }
+          @media (max-width: 767px) {
+            .pn-carousel {
+              --pn-w: 180px;
+              --pn-h: 320px;
+            }
+          }
+        </style>
         <style>
-      .pn-carousel .portfolio-title{color:#fff;font-size:1.1rem;margin:0}
-      .pn-carousel .portfolio-desc{color:rgba(255,255,255,.8);font-size:.85rem;line-height:1.3;margin:0}
-      .pn-carousel .stars{color:#555}.pn-carousel .star.filled{color:#f5b301}
-      .pn-carousel .details-button{color:#fff;border-color:rgba(255,255,255,.4)}
-      .pn-carousel .visit-button,.pn-carousel .details-button{flex:1;padding:10px 12px;border-radius:10px;font-weight:600;cursor:pointer;border:0;font-size:.9rem}
-      .pn-carousel .visit-button{background:#044bab;color:#fff}
-      .pn-carousel .details-button{background:transparent;border:2px solid rgba(255,255,255,.4)}
-      .pn-carousel .visit-button:disabled{opacity:.5;cursor:default}
-      .pn-loading-text{color:#1a3c8f}
-    </style>
+          .pn-carousel .portfolio-title {
+            color: #fff;
+            font-size: 1.1rem;
+            margin: 0;
+          }
+          .pn-carousel .portfolio-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            line-height: 1.3;
+            margin: 0;
+          }
+          .pn-carousel .stars {
+            color: #555;
+          }
+          .pn-carousel .star.filled {
+            color: #f5b301;
+          }
+          .pn-carousel .details-button {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
+          }
+          .pn-carousel .visit-button,
+          .pn-carousel .details-button {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 0;
+            font-size: 0.9rem;
+          }
+          .pn-carousel .visit-button {
+            background: #044bab;
+            color: #fff;
+          }
+          .pn-carousel .details-button {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+          }
+          .pn-carousel .visit-button:disabled {
+            opacity: 0.5;
+            cursor: default;
+          }
+          .pn-loading-text {
+            color: #1a3c8f;
+          }
+        </style>
         <div class="pn-carousel-wrap">
           <div id="portfolio-grid" class="portfolio-grid pn-carousel"></div>
-          <button class="pn-carousel-btn prev" aria-label="Previous project">&#8249;</button>
-          <button class="pn-carousel-btn next" aria-label="Next project">&#8250;</button>
+          <button class="pn-carousel-btn prev" aria-label="Previous project">
+            &#8249;
+          </button>
+          <button class="pn-carousel-btn next" aria-label="Next project">
+            &#8250;
+          </button>
         </div>
         <script>
-        const CACHE_KEY = "appdev_gallery_cache";
-        const CACHE_DURATION = 5 * 60 * 1000;
+          const CACHE_KEY = "appdev_gallery_cache";
+          const CACHE_DURATION = 5 * 60 * 1000;
 
-        function getCachedData() {
-          try {
-            const cached = localStorage.getItem(CACHE_KEY);
-            if (!cached) return null;
+          function getCachedData() {
+            try {
+              const cached = localStorage.getItem(CACHE_KEY);
+              if (!cached) return null;
 
-            const { data, timestamp } = JSON.parse(cached);
-            const now = Date.now();
+              const { data, timestamp } = JSON.parse(cached);
+              const now = Date.now();
 
-            if (now - timestamp < CACHE_DURATION) {
-              return data;
-            } else {
-              localStorage.removeItem(CACHE_KEY);
+              if (now - timestamp < CACHE_DURATION) {
+                return data;
+              } else {
+                localStorage.removeItem(CACHE_KEY);
+                return null;
+              }
+            } catch (e) {
               return null;
             }
-          } catch (e) {
-            return null;
           }
-        }
 
-        function setCachedData(data) {
-          try {
-            localStorage.setItem(
-              CACHE_KEY,
-              JSON.stringify({
-                data,
-                timestamp: Date.now(),
-              }),
+          function setCachedData(data) {
+            try {
+              localStorage.setItem(
+                CACHE_KEY,
+                JSON.stringify({
+                  data,
+                  timestamp: Date.now(),
+                }),
+              );
+            } catch (e) {}
+          }
+
+          async function loadGallery() {
+            const grid = document.getElementById("portfolio-grid");
+
+            try {
+              const urlParams = new URLSearchParams(window.location.search);
+              if (urlParams.get("clearCache") === "1")
+                localStorage.removeItem(CACHE_KEY);
+
+              const cachedData = getCachedData();
+              if (cachedData) {
+                renderGallery(cachedData, grid);
+                fetchAndRender(grid, true);
+                return;
+              }
+
+              grid.innerHTML =
+                '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
+              await fetchAndRender(grid, false);
+            } catch (e) {
+              grid.innerHTML =
+                '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
+            }
+          }
+
+          async function fetchAndRender(grid, isBackground = false) {
+            try {
+              const res = await fetch(
+                "https://backend.pixelatenest.com/api/work-gallery",
+                {
+                  cache: "no-cache",
+                },
+              );
+
+              if (!res.ok) throw new Error("Failed to fetch gallery");
+
+              const items = await res.json();
+              setCachedData(items);
+
+              if (!isBackground) {
+                renderGallery(items, grid);
+              }
+            } catch (e) {
+              if (!isBackground) throw e;
+            }
+          }
+
+          function renderGallery(items, grid) {
+            grid.innerHTML = "";
+
+            const filtered = (items || []).filter(
+              (i) => i.showOn === "app-development",
             );
-          } catch (e) {}
-        }
 
-        async function loadGallery() {
-          const grid = document.getElementById("portfolio-grid");
-
-          try {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get("clearCache") === "1")
-              localStorage.removeItem(CACHE_KEY);
-
-            const cachedData = getCachedData();
-            if (cachedData) {
-              renderGallery(cachedData, grid);
-              fetchAndRender(grid, true);
+            if (filtered.length === 0) {
+              grid.innerHTML =
+                '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
               return;
             }
 
-            grid.innerHTML =
-              '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
-            await fetchAndRender(grid, false);
-          } catch (e) {
-            grid.innerHTML =
-              '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
-          }
-        }
+            for (const it of filtered) {
+              const card = document.createElement("div");
+              card.className = "portfolio-card w-inline-block";
 
-        async function fetchAndRender(grid, isBackground = false) {
-          try {
-            const res = await fetch(
-              "https://backend.pixelatenest.com/api/work-gallery",
-              {
-                cache: "no-cache",
-              },
-            );
+              const imgWrap = document.createElement("div");
+              imgWrap.className = "portfolio-image-wrapper";
 
-            if (!res.ok) throw new Error("Failed to fetch gallery");
+              const img = document.createElement("img");
+              img.className = "portfolio-image";
+              img.alt = it.title || "Project";
+              img.src = it.thumbnailBase64 || "/assets/placeholder.png";
+              img.loading = "lazy";
+              imgWrap.appendChild(img);
 
-            const items = await res.json();
-            setCachedData(items);
+              const overlay = document.createElement("div");
+              overlay.className = "portfolio-overlay";
 
-            if (!isBackground) {
-              renderGallery(items, grid);
-            }
-          } catch (e) {
-            if (!isBackground) throw e;
-          }
-        }
+              const h4 = document.createElement("h4");
+              h4.className = "portfolio-title";
+              h4.innerText = it.title || "Untitled";
 
-        function renderGallery(items, grid) {
-          grid.innerHTML = "";
+              const desc = document.createElement("p");
+              desc.className = "portfolio-desc";
+              desc.innerText = (
+                it.description ||
+                it.summary ||
+                it.excerpt ||
+                ""
+              ).trim();
 
-          const filtered = (items || []).filter(
-            (i) => i.showOn === "app-development",
-          );
+              const tagsDiv = document.createElement("div");
+              tagsDiv.className = "portfolio-tags";
+              (typeof it.tech === "string" ? it.tech : "")
+                .split(",")
+                .map((t) => t.trim())
+                .filter(Boolean)
+                .slice(0, 5)
+                .forEach((t) => {
+                  const s = document.createElement("span");
+                  s.className = "tag";
+                  s.innerText = t;
+                  tagsDiv.appendChild(s);
+                });
 
-          if (filtered.length === 0) {
-            grid.innerHTML =
-              '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
-            return;
-          }
+              const stars = document.createElement("div");
+              stars.className = "stars";
+              const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
+              for (let si = 1; si <= 5; si++) {
+                const sp = document.createElement("span");
+                sp.className = "star" + (si <= rating ? " filled" : "");
+                sp.innerHTML = "&#9733;";
+                stars.appendChild(sp);
+              }
 
-          for (const it of filtered) {
-            const card = document.createElement("div");
-            card.className = "portfolio-card w-inline-block";
+              overlay.appendChild(h4);
+              overlay.appendChild(stars);
+              overlay.appendChild(tagsDiv);
+              overlay.appendChild(desc);
 
-            const imgWrap = document.createElement("div");
-            imgWrap.className = "portfolio-image-wrapper";
+              const visitBtn = document.createElement("button");
+              visitBtn.className = "visit-button";
+              visitBtn.innerText = it.link ? "Visit Website" : "Visit";
+              if (it.link) {
+                visitBtn.addEventListener("click", (e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  try {
+                    window.open(it.link, "_blank", "noopener");
+                  } catch (err) {
+                    window.location.href = it.link;
+                  }
+                });
+              } else {
+                visitBtn.disabled = true;
+              }
 
-            const img = document.createElement("img");
-            img.className = "portfolio-image";
-            img.alt = it.title || "Project";
-            img.src = it.thumbnailBase64 || "/assets/placeholder.png";
-            img.loading = "lazy";
-            imgWrap.appendChild(img);
-
-            const overlay = document.createElement("div");
-            overlay.className = "portfolio-overlay";
-
-            const h4 = document.createElement("h4");
-            h4.className = "portfolio-title";
-            h4.innerText = it.title || "Untitled";
-
-            const desc = document.createElement("p");
-            desc.className = "portfolio-desc";
-            desc.innerText = (
-              it.description ||
-              it.summary ||
-              it.excerpt ||
-              ""
-            ).trim();
-
-            const tagsDiv = document.createElement("div");
-            tagsDiv.className = "portfolio-tags";
-            (typeof it.tech === "string" ? it.tech : "")
-              .split(",")
-              .map((t) => t.trim())
-              .filter(Boolean)
-              .slice(0, 5)
-              .forEach((t) => {
-                const s = document.createElement("span");
-                s.className = "tag";
-                s.innerText = t;
-                tagsDiv.appendChild(s);
-              });
-
-            const stars = document.createElement("div");
-            stars.className = "stars";
-            const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
-            for (let si = 1; si <= 5; si++) {
-              const sp = document.createElement("span");
-              sp.className = "star" + (si <= rating ? " filled" : "");
-              sp.innerHTML = "&#9733;";
-              stars.appendChild(sp);
-            }
-
-            overlay.appendChild(h4);
-            overlay.appendChild(stars);
-            overlay.appendChild(tagsDiv);
-            overlay.appendChild(desc);
-
-            const visitBtn = document.createElement("button");
-            visitBtn.className = "visit-button";
-            visitBtn.innerText = it.link ? "Visit Website" : "Visit";
-            if (it.link) {
-              visitBtn.addEventListener("click", (e) => {
+              const detailsBtn = document.createElement("button");
+              detailsBtn.className = "details-button";
+              detailsBtn.innerText = "View Details";
+              detailsBtn.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 try {
-                  window.open(it.link, "_blank", "noopener");
-                } catch (err) {
-                  window.location.href = it.link;
-                }
+                  localStorage.setItem("pn_portfolio_item", JSON.stringify(it));
+                } catch (err) {}
+                window.location.href =
+                  "../../../../pages/portfolio-details.html";
               });
-            } else {
-              visitBtn.disabled = true;
+
+              const buttonsContainer = document.createElement("div");
+              buttonsContainer.className = "portfolio-buttons-container";
+              buttonsContainer.appendChild(visitBtn);
+              buttonsContainer.appendChild(detailsBtn);
+              overlay.appendChild(buttonsContainer);
+
+              card.appendChild(imgWrap);
+              card.appendChild(overlay);
+              grid.appendChild(card);
             }
-
-            const detailsBtn = document.createElement("button");
-            detailsBtn.className = "details-button";
-            detailsBtn.innerText = "View Details";
-            detailsBtn.addEventListener("click", (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              try {
-                localStorage.setItem("pn_portfolio_item", JSON.stringify(it));
-              } catch (err) {}
-              window.location.href = "../../../../pages/portfolio-details.html";
-            });
-
-            const buttonsContainer = document.createElement("div");
-            buttonsContainer.className = "portfolio-buttons-container";
-            buttonsContainer.appendChild(visitBtn);
-            buttonsContainer.appendChild(detailsBtn);
-            overlay.appendChild(buttonsContainer);
-
-            card.appendChild(imgWrap);
-            card.appendChild(overlay);
-            grid.appendChild(card);
+            initCarousel(grid);
           }
-          initCarousel(grid);
-        }
 
-        // 3D coverflow: offsets/scales per distance from the active card
-        const PN_X = [0, 1.0, 1.3, 1.55, 1.75, 1.9, 2.02];
-        const PN_S = [1, 0.85, 0.72, 0.6, 0.5, 0.4, 0.33];
-        let pnActive = 0;
-        let pnTimer;
+          // 3D coverflow: offsets/scales per distance from the active card
+          const PN_X = [0, 1.0, 1.3, 1.55, 1.75, 1.9, 2.02];
+          const PN_S = [1, 0.85, 0.72, 0.6, 0.5, 0.4, 0.33];
+          let pnActive = 0;
+          let pnTimer;
 
-        function initCarousel(grid) {
-          const cards = [...grid.children];
-          const n = cards.length;
-          const wrap = grid.parentElement;
-          pnActive = 0;
+          function initCarousel(grid) {
+            const cards = [...grid.children];
+            const n = cards.length;
+            const wrap = grid.parentElement;
+            pnActive = 0;
 
-          function layout() {
-            const w = cards[0].offsetWidth;
-            cards.forEach((c, i) => {
-              let d = (((i - pnActive + n / 2) % n) + n) % n - n / 2;
-              d = Math.round(d);
-              const a = Math.abs(d);
-              const s = Math.sign(d);
-              c.classList.toggle("is-active", d === 0);
-              if (a >= PN_X.length) {
-                c.style.opacity = 0;
-                c.style.pointerEvents = "none";
-                c.style.transform = `translateX(${s * PN_X[6] * w}px) scale(0.3)`;
-                return;
-              }
-              c.style.pointerEvents = "";
-              c.style.opacity = 1 - a * 0.1;
-              c.style.zIndex = 50 - a;
-              c.style.transform = `translateX(${s * PN_X[a] * w}px) rotateY(${-s * 28 * Math.min(a, 1)}deg) scale(${PN_S[a]})`;
-            });
-          }
-          const go = (to) => {
-            pnActive = (to + n) % n;
-            layout();
-          };
-          const restart = () => {
-            clearInterval(pnTimer);
-            if (n > 1) pnTimer = setInterval(() => go(pnActive + 1), 4000);
-          };
+            function layout() {
+              const w = cards[0].offsetWidth;
+              cards.forEach((c, i) => {
+                let d = ((((i - pnActive + n / 2) % n) + n) % n) - n / 2;
+                d = Math.round(d);
+                const a = Math.abs(d);
+                const s = Math.sign(d);
+                c.classList.toggle("is-active", d === 0);
+                if (a >= PN_X.length) {
+                  c.style.opacity = 0;
+                  c.style.pointerEvents = "none";
+                  c.style.transform = `translateX(${s * PN_X[6] * w}px) scale(0.3)`;
+                  return;
+                }
+                c.style.pointerEvents = "";
+                c.style.opacity = 1 - a * 0.1;
+                c.style.zIndex = 50 - a;
+                c.style.transform = `translateX(${s * PN_X[a] * w}px) rotateY(${-s * 28 * Math.min(a, 1)}deg) scale(${PN_S[a]})`;
+              });
+            }
+            const go = (to) => {
+              pnActive = (to + n) % n;
+              layout();
+            };
+            const restart = () => {
+              clearInterval(pnTimer);
+              if (n > 1) pnTimer = setInterval(() => go(pnActive + 1), 4000);
+            };
 
-          cards.forEach((c, i) =>
-            c.addEventListener("click", () => {
-              if (!c.classList.contains("is-active")) {
-                go(i);
+            cards.forEach((c, i) =>
+              c.addEventListener("click", () => {
+                if (!c.classList.contains("is-active")) {
+                  go(i);
+                  restart();
+                }
+              }),
+            );
+            wrap.querySelector(".prev").onclick = () => (
+              go(pnActive - 1),
+              restart()
+            );
+            wrap.querySelector(".next").onclick = () => (
+              go(pnActive + 1),
+              restart()
+            );
+            wrap.onmouseenter = () => clearInterval(pnTimer);
+            wrap.onmouseleave = restart;
+
+            let x0 = null;
+            grid.onpointerdown = (e) => (x0 = e.clientX);
+            grid.onpointerup = (e) => {
+              if (x0 !== null && Math.abs(e.clientX - x0) > 40) {
+                go(pnActive + (e.clientX < x0 ? 1 : -1));
                 restart();
               }
-            }),
-          );
-          wrap.querySelector(".prev").onclick = () => (go(pnActive - 1), restart());
-          wrap.querySelector(".next").onclick = () => (go(pnActive + 1), restart());
-          wrap.onmouseenter = () => clearInterval(pnTimer);
-          wrap.onmouseleave = restart;
+              x0 = null;
+            };
+            window.addEventListener("resize", layout);
+            layout();
+            restart();
+          }
 
-          let x0 = null;
-          grid.onpointerdown = (e) => (x0 = e.clientX);
-          grid.onpointerup = (e) => {
-            if (x0 !== null && Math.abs(e.clientX - x0) > 40) {
-              go(pnActive + (e.clientX < x0 ? 1 : -1));
-              restart();
-            }
-            x0 = null;
-          };
-          window.addEventListener("resize", layout);
-          layout();
-          restart();
-        }
-
-        loadGallery();
-      </script>
+          loadGallery();
+        </script>
       </section>
 
-      <section id="faq" class="crm-section">
+      <!-- value-guide:start -->
+<style>
+.vg{padding:64px 20px;background:#fff}.vg *{box-sizing:border-box}
+.vg-in{max-width:1100px;margin:0 auto}
+.vg h2{font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.2;color:var(--primary-900,#054bab);margin:0 0 16px}
+.vg h3{font-size:1.15rem;color:var(--primary-900,#054bab);margin:0 0 12px}
+.vg p,.vg li{font-size:1rem;line-height:1.7;color:#333}
+.vg .lead{font-size:1.1rem;max-width:880px;margin:0 0 32px}
+.vg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.vg-card{background:#f7f9fd;border:1px solid rgba(5,75,171,.14);border-radius:14px;padding:24px}
+.vg-card ul{margin:0;padding-left:20px}.vg-card li{margin-bottom:8px}
+.vg-faq details{border:1px solid rgba(5,75,171,.14);border-radius:12px;padding:14px 18px;margin-bottom:10px;background:#fff}
+.vg-faq summary{cursor:pointer;font-weight:600;color:var(--primary-900,#054bab)}
+.vg-faq details p{margin:10px 0 0}
+.vg-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.vg-links a{display:inline-block;padding:8px 14px;border:1px solid rgba(5,75,171,.25);border-radius:999px;font-size:.92rem;color:var(--primary-900,#054bab);text-decoration:none}
+.vg-links a:hover{background:rgba(5,75,171,.08)}
+.vg-sub{margin-top:32px}
+@media(max-width:720px){.vg{padding:44px 16px}.vg-grid{grid-template-columns:1fr}}
+</style>
+<section class="vg" id="buyers-guide" aria-labelledby="vg-h2">
+  <div class="vg-in">
+    <h2 id="vg-h2">Mobile App Development in Rajouri: What to Know Before You Build</h2>
+    <p class="lead">An app makes sense when your customers or staff will use it repeatedly — ordering, booking, tracking, learning or paying. If people only need to read information once, a fast mobile website is cheaper and works just as well. This guide helps you decide, and shows how to build an app in Rajouri without overspending.</p>
+    <div class="vg-grid">
+      <div class="vg-card"><h3>Who needs this in Rajouri?</h3><ul><li>Businesses in Rajouri that want repeat orders, bookings or loyalty through a customer app</li><li>Schools and institutes that want a parent, student or teacher app</li><li>Delivery, transport and field-service teams that need live tracking and task updates</li><li>Startups validating a product idea with a first version (MVP)</li><li>Retailers that want an app connected to their billing and inventory</li></ul></div>
+      <div class="vg-card"><h3>What affects the cost?</h3><p>App pricing is project-based, because no two apps are alike. The biggest cost drivers are:</p><ul><li>Android only, or Android and iOS together (cross-platform tools like Flutter and React Native can share most of the code)</li><li>Number of screens and user roles (customer, staff, admin)</li><li>Payments, maps, notifications, chat or video features</li><li>A backend and admin panel to manage content, users and orders</li><li>Publishing, updates and long-term support</li></ul></div>
+      <div class="vg-card"><h3>How to choose the right provider</h3><ul><li>Start with a small first version that solves one problem well</li><li>Ask who owns the source code and the Play Store / App Store accounts</li><li>Check that the plan includes a backend, an admin panel and security basics</li><li>See a working demo build early, not only at the end</li><li>Agree on support after launch: bug fixes, OS updates and new features</li></ul></div>
+      <div class="vg-card"><h3>Common mistakes to avoid</h3><ul><li>Building every feature at once and running out of budget before launch</li><li>Skipping an admin panel, so every change needs a developer</li><li>Ignoring how people will find and install the app after launch</li></ul></div>
+    </div>
+    <p class="vg-sub">Whether you are in Rajouri or elsewhere in Jammu and Kashmir, the process is the same: a free discovery call, a written scope and quote, regular progress updates, and support after launch.</p>
+    <div class="vg-faq vg-sub"><h3>Questions Rajouri customers ask</h3><details><summary>Should I build an Android app, an iOS app, or both?</summary><p>Most businesses in Rajouri start with Android because most of their customers use it, then add iOS if needed. A cross-platform build can cover both at a lower combined cost.</p></details><details><summary>Can the app connect to my existing billing or inventory software?</summary><p>Usually yes, through APIs. We check your current system during discovery and tell you what can be connected.</p></details><details><summary>Do you help publish the app on Google Play and the App Store?</summary><p>Yes. We prepare the store listing, screenshots and builds, and guide you through the review process.</p></details></div>
+    <div class="vg-sub"><h3>Related services and nearby cities</h3><div class="vg-links"><a href="https://www.pixelatenest.com/states/jammu-and-kashmir/rajouri.html">Website Development Agency in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/services/web-development.html">Website Development in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/services/software-development.html">Software Development in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/services/digital-marketing.html">Digital Marketing &amp; SEO in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/services/video-editing.html">Video Production in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/services/uiux-branding.html">UI/UX Design &amp; Branding in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/services/hosting-maintenance.html">Hosting &amp; Maintenance in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/school-management-software.html">School Management Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/attendance-management-software.html">Attendance &amp; HR Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/hotel-management-software.html">Hotel Management Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/kirana-store-billing-software.html">Kirana Billing Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/fmcg-retail-software.html">FMCG Retail Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/library-management-software.html">Library Management Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/sports-management-software.html">Sports Academy Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/transport-management-software.html">Transport Management Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/rajouri/products/lead-management-software.html">Lead Management Software in Rajouri</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/sopore/services/app-development.html">Mobile app development in Sopore</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/srinagar/services/app-development.html">Mobile app development in Srinagar</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/udhampur/services/app-development.html">Mobile app development in Udhampur</a><a href="https://www.pixelatenest.com/locations/jammu-and-kashmir/anantnag/services/app-development.html">Mobile app development in Anantnag</a></div></div>
+  </div>
+</section>
+<!-- value-guide:end -->
+<section id="faq" class="crm-section">
         <div class="container">
           <div style="text-align: center; margin-bottom: 24px">
             <h2 class="crm-heading">Frequently Asked Questions</h2>
@@ -1521,7 +1613,7 @@
                     <div class="footer-link-text">Contact Us</div>
                   </a>
                   <a
-                    href="https://www.pixelatenest.com/blog/index.html"
+                    href="https://www.pixelatenest.com/blog/"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Blog</div>
