@@ -383,7 +383,7 @@ export const navGroups = [
   },
 
   {
-    title: "Nest Play",
+    title: "Nest Academy",
     items: [
       {
         href: "/nest-play/accounts",
@@ -393,13 +393,13 @@ export const navGroups = [
       },
       {
         href: "/nest-play/invoices",
-        label: "NestPlay Invoices",
+        label: "NestAcademy Invoices",
         adminOnly: true,
         icon: Receipt,
       },
       {
         href: "/nest-play/coupons",
-        label: "NestPlay Coupons",
+        label: "NestAcademy Coupons",
         adminOnly: true,
         icon: Ticket,
       },
@@ -431,7 +431,7 @@ export const navGroups = [
   },
 
   {
-    title: "Nest Care",
+    title: "Nest Doc",
     items: [
       {
         href: "/nest-care/accounts",

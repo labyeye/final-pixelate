@@ -3,5 +3,5 @@
 import { AccountsAdmin } from "@/components/accounts-admin";
 
 export default function Page() {
-  return <AccountsAdmin product="care" title="Nest Care" />;
+  return <AccountsAdmin product="care" title="Nest Doc" />;
 }

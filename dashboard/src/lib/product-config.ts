@@ -12,11 +12,11 @@ export function productConfig(id: string): Cfg | null {
     case "leads":
       return { label: "Nest Leads", url: e.NESTLEADS_BACKEND_URL, secret: e.NESTLEADS_CRM_SECRET ?? e.NESTLEADS_SECRET, envHint: "NESTLEADS_BACKEND_URL and NESTLEADS_CRM_SECRET" };
     case "play":
-      return { label: "Nest Play", url: e.NESTSPORTS_BACKEND_URL ?? e.NESTPLAY_BACKEND_URL, secret: e.NESTSPORTS_CRM_SECRET ?? e.NESTPLAY_CRM_SECRET ?? e.NESTSPORTS_STATS_SECRET, envHint: "NESTSPORTS_BACKEND_URL and NESTSPORTS_CRM_SECRET" };
+      return { label: "Nest Academy", url: e.NESTSPORTS_BACKEND_URL ?? e.NESTPLAY_BACKEND_URL, secret: e.NESTSPORTS_CRM_SECRET ?? e.NESTPLAY_CRM_SECRET ?? e.NESTSPORTS_STATS_SECRET, envHint: "NESTSPORTS_BACKEND_URL and NESTSPORTS_CRM_SECRET" };
     case "gym":
       return { label: "Nest Gym", url: e.NESTGYM_BACKEND_URL, secret: e.NESTGYM_CRM_SECRET, envHint: "NESTGYM_BACKEND_URL and NESTGYM_CRM_SECRET" };
     case "care":
-      return { label: "Nest Care", url: e.NESTCARE_BACKEND_URL, secret: e.NESTCARE_CRM_SECRET, envHint: "NESTCARE_BACKEND_URL and NESTCARE_CRM_SECRET" };
+      return { label: "Nest Doc", url: e.NESTCARE_BACKEND_URL, secret: e.NESTCARE_CRM_SECRET, envHint: "NESTCARE_BACKEND_URL and NESTCARE_CRM_SECRET" };
     default:
       return null;
   }

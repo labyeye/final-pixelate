@@ -3,5 +3,5 @@
 import { ProductMetrics } from "@/components/product-metrics";
 
 export default function Page() {
-  return <ProductMetrics product="play" title="Nest Play" />;
+  return <ProductMetrics product="play" title="Nest Academy" />;
 }

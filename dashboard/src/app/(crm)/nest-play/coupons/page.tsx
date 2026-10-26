@@ -66,7 +66,7 @@ const emptyForm = {
   expiresAt: "",
 };
 
-export default function NestPlayCouponsPage() {
+export default function NestAcademyCouponsPage() {
   const [coupons, setCoupons] = useState<OfferCode[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -173,7 +173,7 @@ export default function NestPlayCouponsPage() {
         <div>
           <h1 className="text-3xl font-black tracking-tighter">NEST PLAY COUPONS</h1>
           <p className="text-muted-foreground text-sm">
-            Manage discount coupons for Nest Play subscriptions.
+            Manage discount coupons for Nest Academy subscriptions.
           </p>
         </div>
         <div className="flex items-center gap-2">

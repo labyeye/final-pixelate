@@ -16,7 +16,7 @@ import { FileText, CheckCircle2, Clock, AlertCircle, RefreshCw } from "lucide-re
 import { StatCard } from "@/components/ui/stat-card";
 import { apiFetch } from "@/lib/api-fetch";
 
-interface NestPlayInvoice {
+interface NestAcademyInvoice {
   invoiceNumber: string;
   clientName: string;
   clientEmail: string;
@@ -28,8 +28,8 @@ interface NestPlayInvoice {
   subscriptionPlan?: string;
 }
 
-export default function NestPlayInvoicesPage() {
-  const [invoices, setInvoices] = useState<NestPlayInvoice[]>([]);
+export default function NestAcademyInvoicesPage() {
+  const [invoices, setInvoices] = useState<NestAcademyInvoice[]>([]);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const { toast } = useToast();
@@ -50,10 +50,10 @@ export default function NestPlayInvoicesPage() {
       const data = await res.json();
       setInvoices(data.invoices ?? []);
     } catch (err: any) {
-      console.error("Failed to load Nest Play invoices", err);
+      console.error("Failed to load Nest Academy invoices", err);
       toast({
         title: "Fetch Failed",
-        description: err.message || "Could not load Nest Play invoices.",
+        description: err.message || "Could not load Nest Academy invoices.",
         variant: "destructive",
       });
     } finally {
@@ -124,7 +124,7 @@ export default function NestPlayInvoicesPage() {
         <div>
           <h1 className="text-3xl font-black tracking-tighter">NEST PLAY INVOICES</h1>
           <p className="text-muted-foreground text-sm">
-            Invoices generated from Nest Play subscriptions.
+            Invoices generated from Nest Academy subscriptions.
           </p>
         </div>
         <div className="flex items-center gap-2">

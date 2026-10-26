@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     if (!res.ok) throw new Error(data?.message ?? `Failed to create subscription (${res.status})`);
     return NextResponse.json(data, { status: res.status });
   } catch (e: any) {
-    console.error("Nest Play company create error:", e);
+    console.error("Nest Academy company create error:", e);
     return NextResponse.json({ error: e.message ?? "Failed to create subscription" }, { status: 500 });
   }
 }

@@ -126,7 +126,7 @@ export function AddClientDialog({
 
   const hasGst = form.watch("hasGst");
 
-  const [showNestPlayCreate, setShowNestPlayCreate] = useState(false);
+  const [showNestAcademyCreate, setShowNestAcademyCreate] = useState(false);
   const [nsOwnerName, setNsOwnerName] = useState("");
   const [nsOwnerEmail, setNsOwnerEmail] = useState("");
   const [nsStudentCount, setNsStudentCount] = useState("");
@@ -142,7 +142,7 @@ export function AddClientDialog({
     renewalDate: string;
   } | null>(null);
 
-  async function handleCreateNestPlaySubscription() {
+  async function handleCreateNestAcademySubscription() {
     setNsError(null);
     const name = form.getValues("name");
     const email = form.getValues("email");
@@ -430,7 +430,7 @@ export function AddClientDialog({
                             <SelectItem value="none">None</SelectItem>
                             <SelectItem value="nesthr">Nest HR</SelectItem>
                             <SelectItem value="nestleads">Nest Leads</SelectItem>
-                            <SelectItem value="nestplay">Nest Play</SelectItem>
+                            <SelectItem value="nestplay">Nest Academy</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -466,12 +466,12 @@ export function AddClientDialog({
                     <button
                       type="button"
                       className="text-sm font-bold underline"
-                      onClick={() => setShowNestPlayCreate((v) => !v)}
+                      onClick={() => setShowNestAcademyCreate((v) => !v)}
                     >
-                      {showNestPlayCreate ? "Hide" : "Create a new NestPlay subscription instead"}
+                      {showNestAcademyCreate ? "Hide" : "Create a new NestAcademy subscription instead"}
                     </button>
 
-                    {showNestPlayCreate && (
+                    {showNestAcademyCreate && (
                       <div className="space-y-3">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           <div>
@@ -555,7 +555,7 @@ export function AddClientDialog({
                           type="button"
                           size="sm"
                           disabled={nsCreating}
-                          onClick={handleCreateNestPlaySubscription}
+                          onClick={handleCreateNestAcademySubscription}
                           className="border-2 border-black font-bold"
                         >
                           {nsCreating && <Loader2 className="w-4 h-4 mr-1 animate-spin" />}

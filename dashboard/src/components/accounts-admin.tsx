@@ -39,6 +39,11 @@ function Select({ label, value, options, onChange, labels }: { label: string; va
     </div>
   );
 }
+// Terms & Privacy acceptance: accepted / partial (some logins pending) / pending / n/a (no login must accept).
+function termsBadge(t?: string, count?: string, at?: string) {
+  const cls = t === "accepted" ? "bg-green-100 text-green-700 border-green-300" : t === "partial" ? "bg-yellow-100 text-yellow-700 border-yellow-300" : t === "pending" ? "bg-red-100 text-red-700 border-red-300" : "bg-gray-100 text-gray-500 border-gray-300";
+  return <Badge title={at ? `Accepted ${fmtDate(at)}` : undefined} className={`font-bold ${cls}`}>{(t ?? "—").toUpperCase()}{count && t !== "n/a" ? ` ${count}` : ""}</Badge>;
+}
 function statusBadge(s?: string) {
   const good = s === "active";
   const mid = s === "trial" || s === "trialing";
@@ -101,7 +106,7 @@ export function AccountsAdmin({ product, title }: { product: string; title: stri
         <Table>
           <TableHeader>
             <TableRow>
-              {["Account", "Status", "Plan", "Valid till", "Usage", "Last login", ""].map((h) => <TableHead key={h} className="font-black text-xs uppercase tracking-widest">{h}</TableHead>)}
+              {["Account", "Status", "Plan", "Valid till", "Usage", "Terms", "Last login", ""].map((h) => <TableHead key={h} className="font-black text-xs uppercase tracking-widest">{h}</TableHead>)}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -112,12 +117,13 @@ export function AccountsAdmin({ product, title }: { product: string; title: stri
                 <TableCell className="font-bold">{a.plan ?? "—"}</TableCell>
                 <TableCell>{fmtDate(a.validTill)}</TableCell>
                 <TableCell className="text-sm">{a.usage}</TableCell>
+                <TableCell>{termsBadge(a.terms, a.termsCount)}</TableCell>
                 <TableCell className="text-xs text-muted-foreground">{fmtDate(a.lastLogin)}</TableCell>
                 <TableCell><Button size="sm" variant="outline" className="border-2 border-black font-bold" onClick={() => setManageId(a.id)}><Settings2 className="w-4 h-4 mr-1" /> Manage</Button></TableCell>
               </TableRow>
             ))}
-            {!loading && accounts.length === 0 && <TableRow><TableCell colSpan={7} className="text-center py-10 text-muted-foreground font-semibold">No accounts found</TableCell></TableRow>}
-            {loading && accounts.length === 0 && <TableRow><TableCell colSpan={7} className="text-center py-10">Loading…</TableCell></TableRow>}
+            {!loading && accounts.length === 0 && <TableRow><TableCell colSpan={8} className="text-center py-10 text-muted-foreground font-semibold">No accounts found</TableCell></TableRow>}
+            {loading && accounts.length === 0 && <TableRow><TableCell colSpan={8} className="text-center py-10">Loading…</TableCell></TableRow>}
           </TableBody>
         </Table>
       </div>
@@ -274,7 +280,7 @@ function ManageDialog({ id, call, onClose, onChanged }: { id: string; call: any;
             <div className="space-y-2">
               {d.users.map((u: any) => (
                 <div key={u.id} className="border-2 border-black p-2 grid grid-cols-12 gap-2 items-center text-sm">
-                  <div className="col-span-5"><p className="font-bold truncate">{u.name}{u.isOwner ? " · owner" : ""}</p><p className="text-xs text-muted-foreground truncate">{u.email}</p></div>
+                  <div className="col-span-5"><p className="font-bold truncate">{u.name}{u.isOwner ? " · owner" : ""}</p><p className="text-xs text-muted-foreground truncate">{u.email}</p><div className="mt-1">{termsBadge(u.terms, undefined, u.termsAcceptedAt)}</div></div>
                   <select className={`${sel} col-span-3`} value={u.role} onChange={(e) => run("Role updated", () => call(`/users/${u.id}`, "PATCH", { role: e.target.value }))}>
                     {m.roleOptions.map((r: string) => <option key={r}>{r}</option>)}
                   </select>

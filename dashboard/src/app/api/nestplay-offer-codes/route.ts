@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     if (!res.ok) throw new Error(data?.message ?? `Failed to fetch coupons (${res.status})`);
     return NextResponse.json(data);
   } catch (e: any) {
-    console.error("Nest Play offer-codes fetch error:", e);
+    console.error("Nest Academy offer-codes fetch error:", e);
     return NextResponse.json({ error: e.message ?? "Failed to fetch coupons" }, { status: 500 });
   }
 }
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     if (!res.ok) throw new Error(data?.message ?? `Failed to create coupon (${res.status})`);
     return NextResponse.json(data, { status: res.status });
   } catch (e: any) {
-    console.error("Nest Play offer-code create error:", e);
+    console.error("Nest Academy offer-code create error:", e);
     return NextResponse.json({ error: e.message ?? "Failed to create coupon" }, { status: 500 });
   }
 }

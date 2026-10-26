@@ -60,7 +60,7 @@ const emptyForm = {
 };
 
 // Offer codes for Nest HR / Nest Leads (bonus months, editable, usage log) and
-// coupons for Nest Play (bonus months / flat rate / percent off, toggle only).
+// coupons for Nest Academy (bonus months / flat rate / percent off, toggle only).
 const ProductOffersScreen = () => {
   const { product } =
     useRoute<RouteProp<MoreStackParams, 'ProductOffers'>>().params;

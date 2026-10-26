@@ -4,7 +4,7 @@ import type { Product } from '../../api';
 export const PRODUCT_NAME: Record<Product, string> = {
   hr: 'Nest HR',
   leads: 'Nest Leads',
-  play: 'Nest Play',
+  play: 'Nest Academy',
 };
 
 export const fmtNum = (n?: number) =>

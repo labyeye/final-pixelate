@@ -33,7 +33,7 @@ export async function PATCH(
     if (!res.ok) throw new Error(data?.message ?? `Failed to update coupon (${res.status})`);
     return NextResponse.json(data);
   } catch (e: any) {
-    console.error("Nest Play offer-code update error:", e);
+    console.error("Nest Academy offer-code update error:", e);
     return NextResponse.json({ error: e.message ?? "Failed to update coupon" }, { status: 500 });
   }
 }

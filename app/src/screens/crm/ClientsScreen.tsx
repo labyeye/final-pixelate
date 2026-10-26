@@ -41,7 +41,7 @@ const PRODUCTS = [
   { label: 'None', value: 'none' },
   { label: 'Nest HR', value: 'nesthr' },
   { label: 'Nest Leads', value: 'nestleads' },
-  { label: 'Nest Play', value: 'nestplay' },
+  { label: 'Nest Academy', value: 'nestplay' },
 ];
 
 const EMPTY_FORM = {

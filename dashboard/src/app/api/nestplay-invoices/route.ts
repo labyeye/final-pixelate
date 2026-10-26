@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
 
   if (!NESTPLAY_URL || !NESTPLAY_SECRET) {
     return NextResponse.json(
-      { error: "Nest Play not configured — add NESTPLAY_BACKEND_URL and NESTPLAY_CRM_SECRET to .env" },
+      { error: "Nest Academy not configured — add NESTPLAY_BACKEND_URL and NESTPLAY_CRM_SECRET to .env" },
       { status: 503 },
     );
   }
@@ -31,18 +31,18 @@ export async function GET(request: NextRequest) {
     if (!contentType.includes("application/json")) {
       const text = await res.text();
       throw new Error(
-        `Nest Play returned non-JSON response (${res.status}): ${text.slice(0, 200)}`,
+        `Nest Academy returned non-JSON response (${res.status}): ${text.slice(0, 200)}`,
       );
     }
 
     const data = await res.json();
-    if (!res.ok) throw new Error(data?.message ?? `Nest Play invoices fetch failed (${res.status})`);
+    if (!res.ok) throw new Error(data?.message ?? `Nest Academy invoices fetch failed (${res.status})`);
 
     return NextResponse.json(data);
   } catch (e: any) {
-    console.error("Nest Play invoices error:", e);
+    console.error("Nest Academy invoices error:", e);
     return NextResponse.json(
-      { error: e.message ?? "Failed to fetch Nest Play invoices" },
+      { error: e.message ?? "Failed to fetch Nest Academy invoices" },
       { status: 500 },
     );
   }

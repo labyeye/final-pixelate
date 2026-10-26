@@ -1,8 +1,8 @@
-# How the CRM Dashboard Fetches NestHR Data (and how to plug in Nest Leads / Nest Play)
+# How the CRM Dashboard Fetches NestHR Data (and how to plug in Nest Leads / Nest Academy)
 
 This document explains exactly how the CRM dashboard pulls invoices and statistics
 from the **NestHR** backend today, so the same contract can be implemented on the
-**Nest Leads** and **Nest Play** backends and wired up with zero code changes on
+**Nest Leads** and **Nest Academy** backends and wired up with zero code changes on
 the dashboard side (the routes already exist and just need env vars).
 
 ---
@@ -171,7 +171,7 @@ this silently no-ops** — nothing breaks, it just doesn't sync.
 - Implemented in `leads-pixelate/backend/controllers/crmController.js` / `routes/crmRoutes.js`, mounted at `/internal` in `server.js`. Updates `Tenant.status`/`planExpiresAt` and the linked `Subscription`.
 - Unlike Nest HR, Nest Leads previously had **no enforcement at all** — `middleware/auth.js`'s `protect()` now also checks the user's `Tenant.status`/`planExpiresAt` on every request (not just at login) and returns 403 if suspended/cancelled/expired. This makes deactivation take effect immediately, even for an already-logged-in session.
 
-### Nest Play
+### Nest Academy
 Not yet a real backend in this workspace — `product-sync.ts` has a code path for it (`NESTPLAY_BACKEND_URL`/`NESTPLAY_CRM_SECRET`) but it will just no-op until that product exists and implements the same contract.
 
 ---
@@ -191,7 +191,7 @@ launched, quotations created) instead of the HR terms, since those fields
 don't apply 1:1. See `dashboard/src/app/(crm)/nest-leads/subscriptions/page.tsx`
 and `leads-pixelate/backend/routes/statsRoutes.js` / `crmInvoiceRoutes.js`.
 
-Nest Play is still scaffolded but not implemented — it just needs these
+Nest Academy is still scaffolded but not implemented — it just needs these
 filled in once that backend exists:
 
 ```
@@ -211,7 +211,7 @@ secret, I just drop the values into `.env` — no further code changes needed.
 
 ---
 
-## 4. Prompt to hand to the Nest Leads / Nest Play backend project
+## 4. Prompt to hand to the Nest Leads / Nest Academy backend project
 
 Copy everything in the box below into the other project's AI assistant (or give it to
 the backend dev directly).

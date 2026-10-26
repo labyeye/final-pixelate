@@ -1261,7 +1261,7 @@
             margin-bottom: 24px;
           "
         >
-          At Pixelate Nest, we build more than great software � we build
+          At Pixelate Nest, we build more than great software - we build
           careers. Our culture is rooted in creativity, continuous learning, and
           collaboration. We are a remote-friendly team of designers, developers,
           and marketers who are passionate about delivering exceptional digital
@@ -1290,7 +1290,7 @@
           <li>Flexible work hours and remote-first work environment</li>
           <li>Competitive salary with performance-based increments</li>
           <li>Continuous learning budget for courses and certifications</li>
-          <li>Work on real client projects from day one � no busywork</li>
+          <li>Work on real client projects from day one - no busywork</li>
           <li>
             Collaborative team culture with weekly knowledge-sharing sessions
           </li>
@@ -1708,7 +1708,7 @@
             <div class="vertical-divider"></div>
             <div class="footer-bottom-wrap">
               <div class="p-text-03 text-white-60">
-                � 2026 Kalahanu Tech Studios LLP. All Rights Reserved. | Crafted
+                - 2026 Kalahanu Tech Studios LLP. All Rights Reserved. | Crafted
                 with
                 <i class="fas fa-heart" style="color: #e74c3c"></i>
                 in India
@@ -1789,7 +1789,7 @@
             const text = String(raw || "").trim();
             if (!text) return "";
             const parts = text
-              .split(/\r?\n|�|–|—|-/)
+              .split(/\r?\n|-|–|—|-/)
               .map((s) => s.trim())
               .filter(Boolean);
             if (parts.length <= 1)
@@ -1797,7 +1797,7 @@
             return parts
               .map(
                 (p) =>
-                  `<div class="job-desc-line">� ${escapeHtml(capitalizeFirst(p))}</div>`,
+                  `<div class="job-desc-line">- ${escapeHtml(capitalizeFirst(p))}</div>`,
               )
               .join("");
           };
@@ -1837,7 +1837,7 @@
               if (Array.isArray(val))
                 return `<ul class="job-bullets">${val.map((v) => `<li>${escapeHtml(capitalizeFirst(String(v)))}</li>`).join("")}</ul>`;
               const parts = String(val)
-                .split(/\r?\n|�|–|—|-|,|;/)
+                .split(/\r?\n|-|–|—|-|,|;/)
                 .map((s) => s.trim())
                 .filter(Boolean);
               return `<ul class="job-bullets">${parts.map((p) => `<li>${escapeHtml(capitalizeFirst(p))}</li>`).join("")}</ul>`;
@@ -1960,7 +1960,7 @@
             document.getElementById("modal-job-info") ||
             document.getElementById("modal-job-info");
           if (job && modalInfo) {
-            modalInfo.innerHTML = `<h3>${escapeHtml(job.title || "")}</h3><p>${escapeHtml(job.location || "")} � ${escapeHtml(job.department || job.category || "")}</p>`;
+            modalInfo.innerHTML = `<h3>${escapeHtml(job.title || "")}</h3><p>${escapeHtml(job.location || "")} - ${escapeHtml(job.department || job.category || "")}</p>`;
           } else if (modalInfo) {
             modalInfo.innerHTML = `<h3>Apply</h3>`;
           }

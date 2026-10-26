@@ -98,7 +98,7 @@ const SECTIONS: Section[] = [
   productSection('Nest HR', 'hr', Colors.primary),
   productSection('Nest Leads', 'leads', '#7C3AED'),
   {
-    title: 'Nest Play',
+    title: 'Nest Academy',
     adminOnly: true,
     items: [
       { label: 'Invoices', icon: Receipt, route: 'ProductInvoices', params: { product: 'play' }, color: Colors.success },
