@@ -16,19 +16,19 @@
 
 ### Web Development
 Custom website design, responsive web development, e-commerce platforms, CMS development, WordPress, Shopify, and progressive web apps.
-URL: https://www.pixelatenest.com/webdev
+URL: https://www.pixelatenest.com/services/web-development.html
 
 ### Mobile App Development
 iOS and Android app development using Flutter, React Native, Swift, and Kotlin. Cross-platform and native solutions.
-URL: https://www.pixelatenest.com/app-dev
+URL: https://www.pixelatenest.com/services/app-development.html
 
 ### Software Development
 Enterprise software, SaaS platforms, CRM systems, ERP solutions, factory management, school management, billing systems, and cloud applications.
-URL: https://www.pixelatenest.com/software-dev
+URL: https://www.pixelatenest.com/services/software-development.html
 
 ### Video Editing & Content Creation
 Professional video editing, motion graphics, color grading, sound design, YouTube content, social media videos, and corporate video production.
-URL: https://www.pixelatenest.com/video-ed
+URL: https://www.pixelatenest.com/services/video-editing.html
 
 ### Digital Marketing
 SEO optimization, social media marketing, content marketing, paid advertising, and brand strategy.
@@ -44,7 +44,7 @@ SEO optimization, social media marketing, content marketing, paid advertising, a
 - **Transport Management Software**: Fleet and logistics tracking
 - **GST Billing Software**: Indian tax-compliant invoicing
 
-Products URL: https://www.pixelatenest.com/product
+Products URL: https://www.pixelatenest.com/pages/product.html
 
 ## Industries Served
 
@@ -63,14 +63,14 @@ E-commerce, Education, Healthcare, Real Estate, Travel & Hospitality, Logistics,
 ## Key Pages
 
 - Home: https://www.pixelatenest.com/
-- About: https://www.pixelatenest.com/about
-- Pricing: https://www.pixelatenest.com/pricing
-- Contact: https://www.pixelatenest.com/contact
-- Blog: https://www.pixelatenest.com/blogs
-- Careers: https://www.pixelatenest.com/careers
-- Technologies: https://www.pixelatenest.com/technologies
-- Privacy Policy: https://www.pixelatenest.com/privacy-policy
-- Terms of Service: https://www.pixelatenest.com/terms-of-service
+- About: https://www.pixelatenest.com/pages/about.html
+- Pricing: https://www.pixelatenest.com/pages/pricing.html
+- Contact: https://www.pixelatenest.com/pages/contact.html
+- Blog: https://www.pixelatenest.com/blog/
+- Careers: https://www.pixelatenest.com/pages/careers.html
+- Technologies: https://www.pixelatenest.com/pages/technologies.html
+- Privacy Policy: https://www.pixelatenest.com/legal/privacy-policy.html
+- Terms of Service: https://www.pixelatenest.com/legal/terms-of-service.html
 
 ## Social Media
 

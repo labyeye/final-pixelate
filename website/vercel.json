@@ -292,42 +292,42 @@
     },
     {
       "source": "/detailed-services/video-editing/",
-      "destination": "/services/detailed/video-editing/",
+      "destination": "/services/video-editing.html",
       "statusCode": 301
     },
     {
       "source": "/detailed-services/video-editing",
-      "destination": "/services/detailed/video-editing/",
+      "destination": "/services/video-editing.html",
       "statusCode": 301
     },
     {
       "source": "/detailed-services/app-development/",
-      "destination": "/services/detailed/app-development/",
+      "destination": "/services/app-development.html",
       "statusCode": 301
     },
     {
       "source": "/detailed-services/app-development",
-      "destination": "/services/detailed/app-development/",
+      "destination": "/services/app-development.html",
       "statusCode": 301
     },
     {
       "source": "/detailed-services/web-development/",
-      "destination": "/services/detailed/web-development/",
+      "destination": "/services/web-development.html",
       "statusCode": 301
     },
     {
       "source": "/detailed-services/web-development",
-      "destination": "/services/detailed/web-development/",
+      "destination": "/services/web-development.html",
       "statusCode": 301
     },
     {
       "source": "/detailed-services/software-development/",
-      "destination": "/services/detailed/software-development/",
+      "destination": "/services/software-development.html",
       "statusCode": 301
     },
     {
       "source": "/detailed-services/software-development",
-      "destination": "/services/detailed/software-development/",
+      "destination": "/services/software-development.html",
       "statusCode": 301
     },
     {
@@ -519,6 +519,47 @@
       "source": "/industry-counter.html",
       "destination": "/products/counter-billing-software.html",
       "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
     }
   ]
 }
