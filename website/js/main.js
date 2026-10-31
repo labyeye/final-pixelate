@@ -475,13 +475,7 @@ function gtag() {
       }),
         e.forEach((e) => {
           n("prefetch", e, "document");
-        }),
-        n(
-          "preload",
-          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-          "style",
-          !0,
-        ));
+        }));
       try {
         (fetch("/", {
           method: "GET",

@@ -7,6 +7,15 @@ import hashlib, html, json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.pixelatenest.com"
+
+# Lucide sprite ids for the icon names used below (sprite: assets/icons/sprite.svg)
+_ICONS = {"fa-globe": "globe", "fa-mobile-screen": "smartphone", "fa-laptop-code": "laptop", "fa-bullhorn": "megaphone", "fa-video": "video",
+          "fa-pen-ruler": "pencil-ruler", "fa-server": "server", "fa-chart-line": "chart-line", "fa-location-dot": "map-pin"}
+
+
+def ic(name):
+    return '<svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#%s"/></svg>' % _ICONS[name]
+
 T = open(os.path.join(ROOT, "states/bihar/muzaffarpur.html"), encoding="utf-8", newline="").read()
 assert "\r\n" not in T
 
@@ -184,7 +193,7 @@ def build(state, city, cities):
               <span class="story-num">{n} · {label}</span>
             </div>
             <div class="story-text">
-              <h3><span class="pill-ico" aria-hidden="true"><i class="fa-solid {ico}"></i></span> {esc(h3)}</h3>
+              <h3><span class="pill-ico" aria-hidden="true"><i>{ic(ico)}</i></span> {esc(h3)}</h3>
               {''.join(f"<p>{p}</p>" for p in ps)}
               <div class="story-meta">{''.join(f"<span>{esc(t)}</span>" for t in tags)}</div>
             </div>
@@ -219,7 +228,7 @@ def build(state, city, cities):
         t = f'<a href="{href}">{esc(h3)}</a>' if href else esc(h3)
         return f'''
             <article class="area mzp-reveal" data-delay="{d}" role="listitem">
-              <div class="area-head"><span class="area-ico" aria-hidden="true"><i class="fa-solid {ico}"></i></span><span class="area-cat">{esc(cat)}</span></div>
+              <div class="area-head"><span class="area-ico" aria-hidden="true"><i>{ic(ico)}</i></span><span class="area-cat">{esc(cat)}</span></div>
               <h3>{t}</h3>
               <p>{esc(p)}</p>
             </article>'''

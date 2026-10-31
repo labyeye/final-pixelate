@@ -1495,7 +1495,7 @@ ul {
   color: var(--secondary-800);
   text-decoration: none;
 }
-.services-grid .service-item a i.fa-arrow-right {
+.services-grid .service-item a i.ic-arrow-right {
   font-size: 0.85em;
   line-height: 1;
 }

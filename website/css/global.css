@@ -4950,3 +4950,18 @@ video {
     display: none !important;
   }
 }
+
+
+/* Lucide/FA-brand SVG sprite icons (assets/icons/sprite.svg) - replaces Font Awesome icon font */
+.ic{width:1em;height:1em;display:inline-block;vertical-align:-.125em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;overflow:visible}
+.ic-lg{font-size:1.25em;line-height:.75em;vertical-align:-.0667em}.ic-xs{font-size:.75em}.ic-sm{font-size:.875em}
+.ic-2x{font-size:2em}.ic-3x{font-size:3em}.ic-4x{font-size:4em}.ic-5x{font-size:5em}
+.ic-fw{width:1.25em;text-align:center}
+.ic-r90{transform:rotate(90deg)}.ic-r180{transform:rotate(180deg)}.ic-r270{transform:rotate(270deg)}
+.ic-spin,.ic-spin>.ic{animation:ic-spin 2s linear infinite}.ic-pulse,.ic-pulse>.ic{animation:ic-spin 1s steps(8) infinite}
+.ic-beat,.ic-beat>.ic{animation:ic-beat 1s ease-in-out infinite}.ic-bounce,.ic-bounce>.ic{animation:ic-bounce 1s ease infinite}.ic-flip,.ic-flip>.ic{animation:ic-flip 2s ease-in-out infinite}
+@keyframes ic-spin{to{transform:rotate(360deg)}}
+@keyframes ic-beat{0%,90%{transform:scale(1)}45%{transform:scale(1.25)}}
+@keyframes ic-bounce{0%,100%{transform:translateY(0)}10%{transform:scale(1.1,.9)}30%{transform:scale(.9,1.1) translateY(-.5em)}50%{transform:scale(1.05,.95) translateY(0)}57%{transform:scale(1) translateY(-.125em)}64%{transform:scale(1) translateY(0)}}
+@keyframes ic-flip{50%{transform:rotateY(-180deg)}}
+@media (prefers-reduced-motion:reduce){.ic-spin,.ic-pulse,.ic-beat,.ic-bounce,.ic-flip,.ic-spin>.ic,.ic-pulse>.ic,.ic-beat>.ic,.ic-bounce>.ic,.ic-flip>.ic{animation:none}}
