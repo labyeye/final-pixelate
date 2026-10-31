@@ -66,6 +66,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="stylesheet" href="../../../../css/global.css" />
     <link rel="stylesheet" href="../../../../css/pages/product-common.css" />
     <link rel="stylesheet" href="../../../../css/pages/product-nh.css" />
@@ -74,7 +75,21 @@
       href="../../../../assets/images/products/sports-manage/dashboard.png"
       as="image"
     />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    /></noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap"
       rel="stylesheet"
@@ -86,7 +101,12 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap"
         rel="stylesheet"
     /></noscript>
-    
+    <link
+      rel="stylesheet"
+      href="../../../../assets/fonts/all.min.css"
+      media="print"
+      onload="this.media = 'all'"
+    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -349,9 +369,9 @@
                         >
                           <span class="nav-link-text">About</span>
                           <i
-                            class="dropdown-arrow"
+                            class="fas fa-chevron-down dropdown-arrow"
                             aria-hidden="true"
-                          ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#chevron-down"/></svg></i>
+                          ></i>
                         </a>
                         <div class="about-mega-dropdown">
                           <div class="about-mega-cards">
@@ -462,9 +482,9 @@
                         >
                           <span class="nav-link-text">Services</span>
                           <i
-                            class="dropdown-arrow"
+                            class="fas fa-chevron-down dropdown-arrow"
                             aria-hidden="true"
-                          ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#chevron-down"/></svg></i>
+                          ></i>
                         </a>
                         <div class="services-mega-dropdown">
                           <div class="services-mega-cards">
@@ -553,9 +573,9 @@
                         >
                           <span class="nav-link-text">Products</span>
                           <i
-                            class="dropdown-arrow"
+                            class="fas fa-chevron-down dropdown-arrow"
                             aria-hidden="true"
-                          ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#chevron-down"/></svg></i>
+                          ></i>
                         </a>
                         <div class="products-mega-dropdown">
                           <div class="products-mega-cards">
@@ -889,7 +909,7 @@
               </p>
               <div class="nh-about-highlights">
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#cloud"/></svg></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-cloud"></i></div>
                   <div class="nh-hl-text">
                     <strong>Cloud-Based & Accessible Anywhere</strong>
                     <span
@@ -899,7 +919,7 @@
                   </div>
                 </div>
                 <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#zap"/></svg></i></div>
+                  <div class="nh-hl-icon"><i class="fas fa-bolt"></i></div>
                   <div class="nh-hl-text">
                     <strong>Fully Automated Workflows</strong>
                     <span
@@ -910,7 +930,7 @@
                 </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon">
-                    <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#goal"/></svg></i>
+                    <i class="fas fa-futbol"></i>
                   </div>
                   <div class="nh-hl-text">
                     <strong>Built for Academies & Clubs</strong>
@@ -922,7 +942,7 @@
                 </div>
                 <div class="nh-about-highlight">
                   <div class="nh-hl-icon">
-                    <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#smartphone"/></svg></i>
+                    <i class="fas fa-mobile-alt"></i>
                   </div>
                   <div class="nh-hl-text">
                     <strong>Mobile-First Coach &amp; Parent App</strong>
@@ -951,28 +971,28 @@
           </p>
           <div class="nh-industries-grid">
             <div class="nh-industry-item slide-up" style="transition-delay: 0s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#user-plus"/></svg></i
+              <i class="fas fa-user-plus"></i
               ><span>1. Enroll Students &amp; Staff</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.1s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#fingerprint"/></svg></i
+              <i class="fas fa-fingerprint"></i
               ><span>2. Track Attendance Daily</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.2s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#clipboard-list"/></svg></i
+              <i class="fas fa-clipboard-list"></i
               ><span>3. Assign Coaching Plans</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.3s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#wallet"/></svg></i
+              <i class="fas fa-wallet"></i
               ><span>4. Auto-Collect Subscriptions</span>
             </div>
           </div>
@@ -993,7 +1013,7 @@
           </p>
           <div class="nh-features-grid">
             <div class="nh-feat-card slide-up" style="transition-delay: 0s">
-              <div class="nh-feat-icon"><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#fingerprint"/></svg></i></div>
+              <div class="nh-feat-icon"><i class="fas fa-fingerprint"></i></div>
               <h3>Student Attendance</h3>
               <p>
                 Track daily attendance for every student and player across
@@ -1003,7 +1023,7 @@
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
               <div class="nh-feat-icon">
-                <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#clipboard-check"/></svg></i>
+                <i class="fas fa-clipboard-check"></i>
               </div>
               <h3>Employee &amp; Coach Attendance</h3>
               <p>
@@ -1013,7 +1033,7 @@
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
               <div class="nh-feat-icon">
-                <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#users"/></svg></i>
+                <i class="fas fa-user-friends"></i>
               </div>
               <h3>Student Management</h3>
               <p>
@@ -1023,7 +1043,7 @@
               </p>
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
-              <div class="nh-feat-icon"><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#users"/></svg></i></div>
+              <div class="nh-feat-icon"><i class="fas fa-users-cog"></i></div>
               <h3>Employee Management</h3>
               <p>
                 Manage coach and staff records, roles, schedules, and
@@ -1032,7 +1052,7 @@
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.32s">
               <div class="nh-feat-icon">
-                <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#map-pin"/></svg></i>
+                <i class="fas fa-map-marker-alt"></i>
               </div>
               <h3>Facilities Management</h3>
               <p>
@@ -1042,7 +1062,7 @@
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.4s">
               <div class="nh-feat-icon">
-                <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#clipboard-list"/></svg></i>
+                <i class="fas fa-clipboard-list"></i>
               </div>
               <h3>Coaching Plans Management</h3>
               <p>
@@ -1051,7 +1071,7 @@
               </p>
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.08s">
-              <div class="nh-feat-icon"><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#wallet"/></svg></i></div>
+              <div class="nh-feat-icon"><i class="fas fa-wallet"></i></div>
               <h3>Subscriptions &amp; Fee Billing</h3>
               <p>
                 Automate recurring subscription billing, track dues, and send
@@ -1059,7 +1079,7 @@
               </p>
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.16s">
-              <div class="nh-feat-icon"><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#network"/></svg></i></div>
+              <div class="nh-feat-icon"><i class="fas fa-sitemap"></i></div>
               <h3>Batch &amp; Department Management</h3>
               <p>
                 Organise students and staff into batches and departments and get
@@ -1067,7 +1087,7 @@
               </p>
             </div>
             <div class="nh-feat-card slide-up" style="transition-delay: 0.24s">
-              <div class="nh-feat-icon"><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#chart-pie"/></svg></i></div>
+              <div class="nh-feat-icon"><i class="fas fa-chart-pie"></i></div>
               <h3>Reports &amp; Analytics</h3>
               <p>
                 Get deep insights through visual dashboards and downloadable
@@ -1143,65 +1163,65 @@
           </p>
           <div class="nh-industries-grid">
             <div class="nh-industry-item slide-up" style="transition-delay: 0s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#goal"/></svg></i><span>Football Academies</span>
+              <i class="fas fa-futbol"></i><span>Football Academies</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.07s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#circle-dot"/></svg></i><span>Cricket Academies</span>
+              <i class="fas fa-baseball-ball"></i><span>Cricket Academies</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.14s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#waves"/></svg></i><span>Swimming Academies</span>
+              <i class="fas fa-swimmer"></i><span>Swimming Academies</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.21s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#dumbbell"/></svg></i><span>Fitness &amp; Gyms</span>
+              <i class="fas fa-dumbbell"></i><span>Fitness &amp; Gyms</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.28s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#hand-fist"/></svg></i
+              <i class="fas fa-fist-raised"></i
               ><span>Martial Arts Schools</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.07s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#trophy"/></svg></i
+              <i class="fas fa-table-tennis"></i
               ><span>Badminton &amp; Tennis</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.14s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#graduation-cap"/></svg></i
+              <i class="fas fa-graduation-cap"></i
               ><span>School Sports Programs</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.21s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#presentation"/></svg></i
+              <i class="fas fa-chalkboard-teacher"></i
               ><span>Coaching Institutes</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.28s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#building-2"/></svg></i><span>Sports Complexes</span>
+              <i class="fas fa-building"></i><span>Sports Complexes</span>
             </div>
             <div
               class="nh-industry-item slide-up"
               style="transition-delay: 0.35s"
             >
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#medal"/></svg></i><span>Multi-Sport Clubs</span>
+              <i class="fas fa-medal"></i><span>Multi-Sport Clubs</span>
             </div>
           </div>
         </div>
@@ -1223,7 +1243,7 @@
           </p>
           <div class="nh-why-grid">
             <div class="nh-why-card slide-up" style="transition-delay: 0s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#hourglass"/></svg></i>
+              <i class="fas fa-hourglass-half"></i>
               <strong>Saves Hours Every Day</strong>
               <p>
                 Automate repetitive admin tasks and free your coaches and staff
@@ -1231,7 +1251,7 @@
               </p>
             </div>
             <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#ban"/></svg></i>
+              <i class="fas fa-ban"></i>
               <strong>Zero Paperwork</strong>
               <p>
                 All student records, plans, and payment history are digital —
@@ -1239,7 +1259,7 @@
               </p>
             </div>
             <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#target"/></svg></i>
+              <i class="fas fa-bullseye"></i>
               <strong>100% Accurate Billing</strong>
               <p>
                 Eliminate manual calculation errors. Pixelate Sports Manage
@@ -1247,7 +1267,7 @@
               </p>
             </div>
             <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#calendar-check"/></svg></i>
+              <i class="fas fa-calendar-check"></i>
               <strong>Reliable Attendance Records</strong>
               <p>
                 Keep accurate, always-available attendance history for every
@@ -1255,7 +1275,7 @@
               </p>
             </div>
             <div class="nh-why-card slide-up" style="transition-delay: 0.1s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#user-cog"/></svg></i>
+              <i class="fas fa-user-cog"></i>
               <strong>Coach &amp; Parent Self-Service</strong>
               <p>
                 Coaches mark their own attendance and parents track plans and
@@ -1263,7 +1283,7 @@
               </p>
             </div>
             <div class="nh-why-card slide-up" style="transition-delay: 0.2s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#rocket"/></svg></i>
+              <i class="fas fa-rocket"></i>
               <strong>Quick Onboarding</strong>
               <p>
                 Get started in hours, not weeks. Import student and staff data,
@@ -1271,7 +1291,7 @@
               </p>
             </div>
             <div class="nh-why-card slide-up" style="transition-delay: 0.3s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#git-branch"/></svg></i>
+              <i class="fas fa-code-branch"></i>
               <strong>Multi-Branch Ready</strong>
               <p>
                 Manage attendance, billing, and operations across multiple
@@ -1279,7 +1299,7 @@
               </p>
             </div>
             <div class="nh-why-card slide-up" style="transition-delay: 0.4s">
-              <i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#headset"/></svg></i>
+              <i class="fas fa-headset"></i>
               <strong>Dedicated Support</strong>
               <p>
                 Our team is always reachable via call, email, or chat — fast
@@ -2174,21 +2194,21 @@
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i  style="margin-right: 8px"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#mail"/></svg></i
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i
                       >support@pixelatenest.com
                     </p>
                     <p
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i  style="margin-right: 8px"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#phone"/></svg></i>+91
+                      <i class="fas fa-phone" style="margin-right: 8px"></i>+91
                       +91-84069-12345
                     </p>
                     <p class="p-text-03 text-white-60">
                       <i
-                        
+                        class="fas fa-map-marker-alt"
                         style="margin-right: 8px"
-                      ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#map-pin"/></svg></i
+                      ></i
                       >Muzaffarpur, Bihar, India &mdash; Serving clients across
                       India &amp; globally
                     </p>
@@ -2374,7 +2394,7 @@
                         class="footer-link-text"
                         style="flex-direction: row; display: flex; gap: 10px"
                       >
-                        <i  aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#b-linkedin-in"/></svg></i
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i
                         ><span>LinkedIn</span>
                       </div>
                     </a>
@@ -2388,7 +2408,7 @@
                         class="footer-link-text"
                         style="flex-direction: row; display: flex; gap: 10px"
                       >
-                        <i  aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#b-instagram"/></svg></i
+                        <i class="fab fa-instagram" aria-hidden="true"></i
                         ><span>Instagram</span>
                       </div>
                     </a>
@@ -2402,7 +2422,7 @@
                         class="footer-link-text"
                         style="flex-direction: row; display: flex; gap: 10px"
                       >
-                        <i  aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#b-facebook-f"/></svg></i
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i
                         ><span>Facebook</span>
                       </div>
                     </a>
@@ -2417,7 +2437,7 @@
                 <div class="p-text-03 text-white-60">
                   &copy; 2026 Kalahanu Tech Studios LLP. All Rights Reserved. |
                   Crafted with
-                  <i  style="color: #e74c3c"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#heart"/></svg></i> in India
+                  <i class="fas fa-heart" style="color: #e74c3c"></i> in India
                 </div>
                 <div class="p-text-03 text-white-60">
                   <strong>Payments Accepted:</strong>
@@ -2430,13 +2450,13 @@
                     "
                   >
                     <span style="display: flex; align-items: center; gap: 5px"
-                      ><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#banknote"/></svg></i> Cash</span
+                      ><i class="fas fa-money-bill-wave"></i> Cash</span
                     >
                     <span style="display: flex; align-items: center; gap: 5px"
-                      ><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#landmark"/></svg></i> Bank</span
+                      ><i class="fas fa-university"></i> Bank</span
                     >
                     <span style="display: flex; align-items: center; gap: 5px"
-                      ><i ><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#smartphone"/></svg></i> UPI</span
+                      ><i class="fas fa-mobile-alt"></i> UPI</span
                     >
                   </div>
                 </div>

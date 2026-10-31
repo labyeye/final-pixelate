@@ -29,7 +29,6 @@ async function runPurge() {
         /has-/,
         /was-/,
 
-        /^ic/,
         /^fa-/,
         /^fas/,
         /^far/,

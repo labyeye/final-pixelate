@@ -76,7 +76,7 @@
         aria-label="Chat on WhatsApp"
         title="WhatsApp"
       >
-        <i  aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#b-whatsapp"/></svg></i>
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
       </a>
       <a
         class="quick-contact-btn quick-contact-call"
@@ -84,7 +84,7 @@
         aria-label="Call Us"
         title="Call"
       >
-        <i  aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/assets/icons/sprite.svg#phone"/></svg></i>
+        <i class="fas fa-phone-alt" aria-hidden="true"></i>
       </a>
       
     `;
