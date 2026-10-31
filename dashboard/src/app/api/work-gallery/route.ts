@@ -19,16 +19,6 @@ export async function GET() {
     const col = await svc.getCollection("workGallery");
     const items = await col.find().toArray();
 
-    try {
-      console.debug(
-        "[api/work-gallery] GET items count:",
-        Array.isArray(items) ? items.length : 0,
-        "sample description:",
-        items && items[0] ? items[0].description : null,
-        "sample note:",
-        items && items[0] ? items[0].note : null,
-      );
-    } catch (e) {}
     const normalized = (items || []).map((it: any) => ({
       ...(it || {}),
       description: it?.description ?? it?.note ?? "",

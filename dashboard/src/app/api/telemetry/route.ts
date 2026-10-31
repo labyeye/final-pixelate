@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import geoip from "geoip-lite";
 import { getDb } from "@/lib/mongodb";
 
 // Public ingest for web + mobile telemetry (page views, heartbeats, crashes).
@@ -29,7 +28,11 @@ function visitor(req: NextRequest) {
   let region = h.get("x-vercel-ip-country-region") || "";
   let city = h.get("x-vercel-ip-city") || "";
   if (ip && !city) {
-    const g = geoip.lookup(ip);
+    // Lazy + guarded: a missing geoip data file must not take the whole endpoint down.
+    let g: { country: string; region: string; city: string } | null = null;
+    try {
+      g = require("geoip-lite").lookup(ip);
+    } catch {}
     if (g) ({ country, region, city } = { country: g.country, region: g.region, city: g.city });
   }
   return { ip, country: s(country, 2), region: s(region, 40), city: s(safeDecode(city), 60) };
