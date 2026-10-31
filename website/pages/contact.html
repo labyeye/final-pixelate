@@ -1839,12 +1839,6 @@
           });
           pages.forEach((p) => addLink("prefetch", p, "document"));
           addLink("preload", "/styles.css", "style");
-          addLink(
-            "preload",
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-            "style",
-            true,
-          );
           try {
             fetch("/", {
               method: "GET",
