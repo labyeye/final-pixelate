@@ -144,6 +144,9 @@
         analytics_storage: granted ? "granted" : "denied",
       });
     }
+    if (typeof window.fbq === "function") {
+      window.fbq("consent", granted ? "grant" : "revoke");
+    }
     if (granted) {
       // localhost: show the banner but don't pollute production data.
       if (H !== "localhost" && H !== "127.0.0.1") start();
