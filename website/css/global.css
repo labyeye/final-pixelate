@@ -4651,6 +4651,7 @@ video {
 }
 .svc-carousel-container {
   width: 100%;
+  max-width: var(--site-max-width);
   margin: 0 auto;
   padding: 32px;
   display: grid;
@@ -4950,3 +4951,9 @@ video {
     display: none !important;
   }
 }
+
+/* laptop/desktop scaling: smaller screens get proportionally smaller fonts, cards and spacing.
+   ponytail: stepped `zoom` (not fluid); pinned-scroll JS may need a re-check, replace with fluid tokens if it misbehaves */
+@media (min-width: 1025px) and (max-width: 1279px) { html { zoom: 0.8; } }
+@media (min-width: 1280px) and (max-width: 1439px) { html { zoom: 0.88; } }
+@media (min-width: 1440px) and (max-width: 1679px) { html { zoom: 0.94; } }

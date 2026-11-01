@@ -18,7 +18,8 @@
         return (
           !s.parentElement.closest("section") &&
           !s.closest("nav, footer, header") &&
-          !/\b(nav-wrap|footer|home-hero-v1)\b/.test(s.className)
+          !/\b(nav-wrap|footer|home-hero-v1|svc-carousel-section)\b/.test(s.className) &&
+          !s.querySelector(".svc-pin-wrapper")
         );
       },
     );
@@ -34,6 +35,13 @@
       },
       { threshold: 0.05 },
     );
+    // city pages: .mzp-reveal cards rise into place (CSS in state.css) once visible
+    var io2 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); io2.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".mzp-reveal").forEach(function (el) { io2.observe(el); });
     secs.forEach(function (s, i) {
       s.classList.add("pn-slide", i % 2 ? "pn-r" : "pn-l");
       io.observe(s);
