@@ -470,23 +470,9 @@ function gtag() {
       } catch (e) {}
     }
     function o() {
-      (t.forEach((e) => {
-        (n("preconnect", e, null, !0), n("dns-prefetch", e));
-      }),
-        e.forEach((e) => {
-          n("prefetch", e, "document");
-        }));
-      try {
-        (fetch("/", {
-          method: "GET",
-          mode: "no-cors",
-          cache: "no-cache",
-        }).catch(() => {}),
-          fetch("https://backend.pixelatenest.com", {
-            method: "GET",
-            mode: "no-cors",
-          }).catch(() => {}));
-      } catch (e) {}
+      e.forEach((e) => {
+        n("prefetch", e, "document");
+      });
     }
     "requestIdleCallback" in window
       ? requestIdleCallback(o, { timeout: 2e3 })

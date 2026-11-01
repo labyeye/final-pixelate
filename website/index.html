@@ -2254,7 +2254,7 @@
               }
             }
           </style>
-          <div class="portfolio-slider-wrap">
+          <div class="portfolio-slider-wrap" style="min-height: 800px">
             <div id="home-portfolio-grid" class="portfolio-grid"></div>
           </div>
         </div>
@@ -5106,7 +5106,20 @@
         return card;
       }
 
-      loadHomePortfolio();
+      (function () {
+        const g = document.getElementById("home-portfolio-grid");
+        if (!("IntersectionObserver" in window)) return loadHomePortfolio();
+        const io = new IntersectionObserver(
+          (e) => {
+            if (e[0].isIntersecting) {
+              io.disconnect();
+              loadHomePortfolio();
+            }
+          },
+          { rootMargin: "600px" },
+        );
+        io.observe(g);
+      })();
     </script>
 
     <script>
