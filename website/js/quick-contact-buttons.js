@@ -84,7 +84,7 @@
         aria-label="Call Us"
         title="Call"
       >
-        <i class="fas fa-phone-alt" aria-hidden="true"></i>
+        <i class="fas fa-phone" aria-hidden="true"></i>
       </a>
       
     `;
