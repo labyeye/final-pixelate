@@ -164,7 +164,7 @@
     if (document.getElementById("pn-cookie")) return;
     var css = document.createElement("style");
     css.textContent =
-      "#pn-cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483000;max-width:760px;margin:0 auto;background:#0b1633;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.4);font:14px/1.5 DM Sans,system-ui,sans-serif;display:flex;gap:16px;align-items:center;flex-wrap:wrap}" +
+      "#pn-cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483000;max-width:760px;margin:0 auto;background:#044bab;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.4);font:14px/1.5 DM Sans,system-ui,sans-serif;display:flex;gap:16px;align-items:center;flex-wrap:wrap}" +
       "#pn-cookie p{margin:0;flex:1 1 320px;font-size:14px;line-height:1.5;color:#e6ebf7}" +
       "#pn-cookie a{color:#7eb8f7;text-decoration:underline}" +
       "#pn-cookie .pn-b{display:flex;gap:10px}" +
