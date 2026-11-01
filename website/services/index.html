@@ -38,207 +38,9 @@
 
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
     <link href="../css/global.css" rel="stylesheet" crossorigin />
+    <link rel="stylesheet" href="../css/services.css" />
     <link rel="stylesheet" href="../assets/fonts/all.min.css" />
-    <style>
-      @font-face {
-        font-display: swap;
-      }
-
-      /* Review Modal Styles */
-      .review-modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 10000;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        box-sizing: border-box;
-      }
-
-      .review-modal.active {
-        display: flex;
-      }
-
-      .review-modal-content {
-        background: white;
-        border-radius: 12px;
-        padding: 32px;
-        max-width: 600px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        position: relative;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: none;
-        border: none;
-        font-size: 28px;
-        cursor: pointer;
-        color: #999;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .modal-close:hover {
-        color: #333;
-      }
-
-      .modal-title {
-        margin: 0 0 8px 0;
-        font-size: 28px;
-        font-weight: 600;
-        color: #111;
-      }
-
-      .modal-subtitle {
-        margin: 0 0 24px 0;
-        color: #666;
-        font-size: 14px;
-      }
-
-      .review-form {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .form-group label {
-        font-weight: 500;
-        font-size: 14px;
-        color: #333;
-      }
-
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        font-size: 14px;
-        font-family: inherit;
-      }
-
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: #0f4ea8;
-        box-shadow: 0 0 0 3px rgba(15, 78, 168, 0.1);
-      }
-
-      .form-group textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
-
-      .modal-stars {
-        display: flex;
-        gap: 8px;
-        cursor: pointer;
-      }
-
-      .modal-star {
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .modal-star:hover {
-        transform: scale(1.1);
-      }
-
-      .form-actions {
-        display: flex;
-        gap: 12px;
-        justify-content: flex-end;
-        margin-top: 24px;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        padding: 10px 24px;
-        border: none;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .btn-primary {
-        background: #0f4ea8;
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background: #0d3a7a;
-      }
-
-      .btn-secondary {
-        background: #f2f2f2;
-        color: #333;
-      }
-
-      .btn-secondary:hover {
-        background: #e6e6e6;
-      }
-
-      .form-message {
-        padding: 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        margin-top: 12px;
-        display: none;
-      }
-
-      .form-message.success {
-        background: #dcfce7;
-        color: #166534;
-        border: 1px solid #bbf7d0;
-      }
-
-      .form-message.error {
-        background: #fee2e2;
-        color: #991b1b;
-        border: 1px solid #fecaca;
-      }
-
-      @media (max-width: 640px) {
-        .review-modal-content {
-          padding: 24px 16px;
-        }
-
-        .modal-title {
-          font-size: 22px;
-        }
-
-        .form-actions {
-          flex-direction: column;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-          width: 100%;
-        }
-      }
-    </style>
+    
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link
       href="https://fonts.gstatic.com"
@@ -251,522 +53,7 @@
       media="print"
       onload="this.media = 'all'"
     />
-    <style>
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .page-hero {
-        background: white;
-        padding: 120px 20px 80px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .page-hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: white;
-        pointer-events: none;
-      }
-
-      .page-hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .page-hero h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: var(--primary-900);
-        margin-bottom: 20px;
-        line-height: 1.2;
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      .page-hero p {
-        font-size: 1.125rem;
-        color: var(--primary-600);
-        margin-bottom: 40px;
-        animation: fadeInUp 0.8s ease-out 0.2s both;
-      }
-
-      .service-icon-large {
-        font-size: 5rem;
-        margin-bottom: 30px;
-        animation: fadeInUp 0.8s ease-out 0.1s both;
-      }
-
-      .loading {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 100px 20px;
-        min-height: 50vh;
-        text-align: center;
-      }
-
-      .loading.active {
-        display: flex;
-      }
-
-      .spinner {
-        border: 4px solid #222;
-        border-radius: 50%;
-        border-top: 4px solid #e65100;
-        width: 60px;
-        height: 60px;
-        animation: spin 1s linear infinite;
-        margin-bottom: 20px;
-      }
-
-      .loading p {
-        color: #9ca3af;
-        font-size: 1.125rem;
-      }
-
-      #service-content {
-        display: none;
-      }
-
-      #service-content.active {
-        display: block;
-      }
-
-      .service-details {
-        padding: 60px 20px;
-      }
-
-      .service-section {
-        margin-bottom: 80px;
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      .service-section h2 {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: var(--primary-900);
-        margin-bottom: 40px;
-        text-align: center;
-      }
-
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-      }
-
-      .feature-card {
-        background: var(--primary-800);
-        border: 1px solid #222;
-        border-radius: 12px;
-        padding: 30px;
-        transition: all 0.3s ease;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(230, 81, 0, 0.15);
-      }
-
-      .feature-card h3 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 10px;
-      }
-
-      .feature-card p {
-        font-size: 0.95rem;
-        color: #d1d5db;
-        line-height: 1.6;
-      }
-
-      .tech-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .tech-tag {
-        background: linear-gradient(
-          135deg,
-          transparent 0%,
-          rgba(5, 71, 171, 0.1) 100%
-        );
-        border: 1px solid var(--primary-900);
-        color: var(--primary-900);
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      .sub-services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-      }
-
-      .sub-service-card {
-        background: white;
-        border: 1px solid var(--primary-900);
-        border-radius: 12px;
-        padding: 30px;
-        transition: all 0.3s ease;
-      }
-
-      .sub-service-card:hover {
-        border-color: var(--primary-900);
-      }
-
-      .sub-service-icon {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-      }
-
-      .sub-service-card h3 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--primary-900);
-        margin-bottom: 10px;
-      }
-
-      .sub-service-card p {
-        font-size: 0.95rem;
-        color: var(--primary-700);
-        line-height: 1.6;
-      }
-
-      .pricing-section {
-        background: linear-gradient(
-          135deg,
-          rgba(5, 71, 171, 0.05) 0%,
-          rgba(5, 71, 171, 0.02) 100%
-        );
-        border: 1px solid var(--primary-900);
-        border-radius: 16px;
-        padding: 50px;
-        text-align: center;
-        margin: 60px 0;
-      }
-
-      .pricing-section h3 {
-        font-size: 1.5rem;
-        color: #d1d5db;
-        margin-bottom: 15px;
-      }
-
-      .pricing-amount {
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--primary-900);
-        margin-bottom: 20px;
-      }
-
-      .pricing-note {
-        color: #9ca3af;
-        font-size: 0.95rem;
-      }
-
-      .cta-button {
-        display: inline-block;
-        background: linear-gradient(
-          135deg,
-          var(--primary-900) 0%,
-          var(--primary-700) 100%
-        );
-        color: white;
-        padding: 15px 40px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        margin-top: 20px;
-      }
-
-      .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(230, 81, 0, 0.3);
-      }
-
-      .error-state {
-        display: none;
-        text-align: center;
-        padding: 100px 20px;
-        min-height: 50vh;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .error-state.active {
-        display: flex;
-      }
-
-      .error-state h2 {
-        font-size: 2rem;
-        color: #ef4444;
-        margin-bottom: 20px;
-      }
-
-      .error-state p {
-        color: #9ca3af;
-        font-size: 1.125rem;
-        margin-bottom: 30px;
-      }
-
-      .error-state a {
-        color: #e65100;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      @media (max-width: 768px) {
-        .page-hero h1 {
-          font-size: 2rem;
-        }
-
-        .page-hero {
-          padding: 80px 20px 60px;
-        }
-
-        .service-section h2 {
-          font-size: 1.75rem;
-        }
-
-        .features-grid,
-        .sub-services-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .pricing-section {
-          padding: 30px 20px;
-        }
-
-        .pricing-amount {
-          font-size: 2rem;
-        }
-      }
-
-      /* Review Modal Styles */
-      .review-modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 10000;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        box-sizing: border-box;
-      }
-
-      .review-modal.active {
-        display: flex;
-      }
-
-      .review-modal-content {
-        background: white;
-        border-radius: 12px;
-        padding: 32px;
-        max-width: 600px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        position: relative;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: none;
-        border: none;
-        font-size: 28px;
-        cursor: pointer;
-        color: #999;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .modal-close:hover {
-        color: #333;
-      }
-
-      .modal-title {
-        margin: 0 0 8px 0;
-        font-size: 28px;
-        font-weight: 600;
-        color: #111;
-      }
-
-      .modal-subtitle {
-        margin: 0 0 24px 0;
-        color: #666;
-        font-size: 14px;
-      }
-
-      .review-form {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .form-group label {
-        font-weight: 500;
-        font-size: 14px;
-        color: #333;
-      }
-
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        font-size: 14px;
-        font-family: inherit;
-      }
-
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: #0f4ea8;
-        box-shadow: 0 0 0 3px rgba(15, 78, 168, 0.1);
-      }
-
-      .form-group textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
-
-      .modal-stars {
-        display: flex;
-        gap: 8px;
-        cursor: pointer;
-      }
-
-      .modal-star {
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .modal-star:hover {
-        transform: scale(1.1);
-      }
-
-      .form-actions {
-        display: flex;
-        gap: 12px;
-        justify-content: flex-end;
-        margin-top: 24px;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        padding: 10px 24px;
-        border: none;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .btn-primary {
-        background: #0f4ea8;
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background: #0d3a7a;
-      }
-
-      .btn-secondary {
-        background: #f2f2f2;
-        color: #333;
-      }
-
-      .btn-secondary:hover {
-        background: #e6e6e6;
-      }
-
-      .form-message {
-        padding: 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        margin-top: 12px;
-        display: none;
-      }
-
-      .form-message.success {
-        background: #dcfce7;
-        color: #166534;
-        border: 1px solid #bbf7d0;
-      }
-
-      .form-message.error {
-        background: #fee2e2;
-        color: #991b1b;
-        border: 1px solid #fecaca;
-      }
-
-      @media (max-width: 640px) {
-        .review-modal-content {
-          padding: 24px 16px;
-        }
-
-        .modal-title {
-          font-size: 22px;
-        }
-
-        .form-actions {
-          flex-direction: column;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-          width: 100%;
-        }
-      }
-    </style>
+    
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -882,16 +169,16 @@
       fbq("track", "PageView");
     </script>
     <noscript
-      ><img
+      ><img class="s-cb4589"
         height="1"
         width="1"
-        style="display: none"
+       
         src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
   </head>
 
-  <body>
+  <body class="svc-index">
     <div id="announcement-bar" class="announcement-bar">
       <div class="announcement-content" id="announcement-content"></div>
     </div>
@@ -1190,15 +477,15 @@
 
           <div class="breadcrumb">
             <div class="breadcrumb-container">
-              <a
+              <a class="s-71d0e2"
                 href="https://www.pixelatenest.com/"
-                style="text-decoration: none; color: var(--primary-900)"
+               
                 >Home</a
               >
               /
-              <span
+              <span class="s-71d0e2"
                 id="breadcrumb-service"
-                style="text-decoration: none; color: var(--primary-900)"
+               
                 >Services</span
               >
             </div>
@@ -1214,138 +501,10 @@
         </div>
       </section<!-- industries-we-serve -->
       <section
-        class="services-section"
-        style="
-          position: relative;
-          width: 100%;
-          background: white;
-          padding: 40px 0;
-        "
+        class="services-section s-973b87"
+       
       >
-        <style>
-          .ind-grid {
-            display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
-            gap: 20px;
-            max-width: 1480px;
-            margin: 48px auto 0;
-            padding: 0 24px;
-          }
-          .ind-card {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            min-height: 300px;
-            padding: 28px;
-            background: #fff;
-            border: 1px solid rgba(5, 75, 171, 0.16);
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(5, 75, 171, 0.06);
-            text-decoration: none;
-            opacity: 0;
-            transform: translateY(60px);
-            transition:
-              opacity 0.55s ease,
-              transform 0.55s ease,
-              border-color 0.25s ease,
-              box-shadow 0.25s ease;
-          }
-          .ind-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          .ind-card:nth-child(2) {
-            transition-delay: 0.08s;
-          }
-          .ind-card:nth-child(3) {
-            transition-delay: 0.16s;
-          }
-          .ind-card:nth-child(4) {
-            transition-delay: 0.24s;
-          }
-          .ind-card:nth-child(5) {
-            transition-delay: 0.32s;
-          }
-          .ind-card:nth-child(6) {
-            transition-delay: 0.4s;
-          }
-          .ind-card.is-visible:hover {
-            transition-delay: 0s;
-            border-color: rgba(5, 75, 171, 0.4);
-            box-shadow: 0 14px 30px rgba(5, 75, 171, 0.12);
-          }
-          .ind-icon {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-            border-radius: 10px;
-            order: 1;
-          }
-          .ind-title,
-          .ind-desc {
-            order: 2;
-          }
-          .ind-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-          }
-          .ind-num {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-900);
-            letter-spacing: 0.02em;
-          }
-          .ind-arrow {
-            width: 36px;
-            height: 36px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-900);
-            font-size: 16px;
-            transition: transform 0.3s ease;
-          }
-          .ind-card:hover .ind-arrow {
-            transform: rotate(-15deg);
-          }
-          .ind-title {
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--primary-900);
-            margin: 0;
-          }
-          .ind-desc {
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: rgba(0, 0, 0, 0.65);
-            margin: 0;
-          }
-          @media (max-width: 1200px) {
-            .ind-grid {
-              grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-          }
-          @media (max-width: 900px) {
-            .ind-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-          }
-          @media (max-width: 600px) {
-            .ind-grid {
-              grid-template-columns: 1fr;
-              padding: 0 20px;
-            }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .ind-card {
-              opacity: 1;
-              transform: none;
-              transition: none;
-            }
-          }
-        </style>
+        
         <script>
           document.addEventListener("DOMContentLoaded", function () {
             var cards = document.querySelectorAll("#indGrid .ind-card");
@@ -1369,32 +528,17 @@
             });
           });
         </script>
-        <div style="position: absolute; inset: 0"></div>
-        <div style="position: relative; z-index: 1">
+        <div class="s-2e5dc4"></div>
+        <div class="s-4dad77">
           <div class="services-wrap">
             <div class="heading-wrap">
-              <h2
-                style="
-                  margin-bottom: 10px;
-                  font-size: clamp(2rem, 4vw, 5rem);
-                  color: var(--primary-900);
-                  line-height: 1.2;
-                "
+              <h2 class="s-e865b8"
+               
               >
                 Industries We Serve
               </h2>
-              <p
-                style="
-                  display: block;
-                  font-size: clamp(0.8rem, 1vw, 1.25rem);
-                  margin-top: 20px;
-                  color: var(--tertiary-700);
-                  text-align: justify;
-                  line-height: 1.6;
-                  max-width: 900px;
-                  margin-left: auto;
-                  margin-right: auto;
-                "
+              <p class="s-561dcb"
+               
               >
                 At Pixelate Nest, we serve a wide range of industries by
                 building industry-specific digital solutions. Our experience
@@ -1542,26 +686,17 @@
       </section>
 >
 
-      <section
-        style="background: white; padding: 60px 24px 40px; text-align: center"
+      <section class="s-a8e161"
+       
       >
-        <div style="max-width: 900px; margin: 0 auto">
-          <h2
-            style="
-              font-size: 1.8rem;
-              font-weight: 700;
-              color: var(--primary-900);
-              margin-bottom: 16px;
-            "
+        <div class="s-991e90">
+          <h2 class="s-179ab0"
+           
           >
             Our Digital Services
           </h2>
-          <p
-            style="
-              color: var(--primary-700);
-              line-height: 1.8;
-              margin-bottom: 32px;
-            "
+          <p class="s-0608f8"
+           
           >
             Pixelate Nest is a full-service digital agency offering web
             development, mobile app development, software development, video
@@ -1570,183 +705,99 @@
             are the technology partner of choice for startups, SMBs, and
             enterprises looking to build impactful digital products.
           </p>
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-              gap: 24px;
-              text-align: left;
-              margin-bottom: 40px;
-            "
+          <div class="s-1ed027"
+           
           >
-            <div
-              style="
-                border: 1px solid #e5e7eb;
-                border-radius: 12px;
-                padding: 24px;
-              "
+            <div class="s-29082c"
+             
             >
-              <h3
-                style="
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                  color: var(--primary-900);
-                  margin-bottom: 8px;
-                "
+              <h3 class="s-735297"
+               
               >
                 Web Development
               </h3>
-              <p
-                style="
-                  color: var(--primary-700);
-                  line-height: 1.6;
-                  font-size: 0.95rem;
-                "
+              <p class="s-a9243e"
+               
               >
                 Custom websites, e-commerce platforms, SaaS applications, and
                 corporate portals built with React, Next.js, and Node.js.
                 Responsive, fast, and SEO-optimized.
               </p>
             </div>
-            <div
-              style="
-                border: 1px solid #e5e7eb;
-                border-radius: 12px;
-                padding: 24px;
-              "
+            <div class="s-29082c"
+             
             >
-              <h3
-                style="
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                  color: var(--primary-900);
-                  margin-bottom: 8px;
-                "
+              <h3 class="s-735297"
+               
               >
                 App Development
               </h3>
-              <p
-                style="
-                  color: var(--primary-700);
-                  line-height: 1.6;
-                  font-size: 0.95rem;
-                "
+              <p class="s-a9243e"
+               
               >
                 Cross-platform mobile apps for iOS and Android using Flutter and
                 React Native. Native performance with a single codebase — ideal
                 for startups and enterprises.
               </p>
             </div>
-            <div
-              style="
-                border: 1px solid #e5e7eb;
-                border-radius: 12px;
-                padding: 24px;
-              "
+            <div class="s-29082c"
+             
             >
-              <h3
-                style="
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                  color: var(--primary-900);
-                  margin-bottom: 8px;
-                "
+              <h3 class="s-735297"
+               
               >
                 Software Development
               </h3>
-              <p
-                style="
-                  color: var(--primary-700);
-                  line-height: 1.6;
-                  font-size: 0.95rem;
-                "
+              <p class="s-a9243e"
+               
               >
                 Custom business software, CRMs, ERPs, inventory systems, and
                 management tools. Tailored solutions for billing, logistics,
                 education, retail, and more.
               </p>
             </div>
-            <div
-              style="
-                border: 1px solid #e5e7eb;
-                border-radius: 12px;
-                padding: 24px;
-              "
+            <div class="s-29082c"
+             
             >
-              <h3
-                style="
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                  color: var(--primary-900);
-                  margin-bottom: 8px;
-                "
+              <h3 class="s-735297"
+               
               >
                 Video Editing &amp; Content
               </h3>
-              <p
-                style="
-                  color: var(--primary-700);
-                  line-height: 1.6;
-                  font-size: 0.95rem;
-                "
+              <p class="s-a9243e"
+               
               >
                 Professional video editing, motion graphics, reels, YouTube
                 content, and corporate explainers. We help brands tell their
                 story through compelling visual content.
               </p>
             </div>
-            <div
-              style="
-                border: 1px solid #e5e7eb;
-                border-radius: 12px;
-                padding: 24px;
-              "
+            <div class="s-29082c"
+             
             >
-              <h3
-                style="
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                  color: var(--primary-900);
-                  margin-bottom: 8px;
-                "
+              <h3 class="s-735297"
+               
               >
                 Digital Marketing
               </h3>
-              <p
-                style="
-                  color: var(--primary-700);
-                  line-height: 1.6;
-                  font-size: 0.95rem;
-                "
+              <p class="s-a9243e"
+               
               >
                 SEO, paid advertising (Google &amp; Meta Ads), social media
                 management, and content marketing strategies that drive
                 qualified traffic and measurable ROI.
               </p>
             </div>
-            <div
-              style="
-                border: 1px solid #e5e7eb;
-                border-radius: 12px;
-                padding: 24px;
-              "
+            <div class="s-29082c"
+             
             >
-              <h3
-                style="
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                  color: var(--primary-900);
-                  margin-bottom: 8px;
-                "
+              <h3 class="s-735297"
+               
               >
                 UI/UX &amp; Branding
               </h3>
-              <p
-                style="
-                  color: var(--primary-700);
-                  line-height: 1.6;
-                  font-size: 0.95rem;
-                "
+              <p class="s-a9243e"
+               
               >
                 Brand identity design, logo creation, UI/UX design systems, and
                 user research. We craft experiences that are intuitive,
@@ -1754,26 +805,13 @@
               </p>
             </div>
           </div>
-          <h3
-            style="
-              font-size: 1.4rem;
-              font-weight: 600;
-              color: var(--primary-900);
-              margin-bottom: 16px;
-            "
+          <h3 class="s-d58da3"
+           
           >
             Why Choose Pixelate Nest?
           </h3>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: var(--primary-700);
-              line-height: 2;
-              text-align: left;
-              max-width: 600px;
-              margin: 0 auto 32px;
-            "
+          <ul class="s-03c61b"
+           
           >
             <li>&#x2714; 3+ years of experience delivering digital projects</li>
             <li>
@@ -1787,17 +825,9 @@
             <li>&#x2714; Transparent pricing with no hidden fees</li>
             <li>&#x2714; Agile development with regular progress updates</li>
           </ul>
-          <a
+          <a class="s-a193df"
             href="https://www.pixelatenest.com/pages/contact.html"
-            style="
-              display: inline-block;
-              background: var(--primary-900);
-              color: white;
-              padding: 14px 36px;
-              border-radius: 8px;
-              text-decoration: none;
-              font-weight: 600;
-            "
+           
             >Get a Free Quote</a
           >
         </div>
@@ -1824,11 +854,11 @@
 
             <div class="service-section" id="tech-section">
               <h2>Technologies We Use</h2>
-              <div style="text-align: center">
+              <div class="s-13076d">
                 <div
-                  class="tech-list"
+                  class="tech-list s-9b54a3"
                   id="tech-list"
-                  style="justify-content: center"
+                 
                 ></div>
               </div>
             </div>
@@ -1873,46 +903,39 @@
                     />
                   </a>
                 </div>
-                <div
+                <div class="s-daa22b"
                   id="footer-review-stars"
-                  style="
-                    display: flex;
-                    gap: 8px;
-                    font-size: 18px;
-                    margin: 12px 0 16px 0;
-                    cursor: pointer;
-                    transition: transform 0.2s;
-                  "
+                 
                   title="Click to leave a review"
                 >
                   <span
-                    class="star"
+                    class="star s-d57333"
                     data-value="1"
-                    style="color: #fbbf24; transition: color 0.2s"
+                   
                     >★</span
                   >
                   <span
-                    class="star"
+                    class="star s-d57333"
                     data-value="2"
-                    style="color: #fbbf24; transition: color 0.2s"
+                   
                     >★</span
                   >
                   <span
-                    class="star"
+                    class="star s-d57333"
                     data-value="3"
-                    style="color: #fbbf24; transition: color 0.2s"
+                   
                     >★</span
                   >
                   <span
-                    class="star"
+                    class="star s-d57333"
                     data-value="4"
-                    style="color: #fbbf24; transition: color 0.2s"
+                   
                     >★</span
                   >
                   <span
-                    class="star"
+                    class="star s-07f2f1"
                     data-value="5"
-                    style="color: #d1d5db; transition: color 0.2s"
+                   
                     >★</span
                   >
                 </div>
@@ -1920,22 +943,22 @@
                   AI-first creative technology partner for web, app, and video
                   that delivers measurable growth.
                 </p>
-                <div style="margin-top: 20px">
-                  <p class="p-text-03" style="margin-bottom: 8px">
+                <div class="s-3ae1f6">
+                  <p class="p-text-03 s-d51702">
                     <strong>Contact Us</strong>
                   </p>
-                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
-                    <i class="fas fa-envelope" style="margin-right: 8px"></i
+                  <p class="p-text-03 text-white-60 s-980cd4">
+                    <i class="fas fa-envelope s-d10994"></i
                     >support@pixelatenest.com
                   </p>
-                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
-                    <i class="fas fa-phone" style="margin-right: 8px"></i>+91
+                  <p class="p-text-03 text-white-60 s-980cd4">
+                    <i class="fas fa-phone s-d10994"></i>+91
                     +91-84069-12345
                   </p>
                   <p class="p-text-03 text-white-60">
                     <i
-                      class="fas fa-map-marker-alt"
-                      style="margin-right: 8px"
+                      class="fas fa-map-marker-alt s-d10994"
+                     
                     ></i
                     >Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar, 842001
                   </p>
@@ -2116,8 +1139,8 @@
                     class="footer-link w-inline-block"
                   >
                     <div
-                      class="footer-link-text"
-                      style="flex-direction: row; display: flex; gap: 10px"
+                      class="footer-link-text s-e49c31"
+                     
                     >
                       <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                       <span>LinkedIn</span>
@@ -2130,8 +1153,8 @@
                     class="footer-link w-inline-block"
                   >
                     <div
-                      class="footer-link-text"
-                      style="flex-direction: row; display: flex; gap: 10px"
+                      class="footer-link-text s-e49c31"
+                     
                     >
                       <i class="fab fa-instagram" aria-hidden="true"></i>
                       <span>Instagram</span>
@@ -2144,8 +1167,8 @@
                     class="footer-link w-inline-block"
                   >
                     <div
-                      class="footer-link-text"
-                      style="flex-direction: row; display: flex; gap: 10px"
+                      class="footer-link-text s-e49c31"
+                     
                     >
                       <i class="fab fa-facebook-f" aria-hidden="true"></i>
                       <span>Facebook</span>
@@ -2162,26 +1185,21 @@
               <div class="p-text-03 text-white-60">
                 © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. | Crafted
                 with
-                <i class="fas fa-heart" style="color: #e74c3c"></i>
+                <i class="fas fa-heart s-f9226b"></i>
                 in India
               </div>
               <div class="p-text-03 text-white-60">
                 <strong>Payments Accepted:</strong>
-                <div
-                  style="
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 15px;
-                    margin-left: 10px;
-                  "
+                <div class="s-ee726e"
+                 
                 >
-                  <span style="display: flex; align-items: center; gap: 5px">
+                  <span class="s-2a6163">
                     <i class="fas fa-money-bill-wave"></i> Cash
                   </span>
-                  <span style="display: flex; align-items: center; gap: 5px">
+                  <span class="s-2a6163">
                     <i class="fas fa-university"></i> Bank
                   </span>
-                  <span style="display: flex; align-items: center; gap: 5px">
+                  <span class="s-2a6163">
                     <i class="fas fa-mobile-alt"></i> UPI
                   </span>
                 </div>
@@ -2441,115 +1459,7 @@
       </div>
     </div>
 
-    <style>
-      .landing-contact-modal {
-        position: fixed;
-        inset: 0;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 99999;
-        padding: 16px;
-        box-sizing: border-box;
-      }
-      .landing-contact-modal.is-open {
-        display: flex;
-      }
-      .landing-contact-backdrop {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.62);
-      }
-      .landing-contact-dialog {
-        position: relative;
-        width: min(92vw, 720px);
-        background: #fff;
-        border-radius: 16px;
-        padding: 28px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-        max-height: 88vh;
-        overflow: auto;
-      }
-      .landing-contact-close {
-        position: absolute;
-        top: 10px;
-        right: 12px;
-        border: 0;
-        background: transparent;
-        font-size: 32px;
-        line-height: 1;
-        cursor: pointer;
-        color: #333;
-      }
-      .landing-contact-dialog h3 {
-        margin: 0;
-        font-size: 28px;
-        color: #0f172a;
-      }
-      .landing-contact-subtitle {
-        margin: 8px 0 18px;
-        color: #475569;
-        font-size: 15px;
-      }
-      .landing-contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-      .landing-contact-form input,
-      .landing-contact-form select,
-      .landing-contact-form textarea {
-        width: 100%;
-        border: 1px solid #d4d4d8;
-        border-radius: 10px;
-        padding: 12px 14px;
-        font-size: 14px;
-        font-family: inherit;
-        box-sizing: border-box;
-      }
-      .landing-contact-form textarea {
-        margin-top: 12px;
-        resize: vertical;
-      }
-      .landing-contact-actions {
-        margin-top: 14px;
-      }
-      .landing-contact-actions input[type="submit"] {
-        border: 0;
-        background: #0f4ea8;
-        color: #fff;
-        font-weight: 700;
-        cursor: pointer;
-      }
-      .landing-contact-actions input[type="submit"]:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
-      .landing-contact-success {
-        color: #15803d;
-        margin: 10px 0 0;
-        font-size: 13px;
-      }
-      .landing-contact-error {
-        color: #b91c1c;
-        margin: 10px 0 0;
-        font-size: 13px;
-      }
-      body.modal-open {
-        overflow: hidden;
-      }
-      @media (max-width: 767px) {
-        .landing-contact-dialog {
-          padding: 20px;
-        }
-        .landing-contact-dialog h3 {
-          font-size: 22px;
-        }
-        .landing-contact-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    
 
     <script>
       (function () {

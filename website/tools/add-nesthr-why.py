@@ -19,68 +19,7 @@ START, END = "<!-- nesthr-why:start -->", "<!-- nesthr-why:end -->"
 CONTACT = "https://www.pixelatenest.com/pages/contact.html"
 ANCHOR = re.compile(r"^[ \t]*<!-- SECTION: What is NestHR -->", re.M)
 
-CSS = """<style>
-.nhw{padding:64px 20px;background:#f7f9fd}.nhw *{box-sizing:border-box}
-.nhw-in{max-width:1100px;margin:0 auto}
-.nhw-tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;color:#fa731c;margin-bottom:10px}
-.nhw h2{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.15;color:var(--primary-900,#054bab);margin:0 0 14px}
-.nhw h3{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.15;color:var(--primary-900,#054bab);margin:0 0 14px}
-.nhw h4{font-size:1.05rem;color:#111;margin:0 0 6px}
-.nhw p,.nhw li{font-size:1rem;line-height:1.7;color:#333;margin:0}
-.nhw .lead{font-size:1.15rem;max-width:860px;margin-bottom:8px}
-.nhw .where{color:#555;margin-bottom:28px}
-.nhw-blk{margin-top:52px}
-.nhw-flow{display:flex;align-items:stretch;gap:12px;flex-wrap:wrap;margin:6px 0 10px}
-.nhw-step{flex:1 1 200px;background:#fff;border:2px solid #054bab;border-radius:14px;padding:18px;text-align:center}
-.nhw-step .nhw-ic{display:block;font-size:1.6rem;color:#054bab;margin-bottom:8px}
-.nhw-step b{display:block;color:#111;margin-bottom:2px}
-.nhw-arrow{display:flex;align-items:center;color:#fa731c;font-size:1.3rem}
-.nhw-note{font-size:.95rem;color:#555}
-.nhw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
-.nhw-card{background:#fff;border:1px solid rgba(5,75,171,.16);border-radius:14px;padding:20px}
-.nhw-card .nhw-ic{width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(250,115,28,.12);color:#fa731c;font-size:1.1rem;margin-bottom:10px}
-.nhw-card p{font-size:.95rem}
-.nhw-ba{margin-top:20px;border:2px solid #054bab;border-radius:14px;overflow:hidden;background:#fff}
-.nhw-ba-row{display:grid;grid-template-columns:150px 1fr 1fr}
-.nhw-ba-row>div{padding:14px 16px;font-size:.95rem;line-height:1.55;border-top:1px solid rgba(5,75,171,.14)}
-.nhw-ba-row:first-child>div{border-top:0;background:#054bab;color:#fff;font-weight:700}
-.nhw-ba-row>div:first-child{font-weight:700;color:#054bab}
-.nhw-ba-row:first-child>div:first-child{color:#fff}
-.nhw-ba-row>div:nth-child(2){color:#333;background:#fff4ec}
-.nhw-ba-row>div:nth-child(3){color:#054bab;background:#eef4fd}
-.nhw-ba-row:first-child>div:nth-child(2),.nhw-ba-row:first-child>div:nth-child(3){color:#fff}
-.nhw-ba-row:first-child>div:nth-child(2){background:#fa731c}.nhw-ba-row:first-child>div:nth-child(3){background:#054bab}
-.nhw-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
-.nhw-num{width:38px;height:38px;border-radius:50%;background:#054bab;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
-.nhw-who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
-.nhw-who .nhw-card{padding:0;overflow:hidden}.nhw-who .nhw-body{padding:20px}
-.nhw-img{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#eef4fd;color:#054bab;font-size:2rem;border-bottom:1px solid rgba(5,75,171,.16)}
-.nhw-img img{width:100%;height:100%;object-fit:cover;display:block}
-.nhw-who ul{margin:0;padding-left:20px}.nhw-who li{margin-bottom:8px;font-size:.95rem}
-.nhw-easy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}
-.nhw-faq details{border:1px solid rgba(5,75,171,.16);border-radius:12px;padding:14px 18px;margin-bottom:10px;background:#fff}
-.nhw-faq summary{cursor:pointer;font-weight:600;color:var(--primary-900,#054bab)}
-.nhw-faq details p{margin-top:10px}
-.nhw-cta{margin-top:40px;text-align:center}
-.nhw-cta a{display:inline-block;background:#fa731c;color:#fff;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none}
-.nhw-cta a:hover{background:#e0620f}
-.nhw .fas{font-family:"Font Awesome 6 Free";font-weight:900;font-style:normal;display:inline-block;line-height:1}
-.nhi-user-check:before{content:"\\f4fc"}.nhi-umbrella-beach:before{content:"\\f5ca"}.nhi-rupee-sign:before{content:"\\e1bc"}
-.nhi-book:before{content:"\\f02d"}.nhi-calendar-days:before{content:"\\f073"}.nhi-comments:before{content:"\\f086"}
-.nhi-users:before{content:"\\f0c0"}.nhi-circle-question:before{content:"\\f059"}.nhi-file-lines:before{content:"\\f15c"}
-.nhi-hand-pointer:before{content:"\\f25a"}.nhi-link:before{content:"\\f0c1"}.nhi-mobile-screen-button:before{content:"\\f3cd"}
-.nhi-headset:before{content:"\\f590"}.nhi-arrow-right:before{content:"\\f061"}.nhi-image:before{content:"\\f03e"}
-.nhw-card .nhw-ic{background:rgba(5,75,171,.1);color:#054bab}
-.nhw-card,.nhw-step{transition:transform .25s ease,box-shadow .25s ease}
-.nhw-card:hover,.nhw-step:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(5,75,171,.14)}
-.nhw-js .nhw-rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;transition-delay:var(--d,0s)}
-.nhw-js .nhw-rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.nhw-js .nhw-rv{opacity:1;transform:none;transition:none}.nhw-card,.nhw-step{transition:none}}
-@media(max-width:860px){.nhw{padding:44px 16px}.nhw-grid,.nhw-steps,.nhw-who,.nhw-easy{grid-template-columns:1fr}
-.nhw-ba-row{grid-template-columns:1fr}.nhw-ba-row:first-child{display:none}
-.nhw-ba-row>div:nth-child(2):before{content:"Before: ";font-weight:700}.nhw-ba-row>div:nth-child(3):before{content:"With NestHR: ";font-weight:700}
-.nhw-arrow{display:none}}
-</style>"""
+# The .nhw / .nhi-* styles live in css/products.css (not inline).
 
 PROBLEMS = [
     ("book", "Registers and Excel sheets", "Names get missed, dates go wrong, and nobody fully trusts the numbers."),
@@ -162,7 +101,6 @@ def block(city=None, state=None):
     )
     faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in FAQ)
     return f"""{START}
-{CSS}
 <section class="nhw" id="why-nesthr" aria-labelledby="nhw-h2">
   <div class="nhw-in">
     <span class="nhw-tag">WHY NESTHR</span>
