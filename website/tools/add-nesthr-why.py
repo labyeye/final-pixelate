@@ -23,8 +23,8 @@ CSS = """<style>
 .nhw{padding:64px 20px;background:#f7f9fd}.nhw *{box-sizing:border-box}
 .nhw-in{max-width:1100px;margin:0 auto}
 .nhw-tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;color:#fa731c;margin-bottom:10px}
-.nhw h2{font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.2;color:var(--primary-900,#054bab);margin:0 0 14px}
-.nhw h3{font-size:1.3rem;line-height:1.3;color:var(--primary-900,#054bab);margin:0 0 10px}
+.nhw h2{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.15;color:var(--primary-900,#054bab);margin:0 0 14px}
+.nhw h3{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.15;color:var(--primary-900,#054bab);margin:0 0 14px}
 .nhw h4{font-size:1.05rem;color:#111;margin:0 0 6px}
 .nhw p,.nhw li{font-size:1rem;line-height:1.7;color:#333;margin:0}
 .nhw .lead{font-size:1.15rem;max-width:860px;margin-bottom:8px}
@@ -39,7 +39,6 @@ CSS = """<style>
 .nhw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
 .nhw-card{background:#fff;border:1px solid rgba(5,75,171,.16);border-radius:14px;padding:20px}
 .nhw-card .nhw-ic{width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(250,115,28,.12);color:#fa731c;font-size:1.1rem;margin-bottom:10px}
-.nhw-card.good i{background:rgba(0,168,120,.12);color:#00a878}
 .nhw-card p{font-size:.95rem}
 .nhw-ba{margin-top:20px;border:2px solid #054bab;border-radius:14px;overflow:hidden;background:#fff}
 .nhw-ba-row{display:grid;grid-template-columns:150px 1fr 1fr}
@@ -47,13 +46,16 @@ CSS = """<style>
 .nhw-ba-row:first-child>div{border-top:0;background:#054bab;color:#fff;font-weight:700}
 .nhw-ba-row>div:first-child{font-weight:700;color:#054bab}
 .nhw-ba-row:first-child>div:first-child{color:#fff}
-.nhw-ba-row>div:nth-child(2){color:#9a3412;background:#fff7ed}
-.nhw-ba-row>div:nth-child(3){color:#065f46;background:#ecfdf5}
+.nhw-ba-row>div:nth-child(2){color:#333;background:#fff4ec}
+.nhw-ba-row>div:nth-child(3){color:#054bab;background:#eef4fd}
 .nhw-ba-row:first-child>div:nth-child(2),.nhw-ba-row:first-child>div:nth-child(3){color:#fff}
-.nhw-ba-row:first-child>div:nth-child(2){background:#c2410c}.nhw-ba-row:first-child>div:nth-child(3){background:#059669}
+.nhw-ba-row:first-child>div:nth-child(2){background:#fa731c}.nhw-ba-row:first-child>div:nth-child(3){background:#054bab}
 .nhw-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
 .nhw-num{width:38px;height:38px;border-radius:50%;background:#054bab;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
 .nhw-who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
+.nhw-who .nhw-card{padding:0;overflow:hidden}.nhw-who .nhw-body{padding:20px}
+.nhw-img{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#eef4fd;color:#054bab;font-size:2rem;border-bottom:1px solid rgba(5,75,171,.16)}
+.nhw-img img{width:100%;height:100%;object-fit:cover;display:block}
 .nhw-who ul{margin:0;padding-left:20px}.nhw-who li{margin-bottom:8px;font-size:.95rem}
 .nhw-easy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}
 .nhw-faq details{border:1px solid rgba(5,75,171,.16);border-radius:12px;padding:14px 18px;margin-bottom:10px;background:#fff}
@@ -62,6 +64,18 @@ CSS = """<style>
 .nhw-cta{margin-top:40px;text-align:center}
 .nhw-cta a{display:inline-block;background:#fa731c;color:#fff;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none}
 .nhw-cta a:hover{background:#e0620f}
+.nhw .fas{font-family:"Font Awesome 6 Free";font-weight:900;font-style:normal;display:inline-block;line-height:1}
+.nhi-user-check:before{content:"\\f4fc"}.nhi-umbrella-beach:before{content:"\\f5ca"}.nhi-rupee-sign:before{content:"\\e1bc"}
+.nhi-book:before{content:"\\f02d"}.nhi-calendar-days:before{content:"\\f073"}.nhi-comments:before{content:"\\f086"}
+.nhi-users:before{content:"\\f0c0"}.nhi-circle-question:before{content:"\\f059"}.nhi-file-lines:before{content:"\\f15c"}
+.nhi-hand-pointer:before{content:"\\f25a"}.nhi-link:before{content:"\\f0c1"}.nhi-mobile-screen-button:before{content:"\\f3cd"}
+.nhi-headset:before{content:"\\f590"}.nhi-arrow-right:before{content:"\\f061"}.nhi-image:before{content:"\\f03e"}
+.nhw-card .nhw-ic{background:rgba(5,75,171,.1);color:#054bab}
+.nhw-card,.nhw-step{transition:transform .25s ease,box-shadow .25s ease}
+.nhw-card:hover,.nhw-step:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(5,75,171,.14)}
+.nhw-js .nhw-rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;transition-delay:var(--d,0s)}
+.nhw-js .nhw-rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.nhw-js .nhw-rv{opacity:1;transform:none;transition:none}.nhw-card,.nhw-step{transition:none}}
 @media(max-width:860px){.nhw{padding:44px 16px}.nhw-grid,.nhw-steps,.nhw-who,.nhw-easy{grid-template-columns:1fr}
 .nhw-ba-row{grid-template-columns:1fr}.nhw-ba-row:first-child{display:none}
 .nhw-ba-row>div:nth-child(2):before{content:"Before: ";font-weight:700}.nhw-ba-row>div:nth-child(3):before{content:"With NestHR: ";font-weight:700}
@@ -69,12 +83,12 @@ CSS = """<style>
 </style>"""
 
 PROBLEMS = [
-    ("📒", "Registers and Excel sheets", "Names get missed, dates go wrong, and nobody fully trusts the numbers."),
-    ("🗓️", "Month-end salary rush", "Counting late marks, leave and overtime by hand takes days. One mistake means an argument."),
-    ("💬", "Leave requests on WhatsApp", "Messages get buried in chats. Nobody knows who is on leave or how many leaves are left."),
-    ("👥", "Proxy attendance", "A friend marks you present and there is no proof either way."),
-    ("❓", "The same questions every month", "\u201cHow many leaves do I have?\u201d \u201cWhere is my payslip?\u201d All of it lands on you."),
-    ("📄", "PF and ESI paperwork", "Reports for compliance are made in a hurry, at the last minute."),
+    ("book", "Registers and Excel sheets", "Names get missed, dates go wrong, and nobody fully trusts the numbers."),
+    ("calendar-days", "Month-end salary rush", "Counting late marks, leave and overtime by hand takes days. One mistake means an argument."),
+    ("comments", "Leave requests on WhatsApp", "Messages get buried in chats. Nobody knows who is on leave or how many leaves are left."),
+    ("users", "Proxy attendance", "A friend marks you present and there is no proof either way."),
+    ("circle-question", "The same questions every month", "\u201cHow many leaves do I have?\u201d \u201cWhere is my payslip?\u201d All of it lands on you."),
+    ("file-lines", "PF and ESI paperwork", "Reports for compliance are made in a hurry, at the last minute."),
 ]
 
 BEFORE_AFTER = [
@@ -99,10 +113,10 @@ WHO = [
 ]
 
 EASY = [
-    ("👆", "Plain screens, plain words", "Big buttons and simple labels. If your team can use WhatsApp, they can use NestHR."),
-    ("🔗", "Everything connected", "Attendance, leave and payroll are in one place, so you never type the same thing twice."),
-    ("📱", "Same on phone and computer", "Use the mobile app or the website. You see the same data on both."),
-    ("🎧", "A real team to help", "Ask us for a demo and we will walk you through it, in simple steps, on a call."),
+    ("hand-pointer", "Plain screens, plain words", "Big buttons and simple labels. If your team can use WhatsApp, they can use NestHR."),
+    ("link", "Everything connected", "Attendance, leave and payroll are in one place, so you never type the same thing twice."),
+    ("mobile-screen-button", "Same on phone and computer", "Use the mobile app or the website. You see the same data on both."),
+    ("headset", "A real team to help", "Ask us for a demo and we will walk you through it, in simple steps, on a call."),
 ]
 
 FAQ = [
@@ -114,6 +128,16 @@ FAQ = [
 ]
 
 
+JS_BLOCK = r'''<script>
+(function(){var r=document.getElementById("why-nesthr");if(!r||!("IntersectionObserver" in window))return;
+var q=r.querySelectorAll(".nhw-tag,.nhw h2,.nhw .lead,.nhw .where,.nhw-step,.nhw-arrow,.nhw-note,.nhw h3,.nhw-blk>p,.nhw-card,.nhw-ba,.nhw-ba-row,.nhw-faq details,.nhw-cta");
+r.classList.add("nhw-js");
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+q.forEach(function(el,i){el.classList.add("nhw-rv");el.style.setProperty("--d",(i%4)*.08+"s");io.observe(el)})})();
+</script>
+'''
+
+
 def block(city=None, state=None):
     e = lambda s: html.escape(s, quote=False)
     if city:
@@ -122,7 +146,7 @@ def block(city=None, state=None):
     else:
         where = "Made for Indian businesses: shops, schools, factories, clinics, offices and agencies."
     problems = "".join(
-        f'<div class="nhw-card"><div class="nhw-ic" aria-hidden="true">{ic}</div><h4>{e(t)}</h4><p>{e(d)}</p></div>' for ic, t, d in PROBLEMS
+        f'<div class="nhw-card"><div class="nhw-ic" aria-hidden="true"><i class="fas nhi-{ic}"></i></div><h4>{e(t)}</h4><p>{e(d)}</p></div>' for ic, t, d in PROBLEMS
     )
     rows = '<div class="nhw-ba-row"><div></div><div>Before</div><div>With NestHR</div></div>' + "".join(
         f"<div class=\"nhw-ba-row\"><div>{e(a)}</div><div>{e(b)}</div><div>{e(c)}</div></div>" for a, b, c in BEFORE_AFTER
@@ -131,10 +155,10 @@ def block(city=None, state=None):
         f'<div class="nhw-card"><div class="nhw-num">{i}</div><h4>{e(t)}</h4><p>{e(d)}</p></div>' for i, (t, d) in enumerate(HOW, 1)
     )
     who = "".join(
-        f'<div class="nhw-card"><h4>{e(t)}</h4><ul>{"".join(f"<li>{e(x)}</li>" for x in items)}</ul></div>' for t, items in WHO
+        f'<div class="nhw-card"><div class="nhw-img" data-slot="who-{i}"><!-- IMAGE SLOT {i}: replace the <i> below with <img src="..." alt="{e(t)}" loading="lazy"> --><i class="fas nhi-image" aria-hidden="true"></i></div><div class="nhw-body"><h4>{e(t)}</h4><ul>{"".join(f"<li>{e(x)}</li>" for x in items)}</ul></div></div>' for i, (t, items) in enumerate(WHO, 1)
     )
     easy = "".join(
-        f'<div class="nhw-card good"><div class="nhw-ic" aria-hidden="true">{ic}</div><h4>{e(t)}</h4><p>{e(d)}</p></div>' for ic, t, d in EASY
+        f'<div class="nhw-card good"><div class="nhw-ic" aria-hidden="true"><i class="fas nhi-{ic}"></i></div><h4>{e(t)}</h4><p>{e(d)}</p></div>' for ic, t, d in EASY
     )
     faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in FAQ)
     return f"""{START}
@@ -147,11 +171,11 @@ def block(city=None, state=None):
     <p class="where">{where}</p>
 
     <div class="nhw-flow" aria-label="How NestHR connects attendance, leave and salary">
-      <div class="nhw-step"><div class="nhw-ic" aria-hidden="true">✅</div><b>Attendance</b><span>Who came, when, and where</span></div>
-      <div class="nhw-arrow" aria-hidden="true">→</div>
-      <div class="nhw-step"><div class="nhw-ic" aria-hidden="true">🌴</div><b>Leave</b><span>Requests, approvals, balance</span></div>
-      <div class="nhw-arrow" aria-hidden="true">→</div>
-      <div class="nhw-step"><div class="nhw-ic" aria-hidden="true">₹</div><b>Salary and payslip</b><span>Worked out for you</span></div>
+      <div class="nhw-step"><div class="nhw-ic" aria-hidden="true"><i class="fas nhi-user-check"></i></div><b>Attendance</b><span>Who came, when, and where</span></div>
+      <div class="nhw-arrow" aria-hidden="true"><i class="fas nhi-arrow-right"></i></div>
+      <div class="nhw-step"><div class="nhw-ic" aria-hidden="true"><i class="fas nhi-umbrella-beach"></i></div><b>Leave</b><span>Requests, approvals, balance</span></div>
+      <div class="nhw-arrow" aria-hidden="true"><i class="fas nhi-arrow-right"></i></div>
+      <div class="nhw-step"><div class="nhw-ic" aria-hidden="true"><i class="fas nhi-rupee-sign"></i></div><b>Salary and payslip</b><span>Worked out for you</span></div>
     </div>
     <p class="nhw-note">Attendance feeds leave and payroll, so nothing is typed twice.</p>
 
@@ -189,7 +213,7 @@ def block(city=None, state=None):
 
     <div class="nhw-cta"><a href="{CONTACT}">See NestHR in action</a></div>
   </div>
-</section>
+{JS_BLOCK}</section>
 {END}
 """
 

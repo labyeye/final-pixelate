@@ -82,6 +82,7 @@
   object-position: bottom;
   filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.2));
 }
+.nh-hs-person.is-card{width:100%;height:auto;border-radius:20px;margin-bottom:48px;filter:none;box-shadow:0 12px 32px rgba(5,75,171,.18)}
 .nh-hs-dashboard {
   position: relative;
   z-index: 2;

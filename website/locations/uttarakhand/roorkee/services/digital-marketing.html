@@ -1040,6 +1040,334 @@
       </section>
     </div>
 
+<!-- industries-we-serve -->
+      <section
+        class="services-section"
+        style="
+          position: relative;
+          width: 100%;
+          background: white;
+          padding: 40px 0;
+        "
+      >
+        <style>
+          .ind-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 20px;
+            max-width: 1480px;
+            margin: 48px auto 0;
+            padding: 0 24px;
+          }
+          .ind-card {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-height: 300px;
+            padding: 28px;
+            background: #fff;
+            border: 1px solid rgba(5, 75, 171, 0.16);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(5, 75, 171, 0.06);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(60px);
+            transition:
+              opacity 0.55s ease,
+              transform 0.55s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+          }
+          .ind-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          .ind-card:nth-child(2) {
+            transition-delay: 0.08s;
+          }
+          .ind-card:nth-child(3) {
+            transition-delay: 0.16s;
+          }
+          .ind-card:nth-child(4) {
+            transition-delay: 0.24s;
+          }
+          .ind-card:nth-child(5) {
+            transition-delay: 0.32s;
+          }
+          .ind-card:nth-child(6) {
+            transition-delay: 0.4s;
+          }
+          .ind-card.is-visible:hover {
+            transition-delay: 0s;
+            border-color: rgba(5, 75, 171, 0.4);
+            box-shadow: 0 14px 30px rgba(5, 75, 171, 0.12);
+          }
+          .ind-icon {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 10px;
+            order: 1;
+          }
+          .ind-title,
+          .ind-desc {
+            order: 2;
+          }
+          .ind-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+          }
+          .ind-num {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-900);
+            letter-spacing: 0.02em;
+          }
+          .ind-arrow {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-900);
+            font-size: 16px;
+            transition: transform 0.3s ease;
+          }
+          .ind-card:hover .ind-arrow {
+            transform: rotate(-15deg);
+          }
+          .ind-title {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-900);
+            margin: 0;
+          }
+          .ind-desc {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: rgba(0, 0, 0, 0.65);
+            margin: 0;
+          }
+          @media (max-width: 1200px) {
+            .ind-grid {
+              grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+          }
+          @media (max-width: 900px) {
+            .ind-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+          }
+          @media (max-width: 600px) {
+            .ind-grid {
+              grid-template-columns: 1fr;
+              padding: 0 20px;
+            }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .ind-card {
+              opacity: 1;
+              transform: none;
+              transition: none;
+            }
+          }
+        </style>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var cards = document.querySelectorAll("#indGrid .ind-card");
+            if (!("IntersectionObserver" in window))
+              return cards.forEach(function (c) {
+                c.classList.add("is-visible");
+              });
+            var io = new IntersectionObserver(
+              function (es) {
+                es.forEach(function (e) {
+                  if (e.isIntersecting) {
+                    e.target.classList.add("is-visible");
+                    io.unobserve(e.target);
+                  }
+                });
+              },
+              { threshold: 0.15 },
+            );
+            cards.forEach(function (c) {
+              io.observe(c);
+            });
+          });
+        </script>
+        <div style="position: absolute; inset: 0"></div>
+        <div style="position: relative; z-index: 1">
+          <div class="services-wrap">
+            <div class="heading-wrap">
+              <h2
+                style="
+                  margin-bottom: 10px;
+                  font-size: clamp(2rem, 4vw, 5rem);
+                  color: var(--primary-900);
+                  line-height: 1.2;
+                "
+              >
+                Industries We Serve
+              </h2>
+              <p
+                style="
+                  display: block;
+                  font-size: clamp(0.8rem, 1vw, 1.25rem);
+                  margin-top: 20px;
+                  color: var(--tertiary-700);
+                  text-align: justify;
+                  line-height: 1.6;
+                  max-width: 900px;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              >
+                At Pixelate Nest, we serve a wide range of industries by
+                building industry-specific digital solutions. Our experience
+                across diverse sectors helps us understand unique challenges and
+                deliver scalable, technology-driven solutions that support
+                long-term business growth.
+              </p>
+            </div>
+            <div class="ind-grid" id="indGrid">
+              <a
+                class="ind-card"
+                href="https://www.pixelatenest.com/industries/ecommerce.html"
+              >
+                <img
+                  class="ind-icon"
+                  src="https://www.pixelatenest.com/assets/images/industries/ecommerce.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="ind-card-top">
+                  <span class="ind-num">01</span>
+                  <span class="ind-arrow"
+                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></span>
+                </div>
+                <h3 class="ind-title">Ecommerce &amp; Multivendor</h3>
+                <p class="ind-desc">
+                  Online stores and multivendor marketplaces — with secure
+                  payments, inventory and order management built to lift sales.
+                </p>
+              </a>
+              <a
+                class="ind-card"
+                href="https://www.pixelatenest.com/industries/education.html"
+              >
+                <img
+                  class="ind-icon"
+                  src="https://www.pixelatenest.com/assets/images/industries/education.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="ind-card-top">
+                  <span class="ind-num">02</span>
+                  <span class="ind-arrow"
+                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></span>
+                </div>
+                <h3 class="ind-title">Education</h3>
+                <p class="ind-desc">
+                  School and college websites, LMS and student-teacher portals —
+                  built to improve learning, communication and administration.
+                </p>
+              </a>
+              <a
+                class="ind-card"
+                href="https://www.pixelatenest.com/industries/manufacturing.html"
+              >
+                <img
+                  class="ind-icon"
+                  src="https://www.pixelatenest.com/assets/images/industries/manufacture.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="ind-card-top">
+                  <span class="ind-num">03</span>
+                  <span class="ind-arrow"
+                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></span>
+                </div>
+                <h3 class="ind-title">Manufacturing Business</h3>
+                <p class="ind-desc">
+                  ERP, inventory and production tracking — connected supply
+                  chains and data dashboards that boost productivity.
+                </p>
+              </a>
+              <a
+                class="ind-card"
+                href="https://www.pixelatenest.com/industries/real-estate.html"
+              >
+                <img
+                  class="ind-icon"
+                  src="https://www.pixelatenest.com/assets/images/industries/realestate.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="ind-card-top">
+                  <span class="ind-num">04</span>
+                  <span class="ind-arrow"
+                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></span>
+                </div>
+                <h3 class="ind-title">Real Estate Services</h3>
+                <p class="ind-desc">
+                  Property websites, CRM and lead management — built to help you
+                  list, sell, rent and manage faster.
+                </p>
+              </a>
+              <a
+                class="ind-card"
+                href="https://www.pixelatenest.com/industries/logistics.html"
+              >
+                <img
+                  class="ind-icon"
+                  src="https://www.pixelatenest.com/assets/images/industries/transport.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="ind-card-top">
+                  <span class="ind-num">05</span>
+                  <span class="ind-arrow"
+                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></span>
+                </div>
+                <h3 class="ind-title">Transportation &amp; Logistics</h3>
+                <p class="ind-desc">
+                  Fleet tracking, route planning and delivery management — with
+                  real-time dashboards that cut operating costs.
+                </p>
+              </a>
+              <a
+                class="ind-card"
+                href="https://www.pixelatenest.com/industries/travel.html"
+              >
+                <img
+                  class="ind-icon"
+                  src="https://www.pixelatenest.com/assets/images/industries/travel.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="ind-card-top">
+                  <span class="ind-num">06</span>
+                  <span class="ind-arrow"
+                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></span>
+                </div>
+                <h3 class="ind-title">Travel &amp; Tourism</h3>
+                <p class="ind-desc">
+                  Booking websites, tour and package management and travel apps
+                  — with payment integration for smooth customer journeys.
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     <footer class="footer">
       <div class="container">
         <div class="footer-wrap">
