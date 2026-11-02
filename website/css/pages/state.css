@@ -1902,8 +1902,9 @@ body.modal-open {
 /* product cards (city pages) */
 .pcard-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(4,1fr);
   gap: 24px;
+  padding: 0px 100px;
 }
 .pcard {
   display: flex;
@@ -1934,12 +1935,18 @@ body.modal-open {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 6px;
-  font-size: 0.9rem;
+  gap: 2px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.35;
   color: #374151;
 }
+.pcard-trust li {
+  margin: 0;
+  padding: 0;
+}
 .pcard-trust li::before {
-  content: "¹3";
+  content: "•";
   color: var(--primary-900);
   font-weight: 700;
   margin-right: 8px;
@@ -1948,7 +1955,7 @@ body.modal-open {
   padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   flex: 1;
 }
 .pcard h3 {

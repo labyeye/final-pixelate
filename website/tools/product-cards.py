@@ -7,7 +7,6 @@ P = {
  'transport-management-software.html': ('Transport Management Software','transport-manage'),
  'hotel-management-software.html': ('Hotel Management Software','hotel-manage'),
  'library-management-software.html': ('Library Management Software','library-manage'),
- 'kirana-store-billing-software.html': ('Kirana Store Billing Software','kirana-manage'),
  'fmcg-retail-software.html': ('FMCG, Retail & Wholesale Software','fmcg-manage'),
  'lead-management-software.html': ('Lead Management Software','lead-manage'),
 }
