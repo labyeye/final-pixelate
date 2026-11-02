@@ -4929,14 +4929,36 @@ video {
   .svc-carousel-header {
     margin-bottom: 32px;
   }
+  /* same responsive grid as industries: 3 -> 2 -> 1 columns, no sideways scroll */
+  .svc-carousel-track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+  }
+  .svc-card {
+    flex: none;
+    height: auto;
+    min-height: 340px;
+  }
+  .svc-carousel-header,
+  .svc-card-body {
+    text-align: center;
+  }
+}
+@media (max-width: 900px) {
+  .svc-carousel-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 @media (max-width: 600px) {
+  .svc-carousel-track {
+    grid-template-columns: 1fr;
+  }
   .svc-carousel-container {
     padding: 0 20px;
   }
   .svc-card {
-    flex: 0 0 240px;
-    height: 380px;
+    height: auto;
   }
   .svc-carousel-image-wrap {
     height: 240px;
