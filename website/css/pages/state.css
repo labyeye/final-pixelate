@@ -1923,8 +1923,26 @@ body.modal-open {
 .pcard img {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  background: #f3f7fd;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.pcard-trust {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+.pcard-trust li::before {
+  content: "¹3";
+  color: var(--primary-900);
+  font-weight: 700;
+  margin-right: 8px;
 }
 .pcard-body {
   padding: 18px;
