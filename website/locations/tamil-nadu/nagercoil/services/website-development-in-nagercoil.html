@@ -175,7 +175,7 @@
         ]
       }
     </script>
-    
+
     <!-- Meta Pixel Code -->
     <script>
       !(function (f, b, e, v, n, t, s) {
@@ -524,14 +524,21 @@
               </div>
             </div>
 
-            <div class="heading-wrap" style="text-align:center;margin-bottom:24px"><h2 style="
-                margin-bottom: 0px;
-                font-size: clamp(2rem, 4vw, 5rem);
-                color: var(--primary-900);
-                line-height: 1.2;
-              ">
-              Clients Happy in Nagercoil
-            </h2></div>
+            <div
+              class="heading-wrap"
+              style="text-align: center; margin-bottom: 24px"
+            >
+              <h2
+                style="
+                  margin-bottom: 0px;
+                  font-size: clamp(2rem, 4vw, 5rem);
+                  color: var(--primary-900);
+                  line-height: 1.2;
+                "
+              >
+                Clients Happy in Nagercoil
+              </h2>
+            </div>
             <div class="hero-brands-section">
               <div class="brands-carousel-wrapper">
                 <div class="brands-carousel">
@@ -595,335 +602,447 @@
               </div>
             </div>
           </div>
-        </section<!-- industries-we-serve -->
-      <section
-        class="services-section"
-        style="
-          position: relative;
-          width: 100%;
-          background: white;
-          padding: 40px 0;
-        "
-      >
-        <style>
-          .ind-grid {
-            display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
-            gap: 20px;
-            max-width: 1480px;
-            margin: 48px auto 0;
-            padding: 0 24px;
-          }
-          .ind-card {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            min-height: 300px;
-            padding: 28px;
-            background: #fff;
-            border: 1px solid rgba(5, 75, 171, 0.16);
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(5, 75, 171, 0.06);
-            text-decoration: none;
-            opacity: 0;
-            transform: translateY(60px);
-            transition:
-              opacity 0.55s ease,
-              transform 0.55s ease,
-              border-color 0.25s ease,
-              box-shadow 0.25s ease;
-          }
-          .ind-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          .ind-card:nth-child(2) {
-            transition-delay: 0.08s;
-          }
-          .ind-card:nth-child(3) {
-            transition-delay: 0.16s;
-          }
-          .ind-card:nth-child(4) {
-            transition-delay: 0.24s;
-          }
-          .ind-card:nth-child(5) {
-            transition-delay: 0.32s;
-          }
-          .ind-card:nth-child(6) {
-            transition-delay: 0.4s;
-          }
-          .ind-card.is-visible:hover {
-            transition-delay: 0s;
-            border-color: rgba(5, 75, 171, 0.4);
-            box-shadow: 0 14px 30px rgba(5, 75, 171, 0.12);
-          }
-          .ind-icon {
+        </section>
+        <section
+          class="services-section"
+          style="
+            position: relative;
             width: 100%;
-            height: 210px;
-            object-fit: cover;
-            border-radius: 10px;
-            order: 1;
-          }
-          .ind-title,
-          .ind-desc {
-            order: 2;
-          }
-          .ind-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-          }
-          .ind-num {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-900);
-            letter-spacing: 0.02em;
-          }
-          .ind-arrow {
-            width: 36px;
-            height: 36px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-900);
-            font-size: 16px;
-            transition: transform 0.3s ease;
-          }
-          .ind-card:hover .ind-arrow {
-            transform: rotate(-15deg);
-          }
-          .ind-title {
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--primary-900);
-            margin: 0;
-          }
-          .ind-desc {
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: rgba(0, 0, 0, 0.65);
-            margin: 0;
-          }
-          @media (max-width: 1200px) {
+            background: white;
+            padding: 40px 0;
+          "
+        >
+          <style>
             .ind-grid {
-              grid-template-columns: repeat(3, minmax(0, 1fr));
+              display: grid;
+              grid-template-columns: repeat(6, minmax(0, 1fr));
+              gap: 20px;
+              max-width: 1480px;
+              margin: 48px auto 0;
+              padding: 0 24px;
             }
-          }
-          @media (max-width: 900px) {
-            .ind-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-          }
-          @media (max-width: 600px) {
-            .ind-grid {
-              grid-template-columns: 1fr;
-              padding: 0 20px;
-            }
-          }
-          @media (prefers-reduced-motion: reduce) {
             .ind-card {
-              opacity: 1;
-              transform: none;
-              transition: none;
+              display: flex;
+              flex-direction: column;
+              gap: 18px;
+              min-height: 300px;
+              padding: 28px;
+              background: #fff;
+              border: 1px solid rgba(5, 75, 171, 0.16);
+              border-radius: 16px;
+              box-shadow: 0 8px 24px rgba(5, 75, 171, 0.06);
+              text-decoration: none;
+              opacity: 0;
+              transform: translateY(60px);
+              transition:
+                opacity 0.55s ease,
+                transform 0.55s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
             }
-          }
-        </style>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            var cards = document.querySelectorAll("#indGrid .ind-card");
-            if (!("IntersectionObserver" in window))
-              return cards.forEach(function (c) {
-                c.classList.add("is-visible");
-              });
-            var io = new IntersectionObserver(
-              function (es) {
-                es.forEach(function (e) {
-                  if (e.isIntersecting) {
-                    e.target.classList.add("is-visible");
-                    io.unobserve(e.target);
-                  }
+            .ind-card.is-visible {
+              opacity: 1;
+              transform: translateY(0);
+            }
+            .ind-card:nth-child(2) {
+              transition-delay: 0.08s;
+            }
+            .ind-card:nth-child(3) {
+              transition-delay: 0.16s;
+            }
+            .ind-card:nth-child(4) {
+              transition-delay: 0.24s;
+            }
+            .ind-card:nth-child(5) {
+              transition-delay: 0.32s;
+            }
+            .ind-card:nth-child(6) {
+              transition-delay: 0.4s;
+            }
+            .ind-card.is-visible:hover {
+              transition-delay: 0s;
+              border-color: rgba(5, 75, 171, 0.4);
+              box-shadow: 0 14px 30px rgba(5, 75, 171, 0.12);
+            }
+            .ind-icon {
+              width: 100%;
+              height: 210px;
+              object-fit: cover;
+              border-radius: 10px;
+              order: 1;
+            }
+            .ind-title,
+            .ind-desc {
+              order: 2;
+            }
+            .ind-card-top {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+            }
+            .ind-num {
+              font-size: 28px;
+              font-weight: 700;
+              color: var(--primary-900);
+              letter-spacing: 0.02em;
+            }
+            .ind-arrow {
+              width: 36px;
+              height: 36px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              color: var(--primary-900);
+              font-size: 16px;
+              transition: transform 0.3s ease;
+            }
+            .ind-card:hover .ind-arrow {
+              transform: rotate(-15deg);
+            }
+            .ind-title {
+              font-size: 22px;
+              font-weight: 700;
+              line-height: 1.2;
+              color: var(--primary-900);
+              margin: 0;
+            }
+            .ind-desc {
+              font-size: 13.5px;
+              line-height: 1.6;
+              color: rgba(0, 0, 0, 0.65);
+              margin: 0;
+            }
+            @media (max-width: 1200px) {
+              .ind-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+              }
+            }
+            @media (max-width: 900px) {
+              .ind-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+              }
+            }
+            @media (max-width: 600px) {
+              .ind-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+              }
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .ind-card {
+                opacity: 1;
+                transform: none;
+                transition: none;
+              }
+            }
+          </style>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              var cards = document.querySelectorAll("#indGrid .ind-card");
+              if (!("IntersectionObserver" in window))
+                return cards.forEach(function (c) {
+                  c.classList.add("is-visible");
                 });
-              },
-              { threshold: 0.15 },
-            );
-            cards.forEach(function (c) {
-              io.observe(c);
+              var io = new IntersectionObserver(
+                function (es) {
+                  es.forEach(function (e) {
+                    if (e.isIntersecting) {
+                      e.target.classList.add("is-visible");
+                      io.unobserve(e.target);
+                    }
+                  });
+                },
+                { threshold: 0.15 },
+              );
+              cards.forEach(function (c) {
+                io.observe(c);
+              });
             });
-          });
-        </script>
-        <div style="position: absolute; inset: 0"></div>
-        <div style="position: relative; z-index: 1">
-          <div class="services-wrap">
-            <div class="heading-wrap">
-              <h2
-                style="
-                  margin-bottom: 10px;
-                  font-size: clamp(2rem, 4vw, 5rem);
-                  color: var(--primary-900);
-                  line-height: 1.2;
-                "
-              >
-                Industries We Serve
-              </h2>
-              <p
-                style="
-                  display: block;
-                  font-size: clamp(0.8rem, 1vw, 1.25rem);
-                  margin-top: 20px;
-                  color: var(--tertiary-700);
-                  text-align: justify;
-                  line-height: 1.6;
-                  max-width: 900px;
-                  margin-left: auto;
-                  margin-right: auto;
-                "
-              >
-                At Pixelate Nest, we serve a wide range of industries by
-                building industry-specific digital solutions. Our experience
-                across diverse sectors helps us understand unique challenges and
-                deliver scalable, technology-driven solutions that support
-                long-term business growth.
-              </p>
-            </div>
-            <div class="ind-grid" id="indGrid">
-              <a
-                class="ind-card"
-                href="https://www.pixelatenest.com/industries/ecommerce.html"
-              >
-                <img
-                  class="ind-icon"
-                  src="https://www.pixelatenest.com/assets/images/industries/ecommerce.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <div class="ind-card-top">
-                  <span class="ind-num">01</span>
-                  <span class="ind-arrow"
-                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                  ></span>
-                </div>
-                <h3 class="ind-title">Ecommerce &amp; Multivendor</h3>
-                <p class="ind-desc">
-                  Online stores and multivendor marketplaces — with secure
-                  payments, inventory and order management built to lift sales.
+          </script>
+          <div style="position: absolute; inset: 0"></div>
+          <div style="position: relative; z-index: 1">
+            <div class="services-wrap">
+              <div class="heading-wrap">
+                <h2
+                  style="
+                    margin-bottom: 10px;
+                    font-size: clamp(2rem, 4vw, 5rem);
+                    color: var(--primary-900);
+                    line-height: 1.2;
+                  "
+                >
+                  Industries We Serve
+                </h2>
+                <p
+                  style="
+                    display: block;
+                    font-size: clamp(0.8rem, 1vw, 1.25rem);
+                    margin-top: 20px;
+                    color: var(--tertiary-700);
+                    text-align: justify;
+                    line-height: 1.6;
+                    max-width: 900px;
+                    margin-left: auto;
+                    margin-right: auto;
+                  "
+                >
+                  At Pixelate Nest, we serve a wide range of industries by
+                  building industry-specific digital solutions. Our experience
+                  across diverse sectors helps us understand unique challenges
+                  and deliver scalable, technology-driven solutions that support
+                  long-term business growth.
                 </p>
-              </a>
-              <a
-                class="ind-card"
-                href="https://www.pixelatenest.com/industries/education.html"
-              >
-                <img
-                  class="ind-icon"
-                  src="https://www.pixelatenest.com/assets/images/industries/education.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <div class="ind-card-top">
-                  <span class="ind-num">02</span>
-                  <span class="ind-arrow"
-                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                  ></span>
-                </div>
-                <h3 class="ind-title">Education</h3>
-                <p class="ind-desc">
-                  School and college websites, LMS and student-teacher portals —
-                  built to improve learning, communication and administration.
-                </p>
-              </a>
-              <a
-                class="ind-card"
-                href="https://www.pixelatenest.com/industries/manufacturing.html"
-              >
-                <img
-                  class="ind-icon"
-                  src="https://www.pixelatenest.com/assets/images/industries/manufacture.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <div class="ind-card-top">
-                  <span class="ind-num">03</span>
-                  <span class="ind-arrow"
-                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                  ></span>
-                </div>
-                <h3 class="ind-title">Manufacturing Business</h3>
-                <p class="ind-desc">
-                  ERP, inventory and production tracking — connected supply
-                  chains and data dashboards that boost productivity.
-                </p>
-              </a>
-              <a
-                class="ind-card"
-                href="https://www.pixelatenest.com/industries/real-estate.html"
-              >
-                <img
-                  class="ind-icon"
-                  src="https://www.pixelatenest.com/assets/images/industries/realestate.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <div class="ind-card-top">
-                  <span class="ind-num">04</span>
-                  <span class="ind-arrow"
-                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                  ></span>
-                </div>
-                <h3 class="ind-title">Real Estate Services</h3>
-                <p class="ind-desc">
-                  Property websites, CRM and lead management — built to help you
-                  list, sell, rent and manage faster.
-                </p>
-              </a>
-              <a
-                class="ind-card"
-                href="https://www.pixelatenest.com/industries/logistics.html"
-              >
-                <img
-                  class="ind-icon"
-                  src="https://www.pixelatenest.com/assets/images/industries/transport.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <div class="ind-card-top">
-                  <span class="ind-num">05</span>
-                  <span class="ind-arrow"
-                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                  ></span>
-                </div>
-                <h3 class="ind-title">Transportation &amp; Logistics</h3>
-                <p class="ind-desc">
-                  Fleet tracking, route planning and delivery management — with
-                  real-time dashboards that cut operating costs.
-                </p>
-              </a>
-              <a
-                class="ind-card"
-                href="https://www.pixelatenest.com/industries/travel.html"
-              >
-                <img
-                  class="ind-icon"
-                  src="https://www.pixelatenest.com/assets/images/industries/travel.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <div class="ind-card-top">
-                  <span class="ind-num">06</span>
-                  <span class="ind-arrow"
-                    ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                  ></span>
-                </div>
-                <h3 class="ind-title">Travel &amp; Tourism</h3>
-                <p class="ind-desc">
-                  Booking websites, tour and package management and travel apps
-                  — with payment integration for smooth customer journeys.
-                </p>
-              </a>
+              </div>
+              <div class="ind-grid" id="indGrid">
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/industries/ecommerce.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/ecommerce.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">01</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Ecommerce &amp; Multivendor</h3>
+                  <p class="ind-desc">
+                    Online stores and multivendor marketplaces — with secure
+                    payments, inventory and order management built to lift
+                    sales.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/industries/education.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/education.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">02</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Education</h3>
+                  <p class="ind-desc">
+                    School and college websites, LMS and student-teacher portals
+                    — built to improve learning, communication and
+                    administration.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/industries/manufacturing.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/manufacture.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">03</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Manufacturing Business</h3>
+                  <p class="ind-desc">
+                    ERP, inventory and production tracking — connected supply
+                    chains and data dashboards that boost productivity.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/industries/real-estate.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/realestate.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">04</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Real Estate Services</h3>
+                  <p class="ind-desc">
+                    Property websites, CRM and lead management — built to help
+                    you list, sell, rent and manage faster.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/industries/logistics.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/transport.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">05</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Transportation &amp; Logistics</h3>
+                  <p class="ind-desc">
+                    Fleet tracking, route planning and delivery management —
+                    with real-time dashboards that cut operating costs.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/industries/travel.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/travel.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">06</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Travel &amp; Tourism</h3>
+                  <p class="ind-desc">
+                    Booking websites, tour and package management and travel
+                    apps — with payment integration for smooth customer
+                    journeys.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/pages/contact.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/healthcare.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">07</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Healthcare &amp; Clinics</h3>
+                  <p class="ind-desc">
+                    Appointment booking, patient management and a trusted
+                    digital presence for clinics, hospitals and diagnostic
+                    centres.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/pages/contact.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/restaurant.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">08</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Restaurants &amp; Hospitality</h3>
+                  <p class="ind-desc">
+                    Online ordering, table booking and brand websites for
+                    restaurants, cafes and hotels.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/pages/contact.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/fashion.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">09</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Fashion &amp; Lifestyle</h3>
+                  <p class="ind-desc">
+                    Stylish storefronts, catalogues and campaigns that turn
+                    browsers into loyal customers.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/pages/contact.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/fitness.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">10</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Fitness &amp; Wellness</h3>
+                  <p class="ind-desc">
+                    Memberships, class booking and progress tracking for gyms,
+                    studios and wellness brands.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/pages/contact.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/finance.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">11</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Finance &amp; Corporate</h3>
+                  <p class="ind-desc">
+                    Secure, professional websites and tools for advisors,
+                    fintech teams and corporate businesses.
+                  </p>
+                </a>
+                <a
+                  class="ind-card"
+                  href="https://www.pixelatenest.com/pages/contact.html"
+                >
+                  <img
+                    class="ind-icon"
+                    src="https://www.pixelatenest.com/assets/images/industries/creator.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="ind-card-top">
+                    <span class="ind-num">12</span>
+                    <span class="ind-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                  </div>
+                  <h3 class="ind-title">Creators &amp; Media</h3>
+                  <p class="ind-desc">
+                    Portfolio sites, content platforms and growth tools for
+                    creators and media brands.
+                  </p>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
->
+        </section>
+        >
       </div>
 
       <section class="crm-section crm-muted-bg">
@@ -1231,7 +1350,17 @@
       </section>
 
       <section class="pn-tech" aria-labelledby="pn-tech-title">
-        <h2 id="pn-tech-title">Our Technologies</h2>
+        <h2
+          id="pn-tech-title"
+          style="
+            margin-bottom: 12px;
+            font-size: clamp(2rem, 4vw, 5rem);
+            color: var(--primary-900);
+            line-height: 1.2;
+          "
+        >
+          Our Technologies
+        </h2>
         <p>
           We use modern, secure and well-maintained technologies so your product
           stays fast, scalable and easy to manage.
@@ -2011,135 +2140,134 @@
       </section>
     </div>
 
-<!-- portfolio-masonry -->
-<style>
-.portfolio-slider-wrap {
-  position: relative;
-  width: 100%;
-  height: 800px;
-  overflow: hidden;
-  margin: 40px 0;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-}
+    <!-- portfolio-masonry -->
+    <style>
+      .portfolio-slider-wrap {
+        position: relative;
+        width: 100%;
+        height: 800px;
+        overflow: hidden;
+        margin: 40px 0;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+        mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+      }
 
-.portfolio-grid {
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-}
+      .portfolio-grid {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+      }
 
-.portfolio-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  will-change: transform;
-}
+      .portfolio-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        will-change: transform;
+      }
 
-.portfolio-slider-wrap:hover .portfolio-column {
-  animation-play-state: paused;
-}
+      .portfolio-slider-wrap:hover .portfolio-column {
+        animation-play-state: paused;
+      }
 
-@keyframes verticalMarquee {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
+      @keyframes verticalMarquee {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50%);
+        }
+      }
 
-@media (max-width: 1400px) {
-  .portfolio-grid {
-    gap: 12px;
-  }
-}
+      @media (max-width: 1400px) {
+        .portfolio-grid {
+          gap: 12px;
+        }
+      }
 
-@media (max-width: 1024px) {
-  .portfolio-slider-wrap {
-    height: 700px;
-  }
-}
+      @media (max-width: 1024px) {
+        .portfolio-slider-wrap {
+          height: 700px;
+        }
+      }
 
-@media (max-width: 768px) {
-  .portfolio-slider-wrap {
-    height: 600px;
-  }
-  .portfolio-grid {
-    gap: 8px;
-  }
-  .portfolio-card {
-    margin-bottom: 8px;
-  }
-}
+      @media (max-width: 768px) {
+        .portfolio-slider-wrap {
+          height: 600px;
+        }
+        .portfolio-grid {
+          gap: 8px;
+        }
+        .portfolio-card {
+          margin-bottom: 8px;
+        }
+      }
 
-.portfolio-card {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  width: 100%;
-  text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-  margin-bottom: 15px;
-  break-inside: avoid;
-}
+      .portfolio-card {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+        margin-bottom: 15px;
+        break-inside: avoid;
+      }
 
-.portfolio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
+      .portfolio-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
 
-.portfolio-image-wrapper {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+      .portfolio-image-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
 
-.portfolio-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+      .portfolio-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
 
-.portfolio-card:hover .portfolio-image {
-  transform: scale(1.05);
-}
+      .portfolio-card:hover .portfolio-image {
+        transform: scale(1.05);
+      }
 
-.portfolio-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.95) 0,
-    rgba(0, 0, 0, 0) 100%
-  );
-  padding: 60px 30px 30px;
-  color: #fff;
-  transform: translateY(100%);
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+      .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95) 0,
+          rgba(0, 0, 0, 0) 100%
+        );
+        padding: 60px 30px 30px;
+        color: #fff;
+        transform: translateY(100%);
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
 
-
-/* Portfolio hover overlay – index page */
+      /* Portfolio hover overlay – index page */
       .portfolio-overlay {
         position: absolute;
         inset: 0;
@@ -2230,254 +2358,404 @@
         transform: translateY(0);
       }
     </style>
-<section class="crm-section">
-        <div class="container">
-          <div class="heading-wrap">
-            <h2 style="margin-bottom: 30px; font-size: clamp(2rem, 4vw, 5rem); color: var(--primary-900); line-height: 1.2;">
-              Business Software for Companies in Nagercoil
-            </h2>
-          </div>
-          <div style="text-align:center;line-height:1.7"><p style="margin:8px 0"><strong>Ecommerce:</strong> <a href="https://www.pixelatenest.com/industry/ecommerce/attendance-software-for-ecommerce-business.html">Attendance Software for Ecommerce Business</a> · <a href="https://www.pixelatenest.com/industry/ecommerce/lead-management-software-for-ecommerce-business.html">Lead Management Software for Ecommerce Business</a> · <a href="https://www.pixelatenest.com/industry/ecommerce/counter-billing-software-for-ecommerce-business.html">Counter Billing Software for Ecommerce Business</a> · <a href="https://www.pixelatenest.com/industry/ecommerce/gst-billing-software-for-ecommerce-business.html">GST Billing Software for Ecommerce Business</a> · <a href="https://www.pixelatenest.com/industry/ecommerce/fmcg-retail-software-for-ecommerce-business.html">FMCG Retail &amp; Wholesale Software for Ecommerce Business</a></p><p style="margin:8px 0"><strong>Education:</strong> <a href="https://www.pixelatenest.com/industry/education/attendance-software-for-education-business.html">Attendance Software for Education Business</a> · <a href="https://www.pixelatenest.com/industry/education/lead-management-software-for-education-business.html">Lead Management Software for Education Business</a> · <a href="https://www.pixelatenest.com/industry/education/school-management-software-for-education-business.html">School Management Software for Education Business</a> · <a href="https://www.pixelatenest.com/industry/education/library-management-software-for-education-business.html">Library Management Software for Education Business</a> · <a href="https://www.pixelatenest.com/industry/education/sports-management-software-for-education-business.html">Sports Academy Management Software for Education Business</a></p><p style="margin:8px 0"><strong>Logistics:</strong> <a href="https://www.pixelatenest.com/industry/logistics/attendance-software-for-logistics-business.html">Attendance Software for Logistics Business</a> · <a href="https://www.pixelatenest.com/industry/logistics/transport-management-software-for-logistics-business.html">Transport Management Software for Logistics Business</a> · <a href="https://www.pixelatenest.com/industry/logistics/gst-billing-software-for-logistics-business.html">GST Billing Software for Logistics Business</a></p><p style="margin:8px 0"><strong>Manufacturing:</strong> <a href="https://www.pixelatenest.com/industry/manufacturing/attendance-software-for-manufacturing-business.html">Attendance Software for Manufacturing Business</a> · <a href="https://www.pixelatenest.com/industry/manufacturing/lead-management-software-for-manufacturing-business.html">Lead Management Software for Manufacturing Business</a> · <a href="https://www.pixelatenest.com/industry/manufacturing/transport-management-software-for-manufacturing-business.html">Transport Management Software for Manufacturing Business</a> · <a href="https://www.pixelatenest.com/industry/manufacturing/gst-billing-software-for-manufacturing-business.html">GST Billing Software for Manufacturing Business</a> · <a href="https://www.pixelatenest.com/industry/manufacturing/fmcg-retail-software-for-manufacturing-business.html">FMCG Retail &amp; Wholesale Software for Manufacturing Business</a></p><p style="margin:8px 0"><strong>Real Estate:</strong> <a href="https://www.pixelatenest.com/industry/real-estate/attendance-software-for-real-estate-business.html">Attendance Software for Real Estate Business</a> · <a href="https://www.pixelatenest.com/industry/real-estate/lead-management-software-for-real-estate-business.html">Lead Management Software for Real Estate Business</a></p><p style="margin:8px 0"><strong>Travel &amp; Hospitality:</strong> <a href="https://www.pixelatenest.com/industry/travel/attendance-software-for-travel-business.html">Attendance Software for Travel &amp; Hospitality Business</a> · <a href="https://www.pixelatenest.com/industry/travel/lead-management-software-for-travel-business.html">Lead Management Software for Travel &amp; Hospitality Business</a> · <a href="https://www.pixelatenest.com/industry/travel/transport-management-software-for-travel-business.html">Transport Management Software for Travel &amp; Hospitality Business</a> · <a href="https://www.pixelatenest.com/industry/travel/hotel-management-software-for-travel-business.html">Hotel Management Software for Travel &amp; Hospitality Business</a></p><p style="margin:8px 0"><strong>Utilities:</strong> <a href="https://www.pixelatenest.com/industry/utilities/attendance-software-for-utilities-business.html">Attendance Software for Utilities Business</a></p></div>
+    <section class="crm-section">
+      <div class="container">
+        <div class="heading-wrap">
+          <h2
+            style="
+              margin-bottom: 30px;
+              font-size: clamp(2rem, 4vw, 5rem);
+              color: var(--primary-900);
+              line-height: 1.2;
+            "
+          >
+            Business Software for Companies in Nagercoil
+          </h2>
         </div>
-      </section>
-<section class="portfolio-works">
-        <div class="container">
-          <div class="heading-wrap">
-            <h2
-              style="
-                margin-bottom: 30px;
-                font-size: clamp(2rem, 4vw, 5rem);
-                color: var(--primary-900);
-                line-height: 1.2;
-              "
+        <div style="text-align: center; line-height: 1.7">
+          <p style="margin: 8px 0">
+            <strong>Ecommerce:</strong>
+            <a
+              href="https://www.pixelatenest.com/industry/ecommerce/attendance-software-for-ecommerce-business.html"
+              >Attendance Software for Ecommerce Business</a
             >
-              Portfolio We Did in Nagercoil
-            </h2>
-          </div>
-          <style>
-            .pn-grid-loader {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              padding: 60px 20px;
-              width: 100%;
-              grid-column: 1/-1;
-            }
-            .pn-grid-loader-ring {
-              position: relative;
-              width: 120px;
-              height: 120px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-            .pn-grid-loader-ring svg {
-              position: absolute;
-              inset: 0;
-              width: 100%;
-              height: 100%;
-              animation: pn-grid-spin 1.6s linear infinite;
-            }
-            .pn-grid-loader-track {
-              fill: none;
-              stroke: rgba(0, 0, 0, 0.08);
-              stroke-width: 5;
-            }
-            .pn-grid-loader-arc {
-              fill: none;
-              stroke: #1a3c8f;
-              stroke-width: 5;
-              stroke-linecap: round;
-              stroke-dasharray: 339.292;
-              stroke-dashoffset: 254;
-            }
-            .pn-grid-loader-logo {
-              width: 62px;
-              height: 62px;
-              object-fit: contain;
-              position: relative;
-              z-index: 1;
-              animation: pn-grid-pulse 1.6s ease-in-out infinite;
-            }
-            @keyframes pn-grid-spin {
-              to {
-                transform: rotate(360deg);
-              }
-            }
-            @keyframes pn-grid-pulse {
-              0%,
-              100% {
-                transform: scale(1);
-                opacity: 1;
-              }
-              50% {
-                transform: scale(0.9);
-                opacity: 0.75;
-              }
-            }
-            .pn-grid-loader-wrap {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 18px;
-            }
-            .pn-loading-text {
-              font-size: 0.95rem;
-              font-weight: 500;
-              color: #1a3c8f;
-              letter-spacing: 0.04em;
-            }
-            .pn-loading-text::after {
-              content: "";
-              animation: pn-dots 1.5s steps(3, end) infinite;
-            }
-            @keyframes pn-dots {
-              0% {
-                content: ".";
-              }
-              33% {
-                content: "..";
-              }
-              66% {
-                content: "...";
-              }
-              100% {
-                content: "";
-              }
-            }
-          </style>
-          <div class="portfolio-slider-wrap" style="min-height: 800px">
-            <div id="home-portfolio-grid" class="portfolio-grid"></div>
-          </div>
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/ecommerce/lead-management-software-for-ecommerce-business.html"
+              >Lead Management Software for Ecommerce Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/ecommerce/counter-billing-software-for-ecommerce-business.html"
+              >Counter Billing Software for Ecommerce Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/ecommerce/gst-billing-software-for-ecommerce-business.html"
+              >GST Billing Software for Ecommerce Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/ecommerce/fmcg-retail-software-for-ecommerce-business.html"
+              >FMCG Retail &amp; Wholesale Software for Ecommerce Business</a
+            >
+          </p>
+          <p style="margin: 8px 0">
+            <strong>Education:</strong>
+            <a
+              href="https://www.pixelatenest.com/industry/education/attendance-software-for-education-business.html"
+              >Attendance Software for Education Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/education/lead-management-software-for-education-business.html"
+              >Lead Management Software for Education Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/education/school-management-software-for-education-business.html"
+              >School Management Software for Education Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/education/library-management-software-for-education-business.html"
+              >Library Management Software for Education Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/education/sports-management-software-for-education-business.html"
+              >Sports Academy Management Software for Education Business</a
+            >
+          </p>
+          <p style="margin: 8px 0">
+            <strong>Logistics:</strong>
+            <a
+              href="https://www.pixelatenest.com/industry/logistics/attendance-software-for-logistics-business.html"
+              >Attendance Software for Logistics Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/logistics/transport-management-software-for-logistics-business.html"
+              >Transport Management Software for Logistics Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/logistics/gst-billing-software-for-logistics-business.html"
+              >GST Billing Software for Logistics Business</a
+            >
+          </p>
+          <p style="margin: 8px 0">
+            <strong>Manufacturing:</strong>
+            <a
+              href="https://www.pixelatenest.com/industry/manufacturing/attendance-software-for-manufacturing-business.html"
+              >Attendance Software for Manufacturing Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/manufacturing/lead-management-software-for-manufacturing-business.html"
+              >Lead Management Software for Manufacturing Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/manufacturing/transport-management-software-for-manufacturing-business.html"
+              >Transport Management Software for Manufacturing Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/manufacturing/gst-billing-software-for-manufacturing-business.html"
+              >GST Billing Software for Manufacturing Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/manufacturing/fmcg-retail-software-for-manufacturing-business.html"
+              >FMCG Retail &amp; Wholesale Software for Manufacturing
+              Business</a
+            >
+          </p>
+          <p style="margin: 8px 0">
+            <strong>Real Estate:</strong>
+            <a
+              href="https://www.pixelatenest.com/industry/real-estate/attendance-software-for-real-estate-business.html"
+              >Attendance Software for Real Estate Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/real-estate/lead-management-software-for-real-estate-business.html"
+              >Lead Management Software for Real Estate Business</a
+            >
+          </p>
+          <p style="margin: 8px 0">
+            <strong>Travel &amp; Hospitality:</strong>
+            <a
+              href="https://www.pixelatenest.com/industry/travel/attendance-software-for-travel-business.html"
+              >Attendance Software for Travel &amp; Hospitality Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/travel/lead-management-software-for-travel-business.html"
+              >Lead Management Software for Travel &amp; Hospitality Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/travel/transport-management-software-for-travel-business.html"
+              >Transport Management Software for Travel &amp; Hospitality
+              Business</a
+            >
+            ·
+            <a
+              href="https://www.pixelatenest.com/industry/travel/hotel-management-software-for-travel-business.html"
+              >Hotel Management Software for Travel &amp; Hospitality
+              Business</a
+            >
+          </p>
+          <p style="margin: 8px 0">
+            <strong>Utilities:</strong>
+            <a
+              href="https://www.pixelatenest.com/industry/utilities/attendance-software-for-utilities-business.html"
+              >Attendance Software for Utilities Business</a
+            >
+          </p>
         </div>
-      </section>
-<script data-service="web-development">
-(function () {
-const SERVICE = document.currentScript.dataset.service;
-async function loadHomePortfolio() {
-        const grid = document.getElementById("home-portfolio-grid");
+      </div>
+    </section>
+    <section class="portfolio-works">
+      <div class="container">
+        <div class="heading-wrap">
+          <h2
+            style="
+              margin-bottom: 30px;
+              font-size: clamp(2rem, 4vw, 5rem);
+              color: var(--primary-900);
+              line-height: 1.2;
+            "
+          >
+            Portfolio We Did in Nagercoil
+          </h2>
+        </div>
+        <style>
+          .pn-grid-loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            width: 100%;
+            grid-column: 1/-1;
+          }
+          .pn-grid-loader-ring {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .pn-grid-loader-ring svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            animation: pn-grid-spin 1.6s linear infinite;
+          }
+          .pn-grid-loader-track {
+            fill: none;
+            stroke: rgba(0, 0, 0, 0.08);
+            stroke-width: 5;
+          }
+          .pn-grid-loader-arc {
+            fill: none;
+            stroke: #1a3c8f;
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-dasharray: 339.292;
+            stroke-dashoffset: 254;
+          }
+          .pn-grid-loader-logo {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            animation: pn-grid-pulse 1.6s ease-in-out infinite;
+          }
+          @keyframes pn-grid-spin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          @keyframes pn-grid-pulse {
+            0%,
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
+            50% {
+              transform: scale(0.9);
+              opacity: 0.75;
+            }
+          }
+          .pn-grid-loader-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+          }
+          .pn-loading-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1a3c8f;
+            letter-spacing: 0.04em;
+          }
+          .pn-loading-text::after {
+            content: "";
+            animation: pn-dots 1.5s steps(3, end) infinite;
+          }
+          @keyframes pn-dots {
+            0% {
+              content: ".";
+            }
+            33% {
+              content: "..";
+            }
+            66% {
+              content: "...";
+            }
+            100% {
+              content: "";
+            }
+          }
+        </style>
+        <div class="portfolio-slider-wrap" style="min-height: 800px">
+          <div id="home-portfolio-grid" class="portfolio-grid"></div>
+        </div>
+      </div>
+    </section>
+    <script data-service="web-development">
+      (function () {
+        const SERVICE = document.currentScript.dataset.service;
+        async function loadHomePortfolio() {
+          const grid = document.getElementById("home-portfolio-grid");
 
-        grid.innerHTML =
-          '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
+          grid.innerHTML =
+            '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
 
-        try {
-          const res = await fetch(
-            "https://backend.pixelatenest.com/api/work-gallery",
-          );
-          if (!res.ok) throw new Error("Failed to fetch gallery");
+          try {
+            const res = await fetch(
+              "https://backend.pixelatenest.com/api/work-gallery",
+            );
+            if (!res.ok) throw new Error("Failed to fetch gallery");
 
-          let items = await res.json();
-          items = items.filter((i) => i.showOn === SERVICE);
-          items = items.sort(() => Math.random() - 0.5);
+            let items = await res.json();
+            items = items.filter((i) => i.showOn === SERVICE);
+            items = items.sort(() => Math.random() - 0.5);
 
-          grid.innerHTML = "";
-          const colCount =
-            window.innerWidth > 1400
-              ? 6
-              : window.innerWidth > 1024
-                ? 4
-                : window.innerWidth > 768
-                  ? 2
-                  : 1;
-          const columns = [];
+            grid.innerHTML = "";
+            const colCount =
+              window.innerWidth > 1400
+                ? 6
+                : window.innerWidth > 1024
+                  ? 4
+                  : window.innerWidth > 768
+                    ? 2
+                    : 1;
+            const columns = [];
 
-          grid.style.display = "flex";
-          grid.style.gap = "30px";
-          grid.style.animation = "none";
+            grid.style.display = "flex";
+            grid.style.gap = "30px";
+            grid.style.animation = "none";
 
-          for (let i = 0; i < colCount; i++) {
-            const col = document.createElement("div");
-            col.className = "portfolio-column";
-            const speed = 40 + i * 15;
-            col.style.animation = `verticalMarquee ${speed}s linear infinite`;
-            if (i % 2 === 1) col.style.animationDirection = "reverse";
-            grid.appendChild(col);
-            columns.push(col);
+            for (let i = 0; i < colCount; i++) {
+              const col = document.createElement("div");
+              col.className = "portfolio-column";
+              const speed = 40 + i * 15;
+              col.style.animation = `verticalMarquee ${speed}s linear infinite`;
+              if (i % 2 === 1) col.style.animationDirection = "reverse";
+              grid.appendChild(col);
+              columns.push(col);
+            }
+
+            items.forEach((photo, index) => {
+              const colIndex = index % colCount;
+              columns[colIndex].appendChild(createHomePortfolioCard(photo));
+            });
+
+            columns.forEach((col) => {
+              Array.from(col.children).forEach((child) => {
+                col.appendChild(child.cloneNode(true));
+              });
+            });
+          } catch (e) {
+            document.getElementById("home-portfolio-grid").innerHTML =
+              '<p style="text-align:center;color:red;padding:40px 0;">Failed to load portfolio items.</p>';
+          }
+        }
+
+        const CATEGORY_LABELS = {
+          "web-development": "Web Dev",
+          "app-development": "App Dev",
+          "software-development": "Software Dev",
+          "digital-marketing": "Digital Marketing",
+          "video-editing": "Video Editing",
+          photography: "Photography",
+        };
+
+        function createHomePortfolioCard(photo) {
+          const card = document.createElement("div");
+          card.className = "portfolio-card w-inline-block";
+
+          const imgWrap = document.createElement("div");
+          imgWrap.className = "portfolio-image-wrapper";
+
+          const img = document.createElement("img");
+          img.className = "portfolio-image";
+          img.alt = photo.title || "Portfolio";
+          img.src =
+            photo.thumbnailBase64 ||
+            photo.thumbnail ||
+            photo.url ||
+            "https://www.pixelatenest.com/assets/placeholder.png";
+          img.loading = "lazy";
+          imgWrap.appendChild(img);
+
+          // Overlay
+          const overlay = document.createElement("div");
+          overlay.className = "portfolio-overlay";
+
+          // Category pill
+          const categoryKey = photo.showOn || photo.category || "";
+          const categoryLabel = CATEGORY_LABELS[categoryKey] || categoryKey;
+          if (categoryLabel) {
+            const pill = document.createElement("span");
+            pill.className = "portfolio-category-pill";
+            pill.innerText = categoryLabel;
+            overlay.appendChild(pill);
           }
 
-          items.forEach((photo, index) => {
-            const colIndex = index % colCount;
-            columns[colIndex].appendChild(createHomePortfolioCard(photo));
+          // Project title
+          const h4 = document.createElement("h4");
+          h4.className = "portfolio-title";
+          h4.innerText = photo.title || "Untitled";
+          overlay.appendChild(h4);
+
+          // View project button
+          const btn = document.createElement("a");
+          btn.className = "portfolio-view-btn";
+          btn.innerText = "View project &rarr;";
+          btn.href = "/pages/portfolio-details.html";
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            try {
+              localStorage.setItem("pn_portfolio_item", JSON.stringify(photo));
+            } catch (_) {}
+            window.location.href = "/pages/portfolio-details.html";
           });
+          overlay.appendChild(btn);
 
-          columns.forEach((col) => {
-            Array.from(col.children).forEach((child) => {
-              col.appendChild(child.cloneNode(true));
-            });
-          });
-        } catch (e) {
-          document.getElementById("home-portfolio-grid").innerHTML =
-            '<p style="text-align:center;color:red;padding:40px 0;">Failed to load portfolio items.</p>';
-        }
-      }
-
-      const CATEGORY_LABELS = {
-        "web-development": "Web Dev",
-        "app-development": "App Dev",
-        "software-development": "Software Dev",
-        "digital-marketing": "Digital Marketing",
-        "video-editing": "Video Editing",
-        photography: "Photography",
-      };
-
-      function createHomePortfolioCard(photo) {
-        const card = document.createElement("div");
-        card.className = "portfolio-card w-inline-block";
-
-        const imgWrap = document.createElement("div");
-        imgWrap.className = "portfolio-image-wrapper";
-
-        const img = document.createElement("img");
-        img.className = "portfolio-image";
-        img.alt = photo.title || "Portfolio";
-        img.src =
-          photo.thumbnailBase64 ||
-          photo.thumbnail ||
-          photo.url ||
-          "https://www.pixelatenest.com/assets/placeholder.png";
-        img.loading = "lazy";
-        imgWrap.appendChild(img);
-
-        // Overlay
-        const overlay = document.createElement("div");
-        overlay.className = "portfolio-overlay";
-
-        // Category pill
-        const categoryKey = photo.showOn || photo.category || "";
-        const categoryLabel = CATEGORY_LABELS[categoryKey] || categoryKey;
-        if (categoryLabel) {
-          const pill = document.createElement("span");
-          pill.className = "portfolio-category-pill";
-          pill.innerText = categoryLabel;
-          overlay.appendChild(pill);
+          card.appendChild(imgWrap);
+          card.appendChild(overlay);
+          return card;
         }
 
-        // Project title
-        const h4 = document.createElement("h4");
-        h4.className = "portfolio-title";
-        h4.innerText = photo.title || "Untitled";
-        overlay.appendChild(h4);
-
-        // View project button
-        const btn = document.createElement("a");
-        btn.className = "portfolio-view-btn";
-        btn.innerText = "View project &rarr;";
-        btn.href = "/pages/portfolio-details.html";
-        btn.addEventListener("click", function (e) {
-          e.preventDefault();
-          try {
-            localStorage.setItem("pn_portfolio_item", JSON.stringify(photo));
-          } catch (_) {}
-          window.location.href = "/pages/portfolio-details.html";
-        });
-        overlay.appendChild(btn);
-
-        card.appendChild(imgWrap);
-        card.appendChild(overlay);
-        return card;
-      }
-
-      const g = document.getElementById("home-portfolio-grid");
+        const g = document.getElementById("home-portfolio-grid");
         if (!("IntersectionObserver" in window)) return loadHomePortfolio();
         const io = new IntersectionObserver(
           (e) => {
@@ -2489,8 +2767,8 @@ async function loadHomePortfolio() {
           { rootMargin: "600px" },
         );
         io.observe(g);
-})();
-</script>
+      })();
+    </script>
     <footer class="footer">
       <div class="container">
         <div class="footer-wrap">
@@ -3105,6 +3383,6 @@ async function loadHomePortfolio() {
         });
       })();
     </script>
-  <script src="https://www.pixelatenest.com/js/slide-in.js" defer></script>
-</body>
+    <script src="https://www.pixelatenest.com/js/slide-in.js" defer></script>
+  </body>
 </html>
