@@ -113,3 +113,12 @@
 
 # 404 fallback
 /*  /404.html  404
+
+# City service pages renamed to <service>-in-<city>.html
+/locations/:state/:city/services/web-development.html  /locations/:state/:city/services/website-development-in-:city.html  301
+/locations/:state/:city/services/app-development.html  /locations/:state/:city/services/app-development-in-:city.html  301
+/locations/:state/:city/services/software-development.html  /locations/:state/:city/services/software-development-in-:city.html  301
+/locations/:state/:city/services/digital-marketing.html  /locations/:state/:city/services/digital-marketing-in-:city.html  301
+/locations/:state/:city/services/video-editing.html  /locations/:state/:city/services/video-editing-in-:city.html  301
+/locations/:state/:city/services/uiux-branding.html  /locations/:state/:city/services/ui-ux-design-in-:city.html  301
+/locations/:state/:city/services/hosting-maintenance.html  /locations/:state/:city/services/website-hosting-maintenance-in-:city.html  301

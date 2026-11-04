@@ -1,5 +1,20 @@
 {
   "redirects": [
+    { "source": "/services/website-development-services-for-ecommerce-business.html", "destination": "/industry/ecommerce/website-development-services-for-ecommerce-business.html", "permanent": true },
+    { "source": "/services/website-development-services-for-education-business.html", "destination": "/industry/education/website-development-services-for-education-business.html", "permanent": true },
+    { "source": "/services/website-development-services-for-logistics-business.html", "destination": "/industry/logistics/website-development-services-for-logistics-business.html", "permanent": true },
+    { "source": "/services/website-development-services-for-manufacturing-business.html", "destination": "/industry/manufacturing/website-development-services-for-manufacturing-business.html", "permanent": true },
+    { "source": "/services/website-development-services-for-real-estate-business.html", "destination": "/industry/real-estate/website-development-services-for-real-estate-business.html", "permanent": true },
+    { "source": "/services/website-development-services-for-travel-business.html", "destination": "/industry/travel/website-development-services-for-travel-business.html", "permanent": true },
+    { "source": "/services/website-development-services-for-utilities-business.html", "destination": "/industry/utilities/website-development-services-for-utilities-business.html", "permanent": true },
+    { "source": "/locations/:state/:city/services/web-development.html", "destination": "/locations/:state/:city/services/website-development-in-:city.html", "permanent": true },
+    { "source": "/locations/:state/:city/services/app-development.html", "destination": "/locations/:state/:city/services/app-development-in-:city.html", "permanent": true },
+    { "source": "/locations/:state/:city/services/software-development.html", "destination": "/locations/:state/:city/services/software-development-in-:city.html", "permanent": true },
+    { "source": "/locations/:state/:city/services/digital-marketing.html", "destination": "/locations/:state/:city/services/digital-marketing-in-:city.html", "permanent": true },
+    { "source": "/locations/:state/:city/services/video-editing.html", "destination": "/locations/:state/:city/services/video-editing-in-:city.html", "permanent": true },
+    { "source": "/locations/:state/:city/services/uiux-branding.html", "destination": "/locations/:state/:city/services/ui-ux-design-in-:city.html", "permanent": true },
+    { "source": "/locations/:state/:city/services/hosting-maintenance.html", "destination": "/locations/:state/:city/services/website-hosting-maintenance-in-:city.html", "permanent": true },
+
     {
       "source": "/counter-billing-bihar/counter-billing-sharif.html",
       "destination": "/locations/counter-billing-bihar/counter-billing-bihar-sharif.html",
