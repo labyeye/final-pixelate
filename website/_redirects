@@ -122,3 +122,12 @@
 /locations/:state/:city/services/video-editing.html  /locations/:state/:city/services/video-editing-in-:city.html  301
 /locations/:state/:city/services/uiux-branding.html  /locations/:state/:city/services/ui-ux-design-in-:city.html  301
 /locations/:state/:city/services/hosting-maintenance.html  /locations/:state/:city/services/website-hosting-maintenance-in-:city.html  301
+
+/locations/:state/:city/products/attendance-management-software.html  /locations/:state/:city/products/attendance-management-software-in-:city.html  301
+/locations/:state/:city/products/fmcg-retail-software.html  /locations/:state/:city/products/fmcg-retail-software-in-:city.html  301
+/locations/:state/:city/products/hotel-management-software.html  /locations/:state/:city/products/hotel-management-software-in-:city.html  301
+/locations/:state/:city/products/lead-management-software.html  /locations/:state/:city/products/lead-management-software-in-:city.html  301
+/locations/:state/:city/products/library-management-software.html  /locations/:state/:city/products/library-management-software-in-:city.html  301
+/locations/:state/:city/products/school-management-software.html  /locations/:state/:city/products/school-management-software-in-:city.html  301
+/locations/:state/:city/products/sports-management-software.html  /locations/:state/:city/products/sports-management-software-in-:city.html  301
+/locations/:state/:city/products/transport-management-software.html  /locations/:state/:city/products/transport-management-software-in-:city.html  301

@@ -582,12 +582,60 @@ details.faq-item[open] .faq-answer {
   }
 }
 
-.ind-cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:32px auto 0}
-.ind-cs-card{display:block;text-decoration:none;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(5,75,171,.16);box-shadow:0 8px 24px rgba(5,75,171,.06);transition:transform .25s}
-.ind-cs-card:hover{transform:translateY(-4px)}
-.ind-cs-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
-.ind-cs-card h3{padding:16px 18px;margin:0;font-size:1rem}
-.ind-exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:32px auto 0;text-align:center}
-.ind-exp-num{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;color:#044bab}
-@media(max-width:860px){.ind-cs-grid{grid-template-columns:1fr 1fr}.ind-exp-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.ind-cs-grid{grid-template-columns:1fr}}
+.ind-cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 32px auto 0;
+}
+.ind-cs-card {
+  display: block;
+  text-decoration: none;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(5, 75, 171, 0.16);
+  box-shadow: 0 8px 24px rgba(5, 75, 171, 0.06);
+  transition: transform 0.25s;
+}
+.ind-cs-card:hover {
+  transform: translateY(-4px);
+}
+.ind-cs-card img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+}
+.ind-cs-card h3 {
+  padding: 16px 18px;
+  margin: 0;
+  font-size: 1rem;
+}
+.ind-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 32px auto 0;
+  text-align: center;
+}
+.ind-exp-num {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: #044bab;
+}
+@media (max-width: 860px) {
+  .ind-cs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ind-exp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .ind-cs-grid {
+    grid-template-columns: 1fr;
+  }
+}

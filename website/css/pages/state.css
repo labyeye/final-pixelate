@@ -1902,7 +1902,7 @@ body.modal-open {
 /* product cards (city pages) */
 .pcard-list {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   padding: 0px 100px;
 }
