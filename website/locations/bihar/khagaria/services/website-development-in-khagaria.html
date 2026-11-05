@@ -1555,7 +1555,12 @@
               '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
 
             try {
-              const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 8000); const res = await fetch("https://backend.pixelatenest.com/api/work-gallery", { signal: ctl.signal }).finally(() => clearTimeout(tm));
+              const ctl = new AbortController();
+              const tm = setTimeout(() => ctl.abort(), 8000);
+              const res = await fetch(
+                "https://backend.pixelatenest.com/api/work-gallery",
+                { signal: ctl.signal },
+              ).finally(() => clearTimeout(tm));
               if (!res.ok) throw new Error("Failed to fetch gallery");
 
               let items = await res.json();
@@ -1598,7 +1603,10 @@
                 });
               });
             } catch (e) {
-              const sec = document.getElementById("home-portfolio-grid").closest(".portfolio-works"); if (sec) sec.style.display = "none";
+              const sec = document
+                .getElementById("home-portfolio-grid")
+                .closest(".portfolio-works");
+              if (sec) sec.style.display = "none";
             }
           }
 
@@ -2757,8 +2765,14 @@
                 href="https://www.pixelatenest.com/locations/bihar/khagaria/products/library-management-software-in-khagaria.html"
                 >Library Management Software in Khagaria</a
               ><a
-                href="https://www.pixelatenest.com/locations/bihar/khagaria/products/sports-management-software-in-khagaria.html"
-                >Sports Academy Software in Khagaria</a
+                href="https://www.pixelatenest.com/locations/bihar/khagaria/products/academy-management-software-in-khagaria.html"
+                >Academy Management Software in Khagaria</a
+              ><a
+                href="https://www.pixelatenest.com/locations/bihar/khagaria/products/gym-management-software-in-khagaria.html"
+                >Gym Management Software in Khagaria</a
+              ><a
+                href="https://www.pixelatenest.com/locations/bihar/khagaria/products/clinic-management-software-in-khagaria.html"
+                >Clinic Management Software in Khagaria</a
               ><a
                 href="https://www.pixelatenest.com/locations/bihar/khagaria/products/transport-management-software-in-khagaria.html"
                 >Transport Management Software in Khagaria</a
@@ -3128,8 +3142,8 @@
             >
             ·
             <a
-              href="https://www.pixelatenest.com/industry/education/sports-management-software-for-education-business.html"
-              >Sports Academy Management Software for Education Business</a
+              href="https://www.pixelatenest.com/industry/education/academy-management-software-for-education-business.html"
+              >Academy Management Software for Education Business</a
             >
           </p>
           <p style="margin: 8px 0">

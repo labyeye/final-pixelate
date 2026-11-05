@@ -2708,3 +2708,24 @@ body.modal-open {
 .s-fcf402.s-fcf402.s-fcf402 {
   margin-top: 40px;
 }
+
+/* four-plan pricing row (NestGym) */
+.nh-price-grid.nh-price-4 {
+  flex-wrap: nowrap;
+  gap: 18px;
+}
+.nh-price-grid.nh-price-4 .nh-price-card {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  padding: 26px 18px;
+}
+@media (max-width: 991px) {
+  .nh-price-grid.nh-price-4 {
+    flex-wrap: wrap;
+  }
+  .nh-price-grid.nh-price-4 .nh-price-card {
+    flex: 1 1 240px;
+    max-width: 340px;
+  }
+}

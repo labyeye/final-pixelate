@@ -1224,17 +1224,47 @@
                               </div>
                             </a>
                             <a
-                              href="https://www.pixelatenest.com/products/sports-management-software.html"
+                              href="https://www.pixelatenest.com/products/academy-management-software.html"
                               class="products-mega-card"
                             >
                               <img
                                 src="https://www.pixelatenest.com/assets/images/products/nav/sports-manage.webp"
-                                alt="Sports Management Software"
+                                alt="Academy Management Software"
                                 loading="lazy"
                               />
                               <div>
                                 <span class="products-mega-card-title"
-                                  >Sports Management</span
+                                  >Academy Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/gym-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/products/nav/nestgym.webp"
+                                alt="Gym Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Gym Management</span
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="https://www.pixelatenest.com/products/clinic-management-software.html"
+                              class="products-mega-card"
+                            >
+                              <img
+                                src="https://www.pixelatenest.com/assets/images/products/nav/nestdoc.webp"
+                                alt="Clinic Management Software"
+                                loading="lazy"
+                              />
+                              <div>
+                                <span class="products-mega-card-title"
+                                  >Clinic Management</span
                                 >
                               </div>
                             </a>
@@ -5137,7 +5167,12 @@
           '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
 
         try {
-          const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 8000); const res = await fetch("https://backend.pixelatenest.com/api/work-gallery", { signal: ctl.signal }).finally(() => clearTimeout(tm));
+          const ctl = new AbortController();
+          const tm = setTimeout(() => ctl.abort(), 8000);
+          const res = await fetch(
+            "https://backend.pixelatenest.com/api/work-gallery",
+            { signal: ctl.signal },
+          ).finally(() => clearTimeout(tm));
           if (!res.ok) throw new Error("Failed to fetch gallery");
 
           let items = await res.json();
@@ -5185,7 +5220,10 @@
             });
           });
         } catch (e) {
-          const sec = document.getElementById("home-portfolio-grid").closest(".portfolio-works"); if (sec) sec.style.display = "none";
+          const sec = document
+            .getElementById("home-portfolio-grid")
+            .closest(".portfolio-works");
+          if (sec) sec.style.display = "none";
         }
       }
 

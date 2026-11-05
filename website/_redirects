@@ -129,5 +129,8 @@
 /locations/:state/:city/products/lead-management-software.html  /locations/:state/:city/products/lead-management-software-in-:city.html  301
 /locations/:state/:city/products/library-management-software.html  /locations/:state/:city/products/library-management-software-in-:city.html  301
 /locations/:state/:city/products/school-management-software.html  /locations/:state/:city/products/school-management-software-in-:city.html  301
-/locations/:state/:city/products/sports-management-software.html  /locations/:state/:city/products/sports-management-software-in-:city.html  301
+/products/sports-management-software.html  /products/academy-management-software.html  301
+/locations/:state/:city/products/sports-management-software-in-:city.html  /locations/:state/:city/products/academy-management-software-in-:city.html  301
+/locations/:state/:city/products/sports-management-software.html  /locations/:state/:city/products/academy-management-software-in-:city.html  301
+/industry/education/sports-management-software-for-education-business.html  /industry/education/academy-management-software-for-education-business.html  301
 /locations/:state/:city/products/transport-management-software.html  /locations/:state/:city/products/transport-management-software-in-:city.html  301

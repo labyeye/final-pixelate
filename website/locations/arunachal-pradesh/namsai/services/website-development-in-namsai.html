@@ -1556,7 +1556,12 @@
               '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
 
             try {
-              const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 8000); const res = await fetch("https://backend.pixelatenest.com/api/work-gallery", { signal: ctl.signal }).finally(() => clearTimeout(tm));
+              const ctl = new AbortController();
+              const tm = setTimeout(() => ctl.abort(), 8000);
+              const res = await fetch(
+                "https://backend.pixelatenest.com/api/work-gallery",
+                { signal: ctl.signal },
+              ).finally(() => clearTimeout(tm));
               if (!res.ok) throw new Error("Failed to fetch gallery");
 
               let items = await res.json();
@@ -1599,7 +1604,10 @@
                 });
               });
             } catch (e) {
-              const sec = document.getElementById("home-portfolio-grid").closest(".portfolio-works"); if (sec) sec.style.display = "none";
+              const sec = document
+                .getElementById("home-portfolio-grid")
+                .closest(".portfolio-works");
+              if (sec) sec.style.display = "none";
             }
           }
 
@@ -2755,8 +2763,14 @@
                 href="https://www.pixelatenest.com/locations/arunachal-pradesh/namsai/products/library-management-software-in-namsai.html"
                 >Library Management Software in Namsai</a
               ><a
-                href="https://www.pixelatenest.com/locations/arunachal-pradesh/namsai/products/sports-management-software-in-namsai.html"
-                >Sports Academy Software in Namsai</a
+                href="https://www.pixelatenest.com/locations/arunachal-pradesh/namsai/products/academy-management-software-in-namsai.html"
+                >Academy Management Software in Namsai</a
+              ><a
+                href="https://www.pixelatenest.com/locations/arunachal-pradesh/namsai/products/gym-management-software-in-namsai.html"
+                >Gym Management Software in Namsai</a
+              ><a
+                href="https://www.pixelatenest.com/locations/arunachal-pradesh/namsai/products/clinic-management-software-in-namsai.html"
+                >Clinic Management Software in Namsai</a
               ><a
                 href="https://www.pixelatenest.com/locations/arunachal-pradesh/namsai/products/transport-management-software-in-namsai.html"
                 >Transport Management Software in Namsai</a
@@ -3126,8 +3140,8 @@
             >
             ·
             <a
-              href="https://www.pixelatenest.com/industry/education/sports-management-software-for-education-business.html"
-              >Sports Academy Management Software for Education Business</a
+              href="https://www.pixelatenest.com/industry/education/academy-management-software-for-education-business.html"
+              >Academy Management Software for Education Business</a
             >
           </p>
           <p style="margin: 8px 0">

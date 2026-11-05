@@ -1,7 +1,27 @@
 {
   "redirects": [
     {
-      "source": "/locations/:state/:city/products/:p(attendance-management-software|fmcg-retail-software|hotel-management-software|lead-management-software|library-management-software|school-management-software|sports-management-software|transport-management-software).html",
+      "source": "/products/sports-management-software.html",
+      "destination": "/products/academy-management-software.html",
+      "permanent": true
+    },
+    {
+      "source": "/locations/:state/:city/products/sports-management-software-in-:city.html",
+      "destination": "/locations/:state/:city/products/academy-management-software-in-:city.html",
+      "permanent": true
+    },
+    {
+      "source": "/locations/:state/:city/products/sports-management-software.html",
+      "destination": "/locations/:state/:city/products/academy-management-software-in-:city.html",
+      "permanent": true
+    },
+    {
+      "source": "/industry/education/sports-management-software-for-education-business.html",
+      "destination": "/industry/education/academy-management-software-for-education-business.html",
+      "permanent": true
+    },
+    {
+      "source": "/locations/:state/:city/products/:p(attendance-management-software|fmcg-retail-software|hotel-management-software|lead-management-software|library-management-software|school-management-software|academy-management-software|transport-management-software).html",
       "destination": "/locations/:state/:city/products/:p-in-:city.html",
       "permanent": true
     },
