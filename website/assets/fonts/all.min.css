@@ -1588,3 +1588,21 @@
 .fa-phone-alt:before {
   content: "\f095";
 }
+.fa-palette:before {
+  content: "\f53f";
+}
+.fa-code:before {
+  content: "\f121";
+}
+.fa-rocket:before {
+  content: "\f135";
+}
+.fa-magnifying-glass-chart:before {
+  content: "\e522";
+}
+.fa-bullseye:before {
+  content: "\f140";
+}
+.fa-pen-to-square:before {
+  content: "\f044";
+}
