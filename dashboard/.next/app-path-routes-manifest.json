@@ -214,6 +214,7 @@
   "/api/whatsapp/upload-media/route": "/api/whatsapp/upload-media",
   "/api/whatsapp/webhook-sync/route": "/api/whatsapp/webhook-sync",
   "/api/work-gallery/[id]/route": "/api/work-gallery/[id]",
+  "/api/work-gallery/[id]/thumb/route": "/api/work-gallery/[id]/thumb",
   "/api/work-gallery/route": "/api/work-gallery",
   "/login/page": "/login",
   "/page": "/"

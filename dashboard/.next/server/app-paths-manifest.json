@@ -214,6 +214,7 @@
   "/api/whatsapp/upload-media/route": "app/api/whatsapp/upload-media/route.js",
   "/api/whatsapp/webhook-sync/route": "app/api/whatsapp/webhook-sync/route.js",
   "/api/work-gallery/[id]/route": "app/api/work-gallery/[id]/route.js",
+  "/api/work-gallery/[id]/thumb/route": "app/api/work-gallery/[id]/thumb/route.js",
   "/api/work-gallery/route": "app/api/work-gallery/route.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js"

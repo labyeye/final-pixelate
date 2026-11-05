@@ -334,6 +334,14 @@
       "namedRegex": "^/api/work\\-gallery/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/work-gallery/[id]/thumb",
+      "regex": "^/api/work\\-gallery/([^/]+?)/thumb(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/work\\-gallery/(?<nxtPid>[^/]+?)/thumb(?:/)?$"
+    },
+    {
       "page": "/careers/edit/[id]",
       "regex": "^/careers/edit/([^/]+?)(?:/)?$",
       "routeKeys": {

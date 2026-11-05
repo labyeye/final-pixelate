@@ -223,7 +223,7 @@ export const aboutTeamAPI = {
 };
 
 export const workGalleryAPI = {
-  getAll: () => api.get('/work-gallery'),
+  getAll: () => api.get('/work-gallery?full=1'),
   create: (data: any) => api.post('/work-gallery', data),
   update: (id: string, data: any) => api.patch(`/work-gallery/${id}`, data),
   delete: (id: string) => api.delete(`/work-gallery/${id}`),

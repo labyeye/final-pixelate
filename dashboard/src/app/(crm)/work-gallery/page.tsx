@@ -79,7 +79,7 @@ export default function WorkGalleryPage() {
     let mounted = true;
     (async () => {
       try {
-        const res = await apiFetch("/api/work-gallery");
+        const res = await apiFetch("/api/work-gallery?full=1");
         if (!res.ok) throw new Error("Failed to fetch");
         const json = await res.json();
         if (mounted) setItems(json || []);
