@@ -108,6 +108,7 @@
     </script>
 
     <link rel="stylesheet" href="../../../../css/pages/service-locations.css" />
+    <script src="../../../../js/location-webdev.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1252,118 +1253,180 @@
               in Kasaragod.
             </p>
           </div>
-
-          <div class="crm-grid features">
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-pen-ruler"></i>
+          <div class="ind-grid ind-cols-3">
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">01</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-pen-ruler"></i
+                ></span>
               </div>
-              <h3>Wireframing & Prototyping</h3>
-              <p>
+              <h3 class="ind-title">Wireframing & Prototyping</h3>
+              <p class="ind-desc">
                 Clickable prototypes that validate user flows before a single
                 line of code is written.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-swatchbook"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">02</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-swatchbook"></i
+                ></span>
               </div>
-              <h3>Brand Identity Design</h3>
-              <p>
+              <h3 class="ind-title">Brand Identity Design</h3>
+              <p class="ind-desc">
                 Logos, color systems, and typography that give your business a
                 distinct, memorable look.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">03</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-layer-group"></i
+                ></span>
               </div>
-              <h3>UI Design Systems</h3>
-              <p>
+              <h3 class="ind-title">UI Design Systems</h3>
+              <p class="ind-desc">
                 Reusable component libraries that keep your product visually
                 consistent as it scales.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-user-check"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">04</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-user-check"></i
+                ></span>
               </div>
-              <h3>Usability Testing</h3>
-              <p>
+              <h3 class="ind-title">Usability Testing</h3>
+              <p class="ind-desc">
                 Real user feedback used to refine flows and reduce friction
                 before launch.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">05</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-mobile-screen"></i
+                ></span>
               </div>
-              <h3>App & Web UI Design</h3>
-              <p>
+              <h3 class="ind-title">App & Web UI Design</h3>
+              <p class="ind-desc">
                 Polished, conversion-focused interfaces for mobile apps and
                 websites.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">06</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-book-open"></i
+                ></span>
               </div>
-              <h3>Brand Guidelines</h3>
-              <p>
+              <h3 class="ind-title">Brand Guidelines</h3>
+              <p class="ind-desc">
                 Comprehensive guides so your brand stays consistent across every
                 touchpoint.
               </p>
-            </article>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="crm-section crm-muted-bg">
-        <div class="container">
-          <div style="text-align: center; margin-bottom: 30px">
-            <h2 class="crm-heading">Our Process</h2>
-            <p class="crm-subheading">
+      <section class="pn-section" id="pn-section">
+        <div class="pn-container">
+          <div class="pn-header">
+            <span class="pn-eyebrow">OUR PROCESS</span>
+            <h2 class="pn-headline">How We Design Your Brand</h2>
+            <p class="pn-subtext">
               A clear, structured process from first call to final delivery.
             </p>
           </div>
+          <div class="pn-snake" id="pn-snake">
+            <svg id="pn-svg" class="pn-svg" aria-hidden="true">
+              <path
+                id="pn-path-bg"
+                fill="none"
+                stroke="#e5e7eb"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                id="pn-path-fg"
+                fill="none"
+                stroke="#f97316"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div class="pn-row pn-ltr">
+              <div class="pn-step" data-index="0">
+                <div class="pn-num">01</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h3 class="pn-label">Discovery &amp; Research</h3>
+                <p class="pn-desc">
+                  We study your brand, users, and competitors to find the right
+                  direction.
+                </p>
+              </div>
+              <div class="pn-step" data-index="1">
+                <div class="pn-num">02</div>
+                <div class="pn-circle"><i class="fa-solid fa-sitemap"></i></div>
+                <h3 class="pn-label">Wireframing</h3>
+                <p class="pn-desc">
+                  Structure and flows mapped out before any visual design
+                  begins.
+                </p>
+              </div>
+              <div class="pn-step" data-index="2">
+                <div class="pn-num">03</div>
+                <div class="pn-circle"><i class="fa-solid fa-palette"></i></div>
+                <h3 class="pn-label">Visual Design</h3>
+                <p class="pn-desc">
+                  Colour, type, and layouts that express your brand with
+                  clarity.
+                </p>
+              </div>
+            </div>
 
-          <div class="crm-role-grid">
-            <article class="crm-card crm-role-card">
-              <h3>Research & Discovery</h3>
-              <p>
-                Understanding your users, competitors, and business goals before
-                designing.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Wireframing</h3>
-              <p>Low-fidelity layouts that map out structure and user flow.</p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Visual Design</h3>
-              <p>
-                High-fidelity, on-brand designs for every screen and touchpoint.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Prototyping & Testing</h3>
-              <p>
-                Interactive prototypes tested with real users to catch issues
-                early.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Handoff & Support</h3>
-              <p>
-                Developer-ready files and design systems, plus support through
-                implementation.
-              </p>
-            </article>
+            <div class="pn-row pn-rtl">
+              <div class="pn-step" data-index="3">
+                <div class="pn-num">04</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <h3 class="pn-label">Prototype &amp; Feedback</h3>
+                <p class="pn-desc">
+                  Clickable prototypes tested and refined with your feedback.
+                </p>
+              </div>
+              <div class="pn-step" data-index="4">
+                <div class="pn-num">05</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-swatchbook"></i>
+                </div>
+                <h3 class="pn-label">Brand &amp; Handoff</h3>
+                <p class="pn-desc">
+                  Brand guidelines and developer-ready assets delivered
+                  together.
+                </p>
+              </div>
+              <div class="pn-step" data-index="5">
+                <div class="pn-num">06</div>
+                <div class="pn-circle"><i class="fa-solid fa-headset"></i></div>
+                <h3 class="pn-label">Ongoing Support</h3>
+                <p class="pn-desc">
+                  Design updates and new assets whenever your brand evolves.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1450,29 +1513,54 @@
               The measurable outcomes business owners care about most.
             </p>
           </div>
-
-          <div class="crm-benefits-grid">
-            <article class="crm-card crm-benefit-card">
-              <h3>Stronger First Impressions</h3>
-              <p>
+          <div class="ind-grid ind-cols-4">
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">01</span>
+                <span class="ind-arrow"><i class="fa-solid fa-clock"></i></span>
+              </div>
+              <h3 class="ind-title">Stronger First Impressions</h3>
+              <p class="ind-desc">
                 Professional design builds instant credibility with new
                 customers.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Better User Retention</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">02</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-magnifying-glass-chart"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Better User Retention</h3>
+              <p class="ind-desc">
                 Intuitive flows reduce drop-off and keep users engaged longer.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Consistent Brand Identity</h3>
-              <p>A unified look across web, app, and marketing materials.</p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Faster Development</h3>
-              <p>Design systems and clear handoffs speed up the build phase.</p>
-            </article>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">03</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-bullseye"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Consistent Brand Identity</h3>
+              <p class="ind-desc">
+                A unified look across web, app, and marketing materials.
+              </p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">04</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-pen-to-square"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Faster Development</h3>
+              <p class="ind-desc">
+                Design systems and clear handoffs speed up the build phase.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -654,7 +654,7 @@ function gtag() {
         });
       }));
     document.querySelectorAll(".faq-item").forEach((e) => {
-      e.querySelector(".faq-question").addEventListener("click", () => {
+      e.querySelector(".faq-question")?.addEventListener("click", () => {
         const t = document.querySelector(".faq-item.active");
         (t && t !== e && t.classList.remove("active"),
           e.classList.toggle("active"));

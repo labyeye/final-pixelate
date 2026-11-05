@@ -556,21 +556,6 @@
               </div>
             </div>
 
-            <div
-              class="heading-wrap"
-              style="text-align: center; margin-bottom: 24px"
-            >
-              <h2
-                style="
-                  margin-bottom: 0px;
-                  font-size: clamp(2rem, 4vw, 5rem);
-                  color: var(--primary-900);
-                  line-height: 1.2;
-                "
-              >
-                Clients Happy in Kozhikode
-              </h2>
-            </div>
             <div class="hero-brands-section">
               <div class="brands-carousel-wrapper">
                 <div class="brands-carousel">
@@ -1327,7 +1312,7 @@
             <div class="ind-card">
               <div class="ind-card-top">
                 <span class="ind-num">05</span>
-                <span class="ind-arrow"><i class="fa-solid fa-gauge"></i></span>
+                <span class="ind-arrow"><i class="fa-solid fa-clock"></i></span>
               </div>
               <h3 class="ind-title">CMS & Admin Panels</h3>
               <p class="ind-desc">
@@ -1570,9 +1555,12 @@
               '<div class="pn-grid-loader"><div class="pn-grid-loader-wrap"><div class="pn-grid-loader-ring"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="pn-grid-loader-track" cx="60" cy="60" r="54"/><circle class="pn-grid-loader-arc" cx="60" cy="60" r="54"/></svg><img src="https://www.pixelatenest.com/assets/images/logos/Logo_Color.webp" alt="Loading" class="pn-grid-loader-logo"/></div><span class="pn-loading-text">Loading</span></div></div>';
 
             try {
+              const ctl = new AbortController();
+              const tm = setTimeout(() => ctl.abort(), 8000);
               const res = await fetch(
                 "https://backend.pixelatenest.com/api/work-gallery",
-              );
+                { signal: ctl.signal },
+              ).finally(() => clearTimeout(tm));
               if (!res.ok) throw new Error("Failed to fetch gallery");
 
               let items = await res.json();
@@ -1615,8 +1603,10 @@
                 });
               });
             } catch (e) {
-              document.getElementById("home-portfolio-grid").innerHTML =
-                '<p style="text-align:center;color:red;padding:40px 0;">Failed to load portfolio items.</p>';
+              const sec = document
+                .getElementById("home-portfolio-grid")
+                .closest(".portfolio-works");
+              if (sec) sec.style.display = "none";
             }
           }
 
@@ -1716,7 +1706,7 @@
             <div class="ind-card">
               <div class="ind-card-top">
                 <span class="ind-num">01</span>
-                <span class="ind-arrow"><i class="fa-solid fa-gauge"></i></span>
+                <span class="ind-arrow"><i class="fa-solid fa-clock"></i></span>
               </div>
               <h3 class="ind-title">Faster Load Times</h3>
               <p class="ind-desc">

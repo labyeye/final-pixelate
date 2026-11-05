@@ -17,7 +17,7 @@ def nice(slug):
 
 START, END = "<!-- nesthr-why:start -->", "<!-- nesthr-why:end -->"
 CONTACT = "https://www.pixelatenest.com/pages/contact.html"
-ANCHOR = re.compile(r"^[ \t]*<!-- SECTION: What is NestHR -->", re.M)
+ANCHOR = re.compile(r"^[ \t]*<!-- SECTION: Why Choose NestHR -->", re.M)
 
 # The .nhw / .nhi-* styles live in css/products.css (not inline).
 
@@ -180,7 +180,7 @@ def main():
         if not os.path.isdir(sd):
             continue
         for city in sorted(os.listdir(sd)):
-            p = os.path.join(sd, city, "products", "attendance-management-software.html")
+            p = os.path.join(sd, city, "products", "attendance-management-software-in-%s.html" % city)
             if not os.path.isfile(p):
                 continue
             if patch(p, city=city, state=state):

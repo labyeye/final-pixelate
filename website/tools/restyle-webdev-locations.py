@@ -1,9 +1,9 @@
 import re, glob, sys
 from collections import Counter
 
-BEN_ICONS = ['fa-gauge', 'fa-magnifying-glass-chart', 'fa-bullseye', 'fa-pen-to-square']
+BEN_ICONS = ['fa-clock', 'fa-magnifying-glass-chart', 'fa-bullseye', 'fa-pen-to-square']
 STEPS = [
- ('fa-magnifying-glass', 'Discovery &amp; Strategy', 'We study your business, audience, and goals to map out the right structure and features.'),
+ ('fa-lightbulb', 'Discovery &amp; Strategy', 'We study your business, audience, and goals to map out the right structure and features.'),
  ('fa-pen-ruler', 'UI / UX Design', 'Wireframes and visual designs that balance brand identity with usability.'),
  ('fa-code', 'Development', 'Clean, scalable code built on modern frameworks for speed and reliability.'),
  ('fa-shield-halved', 'Testing &amp; QA', 'Cross-browser and cross-device testing to catch issues before launch.'),
@@ -20,11 +20,11 @@ def span(s, heading):
 def ind_grid(arts, cols, icons=None):
     out = []
     for n, (ic, h, p) in enumerate(arts, 1):
-        ic = ic or icons[n - 1]
+        ic = ic or 'fa-solid ' + icons[(n - 1) % len(icons)]
         out.append(f'''            <div class="ind-card">
               <div class="ind-card-top">
                 <span class="ind-num">{n:02d}</span>
-                <span class="ind-arrow"><i class="fa-solid {ic}"></i></span>
+                <span class="ind-arrow"><i class="{ic}"></i></span>
               </div>
               <h3 class="ind-title">{h}</h3>
               <p class="ind-desc">{p}</p>
@@ -35,7 +35,7 @@ def ind_grid(arts, cols, icons=None):
 def cards_section(s, heading, cols, icons=None):
     a, b = span(s, heading)
     sec = s[a:b]
-    arts = re.findall(r'<article class="crm-card crm-[\w-]+">\s*(?:<div class="crm-icon">\s*<i class="fa-solid ([\w-]+)"></i>\s*</div>\s*)?<h3>(.*?)</h3>\s*<p>\s*(.*?)\s*</p>\s*</article>', sec, re.S)
+    arts = re.findall(r'<article class="crm-card crm-[\w-]+">\s*(?:<div class="crm-icon">\s*<i class="(fa-(?:solid|brands) [\w-]+)"></i>\s*</div>\s*)?<h3>(.*?)</h3>\s*<p>\s*(.*?)\s*</p>\s*</article>', sec, re.S)
     arts = [(i, h, re.sub(r'\s+', ' ', p)) for i, h, p in arts]
     assert arts, heading
     head = re.search(r'<div style="text-align: center[^>]*>.*?</div>', sec, re.S).group(0)

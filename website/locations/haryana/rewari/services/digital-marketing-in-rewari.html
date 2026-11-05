@@ -194,6 +194,7 @@
       }
     </script>
     <link rel="stylesheet" href="../../../../css/pages/service-locations.css" />
+    <script src="../../../../js/location-webdev.js" defer></script>
     <script id="pixelate-seo-schema" type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1268,48 +1269,100 @@
           </p>
         </div>
       </section>
-      <section class="crm-section">
-        <div class="container">
-          <div style="text-align: center; margin-bottom: 30px">
-            <h2 class="crm-heading">How a Rewari Campaign Runs</h2>
-            <p class="crm-subheading">
-              From first call to first leads, usually within two weeks.
+      <section class="pn-section" id="pn-section">
+        <div class="pn-container">
+          <div class="pn-header">
+            <span class="pn-eyebrow">OUR PROCESS</span>
+            <h2 class="pn-headline">How We Grow Your Business</h2>
+            <p class="pn-subtext">
+              A clear, structured process from first call to final delivery.
             </p>
           </div>
-          <div class="crm-role-grid">
-            <article class="crm-card crm-role-card">
-              <h3>Audit &amp; Research</h3>
-              <p>
-                We study your current presence, Rewari competitors and the
-                searches your buyers make.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Strategy &amp; Planning</h3>
-              <p>
-                A channel mix, budget split and content calendar built around
-                your goals.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Campaign Execution</h3>
-              <p>Ads, content and SEO go live with daily monitoring.</p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Optimization</h3>
-              <p>
-                Weekly tuning of targeting, creatives and bids to cut
-                cost-per-lead.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Reporting &amp; Scaling</h3>
-              <p>Monthly reports with clear next steps to scale what works.</p>
-            </article>
+          <div class="pn-snake" id="pn-snake">
+            <svg id="pn-svg" class="pn-svg" aria-hidden="true">
+              <path
+                id="pn-path-bg"
+                fill="none"
+                stroke="#e5e7eb"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                id="pn-path-fg"
+                fill="none"
+                stroke="#f97316"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div class="pn-row pn-ltr">
+              <div class="pn-step" data-index="0">
+                <div class="pn-num">01</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h3 class="pn-label">Audit &amp; Research</h3>
+                <p class="pn-desc">
+                  We study your current presence, competitors, and what your
+                  buyers search for.
+                </p>
+              </div>
+              <div class="pn-step" data-index="1">
+                <div class="pn-num">02</div>
+                <div class="pn-circle"><i class="fa-solid fa-sitemap"></i></div>
+                <h3 class="pn-label">Strategy &amp; Planning</h3>
+                <p class="pn-desc">
+                  A channel mix, budget split, and content calendar built around
+                  your goals.
+                </p>
+              </div>
+              <div class="pn-step" data-index="2">
+                <div class="pn-num">03</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <h3 class="pn-label">Campaign Execution</h3>
+                <p class="pn-desc">
+                  Ads, content, and SEO go live with daily monitoring.
+                </p>
+              </div>
+            </div>
+
+            <div class="pn-row pn-rtl">
+              <div class="pn-step" data-index="3">
+                <div class="pn-num">04</div>
+                <div class="pn-circle"><i class="fa-solid fa-clock"></i></div>
+                <h3 class="pn-label">Optimization</h3>
+                <p class="pn-desc">
+                  Weekly tuning of targeting, creatives, and bids to cut cost
+                  per lead.
+                </p>
+              </div>
+              <div class="pn-step" data-index="4">
+                <div class="pn-num">05</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-chart-column"></i>
+                </div>
+                <h3 class="pn-label">Reporting</h3>
+                <p class="pn-desc">
+                  Monthly reports that show exactly what worked and why.
+                </p>
+              </div>
+              <div class="pn-step" data-index="5">
+                <div class="pn-num">06</div>
+                <div class="pn-circle"><i class="fa-solid fa-rocket"></i></div>
+                <h3 class="pn-label">Scaling</h3>
+                <p class="pn-desc">
+                  We put more budget behind what works and grow your results.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <section class="crm-section crm-muted-bg">
+      <section class="crm-section">
         <div class="container">
           <div style="text-align: center; margin-bottom: 30px">
             <h2 class="crm-heading">Business Benefits for Rewari Owners</h2>
@@ -1317,31 +1370,55 @@
               The outcomes business owners care about most.
             </p>
           </div>
-          <div class="crm-benefits-grid">
-            <article class="crm-card crm-benefit-card">
-              <h3>More Qualified Leads</h3>
-              <p>
+          <div class="ind-grid ind-cols-4">
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">01</span>
+                <span class="ind-arrow"><i class="fa-solid fa-clock"></i></span>
+              </div>
+              <h3 class="ind-title">More Qualified Leads</h3>
+              <p class="ind-desc">
                 Targeting built around people actually searching for what you
                 sell in Rewari.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Lower Cost Per Lead</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">02</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-magnifying-glass-chart"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Lower Cost Per Lead</h3>
+              <p class="ind-desc">
                 Continuous optimization cuts wasted ad spend month after month.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Stronger Local Visibility</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">03</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-bullseye"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Stronger Local Visibility</h3>
+              <p class="ind-desc">
                 Show up on Google Maps when customers search in Main Road and
                 Bus Stand Road.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Clear ROI Tracking</h3>
-              <p>See exactly which campaign brought which enquiry and sale.</p>
-            </article>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">04</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-pen-to-square"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Clear ROI Tracking</h3>
+              <p class="ind-desc">
+                See exactly which campaign brought which enquiry and sale.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -1354,95 +1431,139 @@
               parts and steel &amp; metal products businesses in Rewari.
             </p>
           </div>
-          <div class="crm-grid features">
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-brands fa-whatsapp"></i></div>
-              <h3>WhatsApp Marketing</h3>
-              <p>
+          <div class="ind-grid ind-cols-3">
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">01</span>
+                <span class="ind-arrow"
+                  ><i class="fa-brands fa-whatsapp"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">WhatsApp Marketing</h3>
+              <p class="ind-desc">
                 WhatsApp Business setup, broadcast offers and auto-replies so
                 Rewari customers buy in the chat.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-brands fa-instagram"></i></div>
-              <h3>Instagram Marketing</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">02</span>
+                <span class="ind-arrow"
+                  ><i class="fa-brands fa-instagram"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Instagram Marketing</h3>
+              <p class="ind-desc">
                 Reels, content calendars and paid boosts that turn Rewari
                 followers into customers.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-brands fa-google"></i></div>
-              <h3>Google Ads</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">03</span>
+                <span class="ind-arrow"
+                  ><i class="fa-brands fa-google"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Google Ads</h3>
+              <p class="ind-desc">
                 Search, display and shopping campaigns that bring Rewari leads
                 in days, not months.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-brands fa-linkedin"></i></div>
-              <h3>LinkedIn Marketing</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">04</span>
+                <span class="ind-arrow"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">LinkedIn Marketing</h3>
+              <p class="ind-desc">
                 Company page growth and B2B campaigns aimed at the decision
                 makers you sell to.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">05</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></span>
               </div>
-              <h3>SEO</h3>
-              <p>
+              <h3 class="ind-title">SEO</h3>
+              <p class="ind-desc">
                 Technical fixes, on-page work and link building so buyers
                 searching in Rewari find you first.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-solid fa-store"></i></div>
-              <h3>Google Business Profile</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">06</span>
+                <span class="ind-arrow"><i class="fa-solid fa-store"></i></span>
+              </div>
+              <h3 class="ind-title">Google Business Profile</h3>
+              <p class="ind-desc">
                 Full profile setup, photos, posts and review replies so you rank
                 on Google Maps in Rewari.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-brands fa-facebook"></i></div>
-              <h3>Facebook Marketing</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">07</span>
+                <span class="ind-arrow"
+                  ><i class="fa-brands fa-facebook"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Facebook Marketing</h3>
+              <p class="ind-desc">
                 Page management and lead-form campaigns targeted to Rewari pin
                 codes and interests.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-chart-column"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">08</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-chart-column"></i
+                ></span>
               </div>
-              <h3>Google Analytics</h3>
-              <p>
+              <h3 class="ind-title">Google Analytics</h3>
+              <p class="ind-desc">
                 GA4 setup and monthly reporting that ties every rupee back to
                 real leads and sales.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-solid fa-envelope"></i></div>
-              <h3>Email Marketing</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">09</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-envelope"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Email Marketing</h3>
+              <p class="ind-desc">
                 Newsletters and lifecycle emails that keep leads warm and bring
                 past customers back.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-brands fa-youtube"></i></div>
-              <h3>YouTube Marketing</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">10</span>
+                <span class="ind-arrow"
+                  ><i class="fa-brands fa-youtube"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">YouTube Marketing</h3>
+              <p class="ind-desc">
                 Channel setup, video SEO and YouTube ads that build trust before
                 the first call.
               </p>
-            </article>
+            </div>
           </div>
         </div>
       </section>
-      <section class="crm-section crm-muted-bg">
+      <section class="crm-section">
         <div class="container">
           <div style="text-align: center; margin-bottom: 34px">
             <span class="crm-pill"
@@ -1454,32 +1575,43 @@
               for Rewari's core sectors.
             </p>
           </div>
-          <div class="crm-grid features">
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-solid fa-gears"></i></div>
-              <h3>Engineering &amp; Auto Parts</h3>
-              <p>
+          <div class="ind-grid ind-cols-3">
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">01</span>
+                <span class="ind-arrow"><i class="fa-solid fa-gears"></i></span>
+              </div>
+              <h3 class="ind-title">Engineering &amp; Auto Parts</h3>
+              <p class="ind-desc">
                 Rewari engineering and auto-part makers reach OEMs and
                 distributors through LinkedIn, export-focused SEO and search
                 ads.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-solid fa-industry"></i></div>
-              <h3>Steel &amp; Metal Products</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">02</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-industry"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Steel &amp; Metal Products</h3>
+              <p class="ind-desc">
                 Rewari steel and metal-product makers reach dealers and
                 fabricators with product SEO, LinkedIn outreach and Google Ads.
               </p>
-            </article>
-            <article class="crm-card crm-feature">
-              <div class="crm-icon"><i class="fa-solid fa-truck"></i></div>
-              <h3>Logistics &amp; Transport</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">03</span>
+                <span class="ind-arrow"><i class="fa-solid fa-truck"></i></span>
+              </div>
+              <h3 class="ind-title">Logistics &amp; Transport</h3>
+              <p class="ind-desc">
                 Rewari transporters and logistics firms get load enquiries with
                 Google Maps visibility, WhatsApp broadcasts and search ads.
               </p>
-            </article>
+            </div>
           </div>
         </div>
       </section>

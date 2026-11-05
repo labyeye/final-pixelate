@@ -108,6 +108,7 @@
     </script>
 
     <link rel="stylesheet" href="../../../../css/pages/service-locations.css" />
+    <script src="../../../../js/location-webdev.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1253,116 +1254,176 @@
               size in Morbi.
             </p>
           </div>
-
-          <div class="crm-grid features">
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-server"></i>
+          <div class="ind-grid ind-cols-3">
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">01</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-server"></i
+                ></span>
               </div>
-              <h3>Managed Cloud Hosting</h3>
-              <p>
+              <h3 class="ind-title">Managed Cloud Hosting</h3>
+              <p class="ind-desc">
                 Reliable, scalable hosting infrastructure tuned for speed and
                 uptime.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">02</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-shield-halved"></i
+                ></span>
               </div>
-              <h3>Security Monitoring</h3>
-              <p>
+              <h3 class="ind-title">Security Monitoring</h3>
+              <p class="ind-desc">
                 Firewalls, malware scanning, and SSL management to keep your
                 site protected.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">03</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-clock-rotate-left"></i
+                ></span>
               </div>
-              <h3>Automated Backups</h3>
-              <p>
+              <h3 class="ind-title">Automated Backups</h3>
+              <p class="ind-desc">
                 Scheduled backups with quick restore options in case anything
                 goes wrong.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">04</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-gauge-high"></i
+                ></span>
               </div>
-              <h3>Performance Optimization</h3>
-              <p>
+              <h3 class="ind-title">Performance Optimization</h3>
+              <p class="ind-desc">
                 Caching, CDN, and server tuning for consistently fast load
                 times.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-bell"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">05</span>
+                <span class="ind-arrow"><i class="fa-solid fa-bell"></i></span>
               </div>
-              <h3>Uptime Monitoring & Alerts</h3>
-              <p>
+              <h3 class="ind-title">Uptime Monitoring & Alerts</h3>
+              <p class="ind-desc">
                 24/7 monitoring with instant alerts the moment something needs
                 attention.
               </p>
-            </article>
-
-            <article class="crm-card crm-feature">
-              <div class="crm-icon">
-                <i class="fa-solid fa-headset"></i>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">06</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-headset"></i
+                ></span>
               </div>
-              <h3>Priority Support</h3>
-              <p>
+              <h3 class="ind-title">Priority Support</h3>
+              <p class="ind-desc">
                 Direct access to our team for fixes, updates, and technical
                 questions.
               </p>
-            </article>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="crm-section crm-muted-bg">
-        <div class="container">
-          <div style="text-align: center; margin-bottom: 30px">
-            <h2 class="crm-heading">Our Process</h2>
-            <p class="crm-subheading">
+      <section class="pn-section" id="pn-section">
+        <div class="pn-container">
+          <div class="pn-header">
+            <span class="pn-eyebrow">OUR PROCESS</span>
+            <h2 class="pn-headline">How We Keep Your Site Running</h2>
+            <p class="pn-subtext">
               A clear, structured process from first call to final delivery.
             </p>
           </div>
+          <div class="pn-snake" id="pn-snake">
+            <svg id="pn-svg" class="pn-svg" aria-hidden="true">
+              <path
+                id="pn-path-bg"
+                fill="none"
+                stroke="#e5e7eb"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                id="pn-path-fg"
+                fill="none"
+                stroke="#f97316"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div class="pn-row pn-ltr">
+              <div class="pn-step" data-index="0">
+                <div class="pn-num">01</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h3 class="pn-label">Audit &amp; Planning</h3>
+                <p class="pn-desc">
+                  We review your site, traffic, and risks to plan the right
+                  setup.
+                </p>
+              </div>
+              <div class="pn-step" data-index="1">
+                <div class="pn-num">02</div>
+                <div class="pn-circle"><i class="fa-solid fa-cloud"></i></div>
+                <h3 class="pn-label">Setup &amp; Migration</h3>
+                <p class="pn-desc">
+                  Fast, secure hosting with zero-downtime migration.
+                </p>
+              </div>
+              <div class="pn-step" data-index="2">
+                <div class="pn-num">03</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="pn-label">Security Hardening</h3>
+                <p class="pn-desc">
+                  SSL, firewalls, and malware protection configured from day
+                  one.
+                </p>
+              </div>
+            </div>
 
-          <div class="crm-role-grid">
-            <article class="crm-card crm-role-card">
-              <h3>Infrastructure Audit</h3>
-              <p>
-                We review your current hosting setup to identify risks and gaps.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Migration & Setup</h3>
-              <p>Smooth migration to managed hosting with zero data loss.</p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Security Hardening</h3>
-              <p>
-                Firewalls, SSL, and access controls configured for protection.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Ongoing Monitoring</h3>
-              <p>
-                24/7 uptime and performance monitoring with proactive alerts.
-              </p>
-            </article>
-            <article class="crm-card crm-role-card">
-              <h3>Maintenance & Updates</h3>
-              <p>
-                Regular updates, patches, and backups handled without disrupting
-                your site.
-              </p>
-            </article>
+            <div class="pn-row pn-rtl">
+              <div class="pn-step" data-index="3">
+                <div class="pn-num">04</div>
+                <div class="pn-circle">
+                  <i class="fa-solid fa-database"></i>
+                </div>
+                <h3 class="pn-label">Monitoring &amp; Backups</h3>
+                <p class="pn-desc">
+                  Uptime monitoring and regular backups you can restore from.
+                </p>
+              </div>
+              <div class="pn-step" data-index="4">
+                <div class="pn-num">05</div>
+                <div class="pn-circle"><i class="fa-solid fa-clock"></i></div>
+                <h3 class="pn-label">Updates &amp; Optimization</h3>
+                <p class="pn-desc">
+                  Regular updates and speed tuning to keep performance sharp.
+                </p>
+              </div>
+              <div class="pn-step" data-index="5">
+                <div class="pn-num">06</div>
+                <div class="pn-circle"><i class="fa-solid fa-headset"></i></div>
+                <h3 class="pn-label">Priority Support</h3>
+                <p class="pn-desc">
+                  A real team to call when something needs fixing fast.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1451,33 +1512,54 @@
               The measurable outcomes business owners care about most.
             </p>
           </div>
-
-          <div class="crm-benefits-grid">
-            <article class="crm-card crm-benefit-card">
-              <h3>Maximum Uptime</h3>
-              <p>
+          <div class="ind-grid ind-cols-4">
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">01</span>
+                <span class="ind-arrow"><i class="fa-solid fa-clock"></i></span>
+              </div>
+              <h3 class="ind-title">Maximum Uptime</h3>
+              <p class="ind-desc">
                 Proactive monitoring catches issues before they cause downtime.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Stronger Security</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">02</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-magnifying-glass-chart"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Stronger Security</h3>
+              <p class="ind-desc">
                 Continuous protection against malware, exploits, and
                 unauthorized access.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Faster Site Performance</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">03</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-bullseye"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Faster Site Performance</h3>
+              <p class="ind-desc">
                 Server-level optimization keeps load times consistently fast.
               </p>
-            </article>
-            <article class="crm-card crm-benefit-card">
-              <h3>Peace of Mind</h3>
-              <p>
+            </div>
+            <div class="ind-card">
+              <div class="ind-card-top">
+                <span class="ind-num">04</span>
+                <span class="ind-arrow"
+                  ><i class="fa-solid fa-pen-to-square"></i
+                ></span>
+              </div>
+              <h3 class="ind-title">Peace of Mind</h3>
+              <p class="ind-desc">
                 One team responsible for keeping everything online and updated.
               </p>
-            </article>
+            </div>
           </div>
         </div>
       </section>
