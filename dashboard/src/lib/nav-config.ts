@@ -236,6 +236,12 @@ export const navGroups = [
         icon: Briefcase,
       },
       {
+        href: "/portal",
+        label: "Client Portal",
+        adminOnly: true,
+        icon: Palette,
+      },
+      {
         href: "/tasks",
         label: "Tasks",
         adminOnly: false,
