@@ -639,3 +639,69 @@ details.faq-item[open] .faq-answer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Numbered service cards (match home-page services style) */
+.ind-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+.ind-svc-card {
+  background: #fff;
+  border: 1px solid rgba(4, 75, 171, 0.15);
+  border-radius: 18px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 340px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.ind-svc-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-900);
+  box-shadow: 0 14px 30px rgba(4, 75, 171, 0.12);
+}
+.ind-svc-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-900);
+  letter-spacing: 0.02em;
+}
+.ind-svc-icon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  color: var(--primary-900);
+}
+.ind-svc-card .h3-text {
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.ind-svc-card .p-text-03 {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 8px 0 0;
+  text-align: left;
+}
+@media (max-width: 991px) {
+  .ind-svc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .ind-svc-grid {
+    grid-template-columns: 1fr;
+  }
+  .ind-svc-card {
+    min-height: 0;
+  }
+}
