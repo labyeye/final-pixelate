@@ -25,7 +25,14 @@ export async function GET(request: Request) {
 
     // Public/website callers get a thumbnail URL (cacheable, lazy-loaded); dashboard/app pass ?full=1 to keep base64.
     const full = new URL(request.url).searchParams.get("full") === "1";
-    const origin = new URL(request.url).origin;
+    // Behind a proxy request.url is localhost:9002; use the forwarded host (or PUBLIC_BASE_URL) instead.
+    const h = request.headers;
+    const fwdHost = h.get("x-forwarded-host") || h.get("host");
+    const origin =
+      process.env.PUBLIC_BASE_URL ||
+      (fwdHost && !/^localhost/i.test(fwdHost)
+        ? `${h.get("x-forwarded-proto") || "https"}://${fwdHost}`
+        : new URL(request.url).origin);
     const normalized = (items || []).map((it: any) => {
       const out = { ...(it || {}), description: it?.description ?? it?.note ?? "" };
       if (!full && String(out.thumbnailBase64 || "").startsWith("data:")) {
