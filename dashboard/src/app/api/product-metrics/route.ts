@@ -15,7 +15,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ success: false, error: `Not configured: add ${p.envHint} to .env` }, { status: 503 });
 
   try {
-    const res = await fetch(`${backendRoot(p.url)}/api/crm/metrics?platform=${platform}`, {
+    const qs = new URLSearchParams({ platform });
+    for (const k of ["range", "liveMin", "type", "country", "region", "city", "isp", "browser", "os", "device", "ip", "tenantId", "userId", "role", "version", "path"]) {
+      const v = searchParams.get(k);
+      if (v) qs.set(k, v);
+    }
+    const res = await fetch(`${backendRoot(p.url)}/api/crm/metrics?${qs}`, {
       headers: { "x-api-key": p.secret },
       cache: "no-store",
     });
