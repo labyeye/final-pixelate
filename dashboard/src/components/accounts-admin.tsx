@@ -214,6 +214,8 @@ function ManageDialog({ id, call, onClose, onChanged }: { id: string; call: any;
   const [nu, setNu] = useState<any>({ name: "", email: "", role: "", password: "" });
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
+  const [cr, setCr] = useState<any>(null);
+  const [gift, setGift] = useState({ credits: "", note: "" });
 
   const load = useCallback(async () => {
     const j = await call(`/${id}`);
@@ -222,6 +224,7 @@ function ManageDialog({ id, call, onClose, onChanged }: { id: string; call: any;
     const s = j.subscription ?? {};
     setSub({ ...s, startDate: dayInput(s.startDate), validTill: dayInput(s.validTill), customFeatures: (s.customFeatures ?? []).join("\n"), limits: { ...(s.limits ?? {}) }, flags: { ...(s.flags ?? {}) } });
     setNu((n: any) => ({ ...n, role: n.role || j.meta.defaultRole }));
+    if (j.meta.supportsCredits) setCr(await call(`/${id}/credits`));
   }, [call, id]);
   useEffect(() => { load().catch((e) => setMsg({ ok: false, text: e.message })); }, [load]);
 
@@ -276,6 +279,35 @@ function ManageDialog({ id, call, onClose, onChanged }: { id: string; call: any;
             </div>
             <Button size="sm" disabled={busy} className="border-2 border-black font-bold"
               onClick={() => run("Subscription saved", () => call(`/${id}/subscription`, "PUT", { ...sub, limits: Object.fromEntries(Object.entries(sub.limits ?? {}).map(([k, v]) => [k, Number(v)])) }))}>Save subscription</Button>
+
+            {m.supportsCredits && cr && (
+              <>
+                <Heading>WhatsApp credits</Heading>
+                {cr.credits?.metered ? (
+                  <p className="text-sm font-bold">
+                    Left: {cr.credits.total} <span className="font-normal text-xs">(paid {cr.credits.balance} + bonus {cr.credits.bonus}{cr.credits.bonusExpiresAt ? `, bonus expires ${dayInput(cr.credits.bonusExpiresAt)}` : ""})</span>
+                    {cr.credits.low && <span className="text-red-600"> · LOW</span>}
+                  </p>
+                ) : <p className="text-sm text-muted-foreground">Credits not enabled for this company (WhatsApp is free/unmetered). Granting credits turns metering on.</p>}
+                <div className="grid grid-cols-12 gap-2 items-end">
+                  <div className="col-span-3"><Field label="Add credits" type="number" min={1} value={gift.credits} onChange={(v) => setGift({ ...gift, credits: v })} /></div>
+                  <div className="col-span-6"><Field label="Note" value={gift.note} onChange={(v) => setGift({ ...gift, note: v })} /></div>
+                  <Button size="sm" className="col-span-3 border-2 border-black font-bold" disabled={busy || !gift.credits}
+                    onClick={() => run("Credits added", async () => { const r = await call(`/${id}/credits`, "POST", { credits: Number(gift.credits), note: gift.note }); setGift({ credits: "", note: "" }); return r; })}>Add</Button>
+                </div>
+                <div className="max-h-48 overflow-y-auto border-2 border-black text-xs">
+                  {(cr.log ?? []).length === 0 && <p className="p-2 text-muted-foreground">No usage yet.</p>}
+                  {(cr.log ?? []).map((r: any, i: number) => (
+                    <div key={i} className="grid grid-cols-12 gap-2 p-1.5 border-b border-black/20">
+                      <span className="col-span-3">{new Date(r.at).toLocaleString("en-IN")}</span>
+                      <span className="col-span-2 font-bold">{r.type}</span>
+                      <span className={`col-span-2 font-bold ${r.credits < 0 ? "text-red-600" : "text-green-700"}`}>{r.credits > 0 ? "+" : ""}{r.credits}</span>
+                      <span className="col-span-5 truncate">{[r.event, r.phone, r.status, r.note].filter(Boolean).join(" · ")}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
 
             <Heading>Logins ({d.users.length})</Heading>
             <div className="space-y-2">

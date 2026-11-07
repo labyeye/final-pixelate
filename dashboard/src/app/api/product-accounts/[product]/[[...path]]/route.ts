@@ -3,7 +3,7 @@ import { requireAuth } from "@/lib/require-auth";
 import { productConfig, backendRoot } from "@/lib/product-config";
 
 // Proxy to <product backend>/api/crm/accounts/*  (list, create, edit, subscription, users). Only those shapes pass.
-const ALLOWED = /^(|[a-f0-9]{24}|[a-f0-9]{24}\/(subscription|users)|users\/[a-f0-9]{24})$/;
+const ALLOWED = /^(|[a-f0-9]{24}|[a-f0-9]{24}\/(subscription|users|credits)|users\/[a-f0-9]{24})$/;
 
 async function proxy(request: NextRequest, { params }: { params: Promise<{ product: string; path?: string[] }> }) {
   const auth = requireAuth(request);
