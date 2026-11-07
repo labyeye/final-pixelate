@@ -702,6 +702,24 @@
       "namedRegex": "^/api/photos(?:/)?$"
     },
     {
+      "page": "/api/portal",
+      "regex": "^/api/portal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/portal(?:/)?$"
+    },
+    {
+      "page": "/api/portal-assets",
+      "regex": "^/api/portal\\-assets(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/portal\\-assets(?:/)?$"
+    },
+    {
+      "page": "/api/portal-passes",
+      "regex": "^/api/portal\\-passes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/portal\\-passes(?:/)?$"
+    },
+    {
       "page": "/api/product-metrics",
       "regex": "^/api/product\\-metrics(?:/)?$",
       "routeKeys": {},
@@ -1306,6 +1324,12 @@
       "regex": "^/photo\\-galleries(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/photo\\-galleries(?:/)?$"
+    },
+    {
+      "page": "/portal",
+      "regex": "^/portal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portal(?:/)?$"
     },
     {
       "page": "/profile",

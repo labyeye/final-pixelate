@@ -136,7 +136,7 @@ export function AccountsAdmin({ product, title }: { product: string; title: stri
 
 function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; onClose: () => void; meta: any; call: any; onDone: () => void }) {
   const empty = () => ({
-    name: "", adminName: "", email: "", phone: "", password: "", months: "1", amountPaid: "0",
+    name: "", adminName: "", email: "", phone: "", password: "", months: "1", amountPaid: "0", free: false,
     plan: meta.planOptions ? meta.planOptions[0] : "", limits: { ...meta.createLimitDefaults } as Record<string, any>,
     flags: Object.fromEntries((meta.flagFields ?? []).map((f: any) => [f.key, true])) as Record<string, boolean>,
     extra: Object.fromEntries((meta.createExtraFields ?? []).map((f: any) => [f.key, f.options ? f.options[0] : ""])) as Record<string, string>,
@@ -151,7 +151,7 @@ function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; on
     e.preventDefault();
     setBusy(true); setError(null);
     try {
-      const body = { ...f, months: Number(f.months), amountPaid: Number(f.amountPaid), limits: Object.fromEntries(Object.entries(f.limits).map(([k, v]) => [k, Number(v)])) };
+      const body = { ...f, free: !!(meta.supportsFree && f.free), months: Number(f.months), amountPaid: Number(f.amountPaid), limits: Object.fromEntries(Object.entries(f.limits).map(([k, v]) => [k, Number(v)])) };
       setDone(await call("", "POST", body));
       onDone();
     } catch (err: any) { setError(err.message); }
@@ -196,6 +196,7 @@ function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; on
             {(meta.createExtraFields ?? []).map((x: any) => x.options
               ? <Select key={x.key} label={x.label} value={f.extra[x.key]} options={x.options} onChange={(v) => setF({ ...f, extra: { ...f.extra, [x.key]: v } })} />
               : <Field key={x.key} label={x.label} value={f.extra[x.key]} onChange={(v) => setF({ ...f, extra: { ...f.extra, [x.key]: v } })} />)}
+            {meta.supportsFree && <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={!!f.free} onChange={(e) => setF({ ...f, free: e.target.checked })} /> Free / lifetime (no payment, never expires)</label>}
             <p className="text-xs text-muted-foreground">Creates the owner login and an active plan. No invoice is generated; bill separately once payment is confirmed.</p>
             {error && <p className="text-sm font-bold text-red-600">{error}</p>}
             <Button type="submit" disabled={busy} className="w-full border-2 border-black font-bold">{busy ? "Creating…" : "Create account"}</Button>
