@@ -447,7 +447,7 @@ function gtag() {
   })(),
   (function () {
     const e = [
-        "https://www.pixelatenest.com/index.html",
+        "https://www.pixelatenest.com/",
         "https://www.pixelatenest.com/services/app-development.html",
       ],
       t = [

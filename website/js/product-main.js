@@ -55,7 +55,7 @@
   // Idle prefetch of two likely next pages
   function prefetch() {
     [
-      "https://www.pixelatenest.com/index.html",
+      "https://www.pixelatenest.com/",
       "https://www.pixelatenest.com/services/app-development.html",
     ].forEach(function (u) {
       try {
