@@ -224,6 +224,12 @@ export const navGroups = [
         icon: Lock,
       },
       {
+        href: "/agreements",
+        label: "Agreements",
+        adminOnly: false,
+        icon: FileText,
+      },
+      {
         href: "/brand-guide",
         label: "Brand Guide",
         adminOnly: false,
@@ -533,6 +539,7 @@ export const clientPortalGroups = [
       { href: "/quotations", label: "Quotations", icon: FileText },
       { href: "/onboarding", label: "Onboarding", icon: UserPlus },
       { href: "/nda-approval", label: "NDA Approval", icon: Lock },
+      { href: "/agreements", label: "Agreements", icon: FileText },
     ],
   },
   {
