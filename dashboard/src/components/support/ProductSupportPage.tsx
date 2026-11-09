@@ -64,7 +64,7 @@ const PRIORITY_COLOR: Record<string, string> = {
 // Client-queries inbox for one product (Nest HR or NestLeads): tickets are created in that
 // product and pushed here (see /api/hrms/support-tickets and /api/nestleads/support-tickets);
 // replying or changing status here pushes back so the tenant sees it in their own app.
-export function ProductSupportPage({ source, productName }: { source: "hrms" | "nestleads"; productName: string }) {
+export function ProductSupportPage({ source, productName }: { source: "hrms" | "nestleads" | "nestgym"; productName: string }) {
   const { toast } = useToast();
   const { user } = useAuth();
   const [tickets, setTickets] = useState<Ticket[]>([]);

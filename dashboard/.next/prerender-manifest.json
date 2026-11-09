@@ -602,6 +602,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/db-manager": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/db-manager",
+      "dataRoute": "/db-manager.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/developers-and-editors": {
       "experimentalBypassFor": [
         {
@@ -917,6 +942,31 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/nest-gym/metrics",
       "dataRoute": "/nest-gym/metrics.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/nest-gym/support": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/nest-gym/support",
+      "dataRoute": "/nest-gym/support.rsc",
       "prefetchDataRoute": null,
       "allowHeader": [
         "host",

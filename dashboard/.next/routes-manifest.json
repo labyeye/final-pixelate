@@ -510,6 +510,12 @@
       "namedRegex": "^/api/cron/process\\-scheduled\\-posts(?:/)?$"
     },
     {
+      "page": "/api/db-manager",
+      "regex": "^/api/db\\-manager(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/db\\-manager(?:/)?$"
+    },
+    {
       "page": "/api/emi",
       "regex": "^/api/emi(?:/)?$",
       "routeKeys": {},
@@ -604,6 +610,12 @@
       "regex": "^/api/nda\\-approvals(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/nda\\-approvals(?:/)?$"
+    },
+    {
+      "page": "/api/nestgym/support-tickets",
+      "regex": "^/api/nestgym/support\\-tickets(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestgym/support\\-tickets(?:/)?$"
     },
     {
       "page": "/api/nesthr-invoices",
@@ -1122,6 +1134,12 @@
       "namedRegex": "^/dashboard/whatsapp\\-webhook(?:/)?$"
     },
     {
+      "page": "/db-manager",
+      "regex": "^/db\\-manager(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/db\\-manager(?:/)?$"
+    },
+    {
       "page": "/developers-and-editors",
       "regex": "^/developers\\-and\\-editors(?:/)?$",
       "routeKeys": {},
@@ -1204,6 +1222,12 @@
       "regex": "^/nest\\-gym/metrics(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-gym/metrics(?:/)?$"
+    },
+    {
+      "page": "/nest-gym/support",
+      "regex": "^/nest\\-gym/support(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-gym/support(?:/)?$"
     },
     {
       "page": "/nest-hr/accounts",

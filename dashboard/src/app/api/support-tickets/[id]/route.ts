@@ -30,11 +30,12 @@ async function notifySource(ticket: any, updates: any) {
           body: JSON.stringify({ message: reply.message, authorName: reply.user || "Pixelate Nest Support" }),
         }).catch(() => {});
       }
-    } else if (ticket.source === "nestleads" && ticket.nestleadsTicketId) {
-      const base = process.env.NESTLEADS_BACKEND_URL;
-      const key = process.env.NESTLEADS_STATS_SECRET;
+    } else if ((ticket.source === "nestleads" && ticket.nestleadsTicketId) || (ticket.source === "nestgym" && ticket.nestgymTicketId)) {
+      const gym = ticket.source === "nestgym";
+      const base = gym ? process.env.NESTGYM_BACKEND_URL : process.env.NESTLEADS_BACKEND_URL;
+      const key = gym ? process.env.NESTGYM_STATS_SECRET : process.env.NESTLEADS_STATS_SECRET;
       if (!base || !key) return;
-      await fetch(`${base}/api/support/webhook/${ticket.nestleadsTicketId}`, {
+      await fetch(`${base}/api/support/webhook/${gym ? ticket.nestgymTicketId : ticket.nestleadsTicketId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-api-key": key },
         body: JSON.stringify({

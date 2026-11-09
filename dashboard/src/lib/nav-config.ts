@@ -69,6 +69,12 @@ export const navGroups = [
         icon: BarChartIcon,
       },
       {
+        href: "/db-manager",
+        label: "Database Manager",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
         href: "/dashboard/reports",
         label: "Reports",
         adminOnly: true,
@@ -432,6 +438,12 @@ export const navGroups = [
         label: "Live Metrics",
         adminOnly: true,
         icon: Activity,
+      },
+      {
+        href: "/nest-gym/support",
+        label: "Support",
+        adminOnly: true,
+        icon: Headphones,
       },
     ],
   },
