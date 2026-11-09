@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/locations/:state/:city/products/kirana-store-billing-software.html",
+      "destination": "/locations/:state/:city/products/fmcg-retail-software-in-:city.html",
+      "permanent": true
+    },
+    {
+      "source": "/locations/:state/:city/products/kirana-store-billing-software-in-:city.html",
+      "destination": "/locations/:state/:city/products/fmcg-retail-software-in-:city.html",
+      "permanent": true
+    },
+    {
       "source": "/products/sports-management-software.html",
       "destination": "/products/academy-management-software.html",
       "permanent": true
@@ -95,30 +105,29 @@
       "destination": "/locations/:state/:city/services/website-hosting-maintenance-in-:city.html",
       "permanent": true
     },
-
     {
-      "source": "/counter-billing-bihar/counter-billing-sharif.html",
-      "destination": "/locations/counter-billing-bihar/counter-billing-bihar-sharif.html",
+      "source": "/school-crm-bihar/school-crm-chapra.html",
+      "destination": "/locations/bihar/chhapra/products/school-management-software-in-chhapra.html",
       "statusCode": 301
     },
     {
-      "source": "/counter-billing-bihar/:splat*",
-      "destination": "/locations/counter-billing-bihar/:splat*",
+      "source": "/school-crm-bihar/school-crm-ara.html",
+      "destination": "/locations/bihar/arrah/products/school-management-software-in-arrah.html",
       "statusCode": 301
     },
     {
-      "source": "/counter-billing-bihar",
-      "destination": "/pages/locations.html",
+      "source": "/school-crm-bihar/school-crm-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/school-management-software-in-bihar-sharif.html",
       "statusCode": 301
     },
     {
-      "source": "/counter-billing-bihar.html",
-      "destination": "/pages/locations.html",
+      "source": "/school-crm-bihar/school-crm-bihar-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/school-management-software-in-bihar-sharif.html",
       "statusCode": 301
     },
     {
-      "source": "/school-crm-bihar/:splat*",
-      "destination": "/locations/school-crm-bihar/:splat*",
+      "source": "/school-crm-bihar/school-crm-:city.html",
+      "destination": "/locations/bihar/:city/products/school-management-software-in-:city.html",
       "statusCode": 301
     },
     {
@@ -127,8 +136,58 @@
       "statusCode": 301
     },
     {
-      "source": "/factory-management-bihar/:splat*",
-      "destination": "/locations/factory-management-bihar/:splat*",
+      "source": "/counter-billing-bihar/counter-billing-chapra.html",
+      "destination": "/locations/bihar/chhapra/products/fmcg-retail-software-in-chhapra.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar/counter-billing-ara.html",
+      "destination": "/locations/bihar/arrah/products/fmcg-retail-software-in-arrah.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar/counter-billing-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/fmcg-retail-software-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar/counter-billing-bihar-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/fmcg-retail-software-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar/counter-billing-:city.html",
+      "destination": "/locations/bihar/:city/products/fmcg-retail-software-in-:city.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/counter-billing-bihar",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/factory-management-bihar/factory-management-chapra.html",
+      "destination": "/locations/bihar/chhapra/services/software-development-in-chhapra.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/factory-management-bihar/factory-management-ara.html",
+      "destination": "/locations/bihar/arrah/services/software-development-in-arrah.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/factory-management-bihar/factory-management-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/services/software-development-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/factory-management-bihar/factory-management-bihar-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/services/software-development-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/factory-management-bihar/factory-management-:city.html",
+      "destination": "/locations/bihar/:city/services/software-development-in-:city.html",
       "statusCode": 301
     },
     {
@@ -137,8 +196,103 @@
       "statusCode": 301
     },
     {
+      "source": "/locations/school-crm-bihar/school-crm-chapra.html",
+      "destination": "/locations/bihar/chhapra/products/school-management-software-in-chhapra.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/school-crm-bihar/school-crm-ara.html",
+      "destination": "/locations/bihar/arrah/products/school-management-software-in-arrah.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/school-crm-bihar/school-crm-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/school-management-software-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/school-crm-bihar/school-crm-bihar-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/school-management-software-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/school-crm-bihar/school-crm-:city.html",
+      "destination": "/locations/bihar/:city/products/school-management-software-in-:city.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/school-crm-bihar",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/counter-billing-bihar/counter-billing-chapra.html",
+      "destination": "/locations/bihar/chhapra/products/fmcg-retail-software-in-chhapra.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/counter-billing-bihar/counter-billing-ara.html",
+      "destination": "/locations/bihar/arrah/products/fmcg-retail-software-in-arrah.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/counter-billing-bihar/counter-billing-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/fmcg-retail-software-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/counter-billing-bihar/counter-billing-bihar-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/products/fmcg-retail-software-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/counter-billing-bihar/counter-billing-:city.html",
+      "destination": "/locations/bihar/:city/products/fmcg-retail-software-in-:city.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/counter-billing-bihar",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/factory-management-bihar/factory-management-chapra.html",
+      "destination": "/locations/bihar/chhapra/services/software-development-in-chhapra.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/factory-management-bihar/factory-management-ara.html",
+      "destination": "/locations/bihar/arrah/services/software-development-in-arrah.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/factory-management-bihar/factory-management-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/services/software-development-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/factory-management-bihar/factory-management-bihar-sharif.html",
+      "destination": "/locations/bihar/bihar-sharif/services/software-development-in-bihar-sharif.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/factory-management-bihar/factory-management-:city.html",
+      "destination": "/locations/bihar/:city/services/software-development-in-:city.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/factory-management-bihar",
+      "destination": "/pages/locations.html",
+      "statusCode": 301
+    },
+    {
       "source": "/school-crm-muzaffarpur",
-      "destination": "/locations/school-crm-muzaffarpur.html",
+      "destination": "/locations/bihar/muzaffarpur/products/school-management-software-in-muzaffarpur.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/locations/school-crm-muzaffarpur.html",
+      "destination": "/locations/bihar/muzaffarpur/products/school-management-software-in-muzaffarpur.html",
       "statusCode": 301
     },
     {
