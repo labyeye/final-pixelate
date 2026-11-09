@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/cron/process-scheduled-posts": {
+      "maxDuration": 300
+    },
+    "/api/agreements/[id]/pdf": {},
+    "/api/cron/deactivate-expired-subscriptions": {
+      "maxDuration": 300
+    }
+  }
+}

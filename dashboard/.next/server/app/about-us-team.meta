@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/about-us-team/layout,_N_T_/(crm)/about-us-team/page,_N_T_/about-us-team"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/about-us-team/__PAGE__",
+    "/!KGNybSk/about-us-team",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/clients/layout,_N_T_/(crm)/clients/page,_N_T_/clients"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/clients/__PAGE__",
+    "/!KGNybSk/clients",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

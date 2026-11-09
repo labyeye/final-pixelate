@@ -1,0 +1,3 @@
+{
+  "/api/whatsapp-templates/[id]/submit/route": "app/api/whatsapp-templates/[id]/submit/route.js"
+}

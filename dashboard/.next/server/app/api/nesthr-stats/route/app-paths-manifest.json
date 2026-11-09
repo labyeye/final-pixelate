@@ -1,0 +1,3 @@
+{
+  "/api/nesthr-stats/route": "app/api/nesthr-stats/route.js"
+}

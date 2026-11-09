@@ -1,0 +1,3 @@
+{
+  "/api/whatsapp/send-template/route": "app/api/whatsapp/send-template/route.js"
+}

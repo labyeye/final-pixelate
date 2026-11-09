@@ -1,0 +1,3 @@
+{
+  "/api/nestplay-offer-codes/[id]/route": "app/api/nestplay-offer-codes/[id]/route.js"
+}

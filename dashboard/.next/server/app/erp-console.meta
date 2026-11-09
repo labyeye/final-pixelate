@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/erp-console/layout,_N_T_/(crm)/erp-console/page,_N_T_/erp-console"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/erp-console/__PAGE__",
+    "/!KGNybSk/erp-console",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

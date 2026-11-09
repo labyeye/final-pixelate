@@ -1,0 +1,3 @@
+{
+  "/api/generate-quotation-pdf/route": "app/api/generate-quotation-pdf/route.js"
+}

@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-play/layout,_N_T_/(crm)/nest-play/coupons/layout,_N_T_/(crm)/nest-play/coupons/page,_N_T_/nest-play/coupons"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-play/coupons/__PAGE__",
+    "/!KGNybSk/nest-play/coupons",
+    "/!KGNybSk/nest-play",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

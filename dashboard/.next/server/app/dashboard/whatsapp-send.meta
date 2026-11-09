@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/dashboard/layout,_N_T_/(crm)/dashboard/whatsapp-send/layout,_N_T_/(crm)/dashboard/whatsapp-send/page,_N_T_/dashboard/whatsapp-send"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/dashboard/whatsapp-send/__PAGE__",
+    "/!KGNybSk/dashboard/whatsapp-send",
+    "/!KGNybSk/dashboard",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}
