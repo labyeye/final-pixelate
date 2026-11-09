@@ -922,7 +922,8 @@ li {
 }
 .brands-carousel {
   display: flex;
-  gap: 60px;
+  width: max-content;
+  gap: 0;
   animation: scroll-infinite 30s linear infinite;
   will-change: transform;
 }
@@ -942,7 +943,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 .brand-logo-img {
   height: 80px;
@@ -1092,13 +1093,13 @@ li {
     padding: 40px 0;
   }
   .brands-carousel {
-    gap: 40px;
+    gap: 0;
   }
   .brand-logo-slide {
     padding: 0 10px;
   }
   .brand-logo-img {
-    height: px;
+    height: 64px;
     max-width: 120px;
   }
 }

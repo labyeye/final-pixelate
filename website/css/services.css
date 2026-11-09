@@ -6341,3 +6341,59 @@ body.svc-video-editing .ind-card {
   color: var(--primary-900, #044bab);
   margin-bottom: 8px;
 }
+
+
+/* ===== Digital Marketing: DM Sans everywhere ===== */
+body.svc-digital-marketing,
+body.svc-digital-marketing *:not(i):not(.fa):not(.fas):not(.far):not(.fab):not([class*="fa-"]) {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+/* ===== Digital Marketing: offerings as one infinite sliding row ===== */
+body.svc-digital-marketing .offerings-container {
+  overflow: hidden;
+}
+body.svc-digital-marketing .offerings-grid {
+  display: block;
+  overflow: hidden;
+  padding: 4px 0 8px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+body.svc-digital-marketing .offerings-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: offerings-slide 60s linear infinite;
+  will-change: transform;
+}
+body.svc-digital-marketing .offerings-grid:hover .offerings-track,
+body.svc-digital-marketing .offerings-grid:focus-within .offerings-track {
+  animation-play-state: paused;
+}
+body.svc-digital-marketing .offerings-track .offer-card {
+  flex: 0 0 340px;
+  width: 340px;
+}
+body.svc-digital-marketing .offerings-track .offer-desc {
+  text-align: left;
+}
+@keyframes offerings-slide {
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+@media (max-width: 600px) {
+  body.svc-digital-marketing .offerings-track .offer-card {
+    flex-basis: 280px;
+    width: 280px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.svc-digital-marketing .offerings-grid {
+    overflow-x: auto;
+  }
+  body.svc-digital-marketing .offerings-track {
+    animation: none;
+  }
+}
