@@ -19,11 +19,10 @@ export type AgreementBlock =
 
 export interface AgreementContent {
   agreementNo: string; // e.g. KTSLLP/AGREEMENT/0001
-  title: string; // e.g. WORK AGREEMENT DOCUMENT
   date: string; // display string, e.g. 04/05/2026
   toName: string;
-  subject: string;
-  blocks: AgreementBlock[];
+  /** Each document starts on a fresh letterhead page, all share the same Ref no. */
+  documents: { title: string; subject: string; blocks: AgreementBlock[] }[];
   signatory: { name: string; designation: string; company: string };
   recipient: { name: string; designation: string };
   includeCompanySign?: boolean;
@@ -101,6 +100,8 @@ export async function generateAgreementPdf(c: AgreementContent): Promise<Uint8Ar
   const draw = (t: string, x: number, size = BODY_SIZE, f = font) =>
     page.drawText(t, { x, y, size, font: f, color: INK });
 
+  for (let di = 0; di < c.documents.length; di++) {
+  const d = c.documents[di];
   newPage();
 
   // Agreement no. (left) and date (right) on the same row
@@ -110,8 +111,8 @@ export async function generateAgreementPdf(c: AgreementContent): Promise<Uint8Ar
   y -= 34;
 
   // Title (centered, bold)
-  const tw = bold.widthOfTextAtSize(c.title, TITLE_SIZE);
-  draw(c.title, (PAGE_W - tw) / 2, TITLE_SIZE, bold);
+  const tw = bold.widthOfTextAtSize(d.title, TITLE_SIZE);
+  draw(d.title, (PAGE_W - tw) / 2, TITLE_SIZE, bold);
   y -= 34;
 
   // Addressee
@@ -119,7 +120,7 @@ export async function generateAgreementPdf(c: AgreementContent): Promise<Uint8Ar
     draw(l, MARGIN_X);
     y -= LINE_H;
   }
-  for (const l of wrap(`Subject: ${c.subject}`, bold, BODY_SIZE, textW)) {
+  for (const l of wrap(`Subject: ${d.subject}`, bold, BODY_SIZE, textW)) {
     draw(l, MARGIN_X, BODY_SIZE, bold);
     y -= LINE_H;
   }
@@ -127,7 +128,7 @@ export async function generateAgreementPdf(c: AgreementContent): Promise<Uint8Ar
   y -= LINE_H + 8;
 
   // Body blocks
-  for (const b of c.blocks) {
+  for (const b of d.blocks) {
     if (b.type === "space") {
       y -= b.size ?? 8;
     } else if (b.type === "p") {
@@ -197,7 +198,9 @@ export async function generateAgreementPdf(c: AgreementContent): Promise<Uint8Ar
     page.drawText(l, { x: rightX, y: rowY - i * LINE_H, size: BODY_SIZE, font: i === 0 ? bold : font, color: INK });
   });
 
-  doc.setTitle(`${c.title} - ${c.agreementNo}`);
+  }
+
+  doc.setTitle(`Agreement - ${c.agreementNo}`);
   doc.setAuthor("Kalahanu Tech Studios LLP");
   return doc.save();
 }

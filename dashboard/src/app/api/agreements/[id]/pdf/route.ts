@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 import { getDb } from "@/lib/mongodb";
 import { requireAuth } from "@/lib/require-auth";
 import { generateAgreementPdf } from "@/lib/agreement-pdf";
-import { SIGNATORY, buildBlocks, fmtDMY, subjectFor, titleFor } from "@/lib/agreement-templates";
+import { SIGNATORY, buildDocuments, fmtDMY } from "@/lib/agreement-templates";
 
 export const runtime = "nodejs";
 
@@ -22,11 +22,9 @@ export async function GET(
     const sign = request.nextUrl.searchParams.get("sign") !== "0";
     const pdf = await generateAgreementPdf({
       agreementNo: a.agreementNo,
-      title: titleFor(a.type),
       date: fmtDMY(a.date),
       toName: a.name,
-      subject: subjectFor(a),
-      blocks: buildBlocks(a),
+      documents: buildDocuments(a),
       signatory: SIGNATORY,
       recipient: { name: a.name, designation: a.role },
       includeCompanySign: sign,

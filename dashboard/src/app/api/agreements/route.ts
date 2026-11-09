@@ -16,8 +16,8 @@ export async function POST(request: NextRequest) {
   if (auth.error) return auth.error;
   try {
     const body = await request.json();
-    if (!body.name?.trim() || !body.role?.trim() || !body.date || !["work", "nda"].includes(body.type)) {
-      return NextResponse.json({ error: "type, name, role and date are required" }, { status: 400 });
+    if (!body.name?.trim() || !body.role?.trim() || !body.date) {
+      return NextResponse.json({ error: "name, role and date are required" }, { status: 400 });
     }
     const db = await getDb();
     // Atomic, gap-free-on-success sequence: KTSLLP/AGREEMENT/0001, 0002, ...
@@ -32,10 +32,10 @@ export async function POST(request: NextRequest) {
     const doc = {
       seq,
       agreementNo: formatAgreementNo(seq),
-      type: body.type,
       name: body.name.trim(),
       role: body.role.trim(),
       date: body.date,
+      deliverables: body.deliverables || "",
       responsibilities: body.responsibilities || "",
       startDate: body.startDate || "",
       endDate: body.endDate || "",

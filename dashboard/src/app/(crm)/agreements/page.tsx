@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
@@ -24,24 +23,20 @@ import {
 } from "@/components/ui/table";
 import { apiFetch } from "@/lib/api-fetch";
 import { useToast } from "@/hooks/use-toast";
-import {
-  DEFAULT_PAYMENT_TERMS,
-  DEFAULT_RESPONSIBILITIES,
-  fmtDMY,
-} from "@/lib/agreement-templates";
+import { ROLES, fmtDMY } from "@/lib/agreement-templates";
 
 const today = () => new Date().toISOString().slice(0, 10);
 
 const emptyForm = () => ({
-  type: "work",
   name: "",
   role: "",
   date: today(),
-  responsibilities: DEFAULT_RESPONSIBILITIES,
   startDate: "",
   endDate: "",
   compensation: "",
-  paymentTerms: DEFAULT_PAYMENT_TERMS,
+  paymentTerms: "",
+  deliverables: "",
+  responsibilities: "",
 });
 
 export default function AgreementsPage() {
@@ -49,6 +44,7 @@ export default function AgreementsPage() {
   const [items, setItems] = useState<any[]>([]);
   const [form, setForm] = useState(emptyForm());
   const [busy, setBusy] = useState(false);
+  const [customRole, setCustomRole] = useState(false);
   const set = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
   const load = async () => {
@@ -90,6 +86,7 @@ export default function AgreementsPage() {
       toast({ title: `Created ${data.agreementNo}` });
       await download(data);
       setForm(emptyForm());
+      setCustomRole(false);
       load();
     } catch (e: any) {
       toast({ title: e.message, variant: "destructive" });
@@ -98,8 +95,6 @@ export default function AgreementsPage() {
     }
   };
 
-  const isWork = form.type === "work";
-
   return (
     <div className="space-y-6 p-4 md:p-6">
       <div className="flex items-center gap-2">
@@ -107,59 +102,69 @@ export default function AgreementsPage() {
         <h1 className="text-2xl font-bold">Agreements</h1>
       </div>
 
-      <div className="grid gap-4 rounded-lg border p-4 md:grid-cols-2">
-        <div className="space-y-1.5">
-          <Label>Type</Label>
-          <Select value={form.type} onValueChange={(v) => set("type", v)}>
-            <SelectTrigger><SelectValue /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="work">Work Agreement</SelectItem>
-              <SelectItem value="nda">NDA</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-1.5">
-          <Label>Date</Label>
-          <Input type="date" value={form.date} onChange={(e) => set("date", e.target.value)} />
-        </div>
+      <div className="grid grid-cols-1 gap-4 rounded-lg border p-4 md:grid-cols-3">
         <div className="space-y-1.5">
           <Label>Recipient name</Label>
-          <Input value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Adarsh Yadav" />
+          <Input value={form.name} onChange={(e) => set("name", e.target.value)} />
         </div>
         <div className="space-y-1.5">
           <Label>Role</Label>
-          <Input value={form.role} onChange={(e) => set("role", e.target.value)} placeholder="Graphic Designer" />
+          {customRole ? (
+            <div className="flex gap-2">
+              <Input autoFocus value={form.role} onChange={(e) => set("role", e.target.value)} placeholder="Type role" />
+              <Button type="button" variant="outline" onClick={() => { setCustomRole(false); set("role", ""); }}>
+                List
+              </Button>
+            </div>
+          ) : (
+            <Select
+              value={form.role}
+              onValueChange={(v) => {
+                if (v === "__other") { setCustomRole(true); set("role", ""); }
+                else set("role", v);
+              }}
+            >
+              <SelectTrigger><SelectValue placeholder="Select role" /></SelectTrigger>
+              <SelectContent>
+                {ROLES.map((r) => <SelectItem key={r} value={r}>{r}</SelectItem>)}
+                <SelectItem value="__other">Other…</SelectItem>
+              </SelectContent>
+            </Select>
+          )}
+        </div>
+        <div className="space-y-1.5">
+          <Label>Agreement date</Label>
+          <Input type="date" value={form.date} onChange={(e) => set("date", e.target.value)} />
+        </div>
+        <div className="space-y-1.5">
+          <Label>Start date</Label>
+          <Input type="date" value={form.startDate} onChange={(e) => set("startDate", e.target.value)} />
+        </div>
+        <div className="space-y-1.5">
+          <Label>End date</Label>
+          <Input type="date" value={form.endDate} onChange={(e) => set("endDate", e.target.value)} />
+        </div>
+        <div className="space-y-1.5">
+          <Label>Compensation (₹)</Label>
+          <Input type="number" value={form.compensation} onChange={(e) => set("compensation", e.target.value)} />
+        </div>
+        <div className="space-y-1.5 md:col-span-3">
+          <Label>Payment terms</Label>
+          <Input value={form.paymentTerms} onChange={(e) => set("paymentTerms", e.target.value)} />
+        </div>
+        <div className="space-y-1.5 md:col-span-3">
+          <Label>Work deliverables (one bullet per line)</Label>
+          <Textarea rows={4} value={form.deliverables} onChange={(e) => set("deliverables", e.target.value)} />
+        </div>
+        <div className="space-y-1.5 md:col-span-3">
+          <Label>Responsibilities / terms (one bullet per line)</Label>
+          <Textarea rows={6} value={form.responsibilities} onChange={(e) => set("responsibilities", e.target.value)} />
         </div>
 
-        {isWork && (
-          <>
-            <div className="space-y-1.5">
-              <Label>Start date</Label>
-              <Input type="date" value={form.startDate} onChange={(e) => set("startDate", e.target.value)} />
-            </div>
-            <div className="space-y-1.5">
-              <Label>End date</Label>
-              <Input type="date" value={form.endDate} onChange={(e) => set("endDate", e.target.value)} />
-            </div>
-            <div className="space-y-1.5">
-              <Label>Compensation (₹)</Label>
-              <Input type="number" value={form.compensation} onChange={(e) => set("compensation", e.target.value)} placeholder="16000" />
-            </div>
-            <div className="space-y-1.5">
-              <Label>Payment terms</Label>
-              <Input value={form.paymentTerms} onChange={(e) => set("paymentTerms", e.target.value)} />
-            </div>
-            <div className="space-y-1.5 md:col-span-2">
-              <Label>Responsibilities (one bullet per line)</Label>
-              <Textarea rows={8} value={form.responsibilities} onChange={(e) => set("responsibilities", e.target.value)} />
-            </div>
-          </>
-        )}
-
-        <div className="md:col-span-2">
+        <div className="md:col-span-3">
           <Button onClick={create} disabled={busy}>
             {busy ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Plus className="mr-2 h-4 w-4" />}
-            Generate PDF
+            Generate Work + NDA PDF
           </Button>
         </div>
       </div>
@@ -169,7 +174,6 @@ export default function AgreementsPage() {
           <TableHeader>
             <TableRow>
               <TableHead>Agreement No.</TableHead>
-              <TableHead>Type</TableHead>
               <TableHead>Name</TableHead>
               <TableHead>Role</TableHead>
               <TableHead>Date</TableHead>
@@ -180,7 +184,6 @@ export default function AgreementsPage() {
             {items.map((a) => (
               <TableRow key={a._id}>
                 <TableCell className="font-mono">{a.agreementNo}</TableCell>
-                <TableCell><Badge variant="outline">{a.type === "nda" ? "NDA" : "Work"}</Badge></TableCell>
                 <TableCell>{a.name}</TableCell>
                 <TableCell>{a.role}</TableCell>
                 <TableCell>{fmtDMY(a.date)}</TableCell>
@@ -193,7 +196,7 @@ export default function AgreementsPage() {
             ))}
             {!items.length && (
               <TableRow>
-                <TableCell colSpan={6} className="py-8 text-center text-muted-foreground">
+                <TableCell colSpan={5} className="py-8 text-center text-muted-foreground">
                   No agreements yet.
                 </TableCell>
               </TableRow>
