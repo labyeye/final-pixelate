@@ -344,6 +344,12 @@ export const navGroups = [
         icon: Receipt,
       },
       {
+        href: "/nest-hr/credit-bills",
+        label: "WhatsApp Credit Bills",
+        adminOnly: true,
+        icon: Receipt,
+      },
+      {
         href: "/nest-hr/offers",
         label: "Offer Codes",
         adminOnly: true,

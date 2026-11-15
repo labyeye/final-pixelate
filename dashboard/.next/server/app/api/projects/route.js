@@ -1,9 +1,9 @@
 var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/projects/route.js")
-R.c("server/chunks/[root-of-the-server]__92b91fe0._.js")
-R.c("server/chunks/c729b_semver_38dea314._.js")
-R.c("server/chunks/[root-of-the-server]__7747d922._.js")
-R.c("server/chunks/Desktop_Projects_final-pixelate_dashboard_f97ec1a3._.js")
-R.c("server/chunks/c729b_next_5a619c93._.js")
-R.c("server/chunks/09130_dashboard__next-internal_server_app_api_projects_route_actions_b6077fb2.js")
-R.m(655610)
-module.exports=R.m(655610).exports
+R.c("server/chunks/[root-of-the-server]__ac6bc7a6._.js")
+R.c("server/chunks/node_modules_semver_fa4af7f7._.js")
+R.c("server/chunks/[root-of-the-server]__6dccc211._.js")
+R.c("server/chunks/_69059c6b._.js")
+R.c("server/chunks/node_modules_next_0700e68e._.js")
+R.c("server/chunks/_next-internal_server_app_api_projects_route_actions_38c611ee.js")
+R.m(477981)
+module.exports=R.m(477981).exports

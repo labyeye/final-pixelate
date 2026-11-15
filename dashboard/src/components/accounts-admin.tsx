@@ -294,6 +294,8 @@ function ManageDialog({ id, call, onClose, onChanged }: { id: string; call: any;
                   <div className="col-span-6"><Field label="Note" value={gift.note} onChange={(v) => setGift({ ...gift, note: v })} /></div>
                   <Button size="sm" className="col-span-3 border-2 border-black font-bold" disabled={busy || !gift.credits}
                     onClick={() => run("Credits added", async () => { const r = await call(`/${id}/credits`, "POST", { credits: Number(gift.credits), note: gift.note }); setGift({ credits: "", note: "" }); return r; })}>Add</Button>
+                  <Button size="sm" variant="outline" className="col-span-12 border-2 border-black font-bold" disabled={busy || gift.credits === ""}
+                    onClick={() => run("Credits set", async () => { const r = await call(`/${id}/credits`, "PUT", { credits: Number(gift.credits), note: gift.note }); setGift({ credits: "", note: "" }); return r; })}>Set total to this number (edit)</Button>
                 </div>
                 <div className="max-h-48 overflow-y-auto border-2 border-black text-xs">
                   {(cr.log ?? []).length === 0 && <p className="p-2 text-muted-foreground">No usage yet.</p>}
