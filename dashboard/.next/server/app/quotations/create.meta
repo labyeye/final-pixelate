@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/quotations/layout,_N_T_/(crm)/quotations/create/layout,_N_T_/(crm)/quotations/create/page,_N_T_/quotations/create"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/quotations/create/__PAGE__",
+    "/!KGNybSk/quotations/create",
+    "/!KGNybSk/quotations",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

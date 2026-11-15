@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/invoicing/layout,_N_T_/(crm)/invoicing/page,_N_T_/invoicing"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/invoicing/__PAGE__",
+    "/!KGNybSk/invoicing",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

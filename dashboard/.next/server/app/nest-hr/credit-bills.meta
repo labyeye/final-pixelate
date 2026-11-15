@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nest-hr/layout,_N_T_/(crm)/nest-hr/credit-bills/layout,_N_T_/(crm)/nest-hr/credit-bills/page,_N_T_/nest-hr/credit-bills"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nest-hr/credit-bills/__PAGE__",
+    "/!KGNybSk/nest-hr/credit-bills",
+    "/!KGNybSk/nest-hr",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

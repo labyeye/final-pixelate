@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/work-gallery/layout,_N_T_/(crm)/work-gallery/add/layout,_N_T_/(crm)/work-gallery/add/page,_N_T_/work-gallery/add"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/work-gallery/add/__PAGE__",
+    "/!KGNybSk/work-gallery/add",
+    "/!KGNybSk/work-gallery",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

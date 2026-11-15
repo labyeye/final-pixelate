@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/newsletter/layout,_N_T_/(crm)/newsletter/page,_N_T_/newsletter"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/newsletter/__PAGE__",
+    "/!KGNybSk/newsletter",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}
