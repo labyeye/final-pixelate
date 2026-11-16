@@ -1,0 +1,126 @@
+nagaland/dimapur|Nagaland's commercial gateway with the airport, railway, wholesale trade and logistics|logi,retail,msme
+nagaland/kohima|the state capital with government offices, hospitals, schools and tourism|govt,health,tour
+nagaland/mokokchung|an Ao-region town with education, government work and local trade|edu,govt,retail
+nagaland/tuensang|an eastern Nagaland town with farming, government offices and local trade|agro,govt,retail
+nagaland/wokha|a Lotha-region town with farming, government work and small business|agro,govt,retail
+odisha/angul|an industrial district with coal, power, aluminium and steel plants|power,steel,build
+odisha/balasore|a coastal town with a missile test range, fishing, steel and education|secur,fish,steel
+odisha/baripada|the Mayurbhanj headquarters with tribal handicrafts, farming and government work|hand,agro,govt
+odisha/berhampur|a silk-saree and trading city with hospitals and education|tex,retail,health
+odisha/bhubaneswar|the state capital with IT parks, hospitals, universities and government offices|it,health,edu
+odisha/cuttack|a commercial and legal city known for silver filigree, trading and hospitals|hand,retail,health
+odisha/jharsuguda|a power and industrial town with aluminium, steel and mining contractors|power,steel,logi
+odisha/koraput|a tribal-region town with aluminium links, coffee, handicrafts and government work|agro,hand,govt
+odisha/paradip|an east-coast port with fertiliser, refinery and shipping logistics|port,power,logi
+odisha/puri|a pilgrimage and beach town with hotels, temple services and tourism|tour,retail,secur
+odisha/rourkela|a steel city around the Rourkela Steel Plant with ancillary units and an NIT|steel,mfg,edu
+odisha/sambalpur|a western Odisha handloom, university and hospital city near large power plants|tex,edu,health
+puducherry/karaikal|an enclave with a small port, farming and fishing|port,fish,agro
+puducherry/mahe|a coastal enclave of retail, hospitality and trade near the Kerala border|retail,tour,fish
+puducherry/puducherry|a coastal tourism and education town with hotels, cafes and pharma units|tour,edu,pharma
+puducherry/yanam|a small enclave with farming, fishing and local industry|fish,agro,msme
+punjab/amritsar|a pilgrimage and trading city with hospitality, textiles and border-linked commerce|tour,tex,border
+punjab/bathinda|a rail and refinery city with agri-trade and cotton|power,agro,logi
+punjab/chandigarh|the planned joint capital with government offices, IT, education and healthcare|govt,it,edu
+punjab/faridkot|a district town with medical education, farming and local trade|health,agro,retail
+punjab/firozpur|a border cantonment town with farming, army services and rail work|agro,secur,border
+punjab/gurdaspur|a border district with farming, small industry and local trade|agro,msme,border
+punjab/hoshiarpur|a furniture, sports-goods and agri town|mfg,agro,retail
+punjab/jalandhar|a sports-goods, leather and auto-parts hub with engineering units|auto,mfg,msme
+punjab/ludhiana|India's hosiery, knitwear and bicycle-parts industrial centre|tex,auto,mfg
+punjab/moga|a dairy and agri-trade town with education and overseas-linked services|food,agro,edu
+punjab/mohali|an IT and industrial city with software parks, hospitals and startups|it,health,mfg
+punjab/pathankot|a border cantonment and transit hub with army-linked services and trade|secur,logi,retail
+punjab/patiala|a heritage city with a university, government offices and agro-industry|edu,govt,agro
+punjab/ropar|a thermal-power and industrial town with steel and manufacturing units|power,steel,mfg
+punjab/sangrur|an agri-industrial town with farming, trading and small manufacturing|agro,msme,retail
+rajasthan/ajmer|a pilgrimage city with hospitality, marble trade and education|tour,mfg,edu
+rajasthan/alwar|an industrial town on the Delhi corridor with auto, steel and engineering units|auto,steel,mfg
+rajasthan/bharatpur|a bird-sanctuary tourism and farming town|tour,agro,retail
+rajasthan/bhilwara|India's textile and suiting city with spinning and weaving mills|tex,mfg,logi
+rajasthan/bikaner|a city known for namkeen, wool, tourism and agri-trade|food,tex,tour
+rajasthan/chittorgarh|a fort-tourism and cement-belt district town|tour,mfg,agro
+rajasthan/jaipur|the state capital with tourism, jewellery, handicrafts, IT and large retail|tour,jew,hand
+rajasthan/jhunjhunu|an education and army-families town with trade and coaching|edu,secur,retail
+rajasthan/jodhpur|a handicrafts, furniture, tourism and sandstone city|hand,tour,mfg
+rajasthan/kota|India's coaching capital with hostels, institutes and a large student economy|edu,retail,power
+rajasthan/nagaur|a spice, mandi and agri-trading district|agro,food,retail
+rajasthan/pali|a textile-processing and dyeing town|tex,msme,logi
+rajasthan/sikar|a coaching, education and trading town|edu,retail,msme
+rajasthan/tonk|a small agri-trading town with local industry|agro,retail,msme
+rajasthan/udaipur|a lake-city with tourism, marble, hotels and education|tour,mfg,edu
+sikkim/gangtok|the state capital with tourism, government offices and retail|tour,govt,retail
+sikkim/gyalshing|a West Sikkim town with tourism, farming and government work|tour,agro,govt
+sikkim/mangan|a North Sikkim town with cardamom farming, hydro projects and tourism|agro,tour,power
+sikkim/namchi|a South Sikkim town with tourism, education and government work|tour,edu,govt
+sikkim/singtam|an industrial gateway with pharma units, hydro work and highway logistics|pharma,logi,mfg
+tamil-nadu/chennai|a port, auto and IT city with large manufacturing, finance and hospital sectors|auto,it,health
+tamil-nadu/coimbatore|a textile, pump and engineering city sometimes called the Manchester of South India|tex,mfg,msme
+tamil-nadu/dindigul|a leather, lock-making and agri-trade town|mfg,agro,msme
+tamil-nadu/erode|a turmeric and powerloom textile centre|tex,agro,retail
+tamil-nadu/hosur|an industrial town on the Karnataka border with auto, two-wheeler and electronics units|auto,mfg,logi
+tamil-nadu/kanchipuram|a silk-saree weaving city with temple tourism and industrial belts nearby|tex,tour,auto
+tamil-nadu/madurai|a temple-tourism and trading city with textiles, hospitals and education|tour,tex,health
+tamil-nadu/nagercoil|a Kanyakumari-district trading town with fishing, tourism and agro|retail,tour,fish
+tamil-nadu/salem|a steel, textile and mango-trade city|steel,tex,agro
+tamil-nadu/thanjavur|a delta city of rice farming, temple tourism and handicrafts|agro,tour,hand
+tamil-nadu/thoothukudi|a port city with salt works, fishing and industry|port,fish,mfg
+tamil-nadu/tiruchirappalli|an engineering and education city with BHEL, railway workshops and trade|mfg,edu,retail
+tamil-nadu/tirunelveli|a trading and education district with wind-power and agro units|agro,power,edu
+tamil-nadu/tiruppur|India's knitwear and garment export capital|tex,mfg,logi
+tamil-nadu/vellore|a medical-tourism and leather city with hospitals and education|health,mfg,edu
+telangana/adilabad|a northern Telangana town with cotton, farming and forest-belt trade|agro,tex,retail
+telangana/hyderabad|a city of IT, pharma, biotech, hospitals and a large service economy|it,pharma,health
+telangana/karimnagar|a granite, rice-mill and education city|mfg,agro,edu
+telangana/khammam|a chilli, cotton and agri-trading city|agro,tex,retail
+telangana/mahbubnagar|a district town with farming, industrial parks and trade|agro,msme,retail
+telangana/nalgonda|a cement, farming and trade district|mfg,agro,retail
+telangana/nizamabad|a turmeric, rice and trading city|agro,food,retail
+telangana/ramagundam|a thermal-power and fertiliser town with coal, power and contractors|power,mfg,build
+telangana/siddipet|a rising district town with farming, education and local industry|agro,edu,msme
+telangana/warangal|a historic city with textiles, education, hospitals and agri-trade|tex,edu,health
+tripura/agartala|the state capital with government offices, education, hospitals and Bangladesh-border trade|govt,edu,border
+tripura/belonia|a southern border town with rubber, farming and trade|agro,border,retail
+tripura/dharmanagar|a northern town with rail links, farming and border trade|agro,border,logi
+tripura/kailashahar|a North Tripura town with tea, farming and local trade|tea,agro,retail
+tripura/udaipur|a temple-tourism and farming town in Gomati district|tour,agro,retail
+uttar-pradesh/agra|a Taj Mahal tourism city with leather, footwear, marble and hospitality|tour,mfg,hand
+uttar-pradesh/aligarh|the lock-making and university city with hardware and brass work|mfg,edu,msme
+uttar-pradesh/bareilly|a zari, furniture and cane-work city with trade and education|hand,mfg,retail
+uttar-pradesh/firozabad|India's glass-bangle capital, with glass factories and small units|mfg,msme,logi
+uttar-pradesh/ghaziabad|an industrial city on the Delhi border with manufacturing, logistics and real estate|mfg,logi,build
+uttar-pradesh/gorakhpur|a railway and education city with trade, a medical college and growing industry|logi,health,retail
+uttar-pradesh/kanpur|a leather, textile and industrial city with large trading markets|mfg,tex,retail
+uttar-pradesh/lucknow|the state capital with government offices, IT, hospitals, retail and chikan embroidery|govt,health,hand
+uttar-pradesh/mathura|a pilgrimage and refinery city with hospitality, petrochemicals and trade|tour,power,retail
+uttar-pradesh/meerut|a sports-goods, scissors and publishing city with a large trading market|mfg,msme,retail
+uttar-pradesh/moradabad|the brass-handicraft export city with metal-ware workshops|hand,mfg,logi
+uttar-pradesh/noida|a planned city of electronics, IT, media, manufacturing and corporate offices|it,mfg,logi
+uttar-pradesh/prayagraj|a pilgrimage, legal and education city with government offices and coaching|tour,edu,govt
+uttar-pradesh/saharanpur|a wood-carving, paper and sugar-belt city|hand,mfg,agro
+uttar-pradesh/varanasi|a pilgrimage and silk-weaving city with hospitality and education|tour,tex,edu
+uttarakhand/dehradun|the state capital with government offices, education, IT and tourism|govt,edu,tour
+uttarakhand/haldwani|the Kumaon gateway with trade, hospitals, education and small industry|retail,health,edu
+uttarakhand/haridwar|a pilgrimage and industrial city with the BHEL plant and SIDCUL units|tour,mfg,pharma
+uttarakhand/kashipur|a SIDCUL industrial town with manufacturing and agro-processing units|mfg,food,logi
+uttarakhand/kotdwar|a foothill trading town and gateway to Garhwal with small industry|retail,logi,tour
+uttarakhand/mussoorie|a hill-station tourism town of hotels, schools and shops|tour,edu,retail
+uttarakhand/nainital|a lake-town tourism and education centre with hotels and boarding schools|tour,edu,retail
+uttarakhand/rishikesh|a yoga, rafting and pilgrimage hub with AIIMS and hospitality|tour,health,retail
+uttarakhand/roorkee|an engineering-college city with IIT Roorkee, defence and industrial work|edu,secur,mfg
+uttarakhand/rudrapur|an industrial city with auto, FMCG and SIDCUL manufacturing units|auto,mfg,logi
+west-bengal/asansol|a coal and railway belt with steel units, contractors and trading|steel,logi,retail
+west-bengal/bankura|a district town known for terracotta work, farming and education|hand,agro,edu
+west-bengal/barasat|a North 24 Parganas district town on Kolkata's edge with retail, schools and small industry|retail,edu,msme
+west-bengal/bardhaman|a rice-belt and trading city with university, farming and small industry|agro,edu,retail
+west-bengal/durgapur|a planned steel city with steel plants, power, engineering colleges and ancillaries|steel,power,edu
+west-bengal/haldia|a port and petrochemical complex with shipping, chemicals and logistics|port,mfg,logi
+west-bengal/hooghly|a district with jute mills, farming and small industry|tex,agro,msme
+west-bengal/howrah|an industrial city with engineering workshops, jute mills and rail hubs|mfg,tex,logi
+west-bengal/jalpaiguri|a tea and timber district town with plantations and North Bengal trade|tea,agro,logi
+west-bengal/kharagpur|a railway and IIT city with workshops and education|logi,edu,msme
+west-bengal/kolkata|a port and financial city with trading, publishing, hospitals, IT and a large SME base|retail,health,it
+west-bengal/krishnanagar|a clay-doll, sweets and trading town in Nadia district|hand,food,retail
+west-bengal/malda|a mango and silk city with trading, farming and border-side commerce|agro,tex,border
+west-bengal/medinipur|a district headquarters with farming, education, government work and small industry|agro,edu,govt
+west-bengal/siliguri|a North Bengal gateway with tea trading, logistics, retail and tourism|tea,logi,retail

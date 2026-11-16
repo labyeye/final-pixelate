@@ -1,0 +1,111 @@
+andaman-and-nicobar-islands/diglipur|a remote North Andaman town where farming, fishing and island tourism shape local work|agro,fish,tour
+andaman-and-nicobar-islands/havelock|the island best known for beach tourism, dive shops and resorts|tour,secur,retail
+andaman-and-nicobar-islands/neil-island|a small tourism island of homestays, resorts and local transport|tour,retail,logi
+andaman-and-nicobar-islands/port-blair|the capital and port of the Andamans, driven by government offices, tourism and island shipping|govt,tour,port
+andhra-pradesh/anantapur|a Rayalaseema district town with agriculture, spinning units and a growing auto cluster nearby|agro,tex,auto
+andhra-pradesh/chittoor|a fruit-pulp and mango processing hub close to the Tamil Nadu and Karnataka borders|food,agro,msme
+andhra-pradesh/eluru|a delta-region town known for aquaculture, rice trade and carpet weaving|fish,agro,hand
+andhra-pradesh/guntur|famous for its chilli market, cotton and tobacco trade, and coaching institutes|agro,retail,edu
+andhra-pradesh/kadapa|a Rayalaseema town with mining, cement units and agriculture|steel,mfg,agro
+andhra-pradesh/kakinada|a port and industrial city with fertiliser plants and an active aquaculture trade|port,mfg,fish
+andhra-pradesh/kurnool|a trading city with agriculture, solar projects and spinning mills|agro,power,tex
+andhra-pradesh/machilipatnam|a coastal port town known for aquaculture and Kalamkari handicrafts|fish,hand,port
+andhra-pradesh/nellore|a coastal district city known for aquaculture, rice mills and granite|fish,agro,mfg
+andhra-pradesh/ongole|a granite and agri-trade town on the coastal highway|mfg,agro,retail
+andhra-pradesh/rajahmundry|a Godavari-bank city of paper mills, agri-trade and tourism|mfg,agro,tour
+andhra-pradesh/srikakulam|a northern coastal district with fishing, farming and small processing units|fish,agro,msme
+andhra-pradesh/tirupati|a pilgrimage city with large hospitality, retail and electronics manufacturing presence|tour,retail,mfg
+andhra-pradesh/vijayawada|the commercial hub of coastal Andhra, with wholesale markets, transport and education|retail,logi,edu
+andhra-pradesh/visakhapatnam|a major port and steel city with shipping, pharma and a fast-growing IT sector|port,steel,it
+arunachal-pradesh/along|a hill district town where government work, farming and small trade dominate|govt,agro,retail
+arunachal-pradesh/bomdila|a Himalayan town of orchards, tourism and government offices|tour,agro,govt
+arunachal-pradesh/itanagar|the state capital with government departments, contractors and growing private services|govt,build,retail
+arunachal-pradesh/naharlagun|the twin town of Itanagar with offices, schools and small industrial units|govt,msme,edu
+arunachal-pradesh/namsai|an eastern district town with tea, farming and border-side trade|tea,agro,border
+arunachal-pradesh/pasighat|an East Siang town of schools, government work and river-valley farming|edu,govt,agro
+arunachal-pradesh/roing|a Lower Dibang Valley town with agriculture and growing tourism|agro,tour,govt
+arunachal-pradesh/tawang|a high-altitude monastery town driven by tourism and army-linked services|tour,secur,retail
+arunachal-pradesh/tezu|a Lohit district town of orchards, government work and local trade|agro,govt,retail
+arunachal-pradesh/ziro|a valley town known for tourism, homestays and farming|tour,agro,hand
+assam/barpeta|a Lower Assam town of farming, handloom and local trade|agro,hand,retail
+assam/bongaigaon|an industrial town with a refinery and oil-linked contractors|power,mfg,logi
+assam/dhubri|a Brahmaputra-side border town with river trade and jute|border,agro,logi
+assam/dibrugarh|the tea and oil capital of Upper Assam, with plantations, hospitals and coaching institutes|tea,power,health
+assam/diphu|the Karbi Anglong headquarters with government work, farming and local business|govt,agro,retail
+assam/goalpara|a river town with farming, small trade and government offices|agro,retail,govt
+assam/golaghat|a tea and farming district town with plantations and agro units|tea,agro,food
+assam/guwahati|the commercial capital of the North-East, with hospitals, education, IT and wholesale trade|health,edu,retail
+assam/jorhat|a tea city with plantations, research institutes and colleges|tea,edu,agro
+assam/nagaon|a central Assam trading town with agriculture, schools and small manufacturing|agro,edu,msme
+assam/north-lakhimpur|a northern Assam town of tea gardens, farming and border-side trade|tea,agro,retail
+assam/silchar|the Barak Valley hub for trade, hospitals and education|retail,health,edu
+assam/sivasagar|a historic tea and oil district with plantations and tourism|tea,power,tour
+assam/tezpur|a Brahmaputra-bank town with tea, education and defence-linked services|tea,edu,secur
+assam/tinsukia|a tea, oil and railway hub with plantations and trading houses|tea,power,logi
+bihar/araria|a Seemanchal district with farming, makhana and cross-border trade|agro,food,border
+bihar/arrah|a Bhojpur district town with farming, coaching institutes and wholesale trade|agro,edu,retail
+bihar/aurangabad|a Magadh-region town of farming, small industry and coaching centres|agro,edu,msme
+bihar/banka|a district town where agriculture, silk work and government offices dominate|agro,hand,govt
+bihar/begusarai|an industrial district with a refinery, fertiliser plant and thermal power|power,mfg,logi
+bihar/bettiah|a West Champaran town with sugarcane, farming and border trade|agro,border,retail
+bihar/bhabua|the Kaimur headquarters with farming, cement links and government work|agro,mfg,govt
+bihar/bhagalpur|the silk city, known for Bhagalpuri silk weaving, a university and hospitals|tex,edu,health
+bihar/bihar-sharif|the Nalanda district headquarters with schools, tourism and small industry|edu,tour,msme
+bihar/buxar|a Ganga-side town with a power project, farming and local trade|power,agro,retail
+bihar/chhapra|a Saran district town of farming, schools and wholesale markets|agro,edu,retail
+bihar/darbhanga|a Mithila town known for its medical college, makhana trade and education|health,food,edu
+bihar/gaya|a pilgrimage and tourism city with hotels, hospitals and coaching institutes|tour,health,edu
+bihar/gopalganj|a farming and trade district town close to the Uttar Pradesh border|agro,retail,logi
+bihar/hajipur|an industrial town across the river from Patna with banana trade, pharma and logistics|pharma,logi,agro
+bihar/jamui|a district town with farming, mining belts and government work|agro,steel,govt
+bihar/jehanabad|a small Magadh district town with farming, schools and local trade|agro,edu,retail
+bihar/katihar|a rail junction town with jute, maize trade and warehousing|agro,logi,retail
+bihar/khagaria|a Kosi-belt town with maize, banana farming and agri-trade|agro,food,retail
+bihar/kishanganj|a Seemanchal border town with tea gardens, farming and education institutes|tea,agro,edu
+bihar/lakhisarai|a district town with farming, brick kilns and small industry|agro,build,msme
+bihar/madhepura|a Kosi-region town with locomotive works, farming and local trade|mfg,agro,retail
+bihar/madhubani|the home of Madhubani painting, with handicrafts, farming and schools|hand,agro,edu
+bihar/motihari|an East Champaran town with sugar mills, farming and border-side trade|agro,food,border
+bihar/munger|a Ganga-side town known for its gun-making heritage, tobacco products and railway works|mfg,msme,logi
+bihar/muzaffarpur|famous for litchi, a large wholesale market, coaching institutes and hospitals|agro,retail,edu
+bihar/nawada|a Magadh-region town of farming, small shops and government offices|agro,retail,govt
+bihar/patna|the state capital, with government offices, coaching institutes, hospitals and a large retail market|govt,edu,health
+bihar/purnia|a Seemanchal city with maize and jute trade, warehouses and hospitals|agro,logi,health
+bihar/saharsa|a Kosi-region town of farming, retail trade and schools|agro,retail,edu
+bihar/samastipur|a rail-junction town with farming, retail trade and warehousing|agro,logi,retail
+bihar/sasaram|a Rohtas district town with stone and cement links, farming and trade|mfg,agro,retail
+bihar/sheikhpura|one of Bihar's smaller districts, with farming and local trade|agro,retail,govt
+bihar/sheohar|Bihar's smallest district, where farming and local shops drive work|agro,retail,govt
+bihar/sitamarhi|a pilgrimage town with farming, wholesale trade and cross-border business|tour,agro,border
+bihar/siwan|a Saran-division town with farming, retail and a large community working in other cities and abroad|agro,retail,edu
+bihar/supaul|a Kosi-belt border district with farming, construction and local markets|agro,build,border
+chhattisgarh/ambikapur|the Surguja headquarters with coal-belt services, farming and trade|steel,agro,retail
+chhattisgarh/bhilai|a steel city built around the Bhilai Steel Plant and its ancillary units|steel,mfg,msme
+chhattisgarh/bilaspur|a railway zone and legal hub with coal logistics, schools and retail|logi,edu,retail
+chhattisgarh/dhamtari|a rice-belt town with agro mills, farming and local trade|agro,food,retail
+chhattisgarh/durg|a twin city of Bhilai with industrial estates, schools and wholesale trade|mfg,edu,retail
+chhattisgarh/jagdalpur|the Bastar hub with forest produce, tribal handicrafts and government work|hand,agro,govt
+chhattisgarh/korba|a power and coal city with thermal plants, aluminium units and contractors|power,steel,build
+chhattisgarh/raigarh|a steel, power and jute city with sponge-iron plants and mining contractors|steel,power,logi
+chhattisgarh/raipur|the state capital, with steel and rice-mill industry, hospitals and a busy commercial market|steel,health,retail
+chhattisgarh/rajnandgaon|a textile and agro town with mills, farming and wholesale trade|tex,agro,retail
+delhi/dwarka|a planned West Delhi sub-city with offices, schools, hospitals and service businesses|it,edu,health
+delhi/janakpuri|a West Delhi district centre with showrooms, clinics, coaching centres and offices|retail,health,edu
+delhi/karol-bagh|a long-established market area known for retail, jewellery and wholesale trade|retail,jew,logi
+delhi/laxmi-nagar|an East Delhi hub with coaching institutes, small shops and IT offices|edu,retail,it
+delhi/nehru-place|Asia's best-known IT hardware market with software firms, traders and service centres|it,retail,msme
+delhi/new-delhi|the capital's government core with ministries, contractors, hotels and corporate offices|govt,tour,secur
+delhi/pitampura|a North-West Delhi residential-commercial area with clinics, schools and small offices|health,edu,retail
+delhi/preet-vihar|an East Delhi commercial area with offices, banks, coaching and retail|retail,edu,it
+delhi/rohini|a large North-West Delhi sub-city with schools, hospitals, offices and small factories|edu,health,msme
+delhi/saket|a South Delhi hub of malls, hospitals, restaurants and corporate offices|retail,health,it
+delhi/shahdara|an East Delhi area with small factories, wholesale markets and logistics|msme,retail,logi
+delhi/vasant-kunj|a South Delhi area of malls, hospitals, hotels and corporate offices|retail,health,tour
+goa/bicholim|a North Goa town with mining history, farming and small industry|steel,agro,msme
+goa/calangute|Goa's best-known beach belt with hotels, restaurants, shacks and water-sport operators|tour,retail,secur
+goa/canacona|a South Goa town of beach resorts, farming and small shops|tour,agro,retail
+goa/mapusa|a North Goa market town serving tourism, retail and small industry|retail,tour,msme
+goa/margao|South Goa's commercial centre with retail, hospitality and small industry|retail,tour,msme
+goa/panaji|the state capital with government offices, hotels, casinos and services|govt,tour,it
+goa/ponda|a central Goa town with industrial estates, temples and retail|msme,tour,retail
+goa/vasco-da-gama|a port and shipyard town with logistics, hotels and airport-linked services|port,logi,tour

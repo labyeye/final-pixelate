@@ -1,0 +1,4 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from loadtxt import load
+PAGES = load('p7.txt')

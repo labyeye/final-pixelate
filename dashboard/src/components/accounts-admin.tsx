@@ -134,14 +134,35 @@ export function AccountsAdmin({ product, title }: { product: string; title: stri
   );
 }
 
+// Price (ex-GST) + GST for the slab the employee limit falls in; products without meta.pricing return null.
+function quote(meta: any, limits: Record<string, any>, flags: Record<string, boolean>) {
+  const p = meta.pricing;
+  if (!p) return null;
+  const slab = p.slabs.find((s: any) => Number(limits.maxEmployees) <= s.maxEmployees);
+  if (!slab) return { over: true as const };
+  const base: number = slab.prices[flags[p.flag] ? "geo" : "normal"];
+  const gst = Math.round(base * p.gstRate);
+  return { over: false as const, base, gst, total: base + gst };
+}
+
 function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; onClose: () => void; meta: any; call: any; onDone: () => void }) {
-  const empty = () => ({
-    name: "", adminName: "", email: "", phone: "", password: "", months: "1", amountPaid: "0", free: false,
-    plan: meta.planOptions ? meta.planOptions[0] : "", limits: { ...meta.createLimitDefaults } as Record<string, any>,
-    flags: Object.fromEntries((meta.flagFields ?? []).map((f: any) => [f.key, true])) as Record<string, boolean>,
-    extra: Object.fromEntries((meta.createExtraFields ?? []).map((f: any) => [f.key, f.options ? f.options[0] : ""])) as Record<string, string>,
-  });
+  const empty = () => {
+    const base = {
+      name: "", adminName: "", email: "", phone: "", password: "", months: "1", amountPaid: "0", free: false,
+      plan: meta.planOptions ? meta.planOptions[0] : "", limits: { ...meta.createLimitDefaults } as Record<string, any>,
+      flags: Object.fromEntries((meta.flagFields ?? []).map((f: any) => [f.key, f.default ?? true])) as Record<string, boolean>,
+      extra: Object.fromEntries((meta.createExtraFields ?? []).map((f: any) => [f.key, f.options ? f.options[0] : ""])) as Record<string, string>,
+    };
+    return withQuote(base);
+  };
+  // Re-prefill "Amount paid" (price + GST) and a 12-month term whenever employee limit or plan flag changes.
+  const withQuote = (next: any) => {
+    const q = quote(meta, next.limits, next.flags);
+    return q && !q.over ? { ...next, amountPaid: String(q.total), months: "12" } : next;
+  };
+
   const [f, setF] = useState<any>(empty);
+  const q = quote(meta, f.limits, f.flags);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<any>(null);
@@ -184,18 +205,27 @@ function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; on
             <Field label="Login email *" type="email" value={f.email} onChange={(v) => setF({ ...f, email: v })} required />
             <Field label="Password (blank = auto-generate)" value={f.password} onChange={(v) => setF({ ...f, password: v })} autoComplete="off" />
             {meta.planOptions && <Select label="Plan" value={f.plan} options={meta.planOptions} onChange={(v) => setF({ ...f, plan: v })} />}
-            {!meta.planOptions && <Field label="Plan name" value={f.plan} onChange={(v) => setF({ ...f, plan: v })} placeholder="e.g. NestHR 2000" />}
+            {!meta.planOptions && <Field label="Plan name (blank = auto: NestHR / NestHR Geo Tracking)" value={f.plan} onChange={(v) => setF({ ...f, plan: v })} placeholder="e.g. NestHR 2000" />}
+            {meta.pricing && (() => {
+              const slabs: any[] = meta.pricing.slabs;
+              const cur = slabs.find((s) => s.maxEmployees === Number(f.limits.maxEmployees));
+              return <Select label="Plan size (pick the plan they bought)" value={cur ? String(cur.maxEmployees) : "custom"}
+                options={[...slabs.map((s) => String(s.maxEmployees)), "custom"]}
+                labels={[...slabs.map((s) => `Up to ${s.maxEmployees} employees — ₹${s.prices.normal.toLocaleString("en-IN")} / Geo ₹${s.prices.geo.toLocaleString("en-IN")} + GST`), "Custom (type employee limit below)"]}
+                onChange={(v) => v !== "custom" && setF(withQuote({ ...f, limits: { ...f.limits, maxEmployees: v } }))} />;
+            })()}
             <div className="grid grid-cols-3 gap-3">
-              {meta.limitFields.map((l: any) => <Field key={l.key} label={l.label} type="number" min={0} value={f.limits[l.key]} onChange={(v) => setF({ ...f, limits: { ...f.limits, [l.key]: v } })} />)}
+              {meta.limitFields.map((l: any) => <Field key={l.key} label={l.label} type="number" min={0} value={f.limits[l.key]} onChange={(v) => setF(withQuote({ ...f, limits: { ...f.limits, [l.key]: v } }))} />)}
               <Field label="Months of access" type="number" min={1} max={36} value={f.months} onChange={(v) => setF({ ...f, months: v })} />
               {meta.paymentStatusOptions && <Field label="Amount paid ₹" type="number" min={0} value={f.amountPaid} onChange={(v) => setF({ ...f, amountPaid: v })} />}
             </div>
             {(meta.flagFields ?? []).map((fl: any) => (
-              <label key={fl.key} className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={!!f.flags[fl.key]} onChange={(e) => setF({ ...f, flags: { ...f.flags, [fl.key]: e.target.checked } })} /> {fl.label}</label>
+              <label key={fl.key} className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={!!f.flags[fl.key]} onChange={(e) => setF(withQuote({ ...f, flags: { ...f.flags, [fl.key]: e.target.checked } }))} /> {fl.label}</label>
             ))}
             {(meta.createExtraFields ?? []).map((x: any) => x.options
               ? <Select key={x.key} label={x.label} value={f.extra[x.key]} options={x.options} onChange={(v) => setF({ ...f, extra: { ...f.extra, [x.key]: v } })} />
               : <Field key={x.key} label={x.label} value={f.extra[x.key]} onChange={(v) => setF({ ...f, extra: { ...f.extra, [x.key]: v } })} />)}
+            {q && <p className="text-xs font-bold">{q.over ? "More than 50 employees: custom quote, contact sales." : `Price ₹${q.base.toLocaleString("en-IN")} + 18% GST ₹${q.gst.toLocaleString("en-IN")} = ₹${q.total.toLocaleString("en-IN")} per year (amount prefilled, editable)`}</p>}
             {meta.supportsFree && <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={!!f.free} onChange={(e) => setF({ ...f, free: e.target.checked })} /> Free / lifetime (no payment, never expires)</label>}
             <p className="text-xs text-muted-foreground">Creates the owner login and an active plan. No invoice is generated; bill separately once payment is confirmed.</p>
             {error && <p className="text-sm font-bold text-red-600">{error}</p>}

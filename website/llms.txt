@@ -35,6 +35,8 @@ SEO optimization, social media marketing, content marketing, paid advertising, a
 
 ## Products
 
+- **NestHR Attendance Management Software**: Biometric, face recognition, GPS geo-fence and selfie attendance with shifts, overtime, leave management and payroll (PF, ESI, TDS). URL: https://www.pixelatenest.com/products/attendance-management-software.html
+- **NestHR Attendance & Payroll Software**: Full HRMS with attendance, leave, payroll and compliance. URL: https://www.pixelatenest.com/products/attendance-payroll-software.html
 - **Counter Billing Software**: POS and billing solution for retail businesses
 - **Factory Management Software**: Production planning, inventory, quality control for manufacturing
 - **School CRM/Management System**: Student enrollment, attendance, fees, and academic management
