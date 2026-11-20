@@ -1,14 +1,16 @@
 """Writes pages/nesthr-user-manual.html: flip-book viewer (StPageFlip) over the page images in
 assets/docs/user-manual/pages/ plus a PDF download button. Re-run after replacing the PDF
 (re-render the images first: see tools/render-nesthr-manual.py)."""
-import os
+import os, sys
+from manuals_config import MANUALS, ROOT, d
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-N = len(os.listdir(os.path.join(ROOT, "assets/docs/user-manual/pages")))
-PDF = "/assets/docs/user-manual/NestHR_Web_User_Manual.pdf"
+M = MANUALS[sys.argv[1] if len(sys.argv) > 1 else "hr"]
+N = len(os.listdir(d(M) + "/pages"))
+PDF = "/assets/docs/user-manual/" + M["pdf"]
+IMG = "/assets/docs/user-manual/" + M["sub"] + "pages"
 
 pages = "\n".join(
-    f'<div class="page"><img data-src="/assets/docs/user-manual/pages/p{i:02d}.webp" alt="NestHR user manual page {i}" draggable="false"></div>'
+    f'<div class="page"><img data-src="{IMG}/p{i:02d}.webp" alt="{M['name']} user manual page {i}" draggable="false"></div>'
     for i in range(1, N + 1)
 )
 
@@ -19,9 +21,9 @@ HTML = """<!doctype html>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-T64KPYDX6P");</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NestHR User Manual: Read Online or Download PDF | Pixelate Nest</title>
-<meta name="description" content="The complete NestHR user manual as a flip book. Read it online or download the PDF: attendance, leave, payroll and reports explained step by step.">
-<link rel="canonical" href="https://www.pixelatenest.com/pages/nesthr-user-manual.html">
+<title>@NAME@ User Manual: Read Online or Download PDF | Pixelate Nest</title>
+<meta name="description" content="@DESC@">
+<link rel="canonical" href="https://www.pixelatenest.com/pages/@VIEWER@">
 <style>
 :root{--bg:#f4f7fb;--ink:#0b1220;--blue:#024BAB;--bar:#fff}
 @media (prefers-color-scheme:dark){:root{--bg:#0b1220;--ink:#e8eefc;--bar:#121a2b}}
@@ -40,8 +42,8 @@ footer span{min-width:90px;text-align:center;font-weight:700;font-size:.9rem}
 </head>
 <body>
 <header>
-  <a class="back" href="https://www.pixelatenest.com/products/attendance-payroll-software.html">&larr; NestHR</a>
-  <h1>NestHR User Manual</h1>
+  <a class="back" href="https://www.pixelatenest.com@BACK@">&larr; @NAME@</a>
+  <h1>@NAME@ User Manual</h1>
   <a class="btn" href="@PDF@" download>Download PDF</a>
 </header>
 <main><div id="book">
@@ -76,7 +78,7 @@ document.addEventListener("keydown",function(e){if(e.key==="ArrowRight")pf.flipN
 </html>
 """
 
-out = HTML.replace("@PAGES@", pages).replace("@PDF@", PDF).replace("@N@", str(N))
-with open(os.path.join(ROOT, "pages/nesthr-user-manual.html"), "w", encoding="utf-8") as f:
+out = HTML.replace("@NAME@", M["name"]).replace("@DESC@", M["desc"]).replace("@VIEWER@", M["viewer"]).replace("@BACK@", M["back"]).replace("@PAGES@", pages).replace("@PDF@", PDF).replace("@N@", str(N))
+with open(os.path.join(ROOT, "pages/" + M["viewer"]), "w", encoding="utf-8") as f:
     f.write(out)
 print("pages:", N)
