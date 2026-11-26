@@ -382,6 +382,14 @@
       "namedRegex": "^/quotations/(?<nxtPid>[^/]+?)/view(?:/)?$"
     },
     {
+      "page": "/welcome/[token]",
+      "regex": "^/welcome/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPtoken": "nxtPtoken"
+      },
+      "namedRegex": "^/welcome/(?<nxtPtoken>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/work-gallery/edit/[id]",
       "regex": "^/work\\-gallery/edit/([^/]+?)(?:/)?$",
       "routeKeys": {

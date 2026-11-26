@@ -230,5 +230,6 @@
   "/api/work-gallery/[id]/thumb/route": "/api/work-gallery/[id]/thumb",
   "/api/work-gallery/route": "/api/work-gallery",
   "/login/page": "/login",
-  "/page": "/"
+  "/page": "/",
+  "/welcome/[token]/page": "/welcome/[token]"
 }
