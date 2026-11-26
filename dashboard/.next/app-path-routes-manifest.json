@@ -87,6 +87,7 @@
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/api/about-team/route": "/api/about-team",
+  "/api/account-deletions/route": "/api/account-deletions",
   "/api/agreements/[id]/pdf/route": "/api/agreements/[id]/pdf",
   "/api/agreements/route": "/api/agreements",
   "/api/announcement/route": "/api/announcement",

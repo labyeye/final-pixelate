@@ -87,6 +87,7 @@
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/api/about-team/route": "app/api/about-team/route.js",
+  "/api/account-deletions/route": "app/api/account-deletions/route.js",
   "/api/agreements/[id]/pdf/route": "app/api/agreements/[id]/pdf/route.js",
   "/api/agreements/route": "app/api/agreements/route.js",
   "/api/announcement/route": "app/api/announcement/route.js",

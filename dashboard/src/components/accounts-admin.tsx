@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { DeleteAccount, ScheduledDeletions } from "@/components/account-delete-ui";
 import { Building2, Copy, KeyRound, Plus, RefreshCw, Search, Settings2, Trash2 } from "lucide-react";
 
 // Uniform account control for every product (list, create, edit, subscription, users). The form fields come from the
@@ -66,6 +67,7 @@ export function AccountsAdmin({ product, title }: { product: string; title: stri
   const [error, setError] = useState<string | null>(null);
   const [createOpen, setCreateOpen] = useState(false);
   const [manageId, setManageId] = useState<string | null>(null);
+  const [delKey, setDelKey] = useState(0);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -100,6 +102,8 @@ export function AccountsAdmin({ product, title }: { product: string; title: stri
         <Input className="pl-9 border-2 border-black" placeholder="Search name or email" value={search} onChange={(e) => setSearch(e.target.value)} />
       </div>
 
+      <ScheduledDeletions product={product} refreshKey={delKey} onChanged={load} />
+
       {error && <div className="border-2 border-red-400 bg-red-50 p-4 text-sm font-bold text-red-700">{error}</div>}
 
       <div className="border-2 border-black overflow-x-auto">
@@ -129,7 +133,7 @@ export function AccountsAdmin({ product, title }: { product: string; title: stri
       </div>
 
       {meta && <CreateDialog open={createOpen} onClose={() => setCreateOpen(false)} meta={meta} call={call} onDone={load} />}
-      {manageId && <ManageDialog id={manageId} call={call} onClose={() => setManageId(null)} onChanged={load} />}
+      {manageId && <ManageDialog id={manageId} product={product} call={call} onClose={() => setManageId(null)} onChanged={() => { load(); setDelKey((k) => k + 1); }} />}
     </div>
   );
 }
@@ -238,7 +242,7 @@ function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; on
   );
 }
 
-function ManageDialog({ id, call, onClose, onChanged }: { id: string; call: any; onClose: () => void; onChanged: () => void }) {
+function ManageDialog({ id, product, call, onClose, onChanged }: { id: string; product: string; call: any; onClose: () => void; onChanged: () => void }) {
   const [d, setD] = useState<any>(null);
   const [acc, setAcc] = useState<any>({});
   const [sub, setSub] = useState<any>({});
@@ -366,6 +370,7 @@ function ManageDialog({ id, call, onClose, onChanged }: { id: string; call: any;
               <Button size="sm" className="col-span-2 border-2 border-black font-bold" disabled={busy}
                 onClick={() => run("Login added", async () => { const r = await call(`/${id}/users`, "POST", nu); setNu({ name: "", email: "", role: m.defaultRole, password: "" }); return r; })}>Add login</Button>
             </div>
+            <DeleteAccount product={product} id={id} name={acc.name ?? ""} onDone={onChanged} />
             <p className="text-xs text-muted-foreground">Delete removes the login only; business records (employees, members, payroll…) stay. The owner login cannot be deleted; set the account to inactive / suspended instead.</p>
           </div>
         )}

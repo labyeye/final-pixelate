@@ -448,6 +448,12 @@
       "namedRegex": "^/api/about\\-team(?:/)?$"
     },
     {
+      "page": "/api/account-deletions",
+      "regex": "^/api/account\\-deletions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/account\\-deletions(?:/)?$"
+    },
+    {
       "page": "/api/agreements",
       "regex": "^/api/agreements(?:/)?$",
       "routeKeys": {},

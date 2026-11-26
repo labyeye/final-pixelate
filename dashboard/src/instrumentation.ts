@@ -56,6 +56,13 @@ export async function register() {
     },
   ];
 
+  // 30-day account deletions: purge whatever is due, hourly (also checked whenever the Accounts page is opened).
+  if (process.env.DB_MANAGER_URI) {
+    const purge = () => import("@/lib/account-delete").then((m) => m.purgeDue()).catch((e) => console.log("account purge:", e?.message ?? e));
+    setTimeout(purge, 60_000).unref?.();
+    setInterval(purge, 3_600_000).unref?.();
+  }
+
   console.log("— Checking connected product backends —");
   await Promise.all(products.map(checkProduct));
 }

@@ -30,8 +30,8 @@ async function proxy(request: NextRequest, { params }: { params: Promise<{ produ
     if (request.method === "POST" && !path && data.email && data.password) {
       const b = JSON.parse(reqText || "{}");
       data.welcome = await sendWelcome({
-        product: p.label, name: b.adminName || b.name || "there", email: data.email, phone: b.phone || "", password: data.password,
-        loginUrl: process.env[`${product.toUpperCase()}_LOGIN_URL`] || "", validTill: data.validTill,
+        productId: product, product: p.label, name: b.adminName || b.name || "there", company: b.name, email: data.email, phone: b.phone || "", password: data.password,
+        validTill: data.validTill,
       }).catch((e) => ({ email: `failed: ${e.message}`, whatsapp: "skipped" }));
     }
     return NextResponse.json(data, { status: res.status });

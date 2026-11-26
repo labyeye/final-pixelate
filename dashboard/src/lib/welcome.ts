@@ -7,7 +7,18 @@ import { makeCertificate } from "./welcome-certificate";
 // animation/JS, so the mail shows a static envelope and the animation lives on the /welcome/[token] page.
 const KEY = () => crypto.createHash("sha256").update(process.env.WELCOME_SECRET || process.env.JWT_SECRET || "dev-secret-change-me").digest();
 
-export type Welcome = { product: string; name: string; email: string; password: string; loginUrl: string; validTill?: string; exp: number };
+// Brand colours (sampled from the Pixelate Nest logo).
+export const BRAND = { blue: "#0048A8", navy: "#0A2A5E", orange: "#F87018", ink: "#1a2233" };
+
+// Where each product lives. Add a product here as it gets rolled out; missing = no button on the card.
+export const APP_LINKS: Record<string, { web?: string; play?: string }> = {
+  hrms: { web: "https://hrms.pixelatenest.com", play: "https://play.google.com/store/apps/details?id=com.nestleads" },
+};
+
+export type Welcome = {
+  product: string; name: string; company?: string; phone?: string; email: string; password: string;
+  web?: string; play?: string; validTill?: string; exp: number;
+};
 
 export function sealWelcome(w: Omit<Welcome, "exp">) {
   const iv = crypto.randomBytes(12);
@@ -29,38 +40,47 @@ export function openWelcome(token: string): Welcome | null {
 }
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+const appBase = () => (process.env.NEXT_PUBLIC_APP_URL || "").replace(/\/$/, "");
+export const logoUrl = () => `${appBase()}/assets/images/Logo_Color_Name_Large.png`;
 
-export function welcomeHtml(w: { product: string; name: string }, cardUrl: string) {
-  const site = process.env.WEBSITE_URL || "";
+export function welcomeHtml(w: { product: string; name: string; company?: string }, cardUrl: string) {
+  const { blue, navy, orange, ink } = BRAND;
   const p = esc(w.product);
   const n = esc(w.name);
-  return `<!DOCTYPE html><html><body style="margin:0;background:#eef1f5;font-family:Helvetica,Arial,sans-serif;color:#1a1a1a">
-<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#eef1f5"><tr><td align="center" style="padding:24px 12px">
-<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#fff;border-radius:6px;overflow:hidden">
-<tr><td bgcolor="#1a1a1a" style="padding:20px 28px"><img src="${site}/assets/logo-2.webp" height="44" alt="Pixelate Nest" style="display:block"></td></tr>
-<tr><td height="4" bgcolor="#ff640d" style="font-size:0;line-height:0">&nbsp;</td></tr>
-<tr><td style="padding:36px 28px 8px"><p style="margin:0;font-size:12px;letter-spacing:2px;color:#ff640d;font-weight:bold">WELCOME ABOARD</p>
-<h1 style="margin:8px 0 12px;font-size:26px">Hello ${n}, your ${p} account is ready.</h1>
-<p style="margin:0;font-size:15px;line-height:1.6;color:#555">We have sent you a sealed card with your login details. Open it to get started. Your Certificate of Welcome is attached to this email.</p></td></tr>
-<tr><td align="center" style="padding:28px">
-<table width="320" cellpadding="0" cellspacing="0" style="width:320px;max-width:100%"><tr><td align="center" bgcolor="#f3d9a4" style="border:2px solid #1a1a1a;border-radius:6px;padding:46px 20px">
-<div style="font-size:34px;line-height:1">&#9993;</div>
-<p style="margin:10px 0 18px;font-size:13px;color:#6b4e16;letter-spacing:1px">SEALED FOR ${n.toUpperCase()}</p>
-<a href="${cardUrl}" style="display:inline-block;background:#1a1a1a;color:#fff;text-decoration:none;font-weight:bold;font-size:15px;padding:13px 26px;border-radius:4px">Open your card</a>
+  const step = (i: number, t: string) =>
+    `<tr><td width="34" valign="top" style="padding:0 0 12px"><div style="width:24px;height:24px;border-radius:12px;background:${blue};color:#fff;font-size:12px;font-weight:bold;line-height:24px;text-align:center">${i}</div></td><td style="padding:2px 0 12px;font-size:14px;line-height:1.5;color:#444">${t}</td></tr>`;
+  return `<!DOCTYPE html><html><body style="margin:0;background:#eef2f9;font-family:Helvetica,Arial,sans-serif;color:${ink}">
+<div style="display:none;max-height:0;overflow:hidden">Your ${p} account is ready. Open your welcome card to get started.</div>
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#eef2f9"><tr><td align="center" style="padding:28px 12px">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #dfe6f3">
+<tr><td align="center" bgcolor="#ffffff" style="padding:26px 28px 20px"><img src="${logoUrl()}" width="190" alt="Pixelate Nest" style="display:block;border:0;height:auto"></td></tr>
+<tr><td height="5" bgcolor="${blue}" style="font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td height="3" bgcolor="${orange}" style="font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td style="padding:34px 36px 6px"><p style="margin:0;font-size:12px;letter-spacing:2px;color:${orange};font-weight:bold">WELCOME TO THE PIXELATE NEST FAMILY</p>
+<h1 style="margin:10px 0 12px;font-size:25px;line-height:1.3;color:${blue}">Dear ${n}, your ${p} account is ready.</h1>
+<p style="margin:0;font-size:15px;line-height:1.7;color:#444">We are honoured to have ${w.company ? `<b>${esc(w.company)}</b>` : "you"} onboard. Your personal welcome card, sealed with your account details, is waiting for you below. A Certificate of Welcome is attached to this email.</p></td></tr>
+<tr><td align="center" style="padding:26px 36px">
+<table width="330" cellpadding="0" cellspacing="0" style="width:330px;max-width:100%"><tr><td align="center" bgcolor="${blue}" style="border-radius:8px;padding:26px 20px">
+<table cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#ffffff" style="border-radius:6px;padding:12px 20px"><img src="${logoUrl()}" width="140" alt="" style="display:block;border:0;height:auto"></td></tr></table>
+<p style="margin:16px 0 4px;font-size:11px;letter-spacing:2px;color:#cfe0ff">A SEALED CARD FOR</p>
+<p style="margin:0 0 18px;font-size:17px;font-weight:bold;color:#ffffff">${n}</p>
+<a href="${cardUrl}" style="display:inline-block;background:${orange};color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;padding:13px 30px;border-radius:5px">Open your card</a>
 </td></tr></table></td></tr>
-<tr><td style="padding:0 28px 28px;font-size:13px;line-height:1.6;color:#777">The card link works for 7 days. For your security, please change your password after your first login. Need help? Just reply to this email.</td></tr>
-<tr><td bgcolor="#1a1a1a" align="center" style="padding:18px;font-size:12px;color:#999">&copy; 2026 Kalahanu Tech Studios LLP &middot; Pixelate Nest</td></tr>
+<tr><td style="padding:4px 36px 10px"><p style="margin:0 0 12px;font-size:13px;letter-spacing:1.5px;color:${navy};font-weight:bold">GETTING STARTED</p>
+<table cellpadding="0" cellspacing="0" width="100%">${step(1, "Open your welcome card to see your account details.")}${step(2, `Sign in on the ${p} web app, or install the mobile app from the card.`)}${step(3, "Change your password after your first sign-in.")}</table></td></tr>
+<tr><td style="padding:6px 36px 30px;font-size:13px;line-height:1.7;color:#777">The card link stays valid for 7 days. Need a hand? Simply reply to this email and our team will help you.</td></tr>
+<tr><td bgcolor="${navy}" align="center" style="padding:20px;font-size:12px;line-height:1.7;color:#a9bde0">&copy; 2026 Kalahanu Tech Studios LLP &middot; Pixelate Nest<br>Crafting Digital Experiences</td></tr>
 </table></td></tr></table></body></html>`;
 }
 
-async function sendMail(to: string, product: string, name: string, cardUrl: string, cert: Buffer, file: string) {
+async function sendMail(to: string, product: string, name: string, company: string | undefined, cardUrl: string, cert: Buffer, file: string) {
   const { EMAIL, APP_PASSWORD } = process.env;
   if (!EMAIL || !APP_PASSWORD) throw new Error("EMAIL/APP_PASSWORD not set");
   await nodemailer.createTransport({ service: "gmail", auth: { user: EMAIL, pass: APP_PASSWORD } }).sendMail({
     from: `Pixelate Nest <${EMAIL}>`,
     to,
     subject: `Welcome to ${product} - your account is ready`,
-    html: welcomeHtml({ product, name }, cardUrl),
+    html: welcomeHtml({ product, name, company }, cardUrl),
     attachments: [{ filename: file, content: cert, contentType: "application/pdf" }],
   });
 }
@@ -100,10 +120,10 @@ async function sendWhatsApp(phone: string, product: string, name: string, cardUr
   if (!r.ok) throw new Error(((await r.json().catch(() => null)) as any)?.error?.message ?? `WhatsApp ${r.status}`);
 }
 
-export async function sendWelcome(a: { product: string; name: string; email: string; phone: string; password: string; loginUrl: string; validTill?: string }) {
-  const base = (process.env.NEXT_PUBLIC_APP_URL || "").replace(/\/$/, "");
-  const token = sealWelcome({ product: a.product, name: a.name, email: a.email, password: a.password, loginUrl: a.loginUrl, validTill: a.validTill });
-  const cardUrl = `${base}/welcome/${token}`;
+export async function sendWelcome(a: { productId: string; product: string; name: string; company?: string; email: string; phone: string; password: string; validTill?: string }) {
+  const links = APP_LINKS[a.productId] ?? {};
+  const token = sealWelcome({ product: a.product, name: a.name, company: a.company, phone: a.phone, email: a.email, password: a.password, web: links.web, play: links.play, validTill: a.validTill });
+  const cardUrl = `${appBase()}/welcome/${token}`;
   const run = (f: () => Promise<void>) => f().then(() => "sent", (e: Error) => `failed: ${e.message}`);
   const file = "Pixelate-Nest-Certificate-of-Welcome.pdf";
   let cert: Buffer;
@@ -114,7 +134,7 @@ export async function sendWelcome(a: { product: string; name: string; email: str
     return { email: f, whatsapp: f };
   }
   const [email, whatsapp] = await Promise.all([
-    run(() => sendMail(a.email, a.product, a.name, cardUrl, cert, file)),
+    run(() => sendMail(a.email, a.product, a.name, a.company, cardUrl, cert, file)),
     run(() => sendWhatsApp(a.phone, a.product, a.name, cardUrl, cert, file)),
   ]);
   return { email, whatsapp };
