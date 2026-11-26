@@ -1,39 +1,24 @@
 import { MongoClient, ObjectId, Db } from "mongodb";
 import { getDb } from "@/lib/mongodb";
 
-// Whole-account removal for a product tenant, done straight on that product's Mongo DB (same root URI as /db-manager).
+// Whole-account removal for a product tenant, done straight on that product's Mongo DB.
 // Soft  = suspend now (company + every login inactive), purge automatically after 30 days, restorable until then.
 // Hard  = delete the company and everything that belongs to it right now (cannot be undone).
 // Only Nest HR is wired so far; add a product to SPECS to enable it.
-const SPECS: Record<string, { company: string; probe: string; users: string }> = {
-  hrms: { company: "companies", probe: "employees", users: "users" },
+const SPECS: Record<string, { company: string; users: string }> = {
+  hrms: { company: "companies", users: "users" },
 };
 export const deletable = (product: string) => product in SPECS;
 
-declare global { var _dbMgrClient: Promise<MongoClient> | undefined }
-const client = () => {
-  const uri = process.env.DB_MANAGER_URI;
-  if (!uri) throw new Error("Not configured: add DB_MANAGER_URI to the dashboard .env");
-  return (global._dbMgrClient ??= new MongoClient(uri, { serverSelectionTimeoutMS: 8000 }).connect());
+// Each product connects with its own URI (the same one its backend uses); the database is the one named in that URI.
+const URI_ENV: Record<string, string> = { hrms: "NESTHR_MONGO_URI" };
+declare global { var _acctDelClients: Record<string, Promise<MongoClient>> | undefined }
+const productDb = async (product: string, _oid?: ObjectId): Promise<Db> => {
+  const uri = process.env[URI_ENV[product]];
+  if (!uri) throw new Error(`Not configured: add ${URI_ENV[product]} to the dashboard .env`);
+  const clients = (global._acctDelClients ??= {});
+  return (await (clients[product] ??= new MongoClient(uri, { serverSelectionTimeoutMS: 8000 }).connect())).db();
 };
-
-const dbCache: Record<string, string> = {};
-async function productDb(product: string, oid: ObjectId): Promise<Db> {
-  const spec = SPECS[product];
-  if (!spec) throw new Error("Delete is not enabled for this product yet");
-  const c = await client();
-  if (dbCache[product]) return c.db(dbCache[product]);
-  const { databases } = await c.db().admin().listDatabases({ nameOnly: true });
-  for (const d of databases) {
-    if (["admin", "local", "config"].includes(d.name)) continue;
-    const names = (await c.db(d.name).listCollections({}, { nameOnly: true }).toArray()).map((x) => x.name);
-    if (names.includes(spec.company) && names.includes(spec.probe) && (await c.db(d.name).collection(spec.company).findOne({ _id: oid }, { projection: { _id: 1 } }))) {
-      dbCache[product] = d.name;
-      return c.db(d.name);
-    }
-  }
-  throw new Error("Account not found in the product database");
-}
 
 const oidOf = (id: string) => {
   if (!/^[a-f0-9]{24}$/.test(id)) throw new Error("Invalid account id");
