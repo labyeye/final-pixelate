@@ -5,13 +5,22 @@ import { getDb } from "@/lib/mongodb";
 // Soft  = suspend now (company + every login inactive), purge automatically after 30 days, restorable until then.
 // Hard  = delete the company and everything that belongs to it right now (cannot be undone).
 // Only Nest HR is wired so far; add a product to SPECS to enable it.
-const SPECS: Record<string, { company: string; users: string }> = {
-  hrms: { company: "companies", users: "users" },
+type Spec = {
+  company: string;          // tenant collection
+  users: string;            // logins collection
+  tenantFields: string[];   // fields that point at the tenant on its rows
+  userFields: string[];     // fields that point at one of its logins
+  inactive: string;         // tenant status that blocks it ("inactive" / "suspended")
+  employees?: { col: string; fields: string[] };
+};
+const SPECS: Record<string, Spec> = {
+  hrms: { company: "companies", users: "users", tenantFields: ["company", "companyId"], userFields: ["user", "userId"], inactive: "inactive", employees: { col: "employees", fields: ["employee", "employeeId"] } },
+  leads: { company: "tenants", users: "users", tenantFields: ["tenantId", "tenant", "ownerId"], userFields: ["user", "userId"], inactive: "suspended" },
 };
 export const deletable = (product: string) => product in SPECS;
 
 // Each product connects with its own URI (the same one its backend uses); the database is the one named in that URI.
-const URI_ENV: Record<string, string> = { hrms: "NESTHR_MONGO_URI" };
+const URI_ENV: Record<string, string> = { hrms: "NESTHR_MONGO_URI", leads: "NESTLEADS_MONGO_URI" };
 declare global { var _acctDelClients: Record<string, Promise<MongoClient>> | undefined }
 const productDb = async (product: string, _oid?: ObjectId): Promise<Db> => {
   const uri = process.env[URI_ENV[product]];
@@ -25,16 +34,20 @@ const oidOf = (id: string) => {
   return new ObjectId(id);
 };
 
-// Every collection row that belongs to this company: by company/companyId, or by one of its employees/users.
+const anyOf = (fields: string[], ids: any[]) => fields.map((f) => ({ [f]: { $in: ids } }));
+
+// Every collection row that belongs to this tenant: by its tenant field, or by one of its employees/logins.
 async function scope(db: Db, product: string, oid: ObjectId) {
   const spec = SPECS[product];
   const ids = [oid, String(oid)];
-  const employees = (await db.collection("employees").find({ company: { $in: ids } }, { projection: { _id: 1 } }).toArray()).map((d) => d._id);
-  const users = (await db.collection(spec.users).find({ company: { $in: ids } }, { projection: { _id: 1, status: 1 } }).toArray());
+  const employees = spec.employees
+    ? (await db.collection(spec.employees.col).find({ $or: anyOf(spec.tenantFields, ids) }, { projection: { _id: 1 } }).toArray()).map((d) => d._id)
+    : [];
+  const users = await db.collection(spec.users).find({ $or: anyOf(spec.tenantFields, ids) }, { projection: { _id: 1, status: 1 } }).toArray();
   const userIds = users.map((u) => u._id);
-  const or: any[] = [{ company: { $in: ids } }, { companyId: { $in: ids } }];
-  if (employees.length) or.push({ employee: { $in: employees } }, { employeeId: { $in: employees } });
-  if (userIds.length) or.push({ user: { $in: userIds } }, { userId: { $in: userIds } });
+  const or: any[] = anyOf(spec.tenantFields, ids);
+  if (employees.length && spec.employees) or.push(...anyOf(spec.employees.fields, employees));
+  if (userIds.length) or.push(...anyOf(spec.userFields, userIds));
   const cols = (await db.listCollections({}, { nameOnly: true }).toArray()).map((x) => x.name).filter((n) => !n.startsWith("system.") && n !== spec.company);
   return { filter: { $or: or }, cols, users, employees: employees.length };
 }
@@ -85,12 +98,13 @@ export async function softDelete(product: string, id: string, confirmName: strin
   const rec = (await getDb()).collection("account_deletions");
   if (await rec.findOne({ product, accountId: id, state: "scheduled" })) throw new Error("Already scheduled for deletion");
   const ids = [oid, String(oid)];
-  const users = await db.collection(spec.users).find({ company: { $in: ids } }, { projection: { _id: 1, status: 1 } }).toArray();
+  const userQ = { $or: anyOf(spec.tenantFields, ids) };
+  const users = await db.collection(spec.users).find(userQ, { projection: { _id: 1, status: 1 } }).toArray();
   const activeUserIds = users.filter((u) => u.status !== "inactive").map((u) => String(u._id));
   const purgeAt = new Date(Date.now() + 30 * 864e5);
   await rec.insertOne({ product, accountId: id, name: company.name, email: company.email, state: "scheduled", requestedAt: new Date(), purgeAt, by, prev: { companyStatus: company.status, activeUserIds } });
-  await db.collection(spec.users).updateMany({ company: { $in: ids } }, { $set: { status: "inactive" } });
-  await db.collection(spec.company).updateOne({ _id: oid }, { $set: { status: "inactive" } });
+  await db.collection(spec.users).updateMany(userQ, { $set: { status: "inactive" } });
+  await db.collection(spec.company).updateOne({ _id: oid }, { $set: { status: spec.inactive } });
   await audit({ op: "soft-delete", product, accountId: id, name: company.name, purgeAt }, by);
   return { purgeAt };
 }

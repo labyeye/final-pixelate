@@ -57,7 +57,7 @@ export async function register() {
   ];
 
   // 30-day account deletions: purge whatever is due, hourly (also checked whenever the Accounts page is opened).
-  if (process.env.NESTHR_MONGO_URI) {
+  if (process.env.NESTHR_MONGO_URI || process.env.NESTLEADS_MONGO_URI) {
     const purge = () => import("@/lib/account-delete").then((m) => m.purgeDue()).catch((e) => console.log("account purge:", e?.message ?? e));
     setTimeout(purge, 60_000).unref?.();
     setInterval(purge, 3_600_000).unref?.();
