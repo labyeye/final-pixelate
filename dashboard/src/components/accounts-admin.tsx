@@ -189,6 +189,7 @@ function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; on
             <div className="border-2 border-black p-3 text-sm space-y-1 bg-muted/30">
               <p>Login: <b>{done.email}</b></p><p>Password: <b>{done.password}</b></p><p>Valid till: <b>{fmtDate(done.validTill)}</b></p>
             </div>
+            {done.welcome && <p className="text-xs">Welcome mail: <b>{done.welcome.email}</b> · WhatsApp: <b>{done.welcome.whatsapp}</b></p>}
             <p className="text-xs text-muted-foreground">Copy the password now; it is not shown again.</p>
             <div className="flex gap-2">
               <Button size="sm" variant="outline" className="border-2 border-black font-bold" onClick={() => navigator.clipboard?.writeText(`Login: ${done.email}\nPassword: ${done.password}`)}><Copy className="w-4 h-4 mr-1" /> Copy login</Button>
