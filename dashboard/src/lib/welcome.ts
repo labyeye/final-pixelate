@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import nodemailer from "nodemailer";
+import { makeCertificate } from "./welcome-certificate";
 
 // Welcome flow for CRM-created accounts: Gmail envelope mail -> public animated postcard page + WhatsApp template.
 // The card link carries the login details AES-GCM encrypted (stateless, 7-day expiry). Mail clients can't run
@@ -40,7 +41,7 @@ export function welcomeHtml(w: { product: string; name: string }, cardUrl: strin
 <tr><td height="4" bgcolor="#ff640d" style="font-size:0;line-height:0">&nbsp;</td></tr>
 <tr><td style="padding:36px 28px 8px"><p style="margin:0;font-size:12px;letter-spacing:2px;color:#ff640d;font-weight:bold">WELCOME ABOARD</p>
 <h1 style="margin:8px 0 12px;font-size:26px">Hello ${n}, your ${p} account is ready.</h1>
-<p style="margin:0;font-size:15px;line-height:1.6;color:#555">We have sent you a sealed card with your login details. Open it to get started.</p></td></tr>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#555">We have sent you a sealed card with your login details. Open it to get started. Your Certificate of Welcome is attached to this email.</p></td></tr>
 <tr><td align="center" style="padding:28px">
 <table width="320" cellpadding="0" cellspacing="0" style="width:320px;max-width:100%"><tr><td align="center" bgcolor="#f3d9a4" style="border:2px solid #1a1a1a;border-radius:6px;padding:46px 20px">
 <div style="font-size:34px;line-height:1">&#9993;</div>
@@ -52,7 +53,7 @@ export function welcomeHtml(w: { product: string; name: string }, cardUrl: strin
 </table></td></tr></table></body></html>`;
 }
 
-async function sendMail(to: string, product: string, name: string, cardUrl: string) {
+async function sendMail(to: string, product: string, name: string, cardUrl: string, cert: Buffer, file: string) {
   const { EMAIL, APP_PASSWORD } = process.env;
   if (!EMAIL || !APP_PASSWORD) throw new Error("EMAIL/APP_PASSWORD not set");
   await nodemailer.createTransport({ service: "gmail", auth: { user: EMAIL, pass: APP_PASSWORD } }).sendMail({
@@ -60,16 +61,26 @@ async function sendMail(to: string, product: string, name: string, cardUrl: stri
     to,
     subject: `Welcome to ${product} - your account is ready`,
     html: welcomeHtml({ product, name }, cardUrl),
+    attachments: [{ filename: file, content: cert, contentType: "application/pdf" }],
   });
 }
 
-// Template WHATSAPP_WELCOME_TEMPLATE (default nest_welcome), body vars: {{1}} name, {{2}} product, {{3}} card link.
-async function sendWhatsApp(phone: string, product: string, name: string, cardUrl: string) {
+// Template WHATSAPP_WELCOME_TEMPLATE (default nest_welcome_v2): DOCUMENT header (certificate PDF),
+// body vars {{1}} name, {{2}} product, {{3}} card link.
+async function sendWhatsApp(phone: string, product: string, name: string, cardUrl: string, cert: Buffer, file: string) {
   const { META_ACCESS_TOKEN: tok, WHATSAPP_PHONE_NUMBER_ID: id } = process.env;
   if (!tok || !id) throw new Error("WhatsApp env not set");
   let to = phone.replace(/\D/g, "");
   if (to.length === 10) to = "91" + to;
-  const r = await fetch(`https://graph.facebook.com/${process.env.WHATSAPP_API_VERSION ?? "v21.0"}/${id}/messages`, {
+  const api = `https://graph.facebook.com/${process.env.WHATSAPP_API_VERSION ?? "v21.0"}/${id}`;
+  const form = new FormData();
+  form.append("messaging_product", "whatsapp");
+  form.append("type", "application/pdf");
+  form.append("file", new Blob([new Uint8Array(cert)], { type: "application/pdf" }), file);
+  const up = await fetch(`${api}/media`, { method: "POST", headers: { Authorization: `Bearer ${tok}` }, body: form });
+  const mediaId = ((await up.json().catch(() => null)) as any)?.id;
+  if (!up.ok || !mediaId) throw new Error("WhatsApp media upload failed");
+  const r = await fetch(`${api}/messages`, {
     method: "POST",
     headers: { Authorization: `Bearer ${tok}`, "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -77,9 +88,12 @@ async function sendWhatsApp(phone: string, product: string, name: string, cardUr
       to,
       type: "template",
       template: {
-        name: process.env.WHATSAPP_WELCOME_TEMPLATE || "nest_welcome",
+        name: process.env.WHATSAPP_WELCOME_TEMPLATE || "nest_welcome_v2",
         language: { code: "en" },
-        components: [{ type: "body", parameters: [name, product, cardUrl].map((text) => ({ type: "text", text })) }],
+        components: [
+          { type: "header", parameters: [{ type: "document", document: { id: mediaId, filename: file } }] },
+          { type: "body", parameters: [name, product, cardUrl].map((text) => ({ type: "text", text })) },
+        ],
       },
     }),
   });
@@ -91,9 +105,17 @@ export async function sendWelcome(a: { product: string; name: string; email: str
   const token = sealWelcome({ product: a.product, name: a.name, email: a.email, password: a.password, loginUrl: a.loginUrl, validTill: a.validTill });
   const cardUrl = `${base}/welcome/${token}`;
   const run = (f: () => Promise<void>) => f().then(() => "sent", (e: Error) => `failed: ${e.message}`);
+  const file = "Pixelate-Nest-Certificate-of-Welcome.pdf";
+  let cert: Buffer;
+  try {
+    cert = Buffer.from(await makeCertificate({ name: a.name, product: a.product, validTill: a.validTill }));
+  } catch (e: any) {
+    const f = `failed: certificate: ${e.message}`;
+    return { email: f, whatsapp: f };
+  }
   const [email, whatsapp] = await Promise.all([
-    run(() => sendMail(a.email, a.product, a.name, cardUrl)),
-    run(() => sendWhatsApp(a.phone, a.product, a.name, cardUrl)),
+    run(() => sendMail(a.email, a.product, a.name, cardUrl, cert, file)),
+    run(() => sendWhatsApp(a.phone, a.product, a.name, cardUrl, cert, file)),
   ]);
   return { email, whatsapp };
 }
