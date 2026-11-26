@@ -1,0 +1,3 @@
+{
+  "/api/nestgym-invoices/route": "app/api/nestgym-invoices/route.js"
+}

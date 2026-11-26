@@ -952,6 +952,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/nest-gym/invoices": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/nest-gym/invoices",
+      "dataRoute": "/nest-gym/invoices.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/nest-gym/metrics": {
       "experimentalBypassFor": [
         {
@@ -2106,8 +2131,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "086e35d7fc695a53fcd096b40ebd363d",
-    "previewModeSigningKey": "8566c8ee4e051269153fa65e774d0711bdc0377ad69022ed1c2a844919606138",
-    "previewModeEncryptionKey": "34842effc4fac784a9071dbfd4e3e1e26c3ce519f9196ca85191034d366cea3d"
+    "previewModeId": "c336100388f1873d7bf6e6fca8e1501c",
+    "previewModeSigningKey": "f0dbbbd5e4cdb4febfb13ca0f308b7bafd193722dfcec3b9c71e1e3a30f7601f",
+    "previewModeEncryptionKey": "112688bf58a98141c3a5d197139ae429edd63b4fecd8336b34dd6f89c810b96c"
   }
 }

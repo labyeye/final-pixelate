@@ -652,6 +652,12 @@
       "namedRegex": "^/api/nestgym/support\\-tickets(?:/)?$"
     },
     {
+      "page": "/api/nestgym-invoices",
+      "regex": "^/api/nestgym\\-invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nestgym\\-invoices(?:/)?$"
+    },
+    {
       "page": "/api/nesthr-credit-bills",
       "regex": "^/api/nesthr\\-credit\\-bills(?:/)?$",
       "routeKeys": {},
@@ -1256,6 +1262,12 @@
       "regex": "^/nest\\-gym/accounts(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/nest\\-gym/accounts(?:/)?$"
+    },
+    {
+      "page": "/nest-gym/invoices",
+      "regex": "^/nest\\-gym/invoices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nest\\-gym/invoices(?:/)?$"
     },
     {
       "page": "/nest-gym/metrics",

@@ -13,6 +13,7 @@ export const BRAND = { blue: "#0048A8", navy: "#0A2A5E", orange: "#F87018", ink:
 // Where each product lives. Add a product here as it gets rolled out; missing = no button on the card.
 export const APP_LINKS: Record<string, { web?: string; play?: string }> = {
   hrms: { web: "https://hrms.pixelatenest.com", play: "https://play.google.com/store/apps/details?id=com.nesthr" },
+  gym: { web: "https://gym.pixelatenest.com", play: "https://play.google.com/store/apps/details?id=com.nestgym" },
   leads: { web: "https://leads.pixelatenest.com", play: "https://play.google.com/store/apps/details?id=com.nestleads" },
 };
 

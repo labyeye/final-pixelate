@@ -16,11 +16,12 @@ type Spec = {
 const SPECS: Record<string, Spec> = {
   hrms: { company: "companies", users: "users", tenantFields: ["company", "companyId"], userFields: ["user", "userId"], inactive: "inactive", employees: { col: "employees", fields: ["employee", "employeeId"] } },
   leads: { company: "tenants", users: "users", tenantFields: ["tenantId", "tenant", "ownerId"], userFields: ["user", "userId"], inactive: "suspended" },
+  gym: { company: "tenants", users: "users", tenantFields: ["tenantId", "tenant", "ownerId"], userFields: ["user", "userId"], inactive: "suspended" },
 };
 export const deletable = (product: string) => product in SPECS;
 
 // Each product connects with its own URI (the same one its backend uses); the database is the one named in that URI.
-const URI_ENV: Record<string, string> = { hrms: "NESTHR_MONGO_URI", leads: "NESTLEADS_MONGO_URI" };
+const URI_ENV: Record<string, string> = { hrms: "NESTHR_MONGO_URI", leads: "NESTLEADS_MONGO_URI", gym: "NESTGYM_MONGO_URI" };
 declare global { var _acctDelClients: Record<string, Promise<MongoClient>> | undefined }
 const productDb = async (product: string, _oid?: ObjectId): Promise<Db> => {
   const uri = process.env[URI_ENV[product]];

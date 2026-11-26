@@ -398,6 +398,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/nest-gym/invoices/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nest-gym/invoices">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/nest-gym/invoices/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/nest-gym/metrics/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/nest-gym/metrics">> = Specific
@@ -1293,6 +1302,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/nda-approvals">> = Specific
   const handler = {} as typeof import("../../src/app/api/nda-approvals/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/nestgym-invoices/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/nestgym-invoices">> = Specific
+  const handler = {} as typeof import("../../src/app/api/nestgym-invoices/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

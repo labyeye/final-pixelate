@@ -452,6 +452,12 @@ export const navGroups = [
         icon: Activity,
       },
       {
+        href: "/nest-gym/invoices",
+        label: "NestGym Invoices",
+        adminOnly: true,
+        icon: Receipt,
+      },
+      {
         href: "/nest-gym/support",
         label: "Support",
         adminOnly: true,
