@@ -215,10 +215,10 @@ function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; on
             {meta.pricing?.slabs && (() => {
               const slabs: any[] = meta.pricing.slabs;
               const cur = slabs.find((s) => s.maxEmployees === Number(f.limits.maxEmployees));
-              return <Select label="Plan size (pick the plan they bought)" value={cur ? String(cur.maxEmployees) : "custom"}
-                options={[...slabs.map((s) => String(s.maxEmployees)), "custom"]}
-                labels={[...slabs.map((s) => `Up to ${s.maxEmployees} employees — ₹${s.prices.normal.toLocaleString("en-IN")} / Geo ₹${s.prices.geo.toLocaleString("en-IN")} + GST`), "Custom (type employee limit below)"]}
-                onChange={(v) => v !== "custom" && setF(withQuote({ ...f, limits: { ...f.limits, maxEmployees: v } }))} />;
+              return <Select label="Plan size (pick the plan they bought)" value={f.free ? "free" : cur ? String(cur.maxEmployees) : "custom"}
+                options={["free", ...slabs.map((s) => String(s.maxEmployees)), "custom"]}
+                labels={["Up to 10 employees — Free (lifetime, valid 100 years)", ...slabs.map((s) => `Up to ${s.maxEmployees} employees — ₹${s.prices.normal.toLocaleString("en-IN")} / Geo ₹${s.prices.geo.toLocaleString("en-IN")} + GST`), "Custom (type employee limit below)"]}
+                onChange={(v) => v === "free" ? setF({ ...f, free: true, amountPaid: "0", limits: { ...f.limits, maxEmployees: "10" } }) : v !== "custom" && setF(withQuote({ ...f, free: false, limits: { ...f.limits, maxEmployees: v } }))} />;
             })()}
             <div className="grid grid-cols-3 gap-3">
               {meta.limitFields.map((l: any) => <Field key={l.key} label={l.label} type="number" min={0} value={f.limits[l.key]} onChange={(v) => setF(withQuote({ ...f, limits: { ...f.limits, [l.key]: v } }))} />)}
@@ -231,8 +231,8 @@ function CreateDialog({ open, onClose, meta, call, onDone }: { open: boolean; on
             {(meta.createExtraFields ?? []).map((x: any) => x.options
               ? <Select key={x.key} label={x.label} value={f.extra[x.key]} options={x.options} onChange={(v) => setF({ ...f, extra: { ...f.extra, [x.key]: v } })} />
               : <Field key={x.key} label={x.label} value={f.extra[x.key]} onChange={(v) => setF({ ...f, extra: { ...f.extra, [x.key]: v } })} />)}
-            {q && <p className="text-xs font-bold">{q.over ? "More than 50 employees: custom quote, contact sales." : `Price ₹${q.base.toLocaleString("en-IN")} + 18% GST ₹${q.gst.toLocaleString("en-IN")} = ₹${q.total.toLocaleString("en-IN")} per year (amount prefilled, editable)`}</p>}
-            {meta.supportsFree && <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={!!f.free} onChange={(e) => setF({ ...f, free: e.target.checked })} /> {meta.freeLabel || "Free / lifetime (no payment, never expires)"}</label>}
+            {q && !f.free && <p className="text-xs font-bold">{q.over ? "More than 50 employees: custom quote, contact sales." : `Price ₹${q.base.toLocaleString("en-IN")} + 18% GST ₹${q.gst.toLocaleString("en-IN")} = ₹${q.total.toLocaleString("en-IN")} per year (amount prefilled, editable)`}</p>}
+            {meta.supportsFree && !meta.pricing?.slabs && <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={!!f.free} onChange={(e) => setF({ ...f, free: e.target.checked })} /> {meta.freeLabel || "Free / lifetime (no payment, never expires)"}</label>}
             <p className="text-xs text-muted-foreground">Creates the owner login and an active plan. {meta.pricing?.flat != null ? "A paid GST invoice is generated when Amount paid is above 0." : "No invoice is generated; bill separately once payment is confirmed."}</p>
             {error && <p className="text-sm font-bold text-red-600">{error}</p>}
             <Button type="submit" disabled={busy} className="w-full border-2 border-black font-bold">{busy ? "Creating…" : "Create account"}</Button>
