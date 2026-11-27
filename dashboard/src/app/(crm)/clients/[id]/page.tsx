@@ -33,7 +33,6 @@ import {
   Download,
 } from "lucide-react";
 import Link from "next/link";
-import { SocialAccountTokenPanel } from "@/components/social-media/social-account-token-panel";
 
 function formatDate(date?: Date | string | null) {
   if (!date) return "—";
@@ -643,9 +642,6 @@ export default function ClientDetailPage() {
               <TabsTrigger value="invoices" className="font-bold">
                 Invoices ({invoices.length})
               </TabsTrigger>
-              <TabsTrigger value="social-tokens" className="font-bold">
-                Social Tokens
-              </TabsTrigger>
             </TabsList>
 
             {}
@@ -771,9 +767,6 @@ export default function ClientDetailPage() {
               })}
             </TabsContent>
 
-            <TabsContent value="social-tokens">
-              <SocialAccountTokenPanel clientId={clientId} />
-            </TabsContent>
           </Tabs>
         </div>
       </div>

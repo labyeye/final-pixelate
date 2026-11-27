@@ -40,13 +40,10 @@ export const defaultStaffAllowed = [
   "/dashboard",
   "/blogs",
   "/work-gallery",
-  "/social-media-planner",
-  "/social-media-calendar",
   "/dashboard/bulk-messaging",
   "/dashboard/campaigns",
   "/dashboard/whatsapp-inbox",
   "/dashboard/whatsapp-webhook",
-  "/enquiries",
   "/reviews",
   "/quotations",
   "/quotations/create",
@@ -87,18 +84,6 @@ export const navGroups = [
         icon: Settings,
       },
       {
-        href: "/user-activity",
-        label: "User Activity",
-        adminOnly: true,
-        icon: Activity,
-      },
-      {
-        href: "/performance",
-        label: "App Performance",
-        adminOnly: true,
-        icon: Zap,
-      },
-      {
         href: "/erp-console",
         label: "ERP Console",
         adminOnly: true,
@@ -110,12 +95,6 @@ export const navGroups = [
   {
     title: "Marketing",
     items: [
-      {
-        href: "/enquiries",
-        label: "Enquiries",
-        adminOnly: false,
-        icon: LifeBuoy,
-      },
       {
         href: "/reviews",
         label: "Reviews",
@@ -157,18 +136,6 @@ export const navGroups = [
         label: "Reels",
         adminOnly: true,
         icon: PlayCircle,
-      },
-      {
-        href: "/social-media-planner",
-        label: "Social Media Planner",
-        adminOnly: false,
-        icon: CalendarDays,
-      },
-      {
-        href: "/social-media-calendar",
-        label: "Social Media Calendar",
-        adminOnly: false,
-        icon: CalendarDays,
       },
     ],
   },
@@ -258,12 +225,6 @@ export const navGroups = [
         label: "Tasks",
         adminOnly: false,
         icon: SquareCheck,
-      },
-      {
-        href: "/journey",
-        label: "Journey",
-        adminOnly: false,
-        icon: BookOpen,
       },
       {
         href: "/services",
@@ -519,9 +480,6 @@ export const clientPortalGroups = [
   {
     title: "Client Portal Exclusive",
     items: [
-      { href: "/client/planner", label: "Planner", icon: CalendarDays },
-      { href: "/client/calendar", label: "Calendar", icon: CalendarDays },
-      { href: "/client/analytics", label: "Analytics", icon: BarChartIcon },
       { href: "/client/development", label: "Development", icon: Rocket },
       { href: "/client/support", label: "Support", icon: Headphones },
     ],
@@ -536,7 +494,6 @@ export const clientPortalGroups = [
   {
     title: "Marketing",
     items: [
-      { href: "/enquiries", label: "Enquiries", icon: LifeBuoy },
       { href: "/reviews", label: "Reviews", icon: Star },
       { href: "/work-gallery", label: "Work Gallery", icon: ImageIcon },
       { href: "/photo-galleries", label: "Photos", icon: ImageIcon },
@@ -559,7 +516,6 @@ export const clientPortalGroups = [
     items: [
       { href: "/projects", label: "Projects", icon: Briefcase },
       { href: "/tasks", label: "Tasks", icon: SquareCheck },
-      { href: "/journey", label: "Journey", icon: BookOpen },
       { href: "/services", label: "Services", icon: Code },
       { href: "/inventory", label: "Inventory", icon: BoxIcon },
     ],
@@ -588,9 +544,6 @@ export const clientNavItems = clientPortalGroups.flatMap((g) => g.items);
 export const defaultClientAllowed = ["/invoicing", "/projects", "/support"];
 
 export const clientSpecificNavItems = [
-  { href: "/client/planner", label: "Planner", icon: CalendarDays },
-  { href: "/client/calendar", label: "Calendar", icon: CalendarDays },
-  { href: "/client/analytics", label: "Analytics", icon: BarChartIcon },
   { href: "/client/development", label: "Development", icon: Rocket },
   { href: "/client/support", label: "Support", icon: Headphones },
 ];
