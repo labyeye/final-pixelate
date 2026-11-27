@@ -406,3 +406,10 @@ button[class*="border-2"]:not(
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0px #0a0a0a;
 }
+
+/* sidebar groups slide in once; table rows fade in so new data feels live */
+@keyframes nav-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+.animate-nav-in { animation: nav-in 0.28s ease-out both; }
+@keyframes row-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+tbody tr { animation: row-in 0.22s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .animate-nav-in, tbody tr { animation: none; } }

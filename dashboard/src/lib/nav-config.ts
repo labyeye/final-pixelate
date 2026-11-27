@@ -51,7 +51,7 @@ export const defaultStaffAllowed = [
 
 export const navGroups = [
   {
-    title: "Management",
+    title: "Overview",
     items: [
       {
         href: "/dashboard",
@@ -65,33 +65,282 @@ export const navGroups = [
         adminOnly: false,
         icon: BarChartIcon,
       },
+    ],
+  },
+  {
+    title: "Nest HR",
+    items: [
       {
-        href: "/db-manager",
-        label: "Database Manager",
+        href: "/nest-hr/subscriptions",
+        label: "Subscriptions",
+        adminOnly: true,
+        icon: Building2,
+      },
+      {
+        href: "/nest-hr/accounts",
+        label: "Accounts & Control",
         adminOnly: true,
         icon: Settings2,
       },
       {
-        href: "/dashboard/reports",
-        label: "Reports",
+        href: "/nest-hr/metrics",
+        label: "Live Metrics",
         adminOnly: true,
-        icon: FileText,
+        icon: Activity,
       },
       {
-        href: "/dashboard/settings",
-        label: "Settings",
+        href: "/nest-hr/invoices",
+        label: "NestHR Invoices",
         adminOnly: true,
-        icon: Settings,
+        icon: Receipt,
       },
       {
-        href: "/erp-console",
-        label: "ERP Console",
+        href: "/nest-hr/credit-bills",
+        label: "WhatsApp Credit Bills",
         adminOnly: true,
-        icon: Zap,
+        icon: Receipt,
+      },
+      {
+        href: "/nest-hr/offers",
+        label: "Offer Codes",
+        adminOnly: true,
+        icon: Tag,
+      },
+      {
+        href: "/nest-hr/support",
+        label: "Support",
+        adminOnly: true,
+        icon: Headphones,
       },
     ],
   },
-
+  {
+    title: "Nest Leads",
+    items: [
+      {
+        href: "/nest-leads/subscriptions",
+        label: "Subscriptions",
+        adminOnly: true,
+        icon: Building2,
+      },
+      {
+        href: "/nest-leads/accounts",
+        label: "Accounts & Control",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-leads/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+      {
+        href: "/nest-leads/invoices",
+        label: "NestLeads Invoices",
+        adminOnly: true,
+        icon: Receipt,
+      },
+      {
+        href: "/nest-leads/offers",
+        label: "Offer Codes",
+        adminOnly: true,
+        icon: Tag,
+      },
+      {
+        href: "/nest-leads/support",
+        label: "Support",
+        adminOnly: true,
+        icon: Headphones,
+      },
+    ],
+  },
+  {
+    title: "Nest Gym",
+    items: [
+      {
+        href: "/nest-gym/accounts",
+        label: "Subscriptions & Accounts",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-gym/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+      {
+        href: "/nest-gym/invoices",
+        label: "NestGym Invoices",
+        adminOnly: true,
+        icon: Receipt,
+      },
+      {
+        href: "/nest-gym/support",
+        label: "Support",
+        adminOnly: true,
+        icon: Headphones,
+      },
+    ],
+  },
+  {
+    title: "Nest Academy",
+    items: [
+      {
+        href: "/nest-play/accounts",
+        label: "Subscriptions & Accounts",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-play/invoices",
+        label: "NestAcademy Invoices",
+        adminOnly: true,
+        icon: Receipt,
+      },
+      {
+        href: "/nest-play/coupons",
+        label: "NestAcademy Coupons",
+        adminOnly: true,
+        icon: Ticket,
+      },
+      {
+        href: "/nest-play/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+    ],
+  },
+  {
+    title: "Nest Doc",
+    items: [
+      {
+        href: "/nest-care/accounts",
+        label: "Subscriptions & Accounts",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/nest-care/metrics",
+        label: "Live Metrics",
+        adminOnly: true,
+        icon: Activity,
+      },
+    ],
+  },
+  {
+    title: "Sales",
+    items: [
+      {
+        href: "/clients",
+        label: "Clients",
+        adminOnly: false,
+        icon: Users,
+      },
+      {
+        href: "/quotations",
+        label: "Quotations",
+        adminOnly: false,
+        icon: FileText,
+      },
+      {
+        href: "/onboarding",
+        label: "Onboarding",
+        adminOnly: false,
+        icon: UserPlus,
+      },
+      {
+        href: "/nda-approval",
+        label: "NDA Approval",
+        adminOnly: false,
+        icon: Lock,
+      },
+      {
+        href: "/agreements",
+        label: "Agreements",
+        adminOnly: false,
+        icon: FileText,
+      },
+      {
+        href: "/brand-guide",
+        label: "Brand Guide",
+        adminOnly: false,
+        icon: Palette,
+      },
+    ],
+  },
+  {
+    title: "Finance",
+    items: [
+      {
+        href: "/invoicing",
+        label: "Invoicing",
+        adminOnly: true,
+        icon: Receipt,
+      },
+      {
+        href: "/trash",
+        label: "Trash",
+        adminOnly: true,
+        icon: Trash2,
+      },
+      {
+        href: "/dashboard/payments",
+        label: "Payments",
+        adminOnly: true,
+        icon: DollarIcon,
+      },
+      {
+        href: "/expenses",
+        label: "Expenses",
+        adminOnly: true,
+        icon: Wallet,
+      },
+      {
+        href: "/emi",
+        label: "EMI Tracker",
+        adminOnly: true,
+        icon: CreditCard,
+      },
+    ],
+  },
+  {
+    title: "Operations",
+    items: [
+      {
+        href: "/projects",
+        label: "Projects",
+        adminOnly: false,
+        icon: Briefcase,
+      },
+      {
+        href: "/portal",
+        label: "Client Portal",
+        adminOnly: true,
+        icon: Palette,
+      },
+      {
+        href: "/tasks",
+        label: "Tasks",
+        adminOnly: false,
+        icon: SquareCheck,
+      },
+      {
+        href: "/services",
+        label: "Services",
+        adminOnly: true,
+        icon: Code,
+      },
+      {
+        href: "/inventory",
+        label: "Inventory",
+        adminOnly: false,
+        icon: BoxIcon,
+      },
+    ],
+  },
   {
     title: "Marketing",
     items: [
@@ -162,289 +411,6 @@ export const navGroups = [
       },
     ],
   },
-
-  {
-    title: "Sales",
-    items: [
-      {
-        href: "/clients",
-        label: "Clients",
-        adminOnly: false,
-        icon: Users,
-      },
-      {
-        href: "/quotations",
-        label: "Quotations",
-        adminOnly: false,
-        icon: FileText,
-      },
-      {
-        href: "/onboarding",
-        label: "Onboarding",
-        adminOnly: false,
-        icon: UserPlus,
-      },
-      {
-        href: "/nda-approval",
-        label: "NDA Approval",
-        adminOnly: false,
-        icon: Lock,
-      },
-      {
-        href: "/agreements",
-        label: "Agreements",
-        adminOnly: false,
-        icon: FileText,
-      },
-      {
-        href: "/brand-guide",
-        label: "Brand Guide",
-        adminOnly: false,
-        icon: Palette,
-      },
-    ],
-  },
-
-  {
-    title: "Operations",
-    items: [
-      {
-        href: "/projects",
-        label: "Projects",
-        adminOnly: false,
-        icon: Briefcase,
-      },
-      {
-        href: "/portal",
-        label: "Client Portal",
-        adminOnly: true,
-        icon: Palette,
-      },
-      {
-        href: "/tasks",
-        label: "Tasks",
-        adminOnly: false,
-        icon: SquareCheck,
-      },
-      {
-        href: "/services",
-        label: "Services",
-        adminOnly: true,
-        icon: Code,
-      },
-      {
-        href: "/inventory",
-        label: "Inventory",
-        adminOnly: false,
-        icon: BoxIcon,
-      },
-    ],
-  },
-
-  {
-    title: "Finance",
-    items: [
-      {
-        href: "/invoicing",
-        label: "Invoicing",
-        adminOnly: true,
-        icon: Receipt,
-      },
-      {
-        href: "/trash",
-        label: "Trash",
-        adminOnly: true,
-        icon: Trash2,
-      },
-      {
-        href: "/dashboard/payments",
-        label: "Payments",
-        adminOnly: true,
-        icon: DollarIcon,
-      },
-      {
-        href: "/expenses",
-        label: "Expenses",
-        adminOnly: true,
-        icon: Wallet,
-      },
-      {
-        href: "/emi",
-        label: "EMI Tracker",
-        adminOnly: true,
-        icon: CreditCard,
-      },
-    ],
-  },
-
-  {
-    title: "Nest HR",
-    items: [
-      {
-        href: "/nest-hr/subscriptions",
-        label: "Subscriptions",
-        adminOnly: true,
-        icon: Building2,
-      },
-      {
-        href: "/nest-hr/accounts",
-        label: "Accounts & Control",
-        adminOnly: true,
-        icon: Settings2,
-      },
-      {
-        href: "/nest-hr/metrics",
-        label: "Live Metrics",
-        adminOnly: true,
-        icon: Activity,
-      },
-      {
-        href: "/nest-hr/invoices",
-        label: "NestHR Invoices",
-        adminOnly: true,
-        icon: Receipt,
-      },
-      {
-        href: "/nest-hr/credit-bills",
-        label: "WhatsApp Credit Bills",
-        adminOnly: true,
-        icon: Receipt,
-      },
-      {
-        href: "/nest-hr/offers",
-        label: "Offer Codes",
-        adminOnly: true,
-        icon: Tag,
-      },
-      {
-        href: "/nest-hr/support",
-        label: "Support",
-        adminOnly: true,
-        icon: Headphones,
-      },
-    ],
-  },
-
-  {
-    title: "Nest Leads",
-    items: [
-      {
-        href: "/nest-leads/subscriptions",
-        label: "Subscriptions",
-        adminOnly: true,
-        icon: Building2,
-      },
-      {
-        href: "/nest-leads/accounts",
-        label: "Accounts & Control",
-        adminOnly: true,
-        icon: Settings2,
-      },
-      {
-        href: "/nest-leads/metrics",
-        label: "Live Metrics",
-        adminOnly: true,
-        icon: Activity,
-      },
-      {
-        href: "/nest-leads/invoices",
-        label: "NestLeads Invoices",
-        adminOnly: true,
-        icon: Receipt,
-      },
-      {
-        href: "/nest-leads/offers",
-        label: "Offer Codes",
-        adminOnly: true,
-        icon: Tag,
-      },
-      {
-        href: "/nest-leads/support",
-        label: "Support",
-        adminOnly: true,
-        icon: Headphones,
-      },
-    ],
-  },
-
-  {
-    title: "Nest Academy",
-    items: [
-      {
-        href: "/nest-play/accounts",
-        label: "Subscriptions & Accounts",
-        adminOnly: true,
-        icon: Settings2,
-      },
-      {
-        href: "/nest-play/invoices",
-        label: "NestAcademy Invoices",
-        adminOnly: true,
-        icon: Receipt,
-      },
-      {
-        href: "/nest-play/coupons",
-        label: "NestAcademy Coupons",
-        adminOnly: true,
-        icon: Ticket,
-      },
-      {
-        href: "/nest-play/metrics",
-        label: "Live Metrics",
-        adminOnly: true,
-        icon: Activity,
-      },
-    ],
-  },
-
-  {
-    title: "Nest Gym",
-    items: [
-      {
-        href: "/nest-gym/accounts",
-        label: "Subscriptions & Accounts",
-        adminOnly: true,
-        icon: Settings2,
-      },
-      {
-        href: "/nest-gym/metrics",
-        label: "Live Metrics",
-        adminOnly: true,
-        icon: Activity,
-      },
-      {
-        href: "/nest-gym/invoices",
-        label: "NestGym Invoices",
-        adminOnly: true,
-        icon: Receipt,
-      },
-      {
-        href: "/nest-gym/support",
-        label: "Support",
-        adminOnly: true,
-        icon: Headphones,
-      },
-    ],
-  },
-
-  {
-    title: "Nest Doc",
-    items: [
-      {
-        href: "/nest-care/accounts",
-        label: "Subscriptions & Accounts",
-        adminOnly: true,
-        icon: Settings2,
-      },
-      {
-        href: "/nest-care/metrics",
-        label: "Live Metrics",
-        adminOnly: true,
-        icon: Activity,
-      },
-    ],
-  },
-
   {
     title: "HR & Support",
     items: [
@@ -471,6 +437,35 @@ export const navGroups = [
         label: "Support",
         adminOnly: false,
         icon: Headphones,
+      },
+    ],
+  },
+  {
+    title: "Admin",
+    items: [
+      {
+        href: "/db-manager",
+        label: "Database Manager",
+        adminOnly: true,
+        icon: Settings2,
+      },
+      {
+        href: "/dashboard/reports",
+        label: "Reports",
+        adminOnly: true,
+        icon: FileText,
+      },
+      {
+        href: "/dashboard/settings",
+        label: "Settings",
+        adminOnly: true,
+        icon: Settings,
+      },
+      {
+        href: "/erp-console",
+        label: "ERP Console",
+        adminOnly: true,
+        icon: Zap,
       },
     ],
   },
