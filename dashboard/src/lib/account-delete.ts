@@ -27,7 +27,12 @@ const productDb = async (product: string, _oid?: ObjectId): Promise<Db> => {
   const uri = process.env[URI_ENV[product]];
   if (!uri) throw new Error(`Not configured: add ${URI_ENV[product]} to the dashboard .env`);
   const clients = (global._acctDelClients ??= {});
-  return (await (clients[product] ??= new MongoClient(uri, { serverSelectionTimeoutMS: 8000 }).connect())).db();
+  try {
+    return (await (clients[product] ??= new MongoClient(uri, { serverSelectionTimeoutMS: 8000 }).connect())).db();
+  } catch (e) {
+    delete clients[product]; // don't cache a failed connect, or it stays broken after the network is fixed
+    throw e;
+  }
 };
 
 const oidOf = (id: string) => {
