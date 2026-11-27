@@ -1,5 +1,5 @@
 // Mongo-Compass-style access to every product database, for dashboard admins only.
-// Connects with its own DB_MANAGER_URI (root/admin user on the Mongo VM), NOT the dashboard's app DB.
+// Uses DB_MANAGER_URI (admin) when set, else each product's own Mongo URI from the dashboard env.
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, BSON } from "mongodb";
 import { requireAuth } from "@/lib/require-auth";
@@ -10,11 +10,31 @@ const SYSTEM_DBS = new Set(["admin", "local", "config"]);
 const BANNED_OPS = /\$(where|function|accumulator)\b/; // server-side JS execution
 const MAX_LIMIT = 100;
 
-declare global { var _dbMgrClient: Promise<MongoClient> | undefined }
-function client() {
-  const uri = process.env.DB_MANAGER_URI;
-  if (!uri) throw new Error("Not configured: add DB_MANAGER_URI to the dashboard .env");
-  return (global._dbMgrClient ??= new MongoClient(uri, { serverSelectionTimeoutMS: 8000 }).connect());
+// One connection per configured URI. DB_MANAGER_URI (admin) wins if set; otherwise each product's own
+// per-database user is used, so every product shows up in one list with no extra setup.
+const URI_ENVS = ["DB_MANAGER_URI", "MONGODB_URI", "NESTHR_MONGO_URI", "NESTLEADS_MONGO_URI", "NESTGYM_MONGO_URI"];
+declare global { var _dbMgrClients: Record<string, Promise<MongoClient>> | undefined }
+async function owners() {
+  const cache = (global._dbMgrClients ??= {});
+  const map = new Map<string, { c: MongoClient; size?: number }>();
+  const seen = new Set<string>();
+  for (const k of URI_ENVS) {
+    const uri = process.env[k];
+    if (!uri || seen.has(uri)) continue;
+    seen.add(uri);
+    try {
+      const c = await (cache[k] ??= new MongoClient(uri, { serverSelectionTimeoutMS: 8000 }).connect());
+      const dbs = await c.db().admin().listDatabases({ nameOnly: false }).then((r) => r.databases).catch(() => c.db().admin().listDatabases({ nameOnly: true }).then((r) => r.databases as any[]));
+      for (const d of dbs) if (!SYSTEM_DBS.has(d.name) && !map.has(d.name)) map.set(d.name, { c, size: (d as any).sizeOnDisk });
+    } catch { delete cache[k]; } // don't cache a failed connect
+  }
+  if (!map.size) throw new Error("No database connection available (set DB_MANAGER_URI or the product Mongo URIs)");
+  return map;
+}
+async function clientFor(db: string) {
+  const o = (await owners()).get(db);
+  if (!o) throw new Error("Database not found or not accessible");
+  return o.c;
 }
 
 const parse = (s: unknown, fallback: any = {}) => {
@@ -53,12 +73,12 @@ export async function GET(request: NextRequest) {
   const sp = new URL(request.url).searchParams;
   const db = sp.get("db"), col = sp.get("col");
   try {
-    const c = await client();
     if (!db) {
-      const { databases } = await c.db().admin().listDatabases({ nameOnly: false });
-      return NextResponse.json({ databases: databases.filter((d) => !SYSTEM_DBS.has(d.name)).map((d) => ({ name: d.name, sizeOnDisk: d.sizeOnDisk })) });
+      const m = await owners();
+      return NextResponse.json({ databases: [...m].map(([name, v]) => ({ name, sizeOnDisk: v.size })).sort((a, b) => a.name.localeCompare(b.name)) });
     }
     names(db);
+    const c = await clientFor(db);
     if (!col) {
       const cols = await c.db(db).listCollections({}, { nameOnly: true }).toArray();
       const list = await Promise.all(
@@ -89,7 +109,7 @@ export async function POST(request: NextRequest) {
   try {
     const b = await request.json();
     names(b.db, b.col);
-    const coll = (await client()).db(b.db).collection(b.col);
+    const coll = (await clientFor(b.db)).db(b.db).collection(b.col);
     const doc = b.doc !== undefined ? parse(b.doc) : undefined;
     if (b.op === "insert") {
       const r = await coll.insertOne(doc);
