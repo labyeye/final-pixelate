@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
   const a = requireAuth(request);
   if (a.error) return a.error;
   const u: any = await findUserById((a.decoded as any).id);
-  return NextResponse.json({ passkeys: (u?.passkeys || []).map((p: any) => ({ id: p.id, name: p.name, createdAt: p.createdAt })) });
+  return NextResponse.json({ passkeys: (u?.passkeys || []).map((p: any) => ({ id: p.id, name: p.name, kind: p.kind, createdAt: p.createdAt })) });
 }
 
 export async function DELETE(request: NextRequest) {
@@ -95,7 +95,11 @@ export async function POST(request: NextRequest) {
         rpName: "Pixelate Nest CRM", rpID, userName: u.email, userDisplayName: u.name || u.email,
         userID: new TextEncoder().encode(String(u._id)), attestationType: "none",
         excludeCredentials: (u.passkeys || []).map((p: any) => ({ id: p.id, transports: p.transports })),
-        authenticatorSelection: { residentKey: "preferred", userVerification: "preferred" },
+        authenticatorSelection: {
+          residentKey: "preferred", userVerification: "preferred",
+          // "platform" = this device (Touch ID / Windows Hello); "cross-platform" = phone via QR, or a security key
+          ...(b.attachment === "platform" || b.attachment === "cross-platform" ? { authenticatorAttachment: b.attachment } : {}),
+        },
       });
       await saveChallenge("reg:" + u._id, options.challenge);
       return NextResponse.json(options);
@@ -106,7 +110,7 @@ export async function POST(request: NextRequest) {
       const v = await verifyRegistrationResponse({ response: b.response, expectedChallenge: expected, expectedOrigin: origin, expectedRPID: rpID });
       if (!v.verified || !v.registrationInfo) return bad("Passkey could not be verified");
       const c = v.registrationInfo.credential;
-      const entry = { id: c.id, publicKey: Buffer.from(c.publicKey).toString("base64url"), counter: c.counter, transports: b.response?.response?.transports, name: String(b.name || "Passkey").slice(0, 40), createdAt: new Date() };
+      const entry = { id: c.id, publicKey: Buffer.from(c.publicKey).toString("base64url"), counter: c.counter, transports: b.response?.response?.transports, name: String(b.name || "Passkey").slice(0, 40), kind: b.kind === "phone" ? "phone" : "device", createdAt: new Date() };
       await (await usersCol()).updateOne({ _id: u._id }, { $push: { passkeys: entry } } as any);
       await audit("passkey_added", u.email, `Passkey added (${entry.name})`, clientInfo(request));
       return NextResponse.json({ ok: true });

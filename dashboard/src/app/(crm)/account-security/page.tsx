@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ShieldCheck, ShieldOff, KeyRound, Copy, Fingerprint, Laptop, Trash2, LogOut } from "lucide-react";
+import { ShieldCheck, ShieldOff, KeyRound, Copy, Fingerprint, Laptop, Smartphone, Trash2, LogOut } from "lucide-react";
 import { startRegistration } from "@simplewebauthn/browser";
 import { apiFetch } from "@/lib/api-fetch";
 import { Button } from "@/components/ui/button";
@@ -34,14 +34,14 @@ export default function AccountSecurityPage() {
     await apiFetch(`/api/auth/sessions?${q}`, { method: "DELETE", headers: authHeaders() });
     loadSessions();
   }
-  async function addPasskey() {
+  async function addPasskey(kind: "device" | "phone") {
     setBusy(true);
     try {
-      const o = await apiFetch("/api/auth/passkey", { method: "POST", headers: authHeaders(), body: JSON.stringify({ action: "register-options" }) });
+      const o = await apiFetch("/api/auth/passkey", { method: "POST", headers: authHeaders(), body: JSON.stringify({ action: "register-options", attachment: kind === "phone" ? "cross-platform" : "platform" }) });
       const opts = await o.json();
       if (!o.ok) throw new Error(opts.error || "Passkeys are not available here");
       const response = await startRegistration({ optionsJSON: opts });
-      const r = await apiFetch("/api/auth/passkey", { method: "POST", headers: authHeaders(), body: JSON.stringify({ action: "register", response, name: pkName || "This device" }) });
+      const r = await apiFetch("/api/auth/passkey", { method: "POST", headers: authHeaders(), body: JSON.stringify({ action: "register", response, name: pkName || (kind === "phone" ? "My phone" : "This device"), kind }) });
       const d = await r.json();
       if (!r.ok) throw new Error(d.error || "Could not save the passkey");
       setPkName("");
@@ -146,14 +146,16 @@ export default function AccountSecurityPage() {
         <CardContent className="space-y-3">
           {passkeys.map((p) => (
             <div key={p.id} className="flex items-center justify-between border-2 border-black px-3 py-2 text-sm">
-              <span><b>{p.name}</b> <span className="text-xs text-muted-foreground">added {new Date(p.createdAt).toLocaleDateString("en-IN")}</span></span>
+              <span>{p.kind === "phone" ? <Smartphone className="mr-1.5 inline h-4 w-4" /> : <Laptop className="mr-1.5 inline h-4 w-4" />}<b>{p.name}</b> <span className="text-xs text-muted-foreground">added {new Date(p.createdAt).toLocaleDateString("en-IN")}</span></span>
               <Button size="sm" variant="destructive" className="h-8 w-8 p-0" title="Remove passkey" onClick={() => removePasskey(p.id)}><Trash2 className="h-3.5 w-3.5" /></Button>
             </div>
           ))}
-          <div className="flex gap-2">
-            <Input value={pkName} onChange={(e) => setPkName(e.target.value)} placeholder="Name, e.g. MacBook" className="max-w-[220px]" />
-            <Button disabled={busy} onClick={addPasskey}><Fingerprint className="mr-2 h-4 w-4" />Add a passkey</Button>
+          <div className="flex flex-wrap gap-2">
+            <Input value={pkName} onChange={(e) => setPkName(e.target.value)} placeholder="Name, e.g. MacBook, iPhone" className="max-w-[220px]" />
+            <Button disabled={busy} onClick={() => addPasskey("device")}><Laptop className="mr-2 h-4 w-4" />Add this device</Button>
+            <Button variant="outline" disabled={busy} onClick={() => addPasskey("phone")}><Smartphone className="mr-2 h-4 w-4" />Add phone / key</Button>
           </div>
+          <p className="text-xs text-muted-foreground">Add as many as you like. "Add this device" uses Touch ID, Windows Hello or screen lock on the device you are on. "Add phone / key" shows a QR code to scan with your phone, or accepts a security key. Repeat on each MacBook or phone.</p>
         </CardContent>
       </Card>
 
