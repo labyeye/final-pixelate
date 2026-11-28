@@ -246,6 +246,43 @@ export default function TrashPage() {
     }
   };
 
+  const [bulkOpen, setBulkOpen] = useState(false);
+  const [bulkText, setBulkText] = useState("");
+  const [bulkBusy, setBulkBusy] = useState(false);
+  const [bulkDone, setBulkDone] = useState(0);
+
+  // Deletes everything currently shown (respects the type filter and search), 5 at a time.
+  const handleDeleteAll = async () => {
+    const targets = [...filtered];
+    setBulkBusy(true);
+    setBulkDone(0);
+    let failed = 0;
+    const removed = new Set<string>();
+    for (let i = 0; i < targets.length; i += 5) {
+      await Promise.all(
+        targets.slice(i, i + 5).map(async (it) => {
+          try {
+            const res = await apiFetch(`/api/trash/${String(it._id)}`, { method: "DELETE" });
+            if (!res.ok) throw new Error();
+            removed.add(String(it._id));
+          } catch {
+            failed++;
+          }
+          setBulkDone((d) => d + 1);
+        }),
+      );
+    }
+    setItems((p) => p.filter((i) => !removed.has(String(i._id))));
+    setBulkBusy(false);
+    setBulkOpen(false);
+    setBulkText("");
+    toast({
+      title: failed ? "Some items could not be deleted" : "Trash emptied",
+      description: `${removed.size} permanently deleted${failed ? `, ${failed} failed` : ""}.`,
+      variant: failed ? "destructive" : "default",
+    });
+  };
+
   const handlePermanentDelete = async (item: TrashItem) => {
     const id = String(item._id);
     if (deletingIds.has(id)) return;
@@ -344,7 +381,38 @@ export default function TrashPage() {
             ))}
           </select>
         </div>
+        {filtered.length > 0 && (
+          <Button variant="destructive" className="gap-2 sm:ml-auto" onClick={() => setBulkOpen(true)}>
+            <Trash2 className="w-4 h-4" /> Delete all forever ({filtered.length})
+          </Button>
+        )}
       </div>
+
+      <AlertDialog open={bulkOpen} onOpenChange={(o) => !bulkBusy && setBulkOpen(o)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete {filtered.length} item{filtered.length === 1 ? "" : "s"} forever?</AlertDialogTitle>
+            <AlertDialogDescription>
+              {filterCol !== "all" || search.trim() ? "This removes everything that matches the current filter. " : "This empties the whole trash. "}
+              It cannot be undone. Type <b>DELETE</b> to confirm.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <input
+            value={bulkText}
+            onChange={(e) => setBulkText(e.target.value)}
+            placeholder="DELETE"
+            className="h-10 w-full border-2 border-black px-3 text-sm font-bold"
+            disabled={bulkBusy}
+          />
+          {bulkBusy && <p className="text-sm font-bold">Deleting {bulkDone} / {filtered.length}…</p>}
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={bulkBusy}>Cancel</AlertDialogCancel>
+            <Button variant="destructive" disabled={bulkBusy || bulkText !== "DELETE"} onClick={handleDeleteAll}>
+              {bulkBusy ? "Deleting…" : "Delete forever"}
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       {}
       {loading ? (
