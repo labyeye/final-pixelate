@@ -4045,4 +4045,29 @@
           })
             .then(function (r) {
               if (!r.ok) throw new Error("Failed");
-              return 
+              return r.json();
+            })
+            .then(function () {
+              fetch((API_BASE || "") + "/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify(data),
+              }).catch(function () {});
+              form.reset();
+              if (successEl) successEl.hidden = false;
+              setTimeout(closeModal, 1100);
+            })
+            .catch(function () {
+              if (errorEl) errorEl.hidden = false;
+            })
+            .finally(function () {
+              submitButton.value = "Submit";
+              submitButton.disabled = false;
+            });
+        });
+      })();
+    </script>
+    <script src="https://www.pixelatenest.com/js/slide-in.js" defer></script>
+  </body>
+</html>
