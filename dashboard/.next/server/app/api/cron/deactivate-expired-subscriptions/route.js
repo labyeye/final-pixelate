@@ -1,5 +1,5 @@
 var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/cron/deactivate-expired-subscriptions/route.js")
-R.c("server/chunks/[root-of-the-server]__4915a388._.js")
+R.c("server/chunks/[root-of-the-server]__1ec38684._.js")
 R.c("server/chunks/node_modules_semver_fa4af7f7._.js")
 R.c("server/chunks/node_modules_next_0700e68e._.js")
 R.c("server/chunks/[root-of-the-server]__6dccc211._.js")

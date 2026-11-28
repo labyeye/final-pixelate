@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
+import { isRevoked } from "@/lib/security";
 
 type AuthSuccess = {
   decoded: ReturnType<typeof verifyToken> & object;
@@ -11,7 +12,7 @@ export function requireAuth(request: Request): AuthSuccess | AuthFailure {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
   const decoded = token ? verifyToken(token) : null;
-  if (!decoded) {
+  if (!decoded || isRevoked((decoded as any).sid)) {
     return {
       decoded: null,
       error: NextResponse.json({ error: "unauthorized" }, { status: 401 }),

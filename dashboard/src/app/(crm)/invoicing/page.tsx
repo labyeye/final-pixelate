@@ -780,24 +780,33 @@ export default function InvoicingPage() {
                     )?.name ||
                     "-"}
                 </TableCell>
-                <TableCell className="text-sm py-2">
+                <TableCell className="text-sm py-2 max-w-[220px] truncate" title={invoice.title ?? invoice.projectTitle ?? ""}>
                   {invoice.title ?? invoice.projectTitle ?? "-"}
                 </TableCell>
                 <TableCell className="text-sm py-2">
                   ₹{(invoice.amount ?? 0).toLocaleString()}
                 </TableCell>
                 <TableCell className="text-sm py-2">
-                  ₹{(invoice.paidAmount ?? 0).toLocaleString()}
+                  <div className="font-medium">₹{(invoice.paidAmount ?? 0).toLocaleString()}</div>
+                  {invoice.status !== "PAID" && (invoice.amount ?? 0) > (invoice.paidAmount ?? 0) && (
+                    <div className="text-[11px] font-bold text-destructive">Balance ₹{((invoice.amount ?? 0) - (invoice.paidAmount ?? 0)).toLocaleString()}</div>
+                  )}
                 </TableCell>
-                <TableCell className="text-sm py-2">
-                  {invoice.dueDate
-                    ? new Date(invoice.dueDate).toLocaleDateString()
-                    : ""}
+                <TableCell className="text-sm py-2 whitespace-nowrap">
+                  {invoice.dueDate ? (
+                    <>
+                      <div>{new Date(invoice.dueDate).toLocaleDateString("en-IN")}</div>
+                      {invoice.status !== "PAID" && (() => {
+                        const d = Math.ceil((new Date(invoice.dueDate).getTime() - Date.now()) / 86400000);
+                        return <div className={cn("text-[11px] font-bold", d < 0 ? "text-destructive" : "text-muted-foreground")}>{d < 0 ? `${-d} day${d === -1 ? "" : "s"} overdue` : d === 0 ? "Due today" : `in ${d} day${d === 1 ? "" : "s"}`}</div>;
+                      })()}
+                    </>
+                  ) : ""}
                 </TableCell>
                 <TableCell className="text-right py-2">
                   <span
                     className={cn(
-                      "text-xs font-black tracking-widest p-1",
+                      "inline-block border-2 border-black px-2 py-0.5 text-[11px] font-bold tracking-wide",
                       invoice.status === "PAID" &&
                         "bg-success text-success-foreground",
                       invoice.status === "DUE" &&
@@ -813,6 +822,7 @@ export default function InvoicingPage() {
                   <div className="flex items-center justify-end gap-2">
                     {!isClient && (
                       <EditInvoiceDialog
+                        iconOnly
                         invoice={invoice}
                         clients={clients}
                         services={services}
@@ -824,12 +834,18 @@ export default function InvoicingPage() {
                     <Button
                       size="sm"
                       variant="outline"
+                      className="h-8 w-8 p-0"
+                      title="Preview"
+                      aria-label="Preview"
                       onClick={() => setPreviewInvoice(invoice)}
                     >
-                      Preview
+                      <Eye className="w-3.5 h-3.5" />
                     </Button>
                     <Button
                       size="sm"
+                      className="h-8 w-8 p-0"
+                      title="Download PDF"
+                      aria-label="Download PDF"
                       onClick={() => generatePdfAndSave(invoice)}
                       disabled={
                         !!downloading[
@@ -846,9 +862,11 @@ export default function InvoicingPage() {
                         String(
                           invoice.invoiceNo ?? invoice._id ?? invoice.id ?? "",
                         )
-                      ]
-                        ? "Downloading..."
-                        : "Download"}
+                      ] ? (
+                        <span className="text-[10px]">...</span>
+                      ) : (
+                        <Download className="w-3.5 h-3.5" />
+                      )}
                     </Button>
                     {!isClient && (
                       <>
@@ -927,6 +945,9 @@ export default function InvoicingPage() {
                       <Button
                         size="sm"
                         variant="destructive"
+                        className="h-8 w-8 p-0"
+                        title="Delete invoice"
+                        aria-label="Delete invoice"
                         disabled={deletingInvoices.has(
                           String(invoice._id ?? invoice.id ?? ""),
                         )}
@@ -939,9 +960,11 @@ export default function InvoicingPage() {
                       >
                         {deletingInvoices.has(
                           String(invoice._id ?? invoice.id ?? ""),
-                        )
-                          ? "Deleting..."
-                          : "Delete"}
+                        ) ? (
+                          <span className="text-[10px]">...</span>
+                        ) : (
+                          <Trash2 className="w-3.5 h-3.5" />
+                        )}
                       </Button>
                     )}
                   </div>

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
 import { requireAuth } from "@/lib/require-auth";
 import { verifyPasswordAsync } from "@/lib/auth";
-import { usersCol, findUserById, newSecret, otpauthUrl, verifyTotp, seal, unseal, newBackupCodes } from "@/lib/security";
+import { audit, clientInfo, usersCol, findUserById, newSecret, otpauthUrl, verifyTotp, seal, unseal, newBackupCodes } from "@/lib/security";
 
 // Account security for the signed-in user (TOTP 2FA + backup codes).
 //   GET                                   -> { totpEnabled, backupCodesLeft }
@@ -46,6 +46,7 @@ export async function POST(request: NextRequest) {
       if (!verifyTotp(unseal(u.totpPending), String(b.code || ""))) return bad("That code is not right. Check the time on your phone and try again.");
       const { plain, hashes } = newBackupCodes();
       await col.updateOne({ _id: u._id }, { $set: { totpEnabled: true, totpSecret: u.totpPending, backupCodes: hashes }, $unset: { totpPending: "" } });
+      await audit("2fa_enabled", u.email, "Two-factor authentication turned on", clientInfo(request));
       return NextResponse.json({ ok: true, backupCodes: plain });
     }
     if (!u.totpEnabled) return bad("2FA is not on");
@@ -58,6 +59,7 @@ export async function POST(request: NextRequest) {
     if (b.action === "disable") {
       if (!u.password || !(await verifyPasswordAsync(String(b.password || ""), u.password))) return bad("Password is wrong");
       await col.updateOne({ _id: u._id }, { $unset: { totpEnabled: "", totpSecret: "", backupCodes: "", totpPending: "" } });
+      await audit("2fa_disabled", u.email, "Two-factor authentication turned off", clientInfo(request));
       return NextResponse.json({ ok: true });
     }
     return bad("Unknown action");

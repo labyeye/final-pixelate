@@ -454,6 +454,18 @@
       "namedRegex": "^/api/applications(?:/)?$"
     },
     {
+      "page": "/api/auth/audit",
+      "regex": "^/api/auth/audit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/audit(?:/)?$"
+    },
+    {
+      "page": "/api/auth/forgot",
+      "regex": "^/api/auth/forgot(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/forgot(?:/)?$"
+    },
+    {
       "page": "/api/auth/login",
       "regex": "^/api/auth/login(?:/)?$",
       "routeKeys": {},
@@ -472,10 +484,22 @@
       "namedRegex": "^/api/auth/meta/connect(?:/)?$"
     },
     {
+      "page": "/api/auth/passkey",
+      "regex": "^/api/auth/passkey(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/passkey(?:/)?$"
+    },
+    {
       "page": "/api/auth/security",
       "regex": "^/api/auth/security(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/auth/security(?:/)?$"
+    },
+    {
+      "page": "/api/auth/sessions",
+      "regex": "^/api/auth/sessions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/sessions(?:/)?$"
     },
     {
       "page": "/api/auth/unlock",
@@ -1148,6 +1172,12 @@
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/login-audit",
+      "regex": "^/login\\-audit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login\\-audit(?:/)?$"
     },
     {
       "page": "/nda-approval",

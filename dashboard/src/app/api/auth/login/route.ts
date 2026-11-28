@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { verifyPasswordAsync, signToken } from "@/lib/auth";
-import { getDb } from "@/lib/mongodb";
 import {
   checkLoginRateLimit,
   clearLoginRateLimit,
 } from "@/lib/login-rate-limiter";
-import { MAX_FAILS, LOCK_MS, usersCol, verifyTotp, unseal, hashBackup } from "@/lib/security";
+import { MAX_FAILS, LOCK_MS, usersCol, verifyTotp, unseal, hashBackup, issueLogin, audit, clientInfo } from "@/lib/security";
 
 const fail = (error: string, status: number, extra: any = {}) =>
   NextResponse.json({ error, ...extra }, { status });
@@ -38,6 +37,7 @@ export async function POST(request: Request) {
     const col = await usersCol();
     const strike = async (what: string) => {
       const n = (u.loginFailed || 0) + 1;
+      await audit(n >= MAX_FAILS ? "account_locked" : "login_failed", u.email, n >= MAX_FAILS ? `Locked after ${MAX_FAILS} wrong attempts` : `Failed sign-in (${what})`, clientInfo(request));
       if (n >= MAX_FAILS) {
         await col.updateOne({ _id: u._id }, { $set: { loginFailed: 0, loginLockUntil: new Date(Date.now() + LOCK_MS) } });
         return fail(`Account locked for ${LOCK_MS / 60000} minutes after ${MAX_FAILS} wrong attempts. You can unlock it with a code sent to your email.`, 423, { locked: true });
@@ -65,39 +65,7 @@ export async function POST(request: Request) {
     }
 
     clearLoginRateLimit(email);
-    await col.updateOne({ _id: u._id }, { $set: { loginFailed: 0 }, $unset: { loginLockUntil: "", unlockOtp: "" } });
-    const token = signToken({
-      id: u._id,
-      email: u.email,
-      role: u.role,
-      clientId: u.clientId,
-    });
-
-    try {
-      const db = await getDb();
-      await db.collection("erp_events").insertOne({
-        type: "login",
-        userId: u._id,
-        email: u.email,
-        adminName: u.name,
-        details: { message: u.totpEnabled ? "User logged in (2FA)" : "User logged in" },
-        createdAt: new Date(),
-      });
-    } catch (e) {
-      console.error("Failed to log login event", e);
-    }
-
-    return NextResponse.json({
-      token,
-      user: {
-        id: u._id,
-        email: u.email,
-        name: u.name,
-        role: u.role,
-        allowedPages: u.allowedPages,
-        clientId: u.clientId,
-      },
-    });
+    return NextResponse.json(await issueLogin(u, request, u.totpEnabled ? "2fa" : "password"));
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
   }

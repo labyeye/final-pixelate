@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { usersCol, newOtp, hashOtp, sendOtpMail } from "@/lib/security";
+import { audit, clientInfo } from "@/lib/security";
 import { clearLoginRateLimit } from "@/lib/login-rate-limiter";
 
 // POST { email }            -> emails a 6-digit code (same reply whether or not the account exists)
@@ -32,6 +33,7 @@ export async function POST(request: Request) {
     }
     await col.updateOne({ _id: u._id }, { $set: { loginFailed: 0 }, $unset: { loginLockUntil: "", unlockOtp: "" } });
     clearLoginRateLimit(email);
+    await audit("account_unlocked", u.email, "Unlocked with emailed code", clientInfo(request));
     return NextResponse.json({ ok: true });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || "failed" }, { status: 500 });

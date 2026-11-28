@@ -1,5 +1,5 @@
 var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/send-invoice-email/route.js")
-R.c("server/chunks/[root-of-the-server]__2adc1fdd._.js")
+R.c("server/chunks/[root-of-the-server]__408b1db0._.js")
 R.c("server/chunks/node_modules_next_0700e68e._.js")
 R.c("server/chunks/[root-of-the-server]__6dccc211._.js")
 R.c("server/chunks/node_modules_nodemailer_lib_39d13c62._.js")

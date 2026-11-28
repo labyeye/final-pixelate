@@ -451,6 +451,12 @@ export const navGroups = [
     title: "Admin",
     items: [
       {
+        href: "/login-audit",
+        label: "Sign-in Audit",
+        adminOnly: true,
+        icon: Lock,
+      },
+      {
         href: "/db-manager",
         label: "Database Manager",
         adminOnly: true,
