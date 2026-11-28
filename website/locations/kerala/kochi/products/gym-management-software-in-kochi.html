@@ -209,7 +209,8 @@
         src="https://www.facebook.com/tr?id=1920093578545260&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-  </head>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can NestGym send reminders in Malayalam?", "acceptedAnswer": {"@type": "Answer", "text": "You can send reminder messages in Malayalam or English."}}, {"@type": "Question", "name": "Does NestGym handle class booking?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Members can book classes, and owners control capacity and see attendance."}}, {"@type": "Question", "name": "What is NestGym?", "acceptedAnswer": {"@type": "Answer", "text": "NestGym is gym management software by Pixelate Nest. It manages members, membership plans, fee collection, class bookings, trainers, lockers and reports from one web dashboard and a mobile app."}}, {"@type": "Question", "name": "Who is NestGym for?", "acceptedAnswer": {"@type": "Answer", "text": "Gyms, fitness studios, yoga and dance studios, CrossFit boxes, personal-training studios and multi-branch fitness chains."}}, {"@type": "Question", "name": "Do I need to buy any machine or hardware?", "acceptedAnswer": {"@type": "Answer", "text": "No. NestGym runs in the browser and on the Android app. You do not need special devices."}}, {"@type": "Question", "name": "Can I move my existing members into NestGym?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can import your member list from Excel, and our team helps with the first import."}}, {"@type": "Question", "name": "Does NestGym send WhatsApp reminders?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Renewal and due-date reminders can be sent on WhatsApp. WhatsApp uses a separate prepaid credit wallet, and you choose whether to switch it on."}}, {"@type": "Question", "name": "Can I manage more than one branch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Pro and Elite plans support multiple branches under one account, each with its own team and access."}}, {"@type": "Question", "name": "Is NestGym available in Kochi, Kerala?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pixelate Nest provides demo, setup and support online for gyms and fitness studios in Kochi, Kerala. You do not need to visit an office, and we can help with your first setup on a call."}}]}</script>
+</head>
 
   <body class="prd-gym-management-software">
     <div id="announcement-bar" class="announcement-bar">
@@ -905,150 +906,7 @@
       </div>
 
       <!-- ========== PRODUCT SECTIONS ========== -->
-      <!-- SECTION: About -->
-      <section class="nh-about-section">
-        <div class="nh-container">
-          <div class="nh-about-row">
-            <div class="nh-about-right slide-right">
-              <!-- YouTube Short Card -->
-              <div class="nh-yt-card" id="nhYtCard" onclick="nhOpenYtModal()">
-                <img
-                  class="nh-yt-thumb s-a2bbb0"
-                  src="../../../../assets/images/products/nest-gym/dashboard.png"
-                  alt="NestGym dashboard preview"
-                />
-                <div class="nh-yt-card-overlay">
-                  <div class="nh-yt-play-btn">
-                    <svg viewBox="0 0 24 24">
-                      <polygon points="5,3 19,12 5,21" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="nh-yt-card-label">
-                  <div class="nh-yt-card-label-tag">Pixelate Nest</div>
-                  <p>See how NestGym runs a gym in 60 seconds</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Modal -->
-            <div
-              class="nh-yt-modal-backdrop"
-              id="nhYtModalBackdrop"
-              onclick="nhCloseYtModal(event)"
-            >
-              <div class="nh-yt-modal" id="nhYtModal">
-                <button
-                  class="nh-yt-modal-close"
-                  onclick="nhCloseYtModal(null, true)"
-                  aria-label="Close"
-                >
-                  &times;
-                </button>
-                <iframe
-                  id="nhYtIframe"
-                  src=""
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-
-            <script>
-              var NH_YT_ID = "YOUR_YOUTUBE_SHORT_ID";
-              function nhOpenYtModal() {
-                document.getElementById("nhYtIframe").src =
-                  "https://www.youtube.com/embed/" +
-                  NH_YT_ID +
-                  "?autoplay=1&rel=0";
-                document
-                  .getElementById("nhYtModalBackdrop")
-                  .classList.add("active");
-                document.body.style.overflow = "hidden";
-              }
-              function nhCloseYtModal(e, force) {
-                if (
-                  force ||
-                  (e &&
-                    e.target === document.getElementById("nhYtModalBackdrop"))
-                ) {
-                  document.getElementById("nhYtIframe").src = "";
-                  document
-                    .getElementById("nhYtModalBackdrop")
-                    .classList.remove("active");
-                  document.body.style.overflow = "";
-                }
-              }
-              document.addEventListener("keydown", function (e) {
-                if (e.key === "Escape") nhCloseYtModal(null, true);
-              });
-            </script>
-            <div class="nh-about-left slide-left">
-              <span class="nh-about-tag">About NestGym</span>
-              <h2>One app to run your whole gym</h2>
-              <p>
-                NestGym is a cloud-based gym management system for single gyms,
-                fitness studios and multi-branch chains. Every member has one
-                record that holds their plan, payments, measurements and
-                classes, while owners and managers track collections, dues and
-                growth on the web dashboard. Gym owners in Kochi, Kerala can use
-                NestGym to move off registers and spreadsheets. Pixelate Nest
-                sets up your branch online, imports your member list and trains
-                your team on a call, so there is no need to buy special machines
-                or visit an office.
-              </p>
-              <div class="nh-about-highlights">
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon"><i class="fas fa-id-card"></i></div>
-                  <div class="nh-hl-text">
-                    <strong>Member Records</strong>
-                    <span
-                      >Profile, photo, health notes, emergency contact and full
-                      plan history in one place.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-indian-rupee-sign"></i>
-                  </div>
-                  <div class="nh-hl-text">
-                    <strong>Fees &amp; Invoices</strong>
-                    <span
-                      >Collect full or part payments, send payment links and
-                      print GST invoices.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-comment-dots"></i>
-                  </div>
-                  <div class="nh-hl-text">
-                    <strong>WhatsApp Reminders</strong>
-                    <span
-                      >Renewal and due-date reminders go out on WhatsApp, paid
-                      from a prepaid credit wallet.</span
-                    >
-                  </div>
-                </div>
-                <div class="nh-about-highlight">
-                  <div class="nh-hl-icon">
-                    <i class="fas fa-mobile-screen-button"></i>
-                  </div>
-                  <div class="nh-hl-text">
-                    <strong>Web + Mobile App</strong>
-                    <span
-                      >Front desk and trainers work from the phone, owners
-                      analyse from the dashboard.</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <!-- SECTION: Screens -->
       <section class="nh-methods-section">
@@ -1465,81 +1323,7 @@
         </div>
       </div>
 
-      <!-- SECTION: Key Features -->
-      <section class="nh-features-section">
-        <div class="nh-container">
-          <h2 class="nh-section-title slide-up">
-            Everything you need to
-            <span class="nh-accent">run your gym smoothly</span>
-          </h2>
-          <p class="nh-section-sub slide-up s-0672bc">
-            Core modules built to take manual work out of daily gym operations.
-          </p>
-          <div class="nh-features-grid">
-            <div class="nh-feat-card slide-up s-0950e0">
-              <div class="nh-feat-icon"><i class="fas fa-users"></i></div>
-              <h3>Member Management</h3>
-              <p>Profiles, photos, health notes and Excel import and export.</p>
-            </div>
-            <div class="nh-feat-card slide-up s-0672bc">
-              <div class="nh-feat-icon"><i class="fas fa-layer-group"></i></div>
-              <h3>Membership Plans</h3>
-              <p>Plan catalogue, renewals, freezes and expiry tracking.</p>
-            </div>
-            <div class="nh-feat-card slide-up s-141f0a">
-              <div class="nh-feat-icon">
-                <i class="fas fa-file-invoice-dollar"></i>
-              </div>
-              <h3>Billing &amp; Fees</h3>
-              <p>
-                Part payments, discounts, coupons, payment links and GST
-                invoices.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up s-05c3fa">
-              <div class="nh-feat-icon">
-                <i class="fas fa-calendar-check"></i>
-              </div>
-              <h3>Classes &amp; Bookings</h3>
-              <p>Timetable, capacity and member class bookings.</p>
-            </div>
-            <div class="nh-feat-card slide-up s-8fd3bb">
-              <div class="nh-feat-icon">
-                <i class="fas fa-person-running"></i>
-              </div>
-              <h3>Trainers &amp; PT</h3>
-              <p>
-                Trainer assignment, personal-training packages and sessions.
-              </p>
-            </div>
-            <div class="nh-feat-card slide-up s-ca6514">
-              <div class="nh-feat-icon"><i class="fas fa-dumbbell"></i></div>
-              <h3>Workout &amp; Diet Plans</h3>
-              <p>Reusable templates you can assign to any member.</p>
-            </div>
-            <div class="nh-feat-card slide-up s-0950e0">
-              <div class="nh-feat-icon"><i class="fas fa-box-archive"></i></div>
-              <h3>Lockers &amp; Equipment</h3>
-              <p>Locker allotment and equipment records in one list.</p>
-            </div>
-            <div class="nh-feat-card slide-up s-0672bc">
-              <div class="nh-feat-icon"><i class="fas fa-chart-line"></i></div>
-              <h3>Reports &amp; Expenses</h3>
-              <p>Revenue, dues, expenses and expiring memberships.</p>
-            </div>
-            <div class="nh-feat-card slide-up s-141f0a">
-              <div class="nh-feat-icon">
-                <i class="fas fa-shield-halved"></i>
-              </div>
-              <h3>Roles &amp; Security</h3>
-              <p>
-                Role-based access, two-factor login and a private data space per
-                gym.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <!-- SECTION: Mobile App -->
       <section class="nh-mobile-app-section">
@@ -1610,61 +1394,7 @@
         </div>
       </section>
 
-      <!-- SECTION: Why Choose -->
-      <section class="nh-why-section">
-        <div class="nh-container">
-          <h2 class="nh-section-title slide-up s-13076d">
-            Why gym owners choose <span class="nh-accent">NestGym</span>
-          </h2>
-          <p class="nh-section-sub slide-up s-e65ab9">
-            More than a billing tool: one system for the desk, the trainers and
-            the owner.
-          </p>
-          <div class="nh-why-grid">
-            <div class="nh-why-card slide-up s-0950e0">
-              <i class="fas fa-bolt"></i>
-              <strong>Faster Front Desk</strong>
-              <p>
-                Add, renew and bill a member in a few taps instead of writing in
-                a register.
-              </p>
-            </div>
-            <div class="nh-why-card slide-up s-0672bc">
-              <i class="fas fa-layer-group"></i>
-              <strong>One Member Record</strong>
-              <p>
-                Plan, payments, measurements and classes never get split across
-                files.
-              </p>
-            </div>
-            <div class="nh-why-card slide-up s-141f0a">
-              <i class="fas fa-comment-dots"></i>
-              <strong>Fewer Missed Renewals</strong>
-              <p>
-                WhatsApp reminders bring members back before the plan expires.
-              </p>
-            </div>
-            <div class="nh-why-card slide-up s-05c3fa">
-              <i class="fas fa-chart-pie"></i>
-              <strong>Clear Numbers</strong>
-              <p>
-                See collections, dues and expenses any day, not only at month
-                end.
-              </p>
-            </div>
-            <div class="nh-why-card slide-up s-8fd3bb">
-              <i class="fas fa-code-branch"></i>
-              <strong>Many Branches, One Login</strong>
-              <p>Manage every branch and its team from a single account.</p>
-            </div>
-            <div class="nh-why-card slide-up s-ca6514">
-              <i class="fas fa-headset"></i>
-              <strong>Real Setup Help</strong>
-              <p>We import your member list and train your staff on a call.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <!-- SECTION: Pricing -->
       <section class="nh-price-section" id="pricing">
@@ -1699,7 +1429,8 @@
       </section>
 
       <!-- SECTION: FAQ -->
-      <section class="vg" id="faq" aria-labelledby="vg-faq-h2">
+      <section class="vg" id="gym-local" aria-labelledby="gym-local-h2"><div class="vg-in"><h2 id="gym-local-h2">Gym management software in Kochi: what local gym owners need</h2><p class="lead">Kochi&#x27;s fitness market is growing along MG Road, Edapally and Kakkanad, with a mix of IT professionals, expatriate families and students. Members expect mobile payments and clear communication.</p><div class="vg-grid"><div class="vg-card"><h3>Gyms we help in Kochi</h3><ul><li>Gyms in Edapally and Kakkanad serving IT professionals</li><li>Premium clubs near MG Road and Panampilly Nagar</li><li>Neighbourhood gyms in Vyttila and Kaloor</li><li>Yoga and Zumba studios</li></ul></div><div class="vg-card"><h3>What to prioritise in Kochi</h3><ul><li>Digital payments and receipts</li><li>Class booking and trainer assignment</li><li>Malayalam and English messages to members</li></ul></div></div><div class="vg-faq vg-sub"><h3>Kochi gym owners ask</h3><details><summary>Can NestGym send reminders in Malayalam?</summary><p>You can send reminder messages in Malayalam or English.</p></details><details><summary>Does NestGym handle class booking?</summary><p>Yes. Members can book classes, and owners control capacity and see attendance.</p></details></div></div></section>
+<section class="vg" id="faq" aria-labelledby="vg-faq-h2">
         <div class="vg-in">
           <h2 id="vg-faq-h2">Frequently asked questions</h2>
           <div class="vg-faq">

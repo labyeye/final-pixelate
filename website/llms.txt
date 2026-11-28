@@ -15,7 +15,7 @@
 ## Services
 
 ### Web Development
-Custom website design, responsive web development, e-commerce platforms, CMS development, WordPress, Shopify, and progressive web apps.
+Custom website design, responsive web development, e-commerce platforms, CMS development, WordPress, Shopify, and progressive web apps. Serving businesses across India with city-specific service pages for 370+ cities.
 URL: https://www.pixelatenest.com/services/web-development.html
 
 ### Mobile App Development
@@ -37,6 +37,7 @@ SEO optimization, social media marketing, content marketing, paid advertising, a
 
 - **NestHR Attendance Management Software**: Biometric, face recognition, GPS geo-fence and selfie attendance with shifts, overtime, leave management and payroll (PF, ESI, TDS). URL: https://www.pixelatenest.com/products/attendance-management-software.html
 - **NestHR Attendance & Payroll Software**: Full HRMS with attendance, leave, payroll and compliance. URL: https://www.pixelatenest.com/products/attendance-payroll-software.html
+- **NestGym Gym Management Software**: Member records, membership plans, fee collection, class bookings, trainers, lockers and reports with web dashboard and mobile app, available for gyms across India. URL: https://www.pixelatenest.com/products/gym-management-software.html
 - **Counter Billing Software**: POS and billing solution for retail businesses
 - **Factory Management Software**: Production planning, inventory, quality control for manufacturing
 - **School CRM/Management System**: Student enrollment, attendance, fees, and academic management
