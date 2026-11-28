@@ -1,5 +1,6 @@
 {
   "/(crm)/about-us-team/page": "/about-us-team",
+  "/(crm)/account-security/page": "/account-security",
   "/(crm)/agreements/page": "/agreements",
   "/(crm)/analytics/page": "/analytics",
   "/(crm)/announcement-bar/page": "/announcement-bar",
@@ -85,6 +86,8 @@
   "/api/auth/login/route": "/api/auth/login",
   "/api/auth/meta/callback/route": "/api/auth/meta/callback",
   "/api/auth/meta/connect/route": "/api/auth/meta/connect",
+  "/api/auth/security/route": "/api/auth/security",
+  "/api/auth/unlock/route": "/api/auth/unlock",
   "/api/blogs/[id]/route": "/api/blogs/[id]",
   "/api/blogs/route": "/api/blogs",
   "/api/brand-guides/[id]/route": "/api/brand-guides/[id]",

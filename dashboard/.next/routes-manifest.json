@@ -400,6 +400,12 @@
       "namedRegex": "^/about\\-us\\-team(?:/)?$"
     },
     {
+      "page": "/account-security",
+      "regex": "^/account\\-security(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-security(?:/)?$"
+    },
+    {
       "page": "/agreements",
       "regex": "^/agreements(?:/)?$",
       "routeKeys": {},
@@ -464,6 +470,18 @@
       "regex": "^/api/auth/meta/connect(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/auth/meta/connect(?:/)?$"
+    },
+    {
+      "page": "/api/auth/security",
+      "regex": "^/api/auth/security(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/security(?:/)?$"
+    },
+    {
+      "page": "/api/auth/unlock",
+      "regex": "^/api/auth/unlock(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/unlock(?:/)?$"
     },
     {
       "page": "/api/blogs",

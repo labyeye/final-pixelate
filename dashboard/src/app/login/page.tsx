@@ -21,17 +21,26 @@ function LoginContent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [code, setCode] = useState("");
+  const [needCode, setNeedCode] = useState(false);
+  const [locked, setLocked] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [msg, setMsg] = useState("");
+
+  async function post(url: string, body: any) {
+    const res = await apiFetch(url, { method: "POST", body: JSON.stringify(body), headers: { "Content-Type": "application/json" } });
+    return { res, body: await res.json().catch(() => ({})) };
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
+    setMsg("");
     try {
-      const res = await apiFetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-        headers: { "Content-Type": "application/json" },
-      });
-      const body = await res.json();
+      const { res, body } = await post("/api/auth/login", { email, password, ...(needCode ? { code } : {}) });
+      if (body?.twoFactorRequired) { setNeedCode(true); return; }
+      if (body?.locked) setLocked(true);
       if (!res.ok) throw new Error(body?.error || "Login failed");
       const { token, user } = body;
       if (token) localStorage.setItem("auth_token", token);
@@ -46,10 +55,22 @@ function LoginContent() {
         router.replace("/dashboard");
       }
     } catch (err: any) {
-      alert(err?.message || String(err));
+      setMsg(err?.message || String(err));
     } finally {
       setLoading(false);
     }
+  }
+
+  async function sendUnlock() {
+    setMsg("");
+    const { res, body } = await post("/api/auth/unlock", { email });
+    if (res.ok) { setOtpSent(true); setMsg("If this email has an account, a 6-digit code is on its way."); }
+    else setMsg(body?.error || "Could not send the code");
+  }
+  async function verifyUnlock() {
+    const { res, body } = await post("/api/auth/unlock", { email, otp });
+    if (res.ok) { setLocked(false); setOtpSent(false); setOtp(""); setMsg("Account unlocked. Sign in again."); }
+    else setMsg(body?.error || "Wrong code");
   }
 
   return (
@@ -101,10 +122,30 @@ function LoginContent() {
                 required
               />
             </div>
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Signing in..." : "Sign in"}
+            {needCode && (
+              <div className="space-y-2">
+                <label className="block text-sm font-medium">Authenticator code (or a backup code)</label>
+                <Input value={code} onChange={(e) => setCode(e.target.value)} autoComplete="one-time-code" inputMode="text" autoFocus required />
+              </div>
+            )}
+            {msg && <p className="text-sm font-bold text-red-600">{msg}</p>}
+            <Button type="submit" className="w-full" disabled={loading || locked}>
+              {loading ? "Signing in..." : needCode ? "Verify and sign in" : "Sign in"}
             </Button>
           </form>
+          {locked && (
+            <div className="mt-4 space-y-2 border-t-2 border-black pt-4">
+              <p className="text-sm font-bold">Unlock with an emailed code</p>
+              {!otpSent ? (
+                <Button type="button" variant="outline" className="w-full" onClick={sendUnlock}>Email me a code</Button>
+              ) : (
+                <div className="flex gap-2">
+                  <Input value={otp} onChange={(e) => setOtp(e.target.value)} placeholder="6-digit code" inputMode="numeric" maxLength={6} />
+                  <Button type="button" onClick={verifyUnlock}>Unlock</Button>
+                </div>
+              )}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

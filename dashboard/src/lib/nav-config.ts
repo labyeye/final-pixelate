@@ -38,6 +38,7 @@ import {
 
 export const defaultStaffAllowed = [
   "/dashboard",
+  "/account-security",
   "/blogs",
   "/work-gallery",
   "/dashboard/bulk-messaging",
@@ -64,6 +65,12 @@ export const navGroups = [
         label: "Analytics",
         adminOnly: false,
         icon: BarChartIcon,
+      },
+      {
+        href: "/account-security",
+        label: "Account Security",
+        adminOnly: false,
+        icon: Lock,
       },
     ],
   },

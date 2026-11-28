@@ -1,5 +1,6 @@
 {
   "/(crm)/about-us-team/page": "app/(crm)/about-us-team/page.js",
+  "/(crm)/account-security/page": "app/(crm)/account-security/page.js",
   "/(crm)/agreements/page": "app/(crm)/agreements/page.js",
   "/(crm)/analytics/page": "app/(crm)/analytics/page.js",
   "/(crm)/announcement-bar/page": "app/(crm)/announcement-bar/page.js",
@@ -85,6 +86,8 @@
   "/api/auth/login/route": "app/api/auth/login/route.js",
   "/api/auth/meta/callback/route": "app/api/auth/meta/callback/route.js",
   "/api/auth/meta/connect/route": "app/api/auth/meta/connect/route.js",
+  "/api/auth/security/route": "app/api/auth/security/route.js",
+  "/api/auth/unlock/route": "app/api/auth/unlock/route.js",
   "/api/blogs/[id]/route": "app/api/blogs/[id]/route.js",
   "/api/blogs/route": "app/api/blogs/route.js",
   "/api/brand-guides/[id]/route": "app/api/brand-guides/[id]/route.js",
