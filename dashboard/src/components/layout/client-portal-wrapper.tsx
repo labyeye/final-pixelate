@@ -19,7 +19,7 @@ export function ClientPortalWrapper({
       <div className="print:hidden">
         <Sidebar />
       </div>
-      <div className="md:pl-60 lg:pl-72 print:pl-0">
+      <div className="md:pl-60 lg:pl-[15.5rem] print:pl-0">
         <div className="print:hidden">
           <MobileHeader />
           <AdminTopbar />

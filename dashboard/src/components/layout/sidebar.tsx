@@ -66,22 +66,22 @@ export function Sidebar() {
   );
 
   return (
-    <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background font-headline">
-      <div className="p-6 border-b-2 border-black bg-white/50 backdrop-blur-sm">
-        <Link href="/dashboard" className="block group">
+    <aside className="hidden md:flex md:w-60 lg:w-[15.5rem] flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-white font-headline">
+      <div className="h-16 flex items-center px-4 gap-3 border-b-2 border-black shrink-0">
+        <Link href="/dashboard" className="flex items-center gap-3 min-w-0">
           <img
             src="../assets/images/logo-transparent.png"
             alt="Kalahanu Tech Logo"
-            className="mx-auto mb-2 w-16 h-16"
+            className="h-10 w-10 object-contain shrink-0"
           />
-          <h1 className="text-2xl font-black tracking-tighter group-hover:text-primary transition-colors">
-            Kalahanu Tech
-          </h1>
-          <p className="text-sm text-muted-foreground font-bold">Studios CRM</p>
+          <span className="min-w-0 leading-tight">
+            <span className="block text-sm font-bold truncate">Kalahanu Tech</span>
+            <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400">Studios CRM</span>
+          </span>
         </Link>
       </div>
       <nav
-        className="flex-1 p-4 space-y-2 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20"
+        className="flex-1 py-3 px-2 space-y-1 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20"
         aria-label="Primary navigation"
       >
         {isClient ? (
@@ -159,7 +159,7 @@ export function Sidebar() {
                 <div key={group.title} className="animate-nav-in" style={{ animationDelay: `${gi * 30}ms` }}>
                   <button
                     onClick={() => toggle(group.title, isOpen)}
-                    className="flex w-full items-center justify-between px-2 h-8 text-[11px] font-black text-muted-foreground uppercase tracking-widest hover:text-foreground transition-colors"
+                    className="flex w-full items-center justify-between px-2 h-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest hover:text-black transition-colors"
                     aria-expanded={isOpen}
                   >
                     <span className="flex items-center gap-1.5">
@@ -176,13 +176,13 @@ export function Sidebar() {
                             key={item.href}
                             href={item.href}
                             className={cn(
-                              "flex items-center gap-2.5 px-3 h-8 text-[13px] font-bold transition-[transform,background-color,box-shadow] duration-150 border-2 rounded-md hover:translate-x-0.5 active:scale-[0.98]",
+                              "group flex items-center gap-3 px-3 h-9 text-[13px] font-semibold transition-all duration-150 ease-out border-2 active:scale-[0.98]",
                               pathname === item.href || pathname.startsWith(item.href + "/")
-                                ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-                                : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
+                                ? "bg-[#024BAB] border-black text-white"
+                                : "border-transparent text-black hover:bg-[#024BAB]/10 hover:border-black hover:translate-x-0.5",
                             )}
                           >
-                            <item.icon className="w-4 h-4 shrink-0" />
+                            <item.icon className="w-[18px] h-[18px] shrink-0 transition-transform duration-150 group-hover:scale-110" />
                             <span className="truncate">{item.label}</span>
                           </Link>
                         ))}
